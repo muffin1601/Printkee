@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar-wrapper {
+  font-family: 'Poppins', sans-serif;
+
+  width: 100%;
+}
+
+/* Top section */
+.navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fcefdb;
+  padding: 10px 300px;
+  font-size: 14px;
+}
+
+.navbar-logo img{
+  font-size: 30px;
+  font-weight: bold;
+  color: #4b2061;
+}
+.navbar-logo-img {
+  height: 60px;
+  object-fit: contain;
+}
+
+
+.navbar-search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 500px;
+  margin: 0 10px;
+}
+
+.navbar-search input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px 0 0 15px;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar-search select {
+  padding: 10px;
+  
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 15px 15px 0;
+  background-color: #4b2061;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px; /* Increase arrow size */
+  padding-right: 10px; /* Adjust padding to make room for bigger arrow */
+  position: relative;
+}
+
+.navbar-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  text-align: right;
+}
+
+.navbar-lang-currency select {
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  appearance: none; /* Remove native arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("/assets/arrowdown.png"); /* Your custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px; /* Increase arrow size */
+  padding-right: 50px; /* Adjust padding to make room for bigger arrow */
+  position: relative;
+
+}
+
+
+.navbar-login {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #4b2061;
+  font-weight: 500;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+
+.navbar-login:hover {
+  color: #7c3aed;
+}
+
+.navbar-login svg {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Bottom menu */
+.navbar-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3a0a5d;
+  padding: 10px 300px;
+  color: white;
+  font-size: 14px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  cursor: pointer;
+}
+
+.nav-link,
+.navbar-contact a {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
