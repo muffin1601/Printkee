@@ -40,4 +40,38 @@ router.get('/:category/:subcategory', async (req, res) => {
   }
 });
 
+router.get("/:category/:subcategory/:product", async (req, res) => {
+  const { category, subcategory, product } = req.params;
+
+  try {
+    const result = await Category.findOne(
+      { name: decodeURIComponent(category) },
+      {
+        subcategories: {
+          $elemMatch: { name: decodeURIComponent(subcategory) }
+        }
+      }
+    );
+
+    if (!result || !result.subcategories || result.subcategories.length === 0) {
+      return res.status(404).json({ message: "Subcategory not found" });
+    }
+
+    const subcat = result.subcategories[0];
+
+    const productData = subcat.products.find(
+      (p) => p.name === decodeURIComponent(product)
+    );
+
+    if (!productData) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    return res.json(productData);
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+});
+
 module.exports = router;

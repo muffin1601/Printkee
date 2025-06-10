@@ -11,8 +11,13 @@ const categoryData = [
         hoverImage: "",
         tag: "Classic and custom t-shirts.\nSoft, durable fabrics.\nIdeal for events and teams.\nPersonalize with your logo.",
         products: [
-          { name: "Cotton T-Shirt", description: "100% cotton round neck t-shirt.", image: "/assets/products/tshirt1.jpg" },
-          { name: "Polo T-Shirt", description: "Comfort-fit polo t-shirt with logo print.", image: "/assets/products/tshirt2.jpg" },
+          { name: "Cotton T-Shirt", description: "100% cotton round neck t-shirt.", image: "/assets/products/tshirt1.png" },
+          { name: "Polo T-Shirt", description: "Comfort-fit polo t-shirt with logo print.", image: "/assets/products/tshirt (2).png", subImages: ["/assets/products/tshirt (2).png", "/assets/products/tshirt (3).png"] },
+          { name: "V-Neck T-Shirt", description: "Modern v-neck style t-shirt.", image: "/assets/products/tshirt (3).png" },
+          { name: "Long Sleeve T-Shirt", description: "Full sleeve cotton t-shirt.", image: "/assets/products/tshirt (4).png" },
+          { name: "Sports T-Shirt", description: "Breathable fabric for sports.", image: "/assets/products/tshirt (5).png" },
+          { name: "Raglan T-Shirt", description: "Contrast sleeve raglan tee.", image: "/assets/products/tshirt (6).png" },
+          { name: "Performance T-Shirt", description: "Moisture-wicking activewear.", image: "/assets/products/tshirt (7).png" }
         ],
       },
       {

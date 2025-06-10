@@ -14,10 +14,11 @@ body, html {
 /* Page Wrapper */
 .page-wrapper {
   display: flex;
-  max-width: 1350px;
+  max-width: 1400px;
   margin: 30px auto;
   padding: 0 32px 32px 32px;
   gap: 32px;
+  
 }
 
 /* Sidebar */
