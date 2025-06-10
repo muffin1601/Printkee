@@ -8,35 +8,39 @@ import "../styles/HeroSection.css";
 
 const slides = [
   {
-    image: "/assets/banner(1).jpeg",
-    title: "Personal Achievements",
+    image: "/assets/banner1.jpeg",
+    title: "Customized Corporate Apparel",
     description:
-      "Recognizing and celebrating personal achievements with thoughtful gifts.",
-    tag: "Gift Shop",
+      "Dress your team in style with premium shirts, jackets, and uniforms—personalized with your company logo.",
+    tag: "Apparel & Uniforms",
   },
   {
-    image: "/assets/banner (2).jpeg",
-    title: "Birthday",
-    description: "Celebrate birthdays with our curated gift selections.",
-    tag: "Gift Shop",
+    image: "/assets/banner2.jpeg",
+    title: "Eco-Friendly Gift Solutions",
+    description:
+      "Make a sustainable impact with eco-conscious gifting options made from recycled and biodegradable materials.",
+    tag: "Eco Products",
   },
   {
-    image: "/assets/banner (3).jpeg",
-    title: "Anniversary",
-    description: "Find the perfect gift to commemorate anniversaries.",
-    tag: "Gift Shop",
+    image: "/assets/banner3.jpeg",
+    title: "Smart Tech Gifts",
+    description:
+      "Impress clients and employees with innovative, branded tech products like wireless chargers, earbuds, and gadgets.",
+    tag: "Technology",
   },
   {
-    image: "/assets/banner (4).jpeg",
-    title: "Farewell",
-    description: "Say goodbye with meaningful farewell gifts.",
-    tag: "Gift Shop",
+    image: "/assets/banner4.jpeg",
+    title: "Premium Drinkware Collection",
+    description:
+      "From stainless steel bottles to personalized mugs, our drinkware is perfect for daily use and corporate branding.",
+    tag: "Drinkware",
   },
   {
-    image: "/assets/banner (1).jpeg",
-    title: "New Arrival",
-    description: "Explore our latest collection of gifts.",
-    tag: "Gift Shop",
+    image: "/assets/banner1.jpeg",
+    title: "Bags, Office, & Writing Essentials",
+    description:
+      "Discover a wide range of custom office bags, notebooks, and writing instruments—perfect for gifting and branding.",
+    tag: "Office & Bags",
   },
 ];
 

@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "../styles/SingleProductDisplay.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaShareAlt, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FaScissors as FaScissorsAlt } from "react-icons/fa6";
 
 const SingleProductDisplay = () => {
   const { category, subcategory, product } = useParams();
+  const navigate = useNavigate();
   const [productData, setProductData] = useState(null);
   const [selectedStyle, setSelectedStyle] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [mainImage, setMainImage] = useState("");
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -19,13 +21,18 @@ const SingleProductDisplay = () => {
         );
         setProductData(response.data);
 
-        if (response.data.styles && response.data.styles.length > 0) {
+        if (response.data.styles?.length > 0) {
           setSelectedStyle(response.data.styles[0]);
+        }
+
+        if (response.data.image) {
+          setMainImage(response.data.image);
         }
       } catch (err) {
         console.error("Failed to fetch product", err);
       }
     };
+
     fetchProduct();
   }, [category, subcategory, product]);
 
@@ -33,46 +40,60 @@ const SingleProductDisplay = () => {
 
   return (
     <div className="single-product-container">
+      <div className="product-right">
+        <div className="image-section">
+          {productData.subImages?.length > 0 && (
+            <div className="thumbnail-column">
+              {productData.subImages.map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={`Thumbnail ${i}`}
+                  className={`thumbnail ${mainImage === img ? "active" : ""}`}
+                  onClick={() => setMainImage(img)}
+                />
+              ))}
+            </div>
+          )}
+
+          <div className="main-image-wrapper">
+            <img src={mainImage} alt="Main Product" className="main-image" />
+          </div>
+        </div>
+      </div>
+
       <div className="product-left">
-        <button className="back-button">
-          <FaChevronLeft /> Back to category
+        <button className="back-button" onClick={() => navigate(-1)}>
+          <FaChevronLeft /> Back to {subcategory}
         </button>
 
-        <div className="product-rating">
-          {productData.brand} ☆☆☆☆☆ · Write a Review
-        </div>
-
-        <h1 className="product-title">{productData.name}</h1>
+        <h1 className="product-title-1">{productData.name}</h1>
 
         <h3 className="description-title">Description:</h3>
         <p className="product-description">{productData.description}</p>
 
-        <div className="product-actions">
-          <span>
-            <FaScissorsAlt /> See Sizing Guide
-          </span>
-          <span>
-            <FaShareAlt /> Share
-          </span>
-        </div>
-
-        <div className="style-section">
-          <label>Style:</label>
-          <div className="style-buttons">
-            {productData.styles?.map((style) => (
-              <button
-                key={style}
-                className={selectedStyle === style ? "active" : ""}
-                onClick={() => setSelectedStyle(style)}
-              >
-                {style}
-              </button>
-            ))}
+      
+        {/* Style Options */}
+        {productData.styles?.length > 0 && (
+          <div className="style-section">
+            <label>Style:</label>
+            <div className="style-buttons">
+              {productData.styles.map((style) => (
+                <button
+                  key={style}
+                  className={selectedStyle === style ? "active" : ""}
+                  onClick={() => setSelectedStyle(style)}
+                >
+                  {style}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
+        {/* Quantity Controls */}
         <div className="quantity-section">
-          <label>Quantity :</label>
+          <label>Quantity:</label>
           <div className="quantity-controls">
             <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
             <span>{quantity}</span>
@@ -80,41 +101,13 @@ const SingleProductDisplay = () => {
           </div>
         </div>
 
-        <div className="price-section">
-          <span className="new-price">${productData.price?.toFixed(2)}</span>
-          <span className="old-price">${productData.oldPrice?.toFixed(2)}</span>
-        </div>
-
+        {/* Cart Button */}
         <div className="cart-buttons">
           <button className="add-to-cart">
-            Add to Cart <FaChevronRight />
+            Customize <FaChevronRight />
           </button>
-          <button className="buy-now">Buy it now</button>
         </div>
       </div>
-
-          <div className="product-right">
-              {productData.image && (
-                  <img
-                      src={productData.image}
-                      alt="Main Product"
-                      className="main-image"
-                  />
-              )}
-
-              {productData.subImages && productData.subImages.length > 0 && (
-                  <div className="thumbnail-row">
-                      {productData.subImages.map((img, i) => (
-                          <img
-                              key={i}
-                              src={img}
-                              alt={`Thumbnail ${i}`}
-                              className="thumbnail"
-                          />
-                      ))}
-                  </div>
-              )}
-          </div>
     </div>
   );
 };

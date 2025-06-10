@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Navbar.css";
 import { IoPersonOutline } from "react-icons/io5";
 import { FaHome, FaThList, FaBoxOpen, FaServicestack, FaTags } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import navbarSubcategories from "../data/list"; // adjust the path as needed
 
 const Navbar = () => {
+  const [showMegaMenu, setShowMegaMenu] = useState(false);
+
   return (
     <div className="navbar-wrapper">
       {/* Top bar */}
@@ -15,7 +18,7 @@ const Navbar = () => {
 
         <div className="navbar-search">
           <input type="text" placeholder="Search Product..." />
-          <select >
+          <select>
             <option>All Categories</option>
             <option>Apparel</option>
             <option>Bags</option>
@@ -43,14 +46,34 @@ const Navbar = () => {
       <div className="navbar-bottom">
         <ul className="menu">
           <li>
-            <a href="/" className="nav-link">
+            <NavLink to="/" className="nav-link">
               <FaHome style={{ marginRight: 5 }} /> Home
-            </a>
+            </NavLink>
           </li>
-          <li>
-            <a href="/categories" className="nav-link">
+          <li
+            className="dropdown"
+            onMouseEnter={() => setShowMegaMenu(true)}
+            onMouseLeave={() => setShowMegaMenu(false)}
+          >
+            <span className="nav-link">
               <FaThList style={{ marginRight: 5 }} /> All Categories ▾
-            </a>
+            </span>
+            {showMegaMenu && (
+              <div className="mega-menu">
+                {Object.entries(navbarSubcategories).map(([mainCategory, subcategories], index) => (
+                  <div key={index} className="mega-menu-column">
+                    <h4>{mainCategory}</h4>
+                    <ul>
+                      {subcategories.map((sub, i) => (
+                        <li key={i}>
+                          <NavLink to={`/${mainCategory}/${sub}`}>{sub}</NavLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
           </li>
           <li>
             <a href="#" className="nav-link">
