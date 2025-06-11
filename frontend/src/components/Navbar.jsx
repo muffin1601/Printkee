@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import "../styles/Navbar.css";
 import { IoPersonOutline } from "react-icons/io5";
 import { FaHome, FaThList, FaBoxOpen, FaServicestack, FaTags } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import navbarSubcategories from "../data/list"; // adjust the path as needed
+import navbarSubcategories from "../data/list";
 
 const Navbar = () => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
+
+  // Group categories into pairs for 2 per column
+  const groupedCategories = Object.entries(navbarSubcategories).reduce((acc, curr, index) => {
+    if (index % 2 === 0) acc.push([curr]);
+    else acc[acc.length - 1].push(curr);
+    return acc;
+  }, []);
 
   return (
     <div className="navbar-wrapper">
@@ -28,12 +36,8 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-lang-currency">
-          <select>
-            <option>English</option>
-          </select>
-          <select>
-            <option>INR</option>
-          </select>
+          <select><option>English</option></select>
+          <select><option>INR</option></select>
         </div>
 
         <div className="navbar-login">
@@ -50,6 +54,7 @@ const Navbar = () => {
               <FaHome style={{ marginRight: 5 }} /> Home
             </NavLink>
           </li>
+
           <li
             className="dropdown"
             onMouseEnter={() => setShowMegaMenu(true)}
@@ -58,28 +63,34 @@ const Navbar = () => {
             <span className="nav-link">
               <FaThList style={{ marginRight: 5 }} /> All Categories ▾
             </span>
-            {showMegaMenu && (
+
+            <div className={`mega-menu-wrapper ${showMegaMenu ? "open" : ""}`}>
               <div className="mega-menu">
-                {Object.entries(navbarSubcategories).map(([mainCategory, subcategories], index) => (
-                  <div key={index} className="mega-menu-column">
-                    <h4>{mainCategory}</h4>
-                    <ul>
-                      {subcategories.map((sub, i) => (
-                        <li key={i}>
-                          <NavLink to={`/${mainCategory}/${sub}`}>{sub}</NavLink>
-                        </li>
-                      ))}
-                    </ul>
+                {groupedCategories.map((group, idx) => (
+                  <div className="mega-menu-column" key={idx}>
+                    {group.map(([mainCategory, subcategories], i) => (
+                      <div key={i} className="category-group">
+                        <h4>{mainCategory}</h4>
+                        <ul>
+                          {subcategories.map((sub, j) => (
+                            <li key={j}>
+                              <NavLink
+                                to={`/${encodeURIComponent(mainCategory)}/${encodeURIComponent(sub)}`}
+                              >
+                                {sub}
+                              </NavLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
-            )}
+            </div>
           </li>
-          <li>
-            <a href="#" className="nav-link">
-              <FaBoxOpen style={{ marginRight: 5 }} /> Products ▾
-            </a>
-          </li>
+
+          
           <li>
             <a href="#" className="nav-link">
               <FaServicestack style={{ marginRight: 5 }} /> Our Services
@@ -88,6 +99,11 @@ const Navbar = () => {
           <li>
             <a href="#" className="nav-link">
               <FaTags style={{ marginRight: 5 }} /> Brands
+            </a>
+          </li>
+          <li>
+            <a href="#" className="nav-link">
+              <FaInfoCircle style={{ marginRight: 5 }} /> About Us
             </a>
           </li>
         </ul>
