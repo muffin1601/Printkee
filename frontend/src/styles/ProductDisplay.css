@@ -14,7 +14,7 @@ body, html {
 /* Page Wrapper */
 .page-wrapper {
   display: flex;
-  max-width: 1400px;
+  max-width: 85%;
   margin: 30px auto;
   padding: 0 32px 32px 32px;
   gap: 32px;
@@ -209,6 +209,7 @@ body, html {
   margin: 2px 0px;
   color: #222;
   min-height: 38px;
+  text-align: center;
 }
 
 .rating {

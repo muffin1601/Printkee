@@ -1,20 +1,35 @@
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+
 /* Layout and Base */
 .single-product-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px;
+  gap: 20px;
   padding: 60px 5% 50px;
   background-color: #f8eefd;
-  font-family: 'Poppins', sans-serif;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .product-left, .product-right {
   flex: 1 1 450px;
   max-width: 600px;
+  min-width: 300px;
 }
 
+/* Back Button */
 .back-button {
   background: none;
   border: none;
@@ -27,6 +42,7 @@
   transition: color 0.2s ease;
   margin-bottom: 20px;
 }
+
 .back-button:hover {
   color: #4b2061;
 }
@@ -60,11 +76,14 @@
   margin-bottom: 25px;
   font-size: 14px;
   color: #666;
+  flex-wrap: wrap;
 }
+
 .product-actions span {
   cursor: pointer;
   transition: color 0.2s ease;
 }
+
 .product-actions span:hover {
   color: #4b2061;
 }
@@ -74,6 +93,7 @@
 .quantity-section {
   margin: 25px 0;
 }
+
 .style-section label,
 .quantity-section label {
   font-weight: 500;
@@ -82,6 +102,7 @@
 
 .style-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
 }
@@ -96,6 +117,7 @@
   cursor: pointer;
   transition: all 0.2s;
 }
+
 .style-buttons button:hover,
 .style-buttons .active {
   background-color: #f39c12;
@@ -120,6 +142,7 @@
   cursor: pointer;
   transition: background-color 0.2s;
 }
+
 .quantity-controls button:hover {
   background-color: #4b2061;
 }
@@ -149,10 +172,11 @@
   display: flex;
   gap: 15px;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
-.cart-buttons button {
-  flex: 1;
+.cart-buttons .add-to-cart {
+  flex: 1 1 45%;
   padding: 14px 20px;
   font-size: 16px;
   font-weight: 500;
@@ -162,8 +186,11 @@
   border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  min-width: 140px;
+  font-family: 'Poppins', sans-serif;
 }
-.cart-buttons button:hover {
+
+.cart-buttons .add-to-cart:hover {
   background-color: #f39c12;
 }
 
@@ -172,6 +199,7 @@
   display: flex;
   gap: 20px;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .thumbnail-column {
@@ -190,6 +218,7 @@
   transition: 0.3s;
   cursor: pointer;
 }
+
 .thumbnail:hover,
 .thumbnail.active {
   border-color: #f39c12;
@@ -198,7 +227,9 @@
 .main-image-wrapper {
   flex: 1;
   max-width: 400px;
+  min-width: 280px;
 }
+
 .main-image {
   width: 100%;
   border-radius: 12px;
@@ -207,6 +238,7 @@
   transition: transform 0.3s ease;
   background-color: white;
 }
+
 .main-image:hover {
   transform: scale(1.02);
 }
@@ -215,6 +247,8 @@
 .related-products-section {
   padding: 60px 5%;
   background-color: #fff;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .related-title {
@@ -257,4 +291,34 @@
   font-size: 16px;
   font-weight: 500;
   color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .single-product-container {
+    padding: 40px 3%;
+    flex-direction: column;
+  }
+
+  .image-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cart-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cart-buttons button {
+    width: 100%;
+  }
+
+  .product-left, .product-right {
+    max-width: 100%;
+  }
+
+  .main-image-wrapper {
+    max-width: 100%;
+  }
 }

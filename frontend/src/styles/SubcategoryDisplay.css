@@ -1,16 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fff;
-}
 
 /* HEADER SECTION */
 .subcategory-header {
   background: linear-gradient(90deg, #ff1493, #ff69b4);
   color: white;
-  padding: 60px 20px;
+  padding: 2% 15%;
   text-align: left;
   border-bottom: 2px solid #e6e6e6;
 }
@@ -18,49 +12,50 @@ body {
 .subcategory-header-content {
   max-width: 1300px;
   margin: 0 auto;
- 
 }
 
 .circle {
-  width: 35px; /* Adjust as needed */
-  height: 35px; /* Adjust as needed */
-  border-radius: 50%; /* Makes it a circle */
-  border: 1px solid white; /* Example border, adjust as needed */
-  background: transparent; /* Example color, adjust as needed */
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid white;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 12px;
-  padding: 5px;
+  margin-bottom: 0.75rem;
+  padding: 0.3rem;
 }
 
 .arrow {
-  font-size: 22px; /* Adjust size as needed */
-  color: white; /* Example color, adjust as needed */
+  font-size: 1.4rem;
+  color: white;
 }
+
 .back-link {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  width: 250px;
+  align-items: center;
+  gap: 0.6rem;
+  width: fit-content;
   color: white;
   text-decoration: none;
-  font-size: 0.9rem;
-  margin-bottom: 12px;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
 }
 
 .back-link:hover {
   text-decoration: none;
 }
+
 .back-link .span-name {
+  font-size: 1rem;
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
-  font-size: 16px;
-  left: 0;
+  margin-bottom: 0.75rem;
 }
+
 .subcategory-title {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   margin: 0;
 }
@@ -68,67 +63,82 @@ body {
 .subcategory-description {
   font-size: 1rem;
   max-width: 720px;
-  margin: 10px  0;
+  margin: 0.8rem 0;
   line-height: 1.6;
   text-align: left;
 }
 
-/* Subcategory Container */
+.subcat-display {
+  padding: 0 150px 40px 150px;
+  background: transparent; /* matching navbar-top */
+}
+
 .subcategory-container {
-  max-width: 1350px;
-  margin-left: 250px;
-  padding: 3rem 2rem;
-  background: #4b2061;
-  margin-bottom: 30px;
-  border-radius: 0 0 50px 50px;
+  max-width: 85%;
+  margin: 0 auto;
+  background-color: #4b2061;
+  align-items: center;
+  border-radius: 0 0 30px 30px;
 }
 
 .subcategory-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 140px;
+  width: 90%;
+  /* margin-left: 50px; */
+  padding:50px;
 }
 
-/* Subcategory Card */
 .subcategory-card {
-  background: white;
-  border-radius: 12px;
-  width: 250px;
-  overflow: hidden;
   text-decoration: none;
-  color: #333;
-  box-shadow: 0 6px 14px rgba(75, 32, 97, 0.1);
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  width: 300px;
 }
 
 .subcategory-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 18px rgba(75, 32, 97, 0.15);
-  border: 2px solid #f39c12;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Subcategory Image */
 .subcategory-image {
   width: 100%;
-  height: 250px;
+  height: auto;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  border-radius: 12px;
+  margin-bottom: 12px;
 }
 
-.subcategory-card:hover .subcategory-image {
-  transform: scale(1.05);
-}
-
-/* Subcategory Name */
 .subcategory-name {
-  font-size: 1.1rem;
+  color: #4b2061; /* navbar purple */
+  font-size: 16px;
   font-weight: 600;
   text-align: center;
-  padding: 1rem 0;
-  background-color: #4b2061;
- 
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Responsive padding */
+@media (max-width: 1200px) {
+  .subcat-display {
+    padding: 40px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .subcat-display {
+    padding: 30px 20px;
+  }
+
+  .subcategory-name {
+    font-size: 14px;
+  }
 }

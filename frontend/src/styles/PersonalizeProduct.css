@@ -1,0 +1,76 @@
+.personalize-wrapper {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    background: #f7f7fa;
+    gap: 32px;
+    padding: 32px 48px;
+    box-sizing: border-box;
+}
+
+/* SidebarTools styles */
+.personalize-wrapper > :first-child {
+    flex: 0 0 220px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 24px 16px;
+    margin-right: 0;
+    align-self: flex-start;
+}
+
+/* CustomizerControls styles */
+.personalize-wrapper > :nth-child(2) {
+    flex: 0 0 220px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 24px 16px;
+    margin-right: 0;
+    align-self: flex-start;
+}
+
+/* ProductCustomizer styles */
+.personalize-wrapper > :nth-child(3) {
+    flex: 1 1 0;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 400px;
+    min-height: 600px;
+    max-width: 700px;
+}
+
+/* ActionButtons styles */
+.personalize-wrapper > :last-child {
+    flex: 0 0 220px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 24px 16px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .personalize-wrapper {
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px 8px;
+    }
+    .personalize-wrapper > * {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .personalize-wrapper > :nth-child(3) {
+        min-width: 0;
+        max-width: 100%;
+    }
+}

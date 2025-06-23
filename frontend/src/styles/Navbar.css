@@ -1,15 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-
-html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 .navbar-wrapper {
   font-family: 'Poppins', sans-serif;
-
   width: 100%;
 }
 
@@ -19,20 +10,20 @@ html, body {
   align-items: center;
   justify-content: space-between;
   background-color: #fcefdb;
-  padding: 10px 300px;
+  padding: 1% 15%;
   font-size: 14px;
 }
 
-.navbar-logo img{
+.navbar-logo img {
   font-size: 30px;
   font-weight: bold;
   color: #4b2061;
 }
+
 .navbar-logo-img {
   height: 60px;
   object-fit: contain;
 }
-
 
 .navbar-search {
   display: flex;
@@ -53,7 +44,6 @@ html, body {
 
 .navbar-search select {
   padding: 10px;
-  
   border: 1px solid #ccc;
   border-left: none;
   border-radius: 0 15px 15px 0;
@@ -64,8 +54,8 @@ html, body {
   font-family: 'Poppins', sans-serif;
   background-repeat: no-repeat;
   background-position: right 12px center;
-  background-size: 20px; /* Increase arrow size */
-  padding-right: 10px; /* Adjust padding to make room for bigger arrow */
+  background-size: 20px;
+  padding-right: 10px;
   position: relative;
 }
 
@@ -85,18 +75,16 @@ html, body {
   font-weight: 500;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
-  appearance: none; /* Remove native arrow */
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url("/assets/arrowdown.png"); /* Your custom arrow */
+  background-image: url("/assets/arrowdown.png");
   background-repeat: no-repeat;
   background-position: right 12px center;
-  background-size: 20px; /* Increase arrow size */
-  padding-right: 50px; /* Adjust padding to make room for bigger arrow */
+  background-size: 20px;
+  padding-right: 50px;
   position: relative;
-
 }
-
 
 .navbar-login {
   display: flex;
@@ -110,7 +98,7 @@ html, body {
 }
 
 .navbar-login:hover {
-  color: #7c3aed;
+  color: #470867;
 }
 
 .navbar-login svg {
@@ -124,9 +112,11 @@ html, body {
   justify-content: space-between;
   align-items: center;
   background-color: #3a0a5d;
-  padding: 10px 300px;
+  padding: 1% 15%;
   color: white;
   font-size: 14px;
+  position: relative;
+  z-index: 200;
 }
 
 .menu {
@@ -138,6 +128,7 @@ html, body {
 }
 
 .menu li {
+  position: relative;
   cursor: pointer;
 }
 
@@ -148,31 +139,34 @@ html, body {
   font-weight: 500;
   text-decoration: none;
 }
-/* 🔶 Wrapper for Animation */
+
+/* 🔶 Mega Menu Wrapper - Centered */
 .mega-menu-wrapper {
   position: absolute;
-  top: 180%;
-  left: 0;
+  top: 200%;
+  left: 250%;
+  transform: translateX(-50%) translateY(-20px);
+  width: 100%;
   width: 1200px;
   overflow: hidden;
   max-height: 0;
   opacity: 0;
-  transform: translateY(-20px);
   transition: all 0.3s ease-in-out;
   z-index: 100;
-  margin-right: 100px;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
-/* 🔶 When Open */
 .mega-menu-wrapper.open {
   max-height: 1000px;
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
-/* 🔶 Mega Menu Container (do not animate this directly) */
+/* 🔶 Mega Menu Content */
 .mega-menu {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   background-color: #fff;
   padding: 30px 40px;
@@ -180,18 +174,23 @@ html, body {
   flex-wrap: wrap;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border-top: 2px solid #f39c12;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* 🔶 Mega Menu Column (Each contains 2 category groups stacked vertically) */
+/* 🔶 Mega Menu Column */
 .mega-menu-column {
   flex: 1 1 250px;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-width: 250px;
 }
 
-/* 🔶 Individual Category Block */
+/* 🔶 Category Group */
 .category-group h4 {
   font-size: 16px;
   color: #4b2061;
@@ -222,12 +221,56 @@ html, body {
   color: #f39c12;
 }
 
-/* 🔶 Navbar & Menu Container Fixes */
-.navbar-bottom {
-  position: relative;
-  z-index: 200; /* Ensures navbar stays above animated content */
+/* 🔶 Image inside Mega Menu */
+.mega-menu img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
 }
 
-.menu > li {
-  position: relative;
+/* 🔶 Responsive Design */
+@media (max-width: 1200px) {
+  .navbar-top,
+  .navbar-bottom {
+    padding: 10px 40px;
+  }
+
+  .mega-menu {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .mega-menu-column {
+    flex: 1 1 100%;
+    padding: 10px 0;
+  }
+
+  .navbar-search {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-top,
+  .navbar-bottom {
+    padding: 10px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar-search {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-info {
+    align-items: flex-end;
+  }
+
+  .mega-menu-wrapper {
+    padding: 0 10px;
+  }
 }

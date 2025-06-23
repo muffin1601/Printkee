@@ -74,4 +74,24 @@ router.get("/:category/:subcategory/:product", async (req, res) => {
   }
 });
 
+router.get('/related-products/:category/:subcategory/:productName', async (req, res) => {
+  const { category, subcategory, productName } = req.params;
+
+  try {
+    const categoryDoc = await Category.findOne({ name: category });
+
+    if (!categoryDoc) return res.status(404).json({ message: "Category not found" });
+
+    const subcat = categoryDoc.subcategories.find(sub => sub.name === subcategory);
+    if (!subcat) return res.status(404).json({ message: "Subcategory not found" });
+
+    const related = subcat.products.filter(p => p.name !== productName);
+
+    res.json(related);
+  } catch (err) {
+    console.error("Error fetching related products:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 module.exports = router;

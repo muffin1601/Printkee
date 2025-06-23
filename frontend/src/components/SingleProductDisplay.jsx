@@ -126,7 +126,7 @@ const SingleProductDisplay = () => {
 
           {/* Cart Button */}
           <div className="cart-buttons">
-            <button className="add-to-cart">
+            <button className="add-to-cart" onClick={() => {window.location.href = `/personalize/${encodeURIComponent(category)}/${encodeURIComponent(subcategory)}/${encodeURIComponent(productData.name)}`}}>
               Customize <FaChevronRight />
             </button>
           </div>

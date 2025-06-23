@@ -1,0 +1,58 @@
+.customizer-controls {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 24px 20px;
+    max-width: 340px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.customizer-controls h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.customizer-controls select,
+.customizer-controls input[type="number"] {
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #fafbfc;
+    transition: border 0.2s;
+}
+
+.customizer-controls select:focus,
+.customizer-controls input[type="number"]:focus {
+    border-color: #6366f1;
+    outline: none;
+}
+
+.customizer-controls input[type="number"]::-webkit-inner-spin-button,
+.customizer-controls input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.customizer-controls input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+    width: 80px;
+}

@@ -1,26 +1,29 @@
+/* Base wrapper */
 .footer-wrapper {
   font-family: 'Poppins', sans-serif;
-  width: 100%;
   background-color: #fcefdb;
   color: #4b2061;
-  padding: 40px 300px;
+  padding: 40px 15%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 40px;
-  box-sizing: border-box;
+  border-top: 2px solid #4b2061;
+  position: relative;
 }
 
+/* Column layout */
 .footer-column {
-  flex: 1;
-  min-width: 200px;
+  flex: 1 1 200px;
+  margin-bottom: 30px;
 }
 
 .footer-column h4 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 20px;
-  color: #2e2e2d;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+  color: #4b2061;
 }
 
 .footer-column ul {
@@ -29,42 +32,61 @@
   margin: 0;
 }
 
-.footer-column ul li {
-  margin-bottom: 10px;
+.footer-column li {
+  margin-bottom: 8px;
 }
 
-.footer-column ul li a {
-  color: #494848;
-  font-size: 14px;
+.footer-column a {
+  color: #555;
   text-decoration: none;
+  font-size: 14px;
   transition: color 0.2s;
 }
 
-.footer-column ul li a:hover {
-  color: #4b2061;
+.footer-column a:hover {
+  color: #f39c12;
 }
 
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 40px;
-  padding-top: 20px;
-  text-align: center;
-  font-size: 14px;
-  color: #353535;
-}
-
+/* Social icons */
 .footer-socials {
   display: flex;
   gap: 15px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .footer-socials a {
-  color: rgb(54, 54, 54);
-  font-size: 20px;
-  transition: color 0.2s;
+  color: #4b2061;
+  font-size: 18px;
+  transition: color 0.3s;
 }
 
 .footer-socials a:hover {
-  color: #4b2061;
+  color: #f39c12;
+}
+
+/* Bottom note */
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #888;
+  border-top: 1px solid #e0d5c0;
+  padding-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer-wrapper {
+    padding: 30px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-bottom {
+    text-align: left;
+    margin-top: 20px;
+    padding-top: 10px;
+  }
 }
