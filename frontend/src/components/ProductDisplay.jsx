@@ -103,20 +103,13 @@ const ProductDisplay = () => {
                   <img className="product-img"src={product.image} alt={product.name} />
                   <div className="product-icons">
                     <button><FaHeart /></button>
-                    <button><FaSyncAlt /></button>
                     <button><FaEye /></button>
                   </div>
-                  {/* <div className="countdown-banner">
-                    <span>⏱</span> <span>307 : 08 : 36 : 20</span>
-                  </div> */}
+                 
                 </div>
 
                 <h3 className="product-title">{product.name}</h3>
-                
-
-                <p className="price">
-                  ${product.price?.singlePrice?.toFixed(2) || "20.00"} <span className="original-price">$25.00</span>
-                </p>
+             
 
                 <div className="dropdown-group">
                   {product.size?.length > 0 && (

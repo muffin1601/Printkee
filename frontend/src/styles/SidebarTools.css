@@ -1,0 +1,31 @@
+.sidebar-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 8px;
+    background: #f7f7fa;
+    border-right: 1px solid #e0e0e0;
+    min-width: 56px;
+    align-items: center;
+    height: 100vh;
+}
+
+.sidebar-tools button {
+    background: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    font-size: 1.5rem;
+    color: #444;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    outline: none;
+}
+
+.sidebar-tools button:hover,
+.sidebar-tools button:focus {
+    background: #e6eaff;
+    color: #2a5bd7;
+    box-shadow: 0 2px 8px rgba(42,91,215,0.08);
+}
