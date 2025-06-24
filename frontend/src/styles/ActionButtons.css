@@ -1,25 +1,23 @@
-.action-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: flex-end;
-    margin-top: 24px;
+.action-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 4px;
+  justify-content: start;
 }
 
-.action-buttons button {
-    background-color: #1976d2;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s;
+.action-toolbar button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+  color: #2f3e4d;
+  transition: background 0.2s;
 }
 
-.action-buttons button:hover {
-    background-color: #1565c0;
-}
-
-.action-buttons button:active {
-    background-color: #0d47a1;
+.action-toolbar button:hover {
+  background: #f0f0f0;
 }
