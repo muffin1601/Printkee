@@ -15,6 +15,14 @@ const PersonalizeProductPage = () => {
   const [color, setColor] = useState("#ffffff");
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [selectedColor, setSelectedColor] = useState("#ff0000"); // default red
+  const [deliveryTerm, setDeliveryTerm] = useState("24 hours");
+  const [canvas, setCanvas] = useState(null);
+
+  useEffect(() => {
+    const c = new fabric.Canvas("canvas-id", { preserveObjectStacking: true });
+    setCanvas(c);
+  }, []);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -79,28 +87,85 @@ const PersonalizeProductPage = () => {
 
   return (
     <div className="personalize-wrapper">
-      <SidebarTools onAddText={handleAddText} onAddImage={handleAddImage} />
+      <SidebarTools
+        onAddText={() => {
+          const text = new fabric.IText("Your Text", {
+            left: 50,
+            top: 50,
+            fontSize: 24,
+            fill: "#000"
+          });
+          canvas.add(text).setActiveObject(text);
+        }}
+
+        onAddImage={(url) => {
+          fabric.Image.fromURL(url, (img) => {
+            img.scale(0.5);
+            canvas.add(img).setActiveObject(img);
+          });
+        }}
+
+        onChangeBgColor={() => {
+          const color = prompt("Enter a hex color:");
+          if (color) {
+            canvas.setBackgroundColor(color, canvas.renderAll.bind(canvas));
+          }
+        }}
+
+        onAddShape={() => {
+          const rect = new fabric.Rect({
+            width: 100,
+            height: 100,
+            fill: "blue",
+            left: 70,
+            top: 70
+          });
+          canvas.add(rect).setActiveObject(rect);
+        }}
+
+        onAddQRCode={() => {
+          const qrText = prompt("Enter QR code text:");
+          if (!qrText) return;
+
+          const qrApi = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrText)}&size=100x100`;
+          fabric.Image.fromURL(qrApi, (img) => {
+            canvas.add(img).setActiveObject(img);
+          });
+        }}
+
+        onManageLayers={() => {
+          alert("Layer management not implemented yet.");
+        }}
+
+        onUserInfo={() => {
+          alert("User info action clicked!");
+        }}
+      />
 
       <CustomizerControls
-        color={color}
-        setColor={setColor}
-        sizes={productData.size || []}
+        availableColors={["#000000", "#ffffff", "#ff0000", "#00ff00", "#0000ff", "#ff00ff", "#ffff00", "#ffa500"]}
+        selectedColor={selectedColor}
+        setSelectedColor={setSelectedColor}
+        sizes={productData?.size || []}
         selectedSize={selectedSize}
         setSelectedSize={setSelectedSize}
         quantity={quantity}
         setQuantity={setQuantity}
+        deliveryTerm={deliveryTerm}
+        setDeliveryTerm={setDeliveryTerm}
+        onSave={handleSave}
+        onAddToCart={handleAddToCart}
+        onQuote={handleRequestQuote}
       />
 
       <ProductCustomizer
         productImage={productData.image}
+        subImages={productData.subImages}
         canvasRef={canvasRef}
       />
 
-      <ActionButtons
-        onSave={handleSave}
-        onAddToCart={handleAddToCart}
-        onRequestQuote={handleRequestQuote}
-      />
+      <ActionButtons canvas={canvas} />
+
     </div>
   );
 };

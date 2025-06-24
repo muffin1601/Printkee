@@ -1,58 +1,71 @@
-.customizer-controls {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    padding: 24px 20px;
-    max-width: 340px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.sidebar-customizer {
+  width: 260px;
+  border: 1px solid #ddd;
+  padding: 16px;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
 }
 
-.customizer-controls h3 {
-    margin: 0 0 12px 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #222;
+.sidebar-customizer h4 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+.section {
+  margin-bottom: 16px;
 }
 
-.form-group label {
-    font-size: 1rem;
-    color: #444;
-    font-weight: 500;
+.section label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
 }
 
-.customizer-controls select,
-.customizer-controls input[type="number"] {
-    padding: 8px 10px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    font-size: 1rem;
-    background: #fafbfc;
-    transition: border 0.2s;
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
 }
 
-.customizer-controls select:focus,
-.customizer-controls input[type="number"]:focus {
-    border-color: #6366f1;
-    outline: none;
+.color-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  cursor: pointer;
 }
 
-.customizer-controls input[type="number"]::-webkit-inner-spin-button,
-.customizer-controls input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.color-circle.selected {
+  border: 2px solid #333;
+  box-shadow: 0 0 0 2px #555 inset;
 }
 
-.customizer-controls input[type="number"] {
-    appearance: textfield;
-    -moz-appearance: textfield;
-    width: 80px;
+.quantity-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.quantity-row input {
+  width: 60px;
+  padding: 4px;
+}
+
+.buttons button {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 10px;
+  background-color: #eee;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #ddd;
 }
