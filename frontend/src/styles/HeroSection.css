@@ -5,7 +5,7 @@
 }
 
 .hero-slide {
-  height: 80vh;
+  height: 60vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -14,7 +14,7 @@
 .overlay {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(152, 124, 235, 0.5), transparent);
+  background: linear-gradient(to right, rgba(44, 44, 44, 0.9), transparent);
   display: flex;
   align-items: center;
   padding-left: 100px;
@@ -56,6 +56,9 @@
   font-size: 18px;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
+}
+.arrow-1 {
+  color: white;
 }
 
 .show-products:hover {

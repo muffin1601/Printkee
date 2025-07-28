@@ -68,7 +68,7 @@ const HeroSection = () => {
                   <p className="description">{slide.description}</p>
                   <button className="show-products">
                     <span>Show products</span>
-                    <span className="arrow">→</span>
+                    <span className="arrow-1">→</span>
                   </button>
                 </div>
               </div>

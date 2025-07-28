@@ -1,24 +1,19 @@
-/* 🔷 Section Container */
 .our-services {
-  max-width: 1800px;
-  margin: 30px auto;
-  padding: 20px 24px;
-  background: #ffffff;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(60, 60, 130, 0.06), 0 1.5px 6px rgba(0, 0, 0, 0.02);
+  width: 100%;
+  padding: 60px 24px;
+  background: #4b2061;
+  color: #ffffff;
 }
 
-/* 🔷 Section Heading */
 .section-title {
   font-size: 2.4rem;
   font-weight: 700;
-  color: #4b2061;
-  margin-bottom: 32px;
   text-align: center;
-  letter-spacing: 0.02em;
+  margin-bottom: 48px;
+  color: #fff;
+  letter-spacing: 0.5px;
 }
 
-/* 🔷 Services Grid */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -26,14 +21,15 @@
   padding: 0 16px;
 }
 
-/* 🔷 Individual Card */
 .service-card {
-  background: #f8f8fc;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
   padding: 28px 20px;
   text-align: center;
-  box-shadow: 0 2px 12px rgba(60, 60, 130, 0.06);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   min-height: 320px;
   display: flex;
   flex-direction: column;
@@ -42,36 +38,32 @@
 }
 
 .service-card:hover {
-  box-shadow: 0 8px 32px rgba(60, 60, 130, 0.13);
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
 }
 
-/* 🔷 Icon Style */
 .service-icon {
-  font-size: 2.8rem;
+  font-size: 3.5rem;
   color: #f39c12;
-  margin-bottom: 18px;
+  margin-bottom: 0px;
 }
 
-/* 🔷 Title */
 .service-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  color: #2d2a4a;
-  margin-bottom: 10px;
+  color: #ffffff;
+  margin-bottom: 12px;
 }
 
-/* 🔷 Description */
 .service-card p {
   font-size: 0.95rem;
-  color: #666;
+  color: #cccccc;
   line-height: 1.6;
 }
 
-/* 🔷 Responsive Tweaks */
 @media (max-width: 1024px) {
   .our-services {
-    padding: 24px 16px;
+    padding: 40px 16px;
   }
 
   .section-title {
@@ -84,19 +76,15 @@
     gap: 20px;
   }
 
-  .section-title {
-    font-size: 1.6rem;
-  }
-
   .service-card {
-    padding: 20px 16px;
+    padding: 24px 16px;
     min-height: 260px;
   }
 }
 
 @media (max-width: 480px) {
   .section-title {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   .service-card {
@@ -105,6 +93,6 @@
   }
 
   .service-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 }

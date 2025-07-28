@@ -1,9 +1,9 @@
 .about-section {
   background: #fff;
   padding: 64px 32px;
-  max-width: 1800px;
-  margin: 60px auto;
-  border-radius: 24px;
+  max-width: 100%;
+  margin: 0px auto;
+  /* border-radius: 24px; */
   box-shadow: 0 8px 32px rgba(60, 60, 130, 0.06), 0 1.5px 6px rgba(0, 0, 0, 0.02);
 }
 
@@ -117,5 +117,6 @@
 }
 
 .about-btn:hover {
-  transform: translateY(-2px) scale(1.04);
+  background: #4b2061;
+  /* transform: translateY(-2px) scale(1.04); */
 }

@@ -7,6 +7,7 @@ import SingleProductPage from "./pages/SingleProductPage";
 import ProductPage from "./pages/ProductPage";
 import Footer from "./components/Footer";
 import PersonalizeProductPage from "./pages/PersonalizeProductPage";
+import "../src/styles/global.css";
 
 function App() {
   return (
