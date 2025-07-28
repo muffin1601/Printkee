@@ -9,7 +9,7 @@ const AboutUs = () => {
         <div className="about-content">
           <h2 className="about-title">About Us</h2>
           <p className="about-description">
-            At <strong>Coaching Promo</strong>, we specialize in customized corporate gifting solutions that reflect your brand’s identity and values. With an extensive collection ranging from eco-friendly products and branded apparel to tech gadgets and welcome kits, we help businesses elevate their gifting experiences.
+            At <strong>Printkee</strong>, we specialize in customized corporate gifting solutions that reflect your brand’s identity and values. With an extensive collection ranging from eco-friendly products and branded apparel to tech gadgets and welcome kits, we help businesses elevate their gifting experiences.
           </p>
           <p className="about-description">
             Whether you're welcoming new employees, celebrating milestones, or promoting your brand at events — our end-to-end service ensures every gift is memorable, thoughtful, and impactful.
@@ -39,7 +39,7 @@ const AboutUs = () => {
 
         <div className="about-image-wrapper">
           <img
-            src="/assets/about-us-banner.jpg"
+            src="https://images.pexels.com/photos/7581000/pexels-photo-7581000.jpeg"
             alt="Corporate Gifting"
             className="about-image"
           />

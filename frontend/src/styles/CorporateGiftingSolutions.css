@@ -1,0 +1,94 @@
+.giftshop-wrapper {
+  padding: 60px 20px;
+  background-color: #fdf0e9;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.giftshop-header h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #3a003f;
+  margin-bottom: 10px;
+}
+
+.giftshop-header p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 20px;
+  color: #333;
+}
+
+.show-products-btn {
+  background-color: #3a003f;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.show-products-btn:hover {
+  background-color: #5e0070;
+}
+
+.giftshop-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.giftshop-card {
+  width: 260px;
+  border-radius: 18px;
+  color: white;
+  padding: 25px 20px;
+  text-align: left;
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.giftshop-card:hover {
+  transform: translateY(-10px);
+}
+
+.giftshop-icon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.giftshop-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.giftshop-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Unique colors per card */
+.eco {
+  background-color: #f5a623;
+}
+
+.apparel {
+  background-color: #f94f9b;
+}
+
+.tech {
+  background-color: #6c63ff;
+}
+
+.executive {
+  background-color: #3f51b5;
+}
+
+.kits {
+  background-color: #ab47bc;
+}
