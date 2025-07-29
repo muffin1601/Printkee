@@ -46,6 +46,8 @@ const OurServices = () => {
   return (
     <section className="our-services">
       <h2 className="section-title">Our Services</h2>
+      <p className="section-description">
+        Explore our diverse range of corporate gifting solutions designed to enhance your brand and delight your clients.</p>
       <div className="services-grid">
         {services.map((service, index) => (
           <div className="service-card" key={index}>

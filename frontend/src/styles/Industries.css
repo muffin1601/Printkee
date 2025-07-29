@@ -1,0 +1,93 @@
+.industries-section-full {
+    background: url('/assets/banner-sect2.jpeg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.industries-section {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 50%;
+}
+
+.industries-heading {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff; /* Purple */
+    margin-bottom: 36px;
+    letter-spacing: 0.5px;
+    margin: 0 auto 40px auto;
+}
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+    max-width: 100%;
+    margin: 0 auto 40px auto;
+}
+
+.industry-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.07); /* Purple shadow */
+    padding: 32px 16px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.industry-card:hover {
+    box-shadow: 0 6px 24px rgba(124, 58, 237, 0.13); /* Stronger shadow on hover */
+    transform: translateY(-4px) scale(1.03);
+}
+
+.industry-icon {
+    color: #f39c12; /* Fixed: Added missing # for yellow */
+    margin-bottom: 16px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.industry-card p {
+    font-size: 1.1rem;
+    color: #4b2061; /* Purple */
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+}
+
+.industries-cta {
+    background-color: #f39c12;
+    color: white;
+    width: fit-content;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 24px;
+    margin: 0 auto 40px auto;
+}
+
+.industries-cta:hover {
+    /* background-color: #f39c12; */
+    transform: translateY(-2px) scale(1.04);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}

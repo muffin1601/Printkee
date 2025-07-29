@@ -114,6 +114,7 @@
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(243, 156, 18, 0.2);
   transition: background 0.2s, transform 0.2s;
+  font-family: 'Poppins', sans-serif;
 }
 
 .about-btn:hover {

@@ -9,6 +9,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .overlay {
@@ -56,6 +57,7 @@
   font-size: 18px;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
+  
 }
 .arrow-1 {
   color: white;

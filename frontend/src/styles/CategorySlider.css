@@ -117,6 +117,7 @@
     margin-top: auto;
     transition: background 0.2s, transform 0.2s;
     box-shadow: 0 2px 8px rgba(106, 130, 251, 0.10);
+    font-family: 'Poppins', sans-serif;
 }
 
 .category-explore-btn:hover {
