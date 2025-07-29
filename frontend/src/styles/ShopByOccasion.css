@@ -1,6 +1,6 @@
 .occasion-wrapper {
   padding: 40px 60px 60px 40px;
-  background: #f8f8f8;
+  background: hsl(49, 100%, 97%);
   text-align: center;
 }
 
@@ -72,6 +72,7 @@
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(243, 156, 18, 0.2);
   transition: background 0.2s, transform 0.2s;
+  font-family: 'Poppins', sans-serif;
 }
 
 .occasion-btn:hover {
