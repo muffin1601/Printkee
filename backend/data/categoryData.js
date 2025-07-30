@@ -305,7 +305,7 @@ const categoryData = [
     ],
   },
   {
-    name: "Eco-Products",
+    name: "Eco Products",
     image: "/assets/categories/ecoproducts.jpg",
     hoverImage: "/assets/categories/bamboo.jpg",
     tag: "Eco-friendly product range.\nSustainable and reusable.\nPerfect for green gifting.\nCustom branding available.",
