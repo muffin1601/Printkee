@@ -24,4 +24,43 @@ router.get('/:category', async (req, res) => {
   }
 });
 
+
+router.get('/category/related-subcategories/:subcategoryName', async (req, res) => {
+  try {
+    const { subcategoryName } = req.params;
+
+    
+    const category = await Category.findOne({
+      'subcategories.name': { $regex: new RegExp(`^${subcategoryName}$`, 'i') }
+    });
+
+    if (!category) {
+      return res.status(404).json({ error: 'Category not found' });
+    }
+
+    
+    const matchedSubcategory = category.subcategories.find(sc => 
+      sc.name.toLowerCase() === subcategoryName.toLowerCase()
+    );
+
+    if (!matchedSubcategory) {
+      return res.status(404).json({ error: 'Subcategory not found' });
+    }
+
+    
+    const related = category.subcategories
+      .filter(sc => sc.name.toLowerCase() !== subcategoryName.toLowerCase())
+      .map(sc => ({
+        name: sc.name,
+        image: sc.image,
+        tag: sc.tag
+      }));
+
+    res.json({ relatedSubcategories: related });
+  } catch (err) {
+    console.error('Error fetching related subcategories:', err.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 module.exports = router;

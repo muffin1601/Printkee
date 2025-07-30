@@ -1,13 +1,23 @@
-// src/pages/SubcategoryPage.jsx
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/SubcategoryDisplay.css";
+import categoryHighlights from "../data/highlightsdata";
+import aboutSubcategoryData from "../data/faqsdata";
+import Testimonials from "./Testimonials";
+import GetQuoteCTA from "./GetQuoteCTA";
 
 const SubcategoryDisplay = () => {
   const { category } = useParams();
+
   const [subcategories, setSubcategories] = useState([]);
   const [categoryTag, setCategoryTag] = useState("");
+  const [relatedSubcategories, setRelatedSubcategories] = useState([]);
+
+  const formattedCategory = category
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
 
   useEffect(() => {
     axios
@@ -16,23 +26,35 @@ const SubcategoryDisplay = () => {
         setSubcategories(res.data.subcategories || []);
         setCategoryTag(res.data.tag || "");
       })
-      .catch((err) =>
-        console.error("Failed to fetch category and subcategories:", err)
-      );
+      .catch((err) => console.error("Error fetching subcategories:", err));
   }, [category]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${import.meta.env.VITE_API_URL}/category/related-subcategories/${category}`)
+  //     .then((res) => {
+  //       setRelatedSubcategories(res.data.relatedSubcategories || []);
+  //     })
+  //     .catch((err) => console.error("Error fetching related subcategories:", err));
+  // }, [category]);
 
   return (
     <>
+      {/* Header */}
       <div className="subcategory-header">
         <div className="subcategory-header-content">
-          <Link to="/" className="back-link"><div class="circle">
-            <span class="arrow">&larr;</span>
-          </div><span className="span-name">Back to home</span></Link>
-          <h1 className="subcategory-title">{category.replace(/-/g, " ")}</h1>
+          <Link to="/" className="back-link">
+            <div className="circle">
+              <span className="arrow">&larr;</span>
+            </div>
+            <span className="span-name">Back to home</span>
+          </Link>
+          <h1 className="subcategory-title">{formattedCategory}</h1>
           <p className="subcategory-description">{categoryTag}</p>
         </div>
       </div>
 
+      {/* Subcategory Grid */}
       <div className="subcategory-container">
         <div className="subcategory-grid">
           {subcategories.map((sub) => (
@@ -47,6 +69,76 @@ const SubcategoryDisplay = () => {
           ))}
         </div>
       </div>
+
+      {/* Highlights Section (if data exists) */}
+      {categoryHighlights[formattedCategory] && (
+        <div className="highlights-section">
+          <h2 className="highlights-heading">
+            {categoryHighlights[formattedCategory].heading}
+          </h2>
+          <div className="highlights-grid">
+            {categoryHighlights[formattedCategory].highlights.map((highlight, i) => (
+              <div key={i} className="highlight-card">
+                <div className="highlight-icon">{highlight.icon}</div>
+                <h3 className="highlight-title">{highlight.title}</h3>
+                <p className="highlight-description">{highlight.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* About + FAQs Section */}
+      {aboutSubcategoryData[formattedCategory] && (
+        <div className="about-subcategory-container">
+          <div className="about-subcategory">
+            <h2 className="about-heading">
+              {aboutSubcategoryData[formattedCategory].heading}
+            </h2>
+            <p className="about-description">
+              {aboutSubcategoryData[formattedCategory].description}
+            </p>
+            <div className="faq-section">
+              {aboutSubcategoryData[formattedCategory].faqs.map((faq, index) => (
+                <div key={index} className="faq-item">
+                  <h4 className="faq-question">{faq.question}</h4>
+                  <p className="faq-answer">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="subcategory-image-container">
+            <img
+              src={aboutSubcategoryData[formattedCategory].image}
+              alt={formattedCategory}
+              className="subcategory-about-image"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Related Subcategories Section
+      {relatedSubcategories.length > 0 && (
+        <div className="related-subcategories-container">
+          <h2 className="related-heading">Related Categories</h2>
+          <div className="subcategory-grid">
+            {relatedSubcategories.map((sub) => (
+              <Link
+                key={sub._id}
+                to={`/${encodeURIComponent(category)}/${encodeURIComponent(sub.name)}`}
+                className="subcategory-card"
+              >
+                <img src={sub.image} alt={sub.name} className="subcategory-image" />
+                <h3 className="subcategory-name">{sub.name}</h3>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )} */}
+
+      {/* Testimonials Section */}
+      <Testimonials />
+      <GetQuoteCTA />
     </>
   );
 };
