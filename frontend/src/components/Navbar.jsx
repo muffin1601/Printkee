@@ -5,6 +5,7 @@ import { FaHome, FaThList, FaBoxOpen, FaServicestack, FaTags } from "react-icons
 import { FaInfoCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import navbarSubcategories from "../data/list";
+import { FaPen, FaEnvelope } from "react-icons/fa";
 
 const Navbar = () => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
@@ -90,19 +91,24 @@ const Navbar = () => {
             </div>
           </li>
 
-          
+
           <li>
-            <a href="#" className="nav-link">
-              <FaServicestack style={{ marginRight: 5 }} /> Our Services
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link">
+            <a href="/brands" className="nav-link">
               <FaTags style={{ marginRight: 5 }} /> Brands
             </a>
           </li>
           <li>
-            <a href="#" className="nav-link">
+            <a href="/blogs" className="nav-link">
+              <FaPen style={{ marginRight: 5 }} /> Blog
+            </a>
+          </li>
+          <li>
+            <a href="/contact" className="nav-link">
+              <FaEnvelope style={{ marginRight: 5 }} /> Contact Us
+            </a>
+          </li>
+          <li>
+            <a href="/about" className="nav-link">
               <FaInfoCircle style={{ marginRight: 5 }} /> About Us
             </a>
           </li>

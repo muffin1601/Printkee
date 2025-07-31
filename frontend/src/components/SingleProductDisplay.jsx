@@ -3,7 +3,7 @@ import "../styles/SingleProductDisplay.css";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { FaScissors as FaScissorsAlt } from "react-icons/fa6";
+import { MdRequestQuote } from "react-icons/md";
 
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import ProductOverview from "./ProductOverview";
 
 const SingleProductDisplay = () => {
   const { category, subcategory, product } = useParams();
@@ -127,11 +128,15 @@ const SingleProductDisplay = () => {
           {/* Cart Button */}
           <div className="cart-buttons">
             <button className="add-to-cart" onClick={() => {window.location.href = `/personalize/${encodeURIComponent(category)}/${encodeURIComponent(subcategory)}/${encodeURIComponent(productData.name)}`}}>
-              Customize <FaChevronRight />
+              Personalize <FaChevronRight />
+            </button>
+            <button className="get-quote" onClick={() => {window.location.href = `/get-a-quote/${encodeURIComponent(category)}/${encodeURIComponent(subcategory)}/${encodeURIComponent(productData.name)}`}}>
+              Get a Quote <MdRequestQuote />
             </button>
           </div>
         </div>
       </div>
+      <ProductOverview subcategory={subcategory} productData={productData} />
 
       {relatedProducts.length > 0 && (
         <div className="related-products-section">

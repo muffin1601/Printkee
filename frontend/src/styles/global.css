@@ -6,6 +6,7 @@ html, body {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
   background-color: #fcefdb;
+  box-sizing: border-box;
 }
 
 body{

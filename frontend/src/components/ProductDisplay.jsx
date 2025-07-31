@@ -3,6 +3,10 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { FaArrowLeft, FaHeart, FaSyncAlt, FaEye } from "react-icons/fa";
 import "../styles/ProductDisplay.css";
+import CTABanner from "./CTAbanner";
+import RelatedCategories from "./RelatedCategories";
+import FAQSection from "./FAQSection";
+import BottomCategoryDescription from "./BottomCategoryDescription";
 
 const ProductDisplay = () => {
   const { category, subcategory } = useParams();
@@ -25,7 +29,7 @@ const ProductDisplay = () => {
         <div className="subcategory-header-content">
           <Link to={`/${category}`} className="back-link">
             <div className="circle">
-              <span className="arrow">&larr;</span>
+              <span className="arrow-2">&larr;</span>
             </div>
             <span className="span-name">Back to {category}</span>
           </Link>
@@ -33,7 +37,7 @@ const ProductDisplay = () => {
           <p className="subcategory-description">{subcategoryData?.tag || ''}</p>
         </div>
       </div>
-
+<div className="product-container-2">
       <div className="page-wrapper">
         {/* Sidebar Filters */}
         <div className="sidebar">
@@ -49,7 +53,7 @@ const ProductDisplay = () => {
           </div>
 
           <div className="filter-section">
-            <div className="filter-header">
+            {/* <div className="filter-header">
               <strong>PRICE</strong>
               <span className="reset">Reset</span>
             </div>
@@ -57,7 +61,7 @@ const ProductDisplay = () => {
             <div className="price-inputs">
               <input type="number" placeholder="0" />
               <input type="number" placeholder="20.00" />
-            </div>
+            </div> */}
           </div>
 
           <div className="filter-section">
@@ -145,6 +149,15 @@ const ProductDisplay = () => {
           </div>
         </div>
       </div>
+      </div>
+      <CTABanner 
+        imageSrc="/assets/product-banner.jpeg"
+        linkTo="/contact"
+        alt="Get a Quote"/>
+        <FAQSection subcategory={subcategory} />
+        <RelatedCategories currentSubcategory={subcategory} />
+        <BottomCategoryDescription subcategory={subcategory} />
+        
     </>
   );
 };
