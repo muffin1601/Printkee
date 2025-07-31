@@ -63,4 +63,33 @@ router.get('/category/related-subcategories/:subcategoryName', async (req, res) 
   }
 });
 
+router.get('/related-subcategories/:subcategoryName', async (req, res) => {
+  try {
+    const { subcategoryName } = req.params;
+
+    // Find the category that contains the requested subcategory
+    const category = await Category.findOne({
+      'subcategories.name': { $regex: new RegExp(`^${subcategoryName}$`, 'i') }
+    });
+
+    if (!category) {
+      return res.status(404).json({ error: 'Category not found' });
+    }
+
+    // Get all subcategories excluding the current one
+    const related = category.subcategories.filter(
+      (sub) => sub.name.toLowerCase() !== subcategoryName.toLowerCase()
+    ).map(sub => ({
+      name: sub.name,
+      image: sub.image,
+      tag: sub.tag
+    }));
+
+    res.json(related);
+  } catch (err) {
+    console.error('Error fetching related subcategories:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 module.exports = router;

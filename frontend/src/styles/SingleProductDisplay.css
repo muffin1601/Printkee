@@ -1,14 +1,16 @@
-/* Reset & Base */
 
 
-/* Layout and Base */
+* {
+  box-sizing: border-box;
+}
+
 .single-product-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 0px;
   padding: 60px 5% 50px;
-  background-color: #f8eefd;
+  /* background-color: #f8eefd; */
   width: 100%;
   overflow-x: hidden;
 }
@@ -165,7 +167,7 @@
   flex-wrap: wrap;
 }
 
-.cart-buttons .add-to-cart {
+.cart-buttons .add-to-cart  {
   flex: 1 1 45%;
   padding: 14px 20px;
   font-size: 16px;
@@ -181,6 +183,25 @@
 }
 
 .cart-buttons .add-to-cart:hover {
+  background-color: #f39c12;
+}
+
+.cart-buttons .get-quote {
+  flex: 1 1 45%;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #4b2061;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 140px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cart-buttons .get-quote:hover {
   background-color: #f39c12;
 }
 
@@ -236,7 +257,7 @@
 /* Related Products */
 .related-products-section {
   padding: 60px 5%;
-  background-color: #fff;
+  background-color: #4b2061;
   width: 100%;
   overflow-x: hidden;
 }
@@ -245,7 +266,7 @@
   font-size: 28px;
   font-weight: 600;
   text-align: center;
-  color: #4b2061;
+  color: #ffffff;
   margin-bottom: 30px;
 }
 
@@ -254,7 +275,7 @@
 }
 
 .related-product-card {
-  background-color: #f8eefd;
+  background-color: #ffffff;
   border-radius: 12px;
   padding: 16px 12px;
   cursor: pointer;
@@ -282,6 +303,8 @@
   font-weight: 500;
   color: #333;
 }
+
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {

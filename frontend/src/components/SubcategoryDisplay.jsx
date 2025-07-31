@@ -45,7 +45,7 @@ const SubcategoryDisplay = () => {
         <div className="subcategory-header-content">
           <Link to="/" className="back-link">
             <div className="circle">
-              <span className="arrow">&larr;</span>
+              <span className="arrow-2">&larr;</span>
             </div>
             <span className="span-name">Back to home</span>
           </Link>
