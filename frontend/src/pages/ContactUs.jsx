@@ -6,7 +6,7 @@ const ContactUs = () => {
   return (
     <div className="contact-page">
       <Helmet>
-        <title>Contact Us | MF Global Services</title>
+        <title>Contact Us | Printkee</title>
         <meta name="description" content="Get in touch with MF Global Services for customized corporate gifting solutions. Reach out via our contact form, email, or phone." />
       </Helmet>
 
