@@ -4,10 +4,20 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "../styles/CategorySlider.css"; // make sure this file matches the class names
+import "../styles/CategorySlider.css"; 
 
 const CategorySlider = () => {
   const [categories, setCategories] = useState([]);
+
+  const slugify = (text) =>
+  text
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, 'and') 
+    .replace(/[^\w\s-]/g, '') 
+    .replace(/\s+/g, '-') 
+    .replace(/--+/g, '-');
+
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/categories`)
@@ -43,9 +53,8 @@ const CategorySlider = () => {
               <h3 className="category-title">{item.name}</h3>
               {/* <div className="category-stars">☆☆☆☆☆</div> */}
               <button className="category-explore-btn" onClick={() =>
-                          window.location.href = `/${encodeURIComponent(
-                            item.name
-                          )}`
+                          window.location.href = `/${slugify(item.name)}`
+
                         } >Explore →</button>
             </div>
           </SwiperSlide>

@@ -1,0 +1,96 @@
+.enquiry-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enquiry-modal {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+  animation: slideInBottom 0.4s ease-out;
+  font-family: 'Poppins', sans-serif;
+}
+
+.enquiry-modal h2 {
+  margin-bottom: 24px;
+  font-size: 2rem;
+  color: #4b2061;
+  text-align: center;
+  font-weight: 700;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #fafafa;
+  transition: border 0.3s ease;
+}
+
+.enquiry-form input:focus,
+.enquiry-form textarea:focus {
+  outline: none;
+  border-color: #4a00e0;
+}
+
+.submit-btn {
+  width: 100%;
+  background: #4b2061;
+  color: #fff;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(243, 156, 18, 0.2);
+  transition: background 0.2s, transform 0.2s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.submit-btn:hover {
+  background: #f39c12;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #4b2061;
+}
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

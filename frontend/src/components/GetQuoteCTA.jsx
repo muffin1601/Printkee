@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import "../styles/GetQuoteCTA.css";
 import { FaGift, FaClock, FaBoxOpen, FaPhoneAlt } from "react-icons/fa";
+import EnquiryModal from './EnquiryModal';
 
 const GetQuoteCTA = () => {
+    const [showModal, setShowModal] = useState(false);
   return (
+    <>
     <section className="quote-cta-section">
       <div className="quote-cta-overlay">
         <div className="quote-cta-content">
@@ -24,7 +27,7 @@ const GetQuoteCTA = () => {
             </div>
           </div>
 
-          <button className="quote-cta-button">
+          <button className="quote-cta-button" onClick={() => setShowModal(true)}>
             Request a Quote <span className="arrow-1">→</span>
           </button>
 
@@ -42,7 +45,9 @@ const GetQuoteCTA = () => {
           </p>
         </div>
       </div>
+
     </section>
+<EnquiryModal isOpen={showModal} onClose={() => setShowModal(false)} /></>
   );
 };
 

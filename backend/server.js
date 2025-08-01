@@ -6,9 +6,10 @@ require("dotenv").config();
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
+app.use('/uploads', express.static('uploads'));
 
-// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -16,12 +17,11 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("✅ MongoDB connected"))
 .catch(err => console.error("❌ MongoDB connection error:", err));
 
-// API Routes
+app.use("/api/blogs", require("./routes/blogRoutes"));
 app.use("/api", require("./routes/categoryRoutes"));
 app.use("/api", require("./routes/subcategoryRoutes"));
 app.use("/api", require("./routes/productRoutes"));
 
-// Start server
 const PORT = process.env.PORT || 5030;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);

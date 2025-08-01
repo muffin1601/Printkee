@@ -41,26 +41,32 @@ router.get('/:category/:subcategory', async (req, res) => {
 });
 
 router.get("/:category/:subcategory/:product", async (req, res) => {
-  const { category, subcategory, product } = req.params;
+  const category = decodeURIComponent(req.params.category);
+  const subcategory = decodeURIComponent(req.params.subcategory);
+  const product = decodeURIComponent(req.params.product);
 
   try {
-    const result = await Category.findOne(
-      { name: decodeURIComponent(category) },
-      {
-        subcategories: {
-          $elemMatch: { name: decodeURIComponent(subcategory) }
-        }
-      }
+    // Find category (case-insensitive)
+    const categoryDoc = await Category.findOne({
+      name: new RegExp(`^${category}$`, "i"),
+    });
+
+    if (!categoryDoc) {
+      return res.status(404).json({ message: "Category not found" });
+    }
+
+    // Find subcategory (case-insensitive)
+    const subcat = categoryDoc.subcategories.find(
+      (s) => s.name.toLowerCase() === subcategory.toLowerCase()
     );
 
-    if (!result || !result.subcategories || result.subcategories.length === 0) {
+    if (!subcat) {
       return res.status(404).json({ message: "Subcategory not found" });
     }
 
-    const subcat = result.subcategories[0];
-
+    // Find product (case-insensitive)
     const productData = subcat.products.find(
-      (p) => p.name === decodeURIComponent(product)
+      (p) => p.name.toLowerCase() === product.toLowerCase()
     );
 
     if (!productData) {
@@ -74,18 +80,35 @@ router.get("/:category/:subcategory/:product", async (req, res) => {
   }
 });
 
-router.get('/related-products/:category/:subcategory/:productName', async (req, res) => {
-  const { category, subcategory, productName } = req.params;
+
+router.get("/related-products/:category/:subcategory/:productName", async (req, res) => {
+  const category = decodeURIComponent(req.params.category);
+  const subcategory = decodeURIComponent(req.params.subcategory);
+  const productName = decodeURIComponent(req.params.productName);
 
   try {
-    const categoryDoc = await Category.findOne({ name: category });
+    // Find category (case-insensitive)
+    const categoryDoc = await Category.findOne({
+      name: new RegExp(`^${category}$`, "i"),
+    });
 
-    if (!categoryDoc) return res.status(404).json({ message: "Category not found" });
+    if (!categoryDoc) {
+      return res.status(404).json({ message: "Category not found" });
+    }
 
-    const subcat = categoryDoc.subcategories.find(sub => sub.name === subcategory);
-    if (!subcat) return res.status(404).json({ message: "Subcategory not found" });
+    // Find subcategory (case-insensitive)
+    const subcat = categoryDoc.subcategories.find(
+      (s) => s.name.toLowerCase() === subcategory.toLowerCase()
+    );
 
-    const related = subcat.products.filter(p => p.name !== productName);
+    if (!subcat) {
+      return res.status(404).json({ message: "Subcategory not found" });
+    }
+
+    // Filter out the main product (case-insensitive)
+    const related = subcat.products.filter(
+      (p) => p.name.toLowerCase() !== productName.toLowerCase()
+    );
 
     res.json(related);
   } catch (err) {
