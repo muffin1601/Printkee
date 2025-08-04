@@ -30,6 +30,7 @@ const SubcategoryDisplay = () => {
   const formattedCategory = formatCategory(category);
 
   useEffect(() => {
+    console.log("Fetching subcategories for:", formattedCategory);
     axios
       .get(`${import.meta.env.VITE_API_URL}/${formattedCategory}`)
       .then((res) => {
@@ -37,7 +38,7 @@ const SubcategoryDisplay = () => {
         setCategoryTag(res.data.tag || "");
       })
       .catch((err) => console.error("Error fetching subcategories:", err));
-  }, [category]);
+  }, [formattedCategory]);
 
   return (
     <>

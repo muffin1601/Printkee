@@ -168,9 +168,9 @@ const ProductDisplay = () => {
         linkTo="/contact"
         alt="Get a Quote"
       />
-      <FAQSection subcategory={subcategory} />
-      <RelatedCategories currentSubcategory={subcategory} />
-      <BottomCategoryDescription subcategory={subcategory} />
+      <FAQSection subcategory={formattedSubcategory} />
+      <RelatedCategories currentSubcategory={formattedSubcategory} />
+      <BottomCategoryDescription subcategory={formattedSubcategory} />
     </>
   );
 };

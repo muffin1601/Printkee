@@ -6,7 +6,7 @@ const navbarSubcategories = {
         'Tote Bags',
         'Accessories',
     ],
-    "Eco Products": [
+    "Eco-Products": [
         'Bamboo Products',
         'Customized Gifting',
     ],
