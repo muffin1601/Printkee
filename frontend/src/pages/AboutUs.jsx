@@ -1,9 +1,18 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../styles/AboutUs.css';
 
 const AboutUs = () => {
   return (
     <div className="aboutus-container">
+      <Helmet>
+        <title>About MF Global Services | Corporate Gifting Solutions</title>
+        <meta
+          name="description"
+          content="Learn about MF Global Services – your trusted partner for premium corporate gifting solutions. Discover our mission, values, and why top brands choose us for personalized gifts."
+        />
+      </Helmet>
+
       <section className="aboutus-hero">
         <div className="aboutus-text">
           <h1>About MF Global Services</h1>
@@ -12,7 +21,9 @@ const AboutUs = () => {
           </p>
         </div>
         <img
-          src="/assets/1.png" height="300" width="500" 
+          src="/assets/1.png"
+          height="300"
+          width="500"
           alt="Corporate Gifting by MF Global Services"
           className="aboutus-hero-image"
         />
@@ -24,7 +35,7 @@ const AboutUs = () => {
           <p>
             MF Global Services is a trusted name in the corporate gifting industry. We offer a diverse product range—from eco-friendly items and branded apparel to premium office accessories and welcome kits. Our commitment is to deliver value-driven, thoughtful gifts that reflect your organization’s ethos.
           </p>
-          <img src="/assets/2.webp" height="300" width="500"  alt="Team behind MF Global" />
+          <img src="/assets/2.webp" height="300" width="500" alt="Team behind MF Global" />
         </div>
       </section>
 
@@ -34,7 +45,7 @@ const AboutUs = () => {
           <p>
             Our mission is to simplify corporate gifting with innovative, customizable solutions that elevate your brand. Whether you're welcoming new employees, rewarding top performers, or building client relationships, we make sure every gift makes an impact.
           </p>
-          <img src="/assets/3.webp" height="300" width="500"  alt="MF Global Mission Statement" />
+          <img src="/assets/3.webp" height="300" width="500" alt="MF Global Mission Statement" />
         </div>
       </section>
 

@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import ProductOverview from "./ProductOverview";
+import { Helmet } from "react-helmet";
 
 const SingleProductDisplay = () => {
   const { category, subcategory, product } = useParams();
@@ -61,10 +62,6 @@ const SingleProductDisplay = () => {
   const formattedSubcategory = formatSubcategory(subcategory);
   const formattedProduct = formatProduct(product);
 
-  console.log("Formatted Category:", formattedCategory);
-  console.log("Formatted Subcategory:", formattedSubcategory);  
-  console.log("Formatted Product:", formattedProduct);
-
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -99,6 +96,19 @@ const SingleProductDisplay = () => {
 
   return (
     <>
+      {/* SEO Meta Title and Description */}
+      <Helmet>
+        <title>{`${productData.name} | ${formattedSubcategory} - MF Global Services`}</title>
+        <meta
+          name="description"
+          content={
+            productData.description
+              ? productData.description.slice(0, 150)
+              : `Explore ${productData.name}, a top pick from our ${formattedSubcategory} collection at MF Global Services.`
+          }
+        />
+      </Helmet>
+
       <div className="single-product-page">
         <div className="single-product-container">
           <div className="product-right">
@@ -172,7 +182,12 @@ const SingleProductDisplay = () => {
             </div>
 
             <div className="cart-buttons">
-              <button className="add-to-cart" onClick={() => navigate(`/personalize/${category}/${subcategory}/${product}`)}>
+              <button
+                className="add-to-cart"
+                onClick={() =>
+                  navigate(`/personalize/${category}/${subcategory}/${product}`)
+                }
+              >
                 Customize Now
               </button>
               <button
@@ -228,6 +243,7 @@ const SingleProductDisplay = () => {
           </div>
         )}
       </div>
+
       <EnquiryModal isOpen={showModal} onClose={() => setShowModal(false)} />
     </>
   );

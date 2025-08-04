@@ -1,0 +1,73 @@
+
+.search-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+}
+
+.search-page__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-page__heading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.search-page__query {
+  color: #c0392b;
+}
+
+.search-page__category {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.search-page__loading,
+.search-page__no-results {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 20px;
+}
+
+.search-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.search-page__card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  padding: 15px;
+  text-align: center;
+}
+
+.search-page__card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-page__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.search-page__title {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 8px 0;
+}
+
+.search-page__description {
+  font-size: 0.95rem;
+  color: #666;
+}

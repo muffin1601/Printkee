@@ -21,7 +21,8 @@ const ProductSchema = new mongoose.Schema({
   colour: [String],
   price: PriceSchema,
   image: String,
-  subImages: [String]
+  subImages: [String],
+  tags: [String] 
 }, { timestamps: true });
 
 const SubcategorySchema = new mongoose.Schema({
