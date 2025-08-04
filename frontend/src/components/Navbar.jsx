@@ -21,6 +21,15 @@ const Navbar = () => {
     }
   };
 
+  const slugify = (text) =>
+    text
+      .toLowerCase()
+      .trim()
+      .replace(/&/g, "and")
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/--+/g, "-");
+
   const groupedCategories = Object.entries(navbarSubcategories).reduce((acc, curr, index) => {
     if (index % 2 === 0) acc.push([curr]);
     else acc[acc.length - 1].push(curr);
@@ -92,7 +101,7 @@ const Navbar = () => {
                           {subcategories.map((sub, j) => (
                             <li key={j}>
                               <NavLink
-                                to={`/${encodeURIComponent(mainCategory)}/${encodeURIComponent(sub)}`}
+                                to={`/${slugify(mainCategory)}/${slugify(sub)}`}
                               >
                                 {sub}
                               </NavLink>

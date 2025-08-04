@@ -167,7 +167,7 @@
   flex-wrap: wrap;
 }
 
-.cart-buttons .add-to-cart  {
+.cart-buttons .add-to-cart-2  {
   flex: 1 1 45%;
   padding: 14px 20px;
   font-size: 16px;
@@ -182,7 +182,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.cart-buttons .add-to-cart:hover {
+.cart-buttons .add-to-cart-2:hover {
   background-color: #f39c12;
 }
 
