@@ -183,7 +183,7 @@ const SingleProductDisplay = () => {
 
             <div className="cart-buttons">
               <button
-                className="add-to-cart"
+                className="add-to-cart-2"
                 onClick={() =>
                   navigate(`/personalize/${category}/${subcategory}/${product}`)
                 }
