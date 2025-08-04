@@ -6,7 +6,7 @@ const ContactUs = () => {
   return (
     <div className="contact-page">
       <Helmet>
-        <title>Contact Us | Printkee</title>
+        <title>Contact Us | MF Global Services</title>
         <meta name="description" content="Get in touch with MF Global Services for customized corporate gifting solutions. Reach out via our contact form, email, or phone." />
       </Helmet>
 
@@ -29,9 +29,10 @@ const ContactUs = () => {
 
         <div className="contact-details">
           <h2>Contact Information</h2>
-          <p><strong>Email:</strong> info@mfglobalservices.com</p>
-          <p><strong>Phone:</strong> +91-9876543210</p>
-          <p><strong>Address:</strong> 123 Corporate Avenue, Mumbai, Maharashtra, India</p>
+          <p><strong>Email:</strong> sales@mfglobalservices.com</p>
+          <p><strong>Phone:</strong>  +91 9266 013059</p>
+          <p><strong>Address:</strong>  F90/1, Beside ESIC Hospital, Okhla Industrial Area Phase 1,
+New Delhi – 110020, India</p>
         </div>
       </div>
     </div>

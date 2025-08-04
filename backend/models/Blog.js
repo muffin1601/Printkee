@@ -10,7 +10,7 @@ const BlogSchema = new mongoose.Schema({
   title: String,
   content: String,
   author: String,
-  image: String, // image file path
+  image: String, 
   date: { type: Date, default: Date.now },
   comments: [CommentSchema]
 });

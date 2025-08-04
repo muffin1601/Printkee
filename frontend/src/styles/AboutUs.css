@@ -5,7 +5,7 @@
   max-width: 1200px;
   margin: auto;
   background: #ffffff;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
@@ -93,8 +93,8 @@
 }
 
 .aboutus-btn:hover {
-  background-color: #31103e;
-  transform: translateY(-2px);
+  background-color: #f39c12;
+  /* transform: translateY(-2px); */
 }
 
 /* Responsive behavior for smaller screens */
