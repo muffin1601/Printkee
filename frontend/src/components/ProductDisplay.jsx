@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 import { FaHeart, FaEye } from "react-icons/fa";
 import "../styles/ProductDisplay.css";
@@ -50,6 +51,18 @@ const ProductDisplay = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{`${formattedSubcategory} | ${formattedCategory} - MF Global Services`}</title>
+        <meta
+          name="description"
+          content={
+            subcategoryData?.tag
+              ? subcategoryData.tag.replace(/\n/g, " ")
+              : `Explore ${formattedSubcategory} under ${formattedCategory} at MF Global Services. Discover custom branded gifts for every need.`
+          }
+        />
+      </Helmet>
+
       <div className="subcategory-header">
         <div className="subcategory-header-content">
           <Link to={`/${category}`} className="back-link">

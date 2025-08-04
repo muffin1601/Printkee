@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 import "../styles/SubcategoryDisplay.css";
 import categoryHighlights from "../data/highlightsdata";
 import aboutSubcategoryData from "../data/faqsdata";
@@ -30,7 +31,6 @@ const SubcategoryDisplay = () => {
   const formattedCategory = formatCategory(category);
 
   useEffect(() => {
-    console.log("Fetching subcategories for:", formattedCategory);
     axios
       .get(`${import.meta.env.VITE_API_URL}/${formattedCategory}`)
       .then((res) => {
@@ -42,6 +42,18 @@ const SubcategoryDisplay = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{formattedCategory} | MF Global Services</title>
+        <meta
+          name="description"
+          content={
+            categoryTag
+              ? categoryTag.replace(/\n/g, " ")
+              : `Explore our premium range of ${formattedCategory} at MF Global Services. Discover corporate gifting options with customization.`
+          }
+        />
+      </Helmet>
+
       <div className="subcategory-header">
         <div className="subcategory-header-content">
           <Link to="/" className="back-link">
@@ -85,7 +97,9 @@ const SubcategoryDisplay = () => {
                 <div key={i} className="highlight-card">
                   <div className="highlight-icon">{highlight.icon}</div>
                   <h3 className="highlight-title">{highlight.title}</h3>
-                  <p className="highlight-description">{highlight.description}</p>
+                  <p className="highlight-description">
+                    {highlight.description}
+                  </p>
                 </div>
               )
             )}

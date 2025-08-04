@@ -14,6 +14,7 @@ import Sitemap from "./pages/Sitemap";
 import BlogList from "./pages/BlogList";
 import BlogForm from "./pages/BlogForm";
 import BlogView from "./pages/BlogView";
+import SearchResults from "./pages/SearchResults";
 import "../src/styles/global.css";
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
         <Route path="/blogs" element={<BlogList />} />
         <Route path="/post" element={<BlogForm />} />
         <Route path="/blog/:id" element={<BlogView />} />
-        {/* <Route path="/blogs" element={<div>Blogs Page</div>} /> */}
+        <Route path="/search" element={<SearchResults />} />
         <Route path="/sitemap" element={<Sitemap/>} />
         <Route path="/:category" element={<SubcategoryPage />} />
         <Route path="/:category/:subcategory" element={<ProductPage />} />

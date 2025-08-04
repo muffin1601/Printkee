@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import { IoPersonOutline } from "react-icons/io5";
 import { FaHome, FaThList, FaBoxOpen, FaServicestack, FaTags } from "react-icons/fa";
@@ -10,7 +11,16 @@ import { FaPen, FaEnvelope } from "react-icons/fa";
 const Navbar = () => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
 
-  // Group categories into pairs for 2 per column
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("All Categories");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter") {
+      navigate(`/search?q=${encodeURIComponent(query)}&cat=${encodeURIComponent(category)}`);
+    }
+  };
+
   const groupedCategories = Object.entries(navbarSubcategories).reduce((acc, curr, index) => {
     if (index % 2 === 0) acc.push([curr]);
     else acc[acc.length - 1].push(curr);
@@ -26,8 +36,14 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-search">
-          <input type="text" placeholder="Search Product..." />
-          <select>
+          <input
+            type="text"
+            placeholder="Search Product..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={handleSearch}
+          />
+          <select value={category} onChange={(e) => setCategory(e.target.value)}>
             <option>All Categories</option>
             <option>Apparel</option>
             <option>Bags</option>
