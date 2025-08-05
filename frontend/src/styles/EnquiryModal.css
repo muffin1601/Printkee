@@ -17,23 +17,57 @@
   padding: 30px 25px;
   border-radius: 10px;
   width: 100%;
-  max-width: 480px;
+  max-width: 960px; /* wider for side-by-side layout */
   position: relative;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
   animation: slideInBottom 0.4s ease-out;
 }
 
+.modal-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-content {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  padding: 10px;
+}
+
+.enquiry-image {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.left-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.right-form {
+  flex: 1;
+  min-width: 300px;
+  padding: 10px;
+}
+
 .enquiry-title {
   margin-bottom: 24px;
+  text-align: center;
   font-size: 2rem;
   color: #4b2061;
-  text-align: center;
   font-weight: 700;
 }
 
 .enquiry-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* stack fields vertically */
   gap: 16px;
 }
 
@@ -98,5 +132,13 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Responsive fallback: stack vertically on smaller screens */
+@media (max-width: 768px) {
+  .modal-container {
+    flex-direction: column;
+    align-items: stretch;
   }
 }

@@ -4,62 +4,83 @@
   align-items: center;
   padding: 60px 20px;
   min-height: 100vh;
-  background: #f8f9fb;
+  background: linear-gradient(135deg, #f8f9fb, #f1f4f9);
+  font-family: 'Poppins', sans-serif;
 }
 
 .blog-form {
   width: 100%;
   max-width: 600px;
   background: #fff;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  animation: slideUp 0.5s ease-out;
-  font-family: 'Poppins', sans-serif;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(75, 32, 97, 0.15);
+  animation: slideUp 0.6s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-form:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(75, 32, 97, 0.25);
 }
 
 .blog-form h2 {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   color: #4b2061;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
+  position: relative;
+}
+
+.blog-form h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #f39c12;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
 .blog-form input,
 .blog-form textarea {
   width: 100%;
-  padding: 14px 16px;
-  margin-bottom: 18px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 22px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
   font-size: 1rem;
   background-color: #fafafa;
-  transition: border 0.3s ease;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blog-form input:focus,
 .blog-form textarea:focus {
-  border-color: #4a00e0;
+  border-color: #f39c12;
+  box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.15);
   outline: none;
 }
 
 .submit-btn {
   width: 100%;
-  background: #f39c12;
+  background: linear-gradient(135deg, #f39c12, #e38f0e);
   color: #fff;
-  padding: 14px;
+  padding: 16px;
   border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background 0.3s ease;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: background 0.3s ease, transform 0.2s ease;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
+  box-shadow: 0 6px 18px rgba(243, 156, 18, 0.3);
 }
 
 .submit-btn:hover {
-  background: #4b2061;
+  background: linear-gradient(135deg, #4b2061, #3d194e);
+  /* transform: scale(1.03); */
+  box-shadow: 0 8px 25px rgba(75, 32, 97, 0.4);
 }
 
 @keyframes slideUp {
