@@ -1,8 +1,8 @@
-
 .search-page {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  background-color: #fffbea; /* Light pastel yellow background */
   padding: 40px 20px;
+  min-height: 100vh;
 }
 
 .search-page__container {
@@ -15,10 +15,11 @@
   font-weight: 600;
   margin-bottom: 30px;
   color: #222;
+  text-align: left;
 }
 
 .search-page__query {
-  color: #c0392b;
+  color: #d35400; /* Burnt orange for emphasis */
 }
 
 .search-page__category {
@@ -31,34 +32,44 @@
   font-size: 1.2rem;
   color: #555;
   margin-top: 20px;
+  text-align: center;
 }
 
 .search-page__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
 }
 
 .search-page__card {
-  background: #ffffff;
-  border: 1px solid #ddd;
+  background: #fff9e6; /* Light warm yellow for card */
+  border: 1px solid #f7d774;
   border-radius: 12px;
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
-  padding: 15px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .search-page__card:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 18px rgba(255, 204, 0, 0.2);
+  transform: translateY(-4px);
 }
 
 .search-page__image {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  margin-bottom: 10px;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
+}
+
+.search-page__card-content {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .search-page__title {
@@ -70,4 +81,52 @@
 .search-page__description {
   font-size: 0.95rem;
   color: #666;
+}
+
+/* Skeleton Loading Styles */
+.search-page__card--loading {
+  animation: pulse 1.5s infinite ease-in-out;
+  background-color: #fff7db;
+}
+
+.skeleton {
+  background-color: #fbeab8;
+  border-radius: 4px;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 16px;
+  margin: 10px auto;
+}
+
+.skeleton-text {
+  width: 80%;
+  height: 12px;
+  margin: 8px auto;
+}
+
+.search-page__image.skeleton {
+  height: 180px;
+  margin-bottom: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Pulse animation for skeletons */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-page__heading {
+    text-align: center;
+  }
 }

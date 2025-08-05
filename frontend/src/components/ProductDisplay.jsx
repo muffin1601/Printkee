@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 import { FaHeart, FaEye } from "react-icons/fa";
 import "../styles/ProductDisplay.css";
-import CTABanner from "./CTAbanner";
+import CTABanner from "./CTABanner";
 import RelatedCategories from "./RelatedCategories";
 import FAQSection from "./FAQSection";
 import BottomCategoryDescription from "./BottomCategoryDescription";

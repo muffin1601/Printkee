@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/HowItWorks.css";
+import "../styles/HowitWorks.css";
 import { FaGift, FaPaintBrush, FaCheckCircle, FaTruck } from "react-icons/fa";
 
 const HowitWorks = () => {

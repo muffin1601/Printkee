@@ -26,9 +26,9 @@ const Footer = () => {
           <ul>
             <li><a href="/about">About Us</a></li>
             <li><a href="/contact">Contact</a></li>
-            <li><a href="/faq">Brands</a></li>
+            <li><a href="/brands">Brands</a></li>
             <li><a href="/blogs">Blog</a></li>
-            <li><a href="/careers">Services</a></li>
+            <li><a href="#">Services</a></li>
             <li><a href="/sitemap">Sitemap</a></li>
           </ul>
         </div>
@@ -37,11 +37,11 @@ const Footer = () => {
         <div className="footer-column">
           <h4>Our Products</h4>
           <ul>
-            <li><a href="/custom-gifting">Custom Gifting</a></li>
-            <li><a href="/bulk-orders">Bulk Orders</a></li>
-            <li><a href="/branding">Branding Solutions</a></li>
-            <li><a href="/employee-gifts">Employee Gifts</a></li>
-            <li><a href="/festival-gifts">Festival Gifts</a></li>
+            <li><a href="#">Custom Gifting</a></li>
+            <li><a href="#">Bulk Orders</a></li>
+            <li><a href="#">Branding Solutions</a></li>
+            <li><a href="#">Employee Gifts</a></li>
+            <li><a href="#">Festival Gifts</a></li>
           </ul>
         </div>
 
