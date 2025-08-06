@@ -6,25 +6,11 @@ const categoryData = [
     tag: "Discover our range of apparel and accessories.\nPerfect for branding and gifting.\nTrendy, comfortable, and customizable.\nIdeal for all occasions.",
     subcategories: [
       {
-        name: "T-Shirts",
-        image: "/assets/subcategories/tshirt.jpg",
+        name: "Polo T-Shirts",
+        image: "/assets/subcategories/polotshirt.webp",
         hoverImage: "",
-        tag: "Classic and custom t-shirts.\nSoft, durable fabrics.\nIdeal for events and teams.\nPersonalize with your logo.",
+        tag: "Smart and comfortable polo t-shirts.\nPerfect for corporate wear.\nCustom logo printing available.",
         products: [
-          {
-            name: "Cotton T-Shirt",
-            description: "100% cotton round neck t-shirt.",
-            image: "/assets/products/tshirt1.png",
-            tags: [
-              "cotton t-shirt",
-              "round neck t-shirt",
-              "custom cotton tee",
-              "Apparel and Accessories",
-              "T-Shirts",
-              "branded cotton t-shirt",
-              "event t-shirt"
-            ]
-          },
           {
             name: "Polo T-Shirt",
             description: "Comfort-fit polo t-shirt with logo print.",
@@ -38,9 +24,31 @@ const categoryData = [
               "logo polo shirt",
               "custom polo tee",
               "Apparel and Accessories",
-              "T-Shirts",
+              "Polo T-Shirts",
               "corporate polo t-shirt",
               "branded apparel"
+            ]
+          }
+        ]
+      },
+      {
+        name: "Round Neck T-Shirts",
+        image: "/assets/subcategories/round.webp",
+        hoverImage: "",
+        tag: "Classic round neck t-shirts.\nSoft, breathable materials.\nCustomizable for events, teams, and promotions.",
+        products: [
+          {
+            name: "Cotton T-Shirt",
+            description: "100% cotton round neck t-shirt.",
+            image: "/assets/products/tshirt1.png",
+            tags: [
+              "cotton t-shirt",
+              "round neck t-shirt",
+              "custom cotton tee",
+              "Apparel and Accessories",
+              "Round Neck T-Shirts",
+              "branded cotton t-shirt",
+              "event t-shirt"
             ]
           },
           {
@@ -52,7 +60,7 @@ const categoryData = [
               "modern t-shirt",
               "custom v-neck tee",
               "Apparel and Accessories",
-              "T-Shirts",
+              "Round Neck T-Shirts",
               "branded v-neck shirt"
             ]
           },
@@ -64,7 +72,7 @@ const categoryData = [
               "long sleeve t-shirt",
               "full sleeve tee",
               "Apparel and Accessories",
-              "T-Shirts",
+              "Round Neck T-Shirts",
               "custom long t-shirt",
               "winter t-shirt"
             ]
@@ -78,7 +86,7 @@ const categoryData = [
               "performance tee",
               "activewear",
               "Apparel and Accessories",
-              "T-Shirts",
+              "Round Neck T-Shirts",
               "custom sports shirt"
             ]
           },
@@ -90,7 +98,7 @@ const categoryData = [
               "raglan t-shirt",
               "contrast sleeve tee",
               "Apparel and Accessories",
-              "T-Shirts",
+              "Round Neck T-Shirts",
               "custom raglan tee",
               "branded tee"
             ]
@@ -103,7 +111,7 @@ const categoryData = [
               "performance t-shirt",
               "moisture wicking tee",
               "Apparel and Accessories",
-              "T-Shirts",
+              "Round Neck T-Shirts",
               "custom gym shirt",
               "activewear"
             ]
@@ -111,10 +119,10 @@ const categoryData = [
         ]
       },
       {
-        name: "Caps and Hats",
-        image: "/assets/subcategories/cap.jpg",
+        name: "Caps",
+        image: "/assets/subcategories/cap.jpg", // Update with the correct image path for caps
         hoverImage: "",
-        tag: "Stylish caps and hats.\nGreat for promotions.\nComfortable and adjustable.\nCustom embroidery available.",
+        tag: "Stylish and comfortable caps.\nPerfect for branding and giveaways.\nCustom embroidery options.",
         products: [
           {
             name: "Baseball Cap",
@@ -125,11 +133,19 @@ const categoryData = [
               "custom cap",
               "embroidered cap",
               "Apparel and Accessories",
-              "Caps and Hats",
+              "Caps",
               "branded cap",
               "adjustable cap"
             ]
-          },
+          }
+        ]
+      },
+      {
+        name: "Hats",
+        image: "/assets/subcategories/hats.jpg", // Update with the correct image path for hats
+        hoverImage: "",
+        tag: "Trendy hats for outdoor and casual wear.\nIdeal for sun protection and custom branding.",
+        products: [
           {
             name: "Bucket Hat",
             description: "Reversible bucket hat for sun protection.",
@@ -138,7 +154,7 @@ const categoryData = [
               "bucket hat",
               "reversible hat",
               "Apparel and Accessories",
-              "Caps and Hats",
+              "Hats",
               "custom branded hat",
               "sun protection hat"
             ]
@@ -154,7 +170,7 @@ const categoryData = [
           {
             name: "Formal Shirt",
             description: "Slim-fit shirt with logo print.",
-            image: "/assets/products/shirt1.jpg",
+            image: "/assets/products/shirt.webp",
             tags: [
               "formal shirt",
               "corporate shirt",
@@ -223,7 +239,7 @@ const categoryData = [
           {
             name: "Kitchen Apron",
             description: "Durable kitchen apron with print.",
-            image: "/assets/products/apron1.jpg",
+            image: "/assets/products/apron.webp",
             tags: [
               "kitchen apron",
               "printed apron",
@@ -1149,7 +1165,7 @@ const categoryData = [
           {
             name: "Aluminum Sipper",
             description: "750ml sports bottle.",
-            image: "/assets/products/sipper1.jpg",
+            image: "/assets/products/sipper.webp",
             tags: [
               "aluminum sipper",
               "sports sipper",

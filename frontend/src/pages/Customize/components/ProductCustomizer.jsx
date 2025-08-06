@@ -1,0 +1,231 @@
+import React, { useEffect } from "react";
+import { fabric } from "fabric";
+import "../styles/ProductCustomizer.css";
+
+const ProductCustomizer = ({
+  canvasRef,
+  mainImageUrl,
+  partMap = {},
+  savedState,
+  globalPartColors = {},
+}) => {
+  useEffect(() => {
+    const canvasEl = document.getElementById("product-customizer-canvas");
+    if (!canvasEl) return;
+
+    const calculateSize = () => {
+      const screenWidth = window.innerWidth;
+      let width = 550;
+      let height = 580;
+
+      if (screenWidth < 768) {
+        width = screenWidth * 0.9;
+        height = width * 1.26;
+      }
+
+      return { width, height };
+    };
+
+    const { width, height } = calculateSize();
+
+    if (!canvasRef.current) {
+      const canvas = new fabric.Canvas(canvasEl, {
+        width,
+        height,
+        preserveObjectStacking: true,
+        // backgroundColor: '#f5f5f5', // Add background to see if canvas is visible
+      });
+      canvasRef.current = canvas;
+    } else {
+      canvasRef.current.setWidth(width);
+      canvasRef.current.setHeight(height);
+      canvasRef.current.renderAll();
+    }
+
+    const handleResize = () => {
+      const { width, height } = calculateSize();
+      canvasRef.current.setWidth(width);
+      canvasRef.current.setHeight(height);
+      canvasRef.current.renderAll();
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const applyGlobalColors = (canvas) => {
+    const grp = canvas.mainGroup;
+    if (!grp || !globalPartColors || Object.keys(globalPartColors).length === 0) return;
+
+    const applyColor = (o) => {
+      const part = o.customPart;
+      if (part && globalPartColors[part]) {
+        o.set("fill", globalPartColors[part]);
+        o.dirty = true;
+      }
+      if (o._objects) o._objects.forEach(applyColor);
+    };
+
+    applyColor(grp);
+    canvas.requestRenderAll();
+  };
+
+  const loadSVG = async (url, canvas) => {
+    try {
+      const response = await fetch(url);
+      const svgText = await response.text();
+      
+      // More careful SVG cleaning
+      const cleaned = svgText
+        .replace(/<\?xml[^>]+\?>/, '')
+        .replace(/<!DOCTYPE[^>[]+(\[[^]]+\])?>/, '')
+        .replace(/<\/*\s*[\w\-]+:/g, (match) => match.toLowerCase());
+
+      fabric.loadSVGFromString(cleaned, (objects, options) => {
+        if (!objects || objects.length === 0) {
+          console.error("No objects loaded from SVG");
+          return;
+        }
+
+        // Assign parts to objects
+        const assignParts = (obj) => {
+          if (obj.id) {
+            for (const [part, ids] of Object.entries(partMap)) {
+              if (ids.includes(obj.id)) {
+                obj.customPart = part;
+                break;
+              }
+            }
+          }
+          obj.set({ objectCaching: true, selectable: false });
+          if (obj._objects) obj._objects.forEach(assignParts);
+        };
+
+        objects.forEach(assignParts);
+
+        const group = new fabric.Group(objects, {
+          ...options,
+          selectable: false,
+          evented: false,
+        });
+
+        // Calculate proper scaling and positioning
+        const canvasWidth = canvas.getWidth();
+        const canvasHeight = canvas.getHeight();
+        const boundingRect = group.getBoundingRect();
+        
+        const scale = Math.min(
+          (canvasWidth * 0.9) / boundingRect.width,
+          (canvasHeight * 0.9) / boundingRect.height
+        );
+
+        group.scale(scale);
+        group.set({
+          left: canvasWidth / 2,
+          top: canvasHeight / 2,
+          originX: 'center',
+          originY: 'center',
+        });
+
+        canvas.clear();
+        canvas.add(group);
+        canvas.mainGroup = group;
+        applyGlobalColors(canvas);
+        canvas.renderAll();
+
+        console.log("SVG loaded successfully", group);
+      }, null, {
+        crossOrigin: 'anonymous',
+        suppressPreamble: true,
+      });
+    } catch (error) {
+      console.error("Error loading SVG:", error);
+    }
+  };
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || !mainImageUrl) return;
+
+    console.log("Loading image:", mainImageUrl);
+
+    // 1. Handle saved JSON state first
+    if (savedState) {
+      canvas.loadFromJSON(savedState, () => {
+        canvas.mainGroup = canvas.getObjects().find(obj => obj.type === "group");
+        applyGlobalColors(canvas);
+        canvas.renderAll();
+      });
+      return;
+    }
+
+    // 2. Detect file type
+    const isSvg = mainImageUrl.toLowerCase().endsWith(".svg");
+
+    if (isSvg) {
+      loadSVG(mainImageUrl, canvas);
+    } else {
+      // Load PNG/JPG as background image
+      fabric.Image.fromURL(
+        mainImageUrl,
+        (img) => {
+          const canvasWidth = canvas.getWidth();
+          const canvasHeight = canvas.getHeight();
+          const scale = Math.min(
+            canvasWidth / img.width, 
+            canvasHeight / img.height
+          );
+
+          img.set({
+            originX: "center",
+            originY: "center",
+            left: canvasWidth / 2,
+            top: canvasHeight / 2,
+            scaleX: scale,
+            scaleY: scale,
+            selectable: false,
+            evented: false,
+          });
+
+          canvas.setBackgroundImage(img, () => {
+            canvas.renderAll();
+            console.log("Background image loaded");
+          });
+        },
+        { 
+          crossOrigin: "anonymous",
+          // Add error callback
+          error: (err) => console.error("Error loading image:", err)
+        }
+      );
+    }
+  }, [mainImageUrl, partMap, savedState, globalPartColors]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const handleChange = () => {
+      if (typeof window.updateThumbnailFromCanvas === "function") {
+        window.updateThumbnailFromCanvas();
+      }
+    };
+
+    canvas.on("object:modified", handleChange);
+    canvas.on("object:added", handleChange);
+
+    return () => {
+      canvas.off("object:modified", handleChange);
+      canvas.off("object:added", handleChange);
+    };
+  }, []);
+
+  return (
+    <canvas
+      id="product-customizer-canvas"
+      className="product-customizer-canvas"
+    />
+  );
+};
+
+export default ProductCustomizer;

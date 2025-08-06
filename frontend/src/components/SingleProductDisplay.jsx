@@ -40,7 +40,8 @@ const SingleProductDisplay = () => {
 
   const formatSubcategory = (slug) => {
     const exceptions = {
-      "t-shirts": "T-Shirts",
+      "round-neck-t-shirts": "Round Neck T-Shirts",
+      "polo-t-shirts": "Polo T-Shirts",
     };
     return exceptions[slug.toLowerCase()] || formatCategory(slug);
   };
@@ -184,9 +185,26 @@ const SingleProductDisplay = () => {
             <div className="cart-buttons">
               <button
                 className="add-to-cart-2"
-                onClick={() =>
-                  navigate(`/personalize/${category}/${subcategory}/${product}`)
-                }
+                onClick={() => {
+                  const subcategory = formattedSubcategory;
+
+                  let route = "/customize";
+
+                  if (subcategory === "Polo T-Shirts") {
+                    route = "/customize/polotshirt";
+                  } else if (subcategory === "Round Neck T-Shirts") {
+                    route = "/customize/roundneck";
+                  } else if (subcategory === "Caps") {
+                    route = "/customize/cap";
+                  }
+
+                  navigate(route, {
+                    state: {
+                      productName: productData.name,
+                      productImages: [productData.image, ...(productData.subImages || [])]
+                    }
+                  });
+                }}
               >
                 Customize Now
               </button>
