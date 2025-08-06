@@ -6,7 +6,7 @@ import SubcategoryPage from "./pages/SubcategoryPage";
 import SingleProductPage from "./pages/SingleProductPage";
 import ProductPage from "./pages/ProductPage";
 import Footer from "./components/Footer";
-import PersonalizeProductPage from "./pages/PersonalizeProductPage";
+
 import AboutUs from "./pages/AboutUs";
 import Brands from "./pages/Brands";
 import ContactUs from "./pages/ContactUs";
@@ -16,6 +16,10 @@ import BlogForm from "./pages/BlogForm";
 import BlogView from "./pages/BlogView";
 import SearchResults from "./pages/SearchResults";
 import "../src/styles/global.css";
+import CustomizerSVG from "./pages/Customize/CustomizerSVG";
+import CustomizerAll from "./pages/Customize/CustomizerAll";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -34,9 +38,21 @@ function App() {
         <Route path="/:category" element={<SubcategoryPage />} />
         <Route path="/:category/:subcategory" element={<ProductPage />} />
         <Route path="/:category/:subcategory/:product" element={<SingleProductPage />} />
-        <Route path="/personalize/:category/:subcategory/:product" element={<PersonalizeProductPage />} />
+        <Route path="/customize/:productType" element={<CustomizerSVG />} />
+        <Route path="/customize" element={<CustomizerAll/>} />
       </Routes>
       <Footer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored" 
+      />
     </div>
   );
 }

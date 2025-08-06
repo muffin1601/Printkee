@@ -1,4 +1,18 @@
 const navbarSubcategories = {
+    "Apparel and Accessories": [
+        'Polo T-Shirts',
+        'Round Neck T-Shirts',
+        'Caps',
+        'Hats',
+        'Corporate Shirts',
+        'Ties',
+        'Aprons',
+        'Winter Wear',
+    ], 
+    "Eco-Products": [
+        'Bamboo Products',
+        'Customized Gifting',
+    ],
     "Bags and Travel": [
         'Backpacks',
         'Foldable Bags',
@@ -6,18 +20,8 @@ const navbarSubcategories = {
         'Tote Bags',
         'Accessories',
     ],
-    "Eco-Products": [
-        'Bamboo Products',
-        'Customized Gifting',
-    ],
-    "Apparel and Accessories": [
-        'T-Shirts',
-        'Caps and Hats',
-        'Corporate Shirts',
-        'Ties',
-        'Aprons',
-        'Winter Wear',
-    ],
+   
+    
     "Collection": [
         'Welcome Kits',
         'Promotional Clocks',

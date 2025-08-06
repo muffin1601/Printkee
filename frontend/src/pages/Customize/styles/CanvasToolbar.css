@@ -1,0 +1,42 @@
+.canvas-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding-top: 8px;
+  justify-content: flex-end;
+}
+
+.canvas-toolbar__button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: #fcefdb;
+  color: #4b2061;
+  border: 1px solid #e0d0b8;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Poppins', sans-serif;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.canvas-toolbar__button:hover {
+  background-color: #f3e2c7;
+  transform: translateY(-1px);
+}
+
+.canvas-toolbar__button .icon-2 {
+  font-size: 1.2rem;
+ 
+}
+
+.canvas-toolbar-wrapper {
+  padding: 12px 1rem 8px;
+  border-bottom: 1px solid #eee;
+  margin-top: 8px;
+}

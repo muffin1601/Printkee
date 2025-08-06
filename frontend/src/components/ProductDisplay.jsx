@@ -31,7 +31,8 @@ const ProductDisplay = () => {
 
   const formatSubcategory = (slug) => {
     const exceptions = {
-      "t-shirts": "T-Shirts",
+      "round-neck-t-shirts": "Round Neck T-Shirts",
+      "polo-t-shirts": "Polo T-Shirts",
     };
     return exceptions[slug.toLowerCase()] || formatCategory(slug);
   };
