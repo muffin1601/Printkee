@@ -1,8 +1,26 @@
-import React from "react";
+import React , {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/HowitWorks.css";
 import { FaGift, FaPaintBrush, FaCheckCircle, FaTruck } from "react-icons/fa";
 
 const HowitWorks = () => {
+  const navigate = useNavigate();
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleProceed = () => {
+    if (!selectedOption) return;
+
+    if (selectedOption === "Polo T-Shirt") {
+      navigate("/customize/polotshirt");
+    } else if (selectedOption === "Round Neck T-Shirt") {
+      navigate("/customize/roundneck");
+    } else if (selectedOption === "Cap") {
+      navigate("/customize/cap");
+    }
+    setShowPopup(false);
+  };
+
   return (
     <section className="how-it-works-section">
       <div className="how-it-works-banner">
@@ -33,9 +51,36 @@ const HowitWorks = () => {
               <p>We pack and ship gifts with precision and love.</p>
             </div>
           </div>
-          <button className="how-it-works-cta">Get Started</button>
+          <button className="how-it-works-cta" onClick={() => setShowPopup(true)}>Get Started</button>
         </div>
       </div>
+
+      {/* Popup */}
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup">
+            <h4>What would you like to customize?</h4>
+            <select
+              value={selectedOption}
+              onChange={(e) => setSelectedOption(e.target.value)}
+            >
+              <option value="">Select an option</option>
+              <option value="Polo T-Shirt">Polo T-Shirt</option>
+              <option value="Round Neck T-Shirt">Round Neck T-Shirt</option>
+              <option value="Cap">Cap</option>
+            
+            </select>
+            <div className="popup-buttons">
+              <button onClick={handleProceed} disabled={!selectedOption}>
+                Proceed
+              </button>
+              <button className="cancel-btn-2" onClick={() => setShowPopup(false)}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

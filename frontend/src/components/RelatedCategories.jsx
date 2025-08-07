@@ -7,6 +7,15 @@ import { Link } from 'react-router-dom';
 const RelatedCategories = ({ currentSubcategory }) => {
   const [related, setRelated] = useState([]);
 
+  const slugify = (text) =>
+    text
+      .toLowerCase()
+      .trim()
+      .replace(/&/g, "and")
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/--+/g, "-");
+
   useEffect(() => {
     const fetchRelated = async () => {
       try {
@@ -25,7 +34,7 @@ const RelatedCategories = ({ currentSubcategory }) => {
       <h2>Explore More in </h2>
       <div className="related-grid">
         {related.map((cat) => (
-          <Link key={cat.name} to={`/Apparel-and-Accessories/${cat.name}`}>
+          <Link key={cat.name} to={`/Apparel-and-Accessories/${slugify(cat.name)}`}>
             <div className="related-item">
               <img src={cat.image} alt={cat.name} />
               <p className='item-name'>{cat.name}</p>

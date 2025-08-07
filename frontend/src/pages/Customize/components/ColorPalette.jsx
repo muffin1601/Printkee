@@ -19,43 +19,84 @@ const ColorPalette = ({
   ];
 
   const changePartColor = (part, color) => {
-    // Store global color
-    setGlobalPartColors(prev => ({
-      ...prev,
-      [part]: color,
-    }));
+  // Store global color
+  setGlobalPartColors(prev => ({
+    ...prev,
+    [part]: color,
+  }));
 
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+  const canvas = canvasRef.current;
+  if (!canvas) return;
 
-    // Apply to all view states
-    const newViewStates = viewStates.map(state => {
-      if (!state) return state;
+  // First, save all user-added objects (text, logos, etc.)
+  const userObjects = canvas.getObjects().filter(obj => !obj.isPartOfGroup);
 
-      // Clone the state to avoid mutation
-      const newState = JSON.parse(JSON.stringify(state));
+  // Apply to all view states (original functionality)
+  const newViewStates = viewStates.map(state => {
+    if (!state) return state;
 
-      // Find and update all objects with matching customPart
-      if (newState.objects) {
-        const updateObjects = (objs) => {
-          objs.forEach(obj => {
-            if (obj.customPart === part) {
-              obj.fill = color;
-            }
-            if (obj.objects) {
-              updateObjects(obj.objects);
-            }
-          });
+    // Clone the state to avoid mutation
+    const newState = JSON.parse(JSON.stringify(state));
+
+    // Find and update all objects with matching customPart
+    if (newState.objects) {
+      const updateObjects = (objs) => {
+        objs.forEach(obj => {
+          if (obj.customPart === part) {
+            obj.fill = color;
+          }
+          if (obj.objects) {
+            updateObjects(obj.objects);
+          }
+        });
+      };
+      updateObjects(newState.objects);
+    }
+
+    return newState;
+  });
+
+  setViewStates(newViewStates);
+
+  // Apply to current canvas while preserving user objects
+  canvas.discardActiveObject(); // Deselect any active object
+
+  // Store current zoom and pan state
+  const currentZoom = canvas.getZoom();
+  const currentViewportTransform = canvas.viewportTransform;
+
+  // Reload the state to apply color changes
+  const currentState = viewStates[activeIndex];
+  if (currentState) {
+    canvas.loadFromJSON(currentState, () => {
+      // Restore user objects
+      userObjects.forEach(obj => {
+        canvas.add(obj);
+        obj.setCoords();
+      });
+
+      // Restore zoom and pan
+      canvas.setZoom(currentZoom);
+      canvas.viewportTransform = currentViewportTransform;
+
+      // Apply colors to the newly loaded objects
+      const grp = canvas.mainGroup;
+      if (grp) {
+        const applyColor = (o) => {
+          if (o.customPart === part) {
+            o.set("fill", color);
+            o.dirty = true;
+          }
+          if (o._objects) o._objects.forEach(applyColor);
         };
-        updateObjects(newState.objects);
+        applyColor(grp);
       }
 
-      return newState;
+      canvas.requestRenderAll();
+      updateThumbnail();
     });
-
-    setViewStates(newViewStates);
-
-    // Apply to current canvas
+  } else {
+    // For views without saved state, just apply color to existing objects
     const grp = canvas.mainGroup;
     if (grp) {
       const applyColor = (o) => {
@@ -69,8 +110,8 @@ const ColorPalette = ({
       canvas.requestRenderAll();
       updateThumbnail();
     }
-  };
-
+  }
+};
   return (
     <div className="color-palette-container">
       {Object.entries(labels).map(([part, label]) => (

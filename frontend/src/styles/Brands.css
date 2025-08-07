@@ -1,9 +1,10 @@
 .brands-container {
   padding: 60px 20px;
+  background-color: #ffffff;
   max-width: 1200px;
   margin: auto;
   text-align: center;
-  font-family: 'Segoe UI', sans-serif;
+  
 }
 
 .brands-heading {

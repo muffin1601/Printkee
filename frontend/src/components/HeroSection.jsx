@@ -13,6 +13,7 @@ const slides = [
     description:
       "Dress your team in style with premium shirts, jackets, and uniforms—personalized with your company logo.",
     tag: "Apparel & Uniforms",
+    route: "/apparel-and-accessories",
   },
   {
     image: "/assets/banner2.jpeg",
@@ -20,6 +21,7 @@ const slides = [
     description:
       "Make a sustainable impact with eco-conscious gifting options made from recycled and biodegradable materials.",
     tag: "Eco Products",
+    route: "/eco-products",
   },
   {
     image: "/assets/banner3.jpeg",
@@ -27,6 +29,7 @@ const slides = [
     description:
       "Impress clients and employees with innovative, branded tech products like wireless chargers, earbuds, and gadgets.",
     tag: "Technology",
+    route: "/technology-accessories",
   },
   {
     image: "/assets/banner4.jpeg",
@@ -34,6 +37,7 @@ const slides = [
     description:
       "From stainless steel bottles to personalized mugs, our drinkware is perfect for daily use and corporate branding.",
     tag: "Drinkware",
+    route: "/drink-ware",
   },
   {
     image: "/assets/banner1.jpeg",
@@ -41,6 +45,7 @@ const slides = [
     description:
       "Discover a wide range of custom office bags, notebooks, and writing instruments—perfect for gifting and branding.",
     tag: "Office & Bags",
+    route: "/office-and-writing",
   },
 ];
 
@@ -66,7 +71,7 @@ const HeroSection = () => {
                   <p className="tag">{slide.tag}</p>
                   <h1 className="title">{slide.title}</h1>
                   <p className="description">{slide.description}</p>
-                  <button className="show-products">
+                  <button className="show-products" onClick={() => window.location.href = slide.route}>
                     <span>Show products</span>
                     <span className="arrow-1">→</span>
                   </button>

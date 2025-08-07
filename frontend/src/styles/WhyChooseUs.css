@@ -91,3 +91,111 @@
 .arrow-1 {
   font-size: 1.2rem;
 }
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+.popup {
+  background: #fffdf7;
+  padding: 32px 28px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeInUp 0.3s ease;
+}
+
+.popup h4 {
+  font-size: 1.4rem;
+  color: #4b2061;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.popup select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 24px;
+  background: #fff;
+  transition: border 0.3s ease;
+}
+
+.popup select:focus {
+  outline: none;
+  border-color: #4b2061;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.popup-buttons button {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.popup-buttons button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.popup-buttons button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.popup-buttons button:not(.cancel-btn-2) {
+  background-color: #4b2061;
+  color: white;
+}
+
+.popup-buttons button:not(.cancel-btn-2):hover {
+  background-color: #f39c12;
+  color: white;
+}
+
+.cancel-btn-2 {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.cancel-btn-2:hover {
+  background-color: #c0392b;
+}
+
+/* Subtle animation for popup */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

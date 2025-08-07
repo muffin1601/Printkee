@@ -5,9 +5,9 @@ import { Building2, GraduationCap, Briefcase, Stethoscope, Globe, Rocket } from 
 const industries = [
   { icon: <Building2 size={52} />, title: "IT Companies" },
   { icon: <Rocket size={52} />, title: "Startups" },
-  { icon: <Globe size={52} />, title: "Real Estate" },
+  { icon: <Globe size={52} />, title: "Automobile" },
   { icon: <GraduationCap size={52} />, title: "Education" },
-  { icon: <Stethoscope size={52} />, title: "Pharma" },
+  { icon: <Stethoscope size={52} />, title: "Healthcare" },
   { icon: <Briefcase size={52} />, title: "Corporate Offices" }
 ];
 
@@ -24,7 +24,7 @@ const Industries = () => {
           </div>
         ))}
       </div>
-      <button className="industries-cta">Talk to Gifting Expert<span className="arrow-1">→</span></button>
+      <button className="industries-cta" onClick={() => window.location.href = '/contact' }>Talk to Gifting Expert<span className="arrow-1">→</span></button>
     </section>
     
     </div>

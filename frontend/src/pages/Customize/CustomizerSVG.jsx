@@ -48,8 +48,9 @@ const labelMap = {
   },
   cap: {
     fullTshirt: "Crown",
-    collar: "Peak",
-    sleeves: "Bottom",
+    collar: "Top Button",
+    sleeves: "Peak",
+    border: "Sandwich",
   },
 };
 
@@ -94,20 +95,20 @@ const partMapSet = {
 
    cap: {
     fullTshirt: [
-      "front_path_2", "front_path_6", "front_path_8", "back_path_2",
-      "back_path_6",
-      "left_path_6", "left_path_2", "right_path_1", "right_path_6"
+      "path_2", "path_29", "path_28", "path_33",
+      "path_34", "path_43","path_51", "path_42", "path_35", "path_36",
+      "path_46", "path_47", "path_41", "path_86", "path_87", "path_90", "path_91","path_32","path_38", "path_37", "path_40", "path_52",
+      "path_53", "path_55"
     ],
     sleeves: [
-      "front_path_4", "front_path_5", "back_path_4", "back_path_5",
-      "left_path_3", "right_path_3"
+       "path_4", "path_5",  "path_88",
+       "path_92","path_48",  "path_50"
     ],
     collar: [
-      "front_path_7", "front_path_10", "front_path_11", "front_path_9", "back_path_8",
-      "back_path_11", "back_path_12", "left_path_8", "left_path_7", "left_path_9",
-      "right_path_8",
-      "right_path_9", "right_path_7"
-
+      "path_97", "path_56", "path_39", "path_8",
+    ],
+    border: [
+      "path_6","path_96","path_54"
     ]
   },
 };
@@ -204,27 +205,83 @@ const CustomizerSVG = () => {
   }, []);
 
   const handleThumbnailClick = (index) => {
-    if (index === activeIndex) return;
-    saveCurrentViewState();
-    setActiveIndex(index);
-    const canvas = canvasRef.current;
-    const newState = viewStates[index];
-    if (canvas) {
-      if (newState) {
-        canvas.loadFromJSON(newState, () => {
-          
-          canvas.mainGroup = canvas.getObjects().find(obj => obj.type === 'group');
-          applyGlobalColors(canvas);
-          canvas.renderAll();
-        });
-      } else {
-        
-        setTimeout(() => {
-          applyGlobalColors(canvas);
-        }, 100);
+  if (index === activeIndex) return;
+  
+  // Save current state before switching
+  saveCurrentViewState();
+  setActiveIndex(index);
+  
+  const canvas = canvasRef.current;
+  if (!canvas) return;
+
+  // Store current viewport settings
+  const currentZoom = canvas.getZoom();
+  const currentPan = canvas.viewportTransform;
+  const currentActiveObject = canvas.getActiveObject();
+
+  // Get all user-added objects (text, logos, etc.)
+  const userObjects = canvas.getObjects().filter(obj => {
+    return !obj.isPartOfGroup && obj !== canvas.mainGroup;
+  });
+
+  // Store their properties including positions
+  const userObjectsData = userObjects.map(obj => ({
+    obj,
+    original: obj.toObject(['left', 'top', 'scaleX', 'scaleY', 'angle', 'flipX', 'flipY'])
+  }));
+
+  const newState = viewStates[index];
+  
+  if (newState) {
+    // Load the new state while preserving user objects
+    canvas.loadFromJSON(newState, () => {
+      // Restore the main group reference
+      canvas.mainGroup = canvas.getObjects().find(obj => obj.type === 'group');
+      
+      // Re-add and reposition user objects
+      userObjectsData.forEach(({obj, original}) => {
+        const newObj = new fabric[obj.type](obj.toObject());
+        newObj.set(original);
+        canvas.add(newObj);
+      });
+
+      // Restore viewport settings
+      canvas.setZoom(currentZoom);
+      canvas.viewportTransform = currentPan;
+      
+      // Restore active object if it was a user object
+      if (currentActiveObject && !currentActiveObject.isPartOfGroup) {
+        const restoredObj = canvas.getObjects().find(o => 
+          o.type === currentActiveObject.type && 
+          o.left === currentActiveObject.left && 
+          o.top === currentActiveObject.top
+        );
+        if (restoredObj) canvas.setActiveObject(restoredObj);
       }
-    }
-  };
+
+      applyGlobalColors(canvas);
+      canvas.renderAll();
+    });
+  } else {
+    // For new views without saved state
+    canvas.clear();
+    
+    // Re-add user objects to blank canvas
+    userObjectsData.forEach(({obj, original}) => {
+      const newObj = new fabric[obj.type](obj.toObject());
+      newObj.set(original);
+      canvas.add(newObj);
+    });
+
+    // Load the default view
+    setTimeout(() => {
+      applyGlobalColors(canvas);
+      canvas.setZoom(currentZoom);
+      canvas.viewportTransform = currentPan;
+      canvas.renderAll();
+    }, 100);
+  }
+};
 
   const updateThumbnail = (index) => {
     const srcCanvas = canvasRef.current;
@@ -252,22 +309,39 @@ const CustomizerSVG = () => {
   };
 
   const applyGlobalColors = (canvas) => {
-    if (!canvas || !globalPartColors) return;
-    const grp = canvas.mainGroup;
-    if (!grp) return;
-
-    const applyColor = (o) => {
-      const part = o.customPart;
-      if (part && globalPartColors[part]) {
-        o.set("fill", globalPartColors[part]);
-        o.dirty = true;
-      }
-      if (o._objects) o._objects.forEach(applyColor);
-    };
-
-    applyColor(grp);
-    canvas.requestRenderAll();
+  if (!canvas || !globalPartColors || Object.keys(globalPartColors).length === 0) return;
+  
+  // Apply colors to both the main group AND any user-added objects that have customPart
+  const applyColor = (o) => {
+    // Skip if object is locked or doesn't have customPart
+    if (o.locked || !o.customPart) return;
+    
+    const part = o.customPart;
+    if (globalPartColors[part]) {
+      o.set("fill", globalPartColors[part]);
+      o.dirty = true;
+    }
+    
+    // Recursively apply to child objects (for groups)
+    if (o._objects) {
+      o._objects.forEach(applyColor);
+    }
   };
+
+  // Apply to main SVG group
+  const grp = canvas.mainGroup;
+  if (grp) applyColor(grp);
+
+  // Apply to all other objects (including user-added ones that might have customPart)
+  canvas.getObjects().forEach(obj => {
+    // Skip main group (already processed) and objects without customPart
+    if (obj !== grp && obj.customPart) {
+      applyColor(obj);
+    }
+  });
+
+  canvas.requestRenderAll();
+};
 
   useEffect(() => {
     if (activeTool === "preview") {
