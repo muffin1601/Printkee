@@ -102,6 +102,7 @@ const Navbar = () => {
                             <li key={j}>
                               <NavLink
                                 to={`/${slugify(mainCategory)}/${slugify(sub)}`}
+                                onClick={() => setShowMegaMenu(false)}
                               >
                                 {sub}
                               </NavLink>
@@ -141,7 +142,7 @@ const Navbar = () => {
 
         <div className="navbar-contact">
           Contact with Us: <br />
-          <a href="mailto:sales@mfglobalservices.com">sales@mfglobalservices.com</a>
+          <a href="mailto:sales@printkee.com">sales@printkee.com</a>
         </div>
       </div>
     </div>

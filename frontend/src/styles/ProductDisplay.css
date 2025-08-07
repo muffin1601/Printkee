@@ -1,16 +1,15 @@
 .product-container-2 {
-  box-sizing: border-box;
-  padding: 0 32px 32px 32px;
-  margin: 30px auto 0 auto;
-  width: 92%;
- 
-  border-radius: 16px;
-  border-bottom: 2px solid #e0d6ee;
+  
+  padding: 40px 20px 60px; 
+  max-width: 1400px;
+  margin: auto;
+  background-color: #ffffff; 
+  color: #2e2e2e;
 }
 
 .page-wrapper {
   display: flex;
-  max-width: 100%;
+  max-width:92%;
   gap: 32px;
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 import { FaHeart, FaEye } from "react-icons/fa";
@@ -11,6 +11,8 @@ import BottomCategoryDescription from "./BottomCategoryDescription";
 
 const ProductDisplay = () => {
   const { category, subcategory } = useParams();
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState([]);
   const [subcategoryData, setSubcategoryData] = useState({});
 
@@ -42,10 +44,12 @@ const ProductDisplay = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/${formattedCategory}/${formattedSubcategory}`)
+      .get(
+        `${import.meta.env.VITE_API_URL}/${formattedCategory}/${formattedSubcategory}`
+      )
       .then((res) => {
-        setProducts(res.data.products);
-        setSubcategoryData(res.data.subcategory);
+        setProducts(res.data.products || []);
+        setSubcategoryData(res.data.subcategory || {});
       })
       .catch((err) => console.error("Failed to fetch products:", err));
   }, [category, subcategory]);
@@ -73,67 +77,37 @@ const ProductDisplay = () => {
             <span className="span-name">Back to {formattedCategory}</span>
           </Link>
           <h1 className="page-title">{formattedSubcategory}</h1>
-          <p className="subcategory-description">{subcategoryData?.tag || ""}</p>
+          <p className="subcategory-description">
+            {subcategoryData?.tag || ""}
+          </p>
         </div>
       </div>
 
       <div className="product-container-2">
         <div className="page-wrapper">
-          <div className="sidebar">
-            <h3>Filters</h3>
-
-            <div className="filter-section">
-              <div className="filter-header">
-                <strong>AVAILABILITY</strong>
-                <span className="reset">Reset</span>
-              </div>
-              <label><input type="checkbox" /> In stock</label>
-              <label><input type="checkbox" /> Out of stock</label>
-            </div>
-
-            <div className="filter-section">
-              <div className="filter-header">
-                <strong>BRAND</strong>
-                <span className="reset">Reset</span>
-              </div>
-              <label><input type="checkbox" /> Anker</label>
-              <label><input type="checkbox" /> UTSA</label>
-            </div>
-
-            <div className="filter-section">
-              <div className="filter-header">
-                <strong>COLOR</strong>
-                <span className="reset">Reset</span>
-              </div>
-              <label><input type="checkbox" /> Black</label>
-              <label><input type="checkbox" /> Blue</label>
-              <label><input type="checkbox" /> Red</label>
-              <label><input type="checkbox" /> White</label>
-            </div>
-          </div>
-
           <div className="product-container">
             <div className="sort-bar">
-              <span>Home / {formattedCategory} / {formattedSubcategory}</span>
-              <div className="sort-dropdown">
-                <label>Sort by:</label>
-                <select>
-                  <option>Best selling</option>
-                  <option>Price, low to high</option>
-                  <option>Price, high to low</option>
-                  <option>Alphabetically, A-Z</option>
-                </select>
-              </div>
+              <span>
+                Home / {formattedCategory} / {formattedSubcategory}
+              </span>
             </div>
 
             <div className="product-grid">
               {products.map((product) => (
                 <div key={product._id} className="product-card">
                   <div className="product-image-wrapper">
-                    <img className="product-img" src={product.image} alt={product.name} />
+                    <img
+                      className="product-img"
+                      src={product.image}
+                      alt={product.name}
+                    />
                     <div className="product-icons">
-                      <button><FaHeart /></button>
-                      <button><FaEye /></button>
+                      <button>
+                        <FaHeart />
+                      </button>
+                      <button>
+                        <FaEye />
+                      </button>
                     </div>
                   </div>
 
@@ -150,6 +124,7 @@ const ProductDisplay = () => {
                         </select>
                       </>
                     )}
+
                     {product.colour?.length > 0 && (
                       <>
                         <label>Color:</label>
@@ -165,7 +140,11 @@ const ProductDisplay = () => {
                   <button
                     className="add-to-cart"
                     onClick={() =>
-                      window.location.href = `/${slugify(category)}/${slugify(subcategory)}/${slugify(product.name)}`
+                      navigate(
+                        `/${slugify(category)}/${slugify(
+                          subcategory
+                        )}/${slugify(product.name)}`
+                      )
                     }
                   >
                     {product.quantity === 0 ? "Sold out" : "View"} ➤

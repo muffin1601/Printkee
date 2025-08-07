@@ -18,6 +18,7 @@ import SearchResults from "./pages/SearchResults";
 import "../src/styles/global.css";
 import CustomizerSVG from "./pages/Customize/CustomizerSVG";
 import CustomizerAll from "./pages/Customize/CustomizerAll";
+import FloatingButton from "./components/FloatingButton";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/customize/:productType" element={<CustomizerSVG />} />
         <Route path="/customize" element={<CustomizerAll/>} />
       </Routes>
+      <FloatingButton />
       <Footer />
       <ToastContainer
         position="bottom-right"
