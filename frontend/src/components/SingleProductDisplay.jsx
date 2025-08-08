@@ -201,7 +201,8 @@ const SingleProductDisplay = () => {
                   navigate(route, {
                     state: {
                       productName: productData.name,
-                      productImages: [productData.image, ...(productData.subImages || [])]
+                      productImages: [productData.image, ...(productData.subImages || [])],
+                      subcategory: formattedSubcategory,
                     }
                   });
                 }}
