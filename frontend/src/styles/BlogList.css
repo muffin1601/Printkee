@@ -1,8 +1,9 @@
 .blog-list-container {
+  padding: 60px 20px;
+  background-color: #ffffff;
   max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
-  font-family: 'Poppins', sans-serif;
+  margin: auto;
+ 
 }
 
 .blog-header {
