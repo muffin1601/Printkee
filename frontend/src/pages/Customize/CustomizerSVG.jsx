@@ -240,23 +240,23 @@ const CustomizerSVG = () => {
   const newState = viewStates[index];
   
   if (newState) {
-    // Load the new state while preserving user objects
+   
     canvas.loadFromJSON(newState, () => {
-      // Restore the main group reference
+      
       canvas.mainGroup = canvas.getObjects().find(obj => obj.type === 'group');
       
-      // Re-add and reposition user objects
+      
       userObjectsData.forEach(({obj, original}) => {
         const newObj = new fabric[obj.type](obj.toObject());
         newObj.set(original);
         canvas.add(newObj);
       });
 
-      // Restore viewport settings
+      
       canvas.setZoom(currentZoom);
       canvas.viewportTransform = currentPan;
       
-      // Restore active object if it was a user object
+      
       if (currentActiveObject && !currentActiveObject.isPartOfGroup) {
         const restoredObj = canvas.getObjects().find(o => 
           o.type === currentActiveObject.type && 
@@ -270,10 +270,10 @@ const CustomizerSVG = () => {
       canvas.renderAll();
     });
   } else {
-    // For new views without saved state
+    
     canvas.clear();
     
-    // Re-add user objects to blank canvas
+    
     userObjectsData.forEach(({obj, original}) => {
       const newObj = new fabric[obj.type](obj.toObject());
       newObj.set(original);
@@ -435,16 +435,16 @@ const CustomizerSVG = () => {
                 />
               )}
               {activeTool === "color" && (
-                <ColorPalette
-                  canvasRef={canvasRef}
-                  updateThumbnail={() => updateThumbnail(activeIndex)}
-                  labels={colorLabels}
-                  globalPartColors={globalPartColors}
-                  setGlobalPartColors={setGlobalPartColors}
-                  saveCurrentViewState={saveCurrentViewState}
-                  viewStates={viewStates}
-                  setViewStates={setViewStates}
-                />
+              <ColorPalette
+                canvasRef={canvasRef}
+                updateThumbnail={() => updateThumbnail(activeIndex)}
+                labels={colorLabels}
+                globalPartColors={globalPartColors}
+                setGlobalPartColors={setGlobalPartColors}
+                viewStates={viewStates}
+                setViewStates={setViewStates}
+                activeIndex={activeIndex}
+              />
               )}
               {activeTool === "name" && (
                 <NameNumberInput
@@ -462,13 +462,13 @@ const CustomizerSVG = () => {
               )}
             </div>
             <div className="canvas-wrapper">
-              <ProductCustomizer
-                canvasRef={canvasRef}
-                mainImageUrl={selectedSVGs[activeIndex]}
-                partMap={partMap}
-                savedState={viewStates[activeIndex]}
-                globalPartColors={globalPartColors}
-              />
+            <ProductCustomizer
+              canvasRef={canvasRef}
+              mainImageUrl={selectedSVGs[activeIndex]}
+              partMap={partMap}
+              savedState={viewStates[activeIndex]}
+              globalPartColors={globalPartColors}
+            />
             </div>
           </div>
 

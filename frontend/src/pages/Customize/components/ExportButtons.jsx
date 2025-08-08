@@ -110,7 +110,7 @@ const generatePDF = async () => {
     formData.append("message", message);
     formData.append("sizes", JSON.stringify(sizes || {}));
 
-    await fetch("/api/send-email", { method: "POST", body: formData });
+    await fetch(`${import.meta.env.VITE_API_URL}/send-email`, { method: "POST", body: formData });
 
     await fetch(import.meta.env.VITE_CRM_API_URL, {
       method: "POST",
@@ -203,7 +203,7 @@ const generatePDF = async () => {
             </div>
             {/* Image inside the overlay */}
             <img
-              src="/size-chart.jpeg" // Change path as needed
+              src="/size-chart.jpeg" 
               alt="Size Chart"
               className="size-chart-image"
             />
