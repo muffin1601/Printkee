@@ -131,12 +131,19 @@ const CustomizerSVG = () => {
   const partMap = partMapSet[productType] || partMapSet.polotshirt;
   const [viewStates, setViewStates] = useState([null, null, null, null]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeTool, setActiveTool] = useState("export");
+  const [activeTool, setActiveTool] = useState("color");
   const [undoStack, setUndoStack] = useState([]);
   const [redoStack, setRedoStack] = useState([]);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [globalPartColors, setGlobalPartColors] = useState({});
   const [flag, setFlag] = useState(true);
+
+  useEffect(() => {
+      const allowedExportProductType = ["polotshirt", "roundneck"];
+      if (allowedExportProductType.map(c => c.toLowerCase()).includes(productType.toLowerCase())) {
+        setActiveTool("export");
+      }
+    }, [productType]);
 
   const saveCurrentViewState = () => {
     const canvas = canvasRef.current;
@@ -411,7 +418,7 @@ const CustomizerSVG = () => {
           <div className="customizer-main">
 
             <div className="vertical-toolbar">
-              <VerticalToolbar onSelectTool={setActiveTool} flag={flag} />
+              <VerticalToolbar onSelectTool={setActiveTool} flag={flag} productType = {productType} />
             </div>
 
             <div className="customizer-controls">
@@ -450,6 +457,7 @@ const CustomizerSVG = () => {
                   canvasRef={canvasRef}
                   thumbnailCanvasRefs={thumbnailCanvasRefs}
                   viewStates={viewStates}
+                  
                 />
               )}
             </div>

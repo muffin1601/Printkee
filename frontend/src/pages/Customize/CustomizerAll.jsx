@@ -18,19 +18,26 @@ const CustomizeAll = () => {
     React.createRef(),
     React.createRef(),
   ]);
-  
-  
+
+  const location = useLocation();
+  const { productImages = [], productName = "", subcategory = "" } = location.state || {};
+
   const [viewStates, setViewStates] = useState([null, null, null, null]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeTool, setActiveTool] = useState("export");
+  const [activeTool, setActiveTool] = useState("upload");
   const [undoStack, setUndoStack] = useState([]);
   const [redoStack, setRedoStack] = useState([]);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  const location = useLocation();
-  const { productImages = [], productName = "" } = location.state || {};
   const [flag, setFlag] = useState(false);
 
-  
+
+  useEffect(() => {
+    const allowedExportCategories = ["Aprons", "Corporate Shirts", "Winter Wear"];
+    if (allowedExportCategories.map(c => c.toLowerCase()).includes(subcategory.toLowerCase())) {
+      setActiveTool("export");
+    }
+  }, [subcategory]);
+
   const saveCurrentViewState = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -46,32 +53,32 @@ const CustomizeAll = () => {
     setViewStates(newStates);
   };
 
-  
 
- const updateThumbnail = (index) => {
-     const srcCanvas = canvasRef.current;
-     const dstCanvas = thumbnailCanvasRefs.current[index]?.current;
-     if (!srcCanvas || !dstCanvas) return;
- 
-     const dataUrl = srcCanvas.toDataURL({ format: "png" });
- 
-     const thumbCanvas = new fabric.StaticCanvas(dstCanvas);
-     fabric.Image.fromURL(dataUrl, (img) => {
-       const scale = Math.min(
-         dstCanvas.width / img.width,
-         dstCanvas.height / img.height
-       );
-       img.scale(scale);
-       img.set({
-         left: (dstCanvas.width - img.width * scale) / 2,
-         top: (dstCanvas.height - img.height * scale) / 2,
-       });
- 
-       thumbCanvas.clear();
-       thumbCanvas.add(img);
-       thumbCanvas.renderAll();
-     });
-   }; 
+
+  const updateThumbnail = (index) => {
+    const srcCanvas = canvasRef.current;
+    const dstCanvas = thumbnailCanvasRefs.current[index]?.current;
+    if (!srcCanvas || !dstCanvas) return;
+
+    const dataUrl = srcCanvas.toDataURL({ format: "png" });
+
+    const thumbCanvas = new fabric.StaticCanvas(dstCanvas);
+    fabric.Image.fromURL(dataUrl, (img) => {
+      const scale = Math.min(
+        dstCanvas.width / img.width,
+        dstCanvas.height / img.height
+      );
+      img.scale(scale);
+      img.set({
+        left: (dstCanvas.width - img.width * scale) / 2,
+        top: (dstCanvas.height - img.height * scale) / 2,
+      });
+
+      thumbCanvas.clear();
+      thumbCanvas.add(img);
+      thumbCanvas.renderAll();
+    });
+  };
 
   const handleRedo = () => {
     const canvas = canvasRef.current;
@@ -134,86 +141,87 @@ const CustomizeAll = () => {
   }, [activeTool]);
 
   useEffect(() => {
-  if (!isPreviewOpen) return;
-  setTimeout(() => {
-    for (let i = 0; i < viewStates.length; i++) {
-      updateThumbnail(i); 
-    }
-  }, 300); 
-}, [isPreviewOpen]);
+    if (!isPreviewOpen) return;
+    setTimeout(() => {
+      for (let i = 0; i < viewStates.length; i++) {
+        updateThumbnail(i);
+      }
+    }, 300);
+  }, [isPreviewOpen]);
 
 
   return (
-    
-      <div className="customizer-page">
-        <h2 className="customizer-title">Customize your product</h2>
 
-        <div className="customizer-container">
-          {/* Top Bar */}
-          <div className="top-tools-bar">
-            <CanvasToolbar
-              canvasRef={canvasRef}
-              onUndo={handleUndo}
-              onRedo={handleRedo}
-            />
-            <ThumbnailGallery
-              activeIndex={activeIndex}
-              onThumbnailClick={handleThumbnailClick}
-              thumbnailCanvasRefs={thumbnailCanvasRefs}
-            />
-          </div>
+    <div className="customizer-page">
+      <h2 className="customizer-title">Customize your product</h2>
 
-          {/* Main Customizer Body */}
-          <div className="customizer-main">
-
-            <div className="vertical-toolbar">
-              <VerticalToolbar
-                onSelectTool={handleToolChange}
-                activeTool={activeTool}
-                flag={flag}
-              />
-            </div>
-
-            <div className="customizer-controls">
-              {activeTool === "upload" && (
-                <UploadControls
-                  canvasRef={canvasRef}
-                  updateThumbnail={() => updateThumbnail(activeIndex)}
-                />
-              )}
-              {activeTool === "text" && (
-                <TextControls
-                  canvasRef={canvasRef}
-                  updateThumbnail={() => updateThumbnail(activeIndex)}
-                />
-              )}
-              {activeTool === "export" && (
-                <ExportButtons
-                  canvasRef={canvasRef}
-                  viewStates={viewStates}
-                />
-              )}
-            </div>
-
-            <div className="canvas-wrapper">
-              <ProductCustomizer
-                canvasRef={canvasRef}
-                mainImageUrl={`${productImages[activeIndex]}`}
-                savedState={viewStates[activeIndex]}
-              />
-            </div>
-          </div>
-
-          {/* Preview Modal */}
-          <PreviewModalpng
-            isOpen={isPreviewOpen}
-            onClose={() => setActiveTool("export")}
-            viewStates={viewStates}
-            
+      <div className="customizer-container">
+        {/* Top Bar */}
+        <div className="top-tools-bar">
+          <CanvasToolbar
+            canvasRef={canvasRef}
+            onUndo={handleUndo}
+            onRedo={handleRedo}
+          />
+          <ThumbnailGallery
+            activeIndex={activeIndex}
+            onThumbnailClick={handleThumbnailClick}
+            thumbnailCanvasRefs={thumbnailCanvasRefs}
           />
         </div>
+
+        {/* Main Customizer Body */}
+        <div className="customizer-main">
+
+          <div className="vertical-toolbar">
+            <VerticalToolbar
+              onSelectTool={handleToolChange}
+              activeTool={activeTool}
+              flag={flag}
+              subcategory={subcategory}
+            />
+          </div>
+
+          <div className="customizer-controls">
+            {activeTool === "upload" && (
+              <UploadControls
+                canvasRef={canvasRef}
+                updateThumbnail={() => updateThumbnail(activeIndex)}
+              />
+            )}
+            {activeTool === "text" && (
+              <TextControls
+                canvasRef={canvasRef}
+                updateThumbnail={() => updateThumbnail(activeIndex)}
+              />
+            )}
+            {activeTool === "export" && (
+              <ExportButtons
+                canvasRef={canvasRef}
+                viewStates={viewStates}
+              />
+            )}
+          </div>
+
+          <div className="canvas-wrapper">
+            <ProductCustomizer
+              canvasRef={canvasRef}
+              mainImageUrl={`${productImages[activeIndex]}`}
+              savedState={viewStates[activeIndex]}
+            />
+          </div>
+        </div>
+
+        {/* Preview Modal */}
+        <PreviewModalpng
+          isOpen={isPreviewOpen}
+          onClose={() => setActiveTool("export")}
+          viewStates={viewStates}
+
+        />
       </div>
-      
+    </div>
+
   );
 };
 
