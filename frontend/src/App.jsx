@@ -6,7 +6,6 @@ import SubcategoryPage from "./pages/SubcategoryPage";
 import SingleProductPage from "./pages/SingleProductPage";
 import ProductPage from "./pages/ProductPage";
 import Footer from "./components/Footer";
-
 import AboutUs from "./pages/AboutUs";
 import Brands from "./pages/Brands";
 import ContactUs from "./pages/ContactUs";
@@ -15,6 +14,7 @@ import BlogList from "./pages/BlogList";
 import BlogForm from "./pages/BlogForm";
 import BlogView from "./pages/BlogView";
 import SearchResults from "./pages/SearchResults";
+import Diwali from "./pages/Diwali";
 import "../src/styles/global.css";
 import CustomizerSVG from "./pages/Customize/CustomizerSVG";
 import CustomizerAll from "./pages/Customize/CustomizerAll";
@@ -31,6 +31,7 @@ function App() {
         <Route path="/about" element={<AboutUs/>} />
         <Route path="/brands" element={<Brands />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/diwali-special" element={<Diwali />} />
         <Route path="/blogs" element={<BlogList />} />
         <Route path="/post" element={<BlogForm />} />
         <Route path="/blog/:id" element={<BlogView />} />
