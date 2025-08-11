@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import { IoPersonOutline } from "react-icons/io5";
-import { FaHome, FaThList, FaBoxOpen, FaServicestack, FaTags } from "react-icons/fa";
+import { FaHome, FaThList, FaBoxOpen, FaServicestack, FaTags, FaGift } from "react-icons/fa";
 import { FaInfoCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import navbarSubcategories from "../data/list";
@@ -108,17 +108,15 @@ const Navbar = () => {
                               </NavLink>
                             </li>
                           ))}
-                        </ul>
-                      </div>
-                    ))}
+                        </ul>              
+                    </div>
+                   ))}
                   </div>
                 ))}
               </div>
             </div>
           </li>
-
-
-          <li>
+           <li>
             <a href="/brands" className="nav-link">
               <FaTags style={{ marginRight: 5 }} /> Brands
             </a>
@@ -131,6 +129,11 @@ const Navbar = () => {
           <li>
             <a href="/contact" className="nav-link">
               <FaEnvelope style={{ marginRight: 5 }} /> Contact Us
+            </a>
+          </li>
+          <li>
+            <a href="/diwali-special" className="nav-link">
+              <FaGift style={{ marginRight: 5 }} /> Diwali Special
             </a>
           </li>
           <li>
