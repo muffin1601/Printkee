@@ -51,6 +51,7 @@ const Diwali = () => {
                 <div className="carousel-card">
                   <img src={gift.image} alt={gift.name} className="carousel-img" />
                   <p className="gift-name">{gift.name}</p>
+                  <p className="gift-description">{gift.description}</p>
                 </div>
               </SwiperSlide>
             ))}

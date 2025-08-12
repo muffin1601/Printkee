@@ -157,7 +157,7 @@ const ProductDisplay = () => {
       </div>
 
       <CTABanner
-        imageSrc="/assets/product-banner.jpeg"
+        imageSrc="/assets/product-banner.webp"
         linkTo="/contact"
         alt="Get a Quote"
       />
