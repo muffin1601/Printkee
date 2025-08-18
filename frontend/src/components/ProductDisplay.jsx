@@ -8,6 +8,7 @@ import CTABanner from "./CTABanner";
 import RelatedCategories from "./RelatedCategories";
 import FAQSection from "./FAQSection";
 import BottomCategoryDescription from "./BottomCategoryDescription";
+import banners from "../data/banners";
 
 const ProductDisplay = () => {
   const { category, subcategory } = useParams();
@@ -41,6 +42,12 @@ const ProductDisplay = () => {
 
   const formattedCategory = formatCategory(category);
   const formattedSubcategory = formatSubcategory(subcategory);
+
+ 
+  const bannerImage =
+    banners[formattedCategory]?.subcategories[formattedSubcategory] ||
+    banners[formattedCategory]?.banner ||
+    "/assets/product-banner.webp";
 
   useEffect(() => {
     axios
@@ -156,11 +163,13 @@ const ProductDisplay = () => {
         </div>
       </div>
 
+      
       <CTABanner
-        imageSrc="/assets/product-banner.webp"
+        imageSrc={bannerImage}
         linkTo="/contact"
-        alt="Get a Quote"
+        alt={`Get a Quote for ${formattedSubcategory}`}
       />
+
       <FAQSection subcategory={formattedSubcategory} />
       <RelatedCategories currentSubcategory={formattedSubcategory} />
       <BottomCategoryDescription subcategory={formattedSubcategory} />

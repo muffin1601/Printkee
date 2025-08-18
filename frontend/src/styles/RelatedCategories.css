@@ -1,64 +1,81 @@
+/* --- Related Categories Section --- */
 .related-categories {
-  background: #4b2061;
-  padding: 30px 20px 60px 20px;
+  background: #fdf6ec; /* soft beige background */
+  padding: 60px 20px 80px;
   text-align: center;
-  /* border-radius: 20px; */
-  margin: 0px auto;
   max-width: 100%;
-  /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); */
 }
 
+/* --- Section Title --- */
 .related-categories h2 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 40px;
-  color: #ffffff;
+  color: #4b2061; /* rich purple */
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
+.related-categories h2::after {
+  content: "";
+  width: 70px;
+  height: 3px;
+  background: #f5c518; /* warm yellow accent */
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* --- Grid Layout --- */
 .related-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 30px;
-  justify-content: center;
-  align-items: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
   padding: 0 20px;
 }
 
+/* --- Grid Items --- */
 .related-item {
-  background-color: #fff;
+  background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   cursor: pointer;
-  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
 }
 
 .related-item img {
   width: 100%;
-  height: 300px;
+  height: 240px;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.35s ease;
 }
 
+/* Hover Effect */
 .related-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: #f5c518; /* yellow accent on hover */
 }
 
 .related-item:hover img {
   transform: scale(1.05);
 }
 
+/* --- Item Name --- */
 .item-name {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #333;
-  padding: 15px;
-  background-color: #fff;
+  padding: 16px;
+  background: #fff;
   border-top: 1px solid #eee;
   text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+.related-item:hover .item-name {
+  color: #4b2061; /* purple text on hover */
 }
