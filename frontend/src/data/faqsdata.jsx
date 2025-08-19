@@ -1,7 +1,7 @@
 // src/data/aboutSubcategoryData.js
 
 const aboutSubcategoryData = {
-    "Bags And Travel": {
+    "Bags and Travel": {
         heading: "Corporate Travel Solutions – Bags that Impress",
         description: `MF Global Services offers a premium selection of backpacks, duffle bags, and travel accessories designed for corporate gifting. Our products combine durability with brand visibility—perfect for employees, events, and clients on the move.`,
         image: "/images/bags-and-travel.jpg",
@@ -17,7 +17,7 @@ const aboutSubcategoryData = {
         ]
     },
 
-    "Eco-Products": {
+    "Eco Products": {
         heading: "Sustainable Gifting with Eco-Friendly Products",
         description: `Our eco-products are ideal for organizations focused on environmental responsibility. Choose from bamboo items, reusable drinkware, and biodegradable gifting options that showcase your brand and values.`,
         image: "/images/eco-products.jpg",
@@ -33,7 +33,7 @@ const aboutSubcategoryData = {
         ]
     },
 
-    "Apparel And Accessories": {
+    "Apparel and Accessories": {
         heading: "Branded Corporate Wear Made Easy",
         description: `From custom t-shirts to winter wear, our apparel options help businesses create a unified brand image. Tailored for comfort, style, and visibility, each item can be personalized for employees or events.`,
         image: "/images/apparel-and-accessories.jpg",

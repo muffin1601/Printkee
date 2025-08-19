@@ -30,7 +30,7 @@ const ProductSchema = new mongoose.Schema({
   productCode: { type: String},
   SKU: String,
   name: { type: String, required: true },
-  // slug: { type: String },
+  slug: { type: String },
   description: String,
   HSNCode: String,
   type: String,
@@ -69,7 +69,7 @@ const ProductSchema = new mongoose.Schema({
 
 const SubcategorySchema = new mongoose.Schema({
   name: { type: String, required: true },
-  // slug: String ,
+  slug: { type: String },
   image: String,
   hoverImage: String,
   tag: String,
@@ -85,7 +85,7 @@ const SubcategorySchema = new mongoose.Schema({
 
 const CategorySchema = new mongoose.Schema({
   name: { type: String},
-  // slug: { type: String },
+  slug: { type: String },
   image: String,
   hoverImage: String,
   tag: String,

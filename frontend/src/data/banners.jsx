@@ -1,5 +1,5 @@
 const banners = {
-  "Apparel And Accessories": {
+  "Apparel and Accessories": {
     banner: "/banners/apparel.jpg",
     subcategories: {
       "Polo T-Shirts": "/banners/apparel/polo.webp",
@@ -12,14 +12,14 @@ const banners = {
       "Winter Wear": "/banners/apparel/winter.webp"
     }
   },
-  "Eco-Products": {
+  "Eco Products": {
     banner: "/banners/eco-products.jpg",
     subcategories: {
       "Bamboo Products": "/banners/eco-products/bamboo-products.jpg",
       "Customized Gifting": "/banners/eco-products/customized-gifting.jpg"
     }
   },
-  "Bags And Travel": {
+  "Bags and Travel": {
     banner: "/banners/bags.jpg",
     subcategories: {
       "Backpacks": "/banners/bags/backpacks.jpg",

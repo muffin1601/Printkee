@@ -23,14 +23,12 @@ mongoose.connect(process.env.MONGO_URI, {
 
 
 app.use("/api/blogs", require("./routes/blogRoutes"));
+
 app.use("/api", require("./routes/searchRoutes"));
 app.use("/api", require("./routes/emailRoutes"));
-app.use("/api", require("./routes/categoryRoutes"));
-app.use("/api", require("./routes/subcategoryRoutes"));
-app.use("/api", require("./routes/productRoutes"));
-
-
-
+app.use("/api/category", require("./routes/categoryRoutes"));
+app.use("/api/subcategory", require("./routes/subcategoryRoutes"));
+app.use("/api/product", require("./routes/productRoutes"));
 
 
 const PORT = process.env.PORT || 5030;

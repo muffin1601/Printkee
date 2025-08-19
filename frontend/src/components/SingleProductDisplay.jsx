@@ -14,76 +14,46 @@ import ProductOverview from "./ProductOverview";
 import { Helmet } from "react-helmet";
 
 const SingleProductDisplay = () => {
-  const { category, subcategory, product } = useParams();
+  const { category: categorySlug, subcategory: subcategorySlug, product: productSlug } = useParams();
   const navigate = useNavigate();
+
   const [productData, setProductData] = useState(null);
+  const [subcategoryData, setSubcategoryData] = useState(null);
+  const [categoryData, setCategoryData] = useState(null);
   const [selectedStyle, setSelectedStyle] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [mainImage, setMainImage] = useState("");
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
-  const slugify = (text) =>
-    text
-      .toLowerCase()
-      .trim()
-      .replace(/&/g, "and")
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/--+/g, "-");
-
-  const formatCategory = (slug) =>
-    slug
-      .split("-")
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(" ");
-
-  const formatSubcategory = (slug) => {
-    const exceptions = {
-      "round-neck-t-shirts": "Round Neck T-Shirts",
-      "polo-t-shirts": "Polo T-Shirts",
-    };
-    return exceptions[slug.toLowerCase()] || formatCategory(slug);
-  };
-
-  const formatProduct = (slug) => {
-    const exceptions = {
-      "cotton-t-shirt": "Cotton T-Shirt",
-      "polo-t-shirt": "Polo T-Shirt",
-      "v-neck-t-shirt": "V-Neck T-Shirt",
-      "long-sleeve-t-shirt": "Long Sleeve T-Shirt",
-      "sports-t-shirt": "Sports T-Shirt",
-      "raglan-t-shirt": "Raglan T-Shirt",
-      "performance-t-shirt": "Performance T-Shirt",
-    };
-    return exceptions[slug.toLowerCase()] || formatCategory(slug);
-  };
-
-  const formattedCategory = formatCategory(category);
-  const formattedSubcategory = formatSubcategory(subcategory);
-  const formattedProduct = formatProduct(product);
-
+  // fetch product by slugs
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/${formattedCategory}/${formattedSubcategory}/${formattedProduct}`
+          `${import.meta.env.VITE_API_URL}/product/product-fetch/${categorySlug}/${subcategorySlug}/${productSlug}`
         );
-        setProductData(res.data);
-        setSelectedStyle(res.data.styles?.[0] || "");
-        setMainImage(res.data.image || res.data.subImages?.[0] || "");
+
+        
+        setCategoryData(res.data.category);
+        setSubcategoryData(res.data.subcategory);
+        setProductData(res.data.product);
+
+        setSelectedStyle(res.data.product.styles?.[0] || "");
+        setMainImage(res.data.product.image || res.data.product.subImages?.[0] || "");
       } catch (err) {
         console.error("Failed to fetch product", err);
       }
     };
     fetchProduct();
-  }, [formattedCategory, formattedSubcategory, formattedProduct]);
+  }, [categorySlug, subcategorySlug, productSlug]);
 
+  // fetch related products
   useEffect(() => {
     const fetchRelatedProducts = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/related-products/${formattedCategory}/${formattedSubcategory}/${formattedProduct}`
+          `${import.meta.env.VITE_API_URL}/product/related-products/${categorySlug}/${subcategorySlug}/${productSlug}`
         );
         setRelatedProducts(res.data);
       } catch (err) {
@@ -91,27 +61,28 @@ const SingleProductDisplay = () => {
       }
     };
     fetchRelatedProducts();
-  }, [formattedCategory, formattedSubcategory, formattedProduct]);
+  }, [categorySlug, subcategorySlug, productSlug]);
 
-  if (!productData) return <div>Loading...</div>;
+  if (!productData || !subcategoryData || !categoryData) return <div>Loading...</div>;
 
   return (
     <>
       {/* SEO Meta Title and Description */}
       <Helmet>
-        <title>{`${productData.name} | ${formattedSubcategory} - MF Global Services`}</title>
+        <title>{`${productData.name} | ${subcategoryData.name} - MF Global Services`}</title>
         <meta
           name="description"
           content={
             productData.description
               ? productData.description.slice(0, 150)
-              : `Explore ${productData.name}, a top pick from our ${formattedSubcategory} collection at MF Global Services.`
+              : `Explore ${productData.name}, a top pick from our ${subcategoryData.name} collection at MF Global Services.`
           }
         />
       </Helmet>
 
       <div className="single-product-page">
         <div className="single-product-container">
+          {/* IMAGE SECTION */}
           <div className="product-right">
             <div className="image-section">
               {productData.subImages?.length > 0 && (
@@ -137,16 +108,17 @@ const SingleProductDisplay = () => {
             </div>
           </div>
 
+          {/* PRODUCT DETAILS */}
           <div className="product-left">
             <button
               className="back-button"
               onClick={() =>
                 window.history.length > 2
                   ? navigate(-1)
-                  : navigate(`/${category}/${subcategory}`)
+                  : navigate(`/${categorySlug}/${subcategorySlug}`)
               }
             >
-              <FaChevronLeft /> Back to {formattedSubcategory}
+              <FaChevronLeft /> Back to {subcategoryData.name}
             </button>
 
             <h1 className="product-title-1">{productData.name}</h1>
@@ -174,9 +146,7 @@ const SingleProductDisplay = () => {
             <div className="quantity-section">
               <label>Quantity:</label>
               <div className="quantity-controls">
-                <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>
-                  -
-                </button>
+                <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
                 <span>{quantity}</span>
                 <button onClick={() => setQuantity(quantity + 1)}>+</button>
               </div>
@@ -186,24 +156,17 @@ const SingleProductDisplay = () => {
               <button
                 className="add-to-cart-2"
                 onClick={() => {
-                  const subcategory = formattedSubcategory;
-
                   let route = "/customize";
-
-                  if (subcategory === "Polo T-Shirts") {
-                    route = "/customize/polotshirt";
-                  } else if (subcategory === "Round Neck T-Shirts") {
-                    route = "/customize/roundneck";
-                  } else if (subcategory === "Caps") {
-                    route = "/customize/cap";
-                  }
+                  if (subcategorySlug === "polo-t-shirts") route = "/customize/polotshirt";
+                  if (subcategorySlug === "round-neck-t-shirts") route = "/customize/roundneck";
+                  if (subcategorySlug === "caps") route = "/customize/cap";
 
                   navigate(route, {
                     state: {
                       productName: productData.name,
                       productImages: [productData.image, ...(productData.subImages || [])],
-                      subcategory: formattedSubcategory,
-                    }
+                      subcategory: subcategoryData.name,
+                    },
                   });
                 }}
               >
@@ -220,8 +183,9 @@ const SingleProductDisplay = () => {
           </div>
         </div>
 
-        <ProductOverview subcategory={subcategory} productData={productData} />
+        <ProductOverview subcategory={subcategoryData.slug} productData={productData} />
 
+        
         {relatedProducts.length > 0 && (
           <div className="related-products-section">
             <h2 className="related-title">You May Also Like</h2>
@@ -243,9 +207,7 @@ const SingleProductDisplay = () => {
                   <div
                     className="related-product-card"
                     onClick={() =>
-                      navigate(
-                        `/${category}/${subcategory}/${slugify(relProd.name)}`
-                      )
+                      navigate(`/${categorySlug}/${subcategorySlug}/${relProd.slug}`)
                     }
                   >
                     <img

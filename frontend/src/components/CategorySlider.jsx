@@ -9,18 +9,11 @@ import "../styles/CategorySlider.css";
 const CategorySlider = () => {
   const [categories, setCategories] = useState([]);
 
-  const slugify = (text) =>
-  text
-    .toLowerCase()
-    .trim()
-    .replace(/&/g, 'and') 
-    .replace(/[^\w\s-]/g, '') 
-    .replace(/\s+/g, '-') 
-    .replace(/--+/g, '-');
+
 
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/categories`)
+    fetch(`${import.meta.env.VITE_API_URL}/category/categories`)
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error("Failed to fetch categories:", err));
@@ -53,7 +46,7 @@ const CategorySlider = () => {
               <h3 className="category-title">{item.name}</h3>
               {/* <div className="category-stars">☆☆☆☆☆</div> */}
               <button className="category-explore-btn" onClick={() =>
-                          window.location.href = `/${slugify(item.name)}`
+                          window.location.href = `/${item.slug}`
 
                         } >Explore →</button>
             </div>

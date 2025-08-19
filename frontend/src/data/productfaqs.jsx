@@ -76,7 +76,7 @@ const faqList = {
   ],
 
   // Apparel and Accessories
-  "T-Shirts": [
+  "Polo T-Shirts": [
     {
       question: "Can I customize the T-shirts with my brand logo?",
       answer: "Yes, we offer full-color printing and embroidery options for corporate T-shirts."
@@ -86,7 +86,29 @@ const faqList = {
       answer: "We offer cotton, polyester, dry-fit, and blended fabric T-shirts in multiple sizes and colors."
     }
   ],
-  "Caps and Hats": [
+
+  "Round Neck T-Shirts": [
+    {
+      question: "Can I customize the T-shirts with my brand logo?",
+      answer: "Yes, we offer full-color printing and embroidery options for corporate T-shirts."
+    },
+    {
+      question: "What fabric options are available for your T-shirts?",
+      answer: "We offer cotton, polyester, dry-fit, and blended fabric T-shirts in multiple sizes and colors."
+    }
+  ],
+  "Caps": [
+    {
+      question: "Do you offer embroidered logo caps?",
+      answer: "Yes, we provide embroidery, screen, and digital printing options for promotional caps and hats."
+    },
+    {
+      question: "Are these suitable for outdoor events or staff uniforms?",
+      answer: "Absolutely. Our caps are perfect for brand visibility in outdoor and event settings."
+    }
+  ],
+
+  "Hats": [
     {
       question: "Do you offer embroidered logo caps?",
       answer: "Yes, we provide embroidery, screen, and digital printing options for promotional caps and hats."

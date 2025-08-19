@@ -1,302 +1,83 @@
+const poloTshirts = require("./products/poloTshirts");
+const aprons = require("./products/aprons");
+const roundneckTshirts = require("./products/roundneckTshirts");
+const caps = require("./products/caps");
+const hats = require("./products/hats");
+const corporateShirts = require("./products/corporateShirts");
+const  winterWear = require("./products/winterWear");
+const  ties = require("./products/ties");
+
 const categoryData = [
   {
     name: "Apparel and Accessories",
+    slug: "apparel-and-accessories",
     image: "/assets/categories/apparel.jpg",
     hoverImage: "",
     tag: "Discover our range of apparel and accessories.\nPerfect for branding and gifting.\nTrendy, comfortable, and customizable.\nIdeal for all occasions.",
     subcategories: [
       {
         name: "Polo T-Shirts",
+        slug: "polo-t-shirts",
         image: "/assets/subcategories/polotshirt.webp",
         hoverImage: "",
         tag: "Smart and comfortable polo t-shirts.\nPerfect for corporate wear.\nCustom logo printing available.",
-        products: [
-          {
-            name: "Polo T-Shirt",
-            description: "Comfort-fit polo t-shirt with logo print.",
-            image: "/assets/products/tshirt (2).png",
-            subImages: [
-              "/assets/products/tshirt (2).png",
-              "/assets/products/tshirt (3).png"
-            ],
-            tags: [
-              "polo t-shirt",
-              "logo polo shirt",
-              "custom polo tee",
-              "Apparel and Accessories",
-              "Polo T-Shirts",
-              "corporate polo t-shirt",
-              "branded apparel"
-            ]
-          }
-        ]
+        products: poloTshirts
       },
       {
         name: "Round Neck T-Shirts",
+        slug: "round-neck-t-shirts",
         image: "/assets/subcategories/round.webp",
         hoverImage: "",
         tag: "Classic round neck t-shirts.\nSoft, breathable materials.\nCustomizable for events, teams, and promotions.",
-        products: [
-          {
-            name: "Cotton T-Shirt",
-            description: "100% cotton round neck t-shirt.",
-            image: "/assets/products/tshirt1.png",
-            tags: [
-              "cotton t-shirt",
-              "round neck t-shirt",
-              "custom cotton tee",
-              "Apparel and Accessories",
-              "Round Neck T-Shirts",
-              "branded cotton t-shirt",
-              "event t-shirt"
-            ]
-          },
-          {
-            name: "V-Neck T-Shirt",
-            description: "Modern v-neck style t-shirt.",
-            image: "/assets/products/tshirt (3).png",
-            tags: [
-              "v-neck t-shirt",
-              "modern t-shirt",
-              "custom v-neck tee",
-              "Apparel and Accessories",
-              "Round Neck T-Shirts",
-              "branded v-neck shirt"
-            ]
-          },
-          {
-            name: "Long Sleeve T-Shirt",
-            description: "Full sleeve cotton t-shirt.",
-            image: "/assets/products/tshirt (4).png",
-            tags: [
-              "long sleeve t-shirt",
-              "full sleeve tee",
-              "Apparel and Accessories",
-              "Round Neck T-Shirts",
-              "custom long t-shirt",
-              "winter t-shirt"
-            ]
-          },
-          {
-            name: "Sports T-Shirt",
-            description: "Breathable fabric for sports.",
-            image: "/assets/products/tshirt (5).png",
-            tags: [
-              "sports t-shirt",
-              "performance tee",
-              "activewear",
-              "Apparel and Accessories",
-              "Round Neck T-Shirts",
-              "custom sports shirt"
-            ]
-          },
-          {
-            name: "Raglan T-Shirt",
-            description: "Contrast sleeve raglan tee.",
-            image: "/assets/products/tshirt (6).png",
-            tags: [
-              "raglan t-shirt",
-              "contrast sleeve tee",
-              "Apparel and Accessories",
-              "Round Neck T-Shirts",
-              "custom raglan tee",
-              "branded tee"
-            ]
-          },
-          {
-            name: "Performance T-Shirt",
-            description: "Moisture-wicking activewear.",
-            image: "/assets/products/tshirt (7).png",
-            tags: [
-              "performance t-shirt",
-              "moisture wicking tee",
-              "Apparel and Accessories",
-              "Round Neck T-Shirts",
-              "custom gym shirt",
-              "activewear"
-            ]
-          }
-        ]
+        products: roundneckTshirts
       },
       {
         name: "Caps",
-        image: "/assets/subcategories/cap.jpg", // Update with the correct image path for caps
+        slug: "caps",
+        image: "/assets/subcategories/cap.jpg",
         hoverImage: "",
         tag: "Stylish and comfortable caps.\nPerfect for branding and giveaways.\nCustom embroidery options.",
-        products: [
-          {
-            name: "Baseball Cap",
-            description: "Adjustable cotton cap with embroidery.",
-            image: "/assets/products/cap1.jpg",
-            tags: [
-              "baseball cap",
-              "custom cap",
-              "embroidered cap",
-              "Apparel and Accessories",
-              "Caps",
-              "branded cap",
-              "adjustable cap"
-            ]
-          }
-        ]
+        products: caps
       },
       {
         name: "Hats",
-        image: "/assets/subcategories/hats.jpg", // Update with the correct image path for hats
+        slug: "hats",
+        image: "/assets/subcategories/hats.jpg",
         hoverImage: "",
         tag: "Trendy hats for outdoor and casual wear.\nIdeal for sun protection and custom branding.",
-        products: [
-          {
-            name: "Bucket Hat",
-            description: "Reversible bucket hat for sun protection.",
-            image: "/assets/products/cap2.jpg",
-            tags: [
-              "bucket hat",
-              "reversible hat",
-              "Apparel and Accessories",
-              "Hats",
-              "custom branded hat",
-              "sun protection hat"
-            ]
-          }
-        ]
+        products: hats
       },
       {
         name: "Corporate Shirts",
+        slug: "corporate-shirts",
         image: "/assets/subcategories/corporateshirt.jpg",
         hoverImage: "",
         tag: "Professional corporate shirts.\nPerfect for office wear.\nCustom branding options.\nAvailable in various styles.",
-        products: [
-          {
-            name: "Formal Shirt",
-            description: "Slim-fit shirt with logo print.",
-            image: "/assets/products/shirt.webp",
-            tags: [
-              "formal shirt",
-              "corporate shirt",
-              "Apparel and Accessories",
-              "Corporate Shirts",
-              "slim fit shirt",
-              "custom logo shirt"
-            ]
-          },
-          {
-            name: "Checked Shirt",
-            description: "Office wear with check pattern.",
-            image: "/assets/products/shirt2.jpg",
-            tags: [
-              "checked shirt",
-              "office wear",
-              "Apparel and Accessories",
-              "Corporate Shirts",
-              "check pattern shirt",
-              "branded shirt"
-            ]
-          }
-        ]
+        products: corporateShirts
       },
       {
         name: "Ties",
+        slug: "ties",
         image: "/assets/subcategories/tie.jpg",
         hoverImage: "",
         tag: "Elegant ties for professionals.\nPremium fabrics and designs.\nIdeal for gifting.\nCustom prints available.",
-        products: [
-          {
-            name: "Silk Tie",
-            description: "Premium silk tie with custom design.",
-            image: "/assets/products/tie1.jpg",
-            tags: [
-              "silk tie",
-              "premium tie",
-              "Apparel and Accessories",
-              "Ties",
-              "corporate tie",
-              "branded tie",
-              "custom print tie"
-            ]
-          },
-          {
-            name: "Corporate Tie Set",
-            description: "Tie, cufflink, and pocket square.",
-            image: "/assets/products/tie2.jpg",
-            tags: [
-              "tie set",
-              "corporate gift set",
-              "Apparel and Accessories",
-              "Ties",
-              "cufflink set",
-              "branded tie set"
-            ]
-          }
-        ]
+        products: ties
       },
       {
         name: "Aprons",
+        slug: "aprons",
         image: "/assets/subcategories/apron.jpg",
         hoverImage: "",
         tag: "Durable aprons for all uses.\nKitchen and industrial styles.\nCustomizable with logos.\nGreat for branding.",
-        products: [
-          {
-            name: "Kitchen Apron",
-            description: "Durable kitchen apron with print.",
-            image: "/assets/products/apron.webp",
-            tags: [
-              "kitchen apron",
-              "printed apron",
-              "Apparel and Accessories",
-              "Aprons",
-              "custom apron",
-              "branded kitchen apron"
-            ]
-          },
-          {
-            name: "Canvas Apron",
-            description: "Heavy-duty canvas apron.",
-            image: "/assets/products/apron2.jpg",
-            tags: [
-              "canvas apron",
-              "heavy-duty apron",
-              "Apparel and Accessories",
-              "Aprons",
-              "custom work apron",
-              "industrial apron"
-            ]
-          }
-        ]
+        products: aprons
       },
       {
         name: "Winter Wear",
+        slug: "winter-wear",
         image: "/assets/subcategories/winterwear.jpg",
         hoverImage: "",
         tag: "Warm winter essentials.\nHoodies, jackets, and more.\nPerfect for cold seasons.\nCustom branding available.",
-        products: [
-          {
-            name: "Corporate Hoodie",
-            description: "Fleece-lined hoodie.",
-            image: "/assets/products/winter1.jpg",
-            tags: [
-              "corporate hoodie",
-              "fleece hoodie",
-              "Apparel and Accessories",
-              "Winter Wear",
-              "branded hoodie",
-              "custom winter hoodie"
-            ]
-          },
-          {
-            name: "Zipper Jacket",
-            description: "Warm winter jacket.",
-            image: "/assets/products/winter2.jpg",
-            tags: [
-              "zipper jacket",
-              "winter jacket",
-              "Apparel and Accessories",
-              "Winter Wear",
-              "custom jacket",
-              "branded winter wear"
-            ]
-          }
-        ]
+        products: winterWear
       }
     ]
   },
