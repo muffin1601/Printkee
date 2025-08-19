@@ -90,6 +90,7 @@
 .product-container {
   flex: 1;
   display: flex;
+  width: 100%;
   flex-direction: column;
 }
 
@@ -118,7 +119,7 @@
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 28px;
+  gap: 30px;
 }
 
 /* Product Card */

@@ -16,7 +16,7 @@ import {
 } from 'react-icons/fa';
 
 const categoryHighlights = {
-  "Bags And Travel": {
+  "Bags and Travel": {
     heading: "Why Choose Our Bags & Travel Gear?",
     highlights: [
       { icon: <FaSuitcase />, title: "Durable & Stylish", description: "Perfect for travel and corporate gifting." },
@@ -24,7 +24,7 @@ const categoryHighlights = {
       { icon: <FaTruck />, title: "Fast Shipping", description: "Quick turnaround on all bulk orders." }
     ]
   },
-  "Eco-Products": {
+  "Eco Products": {
     heading: "Why Choose Our Eco-Friendly Products?",
     highlights: [
       { icon: <FaLeaf />, title: "Sustainable Choices", description: "Made from recycled or natural materials." },
@@ -32,7 +32,7 @@ const categoryHighlights = {
       { icon: <FaTruck />, title: "Carbon Neutral Shipping", description: "Offset emissions on all deliveries." }
     ]
   },
-  "Apparel And Accessories": {
+  "Apparel and Accessories": {
     heading: "Why Choose Our Custom Apparel?",
     highlights: [
       { icon: <FaTshirt />, title: "Premium Quality", description: "Fabric and stitching built to impress." },

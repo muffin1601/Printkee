@@ -9,51 +9,36 @@ import Testimonials from "./Testimonials";
 import GetQuoteCTA from "./GetQuoteCTA";
 
 const SubcategoryDisplay = () => {
-  const { category } = useParams();
-  const [subcategories, setSubcategories] = useState([]);
-  const [categoryTag, setCategoryTag] = useState("");
+  const { category: categorySlug } = useParams(); 
+  const [categoryData, setCategoryData] = useState(null);
 
-  const slugify = (text) =>
-    text
-      .toLowerCase()
-      .trim()
-      .replace(/&/g, "and")
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/--+/g, "-");
-
-  const formatCategory = (slug) =>
-    slug
-      .split("-")
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(" ");
-
-  const formattedCategory = formatCategory(category);
+  
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/${formattedCategory}`)
-      .then((res) => {
-        setSubcategories(res.data.subcategories || []);
-        setCategoryTag(res.data.tag || "");
-      })
-      .catch((err) => console.error("Error fetching subcategories:", err));
-  }, [formattedCategory]);
+      .get(`${import.meta.env.VITE_API_URL}/category/categories/${categorySlug}`) 
+      .then((res) => setCategoryData(res.data))
+      .catch((err) => console.error("Error fetching category:", err));
+  }, [categorySlug]);
+
+  if (!categoryData) return <div>Loading...</div>;
 
   return (
     <>
+      
       <Helmet>
-        <title>{formattedCategory} | MF Global Services</title>
+        <title>{categoryData.name} | MF Global Services</title>
         <meta
           name="description"
           content={
-            categoryTag
-              ? categoryTag.replace(/\n/g, " ")
-              : `Explore our premium range of ${formattedCategory} at MF Global Services. Discover corporate gifting options with customization.`
+            categoryData.tag
+              ? categoryData.tag.replace(/\n/g, " ")
+              : `Explore our premium range of ${categoryData.name} at MF Global Services. Discover corporate gifting options with customization.`
           }
         />
       </Helmet>
 
+      {/* Header */}
       <div className="subcategory-header">
         <div className="subcategory-header-content">
           <Link to="/" className="back-link">
@@ -62,17 +47,18 @@ const SubcategoryDisplay = () => {
             </div>
             <span className="span-name">Back to home</span>
           </Link>
-          <h1 className="subcategory-title">{formattedCategory}</h1>
-          <p className="subcategory-description">{categoryTag}</p>
+          <h1 className="subcategory-title">{categoryData.name}</h1>
+          <p className="subcategory-description">{categoryData.tag}</p>
         </div>
       </div>
 
+      
       <div className="subcategory-container">
         <div className="subcategory-grid">
-          {subcategories.map((sub) => (
+          {categoryData.subcategories?.map((sub) => (
             <Link
               key={sub._id}
-              to={`/${slugify(category)}/${slugify(sub.name)}`}
+              to={`/${categorySlug}/${sub.slug}`} 
               className="subcategory-card"
             >
               <img
@@ -86,13 +72,14 @@ const SubcategoryDisplay = () => {
         </div>
       </div>
 
-      {categoryHighlights[formattedCategory] && (
+      
+      {categoryHighlights[categoryData.name] && (
         <div className="highlights-section">
           <h2 className="highlights-heading">
-            {categoryHighlights[formattedCategory].heading}
+            {categoryHighlights[categoryData.name].heading}
           </h2>
           <div className="highlights-grid">
-            {categoryHighlights[formattedCategory].highlights.map(
+            {categoryHighlights[categoryData.name].highlights.map(
               (highlight, i) => (
                 <div key={i} className="highlight-card">
                   <div className="highlight-icon">{highlight.icon}</div>
@@ -107,17 +94,18 @@ const SubcategoryDisplay = () => {
         </div>
       )}
 
-      {aboutSubcategoryData[formattedCategory] && (
+    
+      {aboutSubcategoryData[categoryData.name] && (
         <div className="about-subcategory-container">
           <div className="about-subcategory">
             <h2 className="about-heading">
-              {aboutSubcategoryData[formattedCategory].heading}
+              {aboutSubcategoryData[categoryData.name].heading}
             </h2>
             <p className="about-description">
-              {aboutSubcategoryData[formattedCategory].description}
+              {aboutSubcategoryData[categoryData.name].description}
             </p>
             <div className="faq-section">
-              {aboutSubcategoryData[formattedCategory].faqs.map(
+              {aboutSubcategoryData[categoryData.name].faqs.map(
                 (faq, index) => (
                   <div key={index} className="faq-item">
                     <h4 className="faq-question">{faq.question}</h4>
@@ -129,8 +117,8 @@ const SubcategoryDisplay = () => {
           </div>
           <div className="subcategory-image-container">
             <img
-              src={aboutSubcategoryData[formattedCategory].image}
-              alt={formattedCategory}
+              src={aboutSubcategoryData[categoryData.name].image}
+              alt={categoryData.name}
               className="subcategory-about-image"
             />
           </div>

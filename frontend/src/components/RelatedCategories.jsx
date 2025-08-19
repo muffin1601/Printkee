@@ -4,40 +4,37 @@ import axios from 'axios';
 import '../styles/RelatedCategories.css';
 import { Link } from 'react-router-dom';
 
-const RelatedCategories = ({ currentSubcategory }) => {
+const RelatedCategories = ({ categorySlug, currentSubcategorySlug }) => {
   const [related, setRelated] = useState([]);
 
-  const slugify = (text) =>
-    text
-      .toLowerCase()
-      .trim()
-      .replace(/&/g, "and")
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/--+/g, "-");
-
   useEffect(() => {
-    const fetchRelated = async () => {
-      try {
-        const res = await axios.get(`${import.meta.env.VITE_API_URL}/related-subcategories/${currentSubcategory}`);
-        setRelated(res.data);
-      } catch (err) {
-        console.error('Failed to fetch related categories:', err);
-      }
-    };
+  const fetchRelated = async () => {
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_URL}/subcategory/subcategories/related-subcategories/${currentSubcategorySlug}`
+      );
+      setRelated(res.data.relatedSubcategories); 
+    } catch (err) {
+      console.error('Failed to fetch related categories:', err);
+    }
+  };
 
-    fetchRelated();
-  }, [currentSubcategory]);
+  fetchRelated();
+}, [currentSubcategorySlug]);
+
 
   return (
     <section className="related-categories">
-      <h2>Explore More in </h2>
+      <h2>Explore More in</h2>
       <div className="related-grid">
         {related.map((cat) => (
-          <Link key={cat.name} to={`/Apparel-and-Accessories/${slugify(cat.name)}`}>
+          <Link
+            key={cat.slug}
+            to={`/${categorySlug}/${cat.slug}`}   
+          >
             <div className="related-item">
               <img src={cat.image} alt={cat.name} />
-              <p className='item-name'>{cat.name}</p>
+              <p className="item-name">{cat.name}</p>
             </div>
           </Link>
         ))}

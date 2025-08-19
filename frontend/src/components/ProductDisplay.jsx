@@ -11,91 +11,77 @@ import BottomCategoryDescription from "./BottomCategoryDescription";
 import banners from "../data/banners";
 
 const ProductDisplay = () => {
-  const { category, subcategory } = useParams();
+  const { category: categorySlug, subcategory: subcategorySlug } = useParams();
   const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);
-  const [subcategoryData, setSubcategoryData] = useState({});
-
-  const slugify = (text) =>
-    text
-      .toLowerCase()
-      .trim()
-      .replace(/&/g, "and")
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/--+/g, "-");
-
-  const formatCategory = (slug) =>
-    slug
-      .split("-")
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(" ");
-
-  const formatSubcategory = (slug) => {
-    const exceptions = {
-      "round-neck-t-shirts": "Round Neck T-Shirts",
-      "polo-t-shirts": "Polo T-Shirts",
-    };
-    return exceptions[slug.toLowerCase()] || formatCategory(slug);
-  };
-
-  const formattedCategory = formatCategory(category);
-  const formattedSubcategory = formatSubcategory(subcategory);
-
- 
-  const bannerImage =
-    banners[formattedCategory]?.subcategories[formattedSubcategory] ||
-    banners[formattedCategory]?.banner ||
-    "/assets/product-banner.webp";
+  const [categoryData, setCategoryData] = useState(null);
+  const [subcategoryData, setSubcategoryData] = useState(null);
 
   useEffect(() => {
+    
     axios
       .get(
-        `${import.meta.env.VITE_API_URL}/${formattedCategory}/${formattedSubcategory}`
+        `${import.meta.env.VITE_API_URL}/subcategory/subcategory-fetch/${categorySlug}/${subcategorySlug}`
       )
       .then((res) => {
         setProducts(res.data.products || []);
-        setSubcategoryData(res.data.subcategory || {});
+        setCategoryData(res.data.category || null);
+        setSubcategoryData(res.data.subcategory || null);
       })
       .catch((err) => console.error("Failed to fetch products:", err));
-  }, [category, subcategory]);
+  }, [categorySlug, subcategorySlug]);
+
+  if (!subcategoryData || !categoryData) return <div>Loading...</div>;
+
+ 
+  const categoryName = categoryData.name;
+  const subcategoryName = subcategoryData.name;
+
+  console.log (subcategoryName);
+
+  const bannerImage =
+    banners[categoryName]?.subcategories?.[subcategoryName] ||
+    banners[categoryName]?.banner ||
+    "/assets/product-banner.webp";
 
   return (
     <>
       <Helmet>
-        <title>{`${formattedSubcategory} | ${formattedCategory} - MF Global Services`}</title>
+        <title>
+          {`${subcategoryName} | ${categoryName} - MF Global Services`}
+        </title>
         <meta
           name="description"
           content={
             subcategoryData?.tag
               ? subcategoryData.tag.replace(/\n/g, " ")
-              : `Explore ${formattedSubcategory} under ${formattedCategory} at MF Global Services. Discover custom branded gifts for every need.`
+              : `Explore ${subcategoryName} under ${categoryName} at MF Global Services. Discover custom branded gifts for every need.`
           }
         />
       </Helmet>
 
+      {/* Header */}
       <div className="subcategory-header">
         <div className="subcategory-header-content">
-          <Link to={`/${category}`} className="back-link">
+          <Link to={`/${categorySlug}`} className="back-link">
             <div className="circle">
               <span className="arrow-2">&larr;</span>
             </div>
-            <span className="span-name">Back to {formattedCategory}</span>
+            <span className="span-name">Back to {categoryName}</span>
           </Link>
-          <h1 className="page-title">{formattedSubcategory}</h1>
-          <p className="subcategory-description">
-            {subcategoryData?.tag || ""}
-          </p>
+          <h1 className="page-title">{subcategoryName}</h1>
+          <p className="subcategory-description">{subcategoryData?.tag || ""}</p>
         </div>
       </div>
 
+      {/* Products grid */}
       <div className="product-container-2">
         <div className="page-wrapper">
           <div className="product-container">
             <div className="sort-bar">
               <span>
-                Home / {formattedCategory} / {formattedSubcategory}
+                Home / {categoryName} / {subcategoryName}
               </span>
             </div>
 
@@ -148,9 +134,7 @@ const ProductDisplay = () => {
                     className="add-to-cart"
                     onClick={() =>
                       navigate(
-                        `/${slugify(category)}/${slugify(
-                          subcategory
-                        )}/${slugify(product.name)}`
+                        `/${categorySlug}/${subcategorySlug}/${product.slug}`
                       )
                     }
                   >
@@ -163,16 +147,18 @@ const ProductDisplay = () => {
         </div>
       </div>
 
-      
       <CTABanner
         imageSrc={bannerImage}
         linkTo="/contact"
-        alt={`Get a Quote for ${formattedSubcategory}`}
+        alt={`Get a Quote for ${subcategoryName}`}
       />
 
-      <FAQSection subcategory={formattedSubcategory} />
-      <RelatedCategories currentSubcategory={formattedSubcategory} />
-      <BottomCategoryDescription subcategory={formattedSubcategory} />
+      <FAQSection subcategory={subcategoryName} />
+      <RelatedCategories
+        categorySlug={categorySlug}
+        currentSubcategorySlug={subcategorySlug}
+      />
+      <BottomCategoryDescription subcategory={subcategoryName} />
     </>
   );
 };

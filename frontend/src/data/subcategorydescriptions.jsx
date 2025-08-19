@@ -13,8 +13,10 @@ const categoryDescriptions = {
   "Customized Gifting": "Looking for unique and tailored gift ideas? Our customized gifting range includes handpicked, brandable items designed to reflect your company's personality and values.",
 
   // Apparel and Accessories
-  "T-Shirts": "Browse our range of customizable corporate T-shirts available in various fabrics, sizes, and colors. Ideal for team events, marketing campaigns, and brand promotions with high visibility.",
-  "Caps and Hats": "Choose from our stylish collection of caps and hats, perfect for outdoor promotions, employee uniforms, and branded giveaways.",
+  "Polo T-Shirts": "Browse our range of customizable corporate T-shirts available in various fabrics, sizes, and colors. Ideal for team events, marketing campaigns, and brand promotions with high visibility.",
+  "Round Neck T-Shirts": "Browse our range of customizable corporate T-shirts available in various fabrics, sizes, and colors. Ideal for team events, marketing campaigns, and brand promotions with high visibility.",
+  "Caps": "Choose from our stylish collection of caps and hats, perfect for outdoor promotions, employee uniforms, and branded giveaways.",
+  "Hats": "Choose from our stylish collection of caps and hats, perfect for outdoor promotions, employee uniforms, and branded giveaways.",
   "Corporate Shirts": "Elevate your professional image with our corporate shirts, available in formal and semi-formal styles with personalized logo embroidery or printing.",
   "Ties": "Our elegant neckties can be customized with your logo, making them ideal for corporate events, uniforms, and gift boxes for executives.",
   "Aprons": "Custom aprons are perfect for hospitality, food service, and event branding. Choose from a variety of materials and printing styles.",
