@@ -62,7 +62,7 @@ const ProductDisplay = () => {
       </Helmet>
 
       {/* Header */}
-      <div className="subcategory-header">
+      <div className="subcategory-header-2">
         <div className="subcategory-header-content">
           <Link to={`/${categorySlug}`} className="back-link">
             <div className="circle">

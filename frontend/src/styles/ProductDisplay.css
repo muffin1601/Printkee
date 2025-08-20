@@ -1,3 +1,89 @@
+.subcategory-header-2 {
+  color: rgb(43, 43, 43);
+  padding: 2% 6.5%;
+  text-align: left;
+  border-bottom: 2px solid #e6e6e6;
+  display: flex;
+  flex-direction: row;
+}
+
+.subcategory-header-content{
+  width:50%;
+}
+.subcategory-left {
+  max-width: 800px;
+}
+
+.subcategory-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.back-button {
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+
+.circle {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid rgb(43, 43, 43);
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0.3rem;
+}
+
+.arrow-2 {
+  font-size: 1.4rem;
+  color: rgb(44, 44, 44);
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: fit-content;
+  color: rgb(43, 43, 43);
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.back-link:hover {
+  text-decoration: none;
+}
+
+.back-link .span-name {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.subcategory-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #252525; /* navbar purple */
+}
+
+.subcategory-description {
+  font-size: 1rem;
+  max-width: 720px;
+  margin: 0.8rem 0;
+  line-height: 1.6;
+  text-align: left;
+  color: #252525;
+  font-family: 'Poppins', sans-serif;
+}
 .product-container-2 {
   
   padding: 40px 110px 60px 110px; 
