@@ -42,7 +42,7 @@ const categoryData = [
       {
         name: "Hats",
         slug: "hats",
-        image: "/assets/subcategories/hats.jpg",
+        image: "/assets/subcategories/hats.webp",
         hoverImage: "",
         tag: "Trendy hats for outdoor and casual wear.\nIdeal for sun protection and custom branding.",
         products: hats
