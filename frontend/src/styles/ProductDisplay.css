@@ -204,8 +204,9 @@
 /* Product Grid */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 50px;
+  
 }
 
 /* Product Card */
@@ -227,7 +228,7 @@
 .product-image-wrapper {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 250px;
   background: #f3f0f9;
   border-radius: 12px;
   overflow: hidden;
