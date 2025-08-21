@@ -17,7 +17,7 @@ const Footer = () => {
             From premium packaging to on-time delivery, <br />
             we make gifting seamless and impactful.
           </p>
-          <a href="/about" className="footer-about-btn">Learn More</a>
+          <a href="/about" className="footer-about-btn">More About Us</a>
         </div>
 
         {/* Column 2: Important Links */}
