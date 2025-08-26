@@ -145,13 +145,14 @@ const ProductDisplay = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <CTABanner
+        <CTABanner
         imageSrc={bannerImage}
         linkTo="/contact"
         alt={`Get a Quote for ${subcategoryName}`}
       />
+      </div>
+
+      
 
       <FAQSection subcategory={subcategoryName} />
       <RelatedCategories

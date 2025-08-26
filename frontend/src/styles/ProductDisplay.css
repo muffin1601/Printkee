@@ -176,8 +176,9 @@
 .product-container {
   flex: 1;
   display: flex;
-  width: 100%;
+  width: 90%;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 /* Sort Bar */
@@ -204,8 +205,9 @@
 /* Product Grid */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 50px;
+  
   
 }
 

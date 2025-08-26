@@ -9,9 +9,14 @@ const navbarSubcategories = {
         'Aprons',
         'Winter Wear',
     ], 
-    "Trophy and Momento": [
-        'Trophy and Momento',
+    "Office and Writing": [
+        'File and Folder',
+        'Notebook & Diary',
+        'Pen & Writing Set',
+        'Lanyard & ID Card',
+        'Miscellaneous',
     ],
+    
     "Bags and Travel": [
         'Backpacks',
         'Foldable Bags',
@@ -54,13 +59,9 @@ const navbarSubcategories = {
         "Cork Laptop Bag and Wallet",
         "Cork Yoga Accessories"
     ],
-    "Office and Writing": [
-        'File and Folder',
-        'Notebook & Diary',
-        'Pen & Writing Set',
-        'Lanyard & ID Card',
-        'Miscellaneous',
-    ],
+    "Trophy and Momento": [
+        'Trophy and Momento',
+    ]
 };
 
 export default navbarSubcategories;

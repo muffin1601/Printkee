@@ -61,15 +61,15 @@ const Testimonials = () => {
         ))}
       </div>
 
-      <div className="brand-logos-strip">
-        <h3 className="brand-title">Trusted by Leading Brands</h3>
-        <div className="brands-logo-container">
+      <div className="brand-logos-strip-2">
+        <h3 className="brand-title-2">Trusted by Leading Brands</h3>
+        <div className="brands-logo-container-2">
           {brandLogos.map((logo, index) => (
             <img
               key={index}
               src={logo}
               alt={`Brand ${index + 1}`}
-              className="brand-logo"
+              className="brand-logo-2"
             />
           ))}
         </div>

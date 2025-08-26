@@ -1,8 +1,10 @@
 .cta-banner {
   width: 100%;
+  margin: 50px auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #fff;
 }
 
 .cta-banner a {
@@ -12,20 +14,21 @@
   align-self: center;
   transition: transform 0.2s;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  /* box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07); */
 }
 
 .cta-banner a:hover,
 .cta-banner a:focus {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12); */
   cursor: pointer;
 }
 
 .cta-full-image {
   width: 100%;
-  height: auto;
+  height: 300px;
+  
   display: block;
-  object-fit: cover;
+  object-fit: fit;
   align-self: center;
 }
 
