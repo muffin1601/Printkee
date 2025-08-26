@@ -66,7 +66,7 @@ const BrandsDisplay = () => {
           <img
             src={brandInfo.logo}
             alt={brandInfo.name}
-            className="brand-logo"
+            className="brand-logo-7"
           />
         </div>
       </div>
