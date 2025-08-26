@@ -81,7 +81,7 @@ const Diwali = () => {
       </div>
 
       {/* Brands Section */}
-      <div className="brands-section">
+      <div className="brands-section-1">
         <h2>✨ Brands We Offer ✨</h2>
         <Swiper
           modules={[Autoplay]}
@@ -97,8 +97,8 @@ const Diwali = () => {
         >
           {brandsList.map((brand) => (
             <SwiperSlide key={brand.id}>
-              <div className="brand-card">
-                <img src={brand.logo} alt={brand.name} className="brand-logo" />
+              <div className="brand-card-1">
+                <img src={brand.logo} alt={brand.name} className="brand-logo-1" />
               </div>
             </SwiperSlide>
           ))}

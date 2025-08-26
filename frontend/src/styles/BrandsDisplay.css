@@ -1,0 +1,76 @@
+.brand-display-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+
+.brand-display-heading {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #222;
+}
+
+.brand-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+}
+
+.brand-product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+    padding: 18px 12px 20px 12px;
+    min-height: 320px;
+}
+
+.brand-product-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+    transform: translateY(-4px) scale(1.03);
+}
+
+.brand-product-image {
+    width: 100%;
+    max-width: 170px;
+    height: 170px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    background: #f7f7f7;
+}
+
+.brand-product-name {
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: #222;
+    text-align: center;
+    margin-top: auto;
+    word-break: break-word;
+}
+
+@media (max-width: 600px) {
+    .brand-display-heading {
+        font-size: 1.3rem;
+        margin-bottom: 18px;
+    }
+    .brand-products-grid {
+        gap: 16px;
+    }
+    .brand-product-card {
+        min-height: 220px;
+        padding: 10px 6px 14px 6px;
+    }
+    .brand-product-image {
+        max-width: 110px;
+        height: 110px;
+        margin-bottom: 10px;
+    }
+}
