@@ -108,7 +108,7 @@ const ContactUs = () => {
         <div className="contact-details">
           <h2>Contact Information</h2>
           <p><strong>Email:</strong> sales@printkee.com</p>
-          <p><strong>Phone:</strong> +91 9266 013059</p>
+          <p><strong>Phone:</strong> +91 8750708222</p>
           <p><strong>Address:</strong> F90/1, Beside ESIC Hospital, Okhla Industrial Area Phase 1, New Delhi – 110020, India</p>
         </div>
       </div>

@@ -41,7 +41,7 @@ const GetQuoteCTA = () => {
 
           <p className="quote-cta-extra-info call-us">
             <FaPhoneAlt className="call-icon" /> Call us at{" "}
-            <a href="tel:+919266013059">+91 9266 013059</a>
+            <a href="tel:+918750708222">+91 8750708222</a>
           </p>
         </div>
       </div>
