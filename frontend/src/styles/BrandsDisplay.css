@@ -1,76 +1,260 @@
-.brand-display-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 32px 16px;
+/* 🔹 Brand Header Section */
+.brand-top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 8%;
+  background: #fcefdb; 
+  color: #fff;
+  gap: 40px;
+  flex-wrap: wrap;
+    border-bottom: 1px solid #636363;
 }
 
-.brand-display-heading {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 32px;
+/* 🔹 Left Content */
+.brand-top-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Back link wrapper */
+.brand-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #070707;
+  text-decoration: none;
+  /* margin-bottom: 10px; */
+  transition: color 0.3s ease;
+}
+
+.brand-back-link:hover {
+  color: #1f1f1f;
+}
+
+/* Back button circle */
+.brand-back-circle {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #1a1a1a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-back-arrow {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Heading */
+.brand-heading {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1919;
+  line-height: 1.2;
+}
+
+/* Subtext */
+.brand-subtext {
+  font-size: 18px;
+  color: #313131;
+  margin-bottom: 10px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Download button */
+.brand-download-btn {
+  padding: 14px 0px;
+  background: transparent;
+  border: none;
+  border-radius: 50px;
+  color: #4b2061;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.brand-download-btn:hover {
+  text-decoration: underline;
+  
+}
+
+/* 🔹 Logo Wrapper */
+.brand-logo-wrapper {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-logo {
+  min-width: 300px;
+  min-height: 200px;
+  object-fit: contain;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 992px) {
+  .brand-top-section {
+    flex-direction: column;
     text-align: center;
-    letter-spacing: 1px;
-    color: #222;
+    gap: 30px;
+    padding: 40px 6%;
+  }
+
+  .brand-heading {
+    font-size: 36px;
+  }
+
+  .brand-subtext {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .brand-logo {
+    max-width: 200px;
+  }
 }
 
+
+/* 🔹 Products Grid */
 .brand-products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 28px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 80px;
+  background-color: #fff;
 }
 
 .brand-product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-    text-decoration: none;
-    transition: box-shadow 0.2s, transform 0.2s;
-    padding: 18px 12px 20px 12px;
-    min-height: 320px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+  padding: 18px 12px 20px 12px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .brand-product-card:hover {
-    box-shadow: 0 6px 24px rgba(0,0,0,0.13);
-    transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+  transform: translateY(-4px) scale(1.03);
 }
 
 .brand-product-image {
-    width: 100%;
-    max-width: 170px;
-    height: 170px;
-    object-fit: contain;
-    border-radius: 10px;
-    margin-bottom: 18px;
-    background: #f7f7f7;
+  width: 100%;
+  max-width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  background: #f7f7f7;
 }
 
 .brand-product-name {
-    font-size: 1.08rem;
-    font-weight: 500;
-    color: #222;
-    text-align: center;
-    margin-top: auto;
-    word-break: break-word;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #222;
+  text-align: center;
+  margin-top: auto;
+  word-break: break-word;
 }
 
-@media (max-width: 600px) {
-    .brand-display-heading {
-        font-size: 1.3rem;
-        margin-bottom: 18px;
-    }
-    .brand-products-grid {
-        gap: 16px;
-    }
-    .brand-product-card {
-        min-height: 220px;
-        padding: 10px 6px 14px 6px;
-    }
-    .brand-product-image {
-        max-width: 110px;
-        height: 110px;
-        margin-bottom: 10px;
-    }
+/* 🔹 CTA Banner */
+.cta-banner-4 {
+  display: block;
+  
+  cursor: pointer;
+}
+
+.cta-banner-image-4 {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.lead-overlay-2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lead-modal-2 {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.lead-form-2 input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'poppins', sans-serif;
+}
+
+.lead-actions-2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: 'poppins', sans-serif;
+}
+
+.lead-submit-2 {
+  background: #4b2061;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  flex: 1;
+  cursor: pointer;
+  font-family: 'poppins', sans-serif;
+}
+
+.lead-submit-2:hover {
+  background: #f39c12;
+}
+
+.lead-cancel-2 {
+  background: #ccc;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  flex: 1;
+  cursor: pointer;
+  font-family: 'poppins', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .brand-heading {
+    font-size: 1.8rem;
+  }
+  .brand-logo-wrapper {
+    margin-top: 20px;
+  }
 }

@@ -5,11 +5,13 @@ import '../styles/CTABanner.css';
 
 const CTABanner = ({ imageSrc, linkTo = '/contact', alt = 'Get a Quote' }) => {
   return (
-    <section className="cta-banner">
+    <div className="cta-banner">
+   
       <Link to={linkTo}>
         <img src={imageSrc} alt={alt} className="cta-full-image" />
       </Link>
-    </section>
+    
+    </div>
   );
 };
 

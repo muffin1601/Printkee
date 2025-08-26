@@ -35,7 +35,7 @@ const aprons = [
       effectiveFrom: new Date(),
       effectiveTo: new Date("2025-12-31")
     },
-    image: "/assets/products/apron (1).webp",
+    image: "/assets/products/aprons/apron (1).webp",
     tags: [
       "kitchen apron",
       "printed apron",
@@ -88,7 +88,7 @@ const aprons = [
       effectiveFrom: new Date(),
       effectiveTo: new Date("2025-12-31")
     },
-    image: "/assets/products/apron (2).webp",
+    image: "/assets/products/aprons/apron (2).webp",
     tags: [
       "canvas apron",
       "heavy-duty apron",
@@ -141,7 +141,7 @@ const aprons = [
       effectiveFrom: new Date(),
       effectiveTo: new Date("2025-12-31")
     },
-    image: "/assets/products/apron (3).webp",
+    image: "/assets/products/aprons/apron (3).webp",
     tags: ["bib apron", "chef apron", "full coverage apron", "professional apron"],
     keywords: ["bib", "apron", "chef", "professional"],
     isFeatured: false,
@@ -187,7 +187,7 @@ const aprons = [
       effectiveFrom: new Date(),
       effectiveTo: new Date("2025-12-31")
     },
-    image: "/assets/products/apron (4).webp",
+    image: "/assets/products/aprons/apron (4).webp",
     tags: ["waist apron", "server apron", "bartender apron", "half apron"],
     keywords: ["waist", "apron", "server", "bartender"],
     isFeatured: false,
@@ -233,7 +233,7 @@ const aprons = [
       effectiveFrom: new Date(),
       effectiveTo: new Date("2025-12-31")
     },
-    image: "/assets/products/apron (5).webp",
+    image: "/assets/products/aprons/apron (5).webp",
     tags: ["custom apron", "printed apron", "branded apron", "promotional apron"],
     keywords: ["custom", "printed", "apron", "branding"],
     isFeatured: true,
@@ -279,7 +279,7 @@ const aprons = [
       effectiveFrom: new Date(),
       effectiveTo: new Date("2025-12-31")
     },
-    image: "/assets/products/apron (6).webp",
+    image: "/assets/products/aprons/apron (6).webp",
     tags: ["disposable apron", "medical apron", "hygienic apron", "food industry apron"],
     keywords: ["disposable", "apron", "medical", "hygienic"],
     isFeatured: false,
@@ -325,7 +325,7 @@ const aprons = [
       effectiveFrom: new Date(),
       effectiveTo: new Date("2025-12-31")
     },
-    image: "/assets/products/apron (7).webp",
+    image: "/assets/products/aprons/apron (7).webp",
     tags: ["leather apron", "welding apron", "workshop apron", "heavy duty apron"],
     keywords: ["leather", "apron", "welding", "workshop"],
     isFeatured: false,
@@ -371,7 +371,7 @@ const aprons = [
       effectiveFrom: new Date(),
       effectiveTo: new Date("2025-12-31")
     },
-    image: "/assets/products/apron (8).webp",
+    image: "/assets/products/aprons/apron (8).webp",
     tags: ["kids apron", "art apron", "craft apron", "children apron"],
     keywords: ["kids", "apron", "art", "craft"],
     isFeatured: true,
@@ -417,7 +417,7 @@ const aprons = [
       effectiveFrom: new Date(),
       effectiveTo: new Date("2025-12-31")
     },
-    image: "/assets/products/apron (9).webp",
+    image: "/assets/products/aprons/apron (9).webp",
     tags: ["gardening apron", "tool apron", "garden apron", "outdoor apron"],
     keywords: ["gardening", "apron", "tools", "outdoor"],
     isFeatured: false,
@@ -463,7 +463,7 @@ const aprons = [
       effectiveFrom: new Date(),
       effectiveTo: new Date("2025-12-31")
     },
-    image: "/assets/products/apron (10).webp",
+    image: "/assets/products/aprons/apron (10).webp",
     tags: ["artist smock", "painting apron", "art apron", "creative apron"],
     keywords: ["artist", "smock", "apron", "painting"],
     isFeatured: false,

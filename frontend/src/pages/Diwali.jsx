@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -6,7 +6,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../styles/Diwali.css";
 import giftsList from "../data/diwalispl";
-import brandsList from "../data/brandsspl"; // Array of {id, name, logo}
+import brandsList from "../data/brandsspl";
+import axios from "axios";
 
 const Diwali = () => {
   const groupedGifts = giftsList.reduce((acc, gift) => {
@@ -15,32 +16,66 @@ const Diwali = () => {
     return acc;
   }, {});
 
+  const [isLeadFormOpen, setIsLeadFormOpen] = useState(false);
+  const [leadData, setLeadData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    
+  });
+
+  const handleLeadChange = (e) => {
+    setLeadData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleLeadSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post(import.meta.env.VITE_CRM_API_URL, leadData, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": import.meta.env.VITE_CRM_API_KEY,
+        },
+      });
+
+      await axios.post(`${import.meta.env.VITE_API_URL}/send-email`, leadData);
+
+      alert("Thank you! Catalogue will be downloaded shortly");
+      setLeadData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        requirement: "",
+      });
+      setIsLeadFormOpen(false);
+    } catch (error) {
+      console.error("Lead form submission error:", error);
+      alert("Something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <div className="diwali-page">
-      {/* Festive Banner */}
       <div className="diwali-banner">
         <img
           src="/images/diwali-banner.webp"
           alt="Diwali Celebration"
-          className="banner-img"
+          className="diwali-banner-img"
         />
-        {/* <div className="banner-text">
-          <h1>🎆 Happy Diwali! Celebrate with Big Deals 🎁</h1>
-          <p>Spread the light, share the joy, and grab the best festive offers!</p>
-        </div> */}
       </div>
 
-      {/* Dynamic Gift Carousels */}
       {Object.keys(groupedGifts).map((category, idx) => (
-        <div className="carousel-section" key={idx}>
-          <h2 className="carousel-title">{category}</h2>
+        <div className="diwali-carousel-section" key={idx}>
+          <h2 className="diwali-carousel-title">{category}</h2>
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             navigation
             pagination={{
               clickable: true,
-              bulletClass: "diwali-bullet swiper-pagination-bullet", // custom bullet class
-              bulletActiveClass: "diwali-bullet-active", // active bullet
+              bulletClass: "diwali-bullet swiper-pagination-bullet",
+              bulletActiveClass: "diwali-bullet-active",
             }}
             spaceBetween={20}
             slidesPerView={4}
@@ -59,14 +94,14 @@ const Diwali = () => {
           >
             {groupedGifts[category].map((gift) => (
               <SwiperSlide key={gift.id}>
-                <div className="carousel-card">
+                <div className="diwali-carousel-card">
                   <img
                     src={gift.image}
                     alt={gift.name}
-                    className="carousel-img"
+                    className="diwali-carousel-img"
                   />
-                  <p className="gift-name">{gift.name}</p>
-                  <p className="gift-description">{gift.description}</p>
+                  <p className="diwali-gift-name">{gift.name}</p>
+                  <p className="diwali-gift-description">{gift.description}</p>
                 </div>
               </SwiperSlide>
             ))}
@@ -74,21 +109,24 @@ const Diwali = () => {
         </div>
       ))}
 
-      {/* Call-to-Action */}
-      <div className="cta-section">
+      <div className="diwali-cta-section">
         <h2>🎉 Download Our Diwali Catalogue!</h2>
-        <button className="cta-button">Download Now</button>
+        <button
+          className="diwali-cta-button"
+          onClick={() => setIsLeadFormOpen(true)}
+        >
+          Download Now
+        </button>
       </div>
 
-      {/* Brands Section */}
-      <div className="brands-section-1">
+      <div className="diwali-brands-section">
         <h2>✨ Brands We Offer ✨</h2>
         <Swiper
           modules={[Autoplay]}
           spaceBetween={20}
-          slidesPerView={6}
+          slidesPerView={5}
           breakpoints={{
-            1024: { slidesPerView: 6 },
+            1024: { slidesPerView: 5 },
             768: { slidesPerView: 4 },
             480: { slidesPerView: 2 },
           }}
@@ -96,14 +134,72 @@ const Diwali = () => {
           loop={true}
         >
           {brandsList.map((brand) => (
-            <SwiperSlide key={brand.id}>
-              <div className="brand-card-1">
-                <img src={brand.logo} alt={brand.name} className="brand-logo-1" />
-              </div>
+            <SwiperSlide key={brand.slug}>
+              <a href={brand.url} className="diwali-brand-card">
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="diwali-brand-logo"
+                />
+              </a>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
+
+      {isLeadFormOpen && (
+        <div className="lead-overlay">
+          <div className="lead-modal">
+            <h3>Get Your Free Diwali Catalogue</h3>
+            <form onSubmit={handleLeadSubmit} className="lead-form">
+              <input
+                type="text"
+                name="name"
+                value={leadData.name}
+                onChange={handleLeadChange}
+                placeholder="Your Name"
+                required
+              />
+              <input
+                type="text"
+                name="company"
+                value={leadData.company}
+                onChange={handleLeadChange}
+                placeholder="Company Name"
+              />
+              <input
+                type="email"
+                name="email"
+                value={leadData.email}
+                onChange={handleLeadChange}
+                placeholder="Email Address"
+                required
+              />
+              <input
+                type="tel"
+                name="phone"
+                value={leadData.phone}
+                onChange={handleLeadChange}
+                placeholder="Phone Number"
+                required
+              />
+  
+              <div className="lead-actions">
+                <button type="submit" className="lead-submit">
+                  Submit & Download
+                </button>
+                <button
+                  type="button"
+                  className="lead-cancel"
+                  onClick={() => setIsLeadFormOpen(false)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -870,7 +870,7 @@ const categoryData = [
       {
         name: "Cork Sheet",
         slug: "cork-sheet",
-        image: "/assets/categories/cork-sheet.jpg",
+        image: "/assets/subcategories/sheet.webp",
         hoverImage: "",
         tag: "Durable and eco-friendly cork sheets for multiple uses.",
         products: corkSheetProducts
@@ -878,7 +878,7 @@ const categoryData = [
       {
         name: "Cork Corporate Gifting Combo",
         slug: "cork-corporate-gifting-combo",
-        image: "/assets/categories/cork-gifting-combo.jpg",
+        image: "/assets/subcategories/combo.webp",
         hoverImage: "",
         tag: "Premium cork gifting combos for corporate events.",
         products: corkCorporateGiftingComboProducts
@@ -886,7 +886,7 @@ const categoryData = [
       {
         name: "Cork Coaster",
         slug: "cork-coaster",
-        image: "/assets/categories/cork-coaster.jpg",
+        image: "/assets/subcategories/coaster.webp",
         hoverImage: "",
         tag: "Stylish cork coasters for homes, offices, and gifts.",
         products: corkCoasterProducts
@@ -894,7 +894,7 @@ const categoryData = [
       {
         name: "Cork Plant Decorate",
         slug: "cork-plant-decorate",
-        image: "/assets/categories/cork-plat-decorate.jpg",
+        image: "/assets/subcategories/plant.webp",
         hoverImage: "",
         tag: "Eco-friendly decorative cork plant items.",
         products: corkPlantDecorateProducts
@@ -902,7 +902,7 @@ const categoryData = [
       {
         name: "Cork Serving Decorate",
         slug: "cork-serving-decorate",
-        image: "/assets/categories/cork-serving-decorate.jpg",
+        image: "/assets/subcategories/serving.webp",
         hoverImage: "",
         tag: "Sustainable cork serving and decorative items.",
         products: corkServingDecorateProducts
@@ -910,7 +910,7 @@ const categoryData = [
       {
         name: "Cork Horeca Range",
         slug: "cork-horeca-range",
-        image: "/assets/categories/cork-horega.jpg",
+        image: "/assets/subcategories/horeca.webp",
         hoverImage: "",
         tag: "Eco-friendly cork range for hotels, restaurants, and cafes.",
         products: corkHorecaProducts
@@ -918,7 +918,7 @@ const categoryData = [
       {
         name: "Cork Premium Lighting",
         slug: "cork-premium-lighting",
-        image: "/assets/categories/cork-lighting.jpg",
+        image: "/assets/subcategories/lighting.webp",
         hoverImage: "",
         tag: "Stylish premium lighting made from sustainable cork.",
         products: corkLightingProducts
@@ -926,7 +926,7 @@ const categoryData = [
       {
         name: "Cork Premium Gift Boxes",
         slug: "cork-premium-gift-boxes",
-        image: "/assets/categories/cork-gift-boxes.jpg",
+        image: "/assets/subcategories/box.webp",
         hoverImage: "",
         tag: "Elegant cork gift boxes for premium eco gifting.",
         products: corkGiftBoxProducts
@@ -934,7 +934,7 @@ const categoryData = [
       {
         name: "Cork Desk Top Accessories",
         slug: "cork-desk-top-accessories",
-        image: "/assets/categories/cork-desk.jpg",
+        image: "/assets/subcategories/desk.webp",
         hoverImage: "",
         tag: "Eco-friendly cork desk accessories for modern workspaces.",
         products: corkDeskProducts
@@ -942,7 +942,7 @@ const categoryData = [
       {
         name: "Cork Laptop Bag and Wallet",
         slug: "cork-laptop-bag-and-wallet",
-        image: "/assets/categories/cork-bag-wallet.jpg",
+        image: "/assets/subcategories/bag.webp",
         hoverImage: "",
         tag: "Stylish cork laptop bags and wallets – sustainable and trendy.",
         products: corkBagWalletProducts
@@ -950,7 +950,7 @@ const categoryData = [
       {
         name: "Cork Yoga Accessories",
         slug: "cork-yoga-accessories",
-        image: "/assets/categories/cork-yoga.jpg",
+        image: "/assets/subcategories/yoga.webp",
         hoverImage: "",
         tag: "Durable and natural cork yoga mats and accessories.",
         products: corkYogaProducts
