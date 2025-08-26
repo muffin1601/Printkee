@@ -4,8 +4,19 @@ const roundneckTshirts = require("./products/roundneckTshirts");
 const caps = require("./products/caps");
 const hats = require("./products/hats");
 const corporateShirts = require("./products/corporateShirts");
-const  winterWear = require("./products/winterWear");
-const  ties = require("./products/ties");
+const winterWear = require("./products/winterWear");
+const ties = require("./products/ties");
+const corkSheetProducts = require("./products/ecoproducts/corkSheetProducts");
+const corkCorporateGiftingComboProducts = require("./products/ecoproducts/corkCorporateGiftingComboProducts");
+const corkCoasterProducts = require("./products/ecoproducts/corkCoasterProducts");
+const corkPlantDecorateProducts = require("./products/ecoproducts/corkPlantDecorateProducts");
+const corkServingDecorateProducts = require("./products/ecoproducts/corkServingDecorateProducts");
+const corkHorecaProducts = require("./products/ecoproducts/corkHorecaProducts");
+const corkLightingProducts = require("./products/ecoproducts/corkLightingProducts");
+const corkYogaProducts = require("./products/ecoproducts/corkYogaProducts");
+const corkGiftBoxProducts = require("./products/ecoproducts/corkGiftBoxProducts");
+const corkDeskProducts = require("./products/ecoproducts/corkDeskProducts");
+const corkBagWalletProducts = require("./products/ecoproducts/corkBagWalletProducts");
 
 const categoryData = [
   {
@@ -851,85 +862,101 @@ const categoryData = [
   },
   {
     name: "Eco Products",
+    slug: "eco-products",
     image: "/assets/categories/ecoproducts.jpg",
-    hoverImage: "/assets/categories/bamboo.jpg",
+    hoverImage: "/assets/categories/ecoproducts-hover.jpg",
     tag: "Eco-friendly product range. Sustainable and reusable. Perfect for green gifting. Custom branding available.",
     subcategories: [
       {
-        name: "Bamboo Products",
-        image: "/assets/categories/bambooproducts.jpg",
+        name: "Cork Sheet",
+        slug: "cork-sheet",
+        image: "/assets/categories/cork-sheet.jpg",
         hoverImage: "",
-        tag: "Bamboo-based eco products. Pens, notebooks, and more. Sustainable and stylish. Custom branding available.",
-        products: [
-          {
-            name: "Bamboo Pen",
-            description: "Eco pen with bamboo finish.",
-            image: "/assets/products/bamboo1.jpg",
-            tags: [
-              "bamboo pen",
-              "eco-friendly pen",
-              "wooden pen",
-              "sustainable writing instrument",
-              "eco promotional gift",
-              "green gift",
-              "bamboo products",
-              "eco products"
-            ]
-          },
-          {
-            name: "Bamboo Notebook",
-            description: "Hardcover eco-notebook.",
-            image: "/assets/products/bamboo2.jpg",
-            tags: [
-              "bamboo notebook",
-              "eco notebook",
-              "sustainable stationery",
-              "wooden cover diary",
-              "environmentally friendly notebook",
-              "bamboo products",
-              "eco products"
-            ]
-          }
-        ]
+        tag: "Durable and eco-friendly cork sheets for multiple uses.",
+        products: corkSheetProducts
       },
       {
-        name: "Customized Gifting",
-        image: "/assets/categories/customizedgifts.jpg",
+        name: "Cork Corporate Gifting Combo",
+        slug: "cork-corporate-gifting-combo",
+        image: "/assets/categories/cork-gifting-combo.jpg",
         hoverImage: "",
-        tag: "Personalized gifting options. Photo mugs, keychains, and more. Unique and memorable. Custom branding available.",
-        products: [
-          {
-            name: "Photo Mug",
-            description: "Custom printed coffee mug.",
-            image: "/assets/products/gift1.jpg",
-            tags: [
-              "photo mug",
-              "custom coffee mug",
-              "personalized mug",
-              "gift with photo print",
-              "customized gift",
-              "eco gift",
-              "personalized gifting",
-              "eco products"
-            ]
-          },
-          {
-            name: "Name Keychain",
-            description: "Laser engraved keychain.",
-            image: "/assets/products/gift2.jpg",
-            tags: [
-              "name keychain",
-              "custom keychain",
-              "laser engraved gift",
-              "personalized accessory",
-              "key ring with name",
-              "customized gifting",
-              "eco products"
-            ]
-          }
-        ]
+        tag: "Premium cork gifting combos for corporate events.",
+        products: corkCorporateGiftingComboProducts
+      },
+      {
+        name: "Cork Coaster",
+        slug: "cork-coaster",
+        image: "/assets/categories/cork-coaster.jpg",
+        hoverImage: "",
+        tag: "Stylish cork coasters for homes, offices, and gifts.",
+        products: corkCoasterProducts
+      },
+      {
+        name: "Cork Plant Decorate",
+        slug: "cork-plant-decorate",
+        image: "/assets/categories/cork-plat-decorate.jpg",
+        hoverImage: "",
+        tag: "Eco-friendly decorative cork plant items.",
+        products: corkPlantDecorateProducts
+      },
+      {
+        name: "Cork Serving Decorate",
+        slug: "cork-serving-decorate",
+        image: "/assets/categories/cork-serving-decorate.jpg",
+        hoverImage: "",
+        tag: "Sustainable cork serving and decorative items.",
+        products: corkServingDecorateProducts
+      },
+      {
+        name: "Cork Horeca Range",
+        slug: "cork-horeca-range",
+        image: "/assets/categories/cork-horega.jpg",
+        hoverImage: "",
+        tag: "Eco-friendly cork range for hotels, restaurants, and cafes.",
+        products: corkHorecaProducts
+      },
+      {
+        name: "Cork Premium Lighting",
+        slug: "cork-premium-lighting",
+        image: "/assets/categories/cork-lighting.jpg",
+        hoverImage: "",
+        tag: "Stylish premium lighting made from sustainable cork.",
+        products: corkLightingProducts
+      },
+      {
+        name: "Cork Premium Gift Boxes",
+        slug: "cork-premium-gift-boxes",
+        image: "/assets/categories/cork-gift-boxes.jpg",
+        hoverImage: "",
+        tag: "Elegant cork gift boxes for premium eco gifting.",
+        products: corkGiftBoxProducts
+      },
+      {
+        name: "Cork Desk Top Accessories",
+        slug: "cork-desk-top-accessories",
+        image: "/assets/categories/cork-desk.jpg",
+        hoverImage: "",
+        tag: "Eco-friendly cork desk accessories for modern workspaces.",
+        products: corkDeskProducts
+      },
+      {
+        name: "Cork Laptop Bag and Wallet",
+        slug: "cork-laptop-bag-and-wallet",
+        image: "/assets/categories/cork-bag-wallet.jpg",
+        hoverImage: "",
+        tag: "Stylish cork laptop bags and wallets – sustainable and trendy.",
+        products: corkBagWalletProducts
+      },
+      {
+        name: "Cork Yoga Accessories",
+        slug: "cork-yoga-accessories",
+        image: "/assets/categories/cork-yoga.jpg",
+        hoverImage: "",
+        tag: "Durable and natural cork yoga mats and accessories.",
+        products: corkYogaProducts
       }
-    ]
+    ],
+
   },
   {
     name: "Drink Ware",
@@ -1060,56 +1087,56 @@ const categoryData = [
             tags: [
               "classic ceramic mug",
               "white coffee cup", "350ml mug", "branded mug",
-                "home office mug", "ceramic drinkware", "promotional mug"
-              ]
-            },
-            {
-              name: "Color Handle Mug",
-              description: "Two-tone mug.",
-              image: "/assets/products/ceramic2.jpg",
-              tags: [
-                "color handle mug", "two-tone mug", "custom color mug", "personalized mug",
-                "ceramic drinkware", "corporate gifting mug", "branded ceramic mug"
-              ]
-            }
-          ]
-        }
+              "home office mug", "ceramic drinkware", "promotional mug"
+            ]
+          },
+          {
+            name: "Color Handle Mug",
+            description: "Two-tone mug.",
+            image: "/assets/products/ceramic2.jpg",
+            tags: [
+              "color handle mug", "two-tone mug", "custom color mug", "personalized mug",
+              "ceramic drinkware", "corporate gifting mug", "branded ceramic mug"
+            ]
+          }
+        ]
+      }
     ]
   },
   {
-      name: "Trophy and Momento",
-      image: "/assets/categories/trophy.jpg",
-      hoverImage: "/assets/categories/trophy1.jpg",
-      tag: "Awards and momentos for recognition. Crystal, wood, and more. Perfect for ceremonies. Custom branding available.",
-      subcategories: [
-        {
-          name: "Trophy and Momento",
-          image: "/assets/categories/trophymomento.jpg",
-          hoverImage: "",
-          tag: "Exclusive trophies and momentos. Crystal and wooden options. Ideal for awards and events. Custom branding available.",
-          products: [
-            {
-              name: "Crystal Trophy",
-              description: "Custom crystal award.",
-              image: "/assets/products/trophy1.jpg",
-              tags: [
-                "crystal trophy", "glass award", "recognition trophy", "corporate award",
-                "event trophy", "premium award", "engraved trophy", "custom crystal momento"
-              ]
-            },
-            {
-              name: "Wooden Shield",
-              description: "Classic wooden momento.",
-              image: "/assets/products/trophy2.jpg",
-              tags: [
-                "wooden shield", "wooden momento", "event award plaque", "corporate recognition",
-                "engraved wooden trophy", "award ceremony momento", "classic wood award"
-              ]
-            }
-          ]
-        }
-      ]
-    }
+    name: "Trophy and Momento",
+    image: "/assets/categories/trophy.jpg",
+    hoverImage: "/assets/categories/trophy1.jpg",
+    tag: "Awards and momentos for recognition. Crystal, wood, and more. Perfect for ceremonies. Custom branding available.",
+    subcategories: [
+      {
+        name: "Trophy and Momento",
+        image: "/assets/categories/trophymomento.jpg",
+        hoverImage: "",
+        tag: "Exclusive trophies and momentos. Crystal and wooden options. Ideal for awards and events. Custom branding available.",
+        products: [
+          {
+            name: "Crystal Trophy",
+            description: "Custom crystal award.",
+            image: "/assets/products/trophy1.jpg",
+            tags: [
+              "crystal trophy", "glass award", "recognition trophy", "corporate award",
+              "event trophy", "premium award", "engraved trophy", "custom crystal momento"
+            ]
+          },
+          {
+            name: "Wooden Shield",
+            description: "Classic wooden momento.",
+            image: "/assets/products/trophy2.jpg",
+            tags: [
+              "wooden shield", "wooden momento", "event award plaque", "corporate recognition",
+              "engraved wooden trophy", "award ceremony momento", "classic wood award"
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ];
 
-  module.exports = categoryData;
+module.exports = categoryData;

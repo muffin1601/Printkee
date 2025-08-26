@@ -19,6 +19,7 @@ import "../src/styles/global.css";
 import CustomizerSVG from "./pages/Customize/CustomizerSVG";
 import CustomizerAll from "./pages/Customize/CustomizerAll";
 import FloatingButton from "./components/FloatingButton";
+import BrandsDisplay from "./pages/BrandsDisplay";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs/>} />
         <Route path="/brands" element={<Brands />} />
+        <Route path="/brands/:brand" element={<BrandsDisplay />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/diwali-special" element={<Diwali />} />
         <Route path="/blogs" element={<BlogList />} />

@@ -9,9 +9,8 @@ const navbarSubcategories = {
         'Aprons',
         'Winter Wear',
     ], 
-    "Eco-Products": [
-        'Bamboo Products',
-        'Customized Gifting',
+    "Trophy and Momento": [
+        'Trophy and Momento',
     ],
     "Bags and Travel": [
         'Backpacks',
@@ -42,8 +41,18 @@ const navbarSubcategories = {
         'Speaker',
         'Desktop & Mousepad',
     ],
-    "Trophy and Momento": [
-        'Trophy and Momento',
+    "Eco-Products": [
+        "Cork Sheet",
+        "Cork Corporate Gifting Combo",
+        "Cork Coaster",
+        "Cork Plant Decorate",
+        "Cork Serving Decorate",
+        "Cork Horeca Range",
+        "Cork Premium Lighting",
+        "Cork Premium Gift Boxes",
+        "Cork Desk Top Accessories",
+        "Cork Laptop Bag and Wallet",
+        "Cork Yoga Accessories"
     ],
     "Office and Writing": [
         'File and Folder',
