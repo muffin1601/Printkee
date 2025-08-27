@@ -22,8 +22,8 @@ const BrandsDisplay = () => {
 
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false);
 
-  const firstProducts = products.slice(0, 10);
-  const remainingProducts = products.slice(10);
+  const firstProducts = products.slice(0, 5);
+  const remainingProducts = products.slice(5);
 
   if (!brandInfo) {
     return <p className="not-found">Brand not found.</p>;
@@ -44,7 +44,7 @@ const BrandsDisplay = () => {
       {/* 🔹 Brand Header */}
       <div className="brand-top-section">
         <div className="brand-top-content">
-          <Link to="/" className="brand-back-link">
+          <Link to="/brands" className="brand-back-link">
             <div className="brand-back-circle">
               <span className="brand-back-arrow">&larr;</span>
             </div>
@@ -79,7 +79,7 @@ const BrandsDisplay = () => {
           {/* First 10 */}
           <div className="brand-products-grid">
             {firstProducts.map((product, index) => (
-              <Link
+              <div
                 to={`/${brand}/${product.slug}`}
                 key={index}
                 className="brand-product-card"
@@ -90,7 +90,7 @@ const BrandsDisplay = () => {
                   className="brand-product-image"
                 />
                 <div className="brand-product-name">{product.name}</div>
-              </Link>
+              </div>
             ))}
           </div>
 
@@ -101,7 +101,7 @@ const BrandsDisplay = () => {
           {remainingProducts.length > 0 && (
             <div className="brand-products-grid">
               {remainingProducts.map((product, index) => (
-                <Link
+                <div
                   to={`/${brand}/${product.slug}`}
                   key={index}
                   className="brand-product-card"
@@ -112,7 +112,7 @@ const BrandsDisplay = () => {
                     className="brand-product-image"
                   />
                   <div className="brand-product-name">{product.name}</div>
-                </Link>
+                </div>
               ))}
             </div>
           )}
