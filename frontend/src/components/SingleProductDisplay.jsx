@@ -34,7 +34,7 @@ const SingleProductDisplay = () => {
           `${import.meta.env.VITE_API_URL}/product/product-fetch/${categorySlug}/${subcategorySlug}/${productSlug}`
         );
 
-        
+
         setCategoryData(res.data.category);
         setSubcategoryData(res.data.subcategory);
         setProductData(res.data.product);
@@ -185,7 +185,7 @@ const SingleProductDisplay = () => {
 
         <ProductOverview subcategory={subcategoryData.slug} productData={productData} />
 
-        
+
         {relatedProducts.length > 0 && (
           <div className="related-products-section">
             <h2 className="related-title">You May Also Like</h2>
@@ -225,7 +225,13 @@ const SingleProductDisplay = () => {
         )}
       </div>
 
-      <EnquiryModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      <EnquiryModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        image={productData.image}
+        description={`Get a personalized quote for ${productData.name}. Our team is here to assist you!`}
+      />
+
     </>
   );
 };

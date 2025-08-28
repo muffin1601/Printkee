@@ -34,6 +34,7 @@
 .left-content {
   flex: 1;
   min-width: 300px;
+  
   text-align: center;
   padding: 10px;
 }
@@ -58,6 +59,7 @@
 }
 
 .enquiry-title {
+  margin-top: 0px;
   margin-bottom: 24px;
   text-align: center;
   font-size: 2rem;

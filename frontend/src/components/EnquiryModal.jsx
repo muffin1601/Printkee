@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import '../styles/EnquiryModal.css';
-import axios from 'axios';
+import React, { useState } from "react";
+import "../styles/EnquiryModal.css";
+import axios from "axios";
 
-const EnquiryModal = ({ isOpen, onClose }) => {
+const EnquiryModal = ({ isOpen, onClose, image, description }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    requirement: '',
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    requirement: "",
   });
 
   const handleChange = (e) => {
@@ -19,16 +19,12 @@ const EnquiryModal = ({ isOpen, onClose }) => {
     e.preventDefault();
 
     try {
-      await axios.post(
-        import.meta.env.VITE_CRM_API_URL,
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": import.meta.env.VITE_CRM_API_KEY,
-          },
-        }
-      );
+      await axios.post(import.meta.env.VITE_CRM_API_URL, formData, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": import.meta.env.VITE_CRM_API_KEY,
+        },
+      });
 
       await axios.post(`${import.meta.env.VITE_API_URL}/send-email`, formData);
 
@@ -52,21 +48,24 @@ const EnquiryModal = ({ isOpen, onClose }) => {
   return (
     <div className="enquiry-modal-overlay" onClick={onClose}>
       <div className="enquiry-modal" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>×</button>
+        <button className="close-btn" onClick={onClose}>
+          ×
+        </button>
         <div className="modal-container">
-          {/* LEFT CONTAINER */}
+
           <div className="left-content">
             <img
-              src="/assets/t shirt.jpg" // Replace with actual image path
+              src={image || "/assets/t shirt.jpg"}
               alt="Enquiry Illustration"
               className="enquiry-image"
             />
             <p className="left-description">
-              Reach out to us for tailored solutions, expert consultation, and a personalized quote that fits your business needs.
+              {description ||
+                "Reach out to us for tailored solutions, expert consultation, and a personalized quote that fits your business needs."}
             </p>
           </div>
 
-          {/* RIGHT CONTAINER - FORM */}
+
           <div className="right-form">
             <h2 className="enquiry-title">Get a Quote</h2>
             <form onSubmit={handleSubmit} className="enquiry-form">
@@ -77,6 +76,7 @@ const EnquiryModal = ({ isOpen, onClose }) => {
                 placeholder="Your Name"
                 required
                 onChange={handleChange}
+                value={formData.name}
               />
               <input
                 className="form-input"
@@ -85,6 +85,7 @@ const EnquiryModal = ({ isOpen, onClose }) => {
                 placeholder="Company Name"
                 required
                 onChange={handleChange}
+                value={formData.company}
               />
               <input
                 className="form-input"
@@ -93,6 +94,7 @@ const EnquiryModal = ({ isOpen, onClose }) => {
                 placeholder="Email Address"
                 required
                 onChange={handleChange}
+                value={formData.email}
               />
               <input
                 className="form-input"
@@ -101,6 +103,7 @@ const EnquiryModal = ({ isOpen, onClose }) => {
                 placeholder="Phone Number"
                 required
                 onChange={handleChange}
+                value={formData.phone}
               />
               <textarea
                 className="form-textarea"
@@ -108,8 +111,11 @@ const EnquiryModal = ({ isOpen, onClose }) => {
                 placeholder="Your Requirement"
                 rows="4"
                 onChange={handleChange}
+                value={formData.requirement}
               ></textarea>
-              <button type="submit" className="submit-btn">Get a Quote</button>
+              <button type="submit" className="submit-btn">
+                Get a Quote
+              </button>
             </form>
           </div>
         </div>

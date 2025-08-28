@@ -30,31 +30,42 @@ const Diwali = () => {
   };
 
   const handleLeadSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post(import.meta.env.VITE_CRM_API_URL, leadData, {
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": import.meta.env.VITE_CRM_API_KEY,
-        },
-      });
+  e.preventDefault();
+  try {
+    await axios.post(import.meta.env.VITE_CRM_API_URL, leadData, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": import.meta.env.VITE_CRM_API_KEY,
+      },
+    });
 
-      await axios.post(`${import.meta.env.VITE_API_URL}/send-email`, leadData);
+    await axios.post(`${import.meta.env.VITE_API_URL}/send-email`, leadData);
 
-      alert("Thank you! Catalogue will be downloaded shortly");
-      setLeadData({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        requirement: "",
-      });
-      setIsLeadFormOpen(false);
-    } catch (error) {
-      console.error("Lead form submission error:", error);
-      alert("Something went wrong. Please try again later.");
-    }
-  };
+    alert("Thank you! Catalogue will be downloaded shortly");
+
+
+    const link = document.createElement("a");
+    link.href = "/catalogue.pdf"; 
+    link.download = "Diwali_Catalogue.pdf"; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+   
+    setLeadData({
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+      requirement: "",
+    });
+    setIsLeadFormOpen(false);
+  } catch (error) {
+    console.error("Lead form submission error:", error);
+    alert("Something went wrong. Please try again later.");
+  }
+};
+
 
   return (
     <div className="diwali-page">
