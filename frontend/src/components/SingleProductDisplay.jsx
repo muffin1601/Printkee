@@ -111,7 +111,7 @@ const SingleProductDisplay = () => {
           {/* PRODUCT DETAILS */}
           <div className="product-left">
             <button
-              className="back-button"
+              className="back-button-2"
               onClick={() =>
                 window.history.length > 2
                   ? navigate(-1)
@@ -194,7 +194,8 @@ const SingleProductDisplay = () => {
               spaceBetween={20}
               slidesPerView={2}
               navigation
-              pagination={{ clickable: true }}
+              pagination={{ clickable: true, el: ".custom-pagination" }}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
               breakpoints={{
                 640: { slidesPerView: 2 },
                 768: { slidesPerView: 3 },
@@ -206,9 +207,10 @@ const SingleProductDisplay = () => {
                 <SwiperSlide key={i}>
                   <div
                     className="related-product-card"
-                    onClick={() =>
-                      navigate(`/${categorySlug}/${subcategorySlug}/${relProd.slug}`)
-                    }
+                    onClick={() => {
+                      navigate(`/${categorySlug}/${subcategorySlug}/${relProd.slug}`);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
                   >
                     <img
                       loading="lazy"
@@ -221,6 +223,7 @@ const SingleProductDisplay = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
+            <div className="custom-pagination"></div>
           </div>
         )}
       </div>

@@ -80,11 +80,15 @@ const ProductDisplay = () => {
         <div className="page-wrapper">
           <div className="product-container">
             <div className="sort-bar">
-              <span>
-                Home / {categoryName} / {subcategoryName}
-              </span>
+              <nav className="breadcrumbs">
+                <Link to="/">Home</Link>
+                <span className="breadcrumb-separator">/</span>
+                <Link to={`/${categorySlug}`}>{categoryName}</Link>
+                <span className="breadcrumb-separator">/</span>
+                <span className="current">{subcategoryName}</span>
+              </nav>
             </div>
-
+            
             <div className="product-grid">
               {products.map((product) => (
                 <div key={product._id} className="product-card">

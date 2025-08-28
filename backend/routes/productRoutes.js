@@ -98,34 +98,28 @@ router.get("/product-fetch/:categorySlug/:subcategorySlug/:productSlug", async (
 
 
 
-router.get("/related-products/:category/:subcategory/:productName", async (req, res) => {
-  const category = decodeURIComponent(req.params.category);
-  const subcategory = decodeURIComponent(req.params.subcategory);
-  const productName = decodeURIComponent(req.params.productName);
+router.get("/related-products/:categorySlug/:subcategorySlug/:productSlug", async (req, res) => {
+  const categorySlug = decodeURIComponent(req.params.categorySlug);
+  const subcategorySlug = decodeURIComponent(req.params.subcategorySlug);
+  const productSlug = decodeURIComponent(req.params.productSlug);
 
   try {
-    
-    const categoryDoc = await Category.findOne({
-      name: new RegExp(`^${category}$`, "i"),
-    });
+    // Find category by slug
+    const categoryDoc = await Category.findOne({ slug: categorySlug });
 
     if (!categoryDoc) {
       return res.status(404).json({ message: "Category not found" });
     }
 
-    
-    const subcat = categoryDoc.subcategories.find(
-      (s) => s.name.toLowerCase() === subcategory.toLowerCase()
-    );
+   
+    const subcat = categoryDoc.subcategories.find((s) => s.slug === subcategorySlug);
 
     if (!subcat) {
       return res.status(404).json({ message: "Subcategory not found" });
     }
 
-    
-    const related = subcat.products.filter(
-      (p) => p.name.toLowerCase() !== productName.toLowerCase()
-    );
+   
+    const related = subcat.products.filter((p) => p.slug !== productSlug);
 
     res.json(related);
   } catch (err) {
@@ -133,5 +127,6 @@ router.get("/related-products/:category/:subcategory/:productName", async (req, 
     res.status(500).json({ message: "Server error" });
   }
 });
+
 
 module.exports = router;

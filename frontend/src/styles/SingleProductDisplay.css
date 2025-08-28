@@ -22,7 +22,7 @@
 }
 
 /* Back Button */
-.back-button {
+.back-button-2 {
   background: none;
   border: none;
   color: #f39c12;
@@ -33,9 +33,10 @@
   font-size: 16px;
   transition: color 0.2s ease;
   margin-bottom: 20px;
+  font-family: 'poppins', sans-serif;
 }
 
-.back-button:hover {
+.back-button-2:hover {
   color: #4b2061;
 }
 
@@ -304,6 +305,22 @@
   color: #333;
 }
 
+
+.custom-pagination {
+  margin-top: 20px; 
+  text-align: center;
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  background: #9c9c9c; 
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #ffbf10; 
+}
 
 
 /* Responsive Adjustments */
