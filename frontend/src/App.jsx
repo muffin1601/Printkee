@@ -20,6 +20,7 @@ import CustomizerSVG from "./pages/Customize/CustomizerSVG";
 import CustomizerAll from "./pages/Customize/CustomizerAll";
 import FloatingButton from "./components/FloatingButton";
 import BrandsDisplay from "./pages/BrandsDisplay";
+import ScrollToTop from "./components/scrollTotop";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/customize" element={<CustomizerAll/>} />
       </Routes>
       <FloatingButton />
+      <ScrollToTop />
       <Footer />
       <ToastContainer
         position="bottom-right"

@@ -202,6 +202,34 @@
   color: #333;
 }
 
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #4b2061;
+  
+}
+
+.breadcrumb-separator {
+  color: #999;
+}
+
+.breadcrumbs .current {
+  color: #333;
+  font-weight: 500;
+}
+
 /* Product Grid */
 .product-grid {
   display: grid;
