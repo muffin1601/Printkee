@@ -25,11 +25,7 @@ const PreviewModal = ({ isOpen, onClose, viewStates }) => {
 
       if (fabricCanvasRefs.current[index]) fabricCanvasRefs.current[index].dispose();
 
-      const canvas = new fabric.StaticCanvas(canvasEl, {
-        width: 300,
-        height: 300,
-      });
-
+      const canvas = new fabric.StaticCanvas(canvasEl, { width: 300, height: 300 });
       fabricCanvasRefs.current[index] = canvas;
 
       canvas.loadFromJSON(state, () => {
@@ -122,6 +118,14 @@ const PreviewModal = ({ isOpen, onClose, viewStates }) => {
 
         await new Promise((resolve, reject) => {
           tempCanvas.loadFromJSON(state, () => {
+            const render = () => {
+              tempCanvas.renderAll();
+              const dataUrl = tempCanvas.toDataURL({ format: "png", multiplier: 2 });
+              const pos = positions[i] || { x: 10, y: 10 };
+              pdf.addImage(dataUrl, "PNG", pos.x, pos.y, imageWidth, imageHeight);
+              resolve();
+            };
+
             if (state.backgroundImageUrl) {
               fabric.Image.fromURL(state.backgroundImageUrl, (img) => {
                 img.set({
@@ -134,20 +138,10 @@ const PreviewModal = ({ isOpen, onClose, viewStates }) => {
                   selectable: false,
                   evented: false,
                 });
-                tempCanvas.setBackgroundImage(img, () => {
-                  tempCanvas.renderAll();
-                  const dataUrl = tempCanvas.toDataURL({ format: "png", multiplier: 2 });
-                  const pos = positions[i] || { x: 10, y: 10 };
-                  pdf.addImage(dataUrl, "PNG", pos.x, pos.y, imageWidth, imageHeight);
-                  resolve();
-                });
+                tempCanvas.setBackgroundImage(img, render);
               });
             } else {
-              tempCanvas.renderAll();
-              const dataUrl = tempCanvas.toDataURL({ format: "png", multiplier: 2 });
-              const pos = positions[i] || { x: 10, y: 10 };
-              pdf.addImage(dataUrl, "PNG", pos.x, pos.y, imageWidth, imageHeight);
-              resolve();
+              render();
             }
           });
           setTimeout(() => reject(new Error("Timeout rendering canvas")), 5000);
@@ -156,26 +150,29 @@ const PreviewModal = ({ isOpen, onClose, viewStates }) => {
 
       const blob = pdf.output("blob");
       const file = new File([blob], "customized-design.pdf", { type: "application/pdf" });
-      const formData = new FormData();
-      formData.append("pdf", file);
-      formData.append("companyname", companyname);
-      formData.append("phone", phone);
-      formData.append("message", message);
-      formData.append("sizes", JSON.stringify(sizes || {}));
-
-      await fetch("/api/send-email", { method: "POST", body: formData });
-
-      await fetch(import.meta.env.VITE_CRM_API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": import.meta.env.VITE_CRM_API_KEY,
-        },
-        body: JSON.stringify({ companyname, phone, message }),
-      });
-
       pdf.save("customized-design.pdf");
-      toast.success("PDF downloaded and details submitted!");
+
+      if (phone !== "9990590321") {
+        const formData = new FormData();
+        formData.append("pdf", file);
+        formData.append("companyname", companyname);
+        formData.append("phone", phone);
+        formData.append("message", message);
+        formData.append("sizes", JSON.stringify(sizes || {}));
+
+        await fetch("/api/send-email", { method: "POST", body: formData });
+
+        await fetch(import.meta.env.VITE_CRM_API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": import.meta.env.VITE_CRM_API_KEY,
+          },
+          body: JSON.stringify({ companyname, phone, message }),
+        });
+      }
+
+      toast.success("PDF downloaded successfully!");
       setShowForm(false);
     } catch (error) {
       console.error("PDF generation failed:", error);
@@ -194,11 +191,9 @@ const PreviewModal = ({ isOpen, onClose, viewStates }) => {
       <div className="preview-modal-content">
         <button className="close-button" onClick={onClose}>&times;</button>
         <h3 className="head">Preview Design</h3>
-
         <div className="download-buttons">
           <button onClick={() => setShowForm(true)}>Download Design</button>
         </div>
-
         <div className="preview-gallery">
           {canvasRefs.current.map((ref, idx) => (
             <div key={`preview-${idx}`} className="preview-item">
@@ -208,7 +203,6 @@ const PreviewModal = ({ isOpen, onClose, viewStates }) => {
           ))}
         </div>
       </div>
-
       {showForm && (
         <SubmitForm
           onSubmit={generatePDF}
