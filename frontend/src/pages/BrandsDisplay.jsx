@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import axios from "axios"; 
 import "../styles/BrandsDisplay.css";
 import brandProducts from "../data/brandProducts";
 import brandsList from "../data/brandsspl";
@@ -21,6 +22,12 @@ const BrandsDisplay = () => {
   const brandInfo = brandsList.find((b) => b.slug === brand);
 
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false);
+  const [leadData, setLeadData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+  });
 
   const firstProducts = products.slice(0, 5);
   const remainingProducts = products.slice(5);
@@ -29,11 +36,53 @@ const BrandsDisplay = () => {
     return <p className="not-found">Brand not found.</p>;
   }
 
+ 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLeadData((prev) => ({ ...prev, [name]: value }));
+  };
+
+
+  const handleLeadSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post(import.meta.env.VITE_CRM_API_URL, leadData, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": import.meta.env.VITE_CRM_API_KEY,
+        },
+      });
+
+      await axios.post(`${import.meta.env.VITE_API_URL}/send-email`, leadData);
+
+      alert("Thank you! Catalogue will be downloaded shortly");
+
+      
+      const link = document.createElement("a");
+      link.href = "/catalogue.pdf";
+      link.download = "Diwali_Catalogue.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      
+      setLeadData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+      });
+      setIsLeadFormOpen(false);
+    } catch (error) {
+      console.error("Lead form submission error:", error);
+      alert("Something went wrong. Please try again later.");
+    }
+  };
+
   const canonicalUrl = `${window.location.origin}/brands/${brand}`;
 
   return (
     <div className="brand-display-page">
-      {/* 🔹 Helmet SEO */}
       <Helmet>
         <title>{`${brandInfo.name} Products | Corporate Gifting`}</title>
         <meta name="description" content={brandInfo.description} />
@@ -41,7 +90,7 @@ const BrandsDisplay = () => {
         <link rel="canonical" href={canonicalUrl} />
       </Helmet>
 
-      {/* 🔹 Brand Header */}
+     
       <div className="brand-top-section">
         <div className="brand-top-content">
           <Link to="/brands" className="brand-back-link">
@@ -71,12 +120,11 @@ const BrandsDisplay = () => {
         </div>
       </div>
 
-      {/* 🔹 Products */}
+      
       {products.length === 0 ? (
         <p className="not-found">No products found for this brand.</p>
       ) : (
         <>
-          {/* First 10 */}
           <div className="brand-products-grid">
             {firstProducts.map((product, index) => (
               <div
@@ -90,18 +138,16 @@ const BrandsDisplay = () => {
                   className="brand-product-image"
                 />
                 <div className="brand-product-name">{product.name}</div>
-              </div>
+              </div >
             ))}
           </div>
 
-          {/* CTA Banner */}
           <CTABanner />
 
-          {/* Remaining */}
           {remainingProducts.length > 0 && (
             <div className="brand-products-grid">
               {remainingProducts.map((product, index) => (
-                <div
+                <Link
                   to={`/${brand}/${product.slug}`}
                   key={index}
                   className="brand-product-card"
@@ -112,23 +158,50 @@ const BrandsDisplay = () => {
                     className="brand-product-image"
                   />
                   <div className="brand-product-name">{product.name}</div>
-                </div>
+                </Link>
               ))}
             </div>
           )}
         </>
       )}
 
-      {/* 🔹 Lead Form */}
+      
       {isLeadFormOpen && (
         <div className="lead-overlay-2">
           <div className="lead-modal-2">
             <h3>Get the {brandInfo.name} Catalogue</h3>
-            <form className="lead-form-2">
-              <input type="text" placeholder="Your Name" required />
-              <input type="text" placeholder="Company Name" />
-              <input type="email" placeholder="Email Address" required />
-              <input type="tel" placeholder="Phone Number" required />
+            <form onSubmit={handleLeadSubmit} className="lead-form-2">
+              <input
+                type="text"
+                name="name"
+                value={leadData.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                required
+              />
+              <input
+                type="text"
+                name="company"
+                value={leadData.company}
+                onChange={handleChange}
+                placeholder="Company Name"
+              />
+              <input
+                type="email"
+                name="email"
+                value={leadData.email}
+                onChange={handleChange}
+                placeholder="Email Address"
+                required
+              />
+              <input
+                type="tel"
+                name="phone"
+                value={leadData.phone}
+                onChange={handleChange}
+                placeholder="Phone Number"
+                required
+              />
               <div className="lead-actions-2">
                 <button type="submit" className="lead-submit-2">
                   Submit & Download
