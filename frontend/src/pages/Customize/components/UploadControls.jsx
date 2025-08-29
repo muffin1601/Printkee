@@ -1,8 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { fabric } from "fabric";
 import "../styles/UploadControls.css";
 
 const UploadControls = ({ canvasRef, updateThumbnail }) => {
+  const fileInputRef = useRef(null);
+
+  const resetFileInput = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ""; // clear the input
+    }
+  };
+
   const deleteObject = (eventData, transform) => {
     const target = transform.target;
     const canvas = target.canvas;
@@ -65,7 +73,10 @@ const UploadControls = ({ canvasRef, updateThumbnail }) => {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = () => addImageToCanvas(reader.result);
+    reader.onload = () => {
+      addImageToCanvas(reader.result);
+      resetFileInput(); // clear after successful upload
+    };
     reader.readAsDataURL(file);
   };
 
@@ -81,20 +92,29 @@ const UploadControls = ({ canvasRef, updateThumbnail }) => {
         reader.onload = () => addImageToCanvas(reader.result);
         reader.readAsDataURL(file);
       }
+      resetFileInput();
     };
 
+    const handleDragOver = (e) => e.preventDefault();
+
     canvasEl.addEventListener("drop", handleDrop);
-    canvasEl.addEventListener("dragover", (e) => e.preventDefault());
+    canvasEl.addEventListener("dragover", handleDragOver);
 
     return () => {
       canvasEl.removeEventListener("drop", handleDrop);
-      canvasEl.removeEventListener("dragover", (e) => e.preventDefault());
+      canvasEl.removeEventListener("dragover", handleDragOver);
     };
   }, [canvasRef]);
+
+  // Reset file input every time UploadControls is shown
+  useEffect(() => {
+    resetFileInput();
+  }, []);
 
   return (
     <div className="upload-controls-container">
       <input
+        ref={fileInputRef}
         className="upload-file-input"
         type="file"
         onChange={handleUpload}

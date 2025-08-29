@@ -13,7 +13,6 @@ import VerticalToolbar from "./components/VerticalToolbar";
 import PreviewModal from "./components/PreviewModal";
 import "./styles/CustomizerSVG.css";
 
-
 const svgMap = {
   polotshirt: [
     "/polo/front.svg",
@@ -89,11 +88,9 @@ const partMapSet = {
       "back_path_11", "back_path_12", "left_path_8", "left_path_7", "left_path_9",
       "right_path_8",
       "right_path_9", "right_path_7"
-
     ]
   },
-
-   cap: {
+  cap: {
     fullTshirt: [
       "path_2", "path_29", "path_28", "path_33",
       "path_34", "path_43","path_51", "path_42", "path_35", "path_36",
@@ -113,7 +110,6 @@ const partMapSet = {
   },
 };
 
-
 const CustomizerSVG = () => {
   const canvasRef = useRef(null);
   const thumbnailCanvasRefs = useRef([
@@ -124,11 +120,10 @@ const CustomizerSVG = () => {
   ]);
 
   const { productType } = useParams();
-  console.log("Product Type:", productType);
-  
   const selectedSVGs = svgMap[productType] || svgMap.polotshirt;
   const colorLabels = labelMap[productType] || labelMap.polotshirt;
   const partMap = partMapSet[productType] || partMapSet.polotshirt;
+  
   const [viewStates, setViewStates] = useState([null, null, null, null]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeTool, setActiveTool] = useState("color");
@@ -139,18 +134,46 @@ const CustomizerSVG = () => {
   const [flag, setFlag] = useState(true);
 
   useEffect(() => {
-      const allowedExportProductType = ["polotshirt", "roundneck"];
-      if (allowedExportProductType.map(c => c.toLowerCase()).includes(productType.toLowerCase())) {
-        setActiveTool("export");
-      }
-    }, [productType]);
+    const allowedExportProductType = ["polotshirt", "roundneck"];
+    if (allowedExportProductType.map(c => c.toLowerCase()).includes(productType.toLowerCase())) {
+      setActiveTool("export");
+    }
+  }, [productType]);
 
+  // Extract user objects from canvas (non-group objects)
+  const extractUserObjects = (canvas) => {
+    return canvas.getObjects().filter(obj => {
+      return !obj.isPartOfGroup && obj !== canvas.mainGroup;
+    });
+  };
+
+  // Save current view state including user objects
   const saveCurrentViewState = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const json = canvas.toJSON(['id', 'customPart']); 
+    
+    // Get user objects data
+    const userObjects = extractUserObjects(canvas);
+    const userObjectsData = userObjects.map(obj => {
+      const baseProps = obj.toObject([
+        'type', 'left', 'top', 'scaleX', 'scaleY', 'angle', 
+        'flipX', 'flipY', 'fontFamily', 'fill', 'text', 
+        'src', 'width', 'height', 'fontSize', 'fontWeight', 'textAlign'
+      ]);
+      return baseProps;
+    });
+
+    // Get main canvas state
+    const json = canvas.toJSON(['id', 'customPart']);
+    
+    // Combine both into view state
+    const viewState = {
+      ...json,
+      userObjects: userObjectsData
+    };
+
     const newStates = [...viewStates];
-    newStates[activeIndex] = json;
+    newStates[activeIndex] = viewState;
     setViewStates(newStates);
   };
 
@@ -199,7 +222,7 @@ const CustomizerSVG = () => {
     const saveState = () => {
       const json = canvas.toJSON(['id', 'customPart']);
       setUndoStack(prev => [...prev, json]);
-      setRedoStack([]); 
+      setRedoStack([]);
     };
 
     canvas.on('object:modified', saveState);
@@ -212,83 +235,44 @@ const CustomizerSVG = () => {
   }, []);
 
   const handleThumbnailClick = (index) => {
-  if (index === activeIndex) return;
-  
-  // Save current state before switching
-  saveCurrentViewState();
-  setActiveIndex(index);
-  
-  const canvas = canvasRef.current;
-  if (!canvas) return;
+    if (index === activeIndex) return;
+    
+    // Save current state before switching
+    saveCurrentViewState();
+    
+    // Switch to new view
+    setActiveIndex(index);
+    
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-  // Store current viewport settings
-  const currentZoom = canvas.getZoom();
-  const currentPan = canvas.viewportTransform;
-  const currentActiveObject = canvas.getActiveObject();
-
-  // Get all user-added objects (text, logos, etc.)
-  const userObjects = canvas.getObjects().filter(obj => {
-    return !obj.isPartOfGroup && obj !== canvas.mainGroup;
-  });
-
-  // Store their properties including positions
-  const userObjectsData = userObjects.map(obj => ({
-    obj,
-    original: obj.toObject(['left', 'top', 'scaleX', 'scaleY', 'angle', 'flipX', 'flipY'])
-  }));
-
-  const newState = viewStates[index];
-  
-  if (newState) {
-   
-    canvas.loadFromJSON(newState, () => {
-      
-      canvas.mainGroup = canvas.getObjects().find(obj => obj.type === 'group');
-      
-      
-      userObjectsData.forEach(({obj, original}) => {
-        const newObj = new fabric[obj.type](obj.toObject());
-        newObj.set(original);
-        canvas.add(newObj);
+    // Get the state for the new view
+    const newState = viewStates[index];
+    
+    if (newState) {
+      // Load the saved state for this view
+      canvas.loadFromJSON(newState, () => {
+        // Restore main group reference
+        canvas.mainGroup = canvas.getObjects().find(obj => obj.type === 'group');
+        
+        // Apply global colors
+        applyGlobalColors(canvas);
+        
+        canvas.renderAll();
+        updateThumbnail(index);
       });
-
+    } else {
+      // No saved state, clear canvas and load default SVG
+      canvas.clear();
       
-      canvas.setZoom(currentZoom);
-      canvas.viewportTransform = currentPan;
-      
-      
-      if (currentActiveObject && !currentActiveObject.isPartOfGroup) {
-        const restoredObj = canvas.getObjects().find(o => 
-          o.type === currentActiveObject.type && 
-          o.left === currentActiveObject.left && 
-          o.top === currentActiveObject.top
-        );
-        if (restoredObj) canvas.setActiveObject(restoredObj);
-      }
-
-      applyGlobalColors(canvas);
-      canvas.renderAll();
-    });
-  } else {
-    
-    canvas.clear();
-    
-    
-    userObjectsData.forEach(({obj, original}) => {
-      const newObj = new fabric[obj.type](obj.toObject());
-      newObj.set(original);
-      canvas.add(newObj);
-    });
-
-    // Load the default view
-    setTimeout(() => {
-      applyGlobalColors(canvas);
-      canvas.setZoom(currentZoom);
-      canvas.viewportTransform = currentPan;
-      canvas.renderAll();
-    }, 100);
-  }
-};
+      // Load the default view
+      setTimeout(() => {
+        applyGlobalColors(canvas);
+        canvas.renderAll();
+        updateThumbnail(index);
+      }, 100);
+    }
+  };
 
   const updateThumbnail = (index) => {
     const srcCanvas = canvasRef.current;
@@ -316,39 +300,39 @@ const CustomizerSVG = () => {
   };
 
   const applyGlobalColors = (canvas) => {
-  if (!canvas || !globalPartColors || Object.keys(globalPartColors).length === 0) return;
-  
-  // Apply colors to both the main group AND any user-added objects that have customPart
-  const applyColor = (o) => {
-    // Skip if object is locked or doesn't have customPart
-    if (o.locked || !o.customPart) return;
+    if (!canvas || !globalPartColors || Object.keys(globalPartColors).length === 0) return;
     
-    const part = o.customPart;
-    if (globalPartColors[part]) {
-      o.set("fill", globalPartColors[part]);
-      o.dirty = true;
-    }
-    
-    // Recursively apply to child objects (for groups)
-    if (o._objects) {
-      o._objects.forEach(applyColor);
-    }
+    // Apply colors to both the main group AND any user-added objects that have customPart
+    const applyColor = (o) => {
+      // Skip if object is locked or doesn't have customPart
+      if (o.locked || !o.customPart) return;
+      
+      const part = o.customPart;
+      if (globalPartColors[part]) {
+        o.set("fill", globalPartColors[part]);
+        o.dirty = true;
+      }
+      
+      // Recursively apply to child objects (for groups)
+      if (o._objects) {
+        o._objects.forEach(applyColor);
+      }
+    };
+
+    // Apply to main SVG group
+    const grp = canvas.mainGroup;
+    if (grp) applyColor(grp);
+
+    // Apply to all other objects (including user-added ones that might have customPart)
+    canvas.getObjects().forEach(obj => {
+      // Skip main group (already processed) and objects without customPart
+      if (obj !== grp && obj.customPart) {
+        applyColor(obj);
+      }
+    });
+
+    canvas.requestRenderAll();
   };
-
-  // Apply to main SVG group
-  const grp = canvas.mainGroup;
-  if (grp) applyColor(grp);
-
-  // Apply to all other objects (including user-added ones that might have customPart)
-  canvas.getObjects().forEach(obj => {
-    // Skip main group (already processed) and objects without customPart
-    if (obj !== grp && obj.customPart) {
-      applyColor(obj);
-    }
-  });
-
-  canvas.requestRenderAll();
-};
 
   useEffect(() => {
     if (activeTool === "preview") {
@@ -361,11 +345,10 @@ const CustomizerSVG = () => {
 
   useEffect(() => {
     if (!isPreviewOpen) {
-      
       const canvas = canvasRef.current;
       if (canvas) {
         canvas.renderAll();
-        canvas.calcOffset(); 
+        canvas.calcOffset();
       }
     }
   }, [isPreviewOpen]);
@@ -374,67 +357,47 @@ const CustomizerSVG = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const applyGlobalColors = () => {
-      const grp = canvas.mainGroup;
-      if (!grp || !globalPartColors || Object.keys(globalPartColors).length === 0) return;
-
-      const applyColor = (o) => {
-        const part = o.customPart;
-        if (part && globalPartColors[part]) {
-          o.set("fill", globalPartColors[part]);
-          o.dirty = true;
-        }
-        if (o._objects) o._objects.forEach(applyColor);
-      };
-
-      applyColor(grp);
-      canvas.requestRenderAll();
-      updateThumbnail(activeIndex);
-    };
-
     applyGlobalColors();
-  }, [globalPartColors, activeIndex]); 
+  }, [globalPartColors, activeIndex]);
 
   return (
-    
-      <div className="customizer-page">
-        <h2 className="customizer-title">Create your design</h2>
+    <div className="customizer-page">
+      <h2 className="customizer-title">Create your design</h2>
 
-        <div className="customizer-container">
-          <div className="top-tools-bar">
-            <CanvasToolbar
-              canvasRef={canvasRef}
-              onUndo={handleUndo}
-              onRedo={handleRedo}
-            />
-            <ThumbnailGallery
-              thumbnailCanvasRefs={thumbnailCanvasRefs}
-              activeIndex={activeIndex}
-              initialSVGs={selectedSVGs}
-              onThumbnailClick={handleThumbnailClick}
-            />
+      <div className="customizer-container">
+        <div className="top-tools-bar">
+          <CanvasToolbar
+            canvasRef={canvasRef}
+            onUndo={handleUndo}
+            onRedo={handleRedo}
+          />
+          <ThumbnailGallery
+            thumbnailCanvasRefs={thumbnailCanvasRefs}
+            activeIndex={activeIndex}
+            initialSVGs={selectedSVGs}
+            onThumbnailClick={handleThumbnailClick}
+          />
+        </div>
+
+        <div className="customizer-main">
+          <div className="vertical-toolbar">
+            <VerticalToolbar onSelectTool={setActiveTool} flag={flag} productType={productType} />
           </div>
 
-          <div className="customizer-main">
-
-            <div className="vertical-toolbar">
-              <VerticalToolbar onSelectTool={setActiveTool} flag={flag} productType = {productType} />
-            </div>
-
-            <div className="customizer-controls">
-              {activeTool === "upload" && (
-                <UploadControls
-                  canvasRef={canvasRef}
-                  updateThumbnail={() => updateThumbnail(activeIndex)}
-                />
-              )}
-              {activeTool === "text" && (
-                <TextControls
-                  canvasRef={canvasRef}
-                  updateThumbnail={() => updateThumbnail(activeIndex)}
-                />
-              )}
-              {activeTool === "color" && (
+          <div className="customizer-controls">
+            {activeTool === "upload" && (
+              <UploadControls
+                canvasRef={canvasRef}
+                updateThumbnail={() => updateThumbnail(activeIndex)}
+              />
+            )}
+            {activeTool === "text" && (
+              <TextControls
+                canvasRef={canvasRef}
+                updateThumbnail={() => updateThumbnail(activeIndex)}
+              />
+            )}
+            {activeTool === "color" && (
               <ColorPalette
                 canvasRef={canvasRef}
                 updateThumbnail={() => updateThumbnail(activeIndex)}
@@ -445,23 +408,22 @@ const CustomizerSVG = () => {
                 setViewStates={setViewStates}
                 activeIndex={activeIndex}
               />
-              )}
-              {activeTool === "name" && (
-                <NameNumberInput
-                  canvasRef={canvasRef}
-                  updateThumbnail={() => updateThumbnail(activeIndex)}
-                />
-              )}
-              {activeTool === "export" && (
-                <ExportButtons
-                  canvasRef={canvasRef}
-                  thumbnailCanvasRefs={thumbnailCanvasRefs}
-                  viewStates={viewStates}
-                  
-                />
-              )}
-            </div>
-            <div className="canvas-wrapper">
+            )}
+            {activeTool === "name" && (
+              <NameNumberInput
+                canvasRef={canvasRef}
+                updateThumbnail={() => updateThumbnail(activeIndex)}
+              />
+            )}
+            {activeTool === "export" && (
+              <ExportButtons
+                canvasRef={canvasRef}
+                thumbnailCanvasRefs={thumbnailCanvasRefs}
+                viewStates={viewStates}
+              />
+            )}
+          </div>
+          <div className="canvas-wrapper">
             <ProductCustomizer
               canvasRef={canvasRef}
               mainImageUrl={selectedSVGs[activeIndex]}
@@ -469,19 +431,18 @@ const CustomizerSVG = () => {
               savedState={viewStates[activeIndex]}
               globalPartColors={globalPartColors}
             />
-            </div>
           </div>
-
-          <PreviewModal
-            isOpen={isPreviewOpen}
-            onClose={() => setActiveTool("export")}
-            viewStates={viewStates}
-            originalSVGs={selectedSVGs}
-          />
         </div>
+
+        <PreviewModal
+          isOpen={isPreviewOpen}
+          onClose={() => setActiveTool("export")}
+          viewStates={viewStates}
+          originalSVGs={selectedSVGs}
+        />
       </div>
-      
+    </div>
   );
 };
 
-export default CustomizerSVG;                                                                                                                                                                                                                                                                                                                                                                                                                                           
+export default CustomizerSVG;
