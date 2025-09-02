@@ -14,363 +14,155 @@ import PreviewModal from "./components/PreviewModal";
 import "./styles/CustomizerSVG.css";
 
 const svgMap = {
-  polotshirt: [
-    "/polo/front.svg",
-    "/polo/back.svg",
-    "/polo/left.svg",
-    "/polo/right.svg",
-  ],
-  roundneck: [
-    "/round/front.svg",
-    "/round/back.svg",
-    "/round/left.svg",
-    "/round/right.svg",
-  ],
-  cap: [
-    "/cap/front.svg",
-    "/cap/back.svg",
-    "/cap/left.svg",
-    "/cap/right.svg",
-  ],
+  polotshirt: ["/polo/front.svg", "/polo/back.svg", "/polo/left.svg", "/polo/right.svg"],
+  roundneck: ["/round/front.svg", "/round/back.svg", "/round/left.svg", "/round/right.svg"],
+  cap: ["/cap/front.svg", "/cap/back.svg", "/cap/left.svg", "/cap/right.svg"]
 };
 
 const labelMap = {
-  polotshirt: {
-    fullTshirt: "Body",
-    collar: "Collar",
-    sleeves: "Sleeves",
-  },
-  roundneck: {
-    fullTshirt: "Body",
-    collar: "Neck Rib",
-    sleeves: "Sleeves",
-  },
-  cap: {
-    fullTshirt: "Crown",
-    collar: "Top Button",
-    sleeves: "Peak",
-    border: "Sandwich",
-  },
+  polotshirt: { fullTshirt: "Body", collar: "Collar", sleeves: "Sleeves" },
+  roundneck: { fullTshirt: "Body", collar: "Neck Rib", sleeves: "Sleeves" },
+  cap: { fullTshirt: "Crown", collar: "Top Button", sleeves: "Peak", border: "Sandwich" }
 };
 
 const partMapSet = {
   polotshirt: {
-    collar: [
-      "front-part-7", "front-part-12", "front-part-23", "front-part-50",
-      "front-part-51", "front-part-36", "front-part-14", "front-part-15",
-      "back-part-7", "back-part-12", "back-part-11", "left-part-7", "left-part-13",
-      "left-part-69", "left-part-10", "left-part-11", "right-part-12", "right-part-5",
-      "right-part-50", "right-part-7", "right-part-11"
-    ],
-    sleeves: [
-      "front-part-5", "front-part-6", "back-part-5", "back-part-4",
-      "right-part-4", "left-part-4"
-    ],
-    fullTshirt: [
-      "front-part-2", "front-part-8", "front-part-10",
-      "back-part-2", "back-part-6",
-      "left-part-2", "left-part-9", "left-part-12", "left-part-8",
-      "right-part-2", "right-part-9", "right-part-8", "right-part-6",
-    ]
+    collar: ["front-part-7", "front-part-12", "front-part-23", "front-part-50", "front-part-51", "front-part-36", "front-part-14", "front-part-15", "back-part-7", "back-part-12", "back-part-11", "left-part-7", "left-part-13", "left-part-69", "left-part-10", "left-part-11", "right-part-12", "right-part-5", "right-part-50", "right-part-7", "right-part-11"],
+    sleeves: ["front-part-5", "front-part-6", "back-part-5", "back-part-4", "right-part-4", "left-part-4"],
+    fullTshirt: ["front-part-2", "front-part-8", "front-part-10", "back-part-2", "back-part-6", "left-part-2", "left-part-9", "left-part-12", "left-part-8", "right-part-2", "right-part-9", "right-part-8", "right-part-6"]
   },
   roundneck: {
-    fullTshirt: [
-      "front_path_2", "front_path_6", "front_path_8", "back_path_2",
-      "back_path_6",
-      "left_path_6", "left_path_2", "right_path_1", "right_path_6"
-    ],
-    sleeves: [
-      "front_path_4", "front_path_5", "back_path_4", "back_path_5",
-      "left_path_3", "right_path_3"
-    ],
-    collar: [
-      "front_path_7", "front_path_10", "front_path_11", "front_path_9", "back_path_8",
-      "back_path_11", "back_path_12", "left_path_8", "left_path_7", "left_path_9",
-      "right_path_8",
-      "right_path_9", "right_path_7"
-    ]
+    fullTshirt: ["front_path_2", "front_path_6", "front_path_8", "back_path_2", "back_path_6", "left_path_6", "left_path_2", "right_path_1", "right_path_6"],
+    sleeves: ["front_path_4", "front_path_5", "back_path_4", "back_path_5", "left_path_3", "right_path_3"],
+    collar: ["front_path_7", "front_path_10", "front_path_11", "front_path_9", "back_path_8", "back_path_11", "back_path_12", "left_path_8", "left_path_7", "left_path_9", "right_path_8", "right_path_9", "right_path_7"]
   },
   cap: {
-    fullTshirt: [
-      "path_2", "path_29", "path_28", "path_33",
-      "path_34", "path_43","path_51", "path_42", "path_35", "path_36",
-      "path_46", "path_47", "path_41", "path_86", "path_87", "path_90", "path_91","path_32","path_38", "path_37", "path_40", "path_52",
-      "path_53", "path_55"
-    ],
-    sleeves: [
-       "path_4", "path_5",  "path_88",
-       "path_92","path_48",  "path_50"
-    ],
-    collar: [
-      "path_97", "path_56", "path_39", "path_8",
-    ],
-    border: [
-      "path_6","path_96","path_54"
-    ]
-  },
+    fullTshirt: ["path_2", "path_29", "path_28", "path_33", "path_34", "path_43", "path_51", "path_42", "path_35", "path_36", "path_46", "path_47", "path_41", "path_86", "path_87", "path_90", "path_91", "path_32", "path_38", "path_37", "path_40", "path_52", "path_53", "path_55"],
+    sleeves: ["path_4", "path_5", "path_88", "path_92", "path_48", "path_50"],
+    collar: ["path_97", "path_56", "path_39", "path_8"],
+    border: ["path_6", "path_96", "path_54"]
+  }
+};
+
+const applyGlobalColors = (canvas, colors) => {
+  if (!canvas) return;
+  const applyColor = (obj) => {
+    if (obj.customPart && colors[obj.customPart]) {
+      obj.set("fill", colors[obj.customPart]);
+      obj.dirty = true;
+      obj.setCoords();
+    }
+    if (obj._objects) obj._objects.forEach(applyColor);
+  };
+  if (canvas.mainGroup) applyColor(canvas.mainGroup);
+  canvas.getObjects().forEach((obj) => {
+    if (obj !== canvas.mainGroup) applyColor(obj);
+  });
+  canvas.requestRenderAll();
 };
 
 const CustomizerSVG = () => {
   const canvasRef = useRef(null);
-  const thumbnailCanvasRefs = useRef([
-    React.createRef(),
-    React.createRef(),
-    React.createRef(),
-    React.createRef(),
-  ]);
-
+  const thumbnailCanvasRefs = useRef([React.createRef(), React.createRef(), React.createRef(), React.createRef()]);
   const { productType } = useParams();
   const selectedSVGs = svgMap[productType] || svgMap.polotshirt;
   const colorLabels = labelMap[productType] || labelMap.polotshirt;
   const partMap = partMapSet[productType] || partMapSet.polotshirt;
-  
   const [viewStates, setViewStates] = useState([null, null, null, null]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeTool, setActiveTool] = useState("color");
-  const [undoStack, setUndoStack] = useState([]);
-  const [redoStack, setRedoStack] = useState([]);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [globalPartColors, setGlobalPartColors] = useState({});
   const [flag, setFlag] = useState(true);
 
   useEffect(() => {
-    const allowedExportProductType = ["polotshirt", "roundneck"];
-    if (allowedExportProductType.map(c => c.toLowerCase()).includes(productType.toLowerCase())) {
-      setActiveTool("export");
-    }
+    if (["polotshirt", "roundneck"].includes(productType.toLowerCase())) setActiveTool("export");
   }, [productType]);
 
-  // Extract user objects from canvas (non-group objects)
-  const extractUserObjects = (canvas) => {
-    return canvas.getObjects().filter(obj => {
-      return !obj.isPartOfGroup && obj !== canvas.mainGroup;
-    });
-  };
+  const extractUserObjects = (canvas) => canvas.getObjects().filter((o) => !o.isPartOfGroup && o !== canvas.mainGroup);
 
-  // Save current view state including user objects
   const saveCurrentViewState = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
-    // Get user objects data
-    const userObjects = extractUserObjects(canvas);
-    const userObjectsData = userObjects.map(obj => {
-      const baseProps = obj.toObject([
-        'type', 'left', 'top', 'scaleX', 'scaleY', 'angle', 
-        'flipX', 'flipY', 'fontFamily', 'fill', 'text', 
-        'src', 'width', 'height', 'fontSize', 'fontWeight', 'textAlign'
-      ]);
-      return baseProps;
-    });
-
-    // Get main canvas state
-    const json = canvas.toJSON(['id', 'customPart']);
-    
-    // Combine both into view state
-    const viewState = {
-      ...json,
-      userObjects: userObjectsData
-    };
-
+    const userObjects = extractUserObjects(canvas).map((o) =>
+      o.toObject(["type", "left", "top", "scaleX", "scaleY", "angle", "flipX", "flipY", "fontFamily", "fill", "text", "src", "width", "height", "fontSize", "fontWeight", "textAlign", "customPart"])
+    );
+    const json = canvas.toJSON(["id", "customPart"]);
     const newStates = [...viewStates];
-    newStates[activeIndex] = viewState;
+    newStates[activeIndex] = { ...json, userObjects, globalPartColors: { ...globalPartColors } };
     setViewStates(newStates);
   };
 
-  const handleUndo = () => {
-    const canvas = canvasRef.current;
-    if (!canvas || undoStack.length === 0) return;
-
-    const prevState = undoStack[undoStack.length - 1];
-    const newUndoStack = undoStack.slice(0, -1);
-
-    const currentState = canvas.toJSON(['id', 'customPart']);
-    setUndoStack(newUndoStack);
-    setRedoStack(prev => [...prev, currentState]);
-
-    canvas.loadFromJSON(prevState, () => {
-      canvas.renderAll();
-      updateThumbnail(activeIndex);
-    });
-  };
-
-  const handleRedo = () => {
-    const canvas = canvasRef.current;
-    if (!canvas || redoStack.length === 0) return;
-
-    const nextState = redoStack[redoStack.length - 1];
-    const newRedoStack = redoStack.slice(0, -1);
-
-    const currentState = canvas.toJSON(['id', 'customPart']);
-    setRedoStack(newRedoStack);
-    setUndoStack(prev => [...prev, currentState]);
-
-    canvas.loadFromJSON(nextState, () => {
-      canvas.renderAll();
-      updateThumbnail(activeIndex);
-    });
-  };
-
-  useEffect(() => {
-    window.updateThumbnailFromCanvas = () => updateThumbnail(activeIndex);
-  }, [activeIndex]);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const saveState = () => {
-      const json = canvas.toJSON(['id', 'customPart']);
-      setUndoStack(prev => [...prev, json]);
-      setRedoStack([]);
-    };
-
-    canvas.on('object:modified', saveState);
-    canvas.on('object:added', saveState);
-
-    return () => {
-      canvas.off('object:modified', saveState);
-      canvas.off('object:added', saveState);
-    };
-  }, []);
-
   const handleThumbnailClick = (index) => {
     if (index === activeIndex) return;
-    
-    // Save current state before switching
     saveCurrentViewState();
-    
-    // Switch to new view
     setActiveIndex(index);
-    
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    // Get the state for the new view
-    const newState = viewStates[index];
-    
-    if (newState) {
-      // Load the saved state for this view
-      canvas.loadFromJSON(newState, () => {
-        // Restore main group reference
-        canvas.mainGroup = canvas.getObjects().find(obj => obj.type === 'group');
-        
-        // Apply global colors
-        applyGlobalColors(canvas);
-        
-        canvas.renderAll();
-        updateThumbnail(index);
-      });
-    } else {
-      // No saved state, clear canvas and load default SVG
-      canvas.clear();
-      
-      // Load the default view
-      setTimeout(() => {
-        applyGlobalColors(canvas);
-        canvas.renderAll();
-        updateThumbnail(index);
-      }, 100);
-    }
+    const newColors = viewStates[index]?.globalPartColors || {};
+    setGlobalPartColors(newColors);
   };
 
   const updateThumbnail = (index) => {
     const srcCanvas = canvasRef.current;
     const dstCanvas = thumbnailCanvasRefs.current[index]?.current;
     if (!srcCanvas || !dstCanvas) return;
-
-    const dataUrl = srcCanvas.toDataURL({ format: "png" });
-
-    const thumbCanvas = new fabric.StaticCanvas(dstCanvas);
-    fabric.Image.fromURL(dataUrl, (img) => {
-      const scale = Math.min(
-        dstCanvas.width / img.width,
-        dstCanvas.height / img.height
-      );
-      img.scale(scale);
-      img.set({
-        left: (dstCanvas.width - img.width * scale) / 2,
-        top: (dstCanvas.height - img.height * scale) / 2,
-      });
-
-      thumbCanvas.clear();
-      thumbCanvas.add(img);
-      thumbCanvas.renderAll();
-    });
-  };
-
-  const applyGlobalColors = (canvas) => {
-    if (!canvas || !globalPartColors || Object.keys(globalPartColors).length === 0) return;
     
-    // Apply colors to both the main group AND any user-added objects that have customPart
-    const applyColor = (o) => {
-      // Skip if object is locked or doesn't have customPart
-      if (o.locked || !o.customPart) return;
-      
-      const part = o.customPart;
-      if (globalPartColors[part]) {
-        o.set("fill", globalPartColors[part]);
-        o.dirty = true;
-      }
-      
-      // Recursively apply to child objects (for groups)
-      if (o._objects) {
-        o._objects.forEach(applyColor);
-      }
-    };
-
-    // Apply to main SVG group
-    const grp = canvas.mainGroup;
-    if (grp) applyColor(grp);
-
-    // Apply to all other objects (including user-added ones that might have customPart)
-    canvas.getObjects().forEach(obj => {
-      // Skip main group (already processed) and objects without customPart
-      if (obj !== grp && obj.customPart) {
-        applyColor(obj);
-      }
-    });
-
-    canvas.requestRenderAll();
+    applyGlobalColors(srcCanvas, globalPartColors);
+    srcCanvas.requestRenderAll();
+    
+    setTimeout(() => {
+      const dataUrl = srcCanvas.toDataURL({ format: "png" });
+      const thumbCanvas = new fabric.StaticCanvas(dstCanvas);
+      fabric.Image.fromURL(dataUrl, (img) => {
+        const scale = Math.min(dstCanvas.width / img.width, dstCanvas.height / img.height);
+        img.scale(scale);
+        img.set({
+          left: (dstCanvas.width - img.width * scale) / 2,
+          top: (dstCanvas.height - img.height * scale) / 2,
+        });
+        thumbCanvas.clear();
+        thumbCanvas.add(img);
+        thumbCanvas.renderAll();
+      });
+    }, 100);
   };
-
-  useEffect(() => {
-    if (activeTool === "preview") {
-      saveCurrentViewState();
-      setIsPreviewOpen(true);
-    } else {
-      setIsPreviewOpen(false);
-    }
-  }, [activeTool]);
-
-  useEffect(() => {
-    if (!isPreviewOpen) {
-      const canvas = canvasRef.current;
-      if (canvas) {
-        canvas.renderAll();
-        canvas.calcOffset();
-      }
-    }
-  }, [isPreviewOpen]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
-    applyGlobalColors();
+    applyGlobalColors(canvas, globalPartColors);
+    updateThumbnail(activeIndex);
   }, [globalPartColors, activeIndex]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const savedState = viewStates[activeIndex];
+    if (!savedState) return;
+
+    const colors = savedState.globalPartColors || {};
+    setGlobalPartColors(colors);
+
+    const savedUserObjectsData = Array.isArray(savedState.userObjects) ? savedState.userObjects : [];
+    canvas.loadFromJSON(savedState, () => {
+      canvas.mainGroup = canvas.getObjects().find((obj) => obj.isPartOfGroup);
+      applyGlobalColors(canvas, colors);
+
+      fabric.util.enlivenObjects(savedUserObjectsData, (objects) => {
+        objects.forEach((obj) => {
+          obj.set({ selectable: true, evented: true });
+          canvas.add(obj);
+        });
+        canvas.renderAll();
+      });
+    });
+  }, [activeIndex, viewStates]);
 
   return (
     <div className="customizer-page">
       <h2 className="customizer-title">Create your design</h2>
-
       <div className="customizer-container">
         <div className="top-tools-bar">
-          <CanvasToolbar
-            canvasRef={canvasRef}
-            onUndo={handleUndo}
-            onRedo={handleRedo}
-          />
+          <CanvasToolbar canvasRef={canvasRef} onUndo={() => {}} onRedo={() => {}} />
           <ThumbnailGallery
             thumbnailCanvasRefs={thumbnailCanvasRefs}
             activeIndex={activeIndex}
@@ -378,25 +170,13 @@ const CustomizerSVG = () => {
             onThumbnailClick={handleThumbnailClick}
           />
         </div>
-
         <div className="customizer-main">
           <div className="vertical-toolbar">
             <VerticalToolbar onSelectTool={setActiveTool} flag={flag} productType={productType} />
           </div>
-
           <div className="customizer-controls">
-            {activeTool === "upload" && (
-              <UploadControls
-                canvasRef={canvasRef}
-                updateThumbnail={() => updateThumbnail(activeIndex)}
-              />
-            )}
-            {activeTool === "text" && (
-              <TextControls
-                canvasRef={canvasRef}
-                updateThumbnail={() => updateThumbnail(activeIndex)}
-              />
-            )}
+            {activeTool === "upload" && <UploadControls canvasRef={canvasRef} updateThumbnail={() => updateThumbnail(activeIndex)} />}
+            {activeTool === "text" && <TextControls canvasRef={canvasRef} updateThumbnail={() => updateThumbnail(activeIndex)} />}
             {activeTool === "color" && (
               <ColorPalette
                 canvasRef={canvasRef}
@@ -404,23 +184,11 @@ const CustomizerSVG = () => {
                 labels={colorLabels}
                 globalPartColors={globalPartColors}
                 setGlobalPartColors={setGlobalPartColors}
-                viewStates={viewStates}
-                setViewStates={setViewStates}
-                activeIndex={activeIndex}
               />
             )}
-            {activeTool === "name" && (
-              <NameNumberInput
-                canvasRef={canvasRef}
-                updateThumbnail={() => updateThumbnail(activeIndex)}
-              />
-            )}
+            {activeTool === "name" && <NameNumberInput canvasRef={canvasRef} updateThumbnail={() => updateThumbnail(activeIndex)} />}
             {activeTool === "export" && (
-              <ExportButtons
-                canvasRef={canvasRef}
-                thumbnailCanvasRefs={thumbnailCanvasRefs}
-                viewStates={viewStates}
-              />
+              <ExportButtons canvasRef={canvasRef} thumbnailCanvasRefs={thumbnailCanvasRefs} viewStates={viewStates} onOpenPreview={() => setIsPreviewOpen(true)} />
             )}
           </div>
           <div className="canvas-wrapper">
@@ -433,12 +201,12 @@ const CustomizerSVG = () => {
             />
           </div>
         </div>
-
         <PreviewModal
           isOpen={isPreviewOpen}
-          onClose={() => setActiveTool("export")}
+          onClose={() => setIsPreviewOpen(false)}
           viewStates={viewStates}
           originalSVGs={selectedSVGs}
+          globalPartColors={globalPartColors}
         />
       </div>
     </div>

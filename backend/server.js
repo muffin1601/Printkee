@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 
 app.use("/api/blogs", require("./routes/blogRoutes"));
-
+app.use ("/api/visitors", require("./routes/visitor"));
 app.use("/api", require("./routes/searchRoutes"));
 app.use("/api", require("./routes/emailRoutes"));
 app.use("/api/category", require("./routes/categoryRoutes"));
