@@ -86,7 +86,7 @@
   position: relative;
 }
 
-.navbar-login {
+.navbar-visitor-count {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -97,9 +97,9 @@
   transition: color 0.2s;
 }
 
-.navbar-login:hover {
+/* .navbar-login:hover {
   color: #470867;
-}
+} */
 
 .navbar-login svg {
   font-size: 28px;

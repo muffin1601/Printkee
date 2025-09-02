@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import { IoPersonOutline } from "react-icons/io5";
@@ -7,6 +7,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import navbarSubcategories from "../data/list";
 import { FaPen, FaEnvelope } from "react-icons/fa";
+import axios from "axios";
 
 const Navbar = () => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
@@ -14,6 +15,14 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All Categories");
   const navigate = useNavigate();
+  const [visitorCount, setVisitorCount] = useState(0); 
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/visitors/count`) 
+      .then((res) => setVisitorCount(res.data.totalVisitors))
+      .catch((err) => console.error("Failed to fetch visitor count", err));
+  }, []);
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
@@ -66,10 +75,13 @@ const Navbar = () => {
           <select><option>INR</option></select>
         </div>
 
-        <div className="navbar-login">
+        {/* <div className="navbar-login">
           <IoPersonOutline />
           <span>Login</span>
-        </div>
+        </div> */}
+        <div className="navbar-visitor-count">
+        Visitors Today: <span id="visitor-count">{visitorCount}</span>
+      </div>
       </div>
 
       {/* Bottom menu */}
