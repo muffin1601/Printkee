@@ -5,7 +5,7 @@ import "../styles/PreviewModal.css";
 import { toast } from "react-toastify";
 import SubmitForm from "./SubmitForm";
 
-const PreviewModal = ({ isOpen, onClose, viewStates }) => {
+const PreviewModal = ({ isOpen, onClose, viewStates, globalPartColors = {} }) => {
   const canvasRefs = useRef([React.createRef(), React.createRef(), React.createRef(), React.createRef()]);
   const fabricCanvasRefs = useRef([null, null, null, null]);
   const [showForm, setShowForm] = useState(false);
@@ -14,6 +14,20 @@ const PreviewModal = ({ isOpen, onClose, viewStates }) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [sizes, setSizes] = useState({});
+
+  const applyGlobalColorsToCanvas = (canvas, colors) => {
+    if (!canvas) return;
+    const applyColor = (obj) => {
+      if (obj.customPart && colors[obj.customPart] && obj.isPartOfGroup) {
+        obj.set("fill", colors[obj.customPart]);
+        obj.dirty = true;
+        obj.setCoords();
+      }
+      if (obj._objects) obj._objects.forEach(applyColor);
+    };
+    canvas.getObjects().forEach(applyColor);
+    canvas.requestRenderAll();
+  };
 
   useEffect(() => {
     if (!isOpen) return;
@@ -29,6 +43,9 @@ const PreviewModal = ({ isOpen, onClose, viewStates }) => {
       fabricCanvasRefs.current[index] = canvas;
 
       canvas.loadFromJSON(state, () => {
+        // Apply global colors
+        applyGlobalColorsToCanvas(canvas, globalPartColors);
+        
         if (state.backgroundImageUrl) {
           fabric.Image.fromURL(state.backgroundImageUrl, (img) => {
             img.set({
@@ -57,7 +74,7 @@ const PreviewModal = ({ isOpen, onClose, viewStates }) => {
       fabricCanvasRefs.current.forEach((canvas) => canvas?.dispose());
       fabricCanvasRefs.current = [null, null, null, null];
     };
-  }, [isOpen, viewStates]);
+  }, [isOpen, viewStates, globalPartColors]);
 
   const scaleObjects = (canvas) => {
     const objects = canvas.getObjects();
@@ -118,6 +135,9 @@ const PreviewModal = ({ isOpen, onClose, viewStates }) => {
 
         await new Promise((resolve, reject) => {
           tempCanvas.loadFromJSON(state, () => {
+            // Apply global colors to temp canvas
+            applyGlobalColorsToCanvas(tempCanvas, globalPartColors);
+            
             const render = () => {
               tempCanvas.renderAll();
               const dataUrl = tempCanvas.toDataURL({ format: "png", multiplier: 2 });

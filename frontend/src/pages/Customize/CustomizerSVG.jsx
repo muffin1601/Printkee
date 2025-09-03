@@ -61,6 +61,7 @@ const applyGlobalColors = (canvas, colors) => {
   canvas.requestRenderAll();
 };
 
+
 const CustomizerSVG = () => {
   const canvasRef = useRef(null);
   const thumbnailCanvasRefs = useRef([React.createRef(), React.createRef(), React.createRef(), React.createRef()]);
@@ -97,41 +98,87 @@ const CustomizerSVG = () => {
     if (index === activeIndex) return;
     saveCurrentViewState();
     setActiveIndex(index);
-    const newColors = viewStates[index]?.globalPartColors || {};
-    setGlobalPartColors(newColors);
+  };
+
+  const updateAllThumbnails = () => {
+    thumbnailCanvasRefs.current.forEach((ref, index) => {
+      updateThumbnail(index);
+    });
   };
 
   const updateThumbnail = (index) => {
     const srcCanvas = canvasRef.current;
     const dstCanvas = thumbnailCanvasRefs.current[index]?.current;
     if (!srcCanvas || !dstCanvas) return;
-    
-    applyGlobalColors(srcCanvas, globalPartColors);
-    srcCanvas.requestRenderAll();
-    
-    setTimeout(() => {
-      const dataUrl = srcCanvas.toDataURL({ format: "png" });
-      const thumbCanvas = new fabric.StaticCanvas(dstCanvas);
-      fabric.Image.fromURL(dataUrl, (img) => {
-        const scale = Math.min(dstCanvas.width / img.width, dstCanvas.height / img.height);
-        img.scale(scale);
-        img.set({
-          left: (dstCanvas.width - img.width * scale) / 2,
-          top: (dstCanvas.height - img.height * scale) / 2,
+
+    // Save current state temporarily
+    const currentState = viewStates[activeIndex];
+
+    // Load the state for this thumbnail
+    const state = viewStates[index];
+    if (!state) return;
+
+    const tempCanvas = new fabric.Canvas(document.createElement('canvas'), {
+      width: dstCanvas.width,
+      height: dstCanvas.height
+    });
+
+    tempCanvas.loadFromJSON(state, () => {
+      // Apply global colors to the temp canvas
+      applyGlobalColors(tempCanvas, globalPartColors);
+
+      setTimeout(() => {
+        const dataUrl = tempCanvas.toDataURL({ format: "png" });
+        const thumbCanvas = new fabric.StaticCanvas(dstCanvas);
+        fabric.Image.fromURL(dataUrl, (img) => {
+          const scale = Math.min(dstCanvas.width / img.width, dstCanvas.height / img.height);
+          img.scale(scale);
+          img.set({
+            left: (dstCanvas.width - img.width * scale) / 2,
+            top: (dstCanvas.height - img.height * scale) / 2,
+          });
+          thumbCanvas.clear();
+          thumbCanvas.add(img);
+          thumbCanvas.renderAll();
         });
-        thumbCanvas.clear();
-        thumbCanvas.add(img);
-        thumbCanvas.renderAll();
-      });
-    }, 100);
+
+        tempCanvas.dispose();
+      }, 100);
+    });
   };
 
+  const handleGlobalColorChange = (newColors) => {
+  setGlobalPartColors(newColors);
+
+  const canvas = canvasRef.current;
+  if (canvas) {
+    applyGlobalColors(canvas, newColors);
+  }
+
+  // Persist color change to all views
+  const updatedStates = viewStates.map((state, index) => {
+    if (!state) return null;
+    const updated = { ...state, globalPartColors: newColors };
+    if (index === activeIndex) {
+      // Also save current canvas state
+      const userObjects = extractUserObjects(canvas).map((o) =>
+        o.toObject(["type", "left", "top", "scaleX", "scaleY", "angle", "flipX", "flipY", "fontFamily", "fill", "text", "src", "width", "height", "fontSize", "fontWeight", "textAlign", "customPart"])
+      );
+      const json = canvas.toJSON(["id", "customPart"]);
+      return { ...json, userObjects, globalPartColors: newColors };
+    }
+    return updated;
+  });
+
+  setViewStates(updatedStates);
+  updateAllThumbnails();
+};
+
+
+
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    applyGlobalColors(canvas, globalPartColors);
-    updateThumbnail(activeIndex);
-  }, [globalPartColors, activeIndex]);
+    updateAllThumbnails();
+  }, [globalPartColors]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -143,26 +190,40 @@ const CustomizerSVG = () => {
     setGlobalPartColors(colors);
 
     const savedUserObjectsData = Array.isArray(savedState.userObjects) ? savedState.userObjects : [];
+
     canvas.loadFromJSON(savedState, () => {
       canvas.mainGroup = canvas.getObjects().find((obj) => obj.isPartOfGroup);
       applyGlobalColors(canvas, colors);
 
+      // ✅ INSERT THIS BLOCK HERE
       fabric.util.enlivenObjects(savedUserObjectsData, (objects) => {
         objects.forEach((obj) => {
+          obj.isPartOfGroup = false; // Prevent them from being recolored
           obj.set({ selectable: true, evented: true });
           canvas.add(obj);
         });
+        applyGlobalColors(canvas, colors); // Reapply colors after adding objects
         canvas.renderAll();
       });
     });
   }, [activeIndex, viewStates]);
+
+  useEffect(() => {
+  if (activeTool === "preview") {
+    saveCurrentViewState();
+    setIsPreviewOpen(true);
+  } else {
+    setIsPreviewOpen(false);
+  }
+}, [activeTool]);
+
 
   return (
     <div className="customizer-page">
       <h2 className="customizer-title">Create your design</h2>
       <div className="customizer-container">
         <div className="top-tools-bar">
-          <CanvasToolbar canvasRef={canvasRef} onUndo={() => {}} onRedo={() => {}} />
+          <CanvasToolbar canvasRef={canvasRef} onUndo={() => { }} onRedo={() => { }} />
           <ThumbnailGallery
             thumbnailCanvasRefs={thumbnailCanvasRefs}
             activeIndex={activeIndex}
@@ -183,7 +244,7 @@ const CustomizerSVG = () => {
                 updateThumbnail={() => updateThumbnail(activeIndex)}
                 labels={colorLabels}
                 globalPartColors={globalPartColors}
-                setGlobalPartColors={setGlobalPartColors}
+                setGlobalPartColors={handleGlobalColorChange}
               />
             )}
             {activeTool === "name" && <NameNumberInput canvasRef={canvasRef} updateThumbnail={() => updateThumbnail(activeIndex)} />}
