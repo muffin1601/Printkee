@@ -56,7 +56,6 @@ const ProductCustomizer = ({
             ...options,
             selectable: false,
             evented: false,
-            isPartOfGroup: true,
           });
 
           const canvasWidth = canvas.getWidth();
