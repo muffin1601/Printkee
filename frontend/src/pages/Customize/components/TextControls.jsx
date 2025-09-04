@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { fabric } from "fabric";
 import "../styles/TextControls.css";
 
-const TextControls = ({ canvasRef, updateThumbnail }) => {
+const TextControls = ({ canvasRef, updateThumbnail, saveCurrentViewState, activeIndex }) => {
   const [text, setText] = useState("");
   const [font, setFont] = useState("Arial");
   const [color, setColor] = useState("#000000");
 
-  // 🧹 Fabric delete handler
+  
   const deleteObject = (eventData, transform) => {
     const target = transform.target;
     const canvas = target.canvas;
@@ -68,6 +68,11 @@ const TextControls = ({ canvasRef, updateThumbnail }) => {
 
     canvasRef.current.add(textbox).setActiveObject(textbox);
     canvasRef.current.requestRenderAll();
+
+    saveCurrentViewState();          
+  updateThumbnail(activeIndex);    
+
+  setText("");
 
     setTimeout(() => {
       updateThumbnail();
