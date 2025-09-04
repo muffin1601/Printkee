@@ -15,7 +15,7 @@ const fonts = [
   "Lucida Console",
 ];
 
-const NameNumberInput = ({ canvasRef, updateThumbnail }) => {
+const NameNumberInput = ({ canvasRef, updateThumbnail, saveCurrentViewState, activeIndex }) => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [color, setColor] = useState("#000000");
@@ -112,6 +112,11 @@ const NameNumberInput = ({ canvasRef, updateThumbnail }) => {
     }
 
     canvas.requestRenderAll();
+    saveCurrentViewState();
+  updateThumbnail(activeIndex);
+
+  setName("");
+  setNumber("");
     setTimeout(updateThumbnail, 150);
   };
 

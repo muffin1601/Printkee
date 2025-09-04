@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { fabric } from "fabric";
 import "../styles/UploadControls.css";
 
-const UploadControls = ({ canvasRef, updateThumbnail }) => {
+const UploadControls = ({ canvasRef, updateThumbnail, saveCurrentViewState, activeIndex }) => {
   const fileInputRef = useRef(null);
 
   const resetFileInput = () => {
@@ -63,6 +63,9 @@ const UploadControls = ({ canvasRef, updateThumbnail }) => {
 
       canvasRef.current.add(img).setActiveObject(img);
       canvasRef.current.requestRenderAll();
+
+      saveCurrentViewState();           // save to viewStates
+    updateThumbnail(activeIndex);
 
       setTimeout(() => updateThumbnail(), 150);
     });
