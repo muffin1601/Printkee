@@ -4,12 +4,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0,0,0,0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   font-family: 'Poppins', sans-serif;
+  padding: 1rem;
 }
 
 .preview-modal-content {
@@ -21,6 +22,7 @@
   overflow: auto;
   position: relative;
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 .close-button {
@@ -44,6 +46,8 @@
 .download-buttons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
 
@@ -57,6 +61,8 @@
   cursor: pointer;
   transition: background-color 0.3s;
   font-family: 'Poppins', sans-serif;
+  flex: 1;
+  min-width: 140px;
 }
 
 .download-buttons button:hover {
@@ -80,16 +86,46 @@
   border-radius: 4px;
   background-color: white;
   margin-bottom: 0.5rem;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
 }
 
 .preview-label {
   color: #4b2061;
   font-weight: 500;
   margin: 0;
+  text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .preview-gallery {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .preview-canvas {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .preview-modal-content {
+    padding: 1rem;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .download-buttons button {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .preview-canvas {
+    max-width: 100%;
+    height: auto;
   }
 }

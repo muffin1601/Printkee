@@ -83,6 +83,8 @@
   box-shadow: 0 2px 8px rgba(243, 156, 18, 0.2);
   transition: background 0.2s, transform 0.2s;
   font-family: 'Poppins', sans-serif;
+  width: 90%;
+  margin: 0px auto 20px auto;
 }
 
 .occasion-btn:hover {
@@ -91,11 +93,7 @@
   transform: translateY(-2px);
 }
 
-/* ======================
-   RESPONSIVE STYLES
-   ====================== */
 
-/* Tablets (≤1024px) */
 @media (max-width: 1024px) {
   .occasion-wrapper {
     padding: 50px 30px;
@@ -148,6 +146,8 @@
   .occasion-btn {
     font-size: 0.9rem;
     padding: 8px 16px;
+    width: 90%;
+    margin: 0px auto 20px auto;
   }
 }
 
@@ -178,5 +178,7 @@
   .occasion-btn {
     font-size: 0.85rem;
     padding: 7px 14px;
+    width: 90%;
+     margin: 0px auto 20px auto;
   }
 }
