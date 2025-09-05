@@ -38,16 +38,16 @@ const SubcategoryDisplay = () => {
         />
       </Helmet>
 
-      <div className="subcategory-header">
-        <div className="subcategory-header-content">
-          <Link to="/" className="back-link">
-            <div className="circle">
-              <span className="arrow-2">&larr;</span>
+      <div className="subcategory-header-3">
+        <div className="subcategory-header-content-3">
+          <Link to="/" className="back-link-3">
+            <div className="circle-3">
+              <span className="arrow-3">&larr;</span>
             </div>
-            <span className="span-name">Back to home</span>
+            <span className="span-name-3">Back to home</span>
           </Link>
-          <h1 className="subcategory-title">{categoryData.name}</h1>
-          <p className="subcategory-description">{categoryData.tag}</p>
+          <h1 className="subcategory-title-3">{categoryData.name}</h1>
+          <p className="subcategory-description-3">{categoryData.tag}</p>
         </div>
         <div className="head-img">
           <img src={`/assets/categories/${categoryData.name}.png`} alt={categoryData.name} />

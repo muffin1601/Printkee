@@ -1,5 +1,5 @@
 .how-it-works-section {
-  padding: 20px 20px 60px 20px;
+  padding: 40px 20px 70px;
   background: hsl(49, 100%, 97%);
   text-align: center;
   border-bottom: 2px solid #4b2061;
@@ -23,8 +23,8 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
-  max-width: 100%;
-  margin-bottom: 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
 }
 
 .step-card {
@@ -88,6 +88,28 @@
   color: #fff;
 }
 
+
+@media (max-width: 1024px) {
+  .how-it-works-title {
+    font-size: 2.2rem;
+  }
+  .how-it-works-subheading {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+  .step-card {
+    width: 220px;
+    padding: 28px 20px;
+  }
+  .step-card h3 {
+    font-size: 1.1rem;
+  }
+  .step-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile (stacked layout) */
 @media (max-width: 900px) {
   .how-it-works-steps {
     flex-direction: column;
@@ -97,5 +119,47 @@
   .step-card {
     width: 90%;
     min-width: unset;
+  }
+}
+
+/* Small Mobiles */
+@media (max-width: 600px) {
+  .how-it-works-title {
+    font-size: 1.8rem;
+  }
+  .how-it-works-subheading {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+  .step-icon {
+    font-size: 2rem;
+  }
+  .step-card {
+    padding: 24px 18px;
+  }
+  .step-card h3 {
+    font-size: 1rem;
+  }
+  .step-card p {
+    font-size: 0.9rem;
+  }
+  .how-it-works-cta {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.95rem;
+    padding: 10px 18px;
+  }
+}
+
+/* Extra Small Mobiles */
+@media (max-width: 400px) {
+  .how-it-works-title {
+    font-size: 1.6rem;
+  }
+  .step-card {
+    padding: 20px 14px;
+  }
+  .step-card p {
+    font-size: 0.85rem;
   }
 }

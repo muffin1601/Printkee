@@ -79,3 +79,72 @@
 .related-item:hover .item-name {
   color: #4b2061; /* purple text on hover */
 }
+
+/* --- Responsive Breakpoints --- */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .related-categories {
+    padding: 50px 16px 60px;
+  }
+
+  .related-categories h2 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+
+  .related-grid {
+    gap: 24px;
+  }
+
+  .related-item img {
+    height: 200px;
+  }
+}
+
+/* Mobile Large (≤768px) */
+@media (max-width: 768px) {
+  .related-categories {
+    padding: 40px 14px 50px;
+  }
+
+  .related-categories h2 {
+    font-size: 1.8rem;
+  }
+
+  .related-item img {
+    height: 180px;
+  }
+
+  .item-name {
+    font-size: 0.95rem;
+    padding: 14px;
+  }
+}
+
+/* Mobile Small (≤480px) */
+@media (max-width: 480px) {
+  .related-categories {
+    padding: 30px 20px 40px;
+  }
+
+  .related-categories h2 {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0;
+  }
+
+  .related-item img {
+    height: 100px;
+  }
+
+  .item-name {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}

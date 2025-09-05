@@ -48,7 +48,7 @@ const EnquiryModal = ({ isOpen, onClose, image, description }) => {
   return (
     <div className="enquiry-modal-overlay" onClick={onClose}>
       <div className="enquiry-modal" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>
+        <button className="close-btn-enquiry" onClick={onClose}>
           ×
         </button>
         <div className="modal-container">
@@ -113,7 +113,7 @@ const EnquiryModal = ({ isOpen, onClose, image, description }) => {
                 onChange={handleChange}
                 value={formData.requirement}
               ></textarea>
-              <button type="submit" className="submit-btn">
+              <button type="submit" className="submit-btn-enquiry">
                 Get a Quote
               </button>
             </form>

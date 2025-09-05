@@ -122,3 +122,101 @@
 .call-us a:hover {
   color: #f39c12;
 }
+
+/* ===== Responsive Styles ===== */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .quote-heading {
+    font-size: 2.2rem;
+    margin-bottom: 24px;
+  }
+
+  .quote-features {
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+
+  .feature-item {
+    font-size: 1rem;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+  }
+
+  .quote-cta-overlay {
+    padding: 50px 25px;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .quote-heading {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+
+  .quote-features {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature-item {
+    font-size: 0.95rem;
+  }
+
+  .feature-icon {
+    font-size: 1.8rem;
+  }
+
+  .quote-cta-button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 0;
+    border-radius: 8px;
+  }
+
+  .quote-cta-extra-info {
+    font-size: 1.1rem;
+  }
+
+  .call-us {
+    font-size: 1.1rem;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .quote-heading {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+  }
+
+  .quote-cta-overlay {
+    padding: 40px 20px;
+  }
+
+  .feature-icon {
+    font-size: 1.6rem;
+  }
+
+  .feature-item {
+    font-size: 0.9rem;
+  }
+
+  .quote-cta-button {
+    font-size: 0.95rem;
+    padding: 10px 0;
+  }
+
+  .quote-cta-extra-info {
+    font-size: 1rem;
+  }
+
+  .call-us {
+    font-size: 1rem;
+  }
+}

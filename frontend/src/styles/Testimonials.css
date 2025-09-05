@@ -1,4 +1,6 @@
-/* Testimonials.css */
+/* ============================= */
+/* Testimonials Section */
+/* ============================= */
 
 .testimonials-section {
   background: hsl(49, 100%, 97%);
@@ -61,7 +63,6 @@
   margin-bottom: 22px;
   font-style: italic;
   line-height: 1.6;
-  
 }
 
 .testimonial-footer {
@@ -73,22 +74,17 @@
   margin-top: auto;
 }
 
-
-
 .client-name {
   font-size: 1.05rem;
   font-weight: 600;
   margin: 0;
   color: #22223b;
-  /* text-align: left; */
-  
 }
 
 .client-role {
   font-size: 0.97rem;
   color: #6c757d;
   margin: 0;
-  text-align: left;
 }
 
 .brand-logos-strip-2 {
@@ -127,38 +123,94 @@
   opacity: 1;
 }
 
+/* ============================= */
+/* ✅ Responsive Styling */
+/* ============================= */
+
+/* Large tablets / small desktops */
+@media (max-width: 1024px) {
+  .section-title-2 {
+    font-size: 2rem;
+  }
+  .section-subtitle-2 {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+  .testimonial-card {
+    max-width: 300px;
+    padding: 28px 20px 20px 20px;
+  }
+  .brand-logo-2 {
+    height: 80px;
+  }
+}
+
+/* Tablets */
 @media (max-width: 900px) {
   .testimonials-container {
     gap: 20px;
   }
   .testimonial-card {
-    max-width: 95vw;
-    min-width: 220px;
-    padding: 24px 14px 18px 14px;
+    max-width: 90%;
+    min-width: 240px;
+    padding: 24px 18px;
   }
-  .brands-logo-container {
-    gap: 22px;
+  .brands-logo-container-2 {
+    gap: 24px;
+  }
+  .brand-logo-2 {
+    height: 70px;
   }
 }
 
+/* Mobile */
 @media (max-width: 600px) {
   .testimonials-section {
     padding: 36px 0 24px 0;
   }
-  .section-title {
-    font-size: 1.4rem;
-    margin-bottom: 18px;
+  .section-title-2 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+  .section-subtitle-2 {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    padding: 0 12px;
   }
   .testimonials-container {
     flex-direction: column;
     align-items: center;
     gap: 16px;
   }
-  .brand-title {
-    font-size: 1rem;
-    margin-bottom: 10px;
+  .testimonial-card {
+    width: 95%;
+    padding: 20px 14px;
   }
-  .brand-logo {
-    height: 28px;
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+  .brand-title-2 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  .brand-logo-2 {
+    height: 50px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 400px) {
+  .section-title-2 {
+    font-size: 1.4rem;
+  }
+  .testimonial-card {
+    padding: 16px 12px;
+  }
+  .testimonial-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  .brand-logo-2 {
+    height: 40px;
   }
 }
