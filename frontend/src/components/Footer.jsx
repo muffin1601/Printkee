@@ -17,7 +17,14 @@ const Footer = () => {
             From premium packaging to on-time delivery, <br />
             we make gifting seamless and impactful.
           </p>
-          <a href="/about" className="footer-about-btn">More About Us</a>
+          <a
+            href="/about"
+            className="footer-about-btn"
+            aria-label="Learn more about Printkee"
+            name="about-link"
+          >
+            Read More
+          </a>
         </div>
 
         {/* Column 2: Important Links */}

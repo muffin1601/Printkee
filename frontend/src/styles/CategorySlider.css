@@ -155,54 +155,72 @@
 .swiper-pagination-bullet-active {
     background: #f39c12;
 }
-
+/* Tablet (≤1024px) */
 @media (max-width: 1024px) {
-    .category-swiper {
-        padding-bottom: 40px;
-    }
-    .category-card {
-        min-height: 280px;
-        padding: 18px 8px 16px 8px;
-    }
-    .category-image-container {
-        width: 90px;
-        height: 90px;
-    }
+  .category-slider-heading {
+    font-size: 2rem;
+  }
+  .category-slider-subheading {
+    font-size: 1rem;
+  }
+  .category-card {
+    min-height: 280px;
+    padding: 18px 12px;
+  }
+  .category-image-container {
+    height: 220px;
+  }
 }
 
+/* Mobile (≤768px) */
 @media (max-width: 768px) {
-    .category-slider-container {
-        padding: 18px 4px;
-    }
-    .category-slider-heading {
-        font-size: 1.5rem;
-    }
-    .category-swiper {
-        padding-bottom: 32px;
-    }
-    .category-card {
-        min-height: 220px;
-        padding: 12px 4px 12px 4px;
-    }
-    .category-image-container {
-        width: 70px;
-        height: 70px;
-    }
+  .category-slider-container {
+    padding: 20px 10px;
+  }
+  .category-slider-heading {
+    font-size: 1.6rem;
+  }
+  .category-slider-subheading {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+  .category-card {
+    min-height: 220px;
+    padding: 14px 10px;
+  }
+  .category-image-container {
+    height: 160px;
+  }
+  .category-title {
+    font-size: 1rem;
+  }
+  .category-explore-btn {
+    font-size: 0.9rem;
+    padding: 7px 16px;
+  }
 }
 
-@media (max-width: 600px) {
-    .category-slider-container {
-        padding: 8px 0;
-    }
-    .category-swiper {
-        padding-bottom: 24px;
-    }
-    .category-card {
-        min-height: 160px;
-        padding: 8px 2px 8px 2px;
-    }
-    .category-image-container {
-        width: 48px;
-        height: 48px;
-    }
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+  .category-slider-heading {
+    font-size: 1.3rem;
+  }
+  .category-slider-subheading {
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+  .category-card {
+    min-height: 180px;
+    padding: 10px 6px;
+  }
+  .category-image-container {
+    height: 230px;
+  }
+  .category-title {
+    font-size: 0.85rem;
+  }
+  .category-explore-btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
 }

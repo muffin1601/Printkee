@@ -1,32 +1,49 @@
-import React, { useState , useEffect} from "react";
-import { useNavigate } from "react-router-dom";
-import "../styles/Navbar.css";
-import { IoPersonOutline } from "react-icons/io5";
-import { FaHome, FaThList, FaBoxOpen, FaServicestack, FaTags, FaGift } from "react-icons/fa";
-import { FaInfoCircle } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
+import {
+  FaHome,
+  FaThList,
+  FaTags,
+  FaGift,
+  FaInfoCircle,
+  FaPen,
+  FaEnvelope,
+  FaChevronDown,
+  FaChevronUp,
+} from "react-icons/fa";
+import { IoMenu, IoClose, IoSearch } from "react-icons/io5";
 import navbarSubcategories from "../data/list";
-import { FaPen, FaEnvelope } from "react-icons/fa";
 import axios from "axios";
+import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [openCategory, setOpenCategory] = useState(null);
 
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All Categories");
+  const [visitorCount, setVisitorCount] = useState(0);
+
   const navigate = useNavigate();
-  const [visitorCount, setVisitorCount] = useState(0); 
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/visitors/count`) 
+      .get(`${import.meta.env.VITE_API_URL}/visitors/count`)
       .then((res) => setVisitorCount(res.data.totalVisitors))
-      .catch((err) => console.error("Failed to fetch visitor count", err));
+      .catch(() => console.warn("⚠ Visitor API failed"));
   }, []);
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
-      navigate(`/search?q=${encodeURIComponent(query)}&cat=${encodeURIComponent(category)}`);
+      navigate(
+        `/search?q=${encodeURIComponent(query)}&cat=${encodeURIComponent(
+          category
+        )}`
+      );
+      setIsMenuOpen(false);
+      setIsSearchOpen(false);
     }
   };
 
@@ -39,21 +56,29 @@ const Navbar = () => {
       .replace(/\s+/g, "-")
       .replace(/--+/g, "-");
 
-  const groupedCategories = Object.entries(navbarSubcategories).reduce((acc, curr, index) => {
-    if (index % 2 === 0) acc.push([curr]);
-    else acc[acc.length - 1].push(curr);
-    return acc;
-  }, []);
+  const groupedCategories = Object.entries(navbarSubcategories).reduce(
+    (acc, curr, index) => {
+      if (index % 2 === 0) acc.push([curr]);
+      else acc[acc.length - 1].push(curr);
+      return acc;
+    },
+    []
+  );
 
   return (
     <div className="navbar-wrapper">
-      {/* Top bar */}
+      {/* -------- Top bar -------- */}
       <div className="navbar-top">
         <div className="navbar-logo">
-          <img className="navbar-logo-img" src="/assets/printkeeLogo.png" alt="Printkee Logo" />
+          <img
+            className="navbar-logo-img"
+            src="/assets/printkeeLogo.png"
+            alt="Printkee Logo"
+          />
         </div>
 
-        <div className="navbar-search">
+        {/* Desktop search */}
+        <div className="navbar-search desktop-only">
           <input
             type="text"
             placeholder="Search Product..."
@@ -61,7 +86,10 @@ const Navbar = () => {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleSearch}
           />
-          <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
             <option>All Categories</option>
             <option>Apparel</option>
             <option>Bags</option>
@@ -70,26 +98,33 @@ const Navbar = () => {
           </select>
         </div>
 
-        <div className="navbar-lang-currency">
-          <select><option>English</option></select>
-          <select><option>INR</option></select>
+        <div className="navbar-visitor-count desktop-only">
+          Visitors Today: <span>{visitorCount}</span>
         </div>
 
-        {/* <div className="navbar-login">
-          <IoPersonOutline />
-          <span>Login</span>
-        </div> */}
-        <div className="navbar-visitor-count">
-        Visitors Today: <span id="visitor-count">{visitorCount}</span>
-      </div>
+        
+        <div className="mobile-controls mobile-only">
+          <button
+            className="search-toggle"
+            onClick={() => setIsSearchOpen(true)}
+          >
+            <IoSearch size={28} />
+          </button>
+          <button
+            className="menu-toggle"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <IoClose size={35} /> : <IoMenu size={35} />}
+          </button>
+        </div>
       </div>
 
-      {/* Bottom menu */}
-      <div className="navbar-bottom">
+      
+      <div className="navbar-bottom desktop-only">
         <ul className="menu">
           <li>
             <NavLink to="/" className="nav-link">
-              <FaHome style={{ marginRight: 5 }} /> Home
+              <FaHome /> Home
             </NavLink>
           </li>
 
@@ -99,9 +134,8 @@ const Navbar = () => {
             onMouseLeave={() => setShowMegaMenu(false)}
           >
             <span className="nav-link">
-              <FaThList style={{ marginRight: 5 }} /> All Categories ▾
+              <FaThList /> All Categories ▾
             </span>
-
             <div className={`mega-menu-wrapper ${showMegaMenu ? "open" : ""}`}>
               <div className="mega-menu">
                 {groupedCategories.map((group, idx) => (
@@ -120,38 +154,39 @@ const Navbar = () => {
                               </NavLink>
                             </li>
                           ))}
-                        </ul>              
-                    </div>
-                   ))}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
             </div>
           </li>
-           <li>
-            <a href="/brands" className="nav-link">
-              <FaTags style={{ marginRight: 5 }} /> Brands
-            </a>
+
+          <li>
+            <NavLink to="/brands" className="nav-link">
+              <FaTags /> Brands
+            </NavLink>
           </li>
           <li>
-            <a href="/blogs" className="nav-link">
-              <FaPen style={{ marginRight: 5 }} /> Blog
-            </a>
+            <NavLink to="/blogs" className="nav-link">
+              <FaPen /> Blog
+            </NavLink>
           </li>
           <li>
-            <a href="/contact" className="nav-link">
-              <FaEnvelope style={{ marginRight: 5 }} /> Contact Us
-            </a>
+            <NavLink to="/contact" className="nav-link">
+              <FaEnvelope /> Contact Us
+            </NavLink>
           </li>
           <li>
-            <a href="/diwali-special" className="nav-link">
-              <FaGift style={{ marginRight: 5 }} /> Diwali Special
-            </a>
+            <NavLink to="/diwali-special" className="nav-link">
+              <FaGift /> Diwali Special
+            </NavLink>
           </li>
           <li>
-            <a href="/about" className="nav-link">
-              <FaInfoCircle style={{ marginRight: 5 }} /> About Us
-            </a>
+            <NavLink to="/about" className="nav-link">
+              <FaInfoCircle /> About Us
+            </NavLink>
           </li>
         </ul>
 
@@ -160,6 +195,113 @@ const Navbar = () => {
           <a href="mailto:sales@printkee.com">sales@printkee.com</a>
         </div>
       </div>
+
+      {/* -------- Mobile Side Drawer -------- */}
+      <nav className={`side-menu ${isMenuOpen ? "open" : ""}`}>
+        <div className="side-menu-header">
+          <img src="/assets/printkeeLogo.png" alt="Logo" className="side-logo" />
+          <button className="close-btn-side" onClick={() => setIsMenuOpen(false)}>
+            <IoClose size={30} />
+          </button>
+        </div>
+
+        <ul>
+          <li>
+            <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
+              <FaHome /> Home
+            </NavLink>
+          </li>
+          <li className="mobile-dropdown">
+            <button
+              className="dropdown-toggle"
+              onClick={() =>
+                setOpenCategory(openCategory === "all" ? null : "all")
+              }
+            >
+              <span >
+                <FaThList /> All Categories
+              </span>
+              {openCategory === "all" ? <FaChevronUp /> : <FaChevronDown />}
+            </button>
+
+            {openCategory === "all" && (
+              <div className="dropdown-list">
+                {Object.entries(navbarSubcategories).map(([mainCategory], idx) => (
+                  <NavLink
+                    key={idx}
+                    to={`/${slugify(mainCategory)}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {mainCategory}
+                  </NavLink>
+                ))}
+              </div>
+            )}
+          </li>
+          <li>
+            <NavLink to="/brands" onClick={() => setIsMenuOpen(false)}>
+              <FaTags /> Brands
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/blogs" onClick={() => setIsMenuOpen(false)}>
+              <FaPen /> Blogs
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
+              <FaEnvelope /> Contact Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/diwali-special" onClick={() => setIsMenuOpen(false)}>
+              <FaGift /> Diwali Special
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>
+              <FaInfoCircle /> About Us
+            </NavLink>
+          </li>
+        </ul>
+
+        <div className="side-menu-footer">
+          <p>Visitors Today: {visitorCount}</p>
+        </div>
+      </nav>
+
+      {/* -------- Search Overlay -------- */}
+      {isSearchOpen && (
+        <div className="search-overlay">
+          <div className="search-box">
+            <div className="search-input-group">
+              <input
+                type="text"
+                placeholder="Search.."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={handleSearch}
+              />
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option>All Categories</option>
+                <option>Apparel</option>
+                <option>Bags</option>
+                <option>Drinkware</option>
+                <option>Collection</option>
+              </select>
+            </div>
+            <button
+              className="close-btn-search"
+              onClick={() => setIsSearchOpen(false)}
+            >
+              <IoClose size={30} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

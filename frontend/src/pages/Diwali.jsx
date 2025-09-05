@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 import "../styles/Diwali.css";
 import giftsList from "../data/diwalispl";
 import brandsList from "../data/brandsspl";
@@ -22,7 +23,6 @@ const Diwali = () => {
     company: "",
     email: "",
     phone: "",
-    
   });
 
   const handleLeadChange = (e) => {
@@ -30,45 +30,43 @@ const Diwali = () => {
   };
 
   const handleLeadSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    await axios.post(import.meta.env.VITE_CRM_API_URL, leadData, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": import.meta.env.VITE_CRM_API_KEY,
-      },
-    });
+    e.preventDefault();
+    try {
+      await axios.post(import.meta.env.VITE_CRM_API_URL, leadData, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": import.meta.env.VITE_CRM_API_KEY,
+        },
+      });
 
-    await axios.post(`${import.meta.env.VITE_API_URL}/send-email`, leadData);
+      await axios.post(`${import.meta.env.VITE_API_URL}/send-email`, leadData);
 
-    alert("Thank you! Catalogue will be downloaded shortly");
+      alert("Thank you! Catalogue will be downloaded shortly");
 
+      const link = document.createElement("a");
+      link.href = "/catalogue.pdf";
+      link.download = "Diwali_Catalogue.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
 
-    const link = document.createElement("a");
-    link.href = "/catalogue.pdf"; 
-    link.download = "Diwali_Catalogue.pdf"; 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-   
-    setLeadData({
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      requirement: "",
-    });
-    setIsLeadFormOpen(false);
-  } catch (error) {
-    console.error("Lead form submission error:", error);
-    alert("Something went wrong. Please try again later.");
-  }
-};
-
+      setLeadData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        requirement: "",
+      });
+      setIsLeadFormOpen(false);
+    } catch (error) {
+      console.error("Lead form submission error:", error);
+      alert("Something went wrong. Please try again later.");
+    }
+  };
 
   return (
     <div className="diwali-page">
+      {/* Banner */}
       <div className="diwali-banner">
         <img
           src="/images/diwali-banner.webp"
@@ -77,23 +75,27 @@ const Diwali = () => {
         />
       </div>
 
+      {/* Gift Carousels */}
       {Object.keys(groupedGifts).map((category, idx) => (
         <div className="diwali-carousel-section" key={idx}>
           <h2 className="diwali-carousel-title">{category}</h2>
           <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
+            modules={[Navigation, Pagination, Autoplay, Scrollbar]}
             navigation
             pagination={{
               clickable: true,
               bulletClass: "diwali-bullet swiper-pagination-bullet",
               bulletActiveClass: "diwali-bullet-active",
             }}
+            scrollbar={{ draggable: true }}
             spaceBetween={20}
-            slidesPerView={4}
+            slidesPerView={1} // mobile first
             breakpoints={{
-              1024: { slidesPerView: 3 },
-              768: { slidesPerView: 2 },
               480: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+              1280: { slidesPerView: 4 },
             }}
             autoplay={{
               delay: 0,
@@ -120,6 +122,7 @@ const Diwali = () => {
         </div>
       ))}
 
+      {/* CTA Section */}
       <div className="diwali-cta-section">
         <h2>🎉 Download Our Diwali Catalogue!</h2>
         <button
@@ -130,16 +133,20 @@ const Diwali = () => {
         </button>
       </div>
 
+      {/* Brands Carousel */}
       <div className="diwali-brands-section">
         <h2>✨ Brands We Offer ✨</h2>
         <Swiper
-          modules={[Autoplay]}
+          modules={[Autoplay, Scrollbar]}
           spaceBetween={20}
-          slidesPerView={5}
+          scrollbar={{ draggable: true }}
+          slidesPerView={2} // mobile first
           breakpoints={{
-            1024: { slidesPerView: 5 },
-            768: { slidesPerView: 4 },
             480: { slidesPerView: 2 },
+            640: { slidesPerView: 3 },
+            768: { slidesPerView: 4 },
+            1024: { slidesPerView: 5 },
+            1440: { slidesPerView: 6 },
           }}
           autoplay={{ delay: 2000 }}
           loop={true}
@@ -158,6 +165,7 @@ const Diwali = () => {
         </Swiper>
       </div>
 
+      {/* Lead Form Modal */}
       {isLeadFormOpen && (
         <div className="lead-overlay">
           <div className="lead-modal">
@@ -194,7 +202,7 @@ const Diwali = () => {
                 placeholder="Phone Number"
                 required
               />
-  
+
               <div className="lead-actions">
                 <button type="submit" className="lead-submit">
                   Submit & Download

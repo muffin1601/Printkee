@@ -5,10 +5,9 @@
   align-items: center;
   padding: 30px 8%;
   background: #fcefdb; 
-  color: #fff;
   gap: 40px;
   flex-wrap: wrap;
-    border-bottom: 1px solid #636363;
+  border-bottom: 1px solid #636363;
 }
 
 /* 🔹 Left Content */
@@ -17,7 +16,7 @@
   min-width: 280px;
 }
 
-/* Back link wrapper */
+/* Back link */
 .brand-back-link {
   display: inline-flex;
   align-items: center;
@@ -26,7 +25,6 @@
   font-weight: 500;
   color: #070707;
   text-decoration: none;
-  /* margin-bottom: 10px; */
   transition: color 0.3s ease;
 }
 
@@ -84,7 +82,6 @@
 
 .brand-download-btn:hover {
   text-decoration: underline;
-  
 }
 
 /* 🔹 Logo Wrapper */
@@ -101,38 +98,14 @@
   object-fit: contain;
 }
 
-/* 🔹 Responsive Design */
-@media (max-width: 992px) {
-  .brand-top-section {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-    padding: 40px 6%;
-  }
-
-  .brand-heading {
-    font-size: 36px;
-  }
-
-  .brand-subtext {
-    font-size: 16px;
-    max-width: 100%;
-  }
-
-  .brand-logo {
-    max-width: 200px;
-  }
-}
-
-
 /* 🔹 Products Grid */
 .brand-products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
   width: 100%;
   margin: 0 auto;
-  padding: 32px 80px;
+  padding: 32px 20px;
   background-color: #fff;
 }
 
@@ -143,7 +116,7 @@
   text-decoration: none;
   transition: box-shadow 0.2s, transform 0.2s;
   padding: 18px 12px 20px 12px;
-  min-height: 300px;
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,16 +129,16 @@
 
 .brand-product-image {
   width: 100%;
-  max-width: 200px;
-  height: 200px;
+  max-width: 180px;
+  height: 180px;
   object-fit: contain;
   border-radius: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   background: #f7f7f7;
 }
 
 .brand-product-name {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #222;
   text-align: center;
@@ -176,7 +149,6 @@
 /* 🔹 CTA Banner */
 .cta-banner-4 {
   display: block;
-  
   cursor: pointer;
 }
 
@@ -186,7 +158,7 @@
   display: block;
 }
 
-
+/* 🔹 Lead Modal */
 .lead-overlay-2 {
   position: fixed;
   top: 0;
@@ -215,14 +187,14 @@
   margin-bottom: 14px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-family: 'poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .lead-actions-2 {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font-family: 'poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .lead-submit-2 {
@@ -233,7 +205,6 @@
   border-radius: 8px;
   flex: 1;
   cursor: pointer;
-  font-family: 'poppins', sans-serif;
 }
 
 .lead-submit-2:hover {
@@ -247,14 +218,98 @@
   border-radius: 8px;
   flex: 1;
   cursor: pointer;
-  font-family: 'poppins', sans-serif;
+}
+
+/* 🔹 Responsive Tweaks */
+@media (max-width: 1200px) {
+  .brand-heading {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .brand-top-section {
+    flex-direction: column;
+    text-align: left;
+    gap: 30px;
+    padding: 30px 5%;
+  }
+
+  .brand-heading {
+    font-size: 32px;
+  }
+
+  .brand-subtext {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .brand-logo-7 {
+    max-width: 200px;
+    min-height: auto;
+  }
+
+  .brand-products-grid {
+    padding: 28px 16px;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
   .brand-heading {
-    font-size: 1.8rem;
+    font-size: 26px;
   }
-  .brand-logo-wrapper {
-    margin-top: 20px;
+
+  .brand-subtext {
+    font-size: 15px;
+  }
+
+  .brand-product-card {
+    padding: 16px 10px;
+    min-height: 260px;
+  }
+
+  .brand-product-image {
+    max-width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-heading {
+    font-size: 22px;
+  }
+
+  .brand-subtext {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .brand-logo-7 {
+    max-width: 160px;
+    max-height: 160px;
+  }
+
+  .cta-banner-image-4{
+    display: none;
+  }
+
+  .brand-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    
+  }
+  .brand-product-name {
+  font-size: 0.8rem;
+  
+}
+
+
+  .brand-product-card {
+    padding: 14px 8px;
+    min-height: 240px;
+  }
+
+  .brand-product-image {
+    max-width: 130px;
+    height: 130px;
   }
 }

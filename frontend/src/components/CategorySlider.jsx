@@ -9,9 +9,6 @@ import "../styles/CategorySlider.css";
 const CategorySlider = () => {
   const [categories, setCategories] = useState([]);
 
-
-
-
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/category/categories`)
       .then((res) => res.json())
@@ -21,20 +18,27 @@ const CategorySlider = () => {
 
   return (
     <div className="category-slider-container">
-      <h2 className="category-slider-heading">All Catgories to Explore</h2>
+      <h2 className="category-slider-heading">All Categories to Explore</h2>
       <p className="category-slider-subheading">
         Discover a world of thoughtful gifting — from stylish apparel and custom accessories to practical office essentials and eco-friendly totes. Whether you're celebrating a milestone, promoting your brand, or simply saying thank you, explore our curated categories designed to make every gift feel personal and memorable.
       </p>
 
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={30}
+        spaceBetween={20}
         slidesPerView={4}
         navigation
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
         loop={true}
         pagination={{ clickable: true }}
         className="category-swiper"
+        breakpoints={{
+          1280: { slidesPerView: 4, spaceBetween: 30 }, 
+          1024: { slidesPerView: 3, spaceBetween: 24 }, 
+          768: { slidesPerView: 2, spaceBetween: 20 },  
+          480: { slidesPerView: 1.5, spaceBetween: 16 }, 
+          0: { slidesPerView: 1, spaceBetween: 12 },     
+        }}
       >
         {categories.map((item) => (
           <SwiperSlide key={item._id}>
@@ -44,11 +48,12 @@ const CategorySlider = () => {
                 <img className="category-image" src={item.image} alt={item.name} />
               </div>
               <h3 className="category-title">{item.name}</h3>
-              {/* <div className="category-stars">☆☆☆☆☆</div> */}
-              <button className="category-explore-btn" onClick={() =>
-                          window.location.href = `/${item.slug}`
-
-                        } >Explore →</button>
+              <button
+                className="category-explore-btn"
+                onClick={() => (window.location.href = `/${item.slug}`)}
+              >
+                Explore →
+              </button>
             </div>
           </SwiperSlide>
         ))}

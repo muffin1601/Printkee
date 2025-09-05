@@ -28,3 +28,42 @@
 .icon-btn {
   font-size: 34px;
 }
+
+/* 📱 Responsive */
+@media (max-width: 1024px) {
+  .whatsapp-button {
+    width: 58px;
+    height: 58px;
+  }
+  .icon-btn {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-buttons {
+    bottom: 16px;
+    right: 16px;
+  }
+  .whatsapp-button {
+    width: 54px;
+    height: 54px;
+  }
+  .icon-btn {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-buttons {
+    bottom: 12px;
+    right: 12px;
+  }
+  .whatsapp-button {
+    width: 48px;
+    height: 48px;
+  }
+  .icon-btn {
+    font-size: 24px;
+  }
+}
