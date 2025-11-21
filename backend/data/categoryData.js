@@ -94,6 +94,7 @@ const categoryData = [
   },
   {
     name: "Office and Writing",
+    slug: "office-and-writing",
     image: "/assets/categories/officewriting.jpg",
     hoverImage: "/assets/categories/office.jpg",
     tag: "Essential office and writing tools. Perfect for daily use and gifting. Custom branding options. Boost productivity and style.",
@@ -290,6 +291,7 @@ const categoryData = [
   },
   {
     name: "Collection",
+    slug: "collection",
     image: "/assets/categories/collection.jpg",
     hoverImage: "/assets/categories/apparel.jpg",
     tag: "Exclusive gift collections. Perfect for special occasions. Curated for every need. Customizable options available.",
@@ -483,6 +485,7 @@ const categoryData = [
   },
   {
     name: "Bags and Travel",
+    slug: "bags-and-travel",
     image: "/assets/categories/bags.jpg",
     hoverImage: "/assets/categories/bags-for-change.jpg",
     tag: "Travel in style with our bags. Backpacks, totes, and more. Durable and functional designs. Custom branding available.",
@@ -674,6 +677,7 @@ const categoryData = [
   },
   {
     name: "Technology Accessories",
+    slug: "technology-accessories",
     image: "/assets/categories/technology.jpg",
     hoverImage: "/assets/categories/technical.jpg",
     tag: "Latest tech accessories. Wireless, portable, and smart. Perfect for gifting and use. Custom branding available.",
@@ -960,6 +964,7 @@ const categoryData = [
   },
   {
     name: "Drink Ware",
+    slug: "drink-ware",
     image: "/assets/categories/drinkware.jpeg",
     hoverImage: "/assets/categories/drink.jpg",
     tag: "Premium drinkware collection. Sippers, mugs, bottles, and more. Perfect for daily use and gifting. Custom branding available.",
@@ -1105,6 +1110,7 @@ const categoryData = [
   },
   {
     name: "Trophy and Momento",
+    slug: "trophy-and-momento",
     image: "/assets/categories/trophy.jpg",
     hoverImage: "/assets/categories/trophy1.jpg",
     tag: "Awards and momentos for recognition. Crystal, wood, and more. Perfect for ceremonies. Custom branding available.",

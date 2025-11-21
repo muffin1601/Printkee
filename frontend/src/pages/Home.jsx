@@ -9,6 +9,8 @@ import Industries from '../components/Industries';
 import HowitWorks from '../components/HowitWorks';
 import Testimonials from '../components/Testimonials';
 import GetQuoteCTA from '../components/GetQuoteCTA';
+import FaqSectionHome from '../components/FaqSectionHome';
+import ProductRange from '../components/ProductRange';
 
 
 const Home = () => {
@@ -20,6 +22,8 @@ const Home = () => {
       <OurServices />
       <WhyChooseUs />
       <Industries />
+      <FaqSectionHome />
+      <ProductRange />
       <HowitWorks/>
       <Testimonials />
       <GetQuoteCTA />

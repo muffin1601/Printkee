@@ -143,6 +143,15 @@
     
 } */
 
+.category-description {
+    font-size: 0.85rem;
+    color: #000000;
+    text-align: center;
+
+    margin-bottom: 12px;
+    flex-grow: 1;
+}
+
 .swiper-pagination-bullet {
     background: #e0e0f7;
     opacity: 1;
