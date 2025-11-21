@@ -1,6 +1,10 @@
 import React from "react";
 import "../styles/ShopByOccasion.css";
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
 import onboardingImg from "/assets/onboarding.jpg";
 import festiveImg from "/assets/festive.jpg";
 import clientImg from "/assets/client.jpg";
@@ -10,32 +14,48 @@ const occasions = [
   {
     id: 1,
     title: "Welcome Onboard Kits",
+<<<<<<< HEAD
     description:
       "Kickstart new employee journeys with thoughtfully designed employee welcome kits. Our personalized onboarding gift boxes include branded stationery, eco-friendly drinkware, tech accessories, and customized merchandise that reflect your company culture.",
+=======
+    description: "Kickstart new employee journeys with personalized welcome boxes.",
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
     image: onboardingImg,
     cta: "Explore Kits",
   },
   {
     id: 2,
     title: "Festive Celebration Hampers",
+<<<<<<< HEAD
     description:
       "Celebrate special occasions with premium festive hampers for corporate gifting. Choose from luxury chocolates, gourmet treats, dry fruits, and personalized gift boxes to spread joy during Diwali, Christmas, New Year, and other festive celebrations.",
+=======
+    description: "Spread joy during Diwali, Christmas, and more with curated hampers.",
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
     image: festiveImg,
     cta: "Shop Hampers",
   },
   {
     id: 3,
     title: "Client Thank You Gifts",
+<<<<<<< HEAD
     description:
       "Strengthen professional relationships with premium client appreciation gifts. From elegant desk essentials to luxury hampers, our corporate gifting solutions ensure your brand leaves a memorable impact on clients, partners, and associates.",
+=======
+    description: "Strengthen partnerships with premium corporate presents.",
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
     image: clientImg,
     cta: "Send a Gift",
   },
   {
     id: 4,
     title: "Event & Expo Giveaways",
+<<<<<<< HEAD
     description:
       "Make your brand unforgettable at trade shows, corporate events, and exhibitions with custom giveaways and promotional products. Choose from branded T-shirts, eco-friendly bags, pens, bottles, and tech accessories designed to boost brand recall.",
+=======
+    description: "Impress at events with branded merchandise and useful swag.",
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
     image: conferenceImg,
     cta: "Browse Giveaways",
   },
@@ -44,6 +64,7 @@ const occasions = [
 const ShopByOccasion = () => (
   <section className="occasion-wrapper">
     <h2 className="occasion-heading">Corporate Gifting by Category</h2>
+<<<<<<< HEAD
 
     <p className="occasion-sub">
       Discover a wide range of corporate gifting solutions in Delhi NCR, Noida,
@@ -51,12 +72,17 @@ const ShopByOccasion = () => (
       gifts, employee welcome kits, festive hampers, client thank you presents,
       and promotional giveaways that help your business build strong connections
       and lasting impressions.
+=======
+    <p className="occasion-sub">
+      Discover curated gifting solutions tailored for every business occasion.
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
     </p>
 
     <div className="occasion-grid">
       {occasions.map(({ id, title, description, image, cta }) => (
         <div key={id} className="occasion-card">
           <div className="image-box">
+<<<<<<< HEAD
             <img
               src={image}
               alt={`${title} – Corporate Gifting by PrintKee`}
@@ -68,6 +94,12 @@ const ShopByOccasion = () => (
 
           <p className="occasion-description">{description}</p>
 
+=======
+            <img src={image} alt={title} className="occasion-img" />
+          </div>
+          <h3>{title}</h3>
+          <p>{description}</p>
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
           <button className="occasion-btn">{cta} →</button>
         </div>
       ))}

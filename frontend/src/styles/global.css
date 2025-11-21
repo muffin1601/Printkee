@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+<<<<<<< HEAD
 :root {
   --purple: #4b2061;
   --purple-dark: #3b184d;
@@ -27,6 +28,8 @@
   --font-primary: "Poppins", sans-serif;
 }
 
+=======
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
 html, body {
   margin: 0;
   padding: 0;

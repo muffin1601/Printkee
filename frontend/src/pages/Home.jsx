@@ -9,8 +9,11 @@ import Industries from '../components/Industries';
 import HowitWorks from '../components/HowitWorks';
 import Testimonials from '../components/Testimonials';
 import GetQuoteCTA from '../components/GetQuoteCTA';
+<<<<<<< HEAD
 import FaqSectionHome from '../components/FaqSectionHome';
 import ProductRange from '../components/ProductRange';
+=======
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
 
 
 const Home = () => {
@@ -22,8 +25,11 @@ const Home = () => {
       <OurServices />
       <WhyChooseUs />
       <Industries />
+<<<<<<< HEAD
       <FaqSectionHome />
       <ProductRange />
+=======
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
       <HowitWorks/>
       <Testimonials />
       <GetQuoteCTA />

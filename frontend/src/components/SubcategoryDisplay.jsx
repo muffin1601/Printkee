@@ -9,6 +9,7 @@ import Testimonials from "./Testimonials";
 import GetQuoteCTA from "./GetQuoteCTA";
 
 const SubcategoryDisplay = () => {
+<<<<<<< HEAD
   const { category: categorySlug } = useParams();
   const [categoryData, setCategoryData] = useState(null);
 
@@ -17,6 +18,16 @@ const SubcategoryDisplay = () => {
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/category/categories/${categorySlug}`)
+=======
+  const { category: categorySlug } = useParams(); 
+  const [categoryData, setCategoryData] = useState(null);
+
+  
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/category/categories/${categorySlug}`) 
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
       .then((res) => setCategoryData(res.data))
       .catch((err) => console.error("Error fetching category:", err));
   }, [categorySlug]);
@@ -25,7 +36,11 @@ const SubcategoryDisplay = () => {
 
   return (
     <>
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
       <Helmet>
         <title>{categoryData.name} | MF Global Services</title>
         <meta
@@ -54,13 +69,21 @@ const SubcategoryDisplay = () => {
         </div>
       </div>
 
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
       <div className="subcategory-container">
         <div className="subcategory-grid">
           {categoryData.subcategories?.map((sub) => (
             <Link
               key={sub._id}
+<<<<<<< HEAD
               to={`/${categorySlug}/${sub.slug}`}
+=======
+              to={`/${categorySlug}/${sub.slug}`} 
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
               className="subcategory-card"
             >
               <img
@@ -74,7 +97,11 @@ const SubcategoryDisplay = () => {
         </div>
       </div>
 
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
       {categoryHighlights[categoryData.name] && (
         <div className="highlights-section">
           <h2 className="highlights-heading">
@@ -96,6 +123,7 @@ const SubcategoryDisplay = () => {
         </div>
       )}
 
+<<<<<<< HEAD
 
       {aboutSubcategoryData[categoryData.name] && (
         <div className="aboutsubcat-wrapper">
@@ -132,6 +160,36 @@ const SubcategoryDisplay = () => {
         className="aboutsubcat-image"
       />
     </div> */}
+=======
+    
+      {aboutSubcategoryData[categoryData.name] && (
+        <div className="about-subcategory-container">
+          <div className="about-subcategory">
+            <h2 className="about-heading">
+              {aboutSubcategoryData[categoryData.name].heading}
+            </h2>
+            <p className="about-description">
+              {aboutSubcategoryData[categoryData.name].description}
+            </p>
+            <div className="faq-section">
+              {aboutSubcategoryData[categoryData.name].faqs.map(
+                (faq, index) => (
+                  <div key={index} className="faq-item">
+                    <h4 className="faq-question">{faq.question}</h4>
+                    <p className="faq-answer">{faq.answer}</p>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+          <div className="subcategory-image-container">
+            <img
+              src={aboutSubcategoryData[categoryData.name].image}
+              alt={categoryData.name}
+              className="subcategory-about-image"
+            />
+          </div>
+>>>>>>> 5dcfb0b802b3dfa5af995a72d59d01ba65526a46
         </div>
       )}
 
