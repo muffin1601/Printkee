@@ -9,14 +9,14 @@ import Testimonials from "./Testimonials";
 import GetQuoteCTA from "./GetQuoteCTA";
 
 const SubcategoryDisplay = () => {
-  const { category: categorySlug } = useParams(); 
+  const { category: categorySlug } = useParams();
   const [categoryData, setCategoryData] = useState(null);
 
-  
+
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/category/categories/${categorySlug}`) 
+      .get(`${import.meta.env.VITE_API_URL}/category/categories/${categorySlug}`)
       .then((res) => setCategoryData(res.data))
       .catch((err) => console.error("Error fetching category:", err));
   }, [categorySlug]);
@@ -25,7 +25,7 @@ const SubcategoryDisplay = () => {
 
   return (
     <>
-      
+
       <Helmet>
         <title>{categoryData.name} | MF Global Services</title>
         <meta
@@ -54,13 +54,13 @@ const SubcategoryDisplay = () => {
         </div>
       </div>
 
-      
+
       <div className="subcategory-container">
         <div className="subcategory-grid">
           {categoryData.subcategories?.map((sub) => (
             <Link
               key={sub._id}
-              to={`/${categorySlug}/${sub.slug}`} 
+              to={`/${categorySlug}/${sub.slug}`}
               className="subcategory-card"
             >
               <img
@@ -74,7 +74,7 @@ const SubcategoryDisplay = () => {
         </div>
       </div>
 
-      
+
       {categoryHighlights[categoryData.name] && (
         <div className="highlights-section">
           <h2 className="highlights-heading">
@@ -96,34 +96,42 @@ const SubcategoryDisplay = () => {
         </div>
       )}
 
-    
+
       {aboutSubcategoryData[categoryData.name] && (
-        <div className="about-subcategory-container">
-          <div className="about-subcategory">
-            <h2 className="about-heading">
+        <div className="aboutsubcat-wrapper">
+
+          <div className="aboutsubcat-card">
+            <h2 className="aboutsubcat-heading">
               {aboutSubcategoryData[categoryData.name].heading}
             </h2>
-            <p className="about-description">
+
+            <p className="aboutsubcat-description">
               {aboutSubcategoryData[categoryData.name].description}
             </p>
-            <div className="faq-section">
-              {aboutSubcategoryData[categoryData.name].faqs.map(
-                (faq, index) => (
-                  <div key={index} className="faq-item">
-                    <h4 className="faq-question">{faq.question}</h4>
-                    <p className="faq-answer">{faq.answer}</p>
+
+            <div className="aboutsubcat-faqs">
+              {aboutSubcategoryData[categoryData.name].faqs.map((faq, index) => (
+                <div key={index} className="aboutsubcat-faq-item">
+                  <button className="aboutsubcat-faq-question">
+                    {faq.question}
+                  </button>
+
+                  <div className="aboutsubcat-faq-answer">
+                    <p>{faq.answer}</p>
                   </div>
-                )
-              )}
+                </div>
+              ))}
             </div>
           </div>
-          <div className="subcategory-image-container">
-            <img
-              src={aboutSubcategoryData[categoryData.name].image}
-              alt={categoryData.name}
-              className="subcategory-about-image"
-            />
-          </div>
+
+          {/* Optional image */}
+          {/* <div className="aboutsubcat-image-container">
+      <img
+        src={aboutSubcategoryData[categoryData.name].image}
+        alt={categoryData.name}
+        className="aboutsubcat-image"
+      />
+    </div> */}
         </div>
       )}
 

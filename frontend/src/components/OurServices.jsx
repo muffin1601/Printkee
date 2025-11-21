@@ -13,32 +13,50 @@ const services = [
   {
     icon: <FaGift />,
     title: "Corporate Gifting Solutions",
-    description: "Premium gifting ideas tailored for employees, clients, and events to enhance your brand image.",
+    description:
+      "Enhance your brand presence with our premium corporate gifting solutions. From employee appreciation gifts to client giveaways and event merchandise, we create thoughtful and high-quality promotional items that strengthen business relationships and build trust.",
+    keywords:
+      "Corporate Gifts Delhi NCR, Business Promotional Products, Client Gifting Ideas",
   },
   {
     icon: <FaRecycle />,
-    title: "Eco-Friendly Options",
-    description: "Choose from sustainable items like bamboo bottles, reusable bags, and recycled notebooks to support green initiatives.",
+    title: "Eco-Friendly Promotional Products",
+    description:
+      "Go green with our eco-friendly promotional products! Choose from bamboo bottles, reusable jute bags, recycled notebooks, and other sustainable items designed to support your company’s green initiatives and showcase your commitment to the environment.",
+    keywords:
+      "Eco-Friendly Corporate Gifts, Sustainable Promotional Items, Green Gifting Solutions",
   },
   {
     icon: <FaUserTie />,
     title: "Apparel & Uniform Customization",
-    description: "Branded t-shirts, caps, and corporate wear with your company’s logo for promotions or internal branding.",
+    description:
+      "Stand out with customized branded apparel – including t-shirts, caps, polo shirts, and jackets – printed or embroidered with your company logo. Perfect for team events, promotions, and internal branding campaigns.",
+    keywords:
+      "Custom T-Shirts in Delhi NCR, Branded Apparel Manufacturer, Logo Printed Uniforms",
   },
   {
     icon: <FaLaptop />,
     title: "Tech Accessories & Gadgets",
-    description: "Modern and useful promotional tech items including power banks, speakers, and wireless chargers.",
+    description:
+      "Upgrade your brand with useful tech promotional products like power banks, Bluetooth speakers, USB drives, and wireless chargers. Modern, practical, and perfect for impressing clients and employees alike.",
+    keywords:
+      "Promotional Tech Gadgets, Custom Branded Tech Items, Corporate Tech Gifts",
   },
   {
     icon: <FaRegClock />,
     title: "Executive & Desktop Gifts",
-    description: "Elegant desktop items like clocks, pen stands, and diaries that reflect your company’s professionalism.",
+    description:
+      "Choose from a wide range of premium executive gifts like diaries, pens, desk organizers, and clocks. Ideal for creating a professional touch in your corporate gifting strategy.",
+    keywords:
+      "Executive Gifts Delhi NCR, Desktop Promotional Products, Office Branding Items",
   },
   {
     icon: <FaRegLightbulb />,
-    title: "Fully Customizable Kits",
-    description: "Welcome kits and curated collections designed to suit onboarding, festive occasions, or marketing campaigns.",
+    title: "Fully Customizable Gift Kits",
+    description:
+      "Create your own branded gift box with our fully customizable kits. Mix and match products like apparel, stationery, and accessories to create the perfect gift set for employees, clients, or event participants.",
+    keywords:
+      "Custom Gift Kits, Corporate Gift Boxes, Employee Gift Sets",
   },
 ];
 
@@ -46,14 +64,25 @@ const OurServices = () => {
   return (
     <section className="our-services">
       <h2 className="section-title">Our Services</h2>
+
       <p className="section-description">
-        Explore our diverse range of corporate gifting solutions designed to enhance your brand and delight your clients.</p>
+        Explore our diverse range of custom promotional products and corporate
+        gifting solutions designed to boost your brand visibility and leave a
+        lasting impression on your clients.
+      </p>
+
       <div className="services-grid">
         {services.map((service, index) => (
-          <div className="service-card" key={index}>
+          <div
+            className="service-card"
+            key={index}
+            data-keywords={service.keywords} // Extra SEO semantic value
+          >
             <div className="service-icon">{service.icon}</div>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
+
+            <h3 className="service-title">{service.title}</h3>
+
+            <p className="service-description">{service.description}</p>
           </div>
         ))}
       </div>
