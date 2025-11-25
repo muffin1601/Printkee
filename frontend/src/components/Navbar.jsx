@@ -47,14 +47,7 @@ const Navbar = () => {
     }
   };
 
-  const slugify = (text) =>
-    text
-      .toLowerCase()
-      .trim()
-      .replace(/&/g, "and")
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/--+/g, "-");
+  // ❌ REMOVED slugify COMPLETELY
 
   const groupedCategories = Object.entries(navbarSubcategories).reduce(
     (acc, curr, index) => {
@@ -67,6 +60,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar-wrapper">
+
       {/* -------- Top bar -------- */}
       <div className="navbar-top">
         <div className="navbar-logo">
@@ -102,7 +96,6 @@ const Navbar = () => {
           Visitors Today: <span>{visitorCount}</span>
         </div>
 
-        
         <div className="mobile-controls mobile-only">
           <button
             className="search-toggle"
@@ -119,7 +112,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      
+      {/* -------- Desktop Menu -------- */}
       <div className="navbar-bottom desktop-only">
         <ul className="menu">
           <li>
@@ -136,8 +129,10 @@ const Navbar = () => {
             <span className="nav-link">
               <FaThList /> All Categories ▾
             </span>
+
             <div className={`mega-menu-wrapper ${showMegaMenu ? "open" : ""}`}>
               <div className="mega-menu">
+
                 {groupedCategories.map((group, idx) => (
                   <div className="mega-menu-column" key={idx}>
                     {group.map(([mainCategory, subcategories], i) => (
@@ -147,10 +142,10 @@ const Navbar = () => {
                           {subcategories.map((sub, j) => (
                             <li key={j}>
                               <NavLink
-                                to={`/${slugify(mainCategory)}/${slugify(sub)}`}
+                                to={sub.href}   // ✅ USE href INSTEAD OF slugify
                                 onClick={() => setShowMegaMenu(false)}
                               >
-                                {sub}
+                                {sub.name}
                               </NavLink>
                             </li>
                           ))}
@@ -159,6 +154,7 @@ const Navbar = () => {
                     ))}
                   </div>
                 ))}
+
               </div>
             </div>
           </li>
@@ -168,21 +164,25 @@ const Navbar = () => {
               <FaTags /> Brands
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/blogs" className="nav-link">
               <FaPen /> Blog
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/contact" className="nav-link">
               <FaEnvelope /> Contact Us
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/diwali-special" className="nav-link">
               <FaGift /> Diwali Special
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/about" className="nav-link">
               <FaInfoCircle /> About Us
@@ -211,6 +211,7 @@ const Navbar = () => {
               <FaHome /> Home
             </NavLink>
           </li>
+
           <li className="mobile-dropdown">
             <button
               className="dropdown-toggle"
@@ -218,7 +219,7 @@ const Navbar = () => {
                 setOpenCategory(openCategory === "all" ? null : "all")
               }
             >
-              <span >
+              <span>
                 <FaThList /> All Categories
               </span>
               {openCategory === "all" ? <FaChevronUp /> : <FaChevronDown />}
@@ -226,38 +227,45 @@ const Navbar = () => {
 
             {openCategory === "all" && (
               <div className="dropdown-list">
-                {Object.entries(navbarSubcategories).map(([mainCategory], idx) => (
-                  <NavLink
-                    key={idx}
-                    to={`/${slugify(mainCategory)}`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {mainCategory}
-                  </NavLink>
-                ))}
+                {Object.entries(navbarSubcategories).map(
+                  ([mainCategory, subcategories], idx) => (
+                    <NavLink
+                      key={idx}
+                      to={subcategories[0].href.split("/")[2] ? `/category/${subcategories[0].href.split("/")[2]}` : "/"}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {mainCategory}
+                    </NavLink>
+                  )
+                )}
               </div>
             )}
           </li>
+
           <li>
             <NavLink to="/brands" onClick={() => setIsMenuOpen(false)}>
               <FaTags /> Brands
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/blogs" onClick={() => setIsMenuOpen(false)}>
               <FaPen /> Blogs
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
               <FaEnvelope /> Contact Us
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/diwali-special" onClick={() => setIsMenuOpen(false)}>
               <FaGift /> Diwali Special
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>
               <FaInfoCircle /> About Us

@@ -1,29 +1,32 @@
 // seedCategories.js
-require('dotenv').config(); // loads MONGO_URI from .env
-const mongoose = require('mongoose');
-const Category = require('./models/product'); // update this path
-const categoryData = require('./data/categoryData');   // update this path
+require("dotenv").config();
+const mongoose = require("mongoose");
+
+// Your Category model (with subcategories + products + ProductSchema)
+const Category = require("./models/Category"); // <-- make sure this is correct
+
+// Your existing category structure file
+const categoryData = require("./data/categoryData"); // <-- path to your big category file
 
 async function seedCategories() {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('Connected to MongoDB');
+    console.log("⏳ Connecting to MongoDB...");
+    await mongoose.connect(process.env.MONGO_URI);
 
-    // Clear existing categories before seeding
+    console.log("✔ Connected to MongoDB");
+
+    console.log("🗑 Clearing previous categories...");
     await Category.deleteMany({});
-    console.log('Existing categories cleared');
 
-    // Insert new categories
+    console.log("📥 Inserting new categories...");
     await Category.insertMany(categoryData);
-    console.log('Categories seeded successfully');
+
+    console.log("🎉 Categories + Subcategories + Products Seeded Successfully!");
 
     await mongoose.disconnect();
-    console.log('Disconnected from MongoDB');
-  } catch (err) {
-    console.error('Seeding error:', err);
+    console.log("🔌 Disconnected from MongoDB");
+  } catch (error) {
+    console.error("❌ Seeding Error:", error);
     await mongoose.disconnect();
   }
 }

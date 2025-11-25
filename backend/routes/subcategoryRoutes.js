@@ -1,18 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const Category = require("../models/product");
+const Category = require("../models/Category");   
+
+
 
 router.get("/subcategories/related-subcategories/:subcatSlug", async (req, res) => {
   try {
     const { subcatSlug } = req.params;
-    // console.log("Looking for subcategory slug:", subcatSlug);
 
+    // Find any category that contains this subcategory
     const category = await Category.findOne({ "subcategories.slug": subcatSlug });
 
     if (!category) {
       return res.status(404).json({ error: "Category not found" });
     }
 
+    // Get current subcategory
     const currentSub = category.subcategories.find(
       (sub) => sub.slug === subcatSlug
     );
@@ -21,6 +24,7 @@ router.get("/subcategories/related-subcategories/:subcatSlug", async (req, res) 
       return res.status(404).json({ error: "Subcategory not found" });
     }
 
+    // Build related list
     const related = category.subcategories
       .filter((sub) => sub.slug !== subcatSlug && sub.isActive)
       .map((sub) => ({
@@ -51,54 +55,19 @@ router.get("/subcategories/related-subcategories/:subcatSlug", async (req, res) 
   }
 });
 
-// router.get('/:category/:subcategory', async (req, res) => {
-//   try {
-//     const { category, subcategory } = req.params;
-
-    
-//     const categoryDoc = await Category.findOne({
-//       name: { $regex: new RegExp(`^${category}$`, 'i') },
-//     });
-
-//     if (!categoryDoc) {
-//       return res.status(404).json({ error: 'Category not found' });
-//     }
-
-    
-//     const subcategoryDoc = categoryDoc.subcategories.find(
-//       (sub) => sub.name.toLowerCase() === subcategory.toLowerCase()
-//     );
-
-//     if (!subcategoryDoc) {
-//       return res.status(404).json({ error: 'Subcategory not found' });
-//     }
-
-    
-//     res.json({
-//       products: subcategoryDoc.products,
-//       subcategory: {
-//         name: subcategoryDoc.name,
-//         tag: subcategoryDoc.tag || '',
-//       },
-//     });
-//   } catch (err) {
-//     console.error("Error fetching products:", err);
-//     res.status(500).json({ error: 'Error fetching products' });
-//   }
-// });
 
 
 router.get("/subcategory-fetch/:categorySlug/:subcategorySlug", async (req, res) => {
   try {
     const { categorySlug, subcategorySlug } = req.params;
 
-    
+    // Find category
     const categoryDoc = await Category.findOne({ slug: categorySlug });
     if (!categoryDoc) {
       return res.status(404).json({ error: "Category not found" });
     }
 
-    
+    // Find subcategory inside this category
     const subcategoryDoc = categoryDoc.subcategories.find(
       (sub) => sub.slug === subcategorySlug
     );
@@ -118,11 +87,12 @@ router.get("/subcategory-fetch/:categorySlug/:subcategorySlug", async (req, res)
         name: subcategoryDoc.name,
         slug: subcategoryDoc.slug,
         tag: subcategoryDoc.tag,
+        description: subcategoryDoc.description,
       },
       products: subcategoryDoc.products || [],
     });
   } catch (err) {
-    console.error("Error fetching products by slug:", err);
+    console.error("❌ Error fetching products by slug:", err);
     res.status(500).json({ error: "Error fetching products" });
   }
 });

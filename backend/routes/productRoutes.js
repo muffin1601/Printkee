@@ -1,132 +1,98 @@
-
 const express = require("express");
 const router = express.Router();
-const Category = require("../models/product");
+const Category = require("../models/Category");   
 
 
-// router.get("/:category/:subcategory/:product", async (req, res) => {
-//   const category = decodeURIComponent(req.params.category);
-//   const subcategory = decodeURIComponent(req.params.subcategory);
-//   const product = decodeURIComponent(req.params.product);
 
-//   try {
-   
-//     const categoryDoc = await Category.findOne({
-//       name: new RegExp(`^${category}$`, "i"),
-//     });
+router.get(
+  "/product-fetch/:categorySlug/:subcategorySlug/:productSlug",
+  async (req, res) => {
+    const categorySlug = decodeURIComponent(req.params.categorySlug);
+    const subcategorySlug = decodeURIComponent(req.params.subcategorySlug);
+    const productSlug = decodeURIComponent(req.params.productSlug);
 
-//     if (!categoryDoc) {
-//       return res.status(404).json({ message: "Category not found" });
-//     }
+    try {
+      // Find category
+      const categoryDoc = await Category.findOne({ slug: categorySlug });
 
-    
-//     const subcat = categoryDoc.subcategories.find(
-//       (s) => s.name.toLowerCase() === subcategory.toLowerCase()
-//     );
+      if (!categoryDoc) {
+        return res.status(404).json({ message: "Category not found" });
+      }
 
-//     if (!subcat) {
-//       return res.status(404).json({ message: "Subcategory not found" });
-//     }
+      // Find subcategory
+      const subcat = categoryDoc.subcategories.find(
+        (s) => s.slug === subcategorySlug
+      );
 
-    
-//     const productData = subcat.products.find(
-//       (p) => p.name.toLowerCase() === product.toLowerCase()
-//     );
+      if (!subcat) {
+        return res.status(404).json({ message: "Subcategory not found" });
+      }
 
-//     if (!productData) {
-//       return res.status(404).json({ message: "Product not found" });
-//     }
+      // Find product
+      const productData = subcat.products.find((p) => p.slug === productSlug);
 
-//     return res.json(productData);
-//   } catch (error) {
-//     console.error("Error fetching product:", error);
-//     return res.status(500).json({ message: "Server error" });
-//   }
-// });
+      if (!productData) {
+        return res.status(404).json({ message: "Product not found" });
+      }
 
-
-router.get("/product-fetch/:categorySlug/:subcategorySlug/:productSlug", async (req, res) => {
-  const categorySlug = decodeURIComponent(req.params.categorySlug);
-  const subcategorySlug = decodeURIComponent(req.params.subcategorySlug);
-  const productSlug = decodeURIComponent(req.params.productSlug);
-
-  try {
-    // find category by slug
-    const categoryDoc = await Category.findOne({ slug: categorySlug });
-
-    if (!categoryDoc) {
-      return res.status(404).json({ message: "Category not found" });
+      // Return final combined structured data
+      return res.json({
+        category: {
+          name: categoryDoc.name,
+          slug: categoryDoc.slug,
+          tag: categoryDoc.tag,
+        },
+        subcategory: {
+          name: subcat.name,
+          slug: subcat.slug,
+          tag: subcat.tag,
+        },
+        product: productData,
+      });
+    } catch (error) {
+      console.error("Error fetching product:", error);
+      return res.status(500).json({ message: "Server error" });
     }
-
-   
-    const subcat = categoryDoc.subcategories.find(
-      (s) => s.slug === subcategorySlug
-    );
-
-    if (!subcat) {
-      return res.status(404).json({ message: "Subcategory not found" });
-    }
-
-    
-    const productData = subcat.products.find(
-      (p) => p.slug === productSlug
-    );
-
-    if (!productData) {
-      return res.status(404).json({ message: "Product not found" });
-    }
-
-    // return full data
-    return res.json({
-      category: {
-        name: categoryDoc.name,
-        slug: categoryDoc.slug,
-        tag: categoryDoc.tag,
-      },
-      subcategory: {
-        name: subcat.name,
-        slug: subcat.slug,
-        tag: subcat.tag,
-      },
-      product: productData,
-    });
-  } catch (error) {
-    console.error("Error fetching product:", error);
-    return res.status(500).json({ message: "Server error" });
   }
-});
+);
 
 
 
-router.get("/related-products/:categorySlug/:subcategorySlug/:productSlug", async (req, res) => {
-  const categorySlug = decodeURIComponent(req.params.categorySlug);
-  const subcategorySlug = decodeURIComponent(req.params.subcategorySlug);
-  const productSlug = decodeURIComponent(req.params.productSlug);
+router.get(
+  "/related-products/:categorySlug/:subcategorySlug/:productSlug",
+  async (req, res) => {
+    const categorySlug = decodeURIComponent(req.params.categorySlug);
+    const subcategorySlug = decodeURIComponent(req.params.subcategorySlug);
+    const productSlug = decodeURIComponent(req.params.productSlug);
 
-  try {
-    // Find category by slug
-    const categoryDoc = await Category.findOne({ slug: categorySlug });
+    try {
+      // Find category
+      const categoryDoc = await Category.findOne({ slug: categorySlug });
 
-    if (!categoryDoc) {
-      return res.status(404).json({ message: "Category not found" });
+      if (!categoryDoc) {
+        return res.status(404).json({ message: "Category not found" });
+      }
+
+      // Find subcategory
+      const subcat = categoryDoc.subcategories.find(
+        (s) => s.slug === subcategorySlug
+      );
+
+      if (!subcat) {
+        return res.status(404).json({ message: "Subcategory not found" });
+      }
+
+      // Filter related products
+      const relatedProducts = subcat.products.filter(
+        (p) => p.slug !== productSlug
+      );
+
+      res.json(relatedProducts);
+    } catch (err) {
+      console.error("Error fetching related products:", err);
+      res.status(500).json({ message: "Server error" });
     }
-
-   
-    const subcat = categoryDoc.subcategories.find((s) => s.slug === subcategorySlug);
-
-    if (!subcat) {
-      return res.status(404).json({ message: "Subcategory not found" });
-    }
-
-   
-    const related = subcat.products.filter((p) => p.slug !== productSlug);
-
-    res.json(related);
-  } catch (err) {
-    console.error("Error fetching related products:", err);
-    res.status(500).json({ message: "Server error" });
   }
-});
-
+);
 
 module.exports = router;

@@ -1,49 +1,63 @@
 const express = require("express");
 const router = express.Router();
-const Category = require("../models/product");
+const Category = require("../models/Category");
 
 
 router.get("/categories", async (req, res) => {
   try {
-    const categories = await Category.find();
+    const categories = await Category.find(
+      {},
+      "-subcategories.products" 
+    ).sort({ sortOrder: 1 });
+
     res.json(categories);
   } catch (err) {
+    console.error("Error fetching categories:", err);
     res.status(500).json({ message: "Failed to fetch categories" });
   }
 });
 
-// router.get('/:category', async (req, res) => {
-//   try {
-//     const category = await Category.findOne({
-//       name: { $regex: new RegExp(`^${req.params.category}$`, 'i') }
-//     });
-
-//     if (!category) {
-//       return res.status(404).json({ error: 'Category not found' });
-//     }
-
-//     // Return selected fields
-//     res.json({
-//       name: category.name,
-//       tag: category.tag,
-//       subcategories: category.subcategories
-//     });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ error: 'Error fetching category data' });
-//   }
-// });
-
 
 router.get("/categories/:slug", async (req, res) => {
   try {
-    const category = await Category.findOne({ slug: req.params.slug });
+    const slug = req.params.slug;
+
+    const category = await Category.findOne({ slug });
+
     if (!category) {
       return res.status(404).json({ message: "Category not found" });
     }
+
     res.json(category);
   } catch (err) {
+    console.error("Error fetching category:", err);
     res.status(500).json({ message: "Failed to fetch category" });
+  }
+});
+
+
+router.get("/categories/:slug/:subcategorySlug", async (req, res) => {
+  try {
+    const { slug, subcategorySlug } = req.params;
+
+    const category = await Category.findOne({ slug });
+
+    if (!category) {
+      return res.status(404).json({ message: "Category not found" });
+    }
+
+    const subcategory = category.subcategories.find(
+      (sc) => sc.slug === subcategorySlug
+    );
+
+    if (!subcategory) {
+      return res.status(404).json({ message: "Subcategory not found" });
+    }
+
+    res.json(subcategory);
+  } catch (err) {
+    console.error("Error fetching subcategory:", err);
+    res.status(500).json({ message: "Failed to fetch subcategory" });
   }
 });
 
