@@ -31,6 +31,12 @@ const bambooBottles = require("./products/drinkware/bambooBottles");
 const ceramicMugs = require("./products/drinkware/ceramicMugs");
 const trophies = require("./products/trophiesMomento/trophies");
 const coffeeMugs = require("./products/drinkware/coffeeMugs");
+const welcomeKits = require("./products/collection/welcomeKits");
+const keychains = require("./products/collection/keychains");
+const wirelessChargers = require("./products/technology/wirelessChargers");
+const computerAccessories = require("./products/technology/computerAccessories");
+const powerBanks = require("./products/technology/powerBanks");
+const mousePads = require("./products/technology/mousePads");
 
 const categoryData = [
   {
@@ -160,39 +166,7 @@ const categoryData = [
         image: "/assets/categories/welcomekits.jpg",
         hoverImage: "",
         tag: "High-quality welcome kits designed for corporate gifts, events, hotels, onboarding programs, and promotional campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nThoughtfully curated items ideal for new employees and clients.\nPerfect for making a lasting first impression.",
-        products: [
-          {
-            name: "New Joiner Kit",
-            description: "Includes bottle, diary, pen.",
-            image: "/assets/products/welcome1.jpg",
-            tags: [
-              "new joiner kit",
-              "employee welcome kit",
-              "welcome gifts",
-              "corporate onboarding",
-              "diary pen bottle set",
-              "company welcome pack",
-              "gift collection",
-              "collection",
-              "welcome kits"
-            ]
-          },
-          {
-            name: "Basic Kit",
-            description: "Includes mug, pen, notepad.",
-            image: "/assets/products/welcome2.jpg",
-            tags: [
-              "basic gift kit",
-              "starter gift kit",
-              "welcome set",
-              "mug pen notebook kit",
-              "employee gift box",
-              "gift collection",
-              "collection",
-              "welcome kits"
-            ]
-          }
-        ]
+        products: welcomeKits,
       },
       {
         name: "Promotional Clocks Manufacturers in Delhi",
@@ -204,25 +178,11 @@ const categoryData = [
       },
       {
         name: "Custom Keychains Manufacturers in Delhi NCR",
+        slug: "keychains",
         image: "/assets/categories/keychains.jpg",
         hoverImage: "",
         tag: "High-quality, customizable keychains designed to enhance brand visibility and make perfect corporate gifts across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable materials with unique designs ideal for daily use and promotions.\nPerfect for branding, giveaways, and employee gifts.",
-        products: [
-          {
-            name: "LED Keychain",
-            description: "With light and logo print.",
-            image: "/assets/products/keychain2.jpg",
-            tags: [
-              "led keychain",
-              "light keychain",
-              "branded key ring",
-              "logo printed keychain",
-              "custom flashlight keychain",
-              "collection",
-              "keychains"
-            ]
-          }
-        ]
+        products: keychains,
       }
     ]
   },
@@ -276,76 +236,19 @@ const categoryData = [
     subcategories: [
       {
         name: "Wireless Charging Products Manufacturers in Delhi NCR",
+        slug: "wireless-charging",
         image: "/assets/categories/wirelesscharging.jpg",
         hoverImage: "",
         tag: "High-quality, customizable wireless chargers designed for client gifts, employee rewards, and brand promotion across Delhi, Noida, Gurgaon, Okhla, and NCR.\nCompact and portable designs ideal for on-the-go charging.\nPerfect for enhancing brand visibility with custom logo printing.",
-        products: [
-          {
-            name: "Wireless Charger",
-            description: "Fast charging pad.",
-            image: "/assets/products/tech1.jpg",
-            tags: [
-              "wireless charger",
-              "tech gift",
-              "fast charging pad",
-              "qi charger",
-              "mobile accessory",
-              "technology accessories",
-              "wireless charging",
-              "corporate gift"
-            ]
-          },
-          {
-            name: "Charging Stand",
-            description: "Vertical wireless dock.",
-            image: "/assets/products/tech2.jpg",
-            tags: [
-              "charging stand",
-              "wireless dock",
-              "phone charging stand",
-              "desktop charger",
-              "branded tech accessory",
-              "technology accessories",
-              "wireless charging"
-            ]
-          }
-        ]
+        products: wirelessChargers,
       },
       {
         name: "Computer Accessories Manufacturers in Delhi NCR",
+        slug: "computer-accessories",
         image: "/assets/categories/computeraccess.jpg",
         hoverImage: "",
         tag: "High-quality, customizable computer accessories designed for offices, employees, clients, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable and practical items ideal for daily use and branding.\nPerfect for enhancing workspaces and corporate gifting.",
-        products: [
-          {
-            name: "USB Hub",
-            description: "4-in-1 USB hub.",
-            image: "/assets/products/comp1.jpg",
-            tags: [
-              "usb hub",
-              "computer accessory",
-              "4 port usb",
-              "usb splitter",
-              "tech gift",
-              "technology accessories",
-              "computer accessories"
-            ]
-          },
-          {
-            name: "Webcam Cover",
-            description: "Privacy slider.",
-            image: "/assets/products/comp2.jpg",
-            tags: [
-              "webcam cover",
-              "privacy slider",
-              "laptop accessory",
-              "camera cover",
-              "cybersecurity tool",
-              "technology accessories",
-              "computer accessories"
-            ]
-          }
-        ]
+        products: computerAccessories,
       },
       {
         name: "Power Bank Manufacturers in Delhi NCR",
@@ -353,72 +256,7 @@ const categoryData = [
         image: "/assets/categories/powerbank.jpg",
         hoverImage: "",
         tag: "High-quality, branded power banks designed for corporate gifting, client appreciation, employee rewards, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nCompact and portable designs ideal for on-the-go charging.\nPerfect for enhancing brand visibility with custom logo printing.",
-        products: [
-          {
-            name: "10,000mAh Power Bank",
-            description: "Fast charge compatible.",
-            image: "/assets/products/powerbank1.jpg",
-            tags: [
-              "10000mah power bank",
-              "portable charger",
-              "fast charging power bank",
-              "mobile backup battery",
-              "technology accessories",
-              "power bank",
-              "tech gift"
-            ]
-          },
-          {
-            name: "Slim Power Bank",
-            description: "Pocket-sized backup.",
-            image: "/assets/products/powerbank2.jpg",
-            tags: [
-              "slim power bank",
-              "pocket power bank",
-              "travel battery pack",
-              "portable charger",
-              "branded tech gift",
-              "technology accessories",
-              "power bank"
-            ]
-          }
-        ]
-      },
-      {
-        name: "Custom Branded Speakers Manufacturers in Delhi NCR",
-        image: "/assets/categories/speaker.jpg",
-        hoverImage: "",
-        tag: "High-quality, branded speakers designed for client gifts, employee rewards, and brand promotion across Delhi, Noida, Gurgaon, Okhla, and NCR.\nPortable and wireless options ideal for on-the-go use.\nPerfect for enhancing brand visibility with custom logo printing.",
-        products: [
-          {
-            name: "Bluetooth Speaker",
-            description: "Portable music speaker.",
-            image: "/assets/products/speaker1.jpg",
-            tags: [
-              "bluetooth speaker",
-              "wireless speaker",
-              "portable speaker",
-              "music device",
-              "tech gift",
-              "technology accessories",
-              "speaker"
-            ]
-          },
-          {
-            name: "Mini Speaker",
-            description: "Compact sound device.",
-            image: "/assets/products/speaker2.jpg",
-            tags: [
-              "mini speaker",
-              "small bluetooth speaker",
-              "pocket speaker",
-              "portable audio",
-              "corporate speaker gift",
-              "technology accessories",
-              "speaker"
-            ]
-          }
-        ]
+        products: powerBanks
       },
       {
         name: "Custom Desktop & Mousepad Manufacturers in Delhi NCR",
@@ -426,35 +264,7 @@ const categoryData = [
         image: "/assets/categories/mousepad.jpg",
         hoverImage: "",
         tag: "High-quality, branded desktops and mousepads designed for offices, client gifts, employee rewards, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable materials with smooth surfaces ideal for daily use and branding.\nPerfect for enhancing workspaces and corporate gifting.",
-        products: [
-          {
-            name: "Mousepad",
-            description: "Smooth surface pad.",
-            image: "/assets/products/mousepad1.jpg",
-            tags: [
-              "mousepad",
-              "custom mousepad",
-              "office desk accessory",
-              "branded mousepad",
-              "technology accessories",
-              "desktop gift",
-              "computer accessory"
-            ]
-          },
-          {
-            name: "Wrist Mousepad",
-            description: "With wrist support.",
-            image: "/assets/products/mousepad2.jpg",
-            tags: [
-              "wrist support mousepad",
-              "ergonomic mousepad",
-              "comfortable desk pad",
-              "tech accessory",
-              "technology accessories",
-              "desktop & mousepad"
-            ]
-          }
-        ]
+        products: mousePads
       }
     ]
   },

@@ -118,13 +118,13 @@ const navbarSubcategories = {
       href: "/technology-accessories/computer-accessories"
     },
     {
-      name: "Power Bank",
-      href: "/technology-accessories/power-bank"
+      name: "Power Banks",
+      href: "/technology-accessories/power-banks"
     },
-    {
-      name: "Speaker",
-      href: "/technology-accessories/speaker"
-    },
+    // {
+    //   name: "Speaker",
+    //   href: "/technology-accessories/speaker"
+    // },
     {
       name: "Desktop & Mousepad",
       href: "/technology-accessories/desktop-and-mousepad"
