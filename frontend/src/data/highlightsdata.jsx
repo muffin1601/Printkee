@@ -204,7 +204,7 @@ const categoryHighlights = {
   },
 
   // 7️⃣ Eco-Products
-  "Eco-Products": {
+  "Eco Products": {
     heading: "Eco-Friendly Corporate Gifts for Sustainable Branding",
     highlights: [
       {

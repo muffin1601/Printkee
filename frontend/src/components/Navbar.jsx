@@ -142,7 +142,7 @@ const Navbar = () => {
                           {subcategories.map((sub, j) => (
                             <li key={j}>
                               <NavLink
-                                to={sub.href}   // ✅ USE href INSTEAD OF slugify
+                                to={sub.href}  
                                 onClick={() => setShowMegaMenu(false)}
                               >
                                 {sub.name}
@@ -177,11 +177,11 @@ const Navbar = () => {
             </NavLink>
           </li>
 
-          <li>
+          {/* <li>
             <NavLink to="/diwali-special" className="nav-link">
               <FaGift /> Diwali Special
             </NavLink>
-          </li>
+          </li> */}
 
           <li>
             <NavLink to="/about" className="nav-link">
@@ -260,11 +260,11 @@ const Navbar = () => {
             </NavLink>
           </li>
 
-          <li>
+          {/* <li>
             <NavLink to="/diwali-special" onClick={() => setIsMenuOpen(false)}>
               <FaGift /> Diwali Special
             </NavLink>
-          </li>
+          </li> */}
 
           <li>
             <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>
