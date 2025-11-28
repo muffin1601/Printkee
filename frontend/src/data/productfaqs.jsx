@@ -1,8 +1,6 @@
-// src/data/faqList.js
-
 const faqList = {
   // Bags and Travel
-  "Backpacks": [
+  "backpacks": [
     {
       question: "What types of corporate backpacks do you offer?",
       answer: "We offer a wide variety of customizable backpacks suitable for office use, travel, and gifting, including eco-friendly and waterproof options."
@@ -12,7 +10,7 @@ const faqList = {
       answer: "Yes, all our backpacks can be customized with your company logo or branding."
     }
   ],
-  "Foldable Bags": [
+  "foldable-bags": [
     {
       question: "What are foldable bags and why are they useful?",
       answer: "Foldable bags are compact, reusable bags that can be easily folded and stored, making them ideal for eco-conscious corporate giveaways."
@@ -22,7 +20,7 @@ const faqList = {
       answer: "Yes, our foldable bags can be branded with your company logo for promotions, events, and campaigns."
     }
   ],
-  "Duffle Bags": [
+  "duffle-bags": [
     {
       question: "Are duffle bags suitable for travel gifting?",
       answer: "Absolutely! Our duffle bags are spacious, stylish, and perfect for travel-related corporate gifts."
@@ -32,7 +30,7 @@ const faqList = {
       answer: "Yes, duffle bags can be customized with logos, initials, or messaging for brand visibility."
     }
   ],
-  "Tote Bags": [
+  "tote-bags": [
     {
       question: "What materials are used in your tote bags?",
       answer: "Our tote bags come in canvas, cotton, jute, and eco-friendly materials ideal for sustainable gifting."
@@ -40,16 +38,6 @@ const faqList = {
     {
       question: "Can I print designs or branding on tote bags?",
       answer: "Yes, we offer screen and digital printing for tote bags, perfect for marketing and awareness."
-    }
-  ],
-  "Accessories": [
-    {
-      question: "What kinds of travel accessories do you provide?",
-      answer: "We offer organizers, luggage tags, neck pillows, and travel pouches tailored for corporate needs."
-    },
-    {
-      question: "Are your accessories available in combo gift sets?",
-      answer: "Yes, we can curate travel accessory combos with branding and packaging options."
     }
   ],
 
@@ -76,7 +64,7 @@ const faqList = {
   ],
 
   // Apparel and Accessories
-  "Polo T-Shirts": [
+  "polo-t-shirts": [
     {
       question: "Can I customize the T-shirts with my brand logo?",
       answer: "Yes, we offer full-color printing and embroidery options for corporate T-shirts."
@@ -87,7 +75,7 @@ const faqList = {
     }
   ],
 
-  "Round Neck T-Shirts": [
+  "round-neck-t-shirts": [
     {
       question: "Can I customize the T-shirts with my brand logo?",
       answer: "Yes, we offer full-color printing and embroidery options for corporate T-shirts."
@@ -97,7 +85,7 @@ const faqList = {
       answer: "We offer cotton, polyester, dry-fit, and blended fabric T-shirts in multiple sizes and colors."
     }
   ],
-  "Caps": [
+  "caps": [
     {
       question: "Do you offer embroidered logo caps?",
       answer: "Yes, we provide embroidery, screen, and digital printing options for promotional caps and hats."
@@ -108,7 +96,7 @@ const faqList = {
     }
   ],
 
-  "Hats": [
+  "hats": [
     {
       question: "Do you offer embroidered logo caps?",
       answer: "Yes, we provide embroidery, screen, and digital printing options for promotional caps and hats."
@@ -118,7 +106,7 @@ const faqList = {
       answer: "Absolutely. Our caps are perfect for brand visibility in outdoor and event settings."
     }
   ],
-  "Corporate Shirts": [
+  "corporate-shirts": [
     {
       question: "What styles are available for corporate shirts?",
       answer: "We offer formal, semi-formal, and casual shirts in various materials and styles with custom branding."
@@ -128,7 +116,7 @@ const faqList = {
       answer: "Yes, bulk customization with logo embroidery is available for all shirt orders."
     }
   ],
-  "Ties": [
+  "ties": [
     {
       question: "Can ties be customized with branding?",
       answer: "Yes, we offer custom woven or printed ties with logos, perfect for corporate uniforms."
@@ -138,7 +126,7 @@ const faqList = {
       answer: "Yes, we provide premium gift boxes with ties, cufflinks, and other accessories."
     }
   ],
-  "Aprons": [
+  "aprons": [
     {
       question: "Are aprons available for hospitality businesses?",
       answer: "Yes, we offer durable and customizable aprons ideal for hotels, cafes, and promotional use."
@@ -148,7 +136,7 @@ const faqList = {
       answer: "Definitely! Aprons can be branded with embroidery or printing as per your design."
     }
   ],
-  "Winter Wear": [
+  "winter-wear": [
     {
       question: "Do you offer branded hoodies and jackets?",
       answer: "Yes, we supply warm and stylish winter wear including hoodies, jackets, and sweaters with company branding."
@@ -160,7 +148,7 @@ const faqList = {
   ],
 
   // Collection
-  "Welcome Kits": [
+  "welcome-kits": [
     {
       question: "What do your welcome kits include?",
       answer: "Our kits include a mix of essentials like notebooks, bottles, T-shirts, and tech accessories—all customizable."
@@ -170,7 +158,7 @@ const faqList = {
       answer: "Absolutely! Our kits are perfect for onboarding, client gifting, or event giveaways."
     }
   ],
-  "Promotional Clocks": [
+  "promotional-clocks": [
     {
       question: "What types of clocks do you offer for gifting?",
       answer: "We offer desktop clocks, wall clocks, and digital timepieces with branding options."
@@ -180,17 +168,7 @@ const faqList = {
       answer: "Yes, we provide laser engraving and printed logo options for all clocks."
     }
   ],
-  "Desktop and Executive Gifts": [
-    {
-      question: "What makes executive gifts special?",
-      answer: "These gifts combine elegance and utility, ideal for senior executives, clients, and board members."
-    },
-    {
-      question: "Can I create a personalized executive gift combo?",
-      answer: "Yes, we can bundle diaries, pens, clocks, and organizers with premium packaging."
-    }
-  ],
-  "Keychains": [
+  "keychains": [
     {
       question: "What materials do you offer for keychains?",
       answer: "We offer metal, leather, wooden, acrylic, and LED keychains—all customizable."
@@ -200,19 +178,9 @@ const faqList = {
       answer: "Yes, they are cost-effective, portable, and have great brand visibility."
     }
   ],
-  "Miscellaneous": [
-    {
-      question: "What are miscellaneous gifting items?",
-      answer: "These include unique items like phone holders, card stands, organizers, and innovative gadgets."
-    },
-    {
-      question: "Can I request samples before bulk ordering?",
-      answer: "Yes, samples are available for most products upon request."
-    }
-  ],
 
   // Drink Ware
-  "Sipper": [
+  "sipper": [
     {
       question: "What types of sippers are available?",
       answer: "We offer plastic, stainless steel, and BPA-free sippers in various colors and sizes."
@@ -222,7 +190,7 @@ const faqList = {
       answer: "Yes, we offer laser engraving and screen printing for logos and designs."
     }
   ],
-  "Bamboo Bottle": [
+  "bamboo-bottle": [
     {
       question: "Are bamboo bottles eco-friendly?",
       answer: "Yes, our bamboo bottles are made from natural materials and are a great sustainable gift choice."
@@ -232,7 +200,7 @@ const faqList = {
       answer: "Yes, some models include stainless steel insulation for temperature retention."
     }
   ],
-  "Coffee Mug": [
+  "coffee-mug": [
     {
       question: "Do you offer ceramic and stainless steel mugs?",
       answer: "Yes, we provide ceramic, steel, and travel mugs suitable for office or promotional use."
@@ -242,7 +210,7 @@ const faqList = {
       answer: "Absolutely! We offer full-color logo printing and packaging for gifting."
     }
   ],
-  "Ceramic Mug": [
+  "ceramic-mug": [
     {
       question: "Are ceramic mugs microwave safe?",
       answer: "Yes, our ceramic mugs are microwave-safe and perfect for daily use or gifting."
@@ -254,7 +222,7 @@ const faqList = {
   ],
 
   // Technology Accessories
-  "Wireless Charging": [
+  "wireless-charging": [
     {
       question: "Do you offer wireless chargers with branding?",
       answer: "Yes, we offer Qi-compatible wireless chargers that can be branded with your company logo."
@@ -264,7 +232,7 @@ const faqList = {
       answer: "Absolutely. Wireless chargers are modern, useful, and appreciated tech gifts."
     }
   ],
-  "Computer Accessories": [
+  "computer-accessories": [
     {
       question: "What computer accessories do you offer?",
       answer: "We provide USB hubs, laptop stands, keyboards, webcams, and more."
@@ -274,7 +242,7 @@ const faqList = {
       answer: "Yes, we can customize computer accessory combos for gifting or events."
     }
   ],
-  "Power Bank": [
+  "power-banks": [
     {
       question: "Are power banks available in different capacities?",
       answer: "Yes, we offer power banks ranging from 2500mAh to 20000mAh with branding options."
@@ -284,17 +252,7 @@ const faqList = {
       answer: "Definitely! We provide printing and engraving options on all power banks."
     }
   ],
-  "Speaker": [
-    {
-      question: "What types of Bluetooth speakers do you provide?",
-      answer: "We offer portable, waterproof, and LED speakers suitable for tech gifting."
-    },
-    {
-      question: "Are speakers customizable?",
-      answer: "Yes, we offer branding on speaker surfaces and packaging."
-    }
-  ],
-  "Desktop & Mousepad": [
+  "desktop-and-mousepad": [
     {
       question: "Do you offer branded mousepads and desktop kits?",
       answer: "Yes, we provide mousepads, organizers, and desk kits with full branding support."
@@ -306,7 +264,7 @@ const faqList = {
   ],
 
   // Trophy and Momento
-  "Trophy and Momento": [
+  "trophy-and-momento": [
     {
       question: "What types of trophies and momentos do you offer?",
       answer: "We offer acrylic, crystal, wooden, and metal trophies and plaques for all occasions."
@@ -318,7 +276,7 @@ const faqList = {
   ],
 
   // Office and Writing
-  "File and Folder": [
+  "file-and-folder": [
     {
       question: "What kind of folders do you offer for office use?",
       answer: "We offer PU leather, fabric, plastic, and custom-printed folders for conferences and meetings."
@@ -328,7 +286,7 @@ const faqList = {
       answer: "Yes, folders can be embossed or printed with your company logo."
     }
   ],
-  "Notebook & Diary": [
+  "notebooks-and-diary-sets": [
     {
       question: "Are diaries available with branding?",
       answer: "Yes, we offer branded notebooks and diaries with logo print, embossing, or foil stamping."
@@ -338,7 +296,7 @@ const faqList = {
       answer: "Yes, we offer recycled paper notebooks and seed-paper diaries as sustainable choices."
     }
   ],
-  "Pen & Writing Set": [
+  "pen-and-writing-set": [
     {
       question: "What types of writing instruments do you offer?",
       answer: "We offer pens, stylus pens, gift sets, and pen combos in metal, plastic, and wood."
@@ -348,7 +306,7 @@ const faqList = {
       answer: "Yes, we offer elegant gift packaging for corporate writing sets."
     }
   ],
-  "Lanyard & ID Card": [
+  "lanyard-and-id-card": [
     {
       question: "Can I customize lanyards with my company name?",
       answer: "Yes, we offer screen printed, sublimated, and woven lanyards with branding."
@@ -358,16 +316,6 @@ const faqList = {
       answer: "Yes, including holders, clips, and printed cards for employees or events."
     }
   ],
-  "Miscellaneous": [
-    {
-      question: "What other office items do you offer?",
-      answer: "We provide a range of innovative gifting items like stands, organizers, gadgets, and sets."
-    },
-    {
-      question: "Can I create a custom gift bundle?",
-      answer: "Yes, we can create themed kits using multiple miscellaneous items based on your budget."
-    }
-  ]
 };
 
 export default faqList;

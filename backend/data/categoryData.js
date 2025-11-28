@@ -47,7 +47,7 @@ const categoryData = [
     tag: "Discover our range of apparel and accessories.\nPerfect for branding and gifting.\nTrendy, comfortable, and customizable.\nIdeal for all occasions.",
     subcategories: [
       {
-        name: "Promotional  T-Shirt in Delhi",
+        name: "Promotional T-Shirt Manufacturers in Delhi",
         slug: "polo-t-shirts",
         image: "/assets/subcategories/polotshirt.webp",
         hoverImage: "",
@@ -55,7 +55,7 @@ const categoryData = [
         products: poloTshirts
       },
       {
-        name: "Promotional Round Neck T-Shirts Manufacturers in Delhi",
+        name: "Promotional Round Neck T-Shirts ",
         slug: "round-neck-t-shirts",
         image: "/assets/subcategories/round.webp",
         hoverImage: "",
@@ -63,7 +63,7 @@ const categoryData = [
         products: roundneckTshirts
       },
       {
-        name: "Promotional Caps & Custom Logo Caps Manufacturer in Delhi NCR",
+        name: "Custom Cap Manufacturer in Delhi NCR",
         slug: "caps",
         image: "/assets/subcategories/cap.jpg",
         hoverImage: "",
@@ -71,7 +71,7 @@ const categoryData = [
         products: caps
       },
       {
-        name: "Promotional Hats Manufacturers in Delhi",
+        name: "Promotional Hat in Delhi",
         slug: "hats",
         image: "/assets/subcategories/hats.webp",
         hoverImage: "",
@@ -79,15 +79,15 @@ const categoryData = [
         products: hats
       },
       {
-        name: "Promotional Formal Shirts Manufacturers in Delhi",
+        name: "Customized Formal Shirt in Delhi",
         slug: "corporate-shirts",
         image: "/assets/subcategories/corporateshirt.jpg",
         hoverImage: "",
-        tag: "High-quality formal shirt and corporate shirts designed for businesses, coaching institutes, schools, and corporate events in Noida, Gurgaon, Okhla, and Delhi NCR.\nComfortable and durable fabrics ideal for professional settings.\nPerfect for branding, uniforms, and corporate gifting.",
+        tag: "High-quality Custom formal shirt and corporate shirts designed for businesses, coaching institutes, schools, and corporate events in Noida, Gurgaon, Okhla, and Delhi NCR.\nComfortable and durable fabrics ideal for professional settings.\nPerfect for branding, uniforms, and corporate gifting.",
         products: corporateShirts
       },
       {
-        name: "Promotional Ties Manufacturers in Delhi",
+        name: "Promotional Tie in Delhi",
         slug: "ties",
         image: "/assets/subcategories/tie.jpg",
         hoverImage: "",
@@ -95,7 +95,7 @@ const categoryData = [
         products: ties
       },
       {
-        name: "Promotional Aprons Manufacturers in Delhi",
+        name: "Promotional Apron in Delhi",
         slug: "aprons",
         image: "/assets/subcategories/apron.jpg",
         hoverImage: "",
@@ -103,7 +103,7 @@ const categoryData = [
         products: aprons
       },
       {
-        name: "Promotional Winter Wear Manufacturers in Delhi",
+        name: "Promotional Winter Wear in Delhi",
         slug: "winter-wear",
         image: "/assets/subcategories/winterwear.jpg",
         hoverImage: "",
@@ -120,35 +120,36 @@ const categoryData = [
     tag: "Essential office and writing tools. Perfect for daily use and gifting. Custom branding options. Boost productivity and style.",
     subcategories: [
       {
-        name: "Premium Quality Files & Folders for Office, Corporate & Personal Use in Delhi NCR",
+        name: "Custom Files & Folder for Office"
+        ,
         slug: "file-and-folder",
         image: "/assets/categories/filefolder.jpg",
         hoverImage: "",
-        tag: "High-quality files and folders designed for offices, schools, corporate gifting, events, and promotional purposes in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials with customizable covers ideal for branding and daily use.\nPerfect for organizing documents, presentations, and employee kits.",
+        tag: "High-quality Promotional files and folders designed for offices, schools, corporate gifting, events, and promotional purposes in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials with customizable covers ideal for branding and daily use.\nPerfect for organizing documents, presentations, and employee kits.",
         products: filesAndFolders,
       },
       {
-        name: "Pen & Writing Sets in Delhi NCR",
+        name: "Custom Pen & Writing Set in Delhi NCR",
         slug: "pen-and-writing-set",
         image: "/assets/categories/penwriting.jpg",
         hoverImage: "",
-        tag: "Premium pens and writing sets perfect for corporate gifting, employee kits, events, and branding. Smooth writing experience with custom engraving options.",
+        tag: "Premium Promotional pens and writing sets perfect for corporate gifting, employee kits, events, and branding. Smooth writing experience with custom engraving options.",
         products: pensAndWritingSets,
       },
       {
-        name: "Lanyard & ID Card in Delhi NCR",
+        name: "Custom Lanyard & ID Card in Delhi NCR",
         slug: "lanyard-and-id-card",
         image: "/assets/categories/lanyardid.jpg",
         hoverImage: "",
-        tag: "High-quality lanyards, ID card holders, designed for corporate gifting, employee identification, offices, and promotional events in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials ideal for daily use and branding.\nPerfect for enhancing professional appearance and brand visibility.",
+        tag: "High-quality Promotional lanyards, ID card holders, designed for corporate gifting, employee identification, offices, and promotional events in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials ideal for daily use and branding.\nPerfect for enhancing professional appearance and brand visibility.",
         products: lanyardsWithIDCards,
       },
       {
-        name: "Notebooks & Diaries in Delhi NCR",
+        name: "Customized Notebooks & Diaries in Delhi ",
         slug: "notebooks-and-diary-sets",
         image: "/assets/categories/notebooks.jpg",
         hoverImage: "",
-        tag: "High-quality notebooks and diaries designed for offices, schools, corporate gifting, events, and promotional purposes in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials with customizable covers ideal for branding and daily use.\nPerfect for meetings, note-taking, and employee kits.",
+        tag: "High-quality Custom notebooks and diaries designed for offices, schools, corporate gifting, events, and promotional purposes in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials with customizable covers ideal for branding and daily use.\nPerfect for meetings, note-taking, and employee kits.",
         products: notebooksAndDiaries,
       }
     ],
@@ -161,27 +162,27 @@ const categoryData = [
     tag: "Exclusive gift collections. Perfect for special occasions. Curated for every need. Customizable options available.",
     subcategories: [
       {
-        name: "Welcome Kits Manufacturers in Delhi",
+        name: "Customized Welcome Kit in Delhi",
         slug: "welcome-kits",
         image: "/assets/categories/welcomekits.jpg",
         hoverImage: "",
-        tag: "High-quality welcome kits designed for corporate gifts, events, hotels, onboarding programs, and promotional campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nThoughtfully curated items ideal for new employees and clients.\nPerfect for making a lasting first impression.",
+        tag: "High-quality Promotional welcome kits designed for corporate gifts, events, hotels, onboarding programs, and promotional campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nThoughtfully curated items ideal for new employees and clients.\nPerfect for making a lasting first impression.",
         products: welcomeKits,
       },
       {
-        name: "Promotional Clocks Manufacturers in Delhi",
+        name: "Promotional Clock in Delhi",
         slug: "promotional-clocks",
         image: "/assets/categories/promotionalclock.jpg",
         hoverImage: "",
-        tag: "Durable and stylish promotional clocks designed for corporate gifts, events, giveaways, and branding campaigns in Delhi, Noida, Gurgaon, Okhla, and NCR.\nHigh-quality materials ideal for office and home use.\nPerfect for enhancing brand visibility with custom logo printing.",
+        tag: "Durable and stylish customized clocks designed for corporate gifts, events, giveaways, and branding campaigns in Delhi, Noida, Gurgaon, Okhla, and NCR.\nHigh-quality materials ideal for office and home use.\nPerfect for enhancing brand visibility with custom logo printing.",
         products: promotionalClocks,
       },
       {
-        name: "Custom Keychains Manufacturers in Delhi NCR",
+        name: "Custom Keychain in Delhi",
         slug: "keychains",
         image: "/assets/categories/keychains.jpg",
         hoverImage: "",
-        tag: "High-quality, customizable keychains designed to enhance brand visibility and make perfect corporate gifts across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable materials with unique designs ideal for daily use and promotions.\nPerfect for branding, giveaways, and employee gifts.",
+        tag: "High-quality, Promotional  keychains designed to enhance brand visibility and make perfect corporate gifts across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable materials with unique designs ideal for daily use and promotions.\nPerfect for branding, giveaways, and employee gifts.",
         products: keychains,
       }
     ]
@@ -210,7 +211,7 @@ const categoryData = [
         products: foldableBags,
       },
       {
-        name: "Custom Duffle Bag Manufacturer in Delhi NCR – Logo Printed & Promotional Duffle Bags",
+        name: " Custom Duffle Bag Manufacturers in Delhi ",
         slug: "duffle-bags",
         image: "/assets/categories/dufflebag.jpg",
         hoverImage: "",
@@ -235,35 +236,35 @@ const categoryData = [
     tag: "Latest tech accessories. Wireless, portable, and smart. Perfect for gifting and use. Custom branding available.",
     subcategories: [
       {
-        name: "Wireless Charging Products Manufacturers in Delhi NCR",
+        name: "Custom Wireless Charger ",
         slug: "wireless-charging",
         image: "/assets/categories/wirelesscharging.jpg",
         hoverImage: "",
-        tag: "High-quality, customizable wireless chargers designed for client gifts, employee rewards, and brand promotion across Delhi, Noida, Gurgaon, Okhla, and NCR.\nCompact and portable designs ideal for on-the-go charging.\nPerfect for enhancing brand visibility with custom logo printing.",
+        tag: "High-quality, Promotional wireless chargers designed for client gifts, employee rewards, and brand promotion across Delhi, Noida, Gurgaon, Okhla, and NCR.\nCompact and portable designs ideal for on-the-go charging.\nPerfect for enhancing brand visibility with custom logo printing.",
         products: wirelessChargers,
       },
       {
-        name: "Computer Accessories Manufacturers in Delhi NCR",
+        name: "Custom Computer Accessories in Delhi NCR",
         slug: "computer-accessories",
         image: "/assets/categories/computeraccess.jpg",
         hoverImage: "",
-        tag: "High-quality, customizable computer accessories designed for offices, employees, clients, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable and practical items ideal for daily use and branding.\nPerfect for enhancing workspaces and corporate gifting.",
+        tag: "High-quality Promotional computer accessories designed for offices, employees, clients, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable and practical items ideal for daily use and branding.\nPerfect for enhancing workspaces and corporate gifting.",
         products: computerAccessories,
       },
       {
-        name: "Power Bank Manufacturers in Delhi NCR",
+        name: "Custom Power Bank in Delhi NCR",
         slug: "power-banks",
         image: "/assets/categories/powerbank.jpg",
         hoverImage: "",
-        tag: "High-quality, branded power banks designed for corporate gifting, client appreciation, employee rewards, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nCompact and portable designs ideal for on-the-go charging.\nPerfect for enhancing brand visibility with custom logo printing.",
+        tag: "Promotional High-quality, branded power banks designed for corporate gifting, client appreciation, employee rewards, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nCompact and portable designs ideal for on-the-go charging.\nPerfect for enhancing brand visibility with custom logo printing.",
         products: powerBanks
       },
       {
-        name: "Custom Desktop & Mousepad Manufacturers in Delhi NCR",
+        name: "Custom Desktop & Mousepad ",
         slug: "desktop-and-mousepad",
         image: "/assets/categories/mousepad.jpg",
         hoverImage: "",
-        tag: "High-quality, branded desktops and mousepads designed for offices, client gifts, employee rewards, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable materials with smooth surfaces ideal for daily use and branding.\nPerfect for enhancing workspaces and corporate gifting.",
+        tag: "High-quality Promotional branded desktops and mousepads designed for offices, client gifts, employee rewards, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable materials with smooth surfaces ideal for daily use and branding.\nPerfect for enhancing workspaces and corporate gifting.",
         products: mousePads
       }
     ]
@@ -276,91 +277,91 @@ const categoryData = [
     tag: "Eco-friendly product range. Sustainable and reusable. Perfect for green gifting. Custom branding available.",
     subcategories: [
       {
-        name: "Cork Sheet Manufacturers in Delhi",
+        name: "Custom Cork Sheet ",
         slug: "cork-sheet",
         image: "/assets/subcategories/sheet.webp",
         hoverImage: "",
-        tag: "High-quality cork sheets designed for industrial use, flooring, insulation, notice boards, packaging, and creative projects in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and eco-friendly materials ideal for various applications.\nPerfect for promoting sustainability and green building practices.",
+        tag: "High-quality Promotional cork sheets designed for industrial use, flooring, insulation, notice boards, packaging, and creative projects in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and eco-friendly materials ideal for various applications.\nPerfect for promoting sustainability and green building practices.",
         products: corkSheetProducts
       },
       {
-        name: "Cork Corporate Gifting Combos in Delhi",
+        name: "Custom Cork Corporate Gifting Combos ",
         slug: "cork-corporate-gifting-combo",
         image: "/assets/subcategories/combo.webp",
         hoverImage: "",
-        tag: "High-quality cork gifting combos designed for corporate gifting, client appreciation, employee rewards, trade shows, and promotional events in Noida, Gurgaon, Okhla, and Delhi NCR.\nElegant and durable materials ideal for showcasing gifts and enhancing brand image.\nPerfect for promoting sustainability and eco-friendly gifting practices.",
+        tag: "High-quality Promotional cork gifting combos designed for corporate gifting, client appreciation, employee rewards, trade shows, and promotional events in Noida, Gurgaon, Okhla, and Delhi NCR.\nElegant and durable materials ideal for showcasing gifts and enhancing brand image.\nPerfect for promoting sustainability and eco-friendly gifting practices.",
         products: corkCorporateGiftingComboProducts
       },
       {
-        name: "Promotional Cork Coasters in Delhi NCR",
+        name: "Promotional Cork Coaster in Delhi NCR",
         slug: "cork-coaster",
         image: "/assets/subcategories/coaster.webp",
         hoverImage: "",
-        tag: "High-quality cork coasters in Delhi NCR, designed for offices, restaurants, cafes, corporate gifting, promotional events, and everyday use in Noida, Gurgaon, Okhla, and surrounding NCR regions.\nDurable and eco-friendly materials ideal for protecting surfaces from drink stains and enhancing table aesthetics.\nPerfect for promoting sustainability and brand visibility with custom logo printing.",
+        tag: "High-quality Promotional cork coasters in Delhi NCR, designed for offices, restaurants, cafes, corporate gifting, promotional events, and everyday use in Noida, Gurgaon, Okhla, and surrounding NCR regions.\nDurable and eco-friendly materials ideal for protecting surfaces from drink stains and enhancing table aesthetics.\nPerfect for promoting sustainability and brand visibility with custom logo printing.",
         products: corkCoasterProducts
       },
       {
-        name: "Cork Plant Decorate in Delhi NCR",
+        name: "Custom Cork Plant Decorate in Delhi NCR",
         slug: "cork-plant-decorate",
         image: "/assets/subcategories/plant.webp",
         hoverImage: "",
-        tag: "High-quality cork plant décor designed for homes, offices, restaurants, corporate gifting, and creative spaces in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and eco-friendly materials ideal for plant presentation and decoration.\nPerfect for promoting sustainability and enhancing green environments.",
+        tag: "High-quality Promotional cork plant décor designed for homes, offices, restaurants, corporate gifting, and creative spaces in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and eco-friendly materials ideal for plant presentation and decoration.\nPerfect for promoting sustainability and enhancing green environments.",
         products: corkPlantDecorateProducts
       },
       {
-        name: "Cork Serving Decoratives in Delhi NCR",
+        name: "Custom Cork Serving Decoratives ",
         slug: "cork-serving-decorate",
         image: "/assets/subcategories/serving.webp",
         hoverImage: "",
-        tag: "High-quality cork serving décor designed for homes, restaurants, cafes, corporate gifting, and creative dining spaces in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and eco-friendly materials ideal for food presentation and service.\nPerfect for promoting sustainability and enhancing dining experiences.",
+        tag: "High-quality Promotional cork serving décor designed for homes, restaurants, cafes, corporate gifting, and creative dining spaces in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and eco-friendly materials ideal for food presentation and service.\nPerfect for promoting sustainability and enhancing dining experiences.",
         products: corkServingDecorateProducts
       },
       {
-        name: "Cork Horeca Range in Delhi NCR",
+        name: "Custom Cork Horeca Range in Delhi NCR",
         slug: "cork-horeca-range",
         image: "/assets/subcategories/horeca.webp",
         hoverImage: "",
-        tag: "High-quality cork products designed for the hospitality industry including hotels, restaurants, cafes, and catering services in Noida, Gurgaon, Okhla, and Delhi NCR.High-quality cork products designed for the hospitality industry including hotels, restaurants, cafes, and catering services in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and eco-friendly materials ideal for food and beverage service.\nPerfect for promoting sustainability and enhancing customer experience.",
+        tag: "High-quality Promotional cork products designed for the hospitality industry including hotels, restaurants, cafes, and catering services in Noida, Gurgaon, Okhla, and Delhi NCR.High-quality cork products designed for the hospitality industry including hotels, restaurants, cafes, and catering services in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and eco-friendly materials ideal for food and beverage service.\nPerfect for promoting sustainability and enhancing customer experience.",
         products: corkHorecaProducts
       },
       {
-        name: "Cork Premium Lighting in Delhi NCR",
+        name: "Custom Cork Premium Lighting ",
         slug: "cork-premium-lighting",
         image: "/assets/subcategories/lighting.webp",
         hoverImage: "",
-        tag: "High-quality cork lighting fixtures designed for interior décor, home lighting, office spaces, hotels, restaurants, and sustainable design projects in Noida, Gurgaon, Okhla, and Delhi NCR.\nEco-friendly and durable materials ideal for ambient and accent lighting.\nPerfect for promoting sustainability and unique lighting solutions.",
+        tag: "High-quality Promotional cork lighting fixtures designed for interior décor, home lighting, office spaces, hotels, restaurants, and sustainable design projects in Noida, Gurgaon, Okhla, and Delhi NCR.\nEco-friendly and durable materials ideal for ambient and accent lighting.\nPerfect for promoting sustainability and unique lighting solutions.",
         products: corkLightingProducts
       },
       {
-        name: "Cork Premium Gift Boxes in Delhi NCR",
+        name: "Custom Cork Premium Gift Box ",
         slug: "cork-premium-gift-boxes",
         image: "/assets/subcategories/box.webp",
         hoverImage: "",
-        tag: "High-quality cork gift boxes designed for corporate gifting, client appreciation, employee rewards, festive occasions, and premium promotional events in Noida, Gurgaon, Okhla, and Delhi NCR.\nElegant and durable materials ideal for showcasing gifts and enhancing brand image.\nPerfect for promoting sustainability and eco-friendly gifting practices.",
+        tag: "High-quality Promotional cork gift boxes designed for corporate gifting, client appreciation, employee rewards, festive occasions, and premium promotional events in Noida, Gurgaon, Okhla, and Delhi NCR.\nElegant and durable materials ideal for showcasing gifts and enhancing brand image.\nPerfect for promoting sustainability and eco-friendly gifting practices.",
         products: corkGiftBoxProducts
       },
       {
-        name: "Cork Desk Top Accessories in Delhi NCR",
+        name: "Custom Cork Desk Top Accessories ",
         slug: "cork-desk-top-accessories",
         image: "/assets/subcategories/desk.webp",
         hoverImage: "",
-        tag: "High-quality cork desk accessories designed for offices, workstations, home offices, corporate gifting, and creative workspaces in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and eco-friendly materials ideal for organizing and enhancing workspaces.\nPerfect for promoting sustainability and stylish office setups.",
+        tag: "High-quality Promotional cork desk accessories designed for offices, workstations, home offices, corporate gifting, and creative workspaces in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and eco-friendly materials ideal for organizing and enhancing workspaces.\nPerfect for promoting sustainability and stylish office setups.",
         products: corkDeskProducts
       },
       {
-        name: "Cork Laptop Bags & Wallets in Delhi NCR",
+        name: "Custom Cork Laptop Bags & Wallets",
         slug: "cork-laptop-bag-and-wallet",
         image: "/assets/subcategories/bag.webp",
         hoverImage: "",
-        tag: "High-quality cork laptop bags and wallets designed for professionals, corporates, students, and eco-conscious users in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and stylish materials ideal for everyday use and travel.\nPerfect for promoting sustainability and eco-friendly living.",
+        tag: "High-quality Promotional cork laptop bags and wallets designed for professionals, corporates, students, and eco-conscious users in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and stylish materials ideal for everyday use and travel.\nPerfect for promoting sustainability and eco-friendly living.",
         products: corkBagWalletProducts
       },
       {
-        name: "Cork Yoga Accessories in Delhi NCR",
+        name: "Custom Cork Yoga Accessories ",
         slug: "cork-yoga-accessories",
         image: "/assets/subcategories/yoga.webp",
         hoverImage: "",
-        tag: "High-quality cork yoga mats, blocks, straps, and accessories designed for home, studios, gyms, and corporate wellness programs in Noida, Gurgaon, Okhla, and Delhi NCR.\nEco-friendly and durable materials ideal for all levels of practice.\nPerfect for promoting wellness, mindfulness, and sustainable living.",
+        tag: "High-quality Promotional cork yoga mats, blocks, straps, and accessories designed for home, studios, gyms, and corporate wellness programs in Noida, Gurgaon, Okhla, and Delhi NCR.\nEco-friendly and durable materials ideal for all levels of practice.\nPerfect for promoting wellness, mindfulness, and sustainable living.",
         products: corkYogaProducts
       }
     ],
@@ -371,51 +372,51 @@ const categoryData = [
     slug: "drink-ware",
     image: "/assets/categories/drinkware.jpeg",
     hoverImage: "/assets/categories/drink.jpg",
-    tag: "Premium drinkware collection. Sippers, mugs, bottles, and more. Perfect for daily use and gifting. Custom branding available.",
+    tag: "Promotional drinkware collection. Sippers, mugs, bottles, and more. Perfect for daily use and gifting. Custom branding available.",
     subcategories: [
       {
-        name: "Promotional Sippers Manufacturers in Delhi",
+        name: "Custom Sippers in Delhi",
         slug: "sipper",
         image: "/assets/categories/sipper.jpg",
         hoverImage: "",
-        tag: "High-quality custom sippers designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and stylish materials ideal for daily hydration and promotions.\nPerfect for branding, giveaways, and sustainable gifting.",
+        tag: "High-quality Promotional sippers designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and stylish materials ideal for daily hydration and promotions.\nPerfect for branding, giveaways, and sustainable gifting.",
         products: sipperBottles,
       },
       {
-        name: "Promotional Bamboo Bottles Manufacturers in Delhi",
+        name: "Custom Bamboo Bottles  in Delhi",
         slug: "bamboo-bottle",
         image: "/assets/categories/bamboobottle.jpg",
         hoverImage: "",
-        tag: "High-quality bamboo bottles designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nEco-friendly and durable materials ideal for daily hydration and sustainable promotions.\nPerfect for branding, giveaways, and green gifting.",
+        tag: "High-quality Promotional bamboo bottles designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nEco-friendly and durable materials ideal for daily hydration and sustainable promotions.\nPerfect for branding, giveaways, and green gifting.",
         products: bambooBottles,
       },
       {
-        name: "Promotional Coffee Mugs Manufacturers in Delhi",
+        name: "Custom Coffee Mugs in Delhi",
         slug: "coffee-mug",
         image: "/assets/categories/coffeemug.jpg",
         hoverImage: "",
-        tag: "High-quality custom coffee mugs designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.",
+        tag: "High-quality Promotional coffee mugs designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.",
         products: coffeeMugs,
       },
       {
-        name: "Promotional Ceramic Mugs Manufacturers in Delhi",
+        name: "Custom Ceramic Mugs ",
         slug: "ceramic-mug",
         image: "/assets/categories/ceramicmug.jpg",
         hoverImage: "",
-        tag: "High-quality custom ceramic mugs designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR",
+        tag: "High-quality Promotional ceramic mugs designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR",
         products: ceramicMugs,
       }
     ]
   },
   {
-    name: "Custom Trophies & Mementos Manufacturers in Delhi NCR",
+    name: "Custom Trophies & Mementos",
     slug: "trophy-and-momento",
     image: "/assets/categories/trophy.jpg",
     hoverImage: "/assets/categories/trophy1.jpg",
-    tag: "High-quality, customized trophies and mementos designed for corporate recognition, sports events, employee awards, and special occasions across Delhi, Noida, Gurgaon, Okhla, and NCR.\nPremium materials including glass, crystal, metal, wood, and acrylic.\nElegant designs with options for custom engraving and branding to celebrate achievements in style.",
+    tag: "High-quality, Promotional trophies and mementos designed for corporate recognition, sports events, employee awards, and special occasions across Delhi, Noida, Gurgaon, Okhla, and NCR.\nPremium materials including glass, crystal, metal, wood, and acrylic.\nElegant designs with options for custom engraving and branding to celebrate achievements in style.",
     subcategories: [
       {
-        name: "Trophy and Momento",
+        name: "Custom Trophy and Momento",
         slug: "trophy-and-momento",
         image: "/assets/categories/trophymomento.jpg",
         hoverImage: "",

@@ -9,6 +9,7 @@ import RelatedCategories from "./RelatedCategories";
 import FAQSection from "./FAQSection";
 import BottomCategoryDescription from "./BottomCategoryDescription";
 import banners from "../data/banners";
+import SubcategoryDescription from "./category/SubcategoryDescription";
 
 const ProductDisplay = () => {
   const { category: categorySlug, subcategory: subcategorySlug } = useParams();
@@ -149,6 +150,7 @@ const ProductDisplay = () => {
             </div>
           </div>
         </div>
+        <SubcategoryDescription slug={subcategorySlug} />
         <CTABanner
         imageSrc={bannerImage}
         linkTo="/contact"
@@ -157,7 +159,7 @@ const ProductDisplay = () => {
       </div>
 
       
-
+      
       <FAQSection subcategory={subcategoryName} />
       <RelatedCategories
         categorySlug={categorySlug}
