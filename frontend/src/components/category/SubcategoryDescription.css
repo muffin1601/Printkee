@@ -1,90 +1,122 @@
+/* ======================================================
+   PREMIUM SUBCATEGORY DESCRIPTION — CLEAN & MINIMAL
+   White + Purple Corporate Theme
+====================================================== */
+
+/* WRAPPER */
 .subcategory-description-wrapper {
   width: 100%;
-  padding: 60px 0px;
-  /* background: var(--beige-bg); */
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.subcategory-description-content {
+  margin: 40px 0;
+  padding: 35px 40px;
   background: var(--white);
-  padding: 40px 35px;
-  border-radius: var(--radius-lg);
+  border-radius: 16px;
+  border: 1px solid rgba(75, 32, 97, 0.12);
   box-shadow: var(--shadow-medium);
-  max-width: 100%;
-  width: 100%;
   font-family: var(--font-primary);
-  transition: var(--transition);
 }
 
-.subcategory-description-content:hover {
-  box-shadow: var(--shadow-hover);
-}
-
-/* Headings */
-.subcategory-description-content h1 {
-  color: var(--purple);
-  font-size: 2.2rem;
+/* PAGE TITLE */
+.subcategory-description-title {
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 18px;
+  color: var(--purple);
+  margin-bottom: 22px;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
 }
 
-.subcategory-description-content h2 {
+/* HEADINGS INSIDE DESCRIPTION */
+.subcategory-description-content h3 {
+  font-size: 2rem;
+  margin-top: 25px;
+  margin-bottom: 10px;
   color: var(--purple-dark);
-  font-size: 1.45rem;
-  font-weight: 600;
-  margin: 25px 0 12px 0;
+  font-weight: 700;
 }
 
-/* Paragraphs */
+.subcategory-description-content h4 {
+  font-size: 1.25rem;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--purple-dark);
+
+
+}
+
+/* PARAGRAPHS */
 .subcategory-description-content p {
-  color: var(--text-dark);
+  font-size: 1.05rem;
   line-height: 1.75;
-  font-size: 1rem;
+  color: var(--text-dark);
   margin-bottom: 14px;
 }
 
-/* Strong text */
-.subcategory-description-content strong {
-  color: var(--purple);
-  font-weight: 700;
-}
 
-/* Bullet Lists */
+
 .subcategory-description-content ul {
-  margin: 20px 0;
-  padding-left: 22px;
+  list-style: none;        
+  padding-left: 0;
+  margin: 12px 0 18px;
 }
 
 .subcategory-description-content li {
-  margin-bottom: 10px;
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
   color: var(--text-mid);
-  font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* Highlight bullets */
-.subcategory-description-content li::marker {
-  color: var(--gold);
+.subcategory-description-content li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--purple);
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .subcategory-description-content {
-    padding: 30px 22px;
+/* ======================================================
+   AUTO-DETECTED BULLET LINES (.bullet-item)
+====================================================== */
+
+.subcategory-description-content .bullet-item {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+.subcategory-description-content .bullet-item::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .subcategory-description-wrapper {
+    padding: 25px 20px;
   }
 
-  .subcategory-description-content h1 {
-    font-size: 1.8rem;
+  .subcategory-description-title {
+    font-size: 1.7rem;
   }
 
-  .subcategory-description-content h2 {
-    font-size: 1.25rem;
+  .subcategory-description-content h3 {
+    font-size: 1.35rem;
   }
 
-  .subcategory-description-content p,
-  .subcategory-description-content li {
-    font-size: 0.95rem;
+  .subcategory-description-content h4 {
+    font-size: 1.15rem;
   }
 }

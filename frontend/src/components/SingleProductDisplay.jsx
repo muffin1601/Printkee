@@ -10,8 +10,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
-import ProductOverview from "./ProductOverview";
 import { Helmet } from "react-helmet";
+import WhyChooseUsProduct from "./category/WhyChooseUsProduct";
 
 const SingleProductDisplay = () => {
   const { category: categorySlug, subcategory: subcategorySlug, product: productSlug } = useParams();
@@ -183,8 +183,12 @@ const SingleProductDisplay = () => {
           </div>
         </div>
 
-        <ProductOverview subcategory={subcategoryData.slug} productData={productData} />
-
+        {/* <ProductOverview subcategory={subcategoryData.slug} productData={productData} /> */}
+<WhyChooseUsProduct
+          productName={productData.name}
+          subcategoryName={subcategoryData.name}
+        />
+        
 
         {relatedProducts.length > 0 && (
           <div className="related-products-section">

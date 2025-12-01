@@ -1,77 +1,84 @@
 const banners = {
-  "Apparel and Accessories": {
+  "apparel-and-accessories": {
     banner: "/banners/apparel.jpg",
     subcategories: {
-      "Polo T-Shirts": "/banners/apparel/polo.webp",
-      "Round Neck T-Shirts": "/banners/apparel/roundneck.webp",
-      "Caps": "/banners/apparel/cap.webp",
-      "Hats": "/banners/apparel/hat.webp",
-      "Corporate Shirts": "/banners/apparel/shirt.webp",
-      "Ties": "/banners/apparel/ties.webp",
-      "Aprons": "/banners/apparel/apron.webp",
-      "Winter Wear": "/banners/apparel/winter.webp"
+      "polo-t-shirts": "/banners/apparel/polo.webp",
+      "round-neck-t-shirts": "/banners/apparel/roundneck.webp",
+      "caps": "/banners/apparel/cap.webp",
+      "hats": "/banners/apparel/hat.webp",
+      "corporate-shirts": "/banners/apparel/shirt.webp",
+      "ties": "/banners/apparel/ties.webp",
+      "aprons": "/banners/apparel/apron.webp",
+      "winter-wear": "/banners/apparel/winter.webp"
     }
   },
-  "Eco Products": {
+
+  "eco-products": {
     banner: "/banners/eco-products.jpg",
     subcategories: {
-      "Bamboo Products": "/banners/eco-products/bamboo-products.jpg",
-      "Customized Gifting": "/banners/eco-products/customized-gifting.jpg"
+      "bamboo-products": "/banners/eco-products/bamboo-products.jpg",
+      "customized-gifting": "/banners/eco-products/customized-gifting.jpg"
     }
   },
-  "Bags and Travel": {
+
+  "bags-and-travel": {
     banner: "/banners/bags.jpg",
     subcategories: {
-      "Backpacks": "/banners/bags/backpacks.jpg",
-      "Foldable Bags": "/banners/bags/foldable-bags.jpg",
-      "Duffle Bags": "/banners/bags/duffle-bags.jpg",
-      "Tote Bags": "/banners/bags/tote-bags.jpg",
-      "Accessories": "/banners/bags/accessories.jpg"
+      "backpacks": "/banners/bags/backpacks.jpg",
+      "foldable-bags": "/banners/bags/foldable-bags.jpg",
+      "duffle-bags": "/banners/bags/duffle-bags.jpg",
+      "tote-bags": "/banners/bags/tote-bags.jpg",
+      "accessories": "/banners/bags/accessories.jpg"
     }
   },
-  "Collection": {
+
+  "collection": {
     banner: "/banners/collection.jpg",
     subcategories: {
-      "Welcome Kits": "/banners/collection/welcome-kits.jpg",
-      "Promotional Clocks": "/banners/collection/promotional-clocks.jpg",
-      "Desktop and Executive Gifts": "/banners/collection/desktop-executive.jpg",
-      "Keychains": "/banners/collection/keychains.jpg",
-      "Miscellaneous": "/banners/collection/miscellaneous.jpg"
+      "welcome-kits": "/banners/collection/welcome-kits.jpg",
+      "promotional-clocks": "/banners/collection/promotional-clocks.jpg",
+      "desktop-and-executive-gifts": "/banners/collection/desktop-executive.jpg",
+      "keychains": "/banners/collection/keychains.jpg",
+      "miscellaneous": "/banners/collection/miscellaneous.jpg"
     }
   },
-  "Drink Ware": {
+
+  "drink-ware": {
     banner: "/banners/drinkware.jpg",
     subcategories: {
-      "Sipper": "/banners/drinkware/sipper.jpg",
-      "Bamboo Bottle": "/banners/drinkware/bamboo-bottle.jpg",
-      "Coffee Mug": "/banners/drinkware/coffee-mug.jpg",
-      "Ceramic Mug": "/banners/drinkware/ceramic-mug.jpg"
+      "sipper": "/banners/drinkware/sipper.jpg",
+      "bamboo-bottle": "/banners/drinkware/bamboo-bottle.jpg",
+      "coffee-mug": "/banners/drinkware/coffee-mug.jpg",
+      "ceramic-mug": "/banners/drinkware/ceramic-mug.jpg"
     }
   },
-  "Technology Accessories": {
+
+  "technology-accessories": {
     banner: "/banners/technology.jpg",
     subcategories: {
-      "Wireless Charging": "/banners/technology/wireless-charging.jpg",
-      "Computer Accessories": "/banners/technology/computer-accessories.jpg",
-      "Power Bank": "/banners/technology/power-bank.jpg",
-      "Speaker": "/banners/technology/speaker.jpg",
-      "Desktop & Mousepad": "/banners/technology/desktop-mousepad.jpg"
+      "wireless-charging": "/banners/technology/wireless-charging.jpg",
+      "computer-accessories": "/banners/technology/computer-accessories.jpg",
+      "power-bank": "/banners/technology/power-bank.jpg",
+      "speaker": "/banners/technology/speaker.jpg",
+      "desktop-and-mousepad": "/banners/technology/desktop-mousepad.jpg"
     }
   },
-  "Trophy and Momento": {
+
+  "trophy-and-momento": {
     banner: "/banners/trophy.jpg",
     subcategories: {
-      "Trophy and Momento": "/banners/trophy/trophy-momento.jpg"
+      "trophy-and-momento": "/banners/trophy/trophy-momento.jpg"
     }
   },
-  "Office and Writing": {
+
+  "office-and-writing": {
     banner: "/banners/office-writing.jpg",
     subcategories: {
-      "File and Folder": "/banners/office-writing/file-folder.jpg",
-      "Notebook & Diary": "/banners/office-writing/notebook-diary.jpg",
-      "Pen & Writing Set": "/banners/office-writing/pen-set.jpg",
-      "Lanyard & ID Card": "/banners/office-writing/lanyard-id.jpg",
-      "Miscellaneous": "/banners/office-writing/miscellaneous.jpg"
+      "file-and-folder": "/banners/office-writing/file-folder.jpg",
+      "notebook-and-diary": "/banners/office-writing/notebook-diary.jpg",
+      "pen-and-writing-set": "/banners/office-writing/pen-set.jpg",
+      "lanyard-and-id-card": "/banners/office-writing/lanyard-id.jpg",
+      "miscellaneous": "/banners/office-writing/miscellaneous.jpg"
     }
   }
 };

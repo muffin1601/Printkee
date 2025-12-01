@@ -6,8 +6,7 @@ import { FaHeart, FaEye } from "react-icons/fa";
 import "../styles/ProductDisplay.css";
 import CTABanner from "./CTABanner";
 import RelatedCategories from "./RelatedCategories";
-import FAQSection from "./FAQSection";
-import BottomCategoryDescription from "./BottomCategoryDescription";
+import FAQSection from "./category/FAQSection";
 import banners from "../data/banners";
 import SubcategoryDescription from "./category/SubcategoryDescription";
 
@@ -42,8 +41,8 @@ const ProductDisplay = () => {
   console.log (subcategoryName);
 
   const bannerImage =
-    banners[categoryName]?.subcategories?.[subcategoryName] ||
-    banners[categoryName]?.banner ||
+    banners[categorySlug]?.subcategories?.[subcategorySlug] ||
+    banners[categorySlug]?.banner ||
     "/assets/product-banner.webp";
 
   return (
@@ -150,7 +149,7 @@ const ProductDisplay = () => {
             </div>
           </div>
         </div>
-        <SubcategoryDescription slug={subcategorySlug} />
+        <SubcategoryDescription subcategory={subcategorySlug} />
         <CTABanner
         imageSrc={bannerImage}
         linkTo="/contact"
@@ -160,12 +159,11 @@ const ProductDisplay = () => {
 
       
       
-      <FAQSection subcategory={subcategoryName} />
+      <FAQSection subcategory={subcategorySlug} />
       <RelatedCategories
         categorySlug={categorySlug}
         currentSubcategorySlug={subcategorySlug}
       />
-      <BottomCategoryDescription subcategory={subcategoryName} />
     </>
   );
 };
