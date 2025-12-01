@@ -23,7 +23,7 @@ const Footer = () => {
             aria-label="Learn more about Printkee"
             name="about-link"
           >
-            Read More
+            Read More <span className="sr-only"> about Printkee</span>
           </a>
         </div>
 

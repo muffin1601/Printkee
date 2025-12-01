@@ -182,6 +182,110 @@ const SingleProductDisplay = () => {
             </div>
           </div>
         </div>
+{/* PRODUCT SPECIFICATIONS */}
+<div className="product-spec-section">
+  <h3 className="spec-title">Product Specifications</h3>
+
+  <table className="spec-table">
+    <tbody>
+      {productData.productCode && (
+        <tr>
+          <td>Product Code</td>
+          <td>{productData.productCode}</td>
+        </tr>
+      )}
+
+      {productData.SKU && (
+        <tr>
+          <td>SKU</td>
+          <td>{productData.SKU}</td>
+        </tr>
+      )}
+
+      {productData.brand && (
+        <tr>
+          <td>Brand</td>
+          <td>{productData.brand}</td>
+        </tr>
+      )}
+
+      {productData.fabricType && (
+        <tr>
+          <td>Fabric Type</td>
+          <td>{productData.fabricType}</td>
+        </tr>
+      )}
+
+      {productData.size?.length > 0 && (
+        <tr>
+          <td>Available Sizes</td>
+          <td>{productData.size.join(", ")}</td>
+        </tr>
+      )}
+
+      {productData.colour?.length > 0 && (
+        <tr>
+          <td>Available Colours</td>
+          <td>{productData.colour.join(", ")}</td>
+        </tr>
+      )}
+
+      {productData.weight && (
+        <tr>
+          <td>Weight</td>
+          <td>{productData.weight} g</td>
+        </tr>
+      )}
+
+      {(productData.dimensions?.length ||
+        productData.dimensions?.width ||
+        productData.dimensions?.height) && (
+        <tr>
+          <td>Dimensions</td>
+          <td>
+            {productData.dimensions.length} × {productData.dimensions.width} ×{" "}
+            {productData.dimensions.height} cm
+          </td>
+        </tr>
+      )}
+
+      {productData.HSNCode && (
+        <tr>
+          <td>HSN Code</td>
+          <td>{productData.HSNCode}</td>
+        </tr>
+      )}
+
+      {productData.GSTRate && (
+        <tr>
+          <td>GST Rate</td>
+          <td>{productData.GSTRate}%</td>
+        </tr>
+      )}
+
+      {productData.minOrderQty && (
+        <tr>
+          <td>Minimum Order Quantity</td>
+          <td>{productData.minOrderQty}</td>
+        </tr>
+      )}
+
+      {productData.maxOrderQty && (
+        <tr>
+          <td>Maximum Order Quantity</td>
+          <td>{productData.maxOrderQty}</td>
+        </tr>
+      )}
+
+      {productData.availabilityDate && (
+        <tr>
+          <td>Available From</td>
+          <td>{new Date(productData.availabilityDate).toLocaleDateString()}</td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>
 
         {/* <ProductOverview subcategory={subcategoryData.slug} productData={productData} /> */}
 <WhyChooseUsProduct
