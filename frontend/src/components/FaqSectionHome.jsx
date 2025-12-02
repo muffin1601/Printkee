@@ -59,38 +59,58 @@ const FaqSectionHome = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    setActiveIndex(index === activeIndex ? null : index);
   };
 
   return (
-    <section className="faqhome-section">
-      <h2 className="faqhome-title">FAQ – Frequently Asked Questions</h2>
+    <section
+      className="faqhome-section"
+      role="region"
+      aria-labelledby="faqhome-title"
+    >
+      <h2 id="faqhome-title" className="faqhome-title">
+        FAQ – Frequently Asked Questions
+      </h2>
 
       <p className="faqhome-subtitle">
         Find answers to the most commonly asked questions about our promotional
         products, delivery, customization, and corporate gifting services.
       </p>
 
-      <div className="faqhome-container">
-        {faqData.map((faq, index) => (
-          <div className="faqhome-item" key={index}>
-            <button
-              className="faqhome-question"
-              onClick={() => toggleFAQ(index)}
-            >
-              <span className="faqhome-question-text">{faq.question}</span>
-              <span className="faqhome-icon">
-                {activeIndex === index ? <ChevronUp /> : <ChevronDown />}
-              </span>
-            </button>
+      <div className="faqhome-container" role="list">
+        {faqData.map((faq, index) => {
+          const isOpen = activeIndex === index;
+          const answerId = `faq-answer-${index}`;
+          const questionId = `faq-question-${index}`;
 
-            {activeIndex === index && (
-              <div className="faqhome-answer">
-                <p className="faqhome-answer-text">{faq.answer}</p>
-              </div>
-            )}
-          </div>
-        ))}
+          return (
+            <div className="faqhome-item" key={index} role="listitem">
+              <button
+                id={questionId}
+                className="faqhome-question"
+                aria-expanded={isOpen}
+                aria-controls={answerId}
+                onClick={() => toggleFAQ(index)}
+              >
+                <span className="faqhome-question-text">{faq.question}</span>
+                <span className="faqhome-icon" aria-hidden="true">
+                  {isOpen ? <ChevronUp /> : <ChevronDown />}
+                </span>
+              </button>
+
+              {isOpen && (
+                <div
+                  id={answerId}
+                  role="region"
+                  aria-labelledby={questionId}
+                  className="faqhome-answer"
+                >
+                  <p className="faqhome-answer-text">{faq.answer}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );

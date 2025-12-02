@@ -10,9 +10,11 @@ const FloatingButtons = () => {
         className="whatsapp-button"
         target="_blank"
         rel="noopener noreferrer"
-        data-title="Chat on WhatsApp"
+        title="Chat with us on WhatsApp"
+        aria-label="Chat with us on WhatsApp"
+        role="button"
       >
-        <FaWhatsapp className="icon-btn" />
+        <FaWhatsapp className="icon-btn" aria-hidden="true" />
       </a>
     </div>
   );

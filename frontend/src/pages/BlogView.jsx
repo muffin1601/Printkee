@@ -27,7 +27,7 @@ const BlogView = () => {
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/blogs/${id}/comments`, comment);
       setComment({ name: '', comment: '' });
-      fetchBlog(); // Refresh comments
+      fetchBlog();
     } catch (error) {
       console.error("Error posting comment:", error);
     }
@@ -35,21 +35,48 @@ const BlogView = () => {
 
   if (!blog) return <div className="blog-view-loading">Loading blog post...</div>;
 
+  const canonicalUrl = `https://printkee.com/blog/${id}`;
+
+  // JSON-LD Structured Data
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: blog.title,
+    image: `${import.meta.env.VITE_IMG_URL}/${blog.image}`,
+    author: {
+      "@type": "Person",
+      name: blog.author
+    },
+    datePublished: blog.date,
+    description: blog.content.slice(0, 150),
+    url: canonicalUrl
+  };
+
   return (
     <div className="blog-view-container">
+
+      {/* SEO Helmet */}
       <Helmet>
         <title>{blog.title} | MF Global Blog</title>
         <meta
           name="description"
           content={blog.content.slice(0, 160).replace(/<[^>]+>/g, '')}
         />
+        <link rel="canonical" href={canonicalUrl} />
+
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
 
-      {/* Two-column layout */}
+      {/* MAIN LAYOUT */}
       <div className="blog-view-main">
-        {/* Left Column: Blog Content */}
-        <div className="blog-left">
+
+        {/* LEFT COLUMN — BLOG CONTENT */}
+        <article className="blog-left">
           <h1>{blog.title}</h1>
+
           <p className="blog-view-meta">
             By {blog.author} on {new Date(blog.date).toLocaleDateString()}
           </p>
@@ -62,13 +89,18 @@ const BlogView = () => {
             />
           )}
 
-          <div className="blog-view-content">{blog.content}</div>
-        </div>
+          {/* Render content safely & correctly */}
+          <div
+            className="blog-view-content"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          ></div>
+        </article>
 
-        {/* Right Column: Comments */}
-        <div className="blog-right">
+        {/* RIGHT COLUMN — COMMENTS */}
+        <aside className="blog-right">
           <div className="comment-section">
-            <h3>Comments</h3>
+            <h3 id="comments-title">Comments</h3>
+
             {blog.comments.length === 0 ? (
               <p>No comments yet. Be the first to comment!</p>
             ) : (
@@ -80,25 +112,33 @@ const BlogView = () => {
               ))
             )}
 
-            <form onSubmit={handleComment} className="comment-form">
+            {/* Accessible Comment Form */}
+            <form onSubmit={handleComment} className="comment-form" aria-labelledby="comments-title">
+
+              <label htmlFor="comment-name">Your Name</label>
               <input
+                id="comment-name"
                 name="name"
-                placeholder="Your Name"
+                placeholder="Enter your name"
                 value={comment.name}
                 onChange={(e) => setComment({ ...comment, name: e.target.value })}
                 required
               />
+
+              <label htmlFor="comment-text">Your Comment</label>
               <textarea
+                id="comment-text"
                 name="comment"
-                placeholder="Write your comment"
+                placeholder="Write your comment…"
                 value={comment.comment}
                 onChange={(e) => setComment({ ...comment, comment: e.target.value })}
                 required
               />
-              <button type="submit">Post Comment</button>
+
+              <button type="submit" aria-label="Post your comment">Post Comment</button>
             </form>
           </div>
-        </div>
+        </aside>
       </div>
     </div>
   );

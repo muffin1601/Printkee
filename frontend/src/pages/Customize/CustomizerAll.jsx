@@ -1,17 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 import { fabric } from "fabric";
 import { useLocation } from "react-router-dom";
-import CanvasToolbar from './components/CanvasToolbar';
-import ThumbnailGallery from './components/ThumbnailGallery';
-import VerticalToolbar from './components/VerticalToolbar';
-import UploadControls from './components/UploadControls';
-import TextControls from './components/TextControls';
-import ExportButtons from './components/ExportButtons';
-import ProductCustomizer from './components/ProductCustomizer';
-import PreviewModalpng from './components/PreviewModalpng';
+
+import CanvasToolbar from "./components/CanvasToolbar";
+import ThumbnailGallery from "./components/ThumbnailGallery";
+import VerticalToolbar from "./components/VerticalToolbar";
+import UploadControls from "./components/UploadControls";
+import TextControls from "./components/TextControls";
+import ExportButtons from "./components/ExportButtons";
+import ProductCustomizer from "./components/ProductCustomizer";
+import PreviewModalpng from "./components/PreviewModalpng";
 
 const CustomizeAll = () => {
   const canvasRef = useRef(null);
+
   const thumbnailCanvasRefs = useRef([
     React.createRef(),
     React.createRef(),
@@ -20,54 +22,73 @@ const CustomizeAll = () => {
   ]);
 
   const location = useLocation();
-  const { productImages = [], productName = "", subcategory = "" } = location.state || {};
+  const {
+    productImages = [],
+    productName = "",
+    subcategory = "",
+  } = location.state || {};
+
+  // Prevent crash if fewer than 4 images
+  const safeImages = [...productImages];
+  while (safeImages.length < 4) safeImages.push(productImages[0] || "");
 
   const [viewStates, setViewStates] = useState([null, null, null, null]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeTool, setActiveTool] = useState("upload");
+
   const [undoStack, setUndoStack] = useState([]);
   const [redoStack, setRedoStack] = useState([]);
+
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [flag, setFlag] = useState(false);
 
-
+  // ---------- AUTO SELECT EXPORT TOOL ----------
   useEffect(() => {
-    const allowedExportCategories = ["Aprons", "Corporate Shirts", "Winter Wear"];
-    if (allowedExportCategories.map(c => c.toLowerCase()).includes(subcategory.toLowerCase())) {
+    const allowed = ["aprons", "corporate shirts", "winter wear"];
+    if (allowed.includes(subcategory.toLowerCase())) {
       setActiveTool("export");
     }
   }, [subcategory]);
 
+  // ---------- SAVE VIEW ----------
   const saveCurrentViewState = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const json = canvas.toJSON(['id', 'customPart']);
+    const json = canvas.toJSON(["id", "customPart"]);
     json.canvasWidth = canvas.getWidth();
     json.canvasHeight = canvas.getHeight();
     if (canvas.backgroundImage?.getSrc) {
       json.backgroundImageUrl = canvas.backgroundImage.getSrc();
     }
-    const newStates = [...viewStates];
-    newStates[activeIndex] = json;
-    setViewStates(newStates);
+
+    setViewStates((prev) => {
+      const updated = [...prev];
+      updated[activeIndex] = json;
+      return updated;
+    });
   };
 
-
-
+  // ---------- UPDATE THUMBNAIL ----------
   const updateThumbnail = (index) => {
     const srcCanvas = canvasRef.current;
     const dstCanvas = thumbnailCanvasRefs.current[index]?.current;
     if (!srcCanvas || !dstCanvas) return;
 
+    const temp = new fabric.StaticCanvas(null);
+    temp.setWidth(srcCanvas.getWidth());
+    temp.setHeight(srcCanvas.getHeight());
+
     const dataUrl = srcCanvas.toDataURL({ format: "png" });
 
     const thumbCanvas = new fabric.StaticCanvas(dstCanvas);
+
     fabric.Image.fromURL(dataUrl, (img) => {
       const scale = Math.min(
         dstCanvas.width / img.width,
         dstCanvas.height / img.height
       );
+
       img.scale(scale);
       img.set({
         left: (dstCanvas.width - img.width * scale) / 2,
@@ -80,13 +101,32 @@ const CustomizeAll = () => {
     });
   };
 
+  // ---------- UNDO ----------
+  const handleUndo = () => {
+    const canvas = canvasRef.current;
+    if (!canvas || undoStack.length === 0) return;
+
+    const lastState = undoStack.pop();
+    const current = canvas.toJSON(["id", "customPart"]);
+
+    setRedoStack((prev) => [...prev, current]);
+    setUndoStack([...undoStack]);
+
+    canvas.loadFromJSON(lastState, () => {
+      canvas.renderAll();
+      updateThumbnail(activeIndex);
+    });
+  };
+
+  // ---------- REDO ----------
   const handleRedo = () => {
     const canvas = canvasRef.current;
     if (!canvas || redoStack.length === 0) return;
 
     const nextState = redoStack.pop();
-    const currentState = canvas.toJSON(['id', 'customPart']);
-    setUndoStack(prev => [...prev, currentState]);
+    const current = canvas.toJSON(["id", "customPart"]);
+
+    setUndoStack((prev) => [...prev, current]);
 
     canvas.loadFromJSON(nextState, () => {
       canvas.renderAll();
@@ -94,43 +134,33 @@ const CustomizeAll = () => {
     });
   };
 
-  const handleUndo = () => {
-    const canvas = canvasRef.current;
-    if (!canvas || undoStack.length === 0) return;
-
-    const prevState = undoStack[undoStack.length - 1];
-    const newUndoStack = undoStack.slice(0, -1);
-
-    const currentState = canvas.toJSON(['id', 'customPart']);
-    setUndoStack(newUndoStack);
-    setRedoStack(prev => [...prev, currentState]);
-
-    canvas.loadFromJSON(prevState, () => {
-      canvas.renderAll();
-      updateThumbnail(activeIndex);
-    });
-  };
-
+  // ---------- SWITCH VIEW ----------
   const handleThumbnailClick = (index) => {
     if (index === activeIndex) return;
+
     saveCurrentViewState();
     setActiveIndex(index);
 
     const canvas = canvasRef.current;
     const newState = viewStates[index];
+
     if (canvas && newState) {
       canvas.loadFromJSON(newState, () => {
-        canvas.mainGroup = canvas.getObjects().find(obj => obj.type === 'group');
+        canvas.mainGroup = canvas.getObjects().find(
+          (obj) => obj.type === "group"
+        );
         canvas.renderAll();
       });
     }
   };
 
+  // ---------- CHANGE TOOL ----------
   const handleToolChange = (tool) => {
     saveCurrentViewState();
     setActiveTool(tool);
   };
 
+  // ---------- PREVIEW ----------
   useEffect(() => {
     if (activeTool === "preview") {
       saveCurrentViewState();
@@ -140,29 +170,27 @@ const CustomizeAll = () => {
     }
   }, [activeTool]);
 
+  // Render thumbnails in preview mode
   useEffect(() => {
     if (!isPreviewOpen) return;
     setTimeout(() => {
-      for (let i = 0; i < viewStates.length; i++) {
-        updateThumbnail(i);
-      }
-    }, 300);
+      viewStates.forEach((_, i) => updateThumbnail(i));
+    }, 250);
   }, [isPreviewOpen]);
 
-
   return (
-
     <div className="customizer-page">
       <h2 className="customizer-title">Customize your product</h2>
 
       <div className="customizer-container">
-        {/* Top Bar */}
+        {/* ---------------- TOP TOOLBAR ---------------- */}
         <div className="top-tools-bar">
           <CanvasToolbar
             canvasRef={canvasRef}
             onUndo={handleUndo}
             onRedo={handleRedo}
           />
+
           <ThumbnailGallery
             activeIndex={activeIndex}
             onThumbnailClick={handleThumbnailClick}
@@ -170,9 +198,8 @@ const CustomizeAll = () => {
           />
         </div>
 
-        {/* Main Customizer Body */}
+        {/* ---------------- MAIN BODY ---------------- */}
         <div className="customizer-main">
-
           <div className="vertical-toolbar">
             <VerticalToolbar
               onSelectTool={handleToolChange}
@@ -189,39 +216,36 @@ const CustomizeAll = () => {
                 updateThumbnail={() => updateThumbnail(activeIndex)}
               />
             )}
+
             {activeTool === "text" && (
               <TextControls
                 canvasRef={canvasRef}
                 updateThumbnail={() => updateThumbnail(activeIndex)}
               />
             )}
+
             {activeTool === "export" && (
-              <ExportButtons
-                canvasRef={canvasRef}
-                viewStates={viewStates}
-              />
+              <ExportButtons canvasRef={canvasRef} viewStates={viewStates} />
             )}
           </div>
 
           <div className="canvas-wrapper">
             <ProductCustomizer
               canvasRef={canvasRef}
-              mainImageUrl={`${productImages[activeIndex]}`}
+              mainImageUrl={safeImages[activeIndex]}
               savedState={viewStates[activeIndex]}
             />
           </div>
         </div>
 
-        {/* Preview Modal */}
+        {/* ---------------- PREVIEW MODAL ---------------- */}
         <PreviewModalpng
           isOpen={isPreviewOpen}
           onClose={() => setActiveTool("export")}
           viewStates={viewStates}
-
         />
       </div>
     </div>
-
   );
 };
 

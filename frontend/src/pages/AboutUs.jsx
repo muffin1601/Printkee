@@ -11,6 +11,7 @@ const AboutUs = () => {
           name="description"
           content="Learn about MF Global Services – your trusted partner for premium corporate gifting solutions. Discover our mission, values, and why top brands choose us for personalized gifts."
         />
+        <link rel="canonical" href="https://printkee.com/about" />
       </Helmet>
 
       <section className="aboutus-hero">
@@ -35,7 +36,7 @@ const AboutUs = () => {
           <p>
             MF Global Services is a trusted name in the corporate gifting industry. We offer a diverse product range—from eco-friendly items and branded apparel to premium office accessories and welcome kits. Our commitment is to deliver value-driven, thoughtful gifts that reflect your organization’s ethos.
           </p>
-          <img src="/assets/2.webp" height="300" width="500" alt="Team behind MF Global" />
+          <img src="/assets/2.webp" height="300" width="500" alt="Our team working at MF Global Services" />
         </div>
       </section>
 
@@ -43,9 +44,9 @@ const AboutUs = () => {
         <h2>Our Mission</h2>
         <div className="aboutus-flex">
           <p>
-            Our mission is to simplify corporate gifting with innovative, customizable solutions that elevate your brand. Whether you're welcoming new employees, rewarding top performers, or building client relationships, we make sure every gift makes an impact.
+            Our mission is to simplify corporate gifting with innovative, customizable solutions that elevate your brand. Whether you're welcoming new employees, rewarding performers, or building client relationships, every gift we create is designed to make an impact.
           </p>
-          <img src="/assets/3.webp" height="300" width="500" alt="MF Global Mission Statement" />
+          <img src="/assets/3.webp" height="300" width="500" alt="MF Global Services mission illustration" />
         </div>
       </section>
 
@@ -53,13 +54,13 @@ const AboutUs = () => {
         <h2>Why Choose Us?</h2>
         <div className="aboutus-flex">
           <ul>
-            <li><strong>Customization:</strong> Every product can be tailored with logos, messages, and packaging.</li>
-            <li><strong>Quality:</strong> We source premium materials and ensure top-notch production standards.</li>
-            <li><strong>Experience:</strong> Years of industry experience with top brands and institutions.</li>
-            <li><strong>Eco-Friendly Options:</strong> Promote sustainability with our curated green gifting catalog.</li>
-            <li><strong>End-to-End Service:</strong> From design to delivery, we handle everything for you.</li>
+            <li><strong>Customization:</strong> Tailor products with logos, messages, and premium packaging.</li>
+            <li><strong>Quality:</strong> We source premium materials and follow strict quality checks.</li>
+            <li><strong>Experience:</strong> Trusted by leading brands nationwide.</li>
+            <li><strong>Eco-Friendly Options:</strong> Promote sustainability with our green gifting catalog.</li>
+            <li><strong>End-to-End Service:</strong> From concept to delivery—we manage everything.</li>
           </ul>
-          <img src="/assets/5.jpeg" height="300" width="500" alt="Why Choose MF Global Services" />
+          <img src="/assets/5.jpeg" height="300" width="500" alt="Reasons to choose MF Global Services" />
         </div>
       </section>
 
@@ -67,18 +68,20 @@ const AboutUs = () => {
         <h2>Trusted by Leading Brands</h2>
         <div className="aboutus-flex">
           <p>
-            We have proudly partnered with over 500+ corporate clients across industries like technology, finance, healthcare, and education. Our strong reputation is built on trust, transparency, and timely execution.
+            We have proudly partnered with 500+ corporate clients across industries such as technology, finance, healthcare, and education. Our reputation is built on trust, transparency, and timely delivery.
           </p>
-          <img src="/assets/8.webp" height="300" width="500" alt="Our Corporate Clients" />
+          <img src="/assets/8.webp" height="300" width="500" alt="Corporate clients of MF Global Services" />
         </div>
       </section>
 
       <section className="aboutus-contact-cta">
         <h3>Looking to Create an Unforgettable Gifting Experience?</h3>
         <p>
-          Reach out to us today to discuss your requirements. Whether you're planning a large corporate campaign or a one-time gift box, MF Global Services is your ideal gifting partner.
+          Get in touch today! Whether you're planning a large corporate campaign or a one-time luxury gift box, MF Global Services is your ideal gifting partner.
         </p>
-        <a href="/contact" className="aboutus-btn">Contact Us</a>
+        <a href="/contact" className="aboutus-btn" aria-label="Contact MF Global Services">
+          Contact Us
+        </a>
       </section>
     </div>
   );

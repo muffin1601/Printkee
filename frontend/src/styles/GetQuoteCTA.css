@@ -26,7 +26,7 @@
   line-height: 1.3;
 }
 
-.quote-features {
+.quote-features { 
   display: flex;
   justify-content: center;
   align-items: center;

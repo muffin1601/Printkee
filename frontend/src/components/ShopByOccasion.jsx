@@ -42,8 +42,10 @@ const occasions = [
 ];
 
 const ShopByOccasion = () => (
-  <section className="occasion-wrapper">
-    <h2 className="occasion-heading">Corporate Gifting by Category</h2>
+  <section className="occasion-wrapper" aria-labelledby="occasion-heading">
+    <h2 id="occasion-heading" className="occasion-heading">
+      Corporate Gifting by Category
+    </h2>
 
     <p className="occasion-sub">
       Discover a wide range of corporate gifting solutions in Delhi NCR, Noida,
@@ -55,7 +57,11 @@ const ShopByOccasion = () => (
 
     <div className="occasion-grid">
       {occasions.map(({ id, title, description, image, cta }) => (
-        <div key={id} className="occasion-card">
+        <article
+          key={id}
+          className="occasion-card"
+          aria-labelledby={`occasion-title-${id}`}
+        >
           <div className="image-box">
             <img
               src={image}
@@ -64,11 +70,19 @@ const ShopByOccasion = () => (
             />
           </div>
 
-          <h3 className="occasion-title">{title}</h3>
+          <h3 id={`occasion-title-${id}`} className="occasion-title">
+            {title}
+          </h3>
+
           <p className="occasion-description">{description}</p>
 
-          <button className="occasion-btn">{cta} →</button>
-        </div>
+          <button
+            className="occasion-btn"
+            aria-label={`${cta} for ${title}`}
+          >
+            {cta} <span aria-hidden="true">→</span>
+          </button>
+        </article>
       ))}
     </div>
   </section>

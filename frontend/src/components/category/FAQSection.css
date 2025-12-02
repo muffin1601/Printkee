@@ -1,6 +1,5 @@
 /* ===============================
    PREMIUM FAQ ACCORDION – BRAND THEME
-   Using your color palette + unique classes
 ================================= */
 
 .pk-faq-wrapper {
@@ -48,17 +47,34 @@
 
 
 /* ====================================
-   Question Row
+   Question Row – FIXED for BUTTON element
 ===================================== */
 
 .pk-faq-question {
+  /* Remove default <button> styling */
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+
+  /* Keep your original design */
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-dark);
   cursor: pointer;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  /* Prevent button outline from breaking design */
+  outline: none;
+}
+
+.pk-faq-question:focus-visible {
+  outline: 2px solid var(--purple);
+  border-radius: var(--radius-sm);
 }
 
 .pk-faq-question-text {

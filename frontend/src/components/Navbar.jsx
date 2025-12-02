@@ -47,8 +47,6 @@ const Navbar = () => {
     }
   };
 
-  // ❌ REMOVED slugify COMPLETELY
-
   const groupedCategories = Object.entries(navbarSubcategories).reduce(
     (acc, curr, index) => {
       if (index % 2 === 0) acc.push([curr]);
@@ -60,27 +58,35 @@ const Navbar = () => {
 
   return (
     <div className="navbar-wrapper">
-
       {/* -------- Top bar -------- */}
       <div className="navbar-top">
         <div className="navbar-logo">
           <img
             className="navbar-logo-img"
             src="/assets/printkeeLogo.png"
-            alt="Printkee Logo"
+            alt="Printkee Corporate Gifting Logo"
           />
         </div>
 
         {/* Desktop search */}
         <div className="navbar-search desktop-only">
+          <label htmlFor="navbar-search-input" className="sr-only">
+            Search Products
+          </label>
           <input
+            id="navbar-search-input"
             type="text"
             placeholder="Search Product..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleSearch}
           />
+
+          {/* <label htmlFor="navbar-search-category" className="sr-only">
+            Select Category
+          </label>
           <select
+            id="navbar-search-category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
@@ -89,21 +95,24 @@ const Navbar = () => {
             <option>Bags</option>
             <option>Drinkware</option>
             <option>Collection</option>
-          </select>
+          </select> */}
         </div>
 
         <div className="navbar-visitor-count desktop-only">
           Visitors Today: <span>{visitorCount}</span>
         </div>
 
+        {/* Mobile controls */}
         <div className="mobile-controls mobile-only">
           <button
+            aria-label="Open search bar"
             className="search-toggle"
             onClick={() => setIsSearchOpen(true)}
           >
             <IoSearch size={28} />
           </button>
           <button
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="menu-toggle"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -113,11 +122,11 @@ const Navbar = () => {
       </div>
 
       {/* -------- Desktop Menu -------- */}
-      <div className="navbar-bottom desktop-only">
-        <ul className="menu">
+      <nav className="navbar-bottom desktop-only" aria-label="Main menu">
+        <ul className="menu" >
           <li>
             <NavLink to="/" className="nav-link">
-              <FaHome /> Home
+              <FaHome aria-hidden="true" /> Home
             </NavLink>
           </li>
 
@@ -126,13 +135,15 @@ const Navbar = () => {
             onMouseEnter={() => setShowMegaMenu(true)}
             onMouseLeave={() => setShowMegaMenu(false)}
           >
-            <span className="nav-link">
-              <FaThList /> All Categories ▾
+            <span
+              className="nav-link"
+              
+            >
+              <FaThList aria-hidden="true" /> All Categories ▾
             </span>
 
             <div className={`mega-menu-wrapper ${showMegaMenu ? "open" : ""}`}>
               <div className="mega-menu">
-
                 {groupedCategories.map((group, idx) => (
                   <div className="mega-menu-column" key={idx}>
                     {group.map(([mainCategory, subcategories], i) => (
@@ -142,8 +153,9 @@ const Navbar = () => {
                           {subcategories.map((sub, j) => (
                             <li key={j}>
                               <NavLink
-                                to={sub.href}  
+                                to={sub.href}
                                 onClick={() => setShowMegaMenu(false)}
+                                aria-label={`Go to ${sub.name}`}
                               >
                                 {sub.name}
                               </NavLink>
@@ -154,38 +166,31 @@ const Navbar = () => {
                     ))}
                   </div>
                 ))}
-
               </div>
             </div>
           </li>
 
           <li>
             <NavLink to="/brands" className="nav-link">
-              <FaTags /> Brands
+              <FaTags aria-hidden="true" /> Brands
             </NavLink>
           </li>
 
           <li>
             <NavLink to="/blogs" className="nav-link">
-              <FaPen /> Blog
+              <FaPen aria-hidden="true" /> Blog
             </NavLink>
           </li>
 
           <li>
             <NavLink to="/contact" className="nav-link">
-              <FaEnvelope /> Contact Us
+              <FaEnvelope aria-hidden="true" /> Contact Us
             </NavLink>
           </li>
 
-          {/* <li>
-            <NavLink to="/diwali-special" className="nav-link">
-              <FaGift /> Diwali Special
-            </NavLink>
-          </li> */}
-
           <li>
             <NavLink to="/about" className="nav-link">
-              <FaInfoCircle /> About Us
+              <FaInfoCircle aria-hidden="true" /> About Us
             </NavLink>
           </li>
         </ul>
@@ -194,13 +199,22 @@ const Navbar = () => {
           Contact with Us: <br />
           <a href="mailto:sales@printkee.com">sales@printkee.com</a>
         </div>
-      </div>
+      </nav>
 
       {/* -------- Mobile Side Drawer -------- */}
-      <nav className={`side-menu ${isMenuOpen ? "open" : ""}`}>
+      <nav
+        className={`side-menu ${isMenuOpen ? "open" : ""}`}
+        
+        aria-label="Mobile menu"
+      >
         <div className="side-menu-header">
-          <img src="/assets/printkeeLogo.png" alt="Logo" className="side-logo" />
-          <button className="close-btn-side" onClick={() => setIsMenuOpen(false)}>
+          <img src="/assets/printkeeLogo.png" alt="Printkee Logo" className="side-logo" />
+
+          <button
+            className="close-btn-side"
+            aria-label="Close menu"
+            onClick={() => setIsMenuOpen(false)}
+          >
             <IoClose size={30} />
           </button>
         </div>
@@ -208,19 +222,21 @@ const Navbar = () => {
         <ul>
           <li>
             <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
-              <FaHome /> Home
+              <FaHome aria-hidden="true" /> Home
             </NavLink>
           </li>
 
           <li className="mobile-dropdown">
             <button
               className="dropdown-toggle"
+              aria-expanded={openCategory === "all"}
+              aria-label="Toggle category list"
               onClick={() =>
                 setOpenCategory(openCategory === "all" ? null : "all")
               }
             >
               <span>
-                <FaThList /> All Categories
+                <FaThList aria-hidden="true" /> All Categories
               </span>
               {openCategory === "all" ? <FaChevronUp /> : <FaChevronDown />}
             </button>
@@ -231,8 +247,13 @@ const Navbar = () => {
                   ([mainCategory, subcategories], idx) => (
                     <NavLink
                       key={idx}
-                      to={subcategories[0].href.split("/")[2] ? `/category/${subcategories[0].href.split("/")[2]}` : "/"}
+                      to={
+                        subcategories[0].href.split("/")[2]
+                          ? `/category/${subcategories[0].href.split("/")[2]}`
+                          : "/"
+                      }
                       onClick={() => setIsMenuOpen(false)}
+                      aria-label={`Open ${mainCategory} category`}
                     >
                       {mainCategory}
                     </NavLink>
@@ -244,31 +265,25 @@ const Navbar = () => {
 
           <li>
             <NavLink to="/brands" onClick={() => setIsMenuOpen(false)}>
-              <FaTags /> Brands
+              <FaTags aria-hidden="true" /> Brands
             </NavLink>
           </li>
 
           <li>
             <NavLink to="/blogs" onClick={() => setIsMenuOpen(false)}>
-              <FaPen /> Blogs
+              <FaPen aria-hidden="true" /> Blogs
             </NavLink>
           </li>
 
           <li>
             <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
-              <FaEnvelope /> Contact Us
+              <FaEnvelope aria-hidden="true" /> Contact Us
             </NavLink>
           </li>
 
-          {/* <li>
-            <NavLink to="/diwali-special" onClick={() => setIsMenuOpen(false)}>
-              <FaGift /> Diwali Special
-            </NavLink>
-          </li> */}
-
           <li>
             <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>
-              <FaInfoCircle /> About Us
+              <FaInfoCircle aria-hidden="true" /> About Us
             </NavLink>
           </li>
         </ul>
@@ -283,14 +298,21 @@ const Navbar = () => {
         <div className="search-overlay">
           <div className="search-box">
             <div className="search-input-group">
+              <label htmlFor="mobile-search" className="sr-only">Search</label>
               <input
+                id="mobile-search"
                 type="text"
                 placeholder="Search.."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleSearch}
               />
+
+              {/* <label htmlFor="mobile-select" className="sr-only">
+                Select category
+              </label>
               <select
+                id="mobile-select"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >
@@ -299,10 +321,12 @@ const Navbar = () => {
                 <option>Bags</option>
                 <option>Drinkware</option>
                 <option>Collection</option>
-              </select>
+              </select> */}
             </div>
+
             <button
               className="close-btn-search"
+              aria-label="Close search"
               onClick={() => setIsSearchOpen(false)}
             >
               <IoClose size={30} />

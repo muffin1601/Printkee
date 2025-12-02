@@ -20,7 +20,6 @@ const ContactUs = () => {
     e.preventDefault();
 
     try {
-      // 1. Send to CRM
       await axios.post(import.meta.env.VITE_CRM_API_URL, formData, {
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +27,6 @@ const ContactUs = () => {
         },
       });
 
-      // 2. Send to Email
       await axios.post(`${import.meta.env.VITE_API_URL}/send-email`, formData);
 
       alert("Thank you! Your message has been sent.");
@@ -45,11 +43,23 @@ const ContactUs = () => {
     }
   };
 
+  const canonicalUrl = "https://printkee.com/contact";
+
   return (
     <div className="contact-page">
       <Helmet>
         <title>Contact Us | MF Global Services</title>
-        <meta name="description" content="Get in touch with MF Global Services for customized corporate gifting solutions. Reach out via our contact form, email, or phone." />
+        <meta
+          name="description"
+          content="Get in touch with MF Global Services for customized corporate gifting solutions. Reach out via our contact form, email, or phone."
+        />
+        <meta
+          name="keywords"
+          content="contact MF Global Services, corporate gifting enquiry, Printkee contact, gifting solutions India"
+        />
+
+        {/* ✅ Canonical Tag */}
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
 
       <div className="contact-hero">
@@ -58,59 +68,78 @@ const ContactUs = () => {
       </div>
 
       <div className="contact-content">
-        <div className="contact-form">
+        <section className="contact-form">
           <h2>Send Us a Message</h2>
-          <form onSubmit={handleSubmit}>
+
+          <form onSubmit={handleSubmit} aria-label="Contact form">
+            
+            <label htmlFor="contact-name">Your Name</label>
             <input
+              id="contact-name"
               type="text"
               name="name"
-              placeholder="Your Name"
               required
               value={formData.name}
               onChange={handleChange}
+              placeholder="Your Name"
             />
+
+            <label htmlFor="contact-company">Company Name</label>
             <input
+              id="contact-company"
               type="text"
               name="company"
-              placeholder="Company Name"
               required
               value={formData.company}
               onChange={handleChange}
+              placeholder="Company Name"
             />
+
+            <label htmlFor="contact-email">Your Email</label>
             <input
+              id="contact-email"
               type="email"
               name="email"
-              placeholder="Your Email"
               required
               value={formData.email}
               onChange={handleChange}
+              placeholder="Your Email"
             />
+
+            <label htmlFor="contact-phone">Phone Number</label>
             <input
+              id="contact-phone"
               type="tel"
               name="phone"
-              placeholder="Phone Number"
               required
               value={formData.phone}
               onChange={handleChange}
+              placeholder="Phone Number"
             />
+
+            <label htmlFor="contact-requirement">Your Requirement</label>
             <textarea
+              id="contact-requirement"
               name="requirement"
-              placeholder="Your Requirement"
               rows="5"
               required
               value={formData.requirement}
               onChange={handleChange}
+              placeholder="Your Requirement"
             ></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
 
-        <div className="contact-details">
+            <button type="submit" aria-label="Send message">
+              Send Message
+            </button>
+          </form>
+        </section>
+
+        <section className="contact-details">
           <h2>Contact Information</h2>
           <p><strong>Email:</strong> sales@printkee.com</p>
           <p><strong>Phone:</strong> +91 8750708222</p>
           <p><strong>Address:</strong> F90/1, Beside ESIC Hospital, Okhla Industrial Area Phase 1, New Delhi – 110020, India</p>
-        </div>
+        </section>
       </div>
     </div>
   );

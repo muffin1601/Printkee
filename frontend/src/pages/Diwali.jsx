@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import "swiper/css";
@@ -26,7 +27,7 @@ const Diwali = () => {
   });
 
   const handleLeadChange = (e) => {
-    setLeadData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setLeadData({ ...leadData, [e.target.name]: e.target.value });
   };
 
   const handleLeadSubmit = async (e) => {
@@ -50,35 +51,41 @@ const Diwali = () => {
       link.click();
       document.body.removeChild(link);
 
-      setLeadData({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        requirement: "",
-      });
+      setLeadData({ name: "", company: "", email: "", phone: "" });
       setIsLeadFormOpen(false);
-    } catch (error) {
-      console.error("Lead form submission error:", error);
+    } catch (err) {
+      console.error("Lead form submission error:", err);
       alert("Something went wrong. Please try again later.");
     }
   };
 
+  const canonicalUrl = "https://printkee.com/diwali-special";
+
   return (
     <div className="diwali-page">
+      <Helmet>
+        <title>Diwali Corporate Gifting 2025 | Premium Gift Hampers</title>
+        <meta
+          name="description"
+          content="Explore premium Diwali corporate gifting ideas for employees and clients. Download our Diwali catalogue featuring hampers, electronics, bags, and branded gifts."
+        />
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
+
       {/* Banner */}
       <div className="diwali-banner">
         <img
           src="/images/diwali-banner.webp"
-          alt="Diwali Celebration"
+          alt="Premium Diwali Corporate Gifting Hampers for Employees & Clients"
           className="diwali-banner-img"
         />
       </div>
 
       {/* Gift Carousels */}
       {Object.keys(groupedGifts).map((category, idx) => (
-        <div className="diwali-carousel-section" key={idx}>
+        <section className="diwali-carousel-section" key={idx}>
           <h2 className="diwali-carousel-title">{category}</h2>
+
           <Swiper
             modules={[Navigation, Pagination, Autoplay, Scrollbar]}
             navigation
@@ -89,7 +96,7 @@ const Diwali = () => {
             }}
             scrollbar={{ draggable: true }}
             spaceBetween={20}
-            slidesPerView={1} // mobile first
+            slidesPerView={1}
             breakpoints={{
               480: { slidesPerView: 1 },
               640: { slidesPerView: 2 },
@@ -103,14 +110,15 @@ const Diwali = () => {
               pauseOnMouseEnter: true,
             }}
             speed={4000}
-            loop={true}
+            loop
+            aria-label={`Diwali gifts carousel for ${category}`}
           >
             {groupedGifts[category].map((gift) => (
               <SwiperSlide key={gift.id}>
                 <div className="diwali-carousel-card">
                   <img
                     src={gift.image}
-                    alt={gift.name}
+                    alt={`${gift.name} – ${gift.description}`}
                     className="diwali-carousel-img"
                   />
                   <p className="diwali-gift-name">{gift.name}</p>
@@ -119,14 +127,16 @@ const Diwali = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </section>
       ))}
 
       {/* CTA Section */}
       <div className="diwali-cta-section">
         <h2>🎉 Download Our Diwali Catalogue!</h2>
+
         <button
           className="diwali-cta-button"
+          aria-label="Open lead form to download Diwali catalogue"
           onClick={() => setIsLeadFormOpen(true)}
         >
           Download Now
@@ -134,13 +144,14 @@ const Diwali = () => {
       </div>
 
       {/* Brands Carousel */}
-      <div className="diwali-brands-section">
+      <section className="diwali-brands-section">
         <h2>✨ Brands We Offer ✨</h2>
+
         <Swiper
           modules={[Autoplay, Scrollbar]}
           spaceBetween={20}
           scrollbar={{ draggable: true }}
-          slidesPerView={2} // mobile first
+          slidesPerView={2}
           breakpoints={{
             480: { slidesPerView: 2 },
             640: { slidesPerView: 3 },
@@ -149,29 +160,43 @@ const Diwali = () => {
             1440: { slidesPerView: 6 },
           }}
           autoplay={{ delay: 2000 }}
-          loop={true}
+          loop
         >
           {brandsList.map((brand) => (
             <SwiperSlide key={brand.slug}>
-              <a href={brand.url} className="diwali-brand-card">
+              <a
+                href={brand.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="diwali-brand-card"
+                aria-label={`Visit ${brand.name} brand page`}
+              >
                 <img
                   src={brand.logo}
-                  alt={brand.name}
+                  alt={`${brand.name} brand logo`}
                   className="diwali-brand-logo"
                 />
               </a>
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </section>
 
       {/* Lead Form Modal */}
       {isLeadFormOpen && (
-        <div className="lead-overlay">
+        <div
+          className="lead-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Download Diwali catalogue form"
+        >
           <div className="lead-modal">
             <h3>Get Your Free Diwali Catalogue</h3>
+
             <form onSubmit={handleLeadSubmit} className="lead-form">
+              <label htmlFor="lead-name">Your Name</label>
               <input
+                id="lead-name"
                 type="text"
                 name="name"
                 value={leadData.name}
@@ -179,14 +204,20 @@ const Diwali = () => {
                 placeholder="Your Name"
                 required
               />
+
+              <label htmlFor="lead-company">Company Name</label>
               <input
+                id="lead-company"
                 type="text"
                 name="company"
                 value={leadData.company}
                 onChange={handleLeadChange}
                 placeholder="Company Name"
               />
+
+              <label htmlFor="lead-email">Email Address</label>
               <input
+                id="lead-email"
                 type="email"
                 name="email"
                 value={leadData.email}
@@ -194,7 +225,10 @@ const Diwali = () => {
                 placeholder="Email Address"
                 required
               />
+
+              <label htmlFor="lead-phone">Phone Number</label>
               <input
+                id="lead-phone"
                 type="tel"
                 name="phone"
                 value={leadData.phone}
@@ -204,12 +238,18 @@ const Diwali = () => {
               />
 
               <div className="lead-actions">
-                <button type="submit" className="lead-submit">
+                <button
+                  type="submit"
+                  className="lead-submit"
+                  aria-label="Submit details and download the catalogue"
+                >
                   Submit & Download
                 </button>
+
                 <button
                   type="button"
                   className="lead-cancel"
+                  aria-label="Close form"
                   onClick={() => setIsLeadFormOpen(false)}
                 >
                   Cancel

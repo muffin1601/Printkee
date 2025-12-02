@@ -19,7 +19,6 @@ const ProductDisplay = () => {
   const [subcategoryData, setSubcategoryData] = useState(null);
 
   useEffect(() => {
-    
     axios
       .get(
         `${import.meta.env.VITE_API_URL}/subcategory/subcategory-fetch/${categorySlug}/${subcategorySlug}`
@@ -34,11 +33,10 @@ const ProductDisplay = () => {
 
   if (!subcategoryData || !categoryData) return <div>Loading...</div>;
 
- 
   const categoryName = categoryData.name;
   const subcategoryName = subcategoryData.name;
 
-  console.log (subcategoryName);
+  const canonicalUrl = `https://printkee.com/${categorySlug}/${subcategorySlug}`;
 
   const bannerImage =
     banners[categorySlug]?.subcategories?.[subcategorySlug] ||
@@ -49,117 +47,137 @@ const ProductDisplay = () => {
     <>
       <Helmet>
         <title>
-          {`${subcategoryName} | ${categoryName} - MF Global Services`}
+          {subcategoryData?.metaTitle
+            ? subcategoryData.metaTitle
+            : `${subcategoryName} | ${categoryName} - MF Global Services`}
         </title>
+
         <meta
           name="description"
           content={
-            subcategoryData?.tag
+            subcategoryData?.metaDescription
+              ? subcategoryData.metaDescription
+              : subcategoryData?.tag
               ? subcategoryData.tag.replace(/\n/g, " ")
-              : `Explore ${subcategoryName} under ${categoryName} at MF Global Services. Discover custom branded gifts for every need.`
+              : `Explore premium ${subcategoryName} under ${categoryName}. Shop branded merchandise and corporate gifting options.`
           }
         />
+
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
 
       {/* Header */}
       <div className="subcategory-header-2">
         <div className="subcategory-header-content">
-          <Link to={`/${categorySlug}`} className="back-link">
+          <Link
+            to={`/${categorySlug}`}
+            className="back-link"
+            aria-label={`Go back to ${categoryName}`}
+          >
             <div className="circle">
               <span className="arrow-2">&larr;</span>
             </div>
             <span className="span-name">Back to {categoryName}</span>
           </Link>
+
           <h1 className="page-title">{subcategoryName}</h1>
-          <p className="subcategory-description">{subcategoryData?.tag || ""}</p>
+          <p className="subcategory-description">
+            {subcategoryData?.tag || ""}
+          </p>
         </div>
       </div>
 
-      {/* Products grid */}
+      {/* Product Grid */}
       <div className="product-container-2">
         <div className="page-wrapper">
           <div className="product-container">
-            <div className="sort-bar">
-              <nav className="breadcrumbs">
-                <Link to="/">Home</Link>
-                <span className="breadcrumb-separator">/</span>
-                <Link to={`/${categorySlug}`}>{categoryName}</Link>
-                <span className="breadcrumb-separator">/</span>
-                <span className="current">{subcategoryName}</span>
-              </nav>
-            </div>
-            
+            <nav className="breadcrumbs" aria-label="Breadcrumb">
+              <Link to="/">Home</Link>
+              <span className="breadcrumb-separator">/</span>
+              <Link to={`/${categorySlug}`}>{categoryName}</Link>
+              <span className="breadcrumb-separator">/</span>
+              <span className="current">{subcategoryName}</span>
+            </nav>
+
             <div className="product-grid">
-              {products.map((product) => (
-                <div key={product._id} className="product-card">
-                  <div className="product-image-wrapper">
-                    <img
-                      className="product-img"
-                      src={product.image}
-                      alt={product.name}
-                    />
-                    <div className="product-icons">
-                      <button>
-                        <FaHeart />
-                      </button>
-                      <button>
-                        <FaEye />
-                      </button>
+              {products.map((product) => {
+                const sizeSelectId = `size-select-${product._id}`;
+                const colorSelectId = `color-select-${product._id}`;
+
+                return (
+                  <div key={product._id} className="product-card">
+                    <div className="product-image-wrapper">
+                      <img
+                        className="product-img"
+                        src={product.image}
+                        alt={`${product.name} product image`}
+                      />
+
+                      <div className="product-icons">
+                        <button aria-label={`Add ${product.name} to wishlist`}>
+                          <FaHeart />
+                        </button>
+                        <button aria-label={`View details of ${product.name}`}>
+                          <FaEye />
+                        </button>
+                      </div>
                     </div>
+
+                    <h3 className="product-title">{product.name}</h3>
+
+                    <div className="dropdown-group">
+                      {product.size?.length > 0 && (
+                        <>
+                          <label htmlFor={sizeSelectId}>Style:</label>
+                          <select id={sizeSelectId}>
+                            {product.size.map((s, index) => (
+                              <option key={index}>{s}</option>
+                            ))}
+                          </select>
+                        </>
+                      )}
+
+                      {product.colour?.length > 0 && (
+                        <>
+                          <label htmlFor={colorSelectId}>Color:</label>
+                          <select id={colorSelectId}>
+                            {product.colour.map((c, index) => (
+                              <option key={index}>{c}</option>
+                            ))}
+                          </select>
+                        </>
+                      )}
+                    </div>
+
+                    <button
+                      className="add-to-cart"
+                      aria-label={`View product: ${product.name}`}
+                      onClick={() =>
+                        navigate(
+                          `/${categorySlug}/${subcategorySlug}/${product.slug}`
+                        )
+                      }
+                    >
+                      {product.quantity === 0 ? "Sold out" : "View"} ➤
+                    </button>
                   </div>
-
-                  <h3 className="product-title">{product.name}</h3>
-
-                  <div className="dropdown-group">
-                    {product.size?.length > 0 && (
-                      <>
-                        <label>Style:</label>
-                        <select>
-                          {product.size.map((s, index) => (
-                            <option key={index}>{s}</option>
-                          ))}
-                        </select>
-                      </>
-                    )}
-
-                    {product.colour?.length > 0 && (
-                      <>
-                        <label>Color:</label>
-                        <select>
-                          {product.colour.map((c, index) => (
-                            <option key={index}>{c}</option>
-                          ))}
-                        </select>
-                      </>
-                    )}
-                  </div>
-
-                  <button
-                    className="add-to-cart"
-                    onClick={() =>
-                      navigate(
-                        `/${categorySlug}/${subcategorySlug}/${product.slug}`
-                      )
-                    }
-                  >
-                    {product.quantity === 0 ? "Sold out" : "View"} ➤
-                  </button>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
+
         <SubcategoryDescription subcategory={subcategorySlug} />
+
         <CTABanner
-        imageSrc={bannerImage}
-        linkTo="/contact"
-        alt={`Get a Quote for ${subcategoryName}`}
-      />
+          imageSrc={bannerImage}
+          linkTo="/contact"
+          alt={`Get a Quote for ${subcategoryName}`}
+        />
       </div>
 
-      
-      
       <FAQSection subcategory={subcategorySlug} />
+
       <RelatedCategories
         categorySlug={categorySlug}
         currentSubcategorySlug={subcategorySlug}

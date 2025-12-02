@@ -2,62 +2,66 @@ import React from "react";
 import "./WhyChooseUsProduct.css";
 
 const WhyChooseUsProduct = ({ productName, subcategoryName }) => {
-  const name = productName || subcategoryName || "Our Products";
+  const name = productName || subcategoryName || "this product";
 
   return (
-    <section className="wcup-wrapper">
-      <h2 className="wcup-title">Why Choose Us for {name}?</h2>
+    <section 
+      className="wcup-wrapper" 
+      aria-labelledby="why-choose-us-title"
+    >
+      <h2 id="why-choose-us-title" className="wcup-title">
+        Why Choose Us for {name}?
+      </h2>
 
-      <div className="wcup-grid">
-
-        <div className="wcup-card">
+      <ul className="wcup-grid" role="list">
+        <li className="wcup-card">
           <h3 className="wcup-card-title">Premium Material Quality</h3>
           <p className="wcup-card-text">
-            Every {name} undergoes multi-level quality checks to ensure superior
-            durability, finishing, and professional branding output.
+            Every {name} undergoes strict multi-level quality checks to ensure 
+            durability, top-grade finishing, and a professional branded appearance.
           </p>
-        </div>
+        </li>
 
-        <div className="wcup-card">
+        <li className="wcup-card">
           <h3 className="wcup-card-title">Expert Custom Branding</h3>
           <p className="wcup-card-text">
-            We specialize in logo printing, embroidery, engraving, UV printing,
-            and custom packaging to make your {name} look premium.
+            Our team specializes in embroidery, engraving, UV printing, and 
+            premium logo customization to enhance the look of your {name}.
           </p>
-        </div>
+        </li>
 
-        <div className="wcup-card">
+        <li className="wcup-card">
           <h3 className="wcup-card-title">Bulk Order Capability</h3>
           <p className="wcup-card-text">
-            From small batches to large corporate orders — we deliver consistent,
-            high-quality production across Delhi NCR.
+            We deliver consistent printing and production quality whether you 
+            order 50 units or 5,000 — ideal for corporate events and gifting.
           </p>
-        </div>
+        </li>
 
-        <div className="wcup-card">
+        <li className="wcup-card">
           <h3 className="wcup-card-title">Fast & Reliable Delivery</h3>
           <p className="wcup-card-text">
-            We ensure quick turnarounds for urgent events, employee onboarding,
-            gifting campaigns, and marketing initiatives.
+            Perfect for onboarding kits, event giveaways, marketing campaigns, 
+            and urgent requirements across Delhi NCR.
           </p>
-        </div>
+        </li>
 
-        <div className="wcup-card">
+        <li className="wcup-card">
           <h3 className="wcup-card-title">End-to-End Corporate Support</h3>
           <p className="wcup-card-text">
-            From designing to sampling and dispatch, we handle everything to
-            provide a seamless bulk ordering experience.
+            From concept to dispatch — branding, sampling, packaging, and 
+            logistics — we manage everything for a seamless experience.
           </p>
-        </div>
+        </li>
 
-        <div className="wcup-card">
+        <li className="wcup-card">
           <h3 className="wcup-card-title">Trusted by Top Corporates</h3>
           <p className="wcup-card-text">
-            Startups, SMEs, and MNCs choose us for professional branding,
-            reliability, and exceptional product quality.
+            Leading startups, SMEs, and global companies rely on us for 
+            reliability, premium quality, and professional service.
           </p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
   );
 };

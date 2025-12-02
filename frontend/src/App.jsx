@@ -26,29 +26,39 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs/>} />
-        <Route path="/brands" element={<Brands />} />
-        <Route path="/brands/:brand" element={<BrandsDisplay />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/diwali-special" element={<Diwali />} />
-        <Route path="/blogs" element={<BlogList />} />
-        <Route path="/post" element={<BlogForm />} />
-        <Route path="/blog/:id" element={<BlogView />} />
-        <Route path="/search" element={<SearchResults />} />
-        <Route path="/sitemap" element={<Sitemap/>} />
-        <Route path="/:category" element={<SubcategoryPage />} />
-        <Route path="/:category/:subcategory" element={<ProductPage />} />
-        <Route path="/:category/:subcategory/:product" element={<SingleProductPage />} />
-        <Route path="/customize/:productType" element={<CustomizerSVG />} />
-        <Route path="/customize" element={<CustomizerAll/>} />
-      </Routes>
+
+      {/* MAIN LANDMARK FIX */}
+      <main id="main-content" role="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/brands" element={<Brands />} />
+          <Route path="/brands/:brand" element={<BrandsDisplay />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/diwali-special" element={<Diwali />} />
+          <Route path="/blogs" element={<BlogList />} />
+          <Route path="/blogs/post" element={<BlogForm />} />
+          <Route path="/blog/:id" element={<BlogView />} />
+          <Route path="/search" element={<SearchResults />} />
+          <Route path="/sitemap" element={<Sitemap />} />
+          <Route path="/:category" element={<SubcategoryPage />} />
+          <Route path="/:category/:subcategory" element={<ProductPage />} />
+          <Route
+            path="/:category/:subcategory/:product"
+            element={<SingleProductPage />}
+          />
+          <Route path="/customize/:productType" element={<CustomizerSVG />} />
+          <Route path="/customize" element={<CustomizerAll />} />
+        </Routes>
+      </main>
+      {/* END MAIN */}
+
       <FloatingButton />
       <ScrollToTop />
       <Footer />
+
       <ToastContainer
         position="bottom-right"
         autoClose={4000}
@@ -58,9 +68,9 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="colored" 
+        theme="colored"
       />
-    </div>
+    </>
   );
 }
 

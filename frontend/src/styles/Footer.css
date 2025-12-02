@@ -108,7 +108,6 @@
 }
 
 
-/* 📌 Responsive Footer */
 @media (max-width: 1024px) {
   .footer-grid {
     max-width: 90%;

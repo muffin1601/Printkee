@@ -9,23 +9,25 @@ const BlogForm = () => {
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const data = new FormData();
-    Object.keys(form).forEach(key => data.append(key, form[key]));
-    if (image) data.append('image', image);
+    Object.keys(form).forEach((key) => data.append(key, form[key]));
+    if (image) data.append("image", image);
 
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/blogs/post`, data);
-      alert('Blog posted!');
-      setForm({ title: '', content: '', author: '' });
+      alert("Blog posted!");
+      setForm({ title: "", content: "", author: "" });
       setImage(null);
-      navigate('/blogs');
+      navigate("/blogs");
     } catch (err) {
-      console.error('Error posting blog:', err);
-      alert('Failed to post blog.');
+      console.error("Error posting blog:", err);
+      alert("Failed to post blog.");
     }
   };
 
@@ -37,25 +39,40 @@ const BlogForm = () => {
           name="description"
           content="Contribute to MF Global Services blog. Share your insights, ideas, and news with our community by posting a new blog today!"
         />
+        
+        {/* ✅ Canonical Tag Added */}
+        <link rel="canonical" href="https://printkee.com/blogs/post" />
       </Helmet>
 
-      <form onSubmit={handleSubmit} className="blog-form slide-up">
+      <form onSubmit={handleSubmit} className="blog-form slide-up" aria-label="Post a new blog form">
         <h2>Post a New Blog</h2>
+
+        {/* Title Input */}
+        <label htmlFor="title">Blog Title</label>
         <input
+          id="title"
           name="title"
-          placeholder="Blog Title"
+          placeholder="Enter blog title"
           value={form.title}
           onChange={handleChange}
           required
         />
+
+        {/* Author Input */}
+        <label htmlFor="author">Author Name</label>
         <input
+          id="author"
           name="author"
-          placeholder="Author Name"
+          placeholder="Enter author name"
           value={form.author}
           onChange={handleChange}
           required
         />
+
+        {/* Content Input */}
+        <label htmlFor="content">Blog Content</label>
         <textarea
+          id="content"
           name="content"
           placeholder="Write your content here..."
           rows="6"
@@ -63,8 +80,20 @@ const BlogForm = () => {
           onChange={handleChange}
           required
         />
-        <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-        <button type="submit" className="submit-btn">Post Blog</button>
+
+        {/* Image Upload */}
+        <label htmlFor="image-upload">Upload Blog Image</label>
+        <input
+          id="image-upload"
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
+        />
+
+        {/* Submit Button (Accessible Name ✓) */}
+        <button type="submit" className="submit-btn" aria-label="Post blog">
+          Post Blog
+        </button>
       </form>
     </section>
   );

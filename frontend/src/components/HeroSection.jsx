@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -51,8 +52,22 @@ const slides = [
 
 const HeroSection = () => {
   return (
-    <div className="hero-slider-container">
+    <section
+      className="hero-slider-container"
+      aria-label="Corporate gifting categories and promotional product highlights"
+    >
+      {/* JSON-LD FOR SEO */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          name: "PrintKee Corporate Gifting Highlights",
+          image: slides.map((s) => s.image),
+        })}
+      </script>
+
       <Swiper
+        aria-roledescription="carousel"
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
@@ -62,6 +77,15 @@ const HeroSection = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
+            {/* Hidden IMG for SEO + background remains for UI */}
+            <img
+              src={slide.image}
+              alt={`${slide.title} – ${slide.tag}`}
+              loading={index === 0 ? "eager" : "lazy"}
+              className="seo-hidden-image"
+              style={{ display: "none" }}
+            />
+
             <div
               className="hero-slide"
               style={{ backgroundImage: `url(${slide.image})` }}
@@ -69,9 +93,17 @@ const HeroSection = () => {
               <div className="overlay">
                 <div className="content-box">
                   <p className="tag">{slide.tag}</p>
+
+                  {/* Only ONE H1 remains for SEO hierarchy */}
                   <h1 className="title">{slide.title}</h1>
+
                   <p className="description">{slide.description}</p>
-                  <button className="show-products" onClick={() => window.location.href = slide.route}>
+
+                  <button
+                    className="show-products"
+                    aria-label={`View products for ${slide.tag}`}
+                    onClick={() => (window.location.href = slide.route)}
+                  >
                     <span>Show products</span>
                     <span className="arrow-1">→</span>
                   </button>
@@ -81,7 +113,7 @@ const HeroSection = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </section>
   );
 };
 

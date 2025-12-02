@@ -30,45 +30,54 @@ const testimonials = [
 ];
 
 const brandLogos = [
-  "/assets/accenture.png",
-  "/assets/amazon.png",
-  "/assets/google.png",
-  "/assets/microsoft.png",
-  "/assets/nike.png",
+  { src: "/assets/accenture.png", alt: "Accenture" },
+  { src: "/assets/amazon.png", alt: "Amazon" },
+  { src: "/assets/google.png", alt: "Google" },
+  { src: "/assets/microsoft.png", alt: "Microsoft" },
+  { src: "/assets/nike.png", alt: "Nike" },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="testimonials-section">
-      <h2 className="section-title-2">What Our Clients Say</h2>
+    <section className="testimonials-section" aria-labelledby="testimonials-heading">
+      <h2 id="testimonials-heading" className="section-title-2">
+        What Our Clients Say
+      </h2>
+
       <p className="section-subtitle-2">
         Hear from our happy clients about their experience with Printkee.
       </p>
+
       <div className="testimonials-container">
         {testimonials.map((item, index) => (
-          <div className="testimonial-card" key={index}>
-            <FaQuoteLeft className="quote-icon" />
-            <p className="testimonial-text">"{item.review}"</p>
-            <div className="testimonial-footer">
-              
-                <h4 className="client-name">{item.name}</h4>
-                <p className="client-role">
-                  {item.position}, {item.company}
-                </p>
-              
-            </div>
-          </div>
+          <figure
+            key={index}
+            className="testimonial-card"
+            aria-label={`Testimonial from ${item.name}`}
+          >
+            <FaQuoteLeft className="quote-icon" aria-hidden="true" />
+
+            <blockquote className="testimonial-text">"{item.review}"</blockquote>
+
+            <figcaption className="testimonial-footer">
+              <h3 className="client-name">{item.name}</h3>
+              <p className="client-role">
+                {item.position}, {item.company}
+              </p>
+            </figcaption>
+          </figure>
         ))}
       </div>
 
       <div className="brand-logos-strip-2">
         <h3 className="brand-title-2">Trusted by Leading Brands</h3>
+
         <div className="brands-logo-container-2">
-          {brandLogos.map((logo, index) => (
+          {brandLogos.map((brand, index) => (
             <img
               key={index}
-              src={logo}
-              alt={`Brand ${index + 1}`}
+              src={brand.src}
+              alt={`${brand.alt} logo`}
               className="brand-logo-2"
             />
           ))}
