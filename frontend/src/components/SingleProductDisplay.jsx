@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { Helmet } from "react-helmet";
 import WhyChooseUsProduct from "./category/WhyChooseUsProduct";
+import ProductFAQ from "./category/FAQProduct";
 
 const SingleProductDisplay = () => {
   const { category: categorySlug, subcategory: subcategorySlug, product: productSlug } = useParams();
@@ -311,6 +312,12 @@ const SingleProductDisplay = () => {
           </div>
         )}
       </div>
+
+      <ProductFAQ
+        productName={productData.name}
+        subcategoryName={subcategoryData.name}
+        categoryName={categoryData.name}
+      />
 
       <EnquiryModal
         isOpen={showModal}

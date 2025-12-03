@@ -63,7 +63,7 @@ const Navbar = () => {
         <div className="navbar-logo">
           <img
             className="navbar-logo-img"
-            src="/assets/printkeeLogo.png"
+            src="/assets/printkeeLogo.webp"
             alt="Printkee Corporate Gifting Logo"
           />
         </div>
@@ -146,11 +146,12 @@ const Navbar = () => {
               <div className="mega-menu">
                 {groupedCategories.map((group, idx) => (
                   <div className="mega-menu-column" key={idx}>
-                    {group.map(([mainCategory, subcategories], i) => (
+                    {group.map(([mainCategory, mainCategoryData], i) => (
                       <div key={i} className="category-group">
                         <h4>{mainCategory}</h4>
+
                         <ul>
-                          {subcategories.map((sub, j) => (
+                          {mainCategoryData.items.map((sub, j) => (
                             <li key={j}>
                               <NavLink
                                 to={sub.href}
@@ -208,7 +209,7 @@ const Navbar = () => {
         aria-label="Mobile menu"
       >
         <div className="side-menu-header">
-          <img src="/assets/printkeeLogo.png" alt="Printkee Logo" className="side-logo" />
+          <img src="/assets/printkeeLogo.webp" alt="Printkee Logo" className="side-logo" />
 
           <button
             className="close-btn-side"
@@ -244,19 +245,19 @@ const Navbar = () => {
             {openCategory === "all" && (
               <div className="dropdown-list">
                 {Object.entries(navbarSubcategories).map(
-                  ([mainCategory, subcategories], idx) => (
-                    <NavLink
-                      key={idx}
-                      to={
-                        subcategories[0].href.split("/")[2]
-                          ? `/category/${subcategories[0].href.split("/")[2]}`
-                          : "/"
-                      }
-                      onClick={() => setIsMenuOpen(false)}
-                      aria-label={`Open ${mainCategory} category`}
-                    >
-                      {mainCategory}
-                    </NavLink>
+                  ([mainCategory, mainCategoryData], idx) => (
+                    <div key={idx} className="mobile-category-block">
+
+                      {/* Main Category Link */}
+                      <NavLink
+                        to={mainCategoryData.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="mobile-category-link"
+                        aria-label={`View ${mainCategory}`}
+                      >
+                        {mainCategory}
+                      </NavLink>
+                    </div>
                   )
                 )}
               </div>

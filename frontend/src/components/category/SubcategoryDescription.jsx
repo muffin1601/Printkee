@@ -36,9 +36,9 @@ const SubcategoryDescription = ({ subcategory }) => {
       className="subcategory-description-wrapper"
       aria-labelledby="subcategory-desc-title"
     >
-      <h2 id="subcategory-desc-title" className="subcategory-description-title">
+      {/* <h2 id="subcategory-desc-title" className="subcategory-description-title">
         {title}
-      </h2>
+      </h2> */}
 
       <div
         className="subcategory-description-content"

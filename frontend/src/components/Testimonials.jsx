@@ -9,7 +9,7 @@ const testimonials = [
     company: "TechNova Pvt Ltd",
     review:
       "Printkee made our festive gifting process effortless and stylish. Great support and timely delivery!",
-    logo: "/logos/technova.png",
+    logo: "/logos/technova.webp",
   },
   {
     name: "Rajeev Bansal",
@@ -17,7 +17,7 @@ const testimonials = [
     company: "FinEdge Solutions",
     review:
       "The onboarding kits were beautifully packed and reflected our brand perfectly. Highly recommended!",
-    logo: "/logos/finedge.png",
+    logo: "/logos/finedge.webp",
   },
   {
     name: "Sonal Mehta",
@@ -25,16 +25,16 @@ const testimonials = [
     company: "GreenHive",
     review:
       "Our conference giveaways were a hit! Sleek tech gifts, fast execution, and custom branding was top-notch.",
-    logo: "/logos/greenhive.png",
+    logo: "/logos/greenhive.webp",
   },
 ];
 
 const brandLogos = [
-  { src: "/assets/accenture.png", alt: "Accenture" },
-  { src: "/assets/amazon.png", alt: "Amazon" },
-  { src: "/assets/google.png", alt: "Google" },
-  { src: "/assets/microsoft.png", alt: "Microsoft" },
-  { src: "/assets/nike.png", alt: "Nike" },
+  { src: "/assets/accenture.webp", alt: "Accenture" },
+  { src: "/assets/amazon.webp", alt: "Amazon" },
+  { src: "/assets/google.webp", alt: "Google" },
+  { src: "/assets/microsoft.webp", alt: "Microsoft" },
+  { src: "/assets/nike.webp", alt: "Nike" },
 ];
 
 const Testimonials = () => {

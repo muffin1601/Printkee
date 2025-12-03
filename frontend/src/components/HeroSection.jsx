@@ -9,7 +9,7 @@ import "../styles/HeroSection.css";
 
 const slides = [
   {
-    image: "/assets/banner1.jpeg",
+    image: "/assets/banner1.webp",
     title: "Customized Corporate Apparel",
     description:
       "Dress your team in style with premium shirts, jackets, and uniforms—personalized with your company logo.",
@@ -17,7 +17,7 @@ const slides = [
     route: "/apparel-and-accessories",
   },
   {
-    image: "/assets/banner2.jpeg",
+    image: "/assets/banner2.webp",
     title: "Eco-Friendly Gift Solutions",
     description:
       "Make a sustainable impact with eco-conscious gifting options made from recycled and biodegradable materials.",
@@ -25,7 +25,7 @@ const slides = [
     route: "/eco-products",
   },
   {
-    image: "/assets/banner3.jpeg",
+    image: "/assets/banner3.webp",
     title: "Smart Tech Gifts",
     description:
       "Impress clients and employees with innovative, branded tech products like wireless chargers, earbuds, and gadgets.",
@@ -33,7 +33,7 @@ const slides = [
     route: "/technology-accessories",
   },
   {
-    image: "/assets/banner4.jpeg",
+    image: "/assets/banner4.webp",
     title: "Premium Drinkware Collection",
     description:
       "From stainless steel bottles to personalized mugs, our drinkware is perfect for daily use and corporate branding.",
@@ -41,7 +41,7 @@ const slides = [
     route: "/drink-ware",
   },
   {
-    image: "/assets/banner1.jpeg",
+    image: "/assets/banner1.webp",
     title: "Bags, Office, & Writing Essentials",
     description:
       "Discover a wide range of custom office bags, notebooks, and writing instruments—perfect for gifting and branding.",

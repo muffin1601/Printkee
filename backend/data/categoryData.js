@@ -42,7 +42,7 @@ const categoryData = [
   {
     name: "Apparel and Accessories",
     slug: "apparel-and-accessories",
-    image: "/assets/categories/apparel.jpg",
+    image: "/assets/categories/apparel.webp",
     hoverImage: "",
     tag: "Discover our range of apparel and accessories.\nPerfect for branding and gifting.\nTrendy, comfortable, and customizable.\nIdeal for all occasions.",
     subcategories: [
@@ -71,7 +71,7 @@ const categoryData = [
       {
         name: "Custom Cap Manufacturer in Delhi NCR",
         slug: "caps",
-        image: "/assets/subcategories/cap.jpg",
+        image: "/assets/subcategories/cap.webp",
         hoverImage: "",
         tag: "High-quality custom caps designed for businesses, coaching institutes, schools, and corporate events in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials ideal for outdoor use and promotions.\nPerfect for branding, giveaways, and team uniforms.",
         products: caps,
@@ -93,7 +93,7 @@ const categoryData = [
       {
         name: "Customized Formal Shirt in Delhi",
         slug: "corporate-shirts",
-        image: "/assets/subcategories/corporateshirt.jpg",
+        image: "/assets/subcategories/corporateshirt.webp",
         hoverImage: "",
         tag: "High-quality Custom formal shirt and corporate shirts designed for businesses, coaching institutes, schools, and corporate events in Noida, Gurgaon, Okhla, and Delhi NCR.\nComfortable and durable fabrics ideal for professional settings.\nPerfect for branding, uniforms, and corporate gifting.",
         products: corporateShirts,
@@ -104,7 +104,7 @@ const categoryData = [
       {
         name: "Promotional Tie in Delhi",
         slug: "ties",
-        image: "/assets/subcategories/tie.jpg",
+        image: "/assets/subcategories/tie.webp",
         hoverImage: "",
         tag: "High-quality custom ties and corporate ties designed for businesses, coaching institutes, schools, and corporate events in Noida, Gurgaon, Okhla, and Delhi NCR.\nElegant materials ideal for professional settings and branding.\nPerfect for uniforms, corporate gifting, and special occasions.",
         products: ties,
@@ -115,7 +115,7 @@ const categoryData = [
       {
         name: "Promotional Apron in Delhi",
         slug: "aprons",
-        image: "/assets/subcategories/apron.jpg",
+        image: "/assets/subcategories/apron.webp",
         hoverImage: "",
         tag: "High-quality custom aprons and corporate aprons designed for restaurants, cafes, catering services, schools, coaching institutes, and corporate events in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and comfortable materials ideal for daily use and branding.\nPerfect for uniforms, promotional events, and corporate gifting.",
         products: aprons,
@@ -126,7 +126,7 @@ const categoryData = [
       {
         name: "Promotional Winter Wear in Delhi",
         slug: "winter-wear",
-        image: "/assets/subcategories/winterwear.jpg",
+        image: "/assets/subcategories/winterwear.webp",
         hoverImage: "",
         tag: "High-quality custom winter jackets, sweaters, and corporate winter wear designed for offices, schools, coaching institutes, and corporate events in Noida, Gurgaon, Okhla, and Delhi NCR.\nWarm and comfortable fabrics ideal for cold weather and branding.\nPerfect for uniforms, promotional events, and corporate gifting.",
         products: winterWear,
@@ -139,14 +139,14 @@ const categoryData = [
   {
     name: "Office and Writing",
     slug: "office-and-writing",
-    image: "/assets/categories/officewriting.jpg",
-    hoverImage: "/assets/categories/office.jpg",
+    image: "/assets/categories/officewriting.webp",
+    hoverImage: "/assets/categories/office.webp",
     tag: "Essential office and writing tools. Perfect for daily use and gifting. Custom branding options. Boost productivity and style.",
     subcategories: [
       {
         name: "Custom Files & Folder for Office",
         slug: "file-and-folder",
-        image: "/assets/categories/filefolder.jpg",
+        image: "/assets/products/filesfolder/4.webp",
         hoverImage: "",
         tag: "High-quality Promotional files and folders designed for offices, schools, corporate gifting, events, and promotional purposes in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials with customizable covers ideal for branding and daily use.\nPerfect for organizing documents, presentations, and employee kits.",
         products: filesAndFolders,
@@ -157,7 +157,7 @@ const categoryData = [
       {
         name: "Custom Pen & Writing Set in Delhi NCR",
         slug: "pen-and-writing-set",
-        image: "/assets/categories/penwriting.jpg",
+        image: "/assets/products/pens/1.webp",
         hoverImage: "",
         tag: "Premium Promotional pens and writing sets perfect for corporate gifting, employee kits, events, and branding. Smooth writing experience with custom engraving options.",
         products: pensAndWritingSets,
@@ -168,7 +168,7 @@ const categoryData = [
       {
         name: "Custom Lanyard & ID Card in Delhi NCR",
         slug: "lanyard-and-id-card",
-        image: "/assets/categories/lanyardid.jpg",
+        image: "/assets/products/lanyards/1.webp",
         hoverImage: "",
         tag: "High-quality Promotional lanyards, ID card holders, designed for corporate gifting, employee identification, offices, and promotional events in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials ideal for daily use and branding.\nPerfect for enhancing professional appearance and brand visibility.",
         products: lanyardsWithIDCards,
@@ -179,7 +179,7 @@ const categoryData = [
       {
         name: "Customized Notebooks & Diaries in Delhi ",
         slug: "notebooks-and-diary-sets",
-        image: "/assets/categories/notebooks.jpg",
+        image: "/assets/products/notebooks/16.webp",
         hoverImage: "",
         tag: "High-quality Custom notebooks and diaries designed for offices, schools, corporate gifting, events, and promotional purposes in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials with customizable covers ideal for branding and daily use.\nPerfect for meetings, note-taking, and employee kits.",
         products: notebooksAndDiaries,
@@ -192,14 +192,14 @@ const categoryData = [
   {
     name: "Collection",
     slug: "collection",
-    image: "/assets/categories/collection.jpg",
-    hoverImage: "/assets/categories/apparel.jpg",
+    image: "/assets/categories/collections.webp",
+    hoverImage: "/assets/categories/apparel.webp",
     tag: "Exclusive gift collections. Perfect for special occasions. Curated for every need. Customizable options available.",
     subcategories: [
       {
         name: "Customized Welcome Kit in Delhi",
         slug: "welcome-kits",
-        image: "/assets/categories/welcomekits.jpg",
+        image: "/assets/products/welcomekits/13.webp",
         hoverImage: "",
         tag: "High-quality Promotional welcome kits designed for corporate gifts, events, hotels, onboarding programs, and promotional campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nThoughtfully curated items ideal for new employees and clients.\nPerfect for making a lasting first impression.",
         products: welcomeKits,
@@ -210,7 +210,7 @@ const categoryData = [
       {
         name: "Promotional Clock in Delhi",
         slug: "promotional-clocks",
-        image: "/assets/categories/promotionalclock.jpg",
+        image: "/assets/products/clocks/1.webp",
         hoverImage: "",
         tag: "Durable and stylish customized clocks designed for corporate gifts, events, giveaways, and branding campaigns in Delhi, Noida, Gurgaon, Okhla, and NCR.\nHigh-quality materials ideal for office and home use.\nPerfect for enhancing brand visibility with custom logo printing.",
         products: promotionalClocks,
@@ -221,7 +221,7 @@ const categoryData = [
       {
         name: "Custom Keychain in Delhi",
         slug: "keychains",
-        image: "/assets/categories/keychains.jpg",
+        image: "/assets/products/keychains/9.webp",
         hoverImage: "",
         tag: "High-quality, Promotional  keychains designed to enhance brand visibility and make perfect corporate gifts across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable materials with unique designs ideal for daily use and promotions.\nPerfect for branding, giveaways, and employee gifts.",
         products: keychains,
@@ -234,14 +234,14 @@ const categoryData = [
   {
     name: "Bags and Travel",
     slug: "bags-and-travel",
-    image: "/assets/categories/bags.jpg",
-    hoverImage: "/assets/categories/bags-for-change.jpg",
+    image: "/assets/categories/bags.webp",
+    hoverImage: "/assets/categories/bags-for-change.webp",
     tag: "Travel in style with our bags. Backpacks, totes, and more. Durable and functional designs. Custom branding available.",
     subcategories: [
       {
         name: "Backpacks Manufacturers in Delhi NCR",
         slug: "backpacks",
-        image: "/assets/categories/backpack.jpg",
+        image: "/assets/products/backpacks/1.webp",
         hoverImage: "",
         tag: "High-quality custom backpacks designed for corporates, schools, coaching institutes, colleges, and events in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable materials ideal for daily use and travel.\nPerfect for branding, giveaways, and team use.",
         products: promotionalBackpacks,
@@ -252,7 +252,7 @@ const categoryData = [
       {
         name: "Foldable Bag Manufacturers in Delhi",
         slug: "foldable-bags",
-        image: "/assets/categories/foldablebag.jpg",
+        image: "/assets/products/foldablebags/1.webp",
         hoverImage: "",
         tag: "High-quality custom foldable bags designed for corporates, schools, coaching institutes, colleges, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nLightweight and durable materials ideal for shopping and travel.\nPerfect for branding, giveaways, and eco-friendly promotions.",
         products: foldableBags,
@@ -263,7 +263,7 @@ const categoryData = [
       {
         name: " Custom Duffle Bag Manufacturers in Delhi ",
         slug: "duffle-bags",
-        image: "/assets/categories/dufflebag.jpg",
+        image: "/assets/products/dufflebags/1.webp",
         hoverImage: "",
         tag: "High-quality duffle bags customized for corporates, schools, coaching institutes, colleges, gyms, events, and marketing campaigns in Delhi, Noida, Gurgaon, and Okhla.\nSpacious and durable materials ideal for travel and sports.\nPerfect for branding, giveaways, and promotional use.",
         products: duffleBags,
@@ -274,7 +274,7 @@ const categoryData = [
       {
         name: "Tote Bags Manufacturers in Delhi",
         slug: "tote-bags",
-        image: "/assets/categories/totebag.jpg",
+        image: "/assets/products/totebags/1.webp",
         hoverImage: "",
         tag: "High-quality custom tote bags designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nEco-friendly and durable materials ideal for shopping and daily use.\nPerfect for branding, giveaways, and sustainable promotions.",
         products: toteBags,
@@ -287,14 +287,14 @@ const categoryData = [
   {
     name: "Technology Accessories",
     slug: "technology-accessories",
-    image: "/assets/categories/technology.jpg",
-    hoverImage: "/assets/categories/technical.jpg",
+    image: "/assets/categories/technology.webp",
+    hoverImage: "/assets/categories/technical.webp",
     tag: "Latest tech accessories. Wireless, portable, and smart. Perfect for gifting and use. Custom branding available.",
     subcategories: [
       {
         name: "Custom Wireless Charger ",
         slug: "wireless-charging",
-        image: "/assets/categories/wirelesscharging.jpg",
+        image: "/assets/categories/wirelesscharging.webp",
         hoverImage: "",
         tag: "High-quality, Promotional wireless chargers designed for client gifts, employee rewards, and brand promotion across Delhi, Noida, Gurgaon, Okhla, and NCR.\nCompact and portable designs ideal for on-the-go charging.\nPerfect for enhancing brand visibility with custom logo printing.",
         products: wirelessChargers,
@@ -305,7 +305,7 @@ const categoryData = [
       {
         name: "Custom Computer Accessories in Delhi NCR",
         slug: "computer-accessories",
-        image: "/assets/categories/computeraccess.jpg",
+        image: "/assets/products/computeraccessories/1.webp",
         hoverImage: "",
         tag: "High-quality Promotional computer accessories designed for offices, employees, clients, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable and practical items ideal for daily use and branding.\nPerfect for enhancing workspaces and corporate gifting.",
         products: computerAccessories,
@@ -316,7 +316,7 @@ const categoryData = [
       {
         name: "Custom Power Bank in Delhi NCR",
         slug: "power-banks",
-        image: "/assets/categories/powerbank.jpg",
+        image: "/assets/products/powerbanks/13.webp",
         hoverImage: "",
         tag: "Promotional High-quality, branded power banks designed for corporate gifting, client appreciation, employee rewards, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nCompact and portable designs ideal for on-the-go charging.\nPerfect for enhancing brand visibility with custom logo printing.",
         products: powerBanks,
@@ -327,7 +327,7 @@ const categoryData = [
       {
         name: "Custom Desktop & Mousepad ",
         slug: "desktop-and-mousepad",
-        image: "/assets/categories/mousepad.jpg",
+        image: "/assets/products/mousepads/10.webp",
         hoverImage: "",
         tag: "High-quality Promotional branded desktops and mousepads designed for offices, client gifts, employee rewards, and promotional campaigns across Delhi, Noida, Gurgaon, Okhla, and NCR.\nDurable materials with smooth surfaces ideal for daily use and branding.\nPerfect for enhancing workspaces and corporate gifting.",
         products: mousePads,
@@ -340,8 +340,8 @@ const categoryData = [
   {
     name: "Eco Products",
     slug: "eco-products",
-    image: "/assets/categories/ecoproducts.jpg",
-    hoverImage: "/assets/categories/ecoproducts-hover.jpg",
+    image: "/assets/categories/ecoproducts.webp",
+    hoverImage: "/assets/categories/ecoproducts-hover.webp",
     tag: "Eco-friendly product range. Sustainable and reusable. Perfect for green gifting. Custom branding available.",
     subcategories: [
       {
@@ -471,14 +471,14 @@ const categoryData = [
   {
     name: "Drink Ware",
     slug: "drink-ware",
-    image: "/assets/categories/drinkware.jpeg",
-    hoverImage: "/assets/categories/drink.jpg",
+    image: "/assets/categories/drinkware.webp",
+    hoverImage: "/assets/categories/drink.webp",
     tag: "Promotional drinkware collection. Sippers, mugs, bottles, and more. Perfect for daily use and gifting. Custom branding available.",
     subcategories: [
       {
         name: "Custom Sippers in Delhi",
         slug: "sipper",
-        image: "/assets/categories/sipper.jpg",
+        image: "/assets/products/sipperbottles/1.webp",
         hoverImage: "",
         tag: "High-quality Promotional sippers designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and stylish materials ideal for daily hydration and promotions.\nPerfect for branding, giveaways, and sustainable gifting.",
         products: sipperBottles,
@@ -489,7 +489,7 @@ const categoryData = [
       {
         name: "Custom Bamboo Bottles  in Delhi",
         slug: "bamboo-bottle",
-        image: "/assets/categories/bamboobottle.jpg",
+        image: "/assets/products/bamboobottles/1.webp",
         hoverImage: "",
         tag: "High-quality Promotional bamboo bottles designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.\nEco-friendly and durable materials ideal for daily hydration and sustainable promotions.\nPerfect for branding, giveaways, and green gifting.",
         products: bambooBottles,
@@ -500,7 +500,7 @@ const categoryData = [
       {
         name: "Custom Coffee Mugs in Delhi",
         slug: "coffee-mug",
-        image: "/assets/categories/coffeemug.jpg",
+        image: "/assets/products/coffeemugs/1.webp",
         hoverImage: "",
         tag: "High-quality Promotional coffee mugs designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR.",
         products: coffeeMugs,
@@ -511,7 +511,7 @@ const categoryData = [
       {
         name: "Custom Ceramic Mugs ",
         slug: "ceramic-mug",
-        image: "/assets/categories/ceramicmug.jpg",
+        image: "/assets/products/ceramicmugs/1.webp",
         hoverImage: "",
         tag: "High-quality Promotional ceramic mugs designed for corporates, retail stores, events, and marketing campaigns in Noida, Gurgaon, Okhla, and Delhi NCR",
         products: ceramicMugs,
@@ -524,14 +524,14 @@ const categoryData = [
   {
     name: "Custom Trophies & Mementos",
     slug: "trophy-and-momento",
-    image: "/assets/categories/trophy.jpg",
-    hoverImage: "/assets/categories/trophy1.jpg",
+    image: "/assets/categories/trophy.webp",
+    hoverImage: "/assets/categories/trophy1.webp",
     tag: "High-quality, Promotional trophies and mementos designed for corporate recognition, sports events, employee awards, and special occasions across Delhi, Noida, Gurgaon, Okhla, and NCR.\nPremium materials including glass, crystal, metal, wood, and acrylic.\nElegant designs with options for custom engraving and branding to celebrate achievements in style.",
     subcategories: [
       {
         name: "Custom Trophy and Momento",
         slug: "trophy-and-momento",
-        image: "/assets/categories/trophymomento.jpg",
+        image: "/assets/products/trophies/11.webp",
         hoverImage: "",
         tag: "Exclusive trophies and momentos. Crystal and wooden options. Ideal for awards and events. Custom branding available.",
         products: trophies,

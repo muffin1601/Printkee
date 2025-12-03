@@ -1,10 +1,10 @@
 import React from "react";
 import "../styles/ShopByOccasion.css";
 
-import onboardingImg from "/assets/onboarding.jpg";
-import festiveImg from "/assets/festive.jpg";
-import clientImg from "/assets/client.jpg";
-import conferenceImg from "/assets/conference.jpg";
+import onboardingImg from "/assets/onboarding.webp";
+import festiveImg from "/assets/festive.webp";
+import clientImg from "/assets/client.webp";
+import conferenceImg from "/assets/conference.webp";
 
 const occasions = [
   {

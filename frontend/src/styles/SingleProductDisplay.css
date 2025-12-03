@@ -502,70 +502,91 @@
     height: 130px;
   }
 }
-/* PRODUCT SPECIFICATIONS (MATCHING THEME) */
+/* ============================================
+   PRODUCT SPECIFICATIONS – PURPLE/GOLD THEME
+=============================================== */
+
 .product-spec-section {
-  
-  background: #ffffff;
-max-width: 90%;      /* same width as product-left */
-  margin: 35px auto 0;
-  padding: 25px 20px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-
+  width: 100%;
+  max-width: 90%;
+  margin: 60px auto;
+  padding: 25px 25px 30px;
+  background: var(--beige-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--gold-light);
 }
 
+/* Title */
 .spec-title {
-  font-size: 22px;
-  font-weight: 600;
-  color: #4b2061;
-  margin-bottom: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--purple-dark);
+  letter-spacing: 0.5px;
 }
 
-/* Table Styling */
+/* Table */
 .spec-table {
   width: 100%;
   border-collapse: collapse;
+  font-family: var(--font-primary);
+  overflow: hidden;
 }
 
-.spec-table tr {
-  transition: background 0.2s ease;
+/* Table rows */
+.spec-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.623);
+  transition: background var(--transition), transform var(--transition);
 }
 
-.spec-table tr:hover {
-  background: #fef6e8; /* light gold-ish background to match theme */
+/* Hover effect */
+.spec-table tbody tr:hover {
+  background: var(--beige-light);
+  transform: scale(1.01);
+  box-shadow: var(--shadow-soft);
 }
 
-.spec-table td {
-  padding: 12px 10px;
-  border-bottom: 1px solid #eee;
-  font-size: 15px;
-  color: #333;
-  font-family: 'Poppins', sans-serif;
-}
-
+/* Left column (Labels) */
 .spec-table td:first-child {
+  width: 38%;
+  background: var(--purple);
+  color: var(--white);
+  padding: 14px 20px;
   font-weight: 600;
-  width: 40%;
-  color: #4b2061;
+  letter-spacing: 0.3px;
+  border-right: 2px solid var(--gold);
+  /* border-radius: var(--radius-sm) 0 0 var(--radius-sm); */
 }
 
-/* Remove border from last row */
-.spec-table tr:last-child td {
-  border-bottom: none;
+/* Right column (Values) */
+.spec-table td:last-child {
+  padding: 14px 20px;
+  color: var(--text-dark);
+  background: var(--white);
+  border-bottom: 1px solid rgba(50, 29, 70, 0.623);
+  /* border-radius: 0 var(--radius-sm) var(--radius-sm) 0; */
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 600px) {
   .product-spec-section {
-    padding: 18px;
+    padding: 20px 15px;
   }
 
   .spec-title {
-    font-size: 18px;
+    font-size: 1.6rem;
   }
 
   .spec-table td {
-    font-size: 14px;
-    padding: 10px 6px;
+    padding: 12px !important;
+    font-size: 0.95rem;
+  }
+
+  .spec-table td:first-child {
+    width: 45%;
   }
 }
+
+

@@ -73,7 +73,7 @@ const SubcategoryDisplay = () => {
         <div className="head-img">
           <img
             loading="lazy"
-            src={`/assets/categories/${categorySlug}.png`}
+            src={`/assets/categories/${categorySlug}.webp`}
             alt={`${categoryData.name} category banner`}
           />
         </div>

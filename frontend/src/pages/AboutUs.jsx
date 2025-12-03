@@ -22,7 +22,7 @@ const AboutUs = () => {
           </p>
         </div>
         <img
-          src="/assets/1.png"
+          src="/assets/1.webp"
           height="300"
           width="500"
           alt="Corporate Gifting by MF Global Services"
@@ -60,7 +60,7 @@ const AboutUs = () => {
             <li><strong>Eco-Friendly Options:</strong> Promote sustainability with our green gifting catalog.</li>
             <li><strong>End-to-End Service:</strong> From concept to delivery—we manage everything.</li>
           </ul>
-          <img src="/assets/5.jpeg" height="300" width="500" alt="Reasons to choose MF Global Services" />
+          <img src="/assets/5.webp" height="300" width="500" alt="Reasons to choose MF Global Services" />
         </div>
       </section>
 
