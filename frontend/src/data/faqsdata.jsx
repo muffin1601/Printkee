@@ -1,7 +1,7 @@
 const aboutSubcategoryData = {
   "Bags and Travel": {
     heading: "Corporate Travel Solutions – Bags that Boost Brand Recall",
-    description: `MF Global Services offers durable, stylish, and high-impact branded promotional items including backpacks, laptop bags, travel pouches, and duffle bags. These promotional gift items are ideal for corporate gifting, promotional gifts for business, seminars, events, and employee welcome kits. As a leading promotional items manufacturer in Delhi NCR and Noida, we ensure premium quality, long-term visibility, and professional custom branding on every bag.`,
+    description: `MF Global Services offers durable, stylish, and high-impact branding promotional items including backpacks, laptop bags, travel pouches, and duffle bags. These promotional gift items are ideal for corporate gifting, promotional gifts for business, seminars, events, and employee welcome kits. As a leading promotional items manufacturer in Delhi NCR and Noida, we ensure premium quality, long-term visibility, and professional custom branding on every bag.`,
 
     image: "/images/bags-and-travel.jpg",
 
@@ -19,7 +19,7 @@ const aboutSubcategoryData = {
       {
         question: "Are these bags long-lasting promotional gift items?",
         answer:
-          "Yes, all bags are made with premium-grade material ensuring durability, making them reliable branded promotional items that offer long-term brand exposure.",
+          "Yes, all bags are made with premium-grade material ensuring durability, making them reliable branding promotional items that offer long-term brand exposure.",
       },
       {
         question: "Do you manufacture bags in bulk for companies?",
@@ -37,7 +37,7 @@ const aboutSubcategoryData = {
   // ================= ECO PRODUCTS ======================
   "Eco Products": {
     heading: "Sustainable Corporate Promotional Products",
-    description: `Our eco-friendly range includes bamboo bottles, cork stationery, reusable drinkware, organic accessories, and biodegradable gifting options. These sustainable promotional gift items are perfect for businesses wanting to reduce environmental impact while using branded promotional items to enhance brand visibility. Ideal for CSR activities, eco events, and organizations seeking personalized promotional products in Delhi NCR.`,
+    description: `Our eco-friendly range includes bamboo bottles, cork stationery, reusable drinkware, organic accessories, and biodegradable gifting options. These sustainable promotional gift items are perfect for businesses wanting to reduce environmental impact while using branding promotional items to enhance brand visibility. Ideal for CSR activities, eco events, and organizations seeking personalized promotional products in Delhi NCR.`,
 
     image: "/images/eco-products.jpg",
 
@@ -72,8 +72,8 @@ const aboutSubcategoryData = {
 
   // ================= APPAREL ======================
   "Apparel and Accessories": {
-    heading: "Branded Corporate Apparel & Custom T-Shirts",
-    description: `We provide high-quality custom T-shirts, polo shirts, hoodies, jackets, caps, and corporate shirts designed for events, staff uniforms, seminars, and promotional campaigns. These apparel pieces are among the most popular corporate promotional products and promotional gift items in Delhi NCR. Each item is customizable with logos, branding, quotes, and designs to create powerful branded promotional items for your business.`,
+    heading: "Branding Corporate Apparel & Custom T-Shirts",
+    description: `We provide high-quality custom T-shirts, polo shirts, hoodies, jackets, caps, and corporate shirts designed for events, staff uniforms, seminars, and promotional campaigns. These apparel pieces are among the most popular corporate promotional products and promotional gift items in Delhi NCR. Each item is customizable with logos, branding, quotes, and designs to create powerful branding promotional items for your business.`,
 
     image: "/images/apparel-and-accessories.jpg",
 
@@ -91,7 +91,7 @@ const aboutSubcategoryData = {
       {
         question: "Do you make personalized promotional apparel for employees?",
         answer:
-          "Absolutely. Our branded apparel is ideal for employee uniforms, onboarding kits, and corporate promotional gifting.",
+          "Absolutely. Our branding apparel is ideal for employee uniforms, onboarding kits, and corporate promotional gifting.",
       },
       {
         question: "Can I order custom apparel as promotional gifts for clients?",
@@ -109,7 +109,7 @@ const aboutSubcategoryData = {
   // ================= DRINKWARE ======================
   "Drink Ware": {
     heading: "Custom Drinkware for Corporate Gifting",
-    description: `Our custom mugs, sippers, thermos flasks, and stainless-steel bottles are some of the most preferred promotional products in Delhi NCR. These branded promotional items provide excellent brand visibility and are perfect as promotional gifts for business, corporate events, offices, and employee welcome kits.`,
+    description: `Our custom mugs, sippers, thermos flasks, and stainless-steel bottles are some of the most preferred promotional products in Delhi NCR. These branding promotional items provide excellent brand visibility and are perfect as promotional gifts for business, corporate events, offices, and employee welcome kits.`,
 
     image: "/images/drinkware.jpg",
 
@@ -145,7 +145,7 @@ const aboutSubcategoryData = {
   // ================= OFFICE & WRITING ======================
   "Office and Writing": {
     heading: "Professional Stationery for Business Branding",
-    description: `Our range includes premium notebooks, diaries, pens, folders, planners, and office kits — highly effective business promotional products. These branded promotional items are cost-effective and deliver strong brand recall, making them ideal as promotional gifts for clients and employees.`,
+    description: `Our range includes premium notebooks, diaries, pens, folders, planners, and office kits — highly effective business promotional products. These branding promotional items are cost-effective and deliver strong brand recall, making them ideal as promotional gifts for clients and employees.`,
 
     image: "/images/stationery.jpg",
 
@@ -181,7 +181,7 @@ const aboutSubcategoryData = {
   // ================= COLLECTION ======================
   "Collection": {
     heading: "Premium Corporate Gift Collections",
-    description: `Our curated corporate gift boxes, luxury hampers, festival packs, and welcome kits include branded promotional items ideal for clients, employees, and business partners. As a promotional gifts manufacturer in Delhi NCR and Noida, we specialize in creating personalized promotional products for all occasions.`,
+    description: `Our curated corporate gift boxes, luxury hampers, festival packs, and welcome kits include branding promotional items ideal for clients, employees, and business partners. As a promotional gifts manufacturer in Delhi NCR and Noida, we specialize in creating personalized promotional products for all occasions.`,
 
     image: "/images/corporate-gifts.jpg",
 
@@ -202,7 +202,7 @@ const aboutSubcategoryData = {
           "Yes, we provide Diwali gift sets, New Year hampers, and seasonal promotional gift items.",
       },
       {
-        question: "Can you include branded items inside the gift box?",
+        question: "Can you include branding items inside the gift box?",
         answer:
           "Absolutely. All items inside the box can be converted into personalized promotional products.",
       },
@@ -217,7 +217,7 @@ const aboutSubcategoryData = {
   // ================= TECHNOLOGY ======================
   "Technology Accessories": {
     heading: "Smart Corporate Tech Accessories",
-    description: `Our tech gifting range includes power banks, USB drives, Bluetooth speakers, wireless chargers, and smart accessories. These are among the most effective business promotional items and branded corporate gifts preferred by companies across Delhi NCR, Noida, Okhla, and Gurgaon.`,
+    description: `Our tech gifting range includes power banks, USB drives, Bluetooth speakers, wireless chargers, and smart accessories. These are among the most effective business promotional items and branding corporate gifts preferred by companies across Delhi NCR, Noida, Okhla, and Gurgaon.`,
 
     image: "/images/tech-accessories.jpg",
 
@@ -245,7 +245,7 @@ const aboutSubcategoryData = {
       {
         question: "Are tech gifts suitable as promotional gifts for clients?",
         answer:
-          "Absolutely. Tech gadgets are considered premium branded items ideal for clients and business partners.",
+          "Absolutely. Tech gadgets are considered premium branding items ideal for clients and business partners.",
       },
     ],
   },

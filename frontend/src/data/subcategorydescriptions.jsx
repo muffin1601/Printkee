@@ -1,11 +1,11 @@
 const subcategoryDescriptions = {
 
 "polo-t-shirts": `
-<h3>Polo T-shirt</h3>
+<h3>Custom Polo T-shirt</h3>
 
 <p>
-Custom-Branded Polo Shirts for Corporate and Promotional Use
-We provide premium promotional polo shirts and personalized corporate apparel for businesses across Delhi NCR, including Noida, Gurgaon, Faridabad, and Okhla. Our solutions help organizations create a professional and unified brand identity through high-quality branded t-shirts featuring custom logos and designs. Whether you require uniforms for employees, apparel for corporate events, or promotional merchandise for marketing campaigns, we ensure excellent quality and a memorable brand presence.
+Custom-Branding Polo Shirts for Corporate and Promotional Use
+We provide premium promotional polo shirts and personalized corporate apparel for businesses across Delhi NCR, including Noida, Gurgaon, Faridabad, and Okhla. Our solutions help organizations create a professional and unified brand identity through high-quality branding t-shirts featuring custom logos and designs. Whether you require uniforms for employees, apparel for corporate events, or promotional merchandise for marketing campaigns, we ensure excellent quality and a memorable brand presence.
 </p>
 
 <h4>Personalized Polo Shirts with Logo Branding</h4>
@@ -16,17 +16,18 @@ your company logo stays long-lasting, fade-resistant, and visually appealing. Th
 
 <h4>Trusted Bulk Supplier for Corporate Uniforms</h4>
 <p>
-Companies across Delhi NCR rely on us for timely and reliable supply of branded polo shirts — from small batches to large corporate orders. Whether it’s a product launch, trade show, conference, retail staff uniform, or client gifting, we help maintain a cohesive team appearance while strengthening brand recognition.
+Companies across Delhi NCR rely on us for timely and reliable supply of branding polo shirts — from small batches to large corporate orders. Whether it’s a product launch, trade show, conference, retail staff uniform, or client gifting, we help maintain a cohesive team appearance while strengthening brand recognition.
 Our streamlined order process makes everything simple:<br/>
 Share your logo → Select fabric & branding → We produce & deliver on time.<br/>
 We also provide design support and samples on request to ensure you get the perfect look and fit for your team.
 </p>
 `,
+
 "round-neck-t-shirts": `
-<h3>Round Neck Tshirt</h3>
+<h3>Custom Round Neck Tshirt</h3>
 
 <p>
-Custom-Branded Round Neck T-Shirts for Corporate & Promotional Branding
+Custom-Branding Round Neck T-Shirts for Corporate & Promotional Branding
 We provide high-quality promotional round neck t-shirts and personalized corporate apparel for brands across Delhi NCR, including Noida, Gurgaon, Okhla and Faridabad. Our products help businesses, educational institutes, and marketing teams build a strong visual identity through modern logo printing. Whether it’s corporate uniforms, promotional giveaways, or campaign merchandise — we ensure durable, attractive and comfortable t-shirts that represent your brand with confidence.
 </p>
 
@@ -59,7 +60,7 @@ Our design and production team works closely with you — from concept to final 
 </p>
 `,
 "caps": `
-<h3>Caps</h3>
+<h3>Promotional Caps</h3>
 
 <p>
 Premium Custom Caps for Branding
@@ -91,11 +92,11 @@ Our in-house design team ensures perfect logo placement and color accuracy. Samp
 
 <h4>Boost Your Brand Visibility</h4>
 <p>
-Custom-branded caps are a cost-effective way to promote your business. Perfect for corporate events, outdoor promotions, and giveaways across Delhi NCR.
+Custom-branding caps are a cost-effective way to promote your business. Perfect for corporate events, outdoor promotions, and giveaways across Delhi NCR.
 </p>
 `,
 "hats": `
-<h3>Hats</h3>
+<h3>Promotional Hats</h3>
 
 <p>
 Premium Custom Hats for Branding
@@ -127,11 +128,11 @@ Our in-house team ensures precise logo placement, color accuracy, and material s
 
 <h4>Boost Your Brand Visibility</h4>
 <p>
-Custom-branded hats are a cost-effective way to promote your business. Perfect for corporate events, outdoor promotions, and giveaways across Delhi NCR.
+Custom-branding hats are a cost-effective way to promote your business. Perfect for corporate events, outdoor promotions, and giveaways across Delhi NCR.
 </p>
 `,
 "corporate-shirts": `
-<h3>Corporate Shirts</h3>
+<h3>Promotional Corporate Shirts</h3>
 
 <p>
 Corporate Shirts Manufacturer in Delhi NCR
@@ -160,11 +161,11 @@ All shirts undergo strict quality checks for fabric, stitching, and durability. 
 
 <h4>Enhance Your Brand with Custom Corporate Shirts</h4>
 <p>
-Boost your company’s image with branded corporate shirts for daily office wear, client meetings, uniforms, and corporate events. Our custom-manufactured shirts provide a professional, and lasting impression across Delhi NCR.
+Boost your company’s image with branding corporate shirts for daily office wear, client meetings, uniforms, and corporate events. Our custom-manufactured shirts provide a professional, and lasting impression across Delhi NCR.
 </p>
 `,
 "ties": `
-<h3>Ties</h3>
+<h3>Promotional Ties</h3>
 
 <p>
 Custom Corporate Ties in Delhi NCR
@@ -176,7 +177,7 @@ Ties are an essential accessory for corporate professionals, office uniforms, ev
 We work with premium ready-made ties in silk, polyester, microfiber, and blended fabrics, ensuring durability, color retention, and refined texture. Our customization services include logo embroidery, woven branding, screen printing, and sublimation printing, giving your team a polished corporate look.
 </p>
 
-<h4>Branded Ties for Employees & Corporate Gifting</h4>
+<h4>Branding Ties for Employees & Corporate Gifting</h4>
 <p>
 Custom ties are perfect for client-facing employees, management teams, front office staff, and corporate uniforms. They are also ideal for corporate gifting, promotional campaigns, and event merchandise, offering a practical way to showcase your brand.
 </p>
@@ -192,11 +193,11 @@ Every tie undergoes strict quality checks to ensure stitching durability, color 
 </p>
 `,
 "aprons": `
-<h3>Aprons</h3>
+<h3>Custom Aprons</h3>
 
 <p>
-Custom Branded Aprons in Delhi NCR
-Aprons are an essential accessory for corporate kitchens, hospitality staff, workshops, promotional events, and branded merchandise, offering both practicality and brand visibility. We specialize in customizing high-quality aprons for businesses across Delhi, Noida, Gurgaon, Okhla, and Faridabad, helping maintain a professional and cohesive appearance for staff teams.
+Custom Branding Aprons in Delhi NCR
+Aprons are an essential accessory for corporate kitchens, hospitality staff, workshops, promotional events, and branding merchandise, offering both practicality and brand visibility. We specialize in customizing high-quality aprons for businesses across Delhi, Noida, Gurgaon, Okhla, and Faridabad, helping maintain a professional and cohesive appearance for staff teams.
 </p>
 
 <h4>Premium Apron Customization & Fabric Options</h4>
@@ -226,11 +227,11 @@ Each apron undergoes strict quality checks for fabric durability, color retentio
 
 <h4>Enhance Brand Visibility with Custom Aprons</h4>
 <p>
-Whether for hospitality staff, corporate workshops, promotional events, or corporate gifting, our custom aprons offer the perfect combination of practicality, durability, and brand visibility. Get premium-quality, branded aprons with fast delivery and professional customization across Delhi NCR.
+Whether for hospitality staff, corporate workshops, promotional events, or corporate gifting, our custom aprons offer the perfect combination of practicality, durability, and brand visibility. Get premium-quality, branding aprons with fast delivery and professional customization across Delhi NCR.
 </p>
 `,
 "winter-wear": `
-<h3>Winter Wear</h3>
+<h3>Custom Winter Wear</h3>
 
 <p>
 Custom Corporate Winter Wear in Delhi NCR
@@ -257,7 +258,7 @@ We cater to large corporate orders with consistent quality, timely delivery, and
 Every garment undergoes quality checks for fabric strength, stitching precision, color fastness, and branding durability. Our design consultation and sample approval process ensures that each product aligns perfectly with corporate standards and branding requirements.
 </p>
 
-<h4>Functional & Branded Corporate Winter Wear</h4>
+<h4>Functional & Branding Corporate Winter Wear</h4>
 <p>
 Custom winter wear provides both practicality and brand visibility. Companies across Delhi NCR use our winter wear as employee uniforms, corporate gifts, and promotional tools, combining everyday usability with visible branding that reinforces corporate identity.
 </p>
@@ -269,11 +270,11 @@ Elevate your corporate image and make a lasting impression with our customized w
 `,
 
 "backpacks": `
-<h3>Backpacks</h3>
+<h3>Promotional Backpacks</h3>
 
 <p>
 Premium Corporate Backpacks for Businesses
-Custom branded backpacks are a practical choice for corporate offices, employees, and promotional campaigns. Our Delhi NCR-based service provides logo printed backpacks for businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad, ideal for employee use, corporate gifting, and marketing events. While we do not manufacture the backpacks in-house, we specialize in customization, branding, and bulk order fulfillment.
+Custom branding backpacks are a practical choice for corporate offices, employees, and promotional campaigns. Our Delhi NCR-based service provides logo printed backpacks for businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad, ideal for employee use, corporate gifting, and marketing events. While we do not manufacture the backpacks in-house, we specialize in customization, branding, and bulk order fulfillment.
 </p>
 
 <h4>Customization and Branding Options</h4>
@@ -292,7 +293,7 @@ Each backpack is designed to offer durability, comfort, and practicality for dai
 </p>
 `,
 "foldable-bags": `
-<h3>Foldable Bags</h3>
+<h3>Promotional Foldable Bags</h3>
 
 <p>
 Custom Foldable Bags for Branding
@@ -315,11 +316,11 @@ We support bulk orders with fast delivery across Delhi NCR, including Noida, Gur
 </p>
 `,
 "duffle-bags": `
-<h3>Duffle Bags</h3>
+<h3>Promotional Duffle Bags</h3>
 
 <p>
 Premium Corporate Duffle Bags
-Custom branded duffle bags are a practical travel accessory for employees, corporate gifting, and promotional campaigns. Serving businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad, we provide custom logo printing, branding, and bulk order solutions for corporate clients.
+Custom branding duffle bags are a practical travel accessory for employees, corporate gifting, and promotional campaigns. Serving businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad, we provide custom logo printing, branding, and bulk order solutions for corporate clients.
 </p>
 
 <h4>Customization and Logo Branding</h4>
@@ -343,11 +344,11 @@ We handle bulk orders with fast delivery across Delhi NCR, including Noida, Gurg
 </p>
 `,
 "tote-bags": `
-<h3>Tote Bags</h3>
+<h3>Promotional Tote Bags</h3>
 
 <p>
-Branded Tote Bags for Corporate Use
-Custom branded tote bags are a practical and eco-friendly solution for corporate gifting, promotional events, and office use. Businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad rely on our services for custom logo printing, bulk orders, and promotional branding.
+Branding Tote Bags for Corporate Use
+Custom branding tote bags are a practical and eco-friendly solution for corporate gifting, promotional events, and office use. Businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad rely on our services for custom logo printing, bulk orders, and promotional branding.
 </p>
 
 <h4>Customization and Logo Printing</h4>
@@ -367,7 +368,7 @@ We specialize in bulk customization for corporate clients, providing fast delive
 `,
 
 "sipper": `
-<h3>Sipper</h3>
+<h3>Promotional Sipper</h3>
 
 <p>
 Custom Sipper Bottles for Corporate Branding
@@ -390,7 +391,7 @@ Available in stainless steel, plastic, or glass, these bottles come in various s
 </p>
 `,
 "bamboo-bottle": `
-<h3>Bamboo Bottle</h3>
+<h3>Promotional Bamboo Bottle</h3>
 
 <p>
 Corporate Bamboo Bottles for Branding
@@ -413,7 +414,7 @@ Crafted from premium bamboo and stainless steel interiors, these bottles combine
 </p>
 `,
 "coffee-mug": `
-<h3>Coffee Mugs</h3>
+<h3>Promotional Coffee Mugs</h3>
 
 <p>
 Promotional Coffee Mugs for Corporate Branding
@@ -436,7 +437,7 @@ Available in ceramic, porcelain, or eco-friendly materials, these mugs are durab
 </p>
 `,
 "ceramic-mug": `
-<h3>Ceramic Mugs</h3>
+<h3>Promotional Ceramic Mugs</h3>
 
 <p>
 Logo Printed Ceramic Mugs for Corporate Gifting
@@ -459,7 +460,7 @@ Crafted from premium ceramic, these mugs are sturdy, heat-resistant, and safe fo
 </p>
 `,
 "welcome-kits": `
-<h3>Welcome Kits</h3>
+<h3>Promotional Welcome Kits</h3>
 
 <p>
 Custom Welcome Kits for Corporate Branding in Delhi NCR
@@ -468,12 +469,12 @@ Welcome Kits are a premium solution for corporate offices, HR teams, and client 
 
 <h4>Personalized Printing & Branding Services</h4>
 <p>
-Our team offers custom printing, logo placement, and personalized branding for each component of the welcome kit. Items like notebooks, pens, mugs, T-shirts, bags, and other promotional products can be branded to create a cohesive, visually appealing kit that reflects your corporate identity and values.
+Our team offers custom printing, logo placement, and personalized branding for each component of the welcome kit. Items like notebooks, pens, mugs, T-shirts, bags, and other promotional products can be branding to create a cohesive, visually appealing kit that reflects your corporate identity and values.
 </p>
 
 <h4>Ideal for Employee Onboarding & Corporate Events</h4>
 <p>
-Welcome Kits are perfect for employee onboarding, client gifting, corporate events, conferences, and promotional campaigns. A well-curated, branded kit strengthens employee engagement, fosters loyalty, and leaves a lasting impression on clients or visitors. Our service ensures timely delivery, bulk assembly, and professional quality for every kit.
+Welcome Kits are perfect for employee onboarding, client gifting, corporate events, conferences, and promotional campaigns. A well-curated, branding kit strengthens employee engagement, fosters loyalty, and leaves a lasting impression on clients or visitors. Our service ensures timely delivery, bulk assembly, and professional quality for every kit.
 </p>
 
 <h4>Extensive Customization Options</h4>
@@ -482,7 +483,7 @@ Businesses can select from a wide variety of items and packaging styles, includi
 </p>
 `,
 "promotional-clocks": `
-<h3>Promotional Clocks</h3>
+<h3>Custom Promotional Clocks</h3>
 
 <p>
 Custom Promotional Clocks for Corporate Branding in Delhi NCR
@@ -500,10 +501,10 @@ Promotional clocks are ideal for office décor, employee gifts, client giveaways
 </p>
 `,
 "keychains": `
-<h3>Keychains</h3>
+<h3>Promotional Keychains</h3>
 
 <p>
-Custom Branded Keychains for Corporate Promotion in Delhi NCR
+Custom Branding Keychains for Corporate Promotion in Delhi NCR
 Keychains are a small yet impactful promotional product widely used by corporate offices, businesses, and marketing agencies. While we do not manufacture them, we customize and brand keychains with logos and personalized designs, making them an effective tool for brand visibility across Delhi, Noida, Gurgaon, Okhla, and Faridabad.
 </p>
 
@@ -524,7 +525,7 @@ Our customized keychains are available in metal, acrylic, leather, wood, and eco
 `,
 
 "wireless-charging": `
-<h3>Wireless Charging</h3>
+<h3>Promotional Wireless Charging</h3>
 
 <p>
 Custom Wireless Charging Solutions for Corporate Gifting
@@ -533,7 +534,7 @@ Custom wireless chargers are a high-tech and practical corporate gifting solutio
 
 <h4>Promotional Bulk Order Options</h4>
 <p>
-We provide bulk order customization for corporate offices, events, and marketing campaigns. Each charger can be branded with company logos, slogans, or taglines, ensuring maximum visibility while offering a useful and modern gadget to recipients.
+We provide bulk order customization for corporate offices, events, and marketing campaigns. Each charger can be branding with company logos, slogans, or taglines, ensuring maximum visibility while offering a useful and modern gadget to recipients.
 </p>
 
 <h4>Corporate and Event Use</h4>
@@ -547,7 +548,7 @@ Our chargers are made with premium materials, featuring fast-charging . Business
 </p>
 `,
 "computer-accessories": `
-<h3>Computer Accessories</h3>
+<h3>Promotional Computer Accessories</h3>
 
 <p>
 Custom Computer Accessories for Corporate Gifting
@@ -570,7 +571,7 @@ Our accessories are made from premium materials that ensure durability, ergonomi
 </p>
 `,
 "power-banks": `
-<h3>Power Bank</h3>
+<h3>Promotional Power Bank</h3>
 
 <p>
 Custom Power Banks for Corporate Gifting
@@ -593,7 +594,7 @@ Our power banks are built with premium battery technology, safety features, slee
 </p>
 `,
 "desktop-and-mousepad": `
-<h3>Desktop & Mousepad</h3>
+<h3>Promotional Desktop & Mousepad</h3>
 
 <p>
 Custom Desktop Accessories for Corporate Gifting
@@ -617,7 +618,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
 `,
 
 "trophy-and-momento": `
-  <h3>Trophy and Momento</h3>
+  <h3>Promotional Trophy and Momento</h3>
 
   <p>
     Custom Trophies and Momento for Corporate Gifting
@@ -646,7 +647,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
 `,
 
  "cork-sheet": `
-  <h3>Cork Sheet</h3>
+  <h3>Promotional Cork Sheet</h3>
 
   <p>
     Eco-Friendly Cork Sheets for Custom Corporate Gifting
@@ -669,7 +670,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "cork-corporate-gifting-combo": `
-  <h3>Cork Corporate Gifting Combo</h3>
+  <h3>Promotional Cork Corporate Gifting Combo</h3>
 
   <p>
     Custom Cork Gift Combos for Corporate Branding
@@ -678,7 +679,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
 
   <h4>Personalized Logo Printing and Design</h4>
   <p>
-    Each combo can be customized with logos, messages, or branding elements. These combos typically include cork coasters, desk accessories, stationery items, and eco-friendly products, creating a thoughtful and branded corporate gift package.
+    Each combo can be customized with logos, messages, or branding elements. These combos typically include cork coasters, desk accessories, stationery items, and eco-friendly products, creating a thoughtful and branding corporate gift package.
   </p>
 
   <h4>Corporate and Promotional Use</h4>
@@ -692,11 +693,11 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "cork-coaster": `
-  <h3>Cork Coaster</h3>
+  <h3>Promotional Cork Coaster</h3>
 
   <p>
     Custom Cork Coasters for Corporate Gifting
-    Cork coasters are a practical and eco-friendly promotional product for corporate offices and businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad. They can be custom branded, printed, or engraved to create a memorable and functional corporate gift.
+    Cork coasters are a practical and eco-friendly promotional product for corporate offices and businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad. They can be custom branding, printed, or engraved to create a memorable and functional corporate gift.
   </p>
 
   <h4>Logo Printing and Promotional Use</h4>
@@ -715,11 +716,11 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "cork-plant-decorate": `
-  <h3>Cork Plant Decorate</h3>
+  <h3>Promotional Cork Plant Decorate</h3>
 
   <p>
     Eco-Friendly Cork Plant Décorate for Corporate Gifting
-    Cork plant décor is a unique and sustainable corporate gifting option. Businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad can provide employees and clients with custom-branded cork plant products, reinforcing eco-conscious branding.
+    Cork plant décor is a unique and sustainable corporate gifting option. Businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad can provide employees and clients with custom-branding cork plant products, reinforcing eco-conscious branding.
   </p>
 
   <h4>Custom Logo Branding</h4>
@@ -738,11 +739,11 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "cork-serving-decorate": `
-  <h3>Cork Serving Decorate</h3>
+  <h3>Promotional Cork Serving Decorate</h3>
 
   <p>
     Custom Cork Serving Décor for Corporate Gifting
-    Cork serving décor is an eco-friendly corporate gifting solution. Businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad can provide employees, clients, or partners with custom-branded cork serving products for promotional events, office use, or client appreciation.
+    Cork serving décor is an eco-friendly corporate gifting solution. Businesses in Delhi, Noida, Gurgaon, Okhla, and Faridabad can provide employees, clients, or partners with custom-branding cork serving products for promotional events, office use, or client appreciation.
   </p>
 
   <h4>Logo Printing and Custom Branding</h4>
@@ -761,7 +762,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "cork-horeca-range": `
-  <h3>Cork Horeca Range</h3>
+  <h3>Promotional Cork Horeca Range</h3>
 
   <p>
     Custom Cork Horeca Products for Corporate Gifting
@@ -784,11 +785,11 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "cork-premium-lighting": `
-  <h3>Cork Premium Lighting</h3>
+  <h3>Promotional Cork Premium Lighting</h3>
 
   <p>
     Custom Cork Lighting Products for Corporate Gifting
-    Cork premium lighting items are unique and eco-friendly corporate gifts. Companies in Delhi, Noida, Gurgaon, Okhla, and Faridabad can provide clients and employees with custom-branded cork lamps and lighting products for office or home use, enhancing brand presence.
+    Cork premium lighting items are unique and eco-friendly corporate gifts. Companies in Delhi, Noida, Gurgaon, Okhla, and Faridabad can provide clients and employees with custom-branding cork lamps and lighting products for office or home use, enhancing brand presence.
   </p>
 
   <h4>Logo Printing and Promotional Customization</h4>
@@ -807,7 +808,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "cork-premium-gift-boxes": `
-  <h3>Cork Premium Gift Boxes</h3>
+  <h3>Promotional Cork Premium Gift Boxes</h3>
 
   <p>
     Custom Cork Gift Boxes for Corporate Branding
@@ -816,7 +817,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
 
   <h4>Custom Logo Printing and Design</h4>
   <p>
-    Each cork gift box can be branded with logos, corporate messages, or unique designs. Perfect for welcome kits, promotional giveaways, and client appreciation gifts, these boxes reflect a company’s commitment to sustainability and premium quality.
+    Each cork gift box can be branding with logos, corporate messages, or unique designs. Perfect for welcome kits, promotional giveaways, and client appreciation gifts, these boxes reflect a company’s commitment to sustainability and premium quality.
   </p>
 
   <h4>Corporate and Promotional Use</h4>
@@ -830,7 +831,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "cork-desk-top-accessories": `
-  <h3>Cork Desk Top Accessories</h3>
+  <h3>Promotional Cork Desk Top Accessories</h3>
 
   <p>
     Custom Cork Desktop Accessories for Corporate Gifting
@@ -853,7 +854,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "cork-laptop-bag-and-wallet": `
-  <h3>Custom Cork Laptop Bags & Wallets</h3>
+  <h3>Promotional Custom Cork Laptop Bags & Wallets</h3>
 
   <p>
     Custom Cork Laptop Bags and Wallets for Corporate Gifting
@@ -876,7 +877,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "cork-yoga-accessories": `
-  <h3>Custom Cork Yoga Accessories</h3>
+  <h3>Promotional Custom Cork Yoga Accessories</h3>
 
   <p>
     Custom Cork Yoga Accessories for Corporate Gifting
@@ -899,11 +900,11 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "file-and-folder": `
-  <h3>File and Folder</h3>
+  <h3>Promotional File and Folder</h3>
 
   <p>
-    Branded Office Files and folders for Corporate Efficiency
-    Custom branded office files and folders are an essential tool for corporate offices, businesses, and administrative teams. They not only organize documents but also serve as effective branding tools. Our services in Delhi, Noida, Gurgaon, Okhla, and Faridabad provide logo printing, custom design, and bulk order fulfillment for businesses that want professional and visually appealing office stationery.
+    Branding Office Files and folders for Corporate Efficiency
+    Custom branding office files and folders are an essential tool for corporate offices, businesses, and administrative teams. They not only organize documents but also serve as effective branding tools. Our services in Delhi, Noida, Gurgaon, Okhla, and Faridabad provide logo printing, custom design, and bulk order fulfillment for businesses that want professional and visually appealing office stationery.
   </p>
 
   <h4>Custom Logo Printing and Design</h4>
@@ -913,17 +914,17 @@ Our products are made from premium materials including rubber, fabric, and eco-f
 
   <h4>Ideal for Corporate Gifting and Events</h4>
   <p>
-    Custom office files and folders are widely used for employee kits, client presentations, corporate gifting, training sessions, and conferences. Branded folders not only enhance professionalism but also reinforce brand identity during meetings and events. Bulk customization ensures timely delivery for large corporate requirements.
+    Custom office files and folders are widely used for employee kits, client presentations, corporate gifting, training sessions, and conferences. Branding folders not only enhance professionalism but also reinforce brand identity during meetings and events. Bulk customization ensures timely delivery for large corporate requirements.
   </p>
 
   <h4>Durable Materials and Functional Designs</h4>
   <p>
-    Our folders are made from premium card stock, kraft paper, or eco-friendly materials, with options for pockets, tabs, or ring binders. This combination of functionality and style ensures your employees, clients, or event participants have a practical and branded stationery solution.
+    Our folders are made from premium card stock, kraft paper, or eco-friendly materials, with options for pockets, tabs, or ring binders. This combination of functionality and style ensures your employees, clients, or event participants have a practical and branding stationery solution.
   </p>
 `,
 
 "notebooks-and-diary-sets": `
-  <h3>Notebook & Diary Sets</h3>
+  <h3>Promotional Notebook & Diary Sets</h3>
 
   <p>
     Custom Notebooks & Diary Sets for Corporate Branding
@@ -937,7 +938,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
 
   <h4>Corporate Gifting and Event Use</h4>
   <p>
-    These notebooks and diaries are perfect for employee welcome kits, client gifting, conferences, seminars, workshops, and marketing events. By providing a branded, practical item, companies increase engagement and ensure that the recipient remembers the brand every time they use it.
+    These notebooks and diaries are perfect for employee welcome kits, client gifting, conferences, seminars, workshops, and marketing events. By providing a branding, practical item, companies increase engagement and ensure that the recipient remembers the brand every time they use it.
   </p>
 
   <h4>Variety and Quality Materials</h4>
@@ -946,7 +947,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "pen-and-writing-set": `
-  <h3>Pen & Writing Set</h3>
+  <h3>Promotional Pen & Writing Set</h3>
 
   <p>
     Promotional Pens and Writing Sets for Corporate Use
@@ -969,7 +970,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
   </p>
 `,
 "lanyard-and-id-card": `
-  <h3>Lanyard & ID Card</h3>
+  <h3>Promotional Lanyard & ID Card</h3>
 
   <p>
     Logo Printed Lanyards and ID Card
@@ -983,7 +984,7 @@ Our products are made from premium materials including rubber, fabric, and eco-f
 
   <h4>Corporate and Event Uses</h4>
   <p>
-    Branded lanyards and ID cards are widely used for employee onboarding, trade shows, exhibitions, conferences, and office access control. These practical items enhance brand visibility while maintaining security and professional appearance across all corporate environments.
+    Branding lanyards and ID cards are widely used for employee onboarding, trade shows, exhibitions, conferences, and office access control. These practical items enhance brand visibility while maintaining security and professional appearance across all corporate environments.
   </p>
 
   <h4>Durable Materials and Professional Finish</h4>
