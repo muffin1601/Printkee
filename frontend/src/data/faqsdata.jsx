@@ -1,5 +1,5 @@
 const aboutSubcategoryData = {
-  "Bags and Travel": {
+  "bags-and-travel": {
     heading: "Corporate Travel Solutions – Bags that Boost Brand Recall",
     description: `MF Global Services offers durable, stylish, and high-impact branding promotional items including backpacks, laptop bags, travel pouches, and duffle bags. These promotional gift items are ideal for corporate gifting, promotional gifts for business, seminars, events, and employee welcome kits. As a leading promotional items manufacturer in Delhi NCR and Noida, we ensure premium quality, long-term visibility, and professional custom branding on every bag.`,
 
@@ -35,7 +35,7 @@ const aboutSubcategoryData = {
   },
 
   // ================= ECO PRODUCTS ======================
-  "Eco Products": {
+  "eco-products": {
     heading: "Sustainable Corporate Promotional Products",
     description: `Our eco-friendly range includes bamboo bottles, cork stationery, reusable drinkware, organic accessories, and biodegradable gifting options. These sustainable promotional gift items are perfect for businesses wanting to reduce environmental impact while using branding promotional items to enhance brand visibility. Ideal for CSR activities, eco events, and organizations seeking personalized promotional products in Delhi NCR.`,
 
@@ -71,7 +71,7 @@ const aboutSubcategoryData = {
   },
 
   // ================= APPAREL ======================
-  "Apparel and Accessories": {
+  "apparel-and-accessories": {
     heading: "Branding Corporate Apparel & Custom T-Shirts",
     description: `We provide high-quality custom T-shirts, polo shirts, hoodies, jackets, caps, and corporate shirts designed for events, staff uniforms, seminars, and promotional campaigns. These apparel pieces are among the most popular corporate promotional products and promotional gift items in Delhi NCR. Each item is customizable with logos, branding, quotes, and designs to create powerful branding promotional items for your business.`,
 
@@ -107,7 +107,7 @@ const aboutSubcategoryData = {
   },
 
   // ================= DRINKWARE ======================
-  "Drink Ware": {
+  "drink-ware": {
     heading: "Custom Drinkware for Corporate Gifting",
     description: `Our custom mugs, sippers, thermos flasks, and stainless-steel bottles are some of the most preferred promotional products in Delhi NCR. These branding promotional items provide excellent brand visibility and are perfect as promotional gifts for business, corporate events, offices, and employee welcome kits.`,
 
@@ -143,7 +143,7 @@ const aboutSubcategoryData = {
   },
 
   // ================= OFFICE & WRITING ======================
-  "Office and Writing": {
+  "office-and-writing": {
     heading: "Professional Stationery for Business Branding",
     description: `Our range includes premium notebooks, diaries, pens, folders, planners, and office kits — highly effective business promotional products. These branding promotional items are cost-effective and deliver strong brand recall, making them ideal as promotional gifts for clients and employees.`,
 
@@ -179,7 +179,7 @@ const aboutSubcategoryData = {
   },
 
   // ================= COLLECTION ======================
-  "Collection": {
+  "collection": {
     heading: "Premium Corporate Gift Collections",
     description: `Our curated corporate gift boxes, luxury hampers, festival packs, and welcome kits include branding promotional items ideal for clients, employees, and business partners. As a promotional gifts manufacturer in Delhi NCR and Noida, we specialize in creating personalized promotional products for all occasions.`,
 
@@ -215,7 +215,7 @@ const aboutSubcategoryData = {
   },
 
   // ================= TECHNOLOGY ======================
-  "Technology Accessories": {
+  "technology-accessories": {
     heading: "Smart Corporate Tech Accessories",
     description: `Our tech gifting range includes power banks, USB drives, Bluetooth speakers, wireless chargers, and smart accessories. These are among the most effective business promotional items and branding corporate gifts preferred by companies across Delhi NCR, Noida, Okhla, and Gurgaon.`,
 

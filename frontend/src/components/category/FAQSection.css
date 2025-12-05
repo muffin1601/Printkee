@@ -4,7 +4,7 @@
 
 .pk-faq-wrapper {
   width: 100%;
-  max-width: 90%;
+  max-width: 900px;
   margin: 60px auto;
   padding: 0 20px;
   font-family: var(--font-primary);
@@ -20,10 +20,9 @@
 }
 
 
-/* ====================================
-   FAQ Card Styling (Glass + Premium Look)
-===================================== */
-
+/* ----------------------------------------------------
+   FAQ Card Styling – Glass / Premium / Soft Shadow
+----------------------------------------------------- */
 .pk-faq-list {
   display: flex;
   flex-direction: column;
@@ -46,19 +45,17 @@
 }
 
 
-/* ====================================
-   Question Row – FIXED for BUTTON element
-===================================== */
+/* ----------------------------------------------------
+   Question Row – Button Element
+----------------------------------------------------- */
 
 .pk-faq-question {
-  /* Remove default <button> styling */
   background: none;
   border: none;
   padding: 0;
   width: 100%;
   text-align: left;
 
-  /* Keep your original design */
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-dark);
@@ -68,7 +65,6 @@
   justify-content: space-between;
   align-items: center;
 
-  /* Prevent button outline from breaking design */
   outline: none;
 }
 
@@ -92,9 +88,9 @@
 }
 
 
-/* ====================================
-   FAQ Answer (Smooth Expand)
-===================================== */
+/* ----------------------------------------------------
+   Answer – Smooth Expand
+----------------------------------------------------- */
 
 .pk-faq-answer {
   overflow: hidden;
@@ -114,20 +110,136 @@
 }
 
 
-/* ====================================
-   Responsive Fix
-===================================== */
+/* ==========================================================
+   RESPONSIVE BREAKPOINTS – FULLY OPTIMIZED
+========================================================== */
 
-@media (max-width: 600px) {
+/* -------- Large Tablets -------- */
+@media (max-width: 1024px) {
+  .pk-faq-title {
+    font-size: 2.2rem;
+  }
+  .pk-faq-card {
+    padding: 18px 22px;
+  }
+}
+
+/* -------- Tablets / Medium Screens -------- */
+@media (max-width: 768px) {
+  .pk-faq-wrapper {
+    margin: 40px auto;
+    padding: 0 16px;
+  }
   .pk-faq-title {
     font-size: 2rem;
+    margin-bottom: 35px;
+  }
+  .pk-faq-card {
+    padding: 16px 20px;
+  }
+  .pk-faq-question {
+    font-size: 1.02rem;
+  }
+  .pk-faq-icon {
+    font-size: 1.3rem;
+  }
+  .pk-faq-answer-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* -------- Mobile (600px) -------- */
+@media (max-width: 600px) {
+  .pk-faq-title {
+    font-size: 1.8rem;
   }
 
   .pk-faq-card {
-    padding: 18px 20px;
+    padding: 16px 18px;
   }
 
   .pk-faq-question {
-    font-size: 1rem;
+    font-size: 0.98rem;
+  }
+
+  .pk-faq-answer-text {
+    padding: 14px 16px;
+    font-size: 0.92rem;
+  }
+}
+
+/* -------- Small Mobile (480px) -------- */
+@media (max-width: 480px) {
+  .pk-faq-title {
+    font-size: 1.65rem;
+  }
+
+  .pk-faq-card {
+    padding: 14px 16px;
+  }
+
+  .pk-faq-question {
+    font-size: 0.92rem;
+  }
+
+  .pk-faq-icon {
+    font-size: 1.2rem;
+  }
+
+  .pk-faq-answer-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* -------- Extra Small Mobile (400px) -------- */
+@media (max-width: 400px) {
+  .pk-faq-title {
+    font-size: 1.55rem;
+  }
+
+  .pk-faq-question {
+    font-size: 0.88rem;
+  }
+
+  .pk-faq-answer-text {
+    padding: 12px 14px;
+    font-size: 0.88rem;
+  }
+}
+
+/* -------- Ultra Small (360px) -------- */
+@media (max-width: 360px) {
+  .pk-faq-title {
+    font-size: 1.45rem;
+  }
+
+  .pk-faq-question {
+    font-size: 0.85rem;
+  }
+
+  .pk-faq-card {
+    padding: 12px 14px;
+  }
+}
+
+/* -------- Ultra-Compact Screens (320px and below) -------- */
+@media (max-width: 320px) {
+  .pk-faq-wrapper {
+    padding: 0 10px;
+  }
+
+  .pk-faq-title {
+    font-size: 1.3rem;
+  }
+
+  .pk-faq-question {
+    font-size: 0.82rem;
+  }
+
+  .pk-faq-answer-text {
+    font-size: 0.85rem;
+    
+
+    padding: 10px 10px;
   }
 }

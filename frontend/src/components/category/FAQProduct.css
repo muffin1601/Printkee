@@ -1,11 +1,6 @@
-/* ================================
-   PRODUCT FAQ ACCORDION – CLEAN THEME
-   Matches product page styling
-=================================== */
-
 .product-faq-wrapper {
   width: 100%;
-  max-width: 90%;
+  max-width: 900px;
   margin: 60px auto;
   padding: 0 20px;
   font-family: var(--font-primary, "Chivo", sans-serif);
@@ -19,14 +14,14 @@
   color: var(--heading-color, #222);
 }
 
-/* FAQ list */
+/* FAQ LIST */
 .product-faq-list {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-/* FAQ item wrapper */
+/* FAQ ITEM */
 .product-faq-item {
   background: #ffffff;
   border-radius: 10px;
@@ -35,7 +30,7 @@
   transition: all 0.3s ease;
 }
 
-/* Question button */
+/* QUESTION */
 .product-faq-question {
   width: 100%;
   padding: 18px 22px;
@@ -46,8 +41,8 @@
   border: none;
   outline: none;
   display: flex;
-  font-family: var(--font-primary, "Poppins", sans-serif);
   align-items: center;
+  font-family: var(--font-primary, "Poppins", sans-serif);
   justify-content: space-between;
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
@@ -57,7 +52,7 @@
   background: #efefef;
 }
 
-/* Answer */
+/* ANSWER */
 .product-faq-answer {
   padding: 16px 22px 20px;
   animation: fadeDown 0.25s ease forwards;
@@ -70,7 +65,7 @@
   color: #444;
 }
 
-/* Smooth open animation */
+/* ANIMATION */
 @keyframes fadeDown {
   from {
     opacity: 0;
@@ -82,18 +77,96 @@
   }
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* ====================================== */
+/*               RESPONSIVE               */
+/* ====================================== */
+
+/* Tablets */
+@media (max-width: 900px) {
   .product-faq-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .product-faq-question {
-    font-size: 1rem;
-    padding: 16px 18px;
+    font-size: 1.02rem;
+    padding: 16px 20px;
   }
 
   .product-faq-answer {
-    padding: 14px 18px 18px;
+    padding: 15px 20px 18px;
+  }
+}
+
+/* Large Mobile */
+@media (max-width: 600px) {
+  .product-faq-wrapper {
+    padding: 0 14px;
+    margin: 40px auto;
+  }
+
+  .product-faq-title {
+    font-size: 1.75rem;
+    margin-bottom: 28px;
+  }
+
+  .product-faq-question {
+    font-size: 0.95rem;
+    padding: 14px 16px;
+  }
+
+  .product-faq-answer {
+    padding: 12px 16px 16px;
+  }
+
+  .product-faq-answer p {
+    font-size: 0.92rem;
+  }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+  .product-faq-title {
+    font-size: 1.6rem;
+  }
+
+  .product-faq-question {
+    padding: 13px 14px;
+    font-size: 0.92rem;
+  }
+
+  .product-faq-answer {
+    padding: 12px 14px 14px;
+  }
+}
+
+/* Extra Small Screens (≤360px) */
+@media (max-width: 360px) {
+  .product-faq-title {
+    font-size: 1.45rem;
+  }
+
+  .product-faq-question {
+    font-size: 0.88rem;
+    padding: 12px 12px;
+  }
+
+  .product-faq-answer p {
+    font-size: 0.88rem;
+  }
+}
+
+/* Ultra Small Screens (≤320px) */
+@media (max-width: 320px) {
+  .product-faq-wrapper {
+    padding: 0 10px;
+  }
+
+  .product-faq-question {
+    font-size: 0.85rem;
+    padding: 10px 10px;
+  }
+
+  .product-faq-answer {
+    padding: 10px 10px 12px;
   }
 }

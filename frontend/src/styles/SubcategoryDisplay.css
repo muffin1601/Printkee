@@ -1,3 +1,7 @@
+/* ========================================================= */
+/*                 SUBCATEGORY HEADER SECTION                */
+/* ========================================================= */
+
 .subcategory-header-3 {
   display: flex;
   align-items: center;
@@ -14,7 +18,7 @@
   max-width: 600px;
 }
 
-.back-link-3{
+.back-link-3 {
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -33,7 +37,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.3rem;
 }
 
 .arrow-3 {
@@ -41,16 +44,12 @@
   color: #2c2c2c;
 }
 
-.back-link-3 .span-name-3 {
-  font-size: 1rem;
-}
-
 .subcategory-title-3 {
   font-size: 2.2rem;
   font-weight: 700;
   margin: 0;
   color: #252525;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .subcategory-description-3 {
@@ -58,9 +57,9 @@
   line-height: 1.6;
   color: #252525;
   margin: 0.8rem 0 0;
-  font-family: 'Poppins', sans-serif;
 }
 
+/* Header Image */
 .head-img {
   flex: 1 1 40%;
   display: flex;
@@ -74,10 +73,12 @@
   object-fit: contain;
 }
 
+/* ========================================================= */
+/*                 SUBCATEGORY GRID SECTION                  */
+/* ========================================================= */
 
 .subcategory-container {
   width: 100%;
-  margin: 0 auto 30px auto;
   background-color: #fff0d6;
   border-radius: 0 0 30px 30px;
   display: flex;
@@ -86,12 +87,11 @@
 
 .subcategory-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 15px;
-  padding: 40px 0px;
+  padding: 40px 0;
   max-width: 95%;
   margin: 0 auto;
-  box-sizing: border-box;
   justify-items: center;
 }
 
@@ -100,15 +100,13 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s ease;
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 20px;
   width: 100%;
   max-width: 250px;
-  margin: 0 auto;
 }
 
 .subcategory-card:hover {
@@ -116,30 +114,29 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
-
 .subcategory-image {
   width: 100%;
-  height: auto;
-  object-fit: cover;
   border-radius: 12px;
   margin-bottom: 12px;
 }
 
 .subcategory-name {
-  color: #4b2061; /* navbar purple */
+  color: #4b2061;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
-  margin: 0;
   word-break: break-word;
 }
+
+/* ========================================================= */
+/*                     HIGHLIGHTS SECTION                    */
+/* ========================================================= */
 
 .highlights-section {
   padding: 40px 0 60px 0;
   background: #4b2061;
-  /* border-radius: 0 0 30px 30px; */
-  margin-bottom: 30px;
   border-top: #f39c12 3px solid;
+  margin-bottom: 30px;
 }
 
 .highlights-heading {
@@ -154,161 +151,109 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 28px;
-  justify-content: center;
-  justify-items: center;
   width: 87%;
   margin: 0 auto;
+  justify-items: center;
 }
 
 .highlight-card {
   background: #fff;
   border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   padding: 24px 18px;
-  width: 100%;
   max-width: 360px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: box-shadow 0.2s, transform 0.2s;
+  text-align: center;
+  transition: 0.2s;
 }
 
-
 .highlight-card:hover {
-  box-shadow: 0 8px 28px rgba(0,0,0,0.13);
   transform: translateY(-4px) scale(1.03);
 }
 
 .highlight-icon {
   font-size: 2.2rem;
-  margin-bottom: 12px;
   color: #f39c12;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .highlight-title {
   font-size: 1.1rem;
   font-weight: 600;
   color: #4b2061;
-  margin: 0 0 8px 0;
-  text-align: center;
 }
 
 .highlight-description {
   font-size: 0.97rem;
   color: #252525;
-  text-align: center;
-  margin: 0;
-  line-height: 1.5;
 }
 
+/* ========================================================= */
+/*               ABOUT SUBCATEGORY SECTION                   */
+/* ========================================================= */
+
 .about-subcategory-container {
-  padding: 0px 0 40px 0;
+  padding: 40px 0;
   background: hsl(49, 100%, 97%);
-  border-bottom: #4b2061 2px solid;
+  border-bottom: 2px solid #4b2061;
   display: flex;
   justify-content: center;
-  flex-direction: row;
-  align-items: center;
   gap: 40px;
 }
 
-/* WRAPPER */
 .aboutsubcat-wrapper {
   width: 100%;
   margin: 40px auto;
   padding: 20px;
   display: flex;
   justify-content: center;
-  background: #fcefdb; /* soft beige */
+  background: #fcefdb;
   border-radius: 16px;
 }
 
-/* MAIN CARD */
 .aboutsubcat-card {
   max-width: 90%;
-  width: 100%;
   background: #fff;
   padding: 36px 30px;
   border-radius: 18px;
-  border: 1px solid rgba(75, 32, 97, 0.15); /* soft purple border */
+  border: 1px solid rgba(75, 32, 97, 0.15);
   box-shadow: 0 6px 26px rgba(75, 32, 97, 0.12);
 }
 
-/* HEADING */
 .aboutsubcat-heading {
   font-size: 1.9rem;
   font-weight: 700;
   color: #4b2061;
   margin-bottom: 10px;
-  text-align: left;
 }
 
-/* GOLD UNDERLINE */
 .aboutsubcat-heading::after {
   content: "";
-  display: block;
   width: 80px;
   height: 4px;
   background: #f39c12;
   border-radius: 4px;
+  display: block;
   margin-top: 8px;
 }
 
-/* DESCRIPTION */
 .aboutsubcat-description {
   font-size: 1.05rem;
   color: #3b2a43;
   line-height: 1.7;
-  margin-top: 12px;
   margin-bottom: 28px;
 }
 
-/* FAQ CONTAINER */
-.aboutsubcat-faqs {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-/* FAQ CARD */
 .aboutsubcat-faq-item {
   background: #fcefdb;
   border-left: 5px solid #f39c12;
   padding: 16px 20px;
   border-radius: 10px;
-  transition: box-shadow 0.25s ease;
 }
 
-.aboutsubcat-faq-item:hover {
-  box-shadow: 0 6px 18px rgba(75, 32, 97, 0.12);
-}
-
-/* QUESTION TEXT */
 .aboutsubcat-faq-question {
   font-size: 1.08rem;
   font-weight: 600;
   color: #4b2061;
-  background: transparent;
-  font-family: 'Poppins', sans-serif;
-  border: none;
-  text-align: left;
-  width: 100%;
-  cursor: pointer;
-  margin-bottom: 6px;
 }
 
-/* ANSWER TEXT */
-.aboutsubcat-faq-answer p {
-  font-size: 0.97rem;
-  line-height: 1.65;
-  color: #3b2a43;
-  margin: 0;
-}
-
-/* OPTIONAL IMAGE */
 .aboutsubcat-image-container {
   padding-left: 40px;
 }
@@ -316,118 +261,14 @@
 .aboutsubcat-image {
   width: 340px;
   border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
-  object-fit: cover;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .aboutsubcat-wrapper {
-    flex-direction: column;
-    padding: 12px;
-  }
-  .aboutsubcat-card {
-    padding: 28px 20px;
-  }
-  .aboutsubcat-image-container {
-    padding-left: 0;
-    margin-top: 20px;
-    text-align: center;
-  }
-  .aboutsubcat-image {
-    width: 100%;
-    max-width: 380px;
-  }
-}
-.faq-section {
-  padding: 40px 0 60px 0;
-  background: #f9f9f9;
-}
-/* Responsive */
-@media (max-width: 600px) {
-  .faq-question {
-    font-size: 1rem;
-  }
-  .faq-answer {
-    font-size: 0.92rem;
-  }
+/* ========================================================= */
+/*                     RESPONSIVE STYLES                     */
+/* ========================================================= */
 
-.about-subcategory {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-  padding: 36px 32px;
-  /* margin: 0 auto 36px auto; */
-  max-width: 50%;
-  font-family: 'Poppins', sans-serif;
-}
-
-.about-heading {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #4b2061;
-  margin-bottom: 16px;
-  text-align: left;
-}
-
-.about-description {
-  font-size: 1.05rem;
-  color: #252525;
-  margin-bottom: 28px;
-  line-height: 1.7;
-  text-align: left;
-}
-
-.faq-section {
-  align-self: center;
-  margin-top: 18px;
-  max-width: 100%;
-  overflow-wrap: break-word; 
-  box-sizing: border-box;
-}
-
-.faq-item {
-  margin-bottom: 22px;
-  border-left: 3px solid #f39c12;
-  padding-left: 16px;
-}
-
-.faq-question {
-  font-size: 1.08rem;
-  font-weight: 600;
-  color: #4b2061;
-  margin: 0 0 6px 0;
-}
-
-.faq-answer {
-  font-size: 0.98rem;
-  color: #252525;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.subcategory-image-container {
-  display: flex;
-  max-width: 50%;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-
-.related-subcategories-container {
-  margin: 40px auto 0 auto;
-  padding: 32px 0 0 0;
-  max-width: 1200px;
-  width: 95%;
-}
-
-.related-heading {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #4b2061;
-  margin-bottom: 22px;
-  text-align: center;
-}
-
+/* --- Large Tablets --- */
 @media (max-width: 1024px) {
   .subcategory-header-3 {
     padding: 0 4%;
@@ -436,15 +277,8 @@
   .subcategory-title-3 {
     font-size: 1.9rem;
   }
-  .subcategory-description-3 {
-    font-size: 0.95rem;
-  }
   .head-img img {
     max-width: 280px;
-  }
-  .about-subcategory {
-    max-width: 60%;
-    padding: 28px 24px;
   }
 }
 
@@ -453,132 +287,59 @@
   .subcategory-header-3 {
     flex-direction: column-reverse;
     text-align: left;
-    border-top: 1px solid #e6e6e6;
-
     padding: 5% 6%;
-  }
-  .subcategory-header-content-3 {
-    flex: 1 1 100%;
-    max-width: 100%;
   }
   .head-img {
     display: none;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  .subcategory-title-3 {
-    font-size: 1.7rem;
-  }
-  .subcategory-description-3 {
-    font-size: 0.92rem;
-  }
-
-  .subcategory-grid {
-    gap: 12px;
-    padding: 30px 0;
   }
   .subcategory-card {
-    max-width: 40%;
-    padding: 16px;
-  }
-
-  .highlights-grid {
-    gap: 20px;
+    max-width: 260px;
   }
   .highlight-card {
-    max-width: 40%;
-    padding: 20px 16px;
-  }
-
-  .about-subcategory-container {
-    flex-direction: column;
-    gap: 24px;
-    padding: 30px 20px;
-  }
-  .about-subcategory {
-    max-width: 100%;
-    text-align: center;
-  }
-  .about-heading,
-  .about-description {
-    text-align: center;
-  }
-  .subcategory-image-container {
-    max-width: 100%;
+    max-width: 80%;
   }
 }
 
-/* --- Mobile --- */
+/* --- Mobile (KEY UPDATE – 2 CARDS PER ROW) --- */
 @media (max-width: 480px) {
-  .subcategory-header-2 {
-    border-top: 1px solid #e6e6e6;
-    padding: 10px 0%;
-    gap: 1rem;
-  }
-  .back-link-2 {
-    font-size: 0.85rem;
-  }
-  .circle-2 {
-    width: 1.8rem;
-    height: 1.8rem;
-  }
-  .subcategory-title-2 {
-    font-size: 1.5rem;
-  }
-  .subcategory-description-2 {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
   .subcategory-grid {
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
   .subcategory-card {
-    max-width: 45%;
-    padding: 18px;
+    max-width: 100%;
+    padding: 16px;
   }
   .subcategory-name {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
-
   .highlights-heading {
     font-size: 1.3rem;
   }
   .highlight-card {
-    max-width: 90%;
-    min-width: unset;
-    padding: 18px 14px;
-  }
-  .highlight-title {
-    font-size: 1rem;
-  }
-  .highlight-description {
-    font-size: 0.9rem;
-  }
-
-  .about-subcategory-container {
-    gap: 20px;
-    padding: 20px 15px;
-  }
-  .about-subcategory {
-    padding: 20px 16px;
-  }
-  .about-heading {
-    font-size: 1.3rem;
-  }
-  .about-description {
-    font-size: 0.9rem;
-  }
-
-  .faq-question {
-    font-size: 1rem;
-  }
-  .faq-answer {
-    font-size: 0.88rem;
-  }
-
-  .related-heading {
-    font-size: 1.2rem;
+    max-width: 95%;
   }
 }
+
+/* --- Extra Small Screens --- */
+@media (max-width: 360px) {
+  .subcategory-title-3 {
+    font-size: 1.5rem;
+  }
+  .subcategory-card {
+    padding: 14px;
+  }
+  .subcategory-name {
+    font-size: 0.78rem;
+  }
+}
+
+/* --- Ultra Small Screens (≤320px) --- */
+@media (max-width: 320px) {
+  .subcategory-grid {
+    grid-template-columns: 1fr;
+  }
+  .subcategory-card {
+    max-width: 90%;
+  }
 }

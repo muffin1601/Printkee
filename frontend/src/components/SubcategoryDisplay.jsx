@@ -102,14 +102,14 @@ const SubcategoryDisplay = () => {
       </section>
 
       {/* HIGHLIGHTS */}
-      {categoryHighlights[categoryData.name] && (
+      {categoryHighlights[categorySlug] && (
         <section className="highlights-section" aria-label="Category highlights">
           <h2 className="highlights-heading">
-            {categoryHighlights[categoryData.name].heading}
+            {categoryHighlights[categorySlug].heading}
           </h2>
 
           <div className="highlights-grid">
-            {categoryHighlights[categoryData.name].highlights.map(
+            {categoryHighlights[categorySlug].highlights.map(
               (highlight, index) => (
                 <div key={index} className="highlight-card">
                   <div className="highlight-icon" aria-hidden="true">
@@ -125,22 +125,22 @@ const SubcategoryDisplay = () => {
       )}
 
       {/* ABOUT + FAQ */}
-      {aboutSubcategoryData[categoryData.name] && (
+      {aboutSubcategoryData[categorySlug] && (
         <section
           className="aboutsubcat-wrapper"
           aria-label={`About ${categoryData.name} and FAQs`}
         >
           <div className="aboutsubcat-card">
             <h2 className="aboutsubcat-heading">
-              {aboutSubcategoryData[categoryData.name].heading}
+              {aboutSubcategoryData[categorySlug].heading}
             </h2>
 
             <p className="aboutsubcat-description">
-              {aboutSubcategoryData[categoryData.name].description}
+              {aboutSubcategoryData[categorySlug].description}
             </p>
 
             <div className="aboutsubcat-faqs">
-              {aboutSubcategoryData[categoryData.name].faqs.map(
+              {aboutSubcategoryData[categorySlug].faqs.map(
                 (faq, index) => (
                   <div
                     key={index}

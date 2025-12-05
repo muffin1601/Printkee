@@ -1,11 +1,3 @@
-/* ============================================================
-   WHY CHOOSE US — PRODUCT SECTION
-   Unique Class Prefix: wcup-
-   Premium White + Purple + Gold Theme
-   3×3 Responsive Grid
-============================================================ */
-
-/* WRAPPER */
 .wcup-wrapper {
   width: 100%;
   padding: 50px 20px;
@@ -25,7 +17,6 @@
   position: relative;
 }
 
-/* Gold underline */
 .wcup-title::after {
   content: "";
   width: 80px;
@@ -36,7 +27,7 @@
   border-radius: 10px;
 }
 
-/* GRID (3×3 layout) */
+/* GRID */
 .wcup-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -45,7 +36,7 @@
   margin: 0 auto;
 }
 
-/* CARDS */
+/* CARD */
 .wcup-card {
   background: #ffffff;
   border: 1px solid rgba(75, 32, 97, 0.15);
@@ -57,26 +48,10 @@
   overflow: hidden;
 }
 
-/* Hover effect - gold glow */
 .wcup-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 28px rgba(75, 32, 97, 0.18);
   border-color: #f39c12;
-}
-
-/* Title inside card */
-.wcup-card-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #4b2061;
-  margin-bottom: 10px;
-}
-
-/* Text inside card */
-.wcup-card-text {
-  font-size: 1.03rem;
-  color: #555;
-  line-height: 1.6;
 }
 
 /* Gold left accent strip */
@@ -97,32 +72,124 @@
   opacity: 1;
 }
 
-/* ============================
-   RESPONSIVE DESIGN
-============================ */
+/* Card Title */
+.wcup-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4b2061;
+  margin-bottom: 10px;
+}
 
-/* Tablets */
+/* Card Text */
+.wcup-card-text {
+  font-size: 1.03rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+
+/* =======================================================
+   RESPONSIVE DESIGN — FULLY OPTIMIZED
+======================================================= */
+
+/* ---------- Large Tablets (900px) ---------- */
 @media (max-width: 900px) {
   .wcup-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .wcup-title {
+    font-size: 2.2rem;
+  }
 }
 
-/* Mobile */
+/* ---------- Tablets (768px) ---------- */
+@media (max-width: 768px) {
+  .wcup-wrapper {
+    padding: 40px 18px;
+  }
+  .wcup-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  .wcup-card {
+    padding: 20px 18px;
+  }
+  .wcup-card-title {
+    font-size: 1.25rem;
+  }
+  .wcup-card-text {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Mobile (600px) ---------- */
 @media (max-width: 600px) {
   .wcup-grid {
     grid-template-columns: 1fr;
   }
-
-  .wcup-title {
-    font-size: 2rem;
+  .wcup-wrapper {
+    margin: 40px auto;
   }
-
+  .wcup-card {
+    padding: 18px 16px;
+  }
   .wcup-card-title {
     font-size: 1.2rem;
   }
+  .wcup-title {
+    font-size: 1.9rem;
+  }
+}
 
+/* ---------- Small Mobile (480px) ---------- */
+@media (max-width: 480px) {
+   .wcup-grid{
+    margin: 0;
+    padding: 0;
+   }
+  .wcup-title {
+    font-size: 1.75rem;
+  }
+  .wcup-card-title {
+    font-size: 1.15rem;
+  }
   .wcup-card-text {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+  .wcup-card {
+    padding: 16px 14px;
+  }
+}
+
+/* ---------- Extra Small Mobile (400px) ---------- */
+@media (max-width: 400px) {
+  .wcup-title {
+    font-size: 1.6rem;
+  }
+  .wcup-card-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------- Ultra Small Devices (360px) ---------- */
+@media (max-width: 360px) {
+  .wcup-title {
+    font-size: 1.5rem;
+  }
+  .wcup-card-title {
+    font-size: 1.05rem;
+  }
+}
+
+/* ---------- Ultra Compact Devices (320px) ---------- */
+@media (max-width: 320px) {
+  .wcup-title {
+    font-size: 1.35rem;
+  }
+  .wcup-card {
+    padding: 14px 12px;
+  }
+  .wcup-card-text {
+    font-size: 0.88rem;
   }
 }

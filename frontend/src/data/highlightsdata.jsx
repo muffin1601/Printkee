@@ -17,8 +17,8 @@ import {
 } from "lucide-react";
 
 const categoryHighlights = {
-  // 1️⃣ Apparel and Accessories
-  "Apparel and Accessories": {
+  
+  "apparel-and-accessories": {
     heading: "Why Choose Our Customized Apparel & Accessories?",
     highlights: [
       {
@@ -48,8 +48,8 @@ const categoryHighlights = {
     ],
   },
 
-  // 2️⃣ Office and Writing
-  "Office and Writing": {
+ 
+  "office-and-writing": {
     heading: "Premium Office & Writing Essentials for Branding",
     highlights: [
       {
@@ -79,8 +79,8 @@ const categoryHighlights = {
     ],
   },
 
-  // 3️⃣ Bags and Travel
-  "Bags and Travel": {
+
+  "bags-and-travel": {
     heading: "Customized Bags Designed for Corporate Branding",
     highlights: [
       {
@@ -110,8 +110,8 @@ const categoryHighlights = {
     ],
   },
 
-  // 4️⃣ Collection
-  Collection: {
+
+  "collection": {
     heading: "Premium Corporate Gift Collections for Every Occasion",
     highlights: [
       {
@@ -141,8 +141,8 @@ const categoryHighlights = {
     ],
   },
 
-  // 5️⃣ Drink Ware
-  "Drink Ware": {
+
+  "drink-ware": {
     heading: "High-Quality Custom Drinkware for Corporate Gifting",
     highlights: [
       {
@@ -172,8 +172,8 @@ const categoryHighlights = {
     ],
   },
 
-  // 6️⃣ Technology Accessories
-  "Technology Accessories": {
+
+  "technology-accessories": {
     heading: "Modern Tech Accessories for Smart Corporate Gifting",
     highlights: [
       {
@@ -203,8 +203,8 @@ const categoryHighlights = {
     ],
   },
 
-  // 7️⃣ Eco-Products
-  "Eco Products": {
+
+  "eco-products": {
     heading: "Eco-Friendly Corporate Gifts for Sustainable Branding",
     highlights: [
       {
@@ -234,8 +234,8 @@ const categoryHighlights = {
     ],
   },
 
-  // 8️⃣ Trophy and Momento
-  "Trophy and Momento": {
+
+  "trophy-and-momento": {
     heading: "Premium Custom Trophies & Momento Gifts",
     highlights: [
       {
