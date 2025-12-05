@@ -294,7 +294,7 @@ const categoryData = [
       {
         name: "Custom Wireless Charger ",
         slug: "wireless-charging",
-        image: "/assets/categories/wirelesscharging.webp",
+        image: "/assets/products/wirelesschargers/17.webp",
         hoverImage: "",
         tag: "High-quality, Promotional wireless chargers designed for client gifts, employee rewards, and brand promotion across Delhi, Noida, Gurgaon, Okhla, and NCR.\nCompact and portable designs ideal for on-the-go charging.\nPerfect for enhancing brand visibility with custom logo printing.",
         products: wirelessChargers,
