@@ -4,19 +4,19 @@ const subcategoryDescriptions = {
 <h3>Custom Polo T-shirt</h3>
 
 <p>
-Custom-Branding Polo Shirts for Corporate and Promotional Use
-We provide premium promotional polo shirts and personalized corporate apparel for businesses across Delhi NCR, including Noida, Gurgaon, Faridabad, and Okhla. Our solutions help organizations create a professional and unified brand identity through high-quality branding t-shirts featuring custom logos and designs. Whether you require uniforms for employees, apparel for corporate events, or promotional merchandise for marketing campaigns, we ensure excellent quality and a memorable brand presence.
+Custom-Branding Polo T-Shirts for Corporate and Promotional Use
+We provide premium promotional polo t-shirts and personalized corporate apparel for businesses across Delhi NCR, including Noida, Gurgaon, Faridabad, and Okhla. Our solutions help organizations create a professional and unified brand identity through high-quality branding t-shirts featuring custom logos and designs. Whether you require uniforms for employees, apparel for corporate events, or promotional merchandise for marketing campaigns, we ensure excellent quality and a memorable brand presence.
 </p>
 
-<h4>Personalized Polo Shirts with Logo Branding</h4>
+<h4>Personalized Polo T-Shirts with Logo Branding</h4>
 <p>
 We offer a wide selection of fabric types, color combinations, and collar styles to suit different branding needs. Our material options include premium cotton for comfort, polyester for performance, and blended fabrics for durability and everyday wear.
-your company logo stays long-lasting, fade-resistant, and visually appealing. These custom polo shirts are ideal for staff uniforms, promotional giveaways, colleges, events, and team-building programs.
+your company logo stays long-lasting, fade-resistant, and visually appealing. These custom polo t-shirts are ideal for staff uniforms, promotional giveaways, colleges, events, and team-building programs.
 </p>
 
 <h4>Trusted Bulk Supplier for Corporate Uniforms</h4>
 <p>
-Companies across Delhi NCR rely on us for timely and reliable supply of branding polo shirts — from small batches to large corporate orders. Whether it’s a product launch, trade show, conference, retail staff uniform, or client gifting, we help maintain a cohesive team appearance while strengthening brand recognition.
+Companies across Delhi NCR rely on us for timely and reliable supply of branding polo t-shirts — from small batches to large corporate orders. Whether it’s a product launch, trade show, conference, retail staff uniform, or client gifting, we help maintain a cohesive team appearance while strengthening brand recognition.
 Our streamlined order process makes everything simple:<br/>
 Share your logo → Select fabric & branding → We produce & deliver on time.<br/>
 We also provide design support and samples on request to ensure you get the perfect look and fit for your team.

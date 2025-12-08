@@ -28,12 +28,61 @@ const labelMap = {
   cap: { fullTshirt: "Crown", collar: "Top Button", sleeves: "Peak", border: "Sandwich" }
 };
 
-// ---------------- PART MAP ----------------
 const partMapSet = {
-  /* your same part map unchanged */
+  polotshirt: {
+    collar: [
+      "front-part-7", "front-part-12", "front-part-23", "front-part-50", "front-part-51",
+      "front-part-36", "front-part-14", "front-part-15", "back-part-7", "back-part-12",
+      "back-part-11", "left-part-7", "left-part-13", "left-part-69", "left-part-10",
+      "left-part-11", "right-part-12", "right-part-5", "right-part-50", "right-part-7",
+      "right-part-11"
+    ],
+    sleeves: [
+      "front-part-5", "front-part-6", "back-part-5", "back-part-4",
+      "right-part-4", "left-part-4"
+    ],
+    fullTshirt: [
+      "front-part-2", "front-part-8", "front-part-10", "back-part-2",
+      "back-part-6", "left-part-2", "left-part-9", "left-part-12",
+      "left-part-8", "right-part-2", "right-part-9", "right-part-8",
+      "right-part-6"
+    ]
+  },
+  roundneck: {
+    fullTshirt: [
+      "front_path_2", "front_path_6", "front_path_8", "back_path_2",
+      "back_path_6", "left_path_6", "left_path_2", "right_path_1",
+      "right_path_6"
+    ],
+    sleeves: [
+      "front_path_4", "front_path_5", "back_path_4", "back_path_5",
+      "left_path_3", "right_path_3"
+    ],
+    collar: [
+      "front_path_7", "front_path_10", "front_path_11", "front_path_9",
+      "back_path_8", "back_path_11", "back_path_12", "left_path_8",
+      "left_path_7", "left_path_9", "right_path_8", "right_path_9",
+      "right_path_7"
+    ]
+  },
+  cap: {
+    fullTshirt: [
+      "path_2", "path_29", "path_28", "path_33", "path_34", "path_43",
+      "path_51", "path_42", "path_35", "path_36", "path_46", "path_47",
+      "path_41", "path_86", "path_87", "path_90", "path_91", "path_32",
+      "path_38", "path_37", "path_40", "path_52", "path_53", "path_55"
+    ],
+    sleeves: [
+      "path_4", "path_5", "path_88", "path_92", "path_48", "path_50"
+    ],
+    collar: [
+      "path_97", "path_56", "path_39", "path_8"
+    ],
+    border: [
+      "path_6", "path_96", "path_54"
+    ]
+  }
 };
-
-// ---------------- APPLY GLOBAL COLORS ----------------
 const applyGlobalColors = (canvas, colors) => {
   if (!canvas) return;
 
@@ -73,18 +122,17 @@ const CustomizerSVG = () => {
   const [globalPartColors, setGlobalPartColors] = useState({});
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
-  // Auto-switch for apparel
+
   useEffect(() => {
     if (["polotshirt", "roundneck"].includes(productType.toLowerCase())) {
       setActiveTool("export");
     }
   }, [productType]);
 
-  // Extract only user-created objects
   const extractUserObjects = (canvas) =>
     canvas.getObjects().filter((o) => o.isUserObject);
 
-  // ---------- SAVE CURRENT VIEW ----------
+
   const saveCurrentViewState = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
