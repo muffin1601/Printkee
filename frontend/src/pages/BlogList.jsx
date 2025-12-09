@@ -47,7 +47,7 @@ const BlogList = () => {
           blogs.map((blog) => (
             <article className="blog-card" key={blog._id}>
               <img
-                src={`${import.meta.env.VITE_IMG_URL}/${blog.image}`}
+                src={`${import.meta.env.VITE_IMG_URL}/uploads/${blog.image}`}
                 alt={blog.title ? blog.title : "Blog thumbnail image"}
                 className="blog-thumbnail"
               />

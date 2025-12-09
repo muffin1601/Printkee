@@ -84,7 +84,7 @@ const BlogView = () => {
           {blog.image && (
             <img
               className="blog-view-image"
-              src={`${import.meta.env.VITE_IMG_URL}/${blog.image}`}
+              src={`${import.meta.env.VITE_IMG_URL}/uploads/${blog.image}`}
               alt={blog.title}
             />
           )}

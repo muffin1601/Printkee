@@ -7,7 +7,7 @@ const path = require('path');
 const storage = multer.diskStorage({
   destination: 'uploads/',
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
+    cb(null, `${file.originalname}`);
   }
 });
 const upload = multer({ storage });
@@ -15,7 +15,8 @@ const upload = multer({ storage });
 router.post('/post', upload.single('image'), async (req, res) => {
   try {
     const { title, content, author } = req.body;
-    const imagePath = req.file?.path.replace(/\\/g, '/') || ''; 
+    const imagePath = req.file ? req.file.filename : '';
+    
 
     const newBlog = new Blog({
       title,
