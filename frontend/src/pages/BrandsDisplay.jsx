@@ -127,7 +127,7 @@ const BrandsDisplay = () => {
           <div className="brand-products-grid">
             {firstProducts.map((product, index) => (
               <Link
-                to={`/${brand}/${product.slug}`}
+                to={`#`}
                 key={index}
                 className="brand-product-card"
                 aria-label={`View product: ${product.name}`}
@@ -148,7 +148,7 @@ const BrandsDisplay = () => {
             <div className="brand-products-grid">
               {remainingProducts.map((product, index) => (
                 <Link
-                  to={`/${brand}/${product.slug}`}
+                  to={`#`}
                   key={index}
                   className="brand-product-card"
                   aria-label={`View product: ${product.name}`}
