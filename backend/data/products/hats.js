@@ -1,698 +1,504 @@
 const hats = [
   {
-    productCode: "HAT-BUCKET-001",
-    SKU: "HAT-ONE-BUCKET",
     name: "Reversible Bucket Hat",
     slug: "reversible-bucket-hat",
-    description: "Reversible bucket hat for sun protection with custom branding options.",
-    HSNCode: "65050000",
-    type: "Headwear",
-    quantity: 500,
-    GSTRate: 12,
-    brand: "SunProtect",
-    fabricType: "Polyester-Cotton Blend",
-    size: ["One Size"],
-    colour: ["Navy/White", "Black/Grey", "Blue/Beige"],
-    weight: 120,
-    dimensions: {
-      length: 30,
-      width: 30,
-      height: 15
+
+    description: {
+      short: "Reversible bucket hat for sun protection.",
+      long: "Reversible bucket hat for sun protection with custom branding options."
     },
-    minOrderQty: 10,
-    maxOrderQty: 500,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "HAT-BUCKET-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 299,
-      sales_100_above: 249,
-      discountPrice: 349,
-      discount: {
-        type: "percentage",
-        value: 12,
-        validUntil: new Date("2023-12-31")
-      },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    price: 399,
+    salePrice: 349,
+
+    images: [
+      { url: "/assets/products/hats/hats (1).webp", altText: "Reversible Bucket Hat" }
+    ],
+    subImages: [],
+
+    stock: 500,
+    sku: "HAT-ONE-BUCKET",
+
+    attributes: {
+      color: ["Navy/White", "Black/Grey", "Blue/Beige"],
+      size: ["One Size"],
+      material: "Polyester-Cotton Blend"
     },
-    image: "/assets/products/hats/hats (1).webp",
+
+    specifications: [
+      { key: "HSN Code", value: "65050000" },
+      { key: "GST Rate", value: "12%" },
+      { key: "Weight", value: "120g" }
+    ],
+
     tags: [
       "bucket hat",
       "reversible hat",
-      "Apparel and Accessories",
-      "Hats",
       "custom branded hat",
       "sun protection hat",
       "promotional hat"
     ],
-    keywords: ["bucket", "reversible", "sun protection", "custom"],
+
     isFeatured: true,
-    isPublished: true,
-    ratings: {
-      average: 4.4,
-      count: 78
+    isActive: true,
+
+    ratings: { average: 4.4, count: 78 },
+
+    seo: {
+      metaTitle: "Custom Reversible Bucket Hats | Branded Sun Protection Hats",
+      metaDescription:
+        "Premium reversible bucket hats perfect for sun protection with custom branding options for events and promotions.",
+      keywords: ["bucket", "reversible", "sun protection", "custom"]
     },
-    metaTitle: "Custom Reversible Bucket Hats | Branded Sun Protection Hats",
-    metaDescription: "Premium reversible bucket hats perfect for sun protection with custom branding options for events and promotions.",
-    audit: {
-      createdBy: "admin",
-      updatedBy: "admin"
-    }
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "HAT-BASEBALL-002",
-    SKU: "HAT-ONE-BASEBALL",
     name: "Classic Baseball Cap",
     slug: "classic-baseball-cap",
-    description: "Traditional baseball cap with adjustable strap and custom embroidery options.",
-    HSNCode: "65050000",
-    type: "Headwear",
-    quantity: 600,
-    GSTRate: 12,
-    brand: "CapMasters",
-    fabricType: "Cotton Twill",
-    size: ["Adjustable"],
-    colour: ["Black", "Navy", "Red", "White", "Grey"],
-    weight: 150,
-    dimensions: {
-      length: 32,
-      width: 22,
-      height: 12
+
+    description: {
+      short: "Traditional adjustable baseball cap.",
+      long: "Traditional baseball cap with adjustable strap and custom embroidery options."
     },
-    minOrderQty: 12,
-    maxOrderQty: 600,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "HAT-BASEBALL-PRICE",
-      singlePrice: 349,
-      sales_0_50: 299,
-      sales_50_100: 259,
-      sales_100_above: 219,
-      discountPrice: 299,
-      discount: {
-        type: "percentage",
-        value: 14,
-        validUntil: new Date("2023-12-31")
-      },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
-    },
-    image: "/assets/products/hats/hats (2).webp",
-    tags: [
-      "baseball cap",
-      "adjustable cap",
-      "custom cap",
-      "embroidered hat",
-      "promotional cap",
-      "sports cap"
+
+    price: 349,
+    salePrice: 299,
+
+    images: [
+      { url: "/assets/products/hats/hats (2).webp", altText: "Classic Baseball Cap" }
     ],
-    keywords: ["baseball", "cap", "adjustable", "embroidered"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: {
-      average: 4.6,
-      count: 125
+    subImages: [],
+
+    stock: 600,
+    sku: "HAT-ONE-BASEBALL",
+
+    attributes: {
+      color: ["Black", "Navy", "Red", "White", "Grey"],
+      size: ["Adjustable"],
+      material: "Cotton Twill"
     },
-    metaTitle: "Custom Baseball Caps | Embroidered Promotional Hats",
-    metaDescription: "Classic baseball caps with adjustable straps, perfect for custom embroidery and promotional events.",
-    audit: {
-      createdBy: "admin",
-      updatedBy: "admin"
-    }
+
+    specifications: [
+      { key: "HSN Code", value: "65050000" },
+      { key: "GST Rate", value: "12%" }
+    ],
+
+    tags: ["baseball cap", "adjustable cap", "custom cap", "embroidered hat"],
+
+    isFeatured: true,
+    isActive: true,
+
+    ratings: { average: 4.6, count: 125 },
+
+    seo: {
+      metaTitle: "Custom Baseball Caps | Embroidered Promotional Hats",
+      metaDescription:
+        "Classic baseball caps with adjustable straps, perfect for custom embroidery and promotional events.",
+      keywords: ["baseball", "cap", "adjustable", "embroidered"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "HAT-TRUCKER-003",
-    SKU: "HAT-ONE-TRUCKER",
     name: "Mesh Back Trucker Hat",
     slug: "mesh-back-trucker-hat",
-    description: "Breathable mesh back trucker hat with foam front for custom printing.",
-    HSNCode: "65050000",
-    type: "Headwear",
-    quantity: 450,
-    GSTRate: 12,
-    brand: "TruckerPro",
-    fabricType: "Polyester Mesh",
-    size: ["Adjustable"],
-    colour: ["Black/Black", "Navy/Navy", "Red/Black", "Green/Black"],
-    weight: 110,
-    dimensions: {
-      length: 31,
-      width: 21,
-      height: 11
+
+    description: {
+      short: "Breathable mesh trucker hat.",
+      long: "Breathable mesh back trucker hat with foam front for custom printing."
     },
-    minOrderQty: 15,
-    maxOrderQty: 450,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "HAT-TRUCKER-PRICE",
-      singlePrice: 379,
-      sales_0_50: 329,
-      sales_50_100: 289,
-      sales_100_above: 249,
-      discountPrice: 329,
-      discount: {
-        type: "percentage",
-        value: 13,
-        validUntil: new Date("2023-12-31")
-      },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
-    },
-    image: "/assets/products/hats/hats (3).webp",
-    tags: [
-      "trucker hat",
-      "mesh hat",
-      "breathable cap",
-      "custom trucker hat",
-      "promotional hat",
-      "outdoor cap"
+
+    price: 379,
+    salePrice: 329,
+
+    images: [
+      { url: "/assets/products/hats/hats (3).webp", altText: "Mesh Back Trucker Hat" }
     ],
-    keywords: ["trucker", "mesh", "breathable", "outdoor"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: {
-      average: 4.3,
-      count: 92
+    subImages: [],
+
+    stock: 450,
+    sku: "HAT-ONE-TRUCKER",
+
+    attributes: {
+      color: ["Black/Black", "Navy/Navy", "Red/Black", "Green/Black"],
+      size: ["Adjustable"],
+      material: "Polyester Mesh"
     },
-    metaTitle: "Mesh Back Trucker Hats | Custom Printed Caps",
-    metaDescription: "Breathable mesh back trucker hats ideal for outdoor events and custom printing promotions.",
-    audit: {
-      createdBy: "admin",
-      updatedBy: "admin"
-    }
+
+    tags: ["trucker hat", "mesh hat", "breathable cap", "outdoor cap"],
+
+    isFeatured: false,
+    isActive: true,
+
+    ratings: { average: 4.3, count: 92 },
+
+    seo: {
+      metaTitle: "Mesh Back Trucker Hats | Custom Printed Caps",
+      metaDescription:
+        "Breathable mesh back trucker hats ideal for outdoor events and custom printing promotions.",
+      keywords: ["trucker", "mesh", "breathable", "outdoor"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "HAT-BEANIE-004",
-    SKU: "HAT-ONE-BEANIE",
     name: "Knit Beanie Winter Hat",
     slug: "knit-beanie-winter-hat",
-    description: "Warm acrylic knit beanie perfect for winter promotions and custom branding.",
-    HSNCode: "65050000",
-    type: "Headwear",
-    quantity: 550,
-    GSTRate: 12,
-    brand: "WinterWarm",
-    fabricType: "Acrylic Knit",
-    size: ["One Size Fits Most"],
-    colour: ["Black", "Navy", "Grey", "Red", "Green", "Charcoal"],
-    weight: 80,
-    dimensions: {
-      length: 25,
-      width: 20,
-      height: 8
+
+    description: {
+      short: "Warm knit beanie for winter.",
+      long: "Warm acrylic knit beanie perfect for winter promotions and custom branding."
     },
-    minOrderQty: 20,
-    maxOrderQty: 550,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "HAT-BEANIE-PRICE",
-      singlePrice: 279,
-      sales_0_50: 239,
-      sales_50_100: 209,
-      sales_100_above: 179,
-      discountPrice: 239,
-      discount: {
-        type: "percentage",
-        value: 14,
-        validUntil: new Date("2023-12-31")
-      },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
-    },
-    image: "/assets/products/hats/hats (4).webp",
-    tags: [
-      "beanie",
-      "winter hat",
-      "knit cap",
-      "custom beanie",
-      "winter promotion",
-      "acrylic hat"
+
+    price: 279,
+    salePrice: 239,
+
+    images: [
+      { url: "/assets/products/hats/hats (4).webp", altText: "Knit Beanie Winter Hat" }
     ],
-    keywords: ["beanie", "winter", "knit", "warm"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: {
-      average: 4.5,
-      count: 115
+    subImages: [],
+
+    stock: 550,
+    sku: "HAT-ONE-BEANIE",
+
+    attributes: {
+      color: ["Black", "Navy", "Grey", "Red", "Green", "Charcoal"],
+      size: ["One Size Fits Most"],
+      material: "Acrylic Knit"
     },
-    metaTitle: "Custom Knit Beanies | Winter Promotional Hats",
-    metaDescription: "Warm acrylic knit beanies perfect for winter promotions and custom branding opportunities.",
-    audit: {
-      createdBy: "admin",
-      updatedBy: "admin"
-    }
+
+    tags: ["beanie", "winter hat", "knit cap", "custom beanie"],
+
+    isFeatured: true,
+    isActive: true,
+
+    ratings: { average: 4.5, count: 115 },
+
+    seo: {
+      metaTitle: "Custom Knit Beanies | Winter Promotional Hats",
+      metaDescription:
+        "Warm acrylic knit beanies perfect for winter promotions and custom branding opportunities.",
+      keywords: ["beanie", "winter", "knit", "warm"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "HAT-VISOR-005",
-    SKU: "HAT-ONE-VISOR",
     name: "Sports Visor Cap",
     slug: "sports-visor-cap",
-    description: "Lightweight sports visor with sweatband and adjustable strap for athletic events.",
-    HSNCode: "65050000",
-    type: "Headwear",
-    quantity: 400,
-    GSTRate: 12,
-    brand: "SportEdge",
-    fabricType: "Polyester",
-    size: ["Adjustable"],
-    colour: ["Black", "White", "Navy", "Red", "Yellow"],
-    weight: 90,
-    dimensions: {
-      length: 30,
-      width: 20,
-      height: 10
+
+    description: {
+      short: "Lightweight athletic visor.",
+      long: "Lightweight sports visor with sweatband and adjustable strap for athletic events."
     },
-    minOrderQty: 15,
-    maxOrderQty: 400,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "HAT-VISOR-PRICE",
-      singlePrice: 319,
-      sales_0_50: 279,
-      sales_50_100: 249,
-      sales_100_above: 219,
-      discountPrice: 279,
-      discount: {
-        type: "percentage",
-        value: 12,
-        validUntil: new Date("2023-12-31")
-      },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
-    },
-    image: "/assets/products/hats/hats (5).webp",
-    tags: [
-      "visor",
-      "sports visor",
-      "athletic cap",
-      "custom visor",
-      "sweatband hat",
-      "golf visor"
+
+    price: 319,
+    salePrice: 279,
+
+    images: [
+      { url: "/assets/products/hats/hats (5).webp", altText: "Sports Visor Cap" }
     ],
-    keywords: ["visor", "sports", "athletic", "lightweight"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: {
-      average: 4.2,
-      count: 67
+    subImages: [],
+
+    stock: 400,
+    sku: "HAT-ONE-VISOR",
+
+    attributes: {
+      color: ["Black", "White", "Navy", "Red", "Yellow"],
+      size: ["Adjustable"],
+      material: "Polyester"
     },
-    metaTitle: "Custom Sports Visors | Athletic Headwear",
-    metaDescription: "Lightweight sports visors with sweatband perfect for athletic events and custom branding.",
-    audit: {
-      createdBy: "admin",
-      updatedBy: "admin"
-    }
+
+    tags: ["visor", "sports visor", "athletic cap", "golf visor"],
+
+    isFeatured: false,
+    isActive: true,
+
+    ratings: { average: 4.2, count: 67 },
+
+    seo: {
+      metaTitle: "Custom Sports Visors | Athletic Headwear",
+      metaDescription:
+        "Lightweight sports visors with sweatband perfect for athletic events and custom branding.",
+      keywords: ["visor", "sports", "athletic", "lightweight"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "HAT-FEDORA-006",
-    SKU: "HAT-ONE-FEDORA",
     name: "Classic Fedora Hat",
     slug: "classic-fedora-hat",
-    description: "Elegant fedora hat with leather band for sophisticated branding events.",
-    HSNCode: "65050000",
-    type: "Headwear",
-    quantity: 300,
-    GSTRate: 12,
-    brand: "EleganceHats",
-    fabricType: "Wool Felt",
-    size: ["S", "M", "L", "XL"],
-    colour: ["Black", "Brown", "Grey", "Navy"],
-    weight: 180,
-    dimensions: {
-      length: 35,
-      width: 28,
-      height: 12
+
+    description: {
+      short: "Elegant wool fedora.",
+      long: "Elegant fedora hat with leather band for sophisticated branding events."
     },
-    minOrderQty: 5,
-    maxOrderQty: 300,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "HAT-FEDORA-PRICE",
-      singlePrice: 899,
-      sales_0_50: 799,
-      sales_50_100: 699,
-      sales_100_above: 599,
-      discountPrice: 799,
-      discount: {
-        type: "percentage",
-        value: 11,
-        validUntil: new Date("2023-12-31")
-      },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
-    },
-    image: "/assets/products/hats/hats (6).webp",
-    tags: [
-      "fedora",
-      "formal hat",
-      "wool hat",
-      "custom fedora",
-      "event hat",
-      "premium headwear"
+
+    price: 899,
+    salePrice: 799,
+
+    images: [
+      { url: "/assets/products/hats/hats (6).webp", altText: "Classic Fedora Hat" }
     ],
-    keywords: ["fedora", "formal", "wool", "elegant"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: {
-      average: 4.7,
-      count: 45
+    subImages: [],
+
+    stock: 300,
+    sku: "HAT-ONE-FEDORA",
+
+    attributes: {
+      color: ["Black", "Brown", "Grey", "Navy"],
+      size: ["S", "M", "L", "XL"],
+      material: "Wool Felt"
     },
-    metaTitle: "Custom Fedora Hats | Premium Formal Headwear",
-    metaDescription: "Elegant wool felt fedora hats with leather band, perfect for sophisticated branding events.",
-    audit: {
-      createdBy: "admin",
-      updatedBy: "admin"
-    }
+
+    tags: ["fedora", "formal hat", "premium headwear"],
+
+    isFeatured: true,
+    isActive: true,
+
+    ratings: { average: 4.7, count: 45 },
+
+    seo: {
+      metaTitle: "Custom Fedora Hats | Premium Formal Headwear",
+      metaDescription:
+        "Elegant wool felt fedora hats with leather band, perfect for sophisticated branding events.",
+      keywords: ["fedora", "formal", "wool", "elegant"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "HAT-BOONIE-007",
-    SKU: "HAT-ONE-BOONIE",
     name: "Military Boonie Hat",
     slug: "military-boonie-hat",
-    description: "Durable military-style boonie hat with chin strap and wide brim for outdoor use.",
-    HSNCode: "65050000",
-    type: "Headwear",
-    quantity: 350,
-    GSTRate: 12,
-    brand: "OutdoorGear",
-    fabricType: "Ripstop Polyester",
-    size: ["S/M", "L/XL"],
-    colour: ["Olive Green", "Coyote Brown", "Black", "Navy"],
-    weight: 140,
-    dimensions: {
-      length: 40,
-      width: 40,
-      height: 10
+
+    description: {
+      short: "Durable outdoor boonie hat.",
+      long: "Durable military-style boonie hat with chin strap and wide brim for outdoor use."
     },
-    minOrderQty: 10,
-    maxOrderQty: 350,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "HAT-BOONIE-PRICE",
-      singlePrice: 459,
-      sales_0_50: 409,
-      sales_50_100: 369,
-      sales_100_above: 329,
-      discountPrice: 409,
-      discount: {
-        type: "percentage",
-        value: 11,
-        validUntil: new Date("2023-12-31")
-      },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
-    },
-    image: "/assets/products/hats/hats (7).webp",
-    tags: [
-      "boonie hat",
-      "military hat",
-      "outdoor hat",
-      "fishing hat",
-      "hunting cap",
-      "wide brim hat"
+
+    price: 459,
+    salePrice: 409,
+
+    images: [
+      { url: "/assets/products/hats/hats (7).webp", altText: "Military Boonie Hat" }
     ],
-    keywords: ["boonie", "military", "outdoor", "durable"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: {
-      average: 4.4,
-      count: 83
+    subImages: [],
+
+    stock: 350,
+    sku: "HAT-ONE-BOONIE",
+
+    attributes: {
+      color: ["Olive Green", "Coyote Brown", "Black", "Navy"],
+      size: ["S/M", "L/XL"],
+      material: "Ripstop Polyester"
     },
-    metaTitle: "Military Boonie Hats | Outdoor Adventure Headwear",
-    metaDescription: "Durable military-style boonie hats with chin strap, perfect for outdoor activities and custom branding.",
-    audit: {
-      createdBy: "admin",
-      updatedBy: "admin"
-    }
+
+    tags: ["boonie hat", "military hat", "outdoor hat"],
+
+    isFeatured: false,
+    isActive: true,
+
+    ratings: { average: 4.4, count: 83 },
+
+    seo: {
+      metaTitle: "Military Boonie Hats | Outdoor Adventure Headwear",
+      metaDescription:
+        "Durable military-style boonie hats with chin strap, perfect for outdoor activities and custom branding.",
+      keywords: ["boonie", "military", "outdoor", "durable"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "HAT-PANAMA-008",
-    SKU: "HAT-ONE-PANAMA",
     name: "Panama Straw Hat",
     slug: "panama-straw-hat",
-    description: "Lightweight Panama straw hat with black band for summer events and promotions.",
-    HSNCode: "65050000",
-    type: "Headwear",
-    quantity: 250,
-    GSTRate: 12,
-    brand: "SummerStyle",
-    fabricType: "Straw",
-    size: ["S", "M", "L", "XL"],
-    colour: ["Natural", "White", "Black"],
-    weight: 110,
-    dimensions: {
-      length: 38,
-      width: 38,
-      height: 12
+
+    description: {
+      short: "Lightweight summer straw hat.",
+      long: "Lightweight Panama straw hat with black band for summer events and promotions."
     },
-    minOrderQty: 8,
-    maxOrderQty: 250,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "HAT-PANAMA-PRICE",
-      singlePrice: 649,
-      sales_0_50: 579,
-      sales_50_100: 519,
-      sales_100_above: 469,
-      discountPrice: 579,
-      discount: {
-        type: "percentage",
-        value: 11,
-        validUntil: new Date("2023-12-31")
-      },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
-    },
-    image: "/assets/products/hats/hats (8).webp",
-    tags: [
-      "panama hat",
-      "straw hat",
-      "summer hat",
-      "beach hat",
-      "custom straw hat",
-      "event headwear"
+
+    price: 649,
+    salePrice: 579,
+
+    images: [
+      { url: "/assets/products/hats/hats (8).webp", altText: "Panama Straw Hat" }
     ],
-    keywords: ["panama", "straw", "summer", "lightweight"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: {
-      average: 4.6,
-      count: 57
+    subImages: [],
+
+    stock: 250,
+    sku: "HAT-ONE-PANAMA",
+
+    attributes: {
+      color: ["Natural", "White", "Black"],
+      size: ["S", "M", "L", "XL"],
+      material: "Straw"
     },
-    metaTitle: "Panama Straw Hats | Summer Event Headwear",
-    metaDescription: "Lightweight Panama straw hats perfect for summer events, beach promotions and custom branding.",
-    audit: {
-      createdBy: "admin",
-      updatedBy: "admin"
-    }
+
+    tags: ["panama hat", "straw hat", "summer hat"],
+
+    isFeatured: true,
+    isActive: true,
+
+    ratings: { average: 4.6, count: 57 },
+
+    seo: {
+      metaTitle: "Panama Straw Hats | Summer Event Headwear",
+      metaDescription:
+        "Lightweight Panama straw hats perfect for summer events, beach promotions and custom branding.",
+      keywords: ["panama", "straw", "summer", "lightweight"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "HAT-NEWERA-009",
-    SKU: "HAT-ONE-NEWERA",
     name: "Premium Fitted Cap",
     slug: "premium-fitted-cap",
-    description: "High-quality fitted cap with structured front and custom embroidery options.",
-    HSNCode: "65050000",
-    type: "Headwear",
-    quantity: 400,
-    GSTRate: 12,
-    brand: "CapElite",
-    fabricType: "Wool Blend",
-    size: ["S", "M", "L", "XL"],
-    colour: ["Black", "Navy", "Grey", "Red", "Green"],
-    weight: 160,
-    dimensions: {
-      length: 32,
-      width: 22,
-      height: 12
+
+    description: {
+      short: "Structured premium fitted cap.",
+      long: "High-quality fitted cap with structured front and custom embroidery options."
     },
-    minOrderQty: 10,
-    maxOrderQty: 400,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "HAT-NEWERA-PRICE",
-      singlePrice: 579,
-      sales_0_50: 519,
-      sales_50_100: 469,
-      sales_100_above: 419,
-      discountPrice: 519,
-      discount: {
-        type: "percentage",
-        value: 10,
-        validUntil: new Date("2023-12-31")
-      },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
-    },
-    image: "/assets/products/hats/hats (9).webp",
-    tags: [
-      "fitted cap",
-      "premium cap",
-      "structured hat",
-      "custom fitted cap",
-      "wool cap",
-      "high-quality hat"
+
+    price: 579,
+    salePrice: 519,
+
+    images: [
+      { url: "/assets/products/hats/hats (9).webp", altText: "Premium Fitted Cap" }
     ],
-    keywords: ["fitted", "premium", "structured", "wool"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: {
-      average: 4.8,
-      count: 96
+    subImages: [],
+
+    stock: 400,
+    sku: "HAT-ONE-NEWERA",
+
+    attributes: {
+      color: ["Black", "Navy", "Grey", "Red", "Green"],
+      size: ["S", "M", "L", "XL"],
+      material: "Wool Blend"
     },
-    metaTitle: "Premium Fitted Caps | Custom Embroidered Hats",
-    metaDescription: "High-quality fitted caps with structured front, perfect for custom embroidery and premium branding.",
-    audit: {
-      createdBy: "admin",
-      updatedBy: "admin"
-    }
+
+    tags: ["fitted cap", "premium cap", "structured hat"],
+
+    isFeatured: false,
+    isActive: true,
+
+    ratings: { average: 4.8, count: 96 },
+
+    seo: {
+      metaTitle: "Premium Fitted Caps | Custom Embroidered Hats",
+      metaDescription:
+        "High-quality fitted caps with structured front, perfect for custom embroidery and premium branding.",
+      keywords: ["fitted", "premium", "structured", "wool"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "HAT-BERET-010",
-    SKU: "HAT-ONE-BERET",
     name: "Classic Wool Beret",
     slug: "classic-wool-beret",
-    description: "Traditional wool beret with leather trim for artistic and fashion branding.",
-    HSNCode: "65050000",
-    type: "Headwear",
-    quantity: 320,
-    GSTRate: 12,
-    brand: "ParisStyle",
-    fabricType: "Wool",
-    size: ["One Size"],
-    colour: ["Black", "Navy", "Red", "Grey", "Brown"],
-    weight: 95,
-    dimensions: {
-      length: 28,
-      width: 28,
-      height: 6
-    },
-    minOrderQty: 12,
-    maxOrderQty: 320,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "HAT-BERET-PRICE",
-      singlePrice: 429,
-      sales_0_50: 379,
-      sales_50_100: 339,
-      sales_100_above: 299,
-      discountPrice: 379,
-      discount: {
-        type: "percentage",
-        value: 12,
-        validUntil: new Date("2023-12-31")
-      },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
-    },
-    image: "/assets/products/hats/hats (10).webp",
-    tags: [
-      "beret",
-      "wool beret",
-      "fashion hat",
-      "artistic hat",
-      "custom beret",
-      "french hat"
-    ],
-    keywords: ["beret", "wool", "fashion", "artistic"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: {
-      average: 4.5,
-      count: 64
-    },
-    metaTitle: "Classic Wool Berets | Fashion Headwear",
-    metaDescription: "Traditional wool berets with leather trim, perfect for artistic, fashion and custom branding applications.",
-    audit: {
-      createdBy: "admin",
-      updatedBy: "admin"
-    }
-  },
-  {
-  productCode: "HAT-BUCKET-011",
-  SKU: "HAT-ONE-BUCKET",
-  name: "Casual Cotton Bucket Hat",
-  slug: "casual-cotton-bucket-hat",
-  description: "Lightweight cotton bucket hat, perfect for outdoor activities and casual branding.",
-  HSNCode: "65050000",
-  type: "Headwear",
-  quantity: 500,
-  GSTRate: 12,
-  brand: "UrbanWear",
-  fabricType: "Cotton",
-  size: ["One Size"],
-  colour: ["Beige", "Olive", "Black", "White", "Navy"],
-  weight: 110,
-  dimensions: {
-    length: 30,
-    width: 30,
-    height: 12
-  },
-  minOrderQty: 24,
-  maxOrderQty: 500,
-  availabilityDate: new Date(),
-  price: {
-    priceCode: "HAT-BUCKET-PRICE",
-    singlePrice: 349,
-    sales_0_50: 319,
-    sales_50_100: 289,
-    sales_100_above: 259,
-    discountPrice: 319,
-    discount: {
-      type: "percentage",
-      value: 10,
-      validUntil: new Date("2023-12-31")
-    },
-    currency: "INR",
-    taxIncluded: true,
-    effectiveFrom: new Date(),
-    effectiveTo: new Date("2024-12-31")
-  },
-  image: "/assets/products/hats/hats (11).webp",
-  tags: [
-    "bucket hat",
-    "casual hat",
-    "cotton hat",
-    "custom bucket hat",
-    "outdoor hat"
-  ],
-  keywords: ["bucket hat", "cotton", "casual", "outdoor"],
-  isFeatured: true,
-  isPublished: true,
-  ratings: {
-    average: 4.7,
-    count: 89
-  },
-  metaTitle: "Casual Cotton Bucket Hat | Outdoor Headwear",
-  metaDescription: "Lightweight cotton bucket hat, ideal for casual wear, outdoor branding, and custom printing.",
-  audit: {
-    createdBy: "admin",
-    updatedBy: "admin"
-  }
-}
 
+    description: {
+      short: "Traditional wool beret.",
+      long: "Traditional wool beret with leather trim for artistic and fashion branding."
+    },
+
+    price: 429,
+    salePrice: 379,
+
+    images: [
+      { url: "/assets/products/hats/hats (10).webp", altText: "Classic Wool Beret" }
+    ],
+    subImages: [],
+
+    stock: 320,
+    sku: "HAT-ONE-BERET",
+
+    attributes: {
+      color: ["Black", "Navy", "Red", "Grey", "Brown"],
+      size: ["One Size"],
+      material: "Wool"
+    },
+
+    tags: ["beret", "wool beret", "fashion hat"],
+
+    isFeatured: true,
+    isActive: true,
+
+    ratings: { average: 4.5, count: 64 },
+
+    seo: {
+      metaTitle: "Classic Wool Berets | Fashion Headwear",
+      metaDescription:
+        "Traditional wool berets with leather trim, perfect for artistic, fashion and custom branding applications.",
+      keywords: ["beret", "wool", "fashion", "artistic"]
+    },
+
+    category: null,
+    subcategory: null
+  },
+
+  {
+    name: "Casual Cotton Bucket Hat",
+    slug: "casual-cotton-bucket-hat",
+
+    description: {
+      short: "Lightweight cotton bucket hat.",
+      long: "Lightweight cotton bucket hat, perfect for outdoor activities and casual branding."
+    },
+
+    price: 349,
+    salePrice: 319,
+
+    images: [
+      { url: "/assets/products/hats/hats (11).webp", altText: "Casual Cotton Bucket Hat" }
+    ],
+    subImages: [],
+
+    stock: 500,
+    sku: "HAT-ONE-BUCKET",
+
+    attributes: {
+      color: ["Beige", "Olive", "Black", "White", "Navy"],
+      size: ["One Size"],
+      material: "Cotton"
+    },
+
+    tags: ["bucket hat", "casual hat", "cotton hat", "outdoor hat"],
+
+    isFeatured: true,
+    isActive: true,
+
+    ratings: { average: 4.7, count: 89 },
+
+    seo: {
+      metaTitle: "Casual Cotton Bucket Hat | Outdoor Headwear",
+      metaDescription:
+        "Lightweight cotton bucket hat, ideal for casual wear, outdoor branding, and custom printing.",
+      keywords: ["bucket hat", "cotton", "casual", "outdoor"]
+    },
+
+    category: null,
+    subcategory: null
+  }
 ];
 
 module.exports = hats;

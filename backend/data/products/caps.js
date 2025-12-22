@@ -1,528 +1,508 @@
 const caps = [
   {
-    productCode: "CAP-BLACK-001",
-    SKU: "CAP-BLACK",
     name: "Classic Black Baseball Cap",
     slug: "classic-black-baseball-cap",
-    description: "Premium black cotton baseball cap with adjustable strap and embroidery option.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 800,
-    GSTRate: 5,
-    brand: "CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["Black"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-BLACK-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    description: {
+      short: "Premium black cotton baseball cap.",
+      long: "Premium black cotton baseball cap with adjustable strap and embroidery option."
     },
-    image: "/assets/products/caps/black (1).webp",
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/black (1).webp", altText: "Black Baseball Cap" }],
     subImages: [
-      "/assets/products/caps/black (1).webp",
-      "/assets/products/caps/black (2).webp",
-      "/assets/products/caps/black (3).webp",
-      "/assets/products/caps/black (4).webp"
+      { url: "/assets/products/caps/black (1).webp", altText: "Black Cap View 1" },
+      { url: "/assets/products/caps/black (2).webp", altText: "Black Cap View 2" },
+      { url: "/assets/products/caps/black (3).webp", altText: "Black Cap View 3" },
+      { url: "/assets/products/caps/black (4).webp", altText: "Black Cap View 4" }
     ],
+
+    stock: 800,
+    sku: "CAP-BLACK",
+
+    attributes: {
+      color: ["Black"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    specifications: [
+      { key: "HSN Code", value: "65050090" },
+      { key: "GST Rate", value: "5%" },
+      { key: "Weight", value: "120g" }
+    ],
+
     tags: ["black cap", "baseball cap", "adjustable cap", "custom embroidery cap"],
-    keywords: ["cap", "black", "custom", "accessory"],
+
     isFeatured: true,
-    isPublished: true,
+    isActive: true,
+
     ratings: { average: 4.5, count: 110 },
-    metaTitle: "Custom Black Baseball Caps | Adjustable Cotton Caps",
-    metaDescription: "Classic black cotton baseball caps with custom embroidery option, perfect for events and branding.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
-  },
-  {
-    productCode: "CAP-LIGHT-GREY-002",
-    SKU: "CAP-LIGHT-GREY",
-    name: "Classic Light-grey Baseball Cap",
-    slug: "classic-red-baseball-cap",
-    description: "Vibrant light-grey cotton baseball cap with solid finish and adjustable back strap.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 750,
-    GSTRate: 5,
-    brand: "CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["Cream"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-LIGHT-GREY-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    seo: {
+      metaTitle: "Custom Black Baseball Caps | Adjustable Cotton Caps",
+      metaDescription: "Classic black cotton baseball caps with custom embroidery option, perfect for events and branding.",
+      keywords: ["cap", "black", "custom", "accessory"]
     },
-    image: "/assets/products/caps/light-grey (1).webp",
-    subImages: [
-      "/assets/products/caps/light-grey (1).webp",
-      "/assets/products/caps/light-grey (2).webp",
-      "/assets/products/caps/light-grey (3).webp"
-    ],
-    tags: ["light-grey cap", "baseball cap", "adjustable cap", "custom light-grey cap"],
-    keywords: ["cap", "red", "custom", "branded"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: { average: 4.3, count: 90 },
-    metaTitle: "Custom Light-grey Baseball Caps | Branded Event Caps",
-    metaDescription: "Bright light-grey baseball caps made of 100% cotton with adjustable strap, ideal for events and promotions.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "CAP-NAVY-003",
-    SKU: "CAP-NAVY",
+    name: "Classic Light Grey Baseball Cap",
+    slug: "classic-light-grey-baseball-cap",
+
+    description: {
+      short: "Light grey cotton baseball cap.",
+      long: "Vibrant light grey cotton baseball cap with solid finish and adjustable back strap."
+    },
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/light-grey (1).webp", altText: "Light Grey Baseball Cap" }],
+    subImages: [
+      { url: "/assets/products/caps/light-grey (1).webp", altText: "Light Grey Cap View 1" },
+      { url: "/assets/products/caps/light-grey (2).webp", altText: "Light Grey Cap View 2" },
+      { url: "/assets/products/caps/light-grey (3).webp", altText: "Light Grey Cap View 3" }
+    ],
+
+    stock: 750,
+    sku: "CAP-LIGHT-GREY",
+
+    attributes: {
+      color: ["Light Grey"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    tags: ["light grey cap", "baseball cap", "custom cap"],
+
+    isFeatured: false,
+    isActive: true,
+
+    ratings: { average: 4.3, count: 90 },
+
+    seo: {
+      metaTitle: "Custom Light Grey Baseball Caps | Branded Event Caps",
+      metaDescription: "Light grey baseball caps made of cotton with adjustable strap, ideal for events and promotions.",
+      keywords: ["cap", "grey", "custom"]
+    },
+
+    category: null,
+    subcategory: null
+  },
+
+  {
     name: "Classic Navy Baseball Cap",
     slug: "classic-navy-baseball-cap",
-    description: "Elegant navy blue baseball cap with premium cotton fabric, ideal for branding.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 700,
-    GSTRate: 5,
-    brand: "CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["Navy Blue"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-NAVY-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    description: {
+      short: "Navy blue cotton baseball cap.",
+      long: "Elegant navy blue baseball cap with premium cotton fabric, ideal for branding."
     },
-    image: "/assets/products/caps/navy (1).webp",
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/navy (1).webp", altText: "Navy Baseball Cap" }],
     subImages: [
-      "/assets/products/caps/navy (1).webp",
-      "/assets/products/caps/navy (2).webp",
-      
+      { url: "/assets/products/caps/navy (1).webp", altText: "Navy Cap View 1" },
+      { url: "/assets/products/caps/navy (2).webp", altText: "Navy Cap View 2" }
     ],
-    tags: ["navy cap", "blue cap", "baseball cap", "corporate cap"],
-    keywords: ["cap", "navy", "custom", "accessory"],
+
+    stock: 700,
+    sku: "CAP-NAVY",
+
+    attributes: {
+      color: ["Navy Blue"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    tags: ["navy cap", "corporate cap"],
+
     isFeatured: true,
-    isPublished: true,
+    isActive: true,
+
     ratings: { average: 4.4, count: 100 },
-    metaTitle: "Custom Navy Baseball Caps | Stylish Cotton Caps",
-    metaDescription: "Navy blue baseball caps with adjustable design, customizable with logos for corporate use.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+
+    seo: {
+      metaTitle: "Custom Navy Baseball Caps | Stylish Cotton Caps",
+      metaDescription: "Navy blue baseball caps customizable with logos for corporate use.",
+      keywords: ["cap", "navy", "custom"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "CAP-WHITE-004",
-    SKU: "CAP-WHITE",
     name: "Classic White Baseball Cap",
     slug: "classic-white-baseball-cap",
-    description: "Clean and stylish white cotton baseball cap, perfect for custom logo embroidery.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 950,
-    GSTRate: 5,
-    brand: "CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["White"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-WHITE-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    description: {
+      short: "White cotton baseball cap.",
+      long: "Clean and stylish white cotton baseball cap, perfect for custom logo embroidery."
     },
-    image: "/assets/products/caps/white (1).webp",
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/white (1).webp", altText: "White Baseball Cap" }],
     subImages: [
-      "/assets/products/caps/white (1).webp",
-      "/assets/products/caps/white (2).webp",
-      "/assets/products/caps/white (3).webp",
-      "/assets/products/caps/white (4).webp"
+      { url: "/assets/products/caps/white (1).webp", altText: "White Cap View 1" },
+      { url: "/assets/products/caps/white (2).webp", altText: "White Cap View 2" },
+      { url: "/assets/products/caps/white (3).webp", altText: "White Cap View 3" },
+      { url: "/assets/products/caps/white (4).webp", altText: "White Cap View 4" }
     ],
-    tags: ["white cap", "custom white cap", "branded cap", "event cap"],
-    keywords: ["cap", "white", "custom", "branded"],
+
+    stock: 950,
+    sku: "CAP-WHITE",
+
+    attributes: {
+      color: ["White"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    tags: ["white cap", "custom white cap", "event cap"],
+
     isFeatured: true,
-    isPublished: true,
+    isActive: true,
+
     ratings: { average: 4.2, count: 95 },
-    metaTitle: "Custom White Baseball Caps | Embroidelight-grey Caps",
-    metaDescription: "Premium white cotton caps with embroidery and branding options for events.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+
+    seo: {
+      metaTitle: "Custom White Baseball Caps | Embroidered Cotton Caps",
+      metaDescription: "Premium white cotton caps with embroidery options for events and branding.",
+      keywords: ["cap", "white", "branding"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "CAP-GREY-005",
-    SKU: "CAP-GREY",
     name: "Classic Grey Baseball Cap",
     slug: "classic-grey-baseball-cap",
-    description: "Modern light grey baseball cap made of cotton, adjustable strap for comfort.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 650,
-    GSTRate: 5,
-    brand: "CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["Grey"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-GREY-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    description: {
+      short: "Grey cotton baseball cap.",
+      long: "Modern grey cotton baseball cap with adjustable strap for comfort."
     },
-    image: "/assets/products/caps/grey (1).webp",
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/grey (1).webp", altText: "Grey Baseball Cap" }],
     subImages: [
-      "/assets/products/caps/grey (1).webp",
-      "/assets/products/caps/grey (2).webp",
-      "/assets/products/caps/grey (3).webp",
-      "/assets/products/caps/grey (4).webp"
+      { url: "/assets/products/caps/grey (1).webp", altText: "Grey Cap View 1" },
+      { url: "/assets/products/caps/grey (2).webp", altText: "Grey Cap View 2" },
+      { url: "/assets/products/caps/grey (3).webp", altText: "Grey Cap View 3" },
+      { url: "/assets/products/caps/grey (4).webp", altText: "Grey Cap View 4" }
     ],
-    tags: ["grey cap", "modern cap", "branded cap", "cotton cap"],
-    keywords: ["cap", "grey", "casual", "custom"],
+
+    stock: 650,
+    sku: "CAP-GREY",
+
+    attributes: {
+      color: ["Grey"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    tags: ["grey cap", "cotton cap"],
+
     isFeatured: false,
-    isPublished: true,
+    isActive: true,
+
     ratings: { average: 4.1, count: 75 },
-    metaTitle: "Custom Grey Baseball Caps | Adjustable Cotton Caps",
-    metaDescription: "Stylish light grey cotton baseball caps suitable for casual and promotional wear.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+
+    seo: {
+      metaTitle: "Custom Grey Baseball Caps | Adjustable Cotton Caps",
+      metaDescription: "Stylish grey cotton baseball caps suitable for casual and promotional wear.",
+      keywords: ["cap", "grey"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "CAP-GREEN-006",
-    SKU: "CAP-GREEN",
     name: "Classic Green Baseball Cap",
     slug: "classic-green-baseball-cap",
-    description: "Fresh green cotton baseball cap designed for branding, casual and event wear.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 600,
-    GSTRate: 5,
-    brand: "CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["Green"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-GREEN-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    description: {
+      short: "Green cotton baseball cap.",
+      long: "Fresh green cotton baseball cap designed for branding and casual wear."
     },
-    image: "/assets/products/caps/green (1).webp",
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/green (1).webp", altText: "Green Baseball Cap" }],
     subImages: [
-      "/assets/products/caps/green (1).webp",
-      "/assets/products/caps/green (2).webp",
-      "/assets/products/caps/green (3).webp",
-      "/assets/products/caps/green (4).webp"
+      { url: "/assets/products/caps/green (1).webp", altText: "Green Cap View 1" },
+      { url: "/assets/products/caps/green (2).webp", altText: "Green Cap View 2" },
+      { url: "/assets/products/caps/green (3).webp", altText: "Green Cap View 3" },
+      { url: "/assets/products/caps/green (4).webp", altText: "Green Cap View 4" }
     ],
-    tags: ["green cap", "custom green cap", "event cap", "branded cap"],
-    keywords: ["cap", "green", "branding", "custom"],
+
+    stock: 600,
+    sku: "CAP-GREEN",
+
+    attributes: {
+      color: ["Green"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    tags: ["green cap", "event cap"],
+
     isFeatured: false,
-    isPublished: true,
+    isActive: true,
+
     ratings: { average: 4.0, count: 70 },
-    metaTitle: "Custom Green Baseball Caps | Promotional Cotton Caps",
-    metaDescription: "Fresh green cotton baseball caps with adjustable strap, perfect for casual and promotional events.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+
+    seo: {
+      metaTitle: "Custom Green Baseball Caps | Promotional Cotton Caps",
+      metaDescription: "Fresh green cotton baseball caps perfect for branding and events.",
+      keywords: ["cap", "green"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "CAP-YELLOW-007",
-    SKU: "CAP-YELLOW",
     name: "Classic Yellow Baseball Cap",
     slug: "classic-yellow-baseball-cap",
-    description: "Bright yellow cotton baseball cap designed for team and event branding.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 500,
-    GSTRate: 5,
-    brand: "CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["Yellow"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-YELLOW-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    description: {
+      short: "Yellow cotton baseball cap.",
+      long: "Bright yellow cotton baseball cap designed for team and event branding."
     },
-    image: "/assets/products/caps/yellow (1).webp",
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/yellow (1).webp", altText: "Yellow Baseball Cap" }],
     subImages: [
-      "/assets/products/caps/yellow (1).webp",
-      "/assets/products/caps/yellow (2).webp",
-      "/assets/products/caps/yellow (3).webp",
-      "/assets/products/caps/yellow (4).webp"
+      { url: "/assets/products/caps/yellow (1).webp", altText: "Yellow Cap View 1" },
+      { url: "/assets/products/caps/yellow (2).webp", altText: "Yellow Cap View 2" },
+      { url: "/assets/products/caps/yellow (3).webp", altText: "Yellow Cap View 3" },
+      { url: "/assets/products/caps/yellow (4).webp", altText: "Yellow Cap View 4" }
     ],
-    tags: ["yellow cap", "event cap", "branded cap", "cotton cap"],
-    keywords: ["cap", "yellow", "custom", "event"],
+
+    stock: 500,
+    sku: "CAP-YELLOW",
+
+    attributes: {
+      color: ["Yellow"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    tags: ["yellow cap", "event cap"],
+
     isFeatured: true,
-    isPublished: true,
+    isActive: true,
+
     ratings: { average: 4.3, count: 80 },
-    metaTitle: "Bright Yellow Baseball Caps | Custom Event Caps",
-    metaDescription: "Cheerful yellow baseball caps made of cotton, designed for events and corporate branding.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+
+    seo: {
+      metaTitle: "Bright Yellow Baseball Caps | Custom Event Caps",
+      metaDescription: "Cheerful yellow baseball caps designed for events and corporate branding.",
+      keywords: ["cap", "yellow"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "CAP-MAROON-008",
-    SKU: "CAP-MAROON",
     name: "Classic Maroon Baseball Cap",
     slug: "classic-maroon-baseball-cap",
-    description: "Stylish maroon cotton baseball cap with strong stitches and adjustable fit.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 550,
-    GSTRate: 5,
-    brand: "CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["Maroon"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-MAROON-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    description: {
+      short: "Maroon cotton baseball cap.",
+      long: "Stylish maroon cotton baseball cap with adjustable fit."
     },
-    image: "/assets/products/caps/maroon (1).webp",
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/maroon (1).webp", altText: "Maroon Baseball Cap" }],
     subImages: [
-      "/assets/products/caps/maroon (1).webp",
-      "/assets/products/caps/maroon (2).webp",
-      
+      { url: "/assets/products/caps/maroon (1).webp", altText: "Maroon Cap View 1" },
+      { url: "/assets/products/caps/maroon (2).webp", altText: "Maroon Cap View 2" }
     ],
-    tags: ["maroon cap", "custom maroon cap", "branded cap", "corporate cap"],
-    keywords: ["cap", "maroon", "branded", "custom"],
+
+    stock: 550,
+    sku: "CAP-MAROON",
+
+    attributes: {
+      color: ["Maroon"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    tags: ["maroon cap", "corporate cap"],
+
     isFeatured: false,
-    isPublished: true,
+    isActive: true,
+
     ratings: { average: 4.2, count: 60 },
-    metaTitle: "Custom Maroon Baseball Caps | Corporate Event Caps",
-    metaDescription: "Elegant maroon baseball caps with cotton fabric and adjustable strap, suitable for corporate events.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+
+    seo: {
+      metaTitle: "Custom Maroon Baseball Caps | Corporate Event Caps",
+      metaDescription: "Elegant maroon baseball caps suitable for corporate events.",
+      keywords: ["cap", "maroon"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "CAP-ORANGE-009",
-    SKU: "CAP-ORANGE",
     name: "Classic Orange Baseball Cap",
     slug: "classic-orange-baseball-cap",
-    description: "Energetic orange cotton baseball cap, perfect for promotions and sports events.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 480,
-    GSTRate: 5,
-    brand:"CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["Maroon"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-ORANGE-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    description: {
+      short: "Orange cotton baseball cap.",
+      long: "Energetic orange cotton baseball cap perfect for promotions."
     },
-    image: "/assets/products/caps/orange (1).webp",
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/orange (1).webp", altText: "Orange Baseball Cap" }],
     subImages: [
-      "/assets/products/caps/orange (1).webp",
-      "/assets/products/caps/orange (2).webp",
-      "/assets/products/caps/orange (3).webp",
-      "/assets/products/caps/orange (4).webp"
+      { url: "/assets/products/caps/orange (1).webp", altText: "Orange Cap View 1" },
+      { url: "/assets/products/caps/orange (2).webp", altText: "Orange Cap View 2" },
+      { url: "/assets/products/caps/orange (3).webp", altText: "Orange Cap View 3" },
+      { url: "/assets/products/caps/orange (4).webp", altText: "Orange Cap View 4" }
     ],
-    tags: ["orange cap", "custom orange cap", "branded cap", "corporate cap"],
-    keywords: ["cap", "orange", "branded", "custom"],
+
+    stock: 480,
+    sku: "CAP-ORANGE",
+
+    attributes: {
+      color: ["Orange"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    tags: ["orange cap", "event cap"],
+
     isFeatured: false,
-    isPublished: true,
+    isActive: true,
+
     ratings: { average: 4.2, count: 60 },
-    metaTitle: "Custom Orange Baseball Caps | Corporate Event Caps",
-    metaDescription: "Elegant orange baseball caps with cotton fabric and adjustable strap, suitable for corporate events.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+
+    seo: {
+      metaTitle: "Custom Orange Baseball Caps | Promotional Event Caps",
+      metaDescription: "Bright orange baseball caps ideal for promotions and sports events.",
+      keywords: ["cap", "orange"]
+    },
+
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "CAP-PINK-0010",
-    SKU: "CAP-PINK",
     name: "Classic Pink Baseball Cap",
     slug: "classic-pink-baseball-cap",
-    description: "Energetic pink cotton baseball cap, perfect for promotions and sports events.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 480,
-    GSTRate: 5,
-    brand:"CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["Pink"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-PINK-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    description: {
+      short: "Pink cotton baseball cap.",
+      long: "Soft pink cotton baseball cap for promotions and branding."
     },
-    image: "/assets/products/caps/pink (1).webp",
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/pink (1).webp", altText: "Pink Baseball Cap" }],
     subImages: [
-      "/assets/products/caps/pink (1).webp",
-      "/assets/products/caps/pink (2).webp",
-      
+      { url: "/assets/products/caps/pink (1).webp", altText: "Pink Cap View 1" },
+      { url: "/assets/products/caps/pink (2).webp", altText: "Pink Cap View 2" }
     ],
-    tags: ["pink cap", "custom pink cap", "branded cap", "corporate cap"],
-    keywords: ["cap", "pink", "branded", "custom"],
+
+    stock: 480,
+    sku: "CAP-PINK",
+
+    attributes: {
+      color: ["Pink"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    tags: ["pink cap", "branding cap"],
+
     isFeatured: false,
-    isPublished: true,
+    isActive: true,
+
     ratings: { average: 4.2, count: 60 },
-    metaTitle: "Custom Pink Baseball Caps | Corporate Event Caps",
-    metaDescription: "Elegant pink baseball caps with cotton fabric and adjustable strap, suitable for corporate events.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
-  },
-  {
-    productCode: "CAP-CREAM-0011",
-    SKU: "CAP-CREAM",
-    name: "Classic Cream Baseball Cap",
-    slug: "classic-red-baseball-cap",
-    description: "Vibrant cream cotton baseball cap with solid finish and adjustable back strap.",
-    HSNCode: "65050090",
-    type: "Accessory",
-    quantity: 750,
-    GSTRate: 5,
-    brand: "CapWear",
-    fabricType: "100% Cotton",
-    size: ["Free Size"],
-    colour: ["Cream"],
-    weight: 120,
-    dimensions: { length: 28, width: 20, height: 12 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CAP-CREAM-PRICE",
-      singlePrice: 249,
-      sales_0_50: 229,
-      sales_50_100: 199,
-      sales_100_above: 179,
-      discountPrice: 199,
-      discount: { type: "percentage", value: 20, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+
+    seo: {
+      metaTitle: "Custom Pink Baseball Caps | Corporate Event Caps",
+      metaDescription: "Pink baseball caps suitable for branding and corporate events.",
+      keywords: ["cap", "pink"]
     },
-    image: "/assets/products/caps/cream (1).webp",
-    subImages: [
-      "/assets/products/caps/cream (1).webp",
-      "/assets/products/caps/cream (2).webp",
-      "/assets/products/caps/cream (3).webp",
-      "/assets/products/caps/cream (4).webp"
-    ],
-    tags: ["cream cap", "baseball cap", "adjustable cap", "custom cream cap"],
-    keywords: ["cap", "red", "custom", "branded"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: { average: 4.3, count: 90 },
-    metaTitle: "Custom Cream Baseball Caps | Branded Event Caps",
-    metaDescription: "Bright cream baseball caps made of 100% cotton with adjustable strap, ideal for events and promotions.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+
+    category: null,
+    subcategory: null
   },
+
+  {
+    name: "Classic Cream Baseball Cap",
+    slug: "classic-cream-baseball-cap",
+
+    description: {
+      short: "Cream cotton baseball cap.",
+      long: "Elegant cream cotton baseball cap with adjustable strap."
+    },
+
+    price: 249,
+    salePrice: 199,
+
+    images: [{ url: "/assets/products/caps/cream (1).webp", altText: "Cream Baseball Cap" }],
+    subImages: [
+      { url: "/assets/products/caps/cream (1).webp", altText: "Cream Cap View 1" },
+      { url: "/assets/products/caps/cream (2).webp", altText: "Cream Cap View 2" },
+      { url: "/assets/products/caps/cream (3).webp", altText: "Cream Cap View 3" },
+      { url: "/assets/products/caps/cream (4).webp", altText: "Cream Cap View 4" }
+    ],
+
+    stock: 750,
+    sku: "CAP-CREAM",
+
+    attributes: {
+      color: ["Cream"],
+      size: ["Free Size"],
+      material: "100% Cotton"
+    },
+
+    tags: ["cream cap", "event cap"],
+
+    isFeatured: false,
+    isActive: true,
+
+    ratings: { average: 4.3, count: 90 },
+
+    seo: {
+      metaTitle: "Custom Cream Baseball Caps | Branded Event Caps",
+      metaDescription: "Cream baseball caps ideal for events and promotions.",
+      keywords: ["cap", "cream"]
+    },
+
+    category: null,
+    subcategory: null
+  }
 ];
 
-module.exports= caps;
+module.exports = caps;

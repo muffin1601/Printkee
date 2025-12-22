@@ -1,405 +1,297 @@
 const toteBags = [
-  // -------------------------------------------------------------
-  // PRODUCT 1 — Images 1–4 (4 subimages)
-  // -------------------------------------------------------------
-  {
-    productCode: "TB-COTTON-001",
-    SKU: "TOTE-COTTON-PREMIUM",
-    name: "Premium Cotton Tote Bag",
-    slug: "premium-cotton-tote-bag",
-    description:
-      "Premium cotton tote bag designed for corporate gifting, events, exhibitions, brand promotions, and eco-friendly campaigns. Perfect for custom logo printing and employee welcome kits. Bulk supply across Delhi NCR, Noida, Gurgaon, Okhla, Faridabad & India.",
-    HSNCode: "42029200",
-    type: "Tote Bag",
-    quantity: 900,
-    GSTRate: 18,
-    brand: "EcoCarry",
-    fabricType: "100% Cotton",
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Premium Cotton Tote Bag",
+  slug: "premium-cotton-tote-bag",
+  description: {
+    short: "Eco-friendly cotton tote bag for corporate gifting.",
+    long: "Premium cotton tote bag designed for corporate gifting, events, exhibitions, brand promotions, and eco-friendly campaigns. Perfect for custom logo printing and employee welcome kits."
+  },
+  price: 129,
+  salePrice: 119,
+  images: [
+    { url: "/assets/products/totebags/1.webp", altText: "Premium Cotton Tote Bag" }
+  ],
+  subImages: [
+    { url: "/assets/products/totebags/1.webp", altText: "Cotton Tote View 1" },
+    { url: "/assets/products/totebags/2.webp", altText: "Cotton Tote View 2" },
+    { url: "/assets/products/totebags/3.webp", altText: "Cotton Tote View 3" },
+    { url: "/assets/products/totebags/4.webp", altText: "Cotton Tote View 4" }
+  ],
+  stock: 900,
+  sku: "TOTE-COTTON-PREMIUM",
+  attributes: {
+    color: ["Natural White"],
     size: ["Medium"],
-    colour: ["Natural White"],
-    weight: 220,
-    dimensions: { length: 40, width: 36, height: 2 },
-    minOrderQty: 20,
-    maxOrderQty: 800,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TB-COTTON-PRICE",
-      singlePrice: 129,
-      sales_0_50: 119,
-      sales_50_100: 109,
-      sales_100_above: 99,
-      discountPrice: 119,
-      discount: { type: "percentage", value: 8, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/totebags/1.webp",
-    subImages: [
-      "/assets/products/totebags/1.webp",
-      "/assets/products/totebags/2.webp",
-      "/assets/products/totebags/3.webp",
-      "/assets/products/totebags/4.webp"
-    ],
-    tags: [
-      "cotton tote bag",
-      "eco friendly tote",
-      "custom printed tote bag",
-      "corporate gifting tote",
-      "event promotion bags",
-      "Delhi NCR tote supplier"
-    ],
+    material: "100% Cotton"
+  },
+  specifications: [
+    { key: "HSN Code", value: "42029200" },
+    { key: "GST Rate", value: "18%" }
+  ],
+  tags: [
+    "cotton tote bag",
+    "eco friendly tote",
+    "custom printed tote bag",
+    "corporate gifting tote"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.6, count: 140 },
+  seo: {
+    metaTitle: "Premium Cotton Tote Bag | Custom Printed Corporate Tote Bags India",
+    metaDescription: "Eco-friendly cotton tote bags with custom branding for corporate gifting & events.",
     keywords: [
       "corporate cotton tote bag",
       "custom printing tote",
       "eco friendly promotional bags",
-      "branding tote bag india",
-      "Noida Gurgaon Faridabad"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.6, count: 140 },
-    metaTitle: "Premium Cotton Tote Bag | Custom Printed Corporate Tote Bags India",
-    metaDescription:
-      "Eco-friendly cotton tote bags with custom branding for corporate gifting & events. Bulk orders delivered across Delhi NCR & PAN India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+      "branding tote bag india"
+    ]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 2 — Images 5–8 (4 subimages)
-  // -------------------------------------------------------------
-  {
-    productCode: "TB-JUTE-002",
-    SKU: "TOTE-JUTE-NATURAL",
-    name: "Natural Jute Tote Bag",
-    slug: "natural-jute-tote-bag",
-    description:
-      "Stylish natural jute tote bag ideal for eco-friendly corporate gifting, CSR initiatives, conferences, and promotional events. Large branding area perfect for custom printing. Bulk supply across Noida, Gurgaon, Delhi NCR & India.",
-    HSNCode: "42029200",
-    type: "Tote Bag",
-    quantity: 700,
-    GSTRate: 18,
-    brand: "EcoCarry",
-    fabricType: "Jute",
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Natural Jute Tote Bag",
+  slug: "natural-jute-tote-bag",
+  description: {
+    short: "Eco-friendly jute tote bag for CSR gifting.",
+    long: "Stylish natural jute tote bag ideal for eco-friendly corporate gifting, CSR initiatives, conferences, and promotional events."
+  },
+  price: 149,
+  salePrice: 139,
+  images: [
+    { url: "/assets/products/totebags/5.webp", altText: "Natural Jute Tote Bag" }
+  ],
+  subImages: [
+    { url: "/assets/products/totebags/5.webp", altText: "Jute Tote View 1" },
+    { url: "/assets/products/totebags/6.webp", altText: "Jute Tote View 2" },
+    { url: "/assets/products/totebags/7.webp", altText: "Jute Tote View 3" },
+    { url: "/assets/products/totebags/8.webp", altText: "Jute Tote View 4" }
+  ],
+  stock: 700,
+  sku: "TOTE-JUTE-NATURAL",
+  attributes: {
+    color: ["Brown"],
     size: ["Large"],
-    colour: ["Brown"],
-    weight: 320,
-    dimensions: { length: 42, width: 35, height: 2 },
-    minOrderQty: 20,
-    maxOrderQty: 600,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TB-JUTE-PRICE",
-      singlePrice: 149,
-      sales_0_50: 139,
-      sales_50_100: 129,
-      sales_100_above: 119,
-      discountPrice: 139,
-      discount: { type: "percentage", value: 7, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/totebags/5.webp",
-    subImages: [
-      "/assets/products/totebags/5.webp",
-      "/assets/products/totebags/6.webp",
-      "/assets/products/totebags/7.webp",
-      "/assets/products/totebags/8.webp"
-    ],
-    tags: [
-      "jute tote bag",
-      "eco friendly gifting",
-      "custom printed jute bag",
-      "corporate csr gifts",
-      "promotional event bags",
-      "India corporate gifts"
-    ],
+    material: "Jute"
+  },
+  tags: [
+    "jute tote bag",
+    "eco friendly gifting",
+    "custom printed jute bag",
+    "corporate csr gifts"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.7, count: 110 },
+  seo: {
+    metaTitle: "Natural Jute Tote Bag | Eco-Friendly Corporate Gifting Bags",
+    metaDescription: "Eco-friendly natural jute tote bags perfect for corporate gifting & CSR branding.",
     keywords: [
       "jute tote bag india",
       "eco friendly promotional bags",
-      "corporate gifting jute bag",
-      "custom branding india",
-      "Delhi NCR Noida Gurgaon"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.7, count: 110 },
-    metaTitle:
-      "Natural Jute Tote Bag | Eco-Friendly Corporate Gifting Bags with Custom Branding",
-    metaDescription:
-      "Eco-friendly natural jute tote bags perfect for corporate gifting & CSR branding. Bulk supply across Delhi NCR & PAN India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+      "corporate gifting jute bag"
+    ]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 3 — Images 9–12 (4 subimages)
-  // -------------------------------------------------------------
-  {
-    productCode: "TB-CANVAS-003",
-    SKU: "TOTE-CANVAS-PREMIUM",
-    name: "Premium Canvas Tote Bag",
-    slug: "premium-canvas-tote-bag",
-    description:
-      "High-quality premium canvas tote bag designed for events, conferences, premium gifting, and brand promotions. Strong handle, durable stitching & large print area. Custom printing for corporate bulk orders across India.",
-    HSNCode: "42029200",
-    type: "Tote Bag",
-    quantity: 500,
-    GSTRate: 18,
-    brand: "EcoCarry",
-    fabricType: "Canvas",
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Premium Canvas Tote Bag",
+  slug: "premium-canvas-tote-bag",
+  description: {
+    short: "Durable canvas tote for events and branding.",
+    long: "High-quality premium canvas tote bag designed for events, conferences, premium gifting, and brand promotions."
+  },
+  price: 199,
+  salePrice: 189,
+  images: [
+    { url: "/assets/products/totebags/9.webp", altText: "Premium Canvas Tote Bag" }
+  ],
+  subImages: [
+    { url: "/assets/products/totebags/9.webp", altText: "Canvas Tote View 1" },
+    { url: "/assets/products/totebags/10.webp", altText: "Canvas Tote View 2" },
+    { url: "/assets/products/totebags/11.webp", altText: "Canvas Tote View 3" },
+    { url: "/assets/products/totebags/12.webp", altText: "Canvas Tote View 4" }
+  ],
+  stock: 500,
+  sku: "TOTE-CANVAS-PREMIUM",
+  attributes: {
+    color: ["Black"],
     size: ["Large"],
-    colour: ["Black"],
-    weight: 400,
-    dimensions: { length: 45, width: 38, height: 2 },
-    minOrderQty: 10,
-    maxOrderQty: 400,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TB-CANVAS-PRICE",
-      singlePrice: 199,
-      sales_0_50: 189,
-      sales_50_100: 179,
-      sales_100_above: 169,
-      discountPrice: 189,
-      discount: { type: "percentage", value: 5, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/totebags/9.webp",
-    subImages: [
-      "/assets/products/totebags/9.webp",
-      "/assets/products/totebags/10.webp",
-      "/assets/products/totebags/11.webp",
-      "/assets/products/totebags/12.webp"
-    ],
-    tags: [
-      "canvas tote bag",
-      "premium tote bag",
-      "corporate gifting bag",
-      "custom printed canvas tote",
-      "event gift bags india",
-      "branding bags supplier"
-    ],
+    material: "Canvas"
+  },
+  tags: [
+    "canvas tote bag",
+    "premium tote bag",
+    "corporate gifting bag"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.8, count: 88 },
+  seo: {
+    metaTitle: "Premium Canvas Tote Bag | Custom Printed Corporate Event Bags India",
+    metaDescription: "Premium canvas tote bags with custom branding for corporate events & gifting.",
     keywords: [
       "canvas tote bag india",
       "premium branding bag",
-      "custom printed tote",
-      "corporate conference bags",
-      "Delhi NCR Noida India"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.8, count: 88 },
-    metaTitle:
-      "Premium Canvas Tote Bag | Custom Printed Corporate Event Bags India",
-    metaDescription:
-      "Premium canvas tote bags with custom branding for corporate events & gifting. Bulk supply across India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+      "custom printed tote"
+    ]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 4 — Images 13–15 (3 subimages)
-  // -------------------------------------------------------------
-  {
-    productCode: "TB-FOLD-004",
-    SKU: "TOTE-FOLDABLE",
-    name: "Foldable Tote Bag",
-    slug: "foldable-tote-bag",
-    description:
-      "Lightweight foldable tote bag ideal for events, marketing campaigns, and promotional activities. Folds into a compact pouch with custom branding. Bulk orders accepted across Delhi NCR & India.",
-    HSNCode: "42029200",
-    type: "Tote Bag",
-    quantity: 800,
-    GSTRate: 18,
-    brand: "EcoCarry",
-    fabricType: "Polyester",
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Foldable Tote Bag",
+  slug: "foldable-tote-bag",
+  description: {
+    short: "Compact foldable tote bag for promotions.",
+    long: "Lightweight foldable tote bag ideal for events, marketing campaigns, and promotional activities."
+  },
+  price: 99,
+  salePrice: 89,
+  images: [
+    { url: "/assets/products/totebags/13.webp", altText: "Foldable Tote Bag" }
+  ],
+  subImages: [
+    { url: "/assets/products/totebags/13.webp", altText: "Foldable Tote View 1" },
+    { url: "/assets/products/totebags/14.webp", altText: "Foldable Tote View 2" },
+    { url: "/assets/products/totebags/15.webp", altText: "Foldable Tote View 3" }
+  ],
+  stock: 800,
+  sku: "TOTE-FOLDABLE",
+  attributes: {
+    color: ["Blue"],
     size: ["Standard"],
-    colour: ["Blue"],
-    weight: 180,
-    dimensions: { length: 40, width: 36, height: 1 },
-    minOrderQty: 20,
-    maxOrderQty: 700,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TB-FOLD-PRICE",
-      singlePrice: 99,
-      sales_0_50: 89,
-      sales_50_100: 84,
-      sales_100_above: 79,
-      discountPrice: 89,
-      discount: { type: "percentage", value: 10, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/totebags/13.webp",
-    subImages: [
-      "/assets/products/totebags/13.webp",
-      "/assets/products/totebags/14.webp",
-      "/assets/products/totebags/15.webp"
-    ],
-    tags: [
-      "foldable tote bag",
-      "compact tote bag",
-      "event promotion bags",
-      "corporate gifting india",
-      "custom printed fold tote"
-    ],
+    material: "Polyester"
+  },
+  tags: [
+    "foldable tote bag",
+    "event promotion bags",
+    "custom printed fold tote"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.3, count: 95 },
+  seo: {
+    metaTitle: "Foldable Tote Bag | Custom Printed Event Bags India",
+    metaDescription: "Foldable tote bags with custom branding for promotions & events.",
     keywords: [
       "foldable tote india",
       "event promotional tote",
-      "custom printed bag",
-      "bulk tote supplier india"
-    ],
-    isFeatured: false,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.3, count: 95 },
-    metaTitle: "Foldable Tote Bag | Custom Printed Event Bags India",
-    metaDescription:
-      "Foldable tote bags with custom branding. Ideal for promotions, events & corporate gifting. Delivered PAN India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+      "custom printed bag"
+    ]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 5 — Images 16–18 (3 subimages)
-  // -------------------------------------------------------------
-  {
-    productCode: "TB-JUTEPRINT-005",
-    SKU: "TOTE-JUTE-PRINTED",
-    name: "Printed Jute Tote Bag",
-    slug: "printed-jute-tote-bag",
-    description:
-      "Stylish printed jute tote bag ideal for brand promotions, CSR gifting, exhibitions, and corporate events. Eco-friendly with strong handles & custom logo printing. Bulk corporate supply available across India.",
-    HSNCode: "42029200",
-    type: "Tote Bag",
-    quantity: 600,
-    GSTRate: 18,
-    brand: "EcoCarry",
-    fabricType: "Jute",
+/* ================= PRODUCT 5 ================= */
+
+{
+  name: "Printed Jute Tote Bag",
+  slug: "printed-jute-tote-bag",
+  description: {
+    short: "Printed jute tote for CSR and branding.",
+    long: "Stylish printed jute tote bag ideal for brand promotions, CSR gifting, exhibitions, and corporate events."
+  },
+  price: 169,
+  salePrice: 159,
+  images: [
+    { url: "/assets/products/totebags/16.webp", altText: "Printed Jute Tote Bag" }
+  ],
+  subImages: [
+    { url: "/assets/products/totebags/16.webp", altText: "Printed Jute View 1" },
+    { url: "/assets/products/totebags/17.webp", altText: "Printed Jute View 2" },
+    { url: "/assets/products/totebags/18.webp", altText: "Printed Jute View 3" }
+  ],
+  stock: 600,
+  sku: "TOTE-JUTE-PRINTED",
+  attributes: {
+    color: ["Brown"],
     size: ["Large"],
-    colour: ["Brown"],
-    weight: 350,
-    dimensions: { length: 44, width: 37, height: 2 },
-    minOrderQty: 20,
-    maxOrderQty: 550,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TB-JUTEPRINT-PRICE",
-      singlePrice: 169,
-      sales_0_50: 159,
-      sales_50_100: 149,
-      sales_100_above: 139,
-      discountPrice: 159,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/totebags/16.webp",
-    subImages: [
-      "/assets/products/totebags/16.webp",
-      "/assets/products/totebags/17.webp",
-      "/assets/products/totebags/18.webp"
-    ],
-    tags: [
-      "jute tote printed",
-      "csr gifting bag",
-      "eco friendly tote bag",
-      "corporate gifting",
-      "branding tote bag"
-    ],
+    material: "Jute"
+  },
+  tags: [
+    "printed jute tote",
+    "csr gifting bag",
+    "eco friendly tote bag"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.5, count: 87 },
+  seo: {
+    metaTitle: "Printed Jute Tote Bag | Eco-Friendly Corporate Gifting India",
+    metaDescription: "Eco-friendly printed jute totes for corporate gifting & branding.",
     keywords: [
       "printed jute bag india",
       "eco friendly corporate gifts",
-      "custom branding tote",
-      "event promotion bags"
-    ],
-    isFeatured: false,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.5, count: 87 },
-    metaTitle: "Printed Jute Tote Bag | Eco-Friendly Corporate Gifting India",
-    metaDescription:
-      "Eco-friendly printed jute totes for corporate gifting & branding. Bulk supply PAN India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+      "custom branding tote"
+    ]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 6 — Images 19–21 (3 subimages)
-  // -------------------------------------------------------------
-  {
-    productCode: "TB-PREMIUMCANVAS-006",
-    SKU: "TOTE-CANVAS-EXECUTIVE",
-    name: "Executive Canvas Tote Bag",
-    slug: "executive-canvas-tote-bag",
-    description:
-      "High-quality executive canvas tote bag perfect for conferences, client gifting, product launches, and premium branding campaigns. Elegant finish with sturdy handles & custom printing for corporate orders.",
-    HSNCode: "42029200",
-    type: "Tote Bag",
-    quantity: 450,
-    GSTRate: 18,
-    brand: "EcoCarry",
-    fabricType: "Premium Canvas",
+/* ================= PRODUCT 6 ================= */
+
+{
+  name: "Executive Canvas Tote Bag",
+  slug: "executive-canvas-tote-bag",
+  description: {
+    short: "Premium executive canvas tote for conferences.",
+    long: "High-quality executive canvas tote bag perfect for conferences, client gifting, product launches, and premium branding campaigns."
+  },
+  price: 229,
+  salePrice: 219,
+  images: [
+    { url: "/assets/products/totebags/19.webp", altText: "Executive Canvas Tote Bag" }
+  ],
+  subImages: [
+    { url: "/assets/products/totebags/19.webp", altText: "Executive Tote View 1" },
+    { url: "/assets/products/totebags/20.webp", altText: "Executive Tote View 2" },
+    { url: "/assets/products/totebags/21.webp", altText: "Executive Tote View 3" }
+  ],
+  stock: 450,
+  sku: "TOTE-CANVAS-EXECUTIVE",
+  attributes: {
+    color: ["Dark Blue"],
     size: ["Large"],
-    colour: ["Dark Blue"],
-    weight: 420,
-    dimensions: { length: 46, width: 38, height: 2 },
-    minOrderQty: 10,
-    maxOrderQty: 300,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TB-PREMIUMCANVAS-PRICE",
-      singlePrice: 229,
-      sales_0_50: 219,
-      sales_50_100: 209,
-      sales_100_above: 199,
-      discountPrice: 219,
-      discount: { type: "percentage", value: 5, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/totebags/19.webp",
-    subImages: [
-      "/assets/products/totebags/19.webp",
-      "/assets/products/totebags/20.webp",
-      "/assets/products/totebags/21.webp"
-    ],
-    tags: [
-      "executive tote bag",
-      "premium canvas tote",
-      "corporate conference bag",
-      "custom printed tote",
-      "branding tote india"
-    ],
+    material: "Premium Canvas"
+  },
+  tags: [
+    "executive tote bag",
+    "premium canvas tote",
+    "corporate conference bag"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.9, count: 72 },
+  seo: {
+    metaTitle: "Executive Canvas Tote Bag | Premium Corporate Conference Bags India",
+    metaDescription: "Premium executive canvas tote bag with custom branding for conferences & gifting.",
     keywords: [
       "executive tote india",
       "premium conference bag",
-      "custom branding totes",
-      "corporate promotional bags"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.9, count: 72 },
-    metaTitle:
-      "Executive Canvas Tote Bag | Premium Corporate Conference Bags India",
-    metaDescription:
-      "Premium executive canvas tote bag with custom branding. Ideal for conferences & corporate gifting. Bulk supply PAN India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
-  }
+      "custom branding totes"
+    ]
+  },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = toteBags;

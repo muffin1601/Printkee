@@ -1,48 +1,91 @@
-const mongoose = require('mongoose');
-const PriceSchema = require('./Price');
-const AuditSchema = require('./Audit');
+const mongoose = require("mongoose");
 
-const ProductSchema = new mongoose.Schema(
+const productSchema = new mongoose.Schema(
   {
-    productCode: { type: String },
-    SKU: String,
-    name: { type: String, required: true },
-    slug: { type: String },
-    description: String,
-    HSNCode: String,
-    type: String,
-    quantity: { type: Number, default: 0 },
-    GSTRate: Number,
-    brand: String,
-    fabricType: String,
-    size: [String],
-    colour: [String],
-    weight: Number,
-    dimensions: {
-      length: Number,
-      width: Number,
-      height: Number
+    name: { type: String, required: true, trim: true },
+
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
     },
-    minOrderQty: Number,
-    maxOrderQty: Number,
-    availabilityDate: Date,
-    price: PriceSchema,
-    image: String,
-    subImages: [String],
+
+    description: {
+      short: String,
+      long: String,
+    },
+
+    price: { type: Number, required: true },
+    salePrice: { type: Number, default: null },
+
+    images: [
+      {
+        url: String,
+        altText: String,
+      },
+    ],
+
+    subImages: [
+      {
+        url: String,
+        altText: String,
+      },
+    ],
+
+    stock: { type: Number, default: 0 },
+
+    sku: { type: String, unique: true, sparse: true },
+
+    attributes: {
+      color: [String],
+      size: [String],
+      material: String,
+    },
+
+    additionalInfo: [
+      {
+        label: String,
+        value: String,
+      },
+    ],
+
+    specifications: [
+      {
+        key: String,
+        value: String,
+      },
+    ],
+
     tags: [String],
-    keywords: [String],
+
     isFeatured: { type: Boolean, default: false },
-    isPublished: { type: Boolean, default: true },
-    isDeleted: { type: Boolean, default: false },
+    isActive: { type: Boolean, default: true },
+
     ratings: {
       average: { type: Number, default: 0 },
-      count: { type: Number, default: 0 }
+      count: { type: Number, default: 0 },
     },
-    metaTitle: String,
-    metaDescription: String,
-    audit: AuditSchema
+
+    seo: {
+      metaTitle: String,
+      metaDescription: String,
+      keywords: [String],
+    },
+
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
+    },
+
+    subcategory: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Subcategory",
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = ProductSchema;
+module.exports = mongoose.model("Product", productSchema);

@@ -1,485 +1,368 @@
 const roundneckTshirts = [
   {
-    productCode: "RND-WHITE-001",
-    SKU: "RND-M-WHITE",
     name: "Classic White Round Neck T-Shirt",
     slug: "classic-white-round-neck-t-shirt",
-    description: "Soft cotton blend white round neck t-shirt ideal for casual wear and branding.",
-    HSNCode: "61099090",
-    type: "Clothing",
-    quantity: 1200,
-    GSTRate: 5,
-    brand: "UrbanWear",
-    fabricType: "Cotton Blend",
-    size: ["S", "M", "L", "XL", "XXL"],
-    colour: ["White"],
-    weight: 180,
-    dimensions: { length: 72, width: 52, height: 5 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "RND-WHITE-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 329,
-      sales_100_above: 299,
-      discountPrice: 329,
-      discount: { type: "percentage", value: 15, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+    description: {
+      short: "Soft cotton blend white round neck t-shirt.",
+      long: "Soft cotton blend white round neck t-shirt ideal for casual wear and branding."
     },
-    image: "/assets/products/roundneck/classic-white (1).webp",
+    price: 399,
+    salePrice: 329,
+    images: [{ url: "/assets/products/roundneck/classic-white (1).webp", altText: "White Round Neck T-Shirt" }],
     subImages: [
-      "/assets/products/roundneck/classic-white (1).webp",
-      "/assets/products/roundneck/classic-white (2).webp",
-      "/assets/products/roundneck/classic-white (3).webp",
-      "/assets/products/roundneck/classic-white (4).webp"
+      { url: "/assets/products/roundneck/classic-white (1).webp", altText: "View 1" },
+      { url: "/assets/products/roundneck/classic-white (2).webp", altText: "View 2" },
+      { url: "/assets/products/roundneck/classic-white (3).webp", altText: "View 3" },
+      { url: "/assets/products/roundneck/classic-white (4).webp", altText: "View 4" }
     ],
-    tags: ["white round neck t-shirt", "casual white tee", "custom logo white tshirt"],
-    keywords: ["round neck", "white", "casual", "custom"],
+    stock: 1200,
+    sku: "RND-M-WHITE",
+    attributes: {
+      color: ["White"],
+      size: ["S","M","L","XL","XXL"],
+      material: "Cotton Blend"
+    },
+    specifications: [
+      { key: "HSN Code", value: "61099090" },
+      { key: "GST Rate", value: "5%" },
+      { key: "Weight", value: "180g" }
+    ],
+    tags: ["white round neck t-shirt","casual white tee","custom logo white tshirt"],
     isFeatured: true,
-    isPublished: true,
+    isActive: true,
     ratings: { average: 4.4, count: 150 },
-    metaTitle: "Custom White Round Neck T-Shirts | Logo Printing Available",
-    metaDescription: "Soft cotton blend white round neck t-shirts, perfect for casual wear and corporate branding.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    seo: {
+      metaTitle: "Custom White Round Neck T-Shirts | Logo Printing Available",
+      metaDescription: "Soft cotton blend white round neck t-shirts, perfect for casual wear and corporate branding.",
+      keywords: ["round neck","white","casual","custom"]
+    },
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "RND-BLACK-002",
-    SKU: "RND-M-BLACK",
     name: "Classic Black Round Neck T-Shirt",
     slug: "classic-black-round-neck-t-shirt",
-    description: "Trendy black round neck t-shirt with breathable fabric, suitable for custom prints.",
-    HSNCode: "61099090",
-    type: "Clothing",
-    quantity: 1000,
-    GSTRate: 5,
-    brand: "UrbanWear",
-    fabricType: "Cotton Blend",
-    size: ["S", "M", "L", "XL", "XXL"],
-    colour: ["Black"],
-    weight: 180,
-    dimensions: { length: 72, width: 52, height: 5 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "RND-BLACK-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 329,
-      sales_100_above: 299,
-      discountPrice: 329,
-      discount: { type: "percentage", value: 15, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+    description: {
+      short: "Trendy black round neck t-shirt.",
+      long: "Trendy black round neck t-shirt with breathable fabric, suitable for custom prints."
     },
-    image: "/assets/products/roundneck/black (1).webp",
+    price: 399,
+    salePrice: 329,
+    images: [{ url: "/assets/products/roundneck/black (1).webp", altText: "Black Round Neck T-Shirt" }],
     subImages: [
-      "/assets/products/roundneck/black (1).webp",
-      "/assets/products/roundneck/black (2).webp",
-      "/assets/products/roundneck/black (3).webp",
-      "/assets/products/roundneck/black (4).webp"
+      { url: "/assets/products/roundneck/black (1).webp", altText: "View 1" },
+      { url: "/assets/products/roundneck/black (2).webp", altText: "View 2" },
+      { url: "/assets/products/roundneck/black (3).webp", altText: "View 3" },
+      { url: "/assets/products/roundneck/black (4).webp", altText: "View 4" }
     ],
-    tags: ["black round neck t-shirt", "custom black tshirt", "casual black tee"],
-    keywords: ["round neck", "black", "casual", "custom"],
+    stock: 1000,
+    sku: "RND-M-BLACK",
+    attributes: {
+      color: ["Black"],
+      size: ["S","M","L","XL","XXL"],
+      material: "Cotton Blend"
+    },
+    tags: ["black round neck t-shirt","custom black tshirt","casual black tee"],
     isFeatured: true,
-    isPublished: true,
+    isActive: true,
     ratings: { average: 4.6, count: 180 },
-    metaTitle: "Custom Black Round Neck T-Shirts | Corporate & Casual Use",
-    metaDescription: "Premium black round neck t-shirts with custom print option. Perfect for teams and events.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    seo: {
+      metaTitle: "Custom Black Round Neck T-Shirts | Corporate & Casual Use",
+      metaDescription: "Premium black round neck t-shirts with custom print option.",
+      keywords: ["round neck","black","casual","custom"]
+    },
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "RND-NAVY-003",
-    SKU: "RND-M-NAVY",
     name: "Navy Blue Round Neck T-Shirt",
     slug: "navy-blue-round-neck-t-shirt",
-    description: "Elegant navy blue round neck t-shirt for everyday wear and branding needs.",
-    HSNCode: "61099090",
-    type: "Clothing",
-    quantity: 950,
-    GSTRate: 5,
-    brand: "UrbanWear",
-    fabricType: "Cotton Blend",
-    size: ["S", "M", "L", "XL", "XXL"],
-    colour: ["Navy Blue"],
-    weight: 180,
-    dimensions: { length: 72, width: 52, height: 5 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "RND-NAVY-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 329,
-      sales_100_above: 299,
-      discountPrice: 329,
-      discount: { type: "percentage", value: 15, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+    description: {
+      short: "Elegant navy blue round neck t-shirt.",
+      long: "Elegant navy blue round neck t-shirt for everyday wear and branding needs."
     },
-    image: "/assets/products/roundneck/navy-blue (1).webp",
+    price: 399,
+    salePrice: 329,
+    images: [{ url: "/assets/products/roundneck/navy-blue (1).webp", altText: "Navy Blue Round Neck T-Shirt" }],
     subImages: [
-      "/assets/products/roundneck/navy-blue (1).webp",
-      "/assets/products/roundneck/navy-blue (2).webp",
-      "/assets/products/roundneck/navy-blue (3).webp",
-      "/assets/products/roundneck/navy-blue (4).webp"
+      { url: "/assets/products/roundneck/navy-blue (1).webp", altText: "View 1" },
+      { url: "/assets/products/roundneck/navy-blue (2).webp", altText: "View 2" },
+      { url: "/assets/products/roundneck/navy-blue (3).webp", altText: "View 3" },
+      { url: "/assets/products/roundneck/navy-blue (4).webp", altText: "View 4" }
     ],
-    tags: ["navy round neck t-shirt", "corporate navy tee", "custom navy tshirt"],
-    keywords: ["round neck", "navy", "custom", "branding"],
+    stock: 950,
+    sku: "RND-M-NAVY",
+    attributes: {
+      color: ["Navy Blue"],
+      size: ["S","M","L","XL","XXL"],
+      material: "Cotton Blend"
+    },
+    tags: ["navy round neck t-shirt","corporate navy tee","custom navy tshirt"],
     isFeatured: true,
-    isPublished: true,
+    isActive: true,
     ratings: { average: 4.3, count: 120 },
-    metaTitle: "Custom Navy Round Neck T-Shirts | Team Branding",
-    metaDescription: "High-quality navy blue round neck t-shirts, customizable with logos for team wear.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    seo: {
+      metaTitle: "Custom Navy Round Neck T-Shirts | Team Branding",
+      metaDescription: "High-quality navy blue round neck t-shirts for team wear.",
+      keywords: ["round neck","navy","custom","branding"]
+    },
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "RND-GREY-004",
-    SKU: "RND-M-GREY",
     name: "Light Grey Round Neck T-Shirt",
     slug: "light-grey-round-neck-t-shirt",
-    description: "Comfortable light grey round neck t-shirt with modern fit, suitable for printing.",
-    HSNCode: "61099090",
-    type: "Clothing",
-    quantity: 900,
-    GSTRate: 5,
-    brand: "UrbanWear",
-    fabricType: "Cotton Blend",
-    size: ["S", "M", "L", "XL", "XXL"],
-    colour: ["Light Grey"],
-    weight: 180,
-    dimensions: { length: 72, width: 52, height: 5 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "RND-GREY-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 329,
-      sales_100_above: 299,
-      discountPrice: 329,
-      discount: { type: "percentage", value: 15, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+    description: {
+      short: "Comfortable light grey round neck t-shirt.",
+      long: "Comfortable light grey round neck t-shirt with modern fit, suitable for printing."
     },
-    image: "/assets/products/roundneck/light-grey (1).webp",
+    price: 399,
+    salePrice: 329,
+    images: [{ url: "/assets/products/roundneck/light-grey (1).webp", altText: "Light Grey Round Neck T-Shirt" }],
     subImages: [
-      "/assets/products/roundneck/light-grey (1).webp",
-      "/assets/products/roundneck/light-grey (2).webp",
-      "/assets/products/roundneck/light-grey (3).webp",
-      "/assets/products/roundneck/light-grey (4).webp"
+      { url: "/assets/products/roundneck/light-grey (1).webp", altText: "View 1" },
+      { url: "/assets/products/roundneck/light-grey (2).webp", altText: "View 2" },
+      { url: "/assets/products/roundneck/light-grey (3).webp", altText: "View 3" },
+      { url: "/assets/products/roundneck/light-grey (4).webp", altText: "View 4" }
     ],
-    tags: ["grey round neck t-shirt", "casual grey tee", "printed grey tshirt"],
-    keywords: ["round neck", "grey", "casual", "custom"],
+    stock: 900,
+    sku: "RND-M-GREY",
+    attributes: {
+      color: ["Light Grey"],
+      size: ["S","M","L","XL","XXL"],
+      material: "Cotton Blend"
+    },
+    tags: ["grey round neck t-shirt","casual grey tee","printed grey tshirt"],
     isFeatured: false,
-    isPublished: true,
+    isActive: true,
     ratings: { average: 4.2, count: 90 },
-    metaTitle: "Light Grey Round Neck T-Shirts | Custom Printing",
-    metaDescription: "Light grey round neck t-shirts with smooth fabric, perfect for casual and promotional wear.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    seo: {
+      metaTitle: "Light Grey Round Neck T-Shirts | Custom Printing",
+      metaDescription: "Light grey round neck t-shirts for casual and promotional wear.",
+      keywords: ["round neck","grey","casual","custom"]
+    },
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "RND-RED-005",
-    SKU: "RND-M-RED",
     name: "Classic Red Round Neck T-Shirt",
     slug: "classic-red-round-neck-t-shirt",
-    description: "Bright red round neck t-shirt designed for team events and sports branding.",
-    HSNCode: "61099090",
-    type: "Clothing",
-    quantity: 1100,
-    GSTRate: 5,
-    brand: "UrbanWear",
-    fabricType: "Cotton Blend",
-    size: ["S", "M", "L", "XL", "XXL"],
-    colour: ["Red"],
-    weight: 180,
-    dimensions: { length: 72, width: 52, height: 5 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "RND-RED-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 329,
-      sales_100_above: 299,
-      discountPrice: 329,
-      discount: { type: "percentage", value: 15, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+    description: {
+      short: "Bright red round neck t-shirt.",
+      long: "Bright red round neck t-shirt designed for team events and sports branding."
     },
-    image: "/assets/products/roundneck/red (1).webp",
+    price: 399,
+    salePrice: 329,
+    images: [{ url: "/assets/products/roundneck/red (1).webp", altText: "Red Round Neck T-Shirt" }],
     subImages: [
-      "/assets/products/roundneck/red (1).webp",
-      "/assets/products/roundneck/red (2).webp",
-      "/assets/products/roundneck/red (3).webp",
-      "/assets/products/roundneck/red (4).webp"
+      { url: "/assets/products/roundneck/red (1).webp", altText: "View 1" },
+      { url: "/assets/products/roundneck/red (2).webp", altText: "View 2" },
+      { url: "/assets/products/roundneck/red (3).webp", altText: "View 3" },
+      { url: "/assets/products/roundneck/red (4).webp", altText: "View 4" }
     ],
-    tags: ["red round neck t-shirt", "sports red tee", "custom red tshirt"],
-    keywords: ["round neck", "red", "sports", "custom"],
+    stock: 1100,
+    sku: "RND-M-RED",
+    attributes: {
+      color: ["Red"],
+      size: ["S","M","L","XL","XXL"],
+      material: "Cotton Blend"
+    },
+    tags: ["red round neck t-shirt","sports red tee","custom red tshirt"],
     isFeatured: true,
-    isPublished: true,
+    isActive: true,
     ratings: { average: 4.5, count: 130 },
-    metaTitle: "Custom Red Round Neck T-Shirts | Sports & Team Events",
-    metaDescription: "Bright red round neck t-shirts perfect for team events, sports branding, and promotions.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    seo: {
+      metaTitle: "Custom Red Round Neck T-Shirts | Sports & Team Events",
+      metaDescription: "Bright red round neck t-shirts perfect for team events and promotions.",
+      keywords: ["round neck","red","sports","custom"]
+    },
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "RND-GREEN-006",
-    SKU: "RND-M-GREEN",
     name: "Forest Green Round Neck T-Shirt",
     slug: "forest-green-round-neck-t-shirt",
-    description: "Stylish forest green round neck t-shirt with soft texture, suitable for casual and corporate wear.",
-    HSNCode: "61099090",
-    type: "Clothing",
-    quantity: 850,
-    GSTRate: 5,
-    brand: "UrbanWear",
-    fabricType: "Cotton Blend",
-    size: ["S", "M", "L", "XL", "XXL"],
-    colour: ["Forest Green"],
-    weight: 180,
-    dimensions: { length: 72, width: 52, height: 5 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "RND-GREEN-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 329,
-      sales_100_above: 299,
-      discountPrice: 329,
-      discount: { type: "percentage", value: 15, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+    description: {
+      short: "Stylish forest green round neck t-shirt.",
+      long: "Stylish forest green round neck t-shirt suitable for casual and corporate wear."
     },
-    image: "/assets/products/roundneck/forest-green (1).webp",
+    price: 399,
+    salePrice: 329,
+    images: [{ url: "/assets/products/roundneck/forest-green (1).webp", altText: "Forest Green Round Neck T-Shirt" }],
     subImages: [
-      "/assets/products/roundneck/forest-green (1).webp",
-      "/assets/products/roundneck/forest-green (2).webp",
-      "/assets/products/roundneck/forest-green (3).webp",
-      "/assets/products/roundneck/forest-green (4).webp"
+      { url: "/assets/products/roundneck/forest-green (1).webp", altText: "View 1" },
+      { url: "/assets/products/roundneck/forest-green (2).webp", altText: "View 2" },
+      { url: "/assets/products/roundneck/forest-green (3).webp", altText: "View 3" },
+      { url: "/assets/products/roundneck/forest-green (4).webp", altText: "View 4" }
     ],
-    tags: ["green round neck t-shirt", "forest green tshirt", "corporate green tee"],
-    keywords: ["round neck", "green", "casual", "branding"],
+    stock: 850,
+    sku: "RND-M-GREEN",
+    attributes: {
+      color: ["Forest Green"],
+      size: ["S","M","L","XL","XXL"],
+      material: "Cotton Blend"
+    },
+    tags: ["green round neck t-shirt","forest green tshirt","corporate green tee"],
     isFeatured: false,
-    isPublished: true,
+    isActive: true,
     ratings: { average: 4.1, count: 80 },
-    metaTitle: "Forest Green Round Neck T-Shirts | Casual & Corporate Branding",
-    metaDescription: "Forest green round neck t-shirts with premium cotton blend fabric for comfort and style.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    seo: {
+      metaTitle: "Forest Green Round Neck T-Shirts | Casual & Corporate Branding",
+      metaDescription: "Forest green round neck t-shirts with premium cotton blend fabric.",
+      keywords: ["round neck","green","casual","branding"]
+    },
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "RND-BIEGE-007",
-    SKU: "RND-M-BIEGE",
     name: "Bright Biege Round Neck T-Shirt",
     slug: "bright-biege-round-neck-t-shirt",
-    description: "Cheerful biege round neck t-shirt, perfect for promotions and summer events.",
-    HSNCode: "61099090",
-    type: "Clothing",
-    quantity: 700,
-    GSTRate: 5,
-    brand: "UrbanWear",
-    fabricType: "Cotton Blend",
-    size: ["S", "M", "L", "XL", "XXL"],
-    colour: ["Biege"],
-    weight: 180,
-    dimensions: { length: 72, width: 52, height: 5 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "RND-BIEGE-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 329,
-      sales_100_above: 299,
-      discountPrice: 329,
-      discount: { type: "percentage", value: 15, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+    description: {
+      short: "Cheerful biege round neck t-shirt.",
+      long: "Cheerful biege round neck t-shirt, perfect for promotions and summer events."
     },
-    image: "/assets/products/roundneck/biege (1).webp",
+    price: 399,
+    salePrice: 329,
+    images: [{ url: "/assets/products/roundneck/biege (1).webp", altText: "Biege Round Neck T-Shirt" }],
     subImages: [
-      "/assets/products/roundneck/biege (1).webp",
-      "/assets/products/roundneck/biege (2).webp",
-      "/assets/products/roundneck/biege (3).webp",
-      "/assets/products/roundneck/biege (4).webp"
+      { url: "/assets/products/roundneck/biege (1).webp", altText: "View 1" },
+      { url: "/assets/products/roundneck/biege (2).webp", altText: "View 2" },
+      { url: "/assets/products/roundneck/biege (3).webp", altText: "View 3" },
+      { url: "/assets/products/roundneck/biege (4).webp", altText: "View 4" }
     ],
-    tags: ["biege round neck t-shirt", "custom biege tee", "summer event tshirt"],
-    keywords: ["round neck", "biege", "casual", "custom"],
+    stock: 700,
+    sku: "RND-M-BIEGE",
+    attributes: {
+      color: ["Biege"],
+      size: ["S","M","L","XL","XXL"],
+      material: "Cotton Blend"
+    },
+    tags: ["biege round neck t-shirt","custom biege tee","summer event tshirt"],
     isFeatured: false,
-    isPublished: true,
+    isActive: true,
     ratings: { average: 4.0, count: 60 },
-    metaTitle: "Bright Biege Round Neck T-Shirts | Promotions & Events",
-    metaDescription: "Bright biege round neck t-shirts ideal for events, branding, and casual outings.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    seo: {
+      metaTitle: "Bright Biege Round Neck T-Shirts | Promotions & Events",
+      metaDescription: "Bright biege round neck t-shirts ideal for events and branding.",
+      keywords: ["round neck","biege","casual","custom"]
+    },
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "RND-MAROON-008",
-    SKU: "RND-M-MAROON",
     name: "Maroon Round Neck T-Shirt",
     slug: "maroon-round-neck-t-shirt",
-    description: "Elegant maroon round neck t-shirt with stylish fit, great for branding and casual wear.",
-    HSNCode: "61099090",
-    type: "Clothing",
-    quantity: 650,
-    GSTRate: 5,
-    brand: "UrbanWear",
-    fabricType: "Cotton Blend",
-    size: ["S", "M", "L", "XL", "XXL"],
-    colour: ["Maroon"],
-    weight: 180,
-    dimensions: { length: 72, width: 52, height: 5 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "RND-MAROON-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 329,
-      sales_100_above: 299,
-      discountPrice: 329,
-      discount: { type: "percentage", value: 15, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+    description: {
+      short: "Elegant maroon round neck t-shirt.",
+      long: "Elegant maroon round neck t-shirt with stylish fit."
     },
-    image: "/assets/products/roundneck/maroon (1).webp",
+    price: 399,
+    salePrice: 329,
+    images: [{ url: "/assets/products/roundneck/maroon (1).webp", altText: "Maroon Round Neck T-Shirt" }],
     subImages: [
-      "/assets/products/roundneck/maroon (1).webp",
-      "/assets/products/roundneck/maroon (2).webp",
-      "/assets/products/roundneck/maroon (3).webp",
-      "/assets/products/roundneck/maroon (4).webp"
+      { url: "/assets/products/roundneck/maroon (1).webp", altText: "View 1" },
+      { url: "/assets/products/roundneck/maroon (2).webp", altText: "View 2" },
+      { url: "/assets/products/roundneck/maroon (3).webp", altText: "View 3" },
+      { url: "/assets/products/roundneck/maroon (4).webp", altText: "View 4" }
     ],
-    tags: ["maroon round neck t-shirt", "custom maroon tee", "casual maroon tshirt"],
-    keywords: ["round neck", "maroon", "casual", "custom"],
+    stock: 650,
+    sku: "RND-M-MAROON",
+    attributes: {
+      color: ["Maroon"],
+      size: ["S","M","L","XL","XXL"],
+      material: "Cotton Blend"
+    },
+    tags: ["maroon round neck t-shirt","custom maroon tee","casual maroon tshirt"],
     isFeatured: true,
-    isPublished: true,
+    isActive: true,
     ratings: { average: 4.4, count: 100 },
-    metaTitle: "Maroon Round Neck T-Shirts | Stylish & Customizable",
-    metaDescription: "Stylish maroon round neck t-shirts, great for fashion, branding, and events.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    seo: {
+      metaTitle: "Maroon Round Neck T-Shirts | Stylish & Customizable",
+      metaDescription: "Stylish maroon round neck t-shirts great for branding and events.",
+      keywords: ["round neck","maroon","casual","custom"]
+    },
+    category: null,
+    subcategory: null
   },
+
   {
-    productCode: "RND-OLIVE-009",
-    SKU: "RND-M-OLIVE",
     name: "Olive Round Neck T-Shirt",
     slug: "olive-round-neck-t-shirt",
-    description: "Vibrant olive round neck t-shirt designed for energetic events and branding.",
-    HSNCode: "61099090",
-    type: "Clothing",
-    quantity: 600,
-    GSTRate: 5,
-    brand: "UrbanWear",
-    fabricType: "Cotton Blend",
-    size: ["S", "M", "L", "XL", "XXL"],
-    colour: ["Olive"],
-    weight: 180,
-    dimensions: { length: 72, width: 52, height: 5 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "RND-OLIVE-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 329,
-      sales_100_above: 299,
-      discountPrice: 329,
-      discount: { type: "percentage", value: 15, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+    description: {
+      short: "Vibrant olive round neck t-shirt.",
+      long: "Vibrant olive round neck t-shirt designed for energetic events and branding."
     },
-    image: "/assets/products/roundneck/olive (1).webp",
+    price: 399,
+    salePrice: 329,
+    images: [{ url: "/assets/products/roundneck/olive (1).webp", altText: "Olive Round Neck T-Shirt" }],
     subImages: [
-      "/assets/products/roundneck/olive (1).webp",
-      "/assets/products/roundneck/olive (2).webp",
-      "/assets/products/roundneck/olive (3).webp",
-      "/assets/products/roundneck/olive (4).webp"
+      { url: "/assets/products/roundneck/olive (1).webp", altText: "View 1" },
+      { url: "/assets/products/roundneck/olive (2).webp", altText: "View 2" },
+      { url: "/assets/products/roundneck/olive (3).webp", altText: "View 3" },
+      { url: "/assets/products/roundneck/olive (4).webp", altText: "View 4" }
     ],
-    tags: ["olive round neck t-shirt", "custom olive tee", "event olive tshirt"],
-    keywords: ["round neck", "olive", "custom", "branding"],
+    stock: 600,
+    sku: "RND-M-OLIVE",
+    attributes: {
+      color: ["Olive"],
+      size: ["S","M","L","XL","XXL"],
+      material: "Cotton Blend"
+    },
+    tags: ["olive round neck t-shirt","custom olive tee","event olive tshirt"],
     isFeatured: false,
-    isPublished: true,
+    isActive: true,
     ratings: { average: 4.1, count: 70 },
-    metaTitle: "Olive Round Neck T-Shirts | Event Branding & Promotions",
-    metaDescription: "Bright olive round neck t-shirts designed for promotional events and active branding.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
-  },
-  {
-    productCode: "RND-DARK-BLUE-010",
-    SKU: "RND-M-DARK-BLUE",
-    name: "Dark-blue Round Neck T-Shirt",
-    slug: "dark-blue-round-neck-t-shirt",
-    description: "Trendy dark-blue round neck t-shirt, soft and breathable, great for branding and fashion.",
-    HSNCode: "61099090",
-    type: "Clothing",
-    quantity: 500,
-    GSTRate: 5,
-    brand: "UrbanWear",
-    fabricType: "Cotton Blend",
-    size: ["S", "M", "L", "XL", "XXL"],
-    colour: ["Dark-blue"],
-    weight: 180,
-    dimensions: { length: 72, width: 52, height: 5 },
-    minOrderQty: 10,
-    maxOrderQty: 1000,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "RND-DARK-BLUE-PRICE",
-      singlePrice: 399,
-      sales_0_50: 349,
-      sales_50_100: 329,
-      sales_100_above: 299,
-      discountPrice: 329,
-      discount: { type: "percentage", value: 15, validUntil: new Date("2023-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2024-12-31")
+    seo: {
+      metaTitle: "Olive Round Neck T-Shirts | Event Branding & Promotions",
+      metaDescription: "Bright olive round neck t-shirts for promotional events.",
+      keywords: ["round neck","olive","custom","branding"]
     },
-    image: "/assets/products/roundneck/dark-blue (1).webp",
-    subImages: [
-      "/assets/products/roundneck/dark-blue (1).webp",
-      "/assets/products/roundneck/dark-blue (2).webp",
-      "/assets/products/roundneck/dark-blue (3).webp",
-      "/assets/products/roundneck/dark-blue (4).webp"
-    ],
-    tags: ["dark-blue round neck t-shirt", "custom dark-blue tee", "casual dark-blue tshirt"],
-    keywords: ["round neck", "dark-blue", "casual", "custom"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.5, count: 85 },
-    metaTitle: "Dark-blue Round Neck T-Shirts | Stylish Custom Tees",
-    metaDescription: "Trendy dark-blue round neck t-shirts for fashion and branding. Soft and customizable fabric.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
-  }
-]
+    category: null,
+    subcategory: null
+  },
 
+  {
+    name: "Dark Blue Round Neck T-Shirt",
+    slug: "dark-blue-round-neck-t-shirt",
+    description: {
+      short: "Trendy dark blue round neck t-shirt.",
+      long: "Trendy dark blue round neck t-shirt, soft and breathable."
+    },
+    price: 399,
+    salePrice: 329,
+    images: [{ url: "/assets/products/roundneck/dark-blue (1).webp", altText: "Dark Blue Round Neck T-Shirt" }],
+    subImages: [
+      { url: "/assets/products/roundneck/dark-blue (1).webp", altText: "View 1" },
+      { url: "/assets/products/roundneck/dark-blue (2).webp", altText: "View 2" },
+      { url: "/assets/products/roundneck/dark-blue (3).webp", altText: "View 3" },
+      { url: "/assets/products/roundneck/dark-blue (4).webp", altText: "View 4" }
+    ],
+    stock: 500,
+    sku: "RND-M-DARK-BLUE",
+    attributes: {
+      color: ["Dark Blue"],
+      size: ["S","M","L","XL","XXL"],
+      material: "Cotton Blend"
+    },
+    tags: ["dark-blue round neck t-shirt","custom dark-blue tee","casual dark-blue tshirt"],
+    isFeatured: true,
+    isActive: true,
+    ratings: { average: 4.5, count: 85 },
+    seo: {
+      metaTitle: "Dark Blue Round Neck T-Shirts | Stylish Custom Tees",
+      metaDescription: "Trendy dark blue round neck t-shirts for fashion and branding.",
+      keywords: ["round neck","dark blue","casual","custom"]
+    },
+    category: null,
+    subcategory: null
+  }
+];
 
 module.exports = roundneckTshirts;

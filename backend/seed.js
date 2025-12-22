@@ -2,33 +2,75 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
-// Your Category model (with subcategories + products + ProductSchema)
-const Category = require("./models/Category"); // <-- make sure this is correct
+const Category = require("./models/Category");
+const Subcategory = require("./models/Subcategory");
+const Product = require("./models/product");
 
-// Your existing category structure file
-const categoryData = require("./data/categoryData"); // <-- path to your big category file
+const categoryData = require("./data/categoryData");
 
-async function seedCategories() {
+async function seedDatabase() {
   try {
     console.log("⏳ Connecting to MongoDB...");
     await mongoose.connect(process.env.MONGO_URI);
+    console.log("✔ Connected");
 
-    console.log("✔ Connected to MongoDB");
-
-    console.log("🗑 Clearing previous categories...");
+    console.log("🗑 Clearing existing data...");
+    await Product.deleteMany({});
+    await Subcategory.deleteMany({});
     await Category.deleteMany({});
 
-    console.log("📥 Inserting new categories...");
-    await Category.insertMany(categoryData);
+    console.log("📥 Seeding categories...");
+    
+    for (const categoryItem of categoryData) {
+      /* ================= CATEGORY ================= */
+      const category = await Category.create({
+        name: categoryItem.name,
+        slug: categoryItem.slug,
+        description: categoryItem.description || "",
+        image: categoryItem.image || "",
+        seo: categoryItem.seo || {},
+        subcategories: [],
+      });
 
-    console.log("🎉 Categories + Subcategories + Products Seeded Successfully!");
+      /* ================= SUBCATEGORIES ================= */
+      for (const subItem of categoryItem.subcategories || []) {
+        const subcategory = await Subcategory.create({
+          name: subItem.name,
+          slug: subItem.slug,
+          description: subItem.description || "",
+          image: subItem.image || "",
+          seo: subItem.seo || {},
+          category: category._id,
+          products: [],
+        });
+
+        /* ================= PRODUCTS ================= */
+        for (const productItem of subItem.products || []) {
+          const product = await Product.create({
+            ...productItem,
+            category: category._id,
+            subcategory: subcategory._id,
+          });
+
+          subcategory.products.push(product._id);
+        }
+
+        await subcategory.save();
+        category.subcategories.push(subcategory._id);
+      }
+
+      await category.save();
+    }
+
+    console.log("🎉 Categories, Subcategories & Products Seeded Successfully!");
 
     await mongoose.disconnect();
     console.log("🔌 Disconnected from MongoDB");
   } catch (error) {
     console.error("❌ Seeding Error:", error);
     await mongoose.disconnect();
+    process.exit(1);
   }
 }
 
-seedCategories();
+seedDatabase();

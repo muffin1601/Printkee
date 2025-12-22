@@ -1,23 +1,35 @@
-const mongoose = require('mongoose');
-const ProductSchema = require('./product');
-const AuditSchema = require('./Audit');
+const mongoose = require("mongoose");
 
-const SubcategorySchema = new mongoose.Schema(
+const subCategorySchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    slug: { type: String },
-    image: String,
-    hoverImage: String,
-    tag: String,
-    products: [ProductSchema],
-    isActive: { type: Boolean, default: true },
-    isFeatured: { type: Boolean, default: false },
-    sortOrder: { type: Number, default: 0 },
-    metaTitle: String,
-    metaDescription: String,
-    audit: AuditSchema
+    name: { type: String, required: true, trim: true },
+
+    slug: {
+      type: String,
+      required: true,
+      lowercase: true,
+    },
+
+    description: { type: String, default: "" },
+    image: { type: String, default: "" },
+
+    seo: {
+      metaTitle: String,
+      metaDescription: String,
+      keywords: [String],
+    },
+
+    products: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Product" }
+    ],
+
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = SubcategorySchema;
+module.exports = mongoose.model("Subcategory", subCategorySchema);
