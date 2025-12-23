@@ -1,326 +1,240 @@
 const bambooBottles = [
-  // -------------------------------------------------------------
-  // PRODUCT 1 — Images 1–3
-  // -------------------------------------------------------------
-  {
-    productCode: "BB-BAMBOO-001",
-    SKU: "BAMBOO-BOTTLE-750ML",
-    name: "Premium Bamboo Sipper Bottle",
-    slug: "premium-bamboo-sipper-bottle",
-    description:
-      "Eco-friendly premium bamboo sipper bottle designed for corporate gifting, employee welcome kits, and sustainable brand promotions. Offers a natural finish, leak-proof cap, and custom logo engraving/printing. Bulk corporate supply across Delhi NCR, Noida, Gurgaon, Okhla, Faridabad and all over India.",
-    HSNCode: "44219990",
-    type: "Bamboo Bottle",
-    quantity: 500,
-    GSTRate: 18,
-    brand: "EcoHydrate",
-    fabricType: "Natural Bamboo + Stainless Steel",
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Premium Bamboo Sipper Bottle",
+  slug: "premium-bamboo-sipper-bottle",
+  description: {
+    short: "Eco-friendly premium bamboo sipper bottle.",
+    long: "Eco-friendly premium bamboo sipper bottle designed for corporate gifting, employee welcome kits, and sustainable brand promotions with custom logo engraving."
+  },
+  price: 549,
+  salePrice: 529,
+  images: [
+    { url: "/assets/products/bamboobottles/1.webp", altText: "Premium Bamboo Sipper Bottle" }
+  ],
+  subImages: [
+    { url: "/assets/products/bamboobottles/2.webp", altText: "Bamboo Bottle Side View" },
+    { url: "/assets/products/bamboobottles/3.webp", altText: "Bamboo Bottle Packaging" }
+  ],
+  stock: 500,
+  sku: "BAMBOO-BOTTLE-750ML",
+  attributes: {
+    color: ["Wood Finish"],
     size: ["750ml"],
-    colour: ["Wood Finish"],
-    weight: 420,
-    dimensions: { length: 25, width: 7, height: 7 },
-    minOrderQty: 10,
-    maxOrderQty: 400,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "BB-BAMBOO-PRICE-001",
-      singlePrice: 549,
-      sales_0_50: 529,
-      sales_50_100: 499,
-      sales_100_above: 479,
-      discountPrice: 529,
-      discount: { type: "percentage", value: 5, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/bamboobottles/1.webp",
-    subImages: [
-      "/assets/products/bamboobottles/1.webp",
-      "/assets/products/bamboobottles/2.webp",
-      "/assets/products/bamboobottles/3.webp"
-    ],
-    tags: [
-      "bamboo bottle",
-      "eco friendly bottle",
-      "corporate gifting bamboo",
-      "custom printed bamboo bottle",
-      "engraved bamboo bottle",
-      "sustainable corporate gifts India"
-    ],
+    material: "Natural Bamboo + Stainless Steel"
+  },
+  specifications: [
+    { key: "HSN Code", value: "44219990" },
+    { key: "GST Rate", value: "18%" }
+  ],
+  tags: [
+    "bamboo bottle",
+    "eco friendly bottle",
+    "corporate gifting bamboo",
+    "engraved bamboo bottle"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.7, count: 90 },
+  seo: {
+    metaTitle: "Premium Bamboo Sipper Bottle | Eco-Friendly Corporate Gifting India",
+    metaDescription: "High-quality bamboo sipper bottle with custom logo engraving for sustainable corporate gifting.",
     keywords: [
       "bamboo water bottle",
       "eco friendly corporate gifting",
-      "custom logo bamboo bottle",
-      "Delhi NCR corporate gifts"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.7, count: 90 },
-    metaTitle: "Premium Bamboo Sipper Bottle | Eco-Friendly Corporate Gifting India",
-    metaDescription:
-      "High-quality bamboo sipper bottle with custom logo engraving. Perfect for eco-friendly corporate gifting in Delhi NCR & across India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+      "custom logo bamboo bottle"
+    ]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 2 — Images 4–6
-  // -------------------------------------------------------------
-  {
-    productCode: "BB-BAMBOO-002",
-    SKU: "BAMBOO-THERMO-500ML",
-    name: "Bamboo Thermo Sipper Bottle",
-    slug: "bamboo-thermo-sipper-bottle",
-    description:
-      "Double-wall bamboo thermo sipper bottle ideal for premium corporate gifting, events, wellness campaigns, and sustainable promotional merchandise. Maintains temperature and supports custom engraving/printing for branding. Delivered in bulk across Delhi NCR, Noida, Gurgaon, and pan-India.",
-    HSNCode: "44219990",
-    type: "Bamboo Bottle",
-    quantity: 450,
-    GSTRate: 18,
-    brand: "EcoHydrate",
-    fabricType: "Bamboo + Stainless Steel Vacuum",
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Bamboo Thermo Sipper Bottle",
+  slug: "bamboo-thermo-sipper-bottle",
+  description: {
+    short: "Insulated bamboo thermo bottle for premium gifting.",
+    long: "Double-wall bamboo thermo sipper bottle ideal for premium corporate gifting and sustainable brand promotions."
+  },
+  price: 649,
+  salePrice: 629,
+  images: [
+    { url: "/assets/products/bamboobottles/4.webp", altText: "Bamboo Thermo Sipper Bottle" }
+  ],
+  subImages: [
+    { url: "/assets/products/bamboobottles/5.webp", altText: "Thermo Bottle View" },
+    { url: "/assets/products/bamboobottles/6.webp", altText: "Insulated Bottle Detail" }
+  ],
+  stock: 450,
+  sku: "BAMBOO-THERMO-500ML",
+  attributes: {
+    color: ["Natural Wood"],
     size: ["500ml"],
-    colour: ["Natural Wood"],
-    weight: 480,
-    dimensions: { length: 23, width: 7, height: 7 },
-    minOrderQty: 10,
-    maxOrderQty: 350,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "BB-BAMBOO-PRICE-002",
-      singlePrice: 649,
-      sales_0_50: 629,
-      sales_50_100: 599,
-      sales_100_above: 579,
-      discountPrice: 629,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/bamboobottles/4.webp",
-    subImages: [
-      "/assets/products/bamboobottles/4.webp",
-      "/assets/products/bamboobottles/5.webp",
-      "/assets/products/bamboobottles/6.webp"
-    ],
-    tags: [
-      "bamboo thermo bottle",
-      "insulated bamboo bottle",
-      "eco friendly gifting",
-      "corporate branding bottle",
-      "engraved thermo bamboo"
-    ],
+    material: "Bamboo + Stainless Steel Vacuum"
+  },
+  tags: [
+    "bamboo thermo bottle",
+    "insulated bamboo bottle",
+    "eco friendly gifting"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.8, count: 78 },
+  seo: {
+    metaTitle: "Bamboo Thermo Sipper Bottle | Premium Corporate Eco Gifts India",
+    metaDescription: "Double-wall bamboo thermo bottle with custom branding for premium corporate gifting.",
     keywords: [
       "bamboo insulated bottle",
       "premium corporate gift bottle",
-      "custom printed bamboo thermo"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.8, count: 78 },
-    metaTitle:
-      "Bamboo Thermo Sipper Bottle | Premium Corporate Eco Gifts India",
-    metaDescription:
-      "Double-wall bamboo thermo sipper bottle with custom engraving. Ideal for premium corporate gifting across Delhi NCR & India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+      "custom bamboo thermo bottle"
+    ]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 3 — Images 7–9
-  // -------------------------------------------------------------
-  {
-    productCode: "BB-BAMBOO-003",
-    SKU: "BAMBOO-SPORT-750ML",
-    name: "Bamboo Sports Sipper Bottle",
-    slug: "bamboo-sports-sipper-bottle",
-    description:
-      "Stylish bamboo sports sipper bottle ideal for fitness events, employee wellness drives, and branded corporate gifting. Comes with a steel sipper top and large branding area for custom logo engraving. Bulk supply across Delhi NCR, Noida, Gurgaon, Okhla & India.",
-    HSNCode: "44219990",
-    type: "Bamboo Bottle",
-    quantity: 600,
-    GSTRate: 18,
-    brand: "EcoHydrate",
-    fabricType: "Bamboo + Steel Sipper Cap",
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Bamboo Sports Sipper Bottle",
+  slug: "bamboo-sports-sipper-bottle",
+  description: {
+    short: "Bamboo sports sipper bottle for wellness gifting.",
+    long: "Stylish bamboo sports sipper bottle ideal for fitness events, employee wellness drives, and corporate branding."
+  },
+  price: 499,
+  salePrice: 479,
+  images: [
+    { url: "/assets/products/bamboobottles/7.webp", altText: "Bamboo Sports Sipper Bottle" }
+  ],
+  subImages: [
+    { url: "/assets/products/bamboobottles/8.webp", altText: "Sports Bottle Cap" },
+    { url: "/assets/products/bamboobottles/9.webp", altText: "Bottle Branding Area" }
+  ],
+  stock: 600,
+  sku: "BAMBOO-SPORT-750ML",
+  attributes: {
+    color: ["Natural Wood"],
     size: ["750ml"],
-    colour: ["Natural Wood"],
-    weight: 390,
-    dimensions: { length: 26, width: 7, height: 7 },
-    minOrderQty: 20,
-    maxOrderQty: 600,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "BB-BAMBOO-PRICE-003",
-      singlePrice: 499,
-      sales_0_50: 479,
-      sales_50_100: 459,
-      sales_100_above: 439,
-      discountPrice: 479,
-      discount: { type: "percentage", value: 8, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/bamboobottles/7.webp",
-    subImages: [
-      "/assets/products/bamboobottles/7.webp",
-      "/assets/products/bamboobottles/8.webp",
-      "/assets/products/bamboobottles/9.webp"
-    ],
-    tags: [
-      "bamboo sports bottle",
-      "eco sports sipper",
-      "corporate fitness gifting",
-      "branded bamboo bottle"
-    ],
+    material: "Bamboo + Steel Sipper Cap"
+  },
+  tags: [
+    "bamboo sports bottle",
+    "eco sports sipper",
+    "corporate fitness gifting"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.6, count: 88 },
+  seo: {
+    metaTitle: "Bamboo Sports Sipper Bottle | Eco-Friendly Promotional Bottles India",
+    metaDescription: "Eco-friendly bamboo sports bottle with branding options for corporate wellness gifting.",
     keywords: [
       "sports bamboo bottle",
-      "corporate wellness campaign gifts",
+      "corporate wellness gifts",
       "custom bamboo sipper India"
-    ],
-    isFeatured: false,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.6, count: 88 },
-    metaTitle:
-      "Bamboo Sports Sipper Bottle | Eco-Friendly Promotional Bottles India",
-    metaDescription:
-      "Sports-style bamboo sipper bottle with branding options. Ideal for corporate wellness gifting. Bulk supply PAN India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    ]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 4 — Images 10–12
-  // -------------------------------------------------------------
-  {
-    productCode: "BB-BAMBOO-004",
-    SKU: "BAMBOO-TEA-FLASK",
-    name: "Bamboo Tea Infuser Bottle",
-    slug: "bamboo-tea-infuser-bottle",
-    description:
-      "Elegant bamboo tea infuser bottle ideal for CEO gifts, premium corporate gifting, and sustainable brand promotions. Features a removable infuser for tea lovers and supports custom engraving for logos. Available for bulk orders across Delhi NCR, Gurgaon, Noida & India.",
-    HSNCode: "44219990",
-    type: "Bamboo Bottle",
-    quantity: 350,
-    GSTRate: 18,
-    brand: "EcoHydrate",
-    fabricType: "Bamboo + Steel Tea Infuser",
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Bamboo Tea Infuser Bottle",
+  slug: "bamboo-tea-infuser-bottle",
+  description: {
+    short: "Premium bamboo bottle with tea infuser.",
+    long: "Elegant bamboo tea infuser bottle ideal for executive gifting and premium corporate promotions."
+  },
+  price: 699,
+  salePrice: 679,
+  images: [
+    { url: "/assets/products/bamboobottles/10.webp", altText: "Bamboo Tea Infuser Bottle" }
+  ],
+  subImages: [
+    { url: "/assets/products/bamboobottles/11.webp", altText: "Tea Infuser Detail" },
+    { url: "/assets/products/bamboobottles/12.webp", altText: "Executive Packaging" }
+  ],
+  stock: 350,
+  sku: "BAMBOO-TEA-FLASK",
+  attributes: {
+    color: ["Natural Wood"],
     size: ["450ml"],
-    colour: ["Natural Wood"],
-    weight: 460,
-    dimensions: { length: 22, width: 7, height: 7 },
-    minOrderQty: 10,
-    maxOrderQty: 300,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "BB-BAMBOO-PRICE-004",
-      singlePrice: 699,
-      sales_0_50: 679,
-      sales_50_100: 649,
-      sales_100_above: 629,
-      discountPrice: 679,
-      discount: { type: "percentage", value: 5, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/bamboobottles/10.webp",
-    subImages: [
-      "/assets/products/bamboobottles/10.webp",
-      "/assets/products/bamboobottles/11.webp",
-      "/assets/products/bamboobottles/12.webp"
-    ],
-    tags: [
-      "bamboo tea infuser",
-      "premium corporate gift",
-      "executive gifting bottle",
-      "engraved bamboo flask"
-    ],
+    material: "Bamboo + Steel Tea Infuser"
+  },
+  tags: [
+    "bamboo tea infuser",
+    "premium corporate gift",
+    "executive gifting bottle"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.9, count: 72 },
+  seo: {
+    metaTitle: "Bamboo Tea Infuser Bottle | Premium Executive & Corporate Gifting India",
+    metaDescription: "Luxury bamboo tea infuser bottle with custom branding for executive corporate gifting.",
     keywords: [
       "tea infuser bamboo bottle",
       "premium office gifting",
       "sustainable corporate gifts India"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.9, count: 72 },
-    metaTitle:
-      "Bamboo Tea Infuser Bottle | Premium Executive & Corporate Gifting India",
-    metaDescription:
-      "Luxury bamboo tea infuser bottle with custom branding. Ideal for executive gifting across Delhi NCR & India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    ]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 5 — Images 13–15
-  // -------------------------------------------------------------
-  {
-    productCode: "BB-BAMBOO-005",
-    SKU: "BAMBOO-BOTTLE-CLASSIC",
-    name: "Classic Eco-Friendly Bamboo Bottle",
-    slug: "classic-eco-friendly-bamboo-bottle",
-    description:
-      "Classic eco-friendly bamboo bottle suitable for corporate events, promotional giveaways, and sustainable employee gifting. Features a stylish bamboo finish and leak-proof cap with custom logo printing options. Bulk supply available across Delhi NCR & PAN India.",
-    HSNCode: "44219990",
-    type: "Bamboo Bottle",
-    quantity: 700,
-    GSTRate: 18,
-    brand: "EcoHydrate",
-    fabricType: "Natural Bamboo",
+/* ================= PRODUCT 5 ================= */
+
+{
+  name: "Classic Eco-Friendly Bamboo Bottle",
+  slug: "classic-eco-friendly-bamboo-bottle",
+  description: {
+    short: "Classic eco-friendly bamboo water bottle.",
+    long: "Classic eco-friendly bamboo bottle suitable for corporate events, promotional giveaways, and sustainable employee gifting."
+  },
+  price: 399,
+  salePrice: 379,
+  images: [
+    { url: "/assets/products/bamboobottles/13.webp", altText: "Classic Bamboo Bottle" }
+  ],
+  subImages: [
+    { url: "/assets/products/bamboobottles/14.webp", altText: "Bottle Texture View" },
+    { url: "/assets/products/bamboobottles/15.webp", altText: "Bottle Packaging" }
+  ],
+  stock: 700,
+  sku: "BAMBOO-BOTTLE-CLASSIC",
+  attributes: {
+    color: ["Wood"],
     size: ["600ml"],
-    colour: ["Wood"],
-    weight: 360,
-    dimensions: { length: 24, width: 7, height: 7 },
-    minOrderQty: 20,
-    maxOrderQty: 700,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "BB-BAMBOO-PRICE-005",
-      singlePrice: 399,
-      sales_0_50: 379,
-      sales_50_100: 359,
-      sales_100_above: 339,
-      discountPrice: 379,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/bamboobottles/13.webp",
-    subImages: [
-      "/assets/products/bamboobottles/13.webp",
-      "/assets/products/bamboobottles/14.webp",
-      "/assets/products/bamboobottles/15.webp"
-    ],
-    tags: [
-      "eco friendly bamboo bottle",
-      "corporate promotional gift",
-      "custom bamboo sipper bottle",
-      "sustainable branding product"
-    ],
+    material: "Natural Bamboo"
+  },
+  tags: [
+    "eco friendly bamboo bottle",
+    "corporate promotional gift",
+    "sustainable branding product"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.5, count: 110 },
+  seo: {
+    metaTitle: "Classic Eco-Friendly Bamboo Bottle | Custom Printed Corporate Gifts India",
+    metaDescription: "Sustainable bamboo bottles with custom printing for eco-friendly corporate gifting.",
     keywords: [
       "eco friendly bottle india",
       "bamboo bottle wholesale",
       "corporate branding bamboo bottle"
-    ],
-    isFeatured: false,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.5, count: 110 },
-    metaTitle:
-      "Classic Eco-Friendly Bamboo Bottle | Custom Printed Corporate Gifts India",
-    metaDescription:
-      "Sustainable bamboo bottle with custom printing. Perfect for eco-friendly gifting in Delhi NCR, Noida, Gurgaon & across India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
-  }
+    ]
+  },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = bambooBottles;

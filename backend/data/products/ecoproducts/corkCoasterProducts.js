@@ -1,164 +1,182 @@
 const corkCoasterProducts = [
-  {
-    productCode: "CORK-COASTER-001",
-    SKU: "CORK-CO-4PC",
-    name: "4 Piece Cork Coasters",
-    slug: "4-piece-cork-coasters",
-    description: "Set of 4 eco-friendly cork coasters, ideal for protecting surfaces while adding a natural touch.",
-    HSNCode: "45020000",
-    type: "Eco Product",
-    quantity: 500,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 120,
-    dimensions: { length: 10, width: 10, height: 1 },
-    minOrderQty: 5,
-    maxOrderQty: 500,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-CO-001-PRICE",
-      singlePrice: 299,
-      sales_0_50: 279,
-      sales_50_100: 259,
-      sales_100_above: 239,
-      discountPrice: 259,
-      discount: { type: "percentage", value: 13, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/4pc.webp",
-    tags: ["cork coaster", "4 piece", "eco-friendly", "natural cork"],
-    keywords: ["cork", "coaster", "eco product", "4 pieces"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.5, count: 50 },
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "4 Piece Cork Coasters",
+  slug: "4-piece-cork-coasters",
+  description: {
+    short: "Eco-friendly 4-piece cork coaster set.",
+    long: "Set of 4 eco-friendly cork coasters ideal for protecting surfaces while adding a natural and sustainable touch to homes and offices."
+  },
+  price: 299,
+  salePrice: 259,
+  images: [
+    { url: "/assets/products/cork/4pc.webp", altText: "4 Piece Cork Coasters" }
+  ],
+  stock: 500,
+  sku: "CORK-CO-4PC",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "45020000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork coasters",
+    "eco-friendly coasters",
+    "natural cork products",
+    "table protection"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.5, count: 50 },
+  seo: {
     metaTitle: "4 Piece Cork Coasters | Eco-Friendly & Natural",
-    metaDescription: "Durable 4 piece cork coasters set for protecting surfaces, made from natural eco-friendly cork.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Durable 4 piece cork coasters set made from natural eco-friendly cork for surface protection.",
+    keywords: [
+      "cork coasters",
+      "eco friendly coasters",
+      "natural cork products"
+    ]
   },
-  {
-    productCode: "CORK-COASTER-002",
-    SKU: "CORK-CO-LG",
-    name: "Large Grain Cork Coasters",
-    slug: "large-grain-cork-coasters",
-    description: "Premium large grain cork coasters for a rustic and natural look, ideal for home and office use.",
-    HSNCode: "45020000",
-    type: "Eco Product",
-    quantity: 400,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 150,
-    dimensions: { length: 12, width: 12, height: 1 },
-    minOrderQty: 5,
-    maxOrderQty: 400,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-CO-002-PRICE",
-      singlePrice: 349,
-      sales_0_50: 329,
-      sales_50_100: 309,
-      sales_100_above: 289,
-      discountPrice: 309,
-      discount: { type: "percentage", value: 12, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/large-grain.webp",
-    tags: ["cork coaster", "large grain", "eco-friendly", "natural cork"],
-    keywords: ["cork", "coaster", "eco product", "large grain"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.6, count: 40 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Large Grain Cork Coasters",
+  slug: "large-grain-cork-coasters",
+  description: {
+    short: "Rustic large grain cork coasters.",
+    long: "Premium large grain cork coasters offering a rustic and natural aesthetic. Ideal for home décor, offices, and eco-conscious users."
+  },
+  price: 349,
+  salePrice: 309,
+  images: [
+    { url: "/assets/products/cork/large-grain.webp", altText: "Large Grain Cork Coasters" }
+  ],
+  stock: 400,
+  sku: "CORK-CO-LG",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "45020000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "large cork coasters",
+    "rustic cork coasters",
+    "eco-friendly tableware"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.6, count: 40 },
+  seo: {
     metaTitle: "Large Grain Cork Coasters | Rustic & Eco-Friendly",
-    metaDescription: "Elegant large grain cork coasters for a natural aesthetic, perfect for eco-conscious users.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Elegant large grain cork coasters with a natural rustic look for eco-conscious homes and offices.",
+    keywords: [
+      "large cork coasters",
+      "rustic cork coasters",
+      "eco friendly table accessories"
+    ]
   },
-  {
-    productCode: "CORK-COASTER-003",
-    SKU: "CORK-CO-NAT",
-    name: "Natural Cork Coasters",
-    slug: "natural-cork-coasters",
-    description: "Set of natural cork coasters, sustainably sourced and designed for everyday use.",
-    HSNCode: "45020000",
-    type: "Eco Product",
-    quantity: 350,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 130,
-    dimensions: { length: 10, width: 10, height: 0.8 },
-    minOrderQty: 5,
-    maxOrderQty: 350,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-CO-003-PRICE",
-      singlePrice: 279,
-      sales_0_50: 259,
-      sales_50_100: 239,
-      sales_100_above: 219,
-      discountPrice: 239,
-      discount: { type: "percentage", value: 12, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/natural.webp",
-    tags: ["cork coaster", "natural cork", "eco-friendly", "daily use"],
-    keywords: ["cork", "coaster", "eco product", "natural"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.4, count: 35 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Natural Cork Coasters",
+  slug: "natural-cork-coasters",
+  description: {
+    short: "Sustainably sourced natural cork coasters.",
+    long: "Set of natural cork coasters sustainably sourced and designed for everyday use, offering reliable surface protection with eco-friendly appeal."
+  },
+  price: 279,
+  salePrice: 239,
+  images: [
+    { url: "/assets/products/cork/natural.webp", altText: "Natural Cork Coasters" }
+  ],
+  stock: 350,
+  sku: "CORK-CO-NAT",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "45020000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "natural cork coasters",
+    "eco-friendly drink coasters",
+    "daily use coasters"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.4, count: 35 },
+  seo: {
     metaTitle: "Natural Cork Coasters | Eco-Friendly Daily Use",
-    metaDescription: "Durable natural cork coasters for everyday protection of surfaces, sustainable and stylish.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Durable natural cork coasters designed for everyday surface protection with sustainability.",
+    keywords: [
+      "natural cork coasters",
+      "eco friendly coasters",
+      "daily use cork products"
+    ]
   },
-  {
-    productCode: "CORK-COASTER-004",
-    SKU: "CORK-CO-SQBR",
-    name: "Square Brige Cork Coasters",
-    slug: "square-brige-cork-coasters",
-    description: "Set of square Brige cork coasters with a modern design, perfect for eco-friendly gifting and office use.",
-    HSNCode: "45020000",
-    type: "Eco Product",
-    quantity: 300,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 140,
-    dimensions: { length: 11, width: 11, height: 1 },
-    minOrderQty: 5,
-    maxOrderQty: 300,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-CO-004-PRICE",
-      singlePrice: 319,
-      sales_0_50: 299,
-      sales_50_100: 279,
-      sales_100_above: 259,
-      discountPrice: 279,
-      discount: { type: "percentage", value: 12, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/square.webp",
-    tags: ["cork coaster", "square", "eco-friendly", "modern design"],
-    keywords: ["cork", "coaster", "eco product", "square"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: { average: 4.5, count: 28 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Square Brige Cork Coasters",
+  slug: "square-brige-cork-coasters",
+  description: {
+    short: "Modern square cork coasters.",
+    long: "Set of square Brige cork coasters featuring a modern design, ideal for eco-friendly gifting, office tables, and contemporary interiors."
+  },
+  price: 319,
+  salePrice: 279,
+  images: [
+    { url: "/assets/products/cork/square.webp", altText: "Square Brige Cork Coasters" }
+  ],
+  stock: 300,
+  sku: "CORK-CO-SQBR",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "45020000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "square cork coasters",
+    "modern cork coasters",
+    "eco-friendly gifting"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.5, count: 28 },
+  seo: {
     metaTitle: "Square Brige Cork Coasters | Modern & Eco-Friendly",
-    metaDescription: "Stylish square cork coasters with modern Brige design, perfect for sustainable gifting and office use.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Modern square cork coasters designed for sustainable gifting and stylish office use.",
+    keywords: [
+      "square cork coasters",
+      "modern eco coasters",
+      "sustainable table accessories"
+    ]
   },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = corkCoasterProducts;

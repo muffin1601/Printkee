@@ -1,328 +1,220 @@
 const wirelessChargers = [
-  // -------------------------------------------------------------
-  // PRODUCT 1 (Images 1–4)
-  // -------------------------------------------------------------
-  {
-    productCode: "WC-PAD-001",
-    SKU: "WIRELESS-PAD-FAST",
-    name: "Fast Charging Wireless Pad",
-    slug: "fast-charging-wireless-pad",
-    description:
-      "Premium fast charging wireless pad suitable for corporate gifting, tech giveaways, employee welcome kits, and branded promotional gifts. Supports custom logo printing and bulk delivery across Delhi NCR, Noida, Gurgaon, Okhla, Faridabad, and PAN India.",
-    HSNCode: "85044090",
-    type: "Electronics",
-    quantity: 500,
-    GSTRate: 18,
-    brand: "TechEase",
-    fabricType: "ABS + Polycarbonate",
-    size: ["Standard"],
-    colour: ["Black"],
-    weight: 150,
-    dimensions: { length: 10, width: 10, height: 1 },
-    minOrderQty: 10,
-    maxOrderQty: 500,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "WC-PAD-001-PRICE",
-      singlePrice: 799,
-      sales_0_50: 749,
-      sales_50_100: 699,
-      sales_100_above: 649,
-      discountPrice: 749,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/wirelesschargers/1.webp",
-    subImages: [
-      "/assets/products/wirelesschargers/1.webp",
-      "/assets/products/wirelesschargers/2.webp",
-      "/assets/products/wirelesschargers/3.webp",
-      "/assets/products/wirelesschargers/4.webp"
-    ],
-    tags: [
-      "wireless charging pad",
-      "fast charging pad",
-      "corporate tech gifts",
-      "custom logo wireless charger",
-      "branding wireless pad"
-    ],
-    keywords: [
-      "fast wireless charger",
-      "corporate tech gifting",
-      "promo wireless pad India",
-      "Delhi NCR corporate gifts"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.7, count: 130 },
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Fast Charging Wireless Pad",
+  slug: "fast-charging-wireless-pad",
+  description: {
+    short: "Fast wireless charging pad for smartphones.",
+    long: "Premium fast charging wireless pad suitable for corporate gifting, employee welcome kits, tech giveaways, and branded promotional merchandise. Supports custom logo printing and bulk delivery PAN India."
+  },
+  price: 799,
+  salePrice: 749,
+  images: [
+    { url: "/assets/products/wirelesschargers/1.webp", altText: "Fast Charging Wireless Pad" },
+    { url: "/assets/products/wirelesschargers/2.webp", altText: "Wireless Charging Pad Top View" },
+    { url: "/assets/products/wirelesschargers/3.webp", altText: "Corporate Branded Wireless Pad" },
+    { url: "/assets/products/wirelesschargers/4.webp", altText: "Wireless Charger Packaging" }
+  ],
+  stock: 500,
+  sku: "WIRELESS-PAD-FAST",
+  attributes: {
+    chargingType: "Fast Wireless",
+    material: "ABS + Polycarbonate",
+    compatibility: "Qi Enabled Devices",
+    color: "Black"
+  },
+  specifications: [
+    { key: "HSN Code", value: "85044090" },
+    { key: "GST Rate", value: "18%" },
+    { key: "Charging Support", value: "Fast Charge (Qi)" }
+  ],
+  tags: ["wireless charging pad", "fast wireless charger", "corporate tech gifts"],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.7, count: 130 },
+  seo: {
     metaTitle: "Fast Charging Wireless Pad | Custom Corporate Tech Gifts India",
-    metaDescription:
-      "Premium fast wireless charging pad with custom logo printing. Ideal for corporate gifting and branded promotional items. PAN India delivery.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    metaDescription: "Fast wireless charging pads with custom branding for corporate gifting, welcome kits and promotional events.",
+    keywords: ["wireless charging pad", "fast wireless charger", "corporate tech gift"]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 2 (Images 5–8)
-  // -------------------------------------------------------------
-  {
-    productCode: "WC-STAND-002",
-    SKU: "WIRELESS-STAND-FAST",
-    name: "Wireless Charger Stand",
-    slug: "wireless-charger-stand",
-    description:
-      "Premium wireless charger stand designed for corporate desks, employee gifting, onboarding kits, and promotional branding events. Supports fast charging and custom branding for bulk orders across India.",
-    HSNCode: "85044090",
-    type: "Electronics",
-    quantity: 400,
-    GSTRate: 18,
-    brand: "TechEase",
-    fabricType: "ABS Plastic",
-    size: ["Standard"],
-    colour: ["White"],
-    weight: 200,
-    dimensions: { length: 12, width: 7, height: 10 },
-    minOrderQty: 10,
-    maxOrderQty: 400,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "WC-STAND-002-PRICE",
-      singlePrice: 999,
-      sales_0_50: 949,
-      sales_50_100: 899,
-      sales_100_above: 849,
-      discountPrice: 949,
-      discount: { type: "percentage", value: 5, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/wirelesschargers/5.webp",
-    subImages: [
-      "/assets/products/wirelesschargers/5.webp",
-      "/assets/products/wirelesschargers/6.webp",
-      "/assets/products/wirelesschargers/7.webp",
-      "/assets/products/wirelesschargers/8.webp"
-    ],
-    tags: [
-      "wireless charger stand",
-      "fast charging stand",
-      "corporate desk accessories",
-      "custom branded charger stand"
-    ],
-    keywords: [
-      "wireless charging stand",
-      "corporate desk gadget",
-      "branding wireless charger stand India"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.8, count: 110 },
-    metaTitle: "Wireless Charger Stand | Custom Corporate Charging Stands India",
-    metaDescription:
-      "Premium wireless charger stand with fast charging support. Perfect for office desks & corporate branding. Bulk orders across India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Wireless Charger Stand",
+  slug: "wireless-charger-stand",
+  description: {
+    short: "Fast charging wireless stand for desk use.",
+    long: "Premium wireless charger stand designed for office desks, onboarding kits, employee gifting, and branded corporate merchandise. Supports fast charging with stable vertical design."
   },
-
-  // -------------------------------------------------------------
-  // PRODUCT 3 (Images 9–12)
-  // -------------------------------------------------------------
-  {
-    productCode: "WC-3IN1-003",
-    SKU: "WIRELESS-DOCK-3IN1",
-    name: "3-in-1 Wireless Charging Dock",
-    slug: "3-in-1-wireless-charging-dock",
-    description:
-      "Multi-device 3-in-1 wireless charging dock for phone, earbuds, and smartwatch. Perfect for premium corporate gifting, high-end branding campaigns, and luxury office welcome kits. PAN India delivery.",
-    HSNCode: "85044090",
-    type: "Electronics",
-    quantity: 300,
-    GSTRate: 18,
-    brand: "TechEase",
-    fabricType: "ABS + Silicone",
-    size: ["Standard"],
-    colour: ["Black"],
-    weight: 280,
-    dimensions: { length: 20, width: 9, height: 7 },
-    minOrderQty: 5,
-    maxOrderQty: 300,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "WC-3IN1-003-PRICE",
-      singlePrice: 1999,
-      sales_0_50: 1899,
-      sales_50_100: 1799,
-      sales_100_above: 1699,
-      discountPrice: 1899,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/wirelesschargers/9.webp",
-    subImages: [
-      "/assets/products/wirelesschargers/9.webp",
-      "/assets/products/wirelesschargers/10.webp",
-      "/assets/products/wirelesschargers/11.webp",
-      "/assets/products/wirelesschargers/12.webp"
-    ],
-    tags: [
-      "3-in-1 wireless charger",
-      "multi device charger",
-      "corporate luxury gifts",
-      "premium tech gifting India"
-    ],
-    keywords: [
-      "3in1 wireless charging dock",
-      "multi gadget charger India",
-      "premium corporate charger"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.9, count: 95 },
-    metaTitle:
-      "3-in-1 Wireless Charging Dock | Premium Corporate Tech Gifts India",
-    metaDescription:
-      "Premium 3-in-1 wireless charging dock ideal for smartphones, earbuds & watches. Excellent high-end corporate gift. Custom branding available.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+  price: 999,
+  salePrice: 949,
+  images: [
+    { url: "/assets/products/wirelesschargers/5.webp", altText: "Wireless Charger Stand" },
+    { url: "/assets/products/wirelesschargers/6.webp", altText: "Fast Charging Stand" },
+    { url: "/assets/products/wirelesschargers/7.webp", altText: "Corporate Desk Wireless Charger" },
+    { url: "/assets/products/wirelesschargers/8.webp", altText: "Wireless Stand Packaging" }
+  ],
+  stock: 400,
+  sku: "WIRELESS-STAND-FAST",
+  attributes: {
+    chargingType: "Fast Wireless",
+    material: "ABS Plastic",
+    compatibility: "Qi Enabled Devices",
+    color: "White"
   },
-
-  // -------------------------------------------------------------
-  // PRODUCT 4 (Images 13–16)
-  // -------------------------------------------------------------
-  {
-    productCode: "WC-MAGSAFE-004",
-    SKU: "WIRELESS-MAGSAFE",
-    name: "MagSafe Compatible Wireless Charger",
-    slug: "magsafe-compatible-wireless-charger",
-    description:
-      "Compact MagSafe wireless charger ideal for branded gifting, tech events, smartphone promotions, and corporate merchandise. Available with custom printing for bulk orders across Delhi NCR and India.",
-    HSNCode: "85044090",
-    type: "Electronics",
-    quantity: 450,
-    GSTRate: 18,
-    brand: "TechEase",
-    fabricType: "Aluminum + ABS",
-    size: ["Standard"],
-    colour: ["Silver"],
-    weight: 120,
-    dimensions: { length: 6, width: 6, height: 1 },
-    minOrderQty: 10,
-    maxOrderQty: 450,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "WC-MAGSAFE-004-PRICE",
-      singlePrice: 1299,
-      sales_0_50: 1249,
-      sales_50_100: 1199,
-      sales_100_above: 1149,
-      discountPrice: 1249,
-      discount: { type: "percentage", value: 4, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/wirelesschargers/13.webp",
-    subImages: [
-      "/assets/products/wirelesschargers/13.webp",
-      "/assets/products/wirelesschargers/14.webp",
-      "/assets/products/wirelesschargers/15.webp",
-      "/assets/products/wirelesschargers/16.webp"
-    ],
-    tags: [
-      "magsafe wireless charger",
-      "iphone wireless charger",
-      "corporate tech merchandise",
-      "premium branded charger"
-    ],
-    keywords: [
-      "magsafe charger",
-      "iphone wireless charging pad",
-      "premium corporate tech gift India"
-    ],
-    isFeatured: false,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.6, count: 85 },
-    metaTitle:
-      "MagSafe Compatible Wireless Charger | Premium Corporate Tech Gifts",
-    metaDescription:
-      "MagSafe wireless charger with custom branding. Ideal for corporate gifting, tech promotions & events. PAN India delivery.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+  specifications: [
+    { key: "HSN Code", value: "85044090" },
+    { key: "GST Rate", value: "18%" },
+    { key: "Form Factor", value: "Stand" }
+  ],
+  tags: ["wireless charger stand", "desk wireless charger", "corporate desk accessories"],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.8, count: 110 },
+  seo: {
+    metaTitle: "Wireless Charger Stand | Custom Corporate Desk Chargers India",
+    metaDescription: "Fast wireless charger stands for office desks and corporate gifting. Custom logo printing available.",
+    keywords: ["wireless charging stand", "corporate desk charger", "fast wireless stand"]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 5 (Images 17–20)
-  // -------------------------------------------------------------
-  {
-    productCode: "WC-WOOD-005",
-    SKU: "WIRELESS-WOOD-CHARGER",
-    name: "Wooden Finish Wireless Charger",
-    slug: "wooden-finish-wireless-charger",
-    description:
-      "Elegant wooden finish wireless charger designed for eco-friendly corporate gifting, luxury office branding, and premium event giveaways. Suitable for custom logo engraving.",
-    HSNCode: "85044090",
-    type: "Electronics",
-    quantity: 350,
-    GSTRate: 18,
-    brand: "TechEase",
-    fabricType: "ABS + Wooden Cover",
-    size: ["Standard"],
-    colour: ["Wood Finish"],
-    weight: 160,
-    dimensions: { length: 10, width: 10, height: 1 },
-    minOrderQty: 10,
-    maxOrderQty: 350,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "WC-WOOD-005-PRICE",
-      singlePrice: 899,
-      sales_0_50: 849,
-      sales_50_100: 799,
-      sales_100_above: 749,
-      discountPrice: 849,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/wirelesschargers/17.webp",
-    subImages: [
-      "/assets/products/wirelesschargers/17.webp",
-      "/assets/products/wirelesschargers/18.webp",
-      "/assets/products/wirelesschargers/19.webp",
-      "/assets/products/wirelesschargers/20.webp"
-    ],
-    tags: [
-      "wooden wireless charger",
-      "eco friendly tech gifts",
-      "corporate premium gifting",
-      "custom engraved wireless pad"
-    ],
-    keywords: [
-      "wood finish wireless charger",
-      "eco tech corporate gift",
-      "branded wooden charger"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.7, count: 68 },
-    metaTitle:
-      "Wooden Finish Wireless Charger | Premium Eco-Friendly Corporate Gifts",
-    metaDescription:
-      "Elegant wooden finish wireless charger suitable for eco-friendly corporate gifting and premium branding. Custom logo engraving available across India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
-  }
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "3-in-1 Wireless Charging Dock",
+  slug: "3-in-1-wireless-charging-dock",
+  description: {
+    short: "Multi-device wireless charging dock.",
+    long: "Premium 3-in-1 wireless charging dock for smartphone, earbuds, and smartwatch. Ideal for luxury corporate gifting, CXO kits, and premium branding campaigns."
+  },
+  price: 1999,
+  salePrice: 1899,
+  images: [
+    { url: "/assets/products/wirelesschargers/9.webp", altText: "3-in-1 Wireless Charging Dock" },
+    { url: "/assets/products/wirelesschargers/10.webp", altText: "Multi Device Wireless Charger" },
+    { url: "/assets/products/wirelesschargers/11.webp", altText: "Premium Corporate Charging Dock" },
+    { url: "/assets/products/wirelesschargers/12.webp", altText: "Luxury Wireless Charger Set" }
+  ],
+  stock: 300,
+  sku: "WIRELESS-DOCK-3IN1",
+  attributes: {
+    chargingType: "Wireless Multi Device",
+    material: "ABS + Silicone",
+    compatibility: "Phone, Earbuds, Smartwatch",
+    color: "Black"
+  },
+  specifications: [
+    { key: "HSN Code", value: "85044090" },
+    { key: "GST Rate", value: "18%" },
+    { key: "Charging Zones", value: "3 Devices" }
+  ],
+  tags: ["3-in-1 wireless charger", "multi device charging dock", "premium tech gifts"],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.9, count: 95 },
+  seo: {
+    metaTitle: "3-in-1 Wireless Charging Dock | Premium Corporate Tech Gifts India",
+    metaDescription: "Luxury 3-in-1 wireless charging docks for premium corporate gifting and executive kits.",
+    keywords: ["3in1 wireless charger", "multi device charger", "corporate premium tech gift"]
+  },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "MagSafe Compatible Wireless Charger",
+  slug: "magsafe-compatible-wireless-charger",
+  description: {
+    short: "MagSafe compatible wireless charging pad.",
+    long: "Compact MagSafe compatible wireless charger designed for iPhone users, tech events, smartphone promotions, and premium corporate merchandise."
+  },
+  price: 1299,
+  salePrice: 1249,
+  images: [
+    { url: "/assets/products/wirelesschargers/13.webp", altText: "MagSafe Wireless Charger" },
+    { url: "/assets/products/wirelesschargers/14.webp", altText: "iPhone MagSafe Charger" },
+    { url: "/assets/products/wirelesschargers/15.webp", altText: "Corporate MagSafe Gift" },
+    { url: "/assets/products/wirelesschargers/16.webp", altText: "MagSafe Charger Packaging" }
+  ],
+  stock: 450,
+  sku: "WIRELESS-MAGSAFE",
+  attributes: {
+    chargingType: "MagSafe Wireless",
+    material: "Aluminum + ABS",
+    compatibility: "MagSafe iPhones",
+    color: "Silver"
+  },
+  specifications: [
+    { key: "HSN Code", value: "85044090" },
+    { key: "GST Rate", value: "18%" },
+    { key: "Magnetic Support", value: "Yes" }
+  ],
+  tags: ["magsafe wireless charger", "iphone wireless charger", "premium tech gifts"],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.6, count: 85 },
+  seo: {
+    metaTitle: "MagSafe Compatible Wireless Charger | Corporate Tech Gifts India",
+    metaDescription: "MagSafe compatible wireless chargers for iPhone users and corporate tech gifting.",
+    keywords: ["magsafe charger", "iphone wireless charger", "corporate tech merchandise"]
+  },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 5 ================= */
+
+{
+  name: "Wooden Finish Wireless Charger",
+  slug: "wooden-finish-wireless-charger",
+  description: {
+    short: "Eco-style wooden finish wireless charger.",
+    long: "Elegant wooden finish wireless charger designed for eco-friendly corporate gifting, premium desk accessories, and sustainable branding campaigns. Supports custom logo engraving."
+  },
+  price: 899,
+  salePrice: 849,
+  images: [
+    { url: "/assets/products/wirelesschargers/17.webp", altText: "Wooden Wireless Charger" },
+    { url: "/assets/products/wirelesschargers/18.webp", altText: "Eco Friendly Wireless Charger" },
+    { url: "/assets/products/wirelesschargers/19.webp", altText: "Wood Finish Corporate Charger" },
+    { url: "/assets/products/wirelesschargers/20.webp", altText: "Premium Wooden Charger" }
+  ],
+  stock: 350,
+  sku: "WIRELESS-WOOD-CHARGER",
+  attributes: {
+    chargingType: "Wireless",
+    material: "ABS + Wooden Cover",
+    compatibility: "Qi Enabled Devices",
+    color: "Wood Finish"
+  },
+  specifications: [
+    { key: "HSN Code", value: "85044090" },
+    { key: "GST Rate", value: "18%" },
+    { key: "Eco Feature", value: "Wood Finish" }
+  ],
+  tags: ["wooden wireless charger", "eco friendly tech gifts", "premium desk accessories"],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.7, count: 68 },
+  seo: {
+    metaTitle: "Wooden Finish Wireless Charger | Eco-Friendly Corporate Gifts",
+    metaDescription: "Wooden finish wireless chargers ideal for eco-friendly corporate gifting and premium branding.",
+    keywords: ["wooden wireless charger", "eco corporate gifts", "branded wireless charger"]
+  },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = wirelessChargers;

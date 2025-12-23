@@ -47,19 +47,16 @@ const ProductDisplay = () => {
     <>
       <Helmet>
         <title>
-          {subcategoryData?.metaTitle
-            ? subcategoryData.metaTitle
-            : `${subcategoryName} | ${categoryName} - MF Global Services`}
+          {subcategoryData?.seo?.metaTitle ||
+            `${subcategoryName} | ${categoryName} - MF Global Services`}
         </title>
 
         <meta
           name="description"
           content={
-            subcategoryData?.metaDescription
-              ? subcategoryData.metaDescription
-              : subcategoryData?.tag
-              ? subcategoryData.tag.replace(/\n/g, " ")
-              : `Explore premium ${subcategoryName} under ${categoryName}. Shop branded merchandise and corporate gifting options.`
+            subcategoryData?.seo?.metaDescription ||
+            subcategoryData?.description ||
+            `Explore premium ${subcategoryName} under ${categoryName}.`
           }
         />
 
@@ -82,7 +79,7 @@ const ProductDisplay = () => {
 
           <h1 className="page-title">{subcategoryName}</h1>
           <p className="subcategory-description">
-            {subcategoryData?.tag || ""}
+            {subcategoryData?.description || ""}
           </p>
         </div>
       </div>
@@ -104,13 +101,18 @@ const ProductDisplay = () => {
                 const sizeSelectId = `size-select-${product._id}`;
                 const colorSelectId = `color-select-${product._id}`;
 
+                const imageUrl =
+                  product.images?.[0]?.url || "/assets/placeholder.webp";
+
                 return (
                   <div key={product._id} className="product-card">
                     <div className="product-image-wrapper">
                       <img
                         className="product-img"
-                        src={product.image}
-                        alt={`${product.name} product image`}
+                        src={imageUrl}
+                        alt={
+                          product.images?.[0]?.altText || product.name
+                        }
                       />
 
                       <div className="product-icons">
@@ -126,22 +128,22 @@ const ProductDisplay = () => {
                     <h3 className="product-title">{product.name}</h3>
 
                     <div className="dropdown-group">
-                      {product.size?.length > 0 && (
+                      {product.attributes?.size?.length > 0 && (
                         <>
                           <label htmlFor={sizeSelectId}>Style:</label>
                           <select id={sizeSelectId}>
-                            {product.size.map((s, index) => (
+                            {product.attributes.size.map((s, index) => (
                               <option key={index}>{s}</option>
                             ))}
                           </select>
                         </>
                       )}
 
-                      {product.colour?.length > 0 && (
+                      {product.attributes?.color?.length > 0 && (
                         <>
                           <label htmlFor={colorSelectId}>Color:</label>
                           <select id={colorSelectId}>
-                            {product.colour.map((c, index) => (
+                            {product.attributes.color.map((c, index) => (
                               <option key={index}>{c}</option>
                             ))}
                           </select>
@@ -157,8 +159,9 @@ const ProductDisplay = () => {
                           `/${categorySlug}/${subcategorySlug}/${product.slug}`
                         )
                       }
+                      disabled={product.stock === 0}
                     >
-                      {product.quantity === 0 ? "Sold out" : "View"} ➤
+                      {product.stock === 0 ? "Sold out" : "View"} ➤
                     </button>
                   </div>
                 );

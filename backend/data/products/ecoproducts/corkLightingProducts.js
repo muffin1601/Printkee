@@ -1,164 +1,185 @@
 const corkLightingProducts = [
-  {
-    productCode: "CORK-LIGHT-001",
-    SKU: "CORK-LT-TABLE",
-    name: "Cork Decorative Table Lamp",
-    slug: "cork-decorative-table-lamp",
-    description: "Eco-friendly cork table lamp with a decorative design, perfect for home or office lighting.",
-    HSNCode: "94051000",
-    type: "Eco Product",
-    quantity: 100,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Metal",
-    weight: 900,
-    dimensions: { length: 15, width: 15, height: 30 },
-    minOrderQty: 2,
-    maxOrderQty: 100,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-LIGHT-001-PRICE",
-      singlePrice: 1499,
-      sales_0_10: 1449,
-      sales_10_30: 1399,
-      sales_30_above: 1349,
-      discountPrice: 1399,
-      discount: { type: "percentage", value: 7, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/lighting (1).webp",
-    tags: ["cork lamp", "table lamp", "eco-friendly", "decorative lighting"],
-    keywords: ["cork", "lamp", "eco product", "table lamp"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.6, count: 20 },
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Cork Decorative Table Lamp",
+  slug: "cork-decorative-table-lamp",
+  description: {
+    short: "Eco-friendly cork decorative table lamp.",
+    long: "Eco-friendly cork decorative table lamp designed for sustainable homes and offices. Combines natural cork with metal for warm ambient lighting and modern décor appeal."
+  },
+  price: 1499,
+  salePrice: 1399,
+  images: [
+    { url: "/assets/products/cork/lighting (1).webp", altText: "Cork Decorative Table Lamp" }
+  ],
+  stock: 100,
+  sku: "CORK-LT-TABLE",
+  attributes: {
+    material: "Natural Cork & Metal"
+  },
+  specifications: [
+    { key: "HSN Code", value: "94051000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork lamp",
+    "eco-friendly table lamp",
+    "decorative lighting",
+    "sustainable home decor"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.6, count: 20 },
+  seo: {
     metaTitle: "Cork Decorative Table Lamp | Eco-Friendly Lighting",
-    metaDescription: "Stylish cork decorative table lamp for eco-conscious homes or offices, sustainably crafted.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Stylish eco-friendly cork decorative table lamp for sustainable homes and offices.",
+    keywords: [
+      "cork table lamp",
+      "eco-friendly lighting",
+      "sustainable home decor"
+    ]
   },
-  {
-    productCode: "CORK-LIGHT-002",
-    SKU: "CORK-LT-SQUARE",
-    name: "Square Shaped Cork Table Lamp",
-    slug: "square-shaped-cork-table-lamp",
-    description: "Modern square-shaped cork table lamp, combining eco-friendly design with functional lighting.",
-    HSNCode: "94051000",
-    type: "Eco Product",
-    quantity: 80,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Metal",
-    weight: 950,
-    dimensions: { length: 18, width: 18, height: 32 },
-    minOrderQty: 2,
-    maxOrderQty: 80,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-LIGHT-002-PRICE",
-      singlePrice: 1599,
-      sales_0_10: 1549,
-      sales_10_30: 1499,
-      sales_30_above: 1449,
-      discountPrice: 1499,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/lighting (4).webp",
-    tags: ["cork lamp", "square lamp", "eco-friendly", "modern lighting"],
-    keywords: ["cork", "lamp", "eco product", "square lamp"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.5, count: 15 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Square Shaped Cork Table Lamp",
+  slug: "square-shaped-cork-table-lamp",
+  description: {
+    short: "Modern square-shaped cork table lamp.",
+    long: "Square-shaped cork table lamp offering modern aesthetics with sustainable materials. Ideal for desks, side tables, and office décor."
+  },
+  price: 1599,
+  salePrice: 1499,
+  images: [
+    { url: "/assets/products/cork/lighting (4).webp", altText: "Square Shaped Cork Table Lamp" }
+  ],
+  stock: 80,
+  sku: "CORK-LT-SQUARE",
+  attributes: {
+    material: "Natural Cork & Metal"
+  },
+  specifications: [
+    { key: "HSN Code", value: "94051000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "square cork lamp",
+    "eco-friendly lighting",
+    "modern table lamp",
+    "sustainable decor"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.5, count: 15 },
+  seo: {
     metaTitle: "Square Shaped Cork Table Lamp | Eco-Friendly Design",
-    metaDescription: "Eco-conscious square cork table lamp for modern homes or office spaces, sustainably crafted.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Modern square cork table lamp crafted for eco-conscious homes and offices.",
+    keywords: [
+      "square cork lamp",
+      "eco-friendly table lamp",
+      "modern sustainable lighting"
+    ]
   },
-  {
-    productCode: "CORK-LIGHT-003",
-    SKU: "CORK-LT-TALL",
-    name: "Tall Cork Table Lamp",
-    slug: "tall-cork-table-lamp",
-    description: "Tall cork table lamp offering stylish eco-friendly illumination for desks, bedside, or living spaces.",
-    HSNCode: "94051000",
-    type: "Eco Product",
-    quantity: 60,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Metal",
-    weight: 1200,
-    dimensions: { length: 15, width: 15, height: 50 },
-    minOrderQty: 2,
-    maxOrderQty: 60,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-LIGHT-003-PRICE",
-      singlePrice: 1799,
-      sales_0_10: 1749,
-      sales_10_30: 1699,
-      sales_30_above: 1649,
-      discountPrice: 1699,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/lighting (3).webp",
-    tags: ["cork lamp", "tall lamp", "eco-friendly", "desk lighting"],
-    keywords: ["cork", "lamp", "eco product", "tall lamp"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: { average: 4.4, count: 12 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Tall Cork Table Lamp",
+  slug: "tall-cork-table-lamp",
+  description: {
+    short: "Tall eco-friendly cork table lamp.",
+    long: "Tall cork table lamp designed for desks, bedside tables, and living spaces. Provides warm lighting with a minimal sustainable design."
+  },
+  price: 1799,
+  salePrice: 1699,
+  images: [
+    { url: "/assets/products/cork/lighting (3).webp", altText: "Tall Cork Table Lamp" }
+  ],
+  stock: 60,
+  sku: "CORK-LT-TALL",
+  attributes: {
+    material: "Natural Cork & Metal"
+  },
+  specifications: [
+    { key: "HSN Code", value: "94051000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "tall cork lamp",
+    "eco desk lamp",
+    "sustainable lighting",
+    "minimal home decor"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.4, count: 12 },
+  seo: {
     metaTitle: "Tall Cork Table Lamp | Eco-Friendly Desk Lighting",
-    metaDescription: "Sustainable tall cork table lamp for stylish lighting in homes or offices.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Sustainable tall cork table lamp for desks, bedrooms, and modern interiors.",
+    keywords: [
+      "tall cork lamp",
+      "eco-friendly desk lamp",
+      "sustainable lighting solutions"
+    ]
   },
-  {
-    productCode: "CORK-LIGHT-004",
-    SKU: "CORK-LT-HANGING",
-    name: "Cork Hanging Lamp",
-    slug: "cork-hanging-lamp",
-    description: "Eco-friendly cork hanging lamp providing ambient lighting, ideal for modern and sustainable interiors.",
-    HSNCode: "94051000",
-    type: "Eco Product",
-    quantity: 50,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Metal",
-    weight: 1500,
-    dimensions: { length: 30, width: 30, height: 25 },
-    minOrderQty: 1,
-    maxOrderQty: 50,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-LIGHT-004-PRICE",
-      singlePrice: 2499,
-      sales_0_10: 2399,
-      sales_10_30: 2299,
-      sales_30_above: 2199,
-      discountPrice: 2299,
-      discount: { type: "percentage", value: 8, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/lighting (2).webp",
-    tags: ["cork lamp", "hanging lamp", "eco-friendly", "ambient lighting"],
-    keywords: ["cork", "lamp", "eco product", "hanging lamp"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.7, count: 10 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Cork Hanging Lamp",
+  slug: "cork-hanging-lamp",
+  description: {
+    short: "Eco-friendly cork hanging lamp.",
+    long: "Premium cork hanging lamp offering ambient lighting for modern interiors. Ideal for dining areas, cafés, offices, and sustainable architectural spaces."
+  },
+  price: 2499,
+  salePrice: 2299,
+  images: [
+    { url: "/assets/products/cork/lighting (2).webp", altText: "Cork Hanging Lamp" }
+  ],
+  stock: 50,
+  sku: "CORK-LT-HANGING",
+  attributes: {
+    material: "Natural Cork & Metal"
+  },
+  specifications: [
+    { key: "HSN Code", value: "94051000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork hanging lamp",
+    "eco-friendly ceiling lamp",
+    "ambient lighting",
+    "sustainable interior lighting"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.7, count: 10 },
+  seo: {
     metaTitle: "Cork Hanging Lamp | Eco-Friendly Ambient Lighting",
-    metaDescription: "Sustainable cork hanging lamp for modern interiors, providing eco-friendly ambient lighting.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Sustainable cork hanging lamp for ambient lighting in modern eco-conscious interiors.",
+    keywords: [
+      "cork hanging lamp",
+      "eco ceiling lamp",
+      "sustainable ambient lighting"
+    ]
   },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = corkLightingProducts;

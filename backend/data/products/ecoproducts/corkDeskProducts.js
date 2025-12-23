@@ -1,164 +1,183 @@
 const corkDeskProducts = [
-  {
-    productCode: "CORK-DESK-001",
-    SKU: "CORK-DIARY-001",
-    name: "Cork Fabric Diary",
-    slug: "cork-fabric-diary",
-    description: "Eco-friendly cork fabric diary with a sustainable design, perfect for office or personal use.",
-    HSNCode: "48201000",
-    type: "Eco Product",
-    quantity: 200,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Paper",
-    weight: 350,
-    dimensions: { length: 21, width: 15, height: 2 },
-    minOrderQty: 5,
-    maxOrderQty: 200,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-DESK-001-PRICE",
-      singlePrice: 499,
-      sales_0_20: 479,
-      sales_20_50: 459,
-      sales_50_above: 439,
-      discountPrice: 459,
-      discount: { type: "percentage", value: 8, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/desk (1).webp",
-    tags: ["cork diary", "eco-friendly desk accessory", "sustainable office"],
-    keywords: ["cork", "diary", "eco product", "desk accessory"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.6, count: 20 },
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Cork Fabric Diary",
+  slug: "cork-fabric-diary",
+  description: {
+    short: "Eco-friendly cork fabric diary.",
+    long: "Eco-friendly cork fabric diary with a sustainable design, ideal for office use, personal journaling, and corporate eco-conscious gifting."
+  },
+  price: 499,
+  salePrice: 459,
+  images: [
+    { url: "/assets/products/cork/desk (1).webp", altText: "Cork Fabric Diary" }
+  ],
+  stock: 200,
+  sku: "CORK-DIARY-001",
+  attributes: {
+    material: "Natural Cork & Paper"
+  },
+  specifications: [
+    { key: "HSN Code", value: "48201000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork diary",
+    "eco-friendly office stationery",
+    "sustainable desk accessories",
+    "corporate eco gifts"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.6, count: 20 },
+  seo: {
     metaTitle: "Cork Fabric Diary | Eco-Friendly Office Accessory",
-    metaDescription: "Sustainable cork fabric diary for eco-conscious office and personal use.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Sustainable cork fabric diary ideal for eco-conscious offices and corporate gifting.",
+    keywords: [
+      "cork diary",
+      "eco friendly stationery",
+      "sustainable office products"
+    ]
   },
-  {
-    productCode: "CORK-DESK-003",
-    SKU: "CORK-CAL-001",
-    name: "Cork Desktop Calendar",
-    slug: "cork-desktop-calendar",
-    description: "Eco-friendly cork desktop calendar, perfect for organizing your schedule sustainably on your desk.",
-    HSNCode: "48201000",
-    type: "Eco Product",
-    quantity: 150,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Paper",
-    weight: 250,
-    dimensions: { length: 20, width: 15, height: 5 },
-    minOrderQty: 2,
-    maxOrderQty: 150,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-DESK-003-PRICE",
-      singlePrice: 349,
-      sales_0_20: 329,
-      sales_20_50: 309,
-      sales_50_above: 289,
-      discountPrice: 309,
-      discount: { type: "percentage", value: 10, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/desk (4).webp",
-    tags: ["cork calendar", "desktop calendar", "eco-friendly", "desk accessory"],
-    keywords: ["cork", "desktop calendar", "eco product", "desk"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.6, count: 15 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Cork Desktop Calendar",
+  slug: "cork-desktop-calendar",
+  description: {
+    short: "Eco-friendly cork desktop calendar.",
+    long: "Sustainable cork desktop calendar designed for eco-friendly desk organization and professional office use."
+  },
+  price: 349,
+  salePrice: 309,
+  images: [
+    { url: "/assets/products/cork/desk (4).webp", altText: "Cork Desktop Calendar" }
+  ],
+  stock: 150,
+  sku: "CORK-CAL-001",
+  attributes: {
+    material: "Natural Cork & Paper"
+  },
+  specifications: [
+    { key: "HSN Code", value: "48201000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork calendar",
+    "eco desk calendar",
+    "sustainable desk organizer",
+    "corporate eco stationery"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.6, count: 15 },
+  seo: {
     metaTitle: "Cork Desktop Calendar | Sustainable Desk Accessory",
-    metaDescription: "Eco-friendly cork desktop calendar for organizing your schedule sustainably.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Eco-friendly cork desktop calendar for sustainable office and desk organization.",
+    keywords: [
+      "cork desktop calendar",
+      "eco friendly desk accessories",
+      "sustainable office products"
+    ]
   },
-  {
-    productCode: "CORK-DESK-005",
-    SKU: "CORK-PEN-001",
-    name: "Cork Pen Pencil Holder",
-    slug: "cork-pen-pencil-holder",
-    description: "Eco-friendly cork pen and pencil holder, perfect for organizing your desk sustainably.",
-    HSNCode: "48203000",
-    type: "Eco Product",
-    quantity: 100,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 200,
-    dimensions: { length: 10, width: 10, height: 12 },
-    minOrderQty: 5,
-    maxOrderQty: 100,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-DESK-005-PRICE",
-      singlePrice: 249,
-      sales_0_20: 229,
-      sales_20_50: 209,
-      sales_50_above: 189,
-      discountPrice: 209,
-      discount: { type: "percentage", value: 10, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/desk (3).webp",
-    tags: ["cork pen holder", "pencil holder", "eco-friendly desk accessory"],
-    keywords: ["cork", "pen holder", "desk accessory"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: { average: 4.4, count: 12 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Cork Pen Pencil Holder",
+  slug: "cork-pen-pencil-holder",
+  description: {
+    short: "Eco-friendly cork pen and pencil holder.",
+    long: "Natural cork pen and pencil holder designed for sustainable desk organization at offices and home workspaces."
+  },
+  price: 249,
+  salePrice: 209,
+  images: [
+    { url: "/assets/products/cork/desk (3).webp", altText: "Cork Pen Pencil Holder" }
+  ],
+  stock: 100,
+  sku: "CORK-PEN-001",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "48203000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork pen holder",
+    "eco-friendly desk organizer",
+    "sustainable office accessories"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.4, count: 12 },
+  seo: {
     metaTitle: "Cork Pen Pencil Holder | Eco-Friendly Desk Organizer",
-    metaDescription: "Eco-friendly cork pen and pencil holder for organizing your desk sustainably.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Eco-friendly cork pen and pencil holder for organized and sustainable desks.",
+    keywords: [
+      "cork pen holder",
+      "eco desk organizer",
+      "sustainable stationery"
+    ]
   },
-  {
-    productCode: "CORK-DESK-006",
-    SKU: "CORK-PEN-002",
-    name: "Cork Round Style Pen Holder",
-    slug: "cork-round-style-pen-holder",
-    description: "Stylish round cork pen holder for eco-friendly desk organization.",
-    HSNCode: "48203000",
-    type: "Eco Product",
-    quantity: 90,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 180,
-    dimensions: { length: 9, width: 9, height: 11 },
-    minOrderQty: 5,
-    maxOrderQty: 90,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-DESK-006-PRICE",
-      singlePrice: 229,
-      sales_0_20: 209,
-      sales_20_50: 189,
-      sales_50_above: 169,
-      discountPrice: 189,
-      discount: { type: "percentage", value: 12, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/desk (2).webp",
-    tags: ["round cork pen holder", "eco-friendly pen holder", "desk organizer"],
-    keywords: ["cork", "pen holder", "round style", "desk"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: { average: 4.3, count: 9 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Cork Round Style Pen Holder",
+  slug: "cork-round-style-pen-holder",
+  description: {
+    short: "Round cork pen holder for eco desks.",
+    long: "Stylish round cork pen holder designed for sustainable desk organization in offices, workspaces, and eco-friendly environments."
+  },
+  price: 229,
+  salePrice: 189,
+  images: [
+    { url: "/assets/products/cork/desk (2).webp", altText: "Cork Round Style Pen Holder" }
+  ],
+  stock: 90,
+  sku: "CORK-PEN-002",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "48203000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "round cork pen holder",
+    "eco desk accessories",
+    "sustainable desk organizer"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.3, count: 9 },
+  seo: {
     metaTitle: "Cork Round Style Pen Holder | Eco-Friendly Desk Accessory",
-    metaDescription: "Stylish round cork pen holder for sustainable desk organization.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
-  }
+    metaDescription: "Round cork pen holder for stylish and eco-friendly desk organization.",
+    keywords: [
+      "round cork pen holder",
+      "eco desk organizer",
+      "sustainable office accessories"
+    ]
+  },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = corkDeskProducts;

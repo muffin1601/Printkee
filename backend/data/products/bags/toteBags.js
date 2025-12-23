@@ -245,8 +245,6 @@ const toteBags = [
   subcategory: null
 },
 
-/* ================= PRODUCT 6 ================= */
-
 {
   name: "Executive Canvas Tote Bag",
   slug: "executive-canvas-tote-bag",

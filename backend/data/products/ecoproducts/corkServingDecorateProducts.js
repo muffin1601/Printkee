@@ -1,164 +1,185 @@
 const corkServingDecorateProducts = [
-  {
-    productCode: "CORK-SERV-001",
-    SKU: "CORK-SD-TABLEMAT",
-    name: "Cork Dining Table Mat",
-    slug: "cork-dining-table-mat",
-    description: "Eco-friendly cork dining table mat, perfect for protecting surfaces and adding a natural touch to dining.",
-    HSNCode: "45020000",
-    type: "Eco Product",
-    quantity: 200,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 250,
-    dimensions: { length: 45, width: 30, height: 0.5 },
-    minOrderQty: 5,
-    maxOrderQty: 200,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-SERV-001-PRICE",
-      singlePrice: 399,
-      sales_0_20: 379,
-      sales_20_50: 359,
-      sales_50_above: 339,
-      discountPrice: 359,
-      discount: { type: "percentage", value: 10, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/serving3.webp",
-    tags: ["cork table mat", "dining mat", "eco-friendly", "natural cork"],
-    keywords: ["cork", "table mat", "eco product", "dining"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.5, count: 30 },
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Cork Dining Table Mat",
+  slug: "cork-dining-table-mat",
+  description: {
+    short: "Eco-friendly cork dining table mat.",
+    long: "Eco-friendly cork dining table mat designed to protect surfaces while adding a natural and sustainable touch to dining spaces. Ideal for homes, cafés, restaurants, and eco-conscious interiors."
+  },
+  price: 399,
+  salePrice: 359,
+  images: [
+    { url: "/assets/products/cork/serving3.webp", altText: "Cork Dining Table Mat" }
+  ],
+  stock: 200,
+  sku: "CORK-SD-TABLEMAT",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "45020000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork table mat",
+    "eco-friendly dining",
+    "sustainable tableware",
+    "natural cork decor"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.5, count: 30 },
+  seo: {
     metaTitle: "Cork Dining Table Mat | Eco-Friendly Dining",
     metaDescription: "Protect your dining surfaces with this eco-friendly cork table mat, sustainable and natural.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    keywords: [
+      "cork dining mat",
+      "eco-friendly table mat",
+      "sustainable dining decor"
+    ]
   },
-  {
-    productCode: "CORK-SERV-002",
-    SKU: "CORK-SD-TRAY",
-    name: "Cork Serving Tray",
-    slug: "cork-serving-tray",
-    description: "Stylish and eco-friendly cork serving tray, perfect for serving snacks or beverages sustainably.",
-    HSNCode: "45020000",
-    type: "Eco Product",
-    quantity: 150,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 500,
-    dimensions: { length: 40, width: 30, height: 4 },
-    minOrderQty: 5,
-    maxOrderQty: 150,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-SERV-002-PRICE",
-      singlePrice: 699,
-      sales_0_20: 679,
-      sales_20_50: 659,
-      sales_50_above: 639,
-      discountPrice: 659,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/serving1.webp",
-    tags: ["cork tray", "serving tray", "eco-friendly", "natural cork"],
-    keywords: ["cork", "tray", "eco product", "serving"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.6, count: 25 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Cork Serving Tray",
+  slug: "cork-serving-tray",
+  description: {
+    short: "Stylish eco-friendly cork serving tray.",
+    long: "Stylish and eco-friendly cork serving tray designed for serving snacks, beverages, and meals sustainably. Suitable for homes, cafés, restaurants, and eco-conscious hospitality setups."
+  },
+  price: 699,
+  salePrice: 659,
+  images: [
+    { url: "/assets/products/cork/serving1.webp", altText: "Cork Serving Tray" }
+  ],
+  stock: 150,
+  sku: "CORK-SD-TRAY",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "45020000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork serving tray",
+    "eco-friendly serving",
+    "sustainable tableware",
+    "natural cork tray"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.6, count: 25 },
+  seo: {
     metaTitle: "Cork Serving Tray | Eco-Friendly Tableware",
     metaDescription: "Sustainable cork serving tray for snacks or beverages, stylish and eco-conscious.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    keywords: [
+      "cork tray",
+      "eco-friendly serving tray",
+      "sustainable table accessories"
+    ]
   },
-  {
-    productCode: "CORK-SERV-003",
-    SKU: "CORK-SD-OLIVE",
-    name: "Olive Cork Table Mat",
-    slug: "olive-cork-table-mat",
-    description: "Eco-friendly olive-colored cork table mat, ideal for modern dining tables and sustainable décor.",
-    HSNCode: "45020000",
-    type: "Eco Product",
-    quantity: 120,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 240,
-    dimensions: { length: 45, width: 30, height: 0.5 },
-    minOrderQty: 5,
-    maxOrderQty: 120,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-SERV-003-PRICE",
-      singlePrice: 429,
-      sales_0_20: 409,
-      sales_20_50: 389,
-      sales_50_above: 369,
-      discountPrice: 389,
-      discount: { type: "percentage", value: 9, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/serving2.webp",
-    tags: ["cork table mat", "olive color", "eco-friendly", "modern decor"],
-    keywords: ["cork", "table mat", "eco product", "olive"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: { average: 4.5, count: 18 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Olive Cork Table Mat",
+  slug: "olive-cork-table-mat",
+  description: {
+    short: "Olive-colored cork table mat.",
+    long: "Eco-friendly olive-colored cork table mat designed for modern dining tables and sustainable décor. Adds warmth, protection, and style to everyday dining spaces."
+  },
+  price: 429,
+  salePrice: 389,
+  images: [
+    { url: "/assets/products/cork/serving2.webp", altText: "Olive Cork Table Mat" }
+  ],
+  stock: 120,
+  sku: "CORK-SD-OLIVE",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "45020000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "olive cork mat",
+    "eco dining decor",
+    "modern cork table mat",
+    "sustainable tableware"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.5, count: 18 },
+  seo: {
     metaTitle: "Olive Cork Table Mat | Eco-Friendly Dining Decor",
     metaDescription: "Stylish olive-colored cork table mat, sustainable and perfect for modern dining tables.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    keywords: [
+      "olive cork table mat",
+      "eco-friendly dining mat",
+      "modern cork decor"
+    ]
   },
-  {
-    productCode: "CORK-SERV-004",
-    SKU: "CORK-SD-NATURAL",
-    name: "Natural Cork Table Mat",
-    slug: "natural-cork-table-mat",
-    description: "Classic natural cork table mat, durable and eco-friendly, perfect for everyday dining use.",
-    HSNCode: "45020000",
-    type: "Eco Product",
-    quantity: 100,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 230,
-    dimensions: { length: 45, width: 30, height: 0.5 },
-    minOrderQty: 5,
-    maxOrderQty: 100,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-SERV-004-PRICE",
-      singlePrice: 399,
-      sales_0_20: 379,
-      sales_20_50: 359,
-      sales_50_above: 339,
-      discountPrice: 359,
-      discount: { type: "percentage", value: 10, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/serving4.webp",
-    tags: ["cork table mat", "natural cork", "eco-friendly", "dining decor"],
-    keywords: ["cork", "table mat", "eco product", "natural"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.7, count: 20 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Natural Cork Table Mat",
+  slug: "natural-cork-table-mat",
+  description: {
+    short: "Classic natural cork table mat.",
+    long: "Classic natural cork table mat designed for everyday dining use. Durable, heat-resistant, and eco-friendly, making it ideal for homes, offices, cafés, and sustainable dining setups."
+  },
+  price: 399,
+  salePrice: 359,
+  images: [
+    { url: "/assets/products/cork/serving4.webp", altText: "Natural Cork Table Mat" }
+  ],
+  stock: 100,
+  sku: "CORK-SD-NATURAL",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "45020000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "natural cork mat",
+    "eco-friendly dining",
+    "sustainable table mat",
+    "everyday cork decor"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.7, count: 20 },
+  seo: {
     metaTitle: "Natural Cork Table Mat | Eco-Friendly Everyday Use",
     metaDescription: "Durable natural cork table mat for everyday dining, sustainable and eco-friendly.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    keywords: [
+      "natural cork table mat",
+      "eco dining accessories",
+      "sustainable tableware"
+    ]
   },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = corkServingDecorateProducts;

@@ -15,7 +15,11 @@ import WhyChooseUsProduct from "./category/WhyChooseUsProduct";
 import ProductFAQ from "./category/FAQProduct";
 
 const SingleProductDisplay = () => {
-  const { category: categorySlug, subcategory: subcategorySlug, product: productSlug } = useParams();
+  const {
+    category: categorySlug,
+    subcategory: subcategorySlug,
+    product: productSlug,
+  } = useParams();
   const navigate = useNavigate();
 
   const [productData, setProductData] = useState(null);
@@ -29,7 +33,7 @@ const SingleProductDisplay = () => {
 
   const canonicalUrl = `https://printkee.com/${categorySlug}/${subcategorySlug}/${productSlug}`;
 
-  // Fetch product
+  // FETCH PRODUCT
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -41,8 +45,15 @@ const SingleProductDisplay = () => {
         setSubcategoryData(res.data.subcategory);
         setProductData(res.data.product);
 
-        setSelectedStyle(res.data.product.styles?.[0] || "");
-        setMainImage(res.data.product.image || res.data.product.subImages?.[0] || "");
+        setSelectedStyle(
+          res.data.product.attributes?.size?.[0] || ""
+        );
+
+        setMainImage(
+          res.data.product.images?.[0]?.url ||
+            res.data.product.subImages?.[0]?.url ||
+            ""
+        );
       } catch (err) {
         console.error("Failed to fetch product", err);
       }
@@ -50,7 +61,7 @@ const SingleProductDisplay = () => {
     fetchProduct();
   }, [categorySlug, subcategorySlug, productSlug]);
 
-  // Fetch related products
+  // FETCH RELATED PRODUCTS
   useEffect(() => {
     const fetchRelatedProducts = async () => {
       try {
@@ -65,19 +76,23 @@ const SingleProductDisplay = () => {
     fetchRelatedProducts();
   }, [categorySlug, subcategorySlug, productSlug]);
 
-  if (!productData || !subcategoryData || !categoryData) return <div>Loading...</div>;
+  if (!productData || !subcategoryData || !categoryData)
+    return <div>Loading...</div>;
 
   return (
     <>
       {/* SEO */}
       <Helmet>
-        <title>{`${productData.name} | ${subcategoryData.name} - MF Global Services`}</title>
+        <title>
+          {productData.seo?.metaTitle ||
+            `${productData.name} | ${subcategoryData.name} - MF Global Services`}
+        </title>
         <meta
           name="description"
           content={
-            productData.description
-              ? productData.description.slice(0, 150)
-              : `Explore premium ${productData.name} from our ${subcategoryData.name} range.`
+            productData.seo?.metaDescription ||
+            productData.description?.short ||
+            `Explore premium ${productData.name} from our ${subcategoryData.name} range.`
           }
         />
         <link rel="canonical" href={canonicalUrl} />
@@ -95,11 +110,13 @@ const SingleProductDisplay = () => {
                   {productData.subImages.map((img, i) => (
                     <img
                       key={i}
-                      src={img}
+                      src={img.url}
                       loading="lazy"
-                      alt={`${productData.name} - additional view ${i + 1}`}
-                      className={`thumbnail ${mainImage === img ? "active" : ""}`}
-                      onClick={() => setMainImage(img)}
+                      alt={img.altText || productData.name}
+                      className={`thumbnail ${
+                        mainImage === img.url ? "active" : ""
+                      }`}
+                      onClick={() => setMainImage(img.url)}
                     />
                   ))}
                 </div>
@@ -108,7 +125,7 @@ const SingleProductDisplay = () => {
               <div className="main-image-wrapper">
                 <img
                   src={mainImage}
-                  alt={`${productData.name} main product image`}
+                  alt={productData.images?.[0]?.altText || productData.name}
                   className="main-image"
                 />
               </div>
@@ -120,7 +137,6 @@ const SingleProductDisplay = () => {
 
             <button
               className="back-button-2"
-              aria-label={`Go back to ${subcategoryData.name}`}
               onClick={() =>
                 window.history.length > 2
                   ? navigate(-1)
@@ -133,17 +149,18 @@ const SingleProductDisplay = () => {
             <h1 className="product-title-1">{productData.name}</h1>
 
             <h3 className="description-title">Description:</h3>
-            <p className="product-description">{productData.description}</p>
+            <p className="product-description">
+              {productData.description?.long}
+            </p>
 
             {/* STYLES */}
-            {productData.styles?.length > 0 && (
+            {productData.attributes?.size?.length > 0 && (
               <div className="style-section">
                 <label>Style:</label>
                 <div className="style-buttons">
-                  {productData.styles.map((style) => (
+                  {productData.attributes.size.map((style) => (
                     <button
                       key={style}
-                      aria-pressed={selectedStyle === style}
                       className={selectedStyle === style ? "active" : ""}
                       onClick={() => setSelectedStyle(style)}
                     >
@@ -156,29 +173,20 @@ const SingleProductDisplay = () => {
 
             {/* QUANTITY */}
             <div className="quantity-section">
-              <label htmlFor="qty">Quantity:</label>
+              <label>Quantity:</label>
               <div className="quantity-controls">
-                <button
-                  aria-label="Decrease quantity"
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                >
+                <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>
                   -
                 </button>
-                <span id="qty">{quantity}</span>
-                <button
-                  aria-label="Increase quantity"
-                  onClick={() => setQuantity(quantity + 1)}
-                >
-                  +
-                </button>
+                <span>{quantity}</span>
+                <button onClick={() => setQuantity(quantity + 1)}>+</button>
               </div>
             </div>
 
-            {/* CTA BUTTONS */}
+            {/* CTA */}
             <div className="cart-buttons">
               <button
                 className="add-to-cart-2"
-                aria-label={`Customize ${productData.name}`}
                 onClick={() => {
                   let route = "/customize";
                   if (subcategorySlug === "polo-t-shirts") route = "/customize/polotshirt";
@@ -188,7 +196,10 @@ const SingleProductDisplay = () => {
                   navigate(route, {
                     state: {
                       productName: productData.name,
-                      productImages: [productData.image, ...(productData.subImages || [])],
+                      productImages: [
+                        productData.images?.[0]?.url,
+                        ...(productData.subImages?.map((i) => i.url) || []),
+                      ],
                       subcategory: subcategoryData.name,
                     },
                   });
@@ -197,66 +208,36 @@ const SingleProductDisplay = () => {
                 Customize Now
               </button>
 
-              <button
-                className="get-quote"
-                aria-label="Request a quote"
-                onClick={() => setShowModal(true)}
-              >
+              <button className="get-quote" onClick={() => setShowModal(true)}>
                 Get a Quote <MdRequestQuote />
               </button>
             </div>
           </div>
         </div>
 
-        {/* PRODUCT SPECIFICATIONS */}
+        {/* SPECIFICATIONS */}
         <div className="product-spec-section">
           <h3 className="spec-title">Product Specifications</h3>
 
           <table className="spec-table">
             <tbody>
-              {productData.productCode && (
-                <tr><td>Product Code</td><td>{productData.productCode}</td></tr>
+              {productData.sku && (
+                <tr><td>SKU</td><td>{productData.sku}</td></tr>
               )}
-              {productData.SKU && (
-                <tr><td>SKU</td><td>{productData.SKU}</td></tr>
+              {productData.attributes?.material && (
+                <tr><td>Material</td><td>{productData.attributes.material}</td></tr>
               )}
-              {productData.brand && (
-                <tr><td>Brand</td><td>{productData.brand}</td></tr>
-              )}
-              {productData.fabricType && (
-                <tr><td>Fabric Type</td><td>{productData.fabricType}</td></tr>
-              )}
-              {productData.size?.length > 0 && (
-                <tr><td>Available Sizes</td><td>{productData.size.join(", ")}</td></tr>
-              )}
-              {productData.colour?.length > 0 && (
-                <tr><td>Available Colours</td><td>{productData.colour.join(", ")}</td></tr>
-              )}
-              {productData.weight && (
-                <tr><td>Weight</td><td>{productData.weight} g</td></tr>
-              )}
-              {(productData.dimensions?.length ||
-                productData.dimensions?.width ||
-                productData.dimensions?.height) && (
+              {productData.attributes?.size?.length > 0 && (
                 <tr>
-                  <td>Dimensions</td>
-                  <td>
-                    {productData.dimensions.length} × {productData.dimensions.width} ×{" "}
-                    {productData.dimensions.height} cm
-                  </td>
+                  <td>Available Sizes</td>
+                  <td>{productData.attributes.size.join(", ")}</td>
                 </tr>
               )}
-              {productData.HSNCode && (
-                <tr><td>HSN Code</td><td>{productData.HSNCode}</td></tr>
-              )}
-              {productData.GSTRate && (
-                <tr><td>GST Rate</td><td>{productData.GSTRate}%</td></tr>
-              )}
-              {productData.minOrderQty && (
-                <tr><td>Minimum Order Quantity</td><td>{productData.minOrderQty}</td></tr>
-              )}
-              {productData.maxOrderQty && (
-                <tr><td>Maximum Order Quantity</td><td>{productData.maxOrderQty}</td></tr>
+              {productData.attributes?.color?.length > 0 && (
+                <tr>
+                  <td>Available Colours</td>
+                  <td>{productData.attributes.color.join(", ")}</td>
+                </tr>
               )}
             </tbody>
           </table>
@@ -277,29 +258,25 @@ const SingleProductDisplay = () => {
               spaceBetween={20}
               slidesPerView={2}
               navigation
-              pagination={{ clickable: true, el: ".custom-pagination" }}
-              autoplay={{ delay: 3000 }}
+              pagination={{ clickable: true }}
               breakpoints={{
                 640: { slidesPerView: 2 },
                 768: { slidesPerView: 3 },
                 1024: { slidesPerView: 4 },
               }}
-              className="related-swiper"
             >
               {relatedProducts.map((relProd, i) => (
                 <SwiperSlide key={i}>
                   <button
                     className="related-product-card"
-                    aria-label={`View product ${relProd.name}`}
                     onClick={() => {
                       navigate(`/${categorySlug}/${subcategorySlug}/${relProd.slug}`);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                   >
                     <img
-                      loading="lazy"
-                      src={relProd.image}
-                      alt={`${relProd.name} product image`}
+                      src={relProd.images?.[0]?.url}
+                      alt={relProd.name}
                       className="related-product-image"
                     />
                     <p className="related-product-name">{relProd.name}</p>
@@ -307,8 +284,6 @@ const SingleProductDisplay = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-
-            <div className="custom-pagination"></div>
           </div>
         )}
       </div>
@@ -322,8 +297,8 @@ const SingleProductDisplay = () => {
       <EnquiryModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        image={productData.image}
-        description={`Get a personalized quote for ${productData.name}. Our team is here to assist you!`}
+        image={productData.images?.[0]?.url}
+        description={`Get a personalized quote for ${productData.name}.`}
       />
     </>
   );

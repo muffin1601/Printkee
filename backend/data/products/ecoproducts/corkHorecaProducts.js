@@ -1,164 +1,185 @@
 const corkHorecaProducts = [
-  {
-    productCode: "CORK-HORECA-001",
-    SKU: "CORK-HORE-ICEBOX",
-    name: "Round Shape Cork Ice Storage Box",
-    slug: "round-shape-cork-ice-storage-box",
-    description: "Eco-friendly round cork ice storage box, ideal for hotels, restaurants, and catering use.",
-    HSNCode: "96190090",
-    type: "Eco Product",
-    quantity: 80,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 1200,
-    dimensions: { length: 30, width: 30, height: 25 },
-    minOrderQty: 2,
-    maxOrderQty: 80,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-HORE-001-PRICE",
-      singlePrice: 2499,
-      sales_0_10: 2399,
-      sales_10_30: 2299,
-      sales_30_above: 2199,
-      discountPrice: 2299,
-      discount: { type: "percentage", value: 8, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/horeca (1).webp",
-    tags: ["cork ice box", "horeca", "eco-friendly", "round shape"],
-    keywords: ["cork", "ice box", "eco product", "horeca"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.6, count: 12 },
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Round Shape Cork Ice Storage Box",
+  slug: "round-shape-cork-ice-storage-box",
+  description: {
+    short: "Eco-friendly cork ice storage box for HoReCa.",
+    long: "Eco-friendly round cork ice storage box designed for hotels, restaurants, bars, and catering services. Offers natural insulation, durability, and a sustainable alternative to plastic ice containers."
+  },
+  price: 2499,
+  salePrice: 2299,
+  images: [
+    { url: "/assets/products/cork/horeca (1).webp", altText: "Round Cork Ice Storage Box" }
+  ],
+  stock: 80,
+  sku: "CORK-HORE-ICEBOX",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "96190090" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork ice box",
+    "horeca products",
+    "eco-friendly ice storage",
+    "sustainable catering equipment"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.6, count: 12 },
+  seo: {
     metaTitle: "Round Shape Cork Ice Storage Box | Eco-Friendly HoReCa",
-    metaDescription: "Sustainable round cork ice storage box for hotels, restaurants, and catering use.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Sustainable round cork ice storage box ideal for hotels, restaurants, bars, and catering use.",
+    keywords: [
+      "cork ice box",
+      "eco horeca products",
+      "sustainable catering equipment"
+    ]
   },
-  {
-    productCode: "CORK-HORECA-002",
-    SKU: "CORK-HORE-JUICE",
-    name: "Juice Dispenser",
-    slug: "cork-juice-dispenser",
-    description: "Eco-friendly cork juice dispenser for HoReCa setups, ideal for serving beverages sustainably.",
-    HSNCode: "96190090",
-    type: "Eco Product",
-    quantity: 60,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 1500,
-    dimensions: { length: 25, width: 25, height: 35 },
-    minOrderQty: 2,
-    maxOrderQty: 60,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-HORE-002-PRICE",
-      singlePrice: 2999,
-      sales_0_10: 2899,
-      sales_10_30: 2799,
-      sales_30_above: 2699,
-      discountPrice: 2799,
-      discount: { type: "percentage", value: 7, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/horeca (4).webp",
-    tags: ["cork juice dispenser", "horeca", "eco-friendly", "beverage"],
-    keywords: ["cork", "dispenser", "eco product", "horeca"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.7, count: 10 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Cork Juice Dispenser",
+  slug: "cork-juice-dispenser",
+  description: {
+    short: "Eco-friendly cork juice dispenser for HoReCa.",
+    long: "Sustainable cork juice dispenser designed for hotels, cafes, restaurants, and buffet counters. Ideal for serving beverages in an eco-conscious and premium manner."
+  },
+  price: 2999,
+  salePrice: 2799,
+  images: [
+    { url: "/assets/products/cork/horeca (4).webp", altText: "Cork Juice Dispenser" }
+  ],
+  stock: 60,
+  sku: "CORK-HORE-JUICE",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "96190090" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork juice dispenser",
+    "horeca beverage equipment",
+    "eco-friendly dispenser",
+    "sustainable horeca solutions"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.7, count: 10 },
+  seo: {
     metaTitle: "Cork Juice Dispenser | Eco-Friendly HoReCa Beverage Solution",
-    metaDescription: "Sustainable cork juice dispenser for hotels, restaurants, and cafes.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Eco-friendly cork juice dispenser designed for hotels, cafes, and restaurants.",
+    keywords: [
+      "cork juice dispenser",
+      "eco horeca equipment",
+      "sustainable beverage dispenser"
+    ]
   },
-  {
-    productCode: "CORK-HORECA-003",
-    SKU: "CORK-HORE-CCARD",
-    name: "Cork Credit Card Holder",
-    slug: "cork-credit-card-holder",
-    description: "Eco-friendly cork credit card holder, perfect for hotels, restaurants, or as a sustainable corporate gift.",
-    HSNCode: "96190090",
-    type: "Eco Product",
-    quantity: 100,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 50,
-    dimensions: { length: 10, width: 7, height: 1 },
-    minOrderQty: 5,
-    maxOrderQty: 100,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-HORE-003-PRICE",
-      singlePrice: 399,
-      sales_0_20: 379,
-      sales_20_50: 359,
-      sales_50_above: 339,
-      discountPrice: 359,
-      discount: { type: "percentage", value: 10, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/horeca (3).webp",
-    tags: ["cork card holder", "horeca", "eco-friendly", "corporate gift"],
-    keywords: ["cork", "card holder", "eco product", "horeca"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.5, count: 15 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Cork Credit Card Holder",
+  slug: "cork-credit-card-holder",
+  description: {
+    short: "Eco-friendly cork credit card holder.",
+    long: "Natural cork credit card holder suitable for hotels, restaurants, payment counters, and sustainable corporate gifting."
+  },
+  price: 399,
+  salePrice: 359,
+  images: [
+    { url: "/assets/products/cork/horeca (3).webp", altText: "Cork Credit Card Holder" }
+  ],
+  stock: 100,
+  sku: "CORK-HORE-CCARD",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "96190090" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork card holder",
+    "horeca accessories",
+    "eco-friendly payment holder",
+    "sustainable corporate gift"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.5, count: 15 },
+  seo: {
     metaTitle: "Cork Credit Card Holder | Sustainable HoReCa Accessory",
-    metaDescription: "Eco-friendly cork credit card holder suitable for restaurants, hotels, and corporate gifting.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Eco-friendly cork credit card holder ideal for hotels, restaurants, and corporate gifting.",
+    keywords: [
+      "cork card holder",
+      "eco horeca accessories",
+      "sustainable hotel accessories"
+    ]
   },
-  {
-    productCode: "CORK-HORECA-004",
-    SKU: "CORK-HORE-DESSERT",
-    name: "Cork Dessert Display Tray with Glass",
-    slug: "cork-dessert-display-tray-with-glass",
-    description: "Eco-friendly cork dessert display tray with glass cover, perfect for HoReCa use or sustainable catering.",
-    HSNCode: "96190090",
-    type: "Eco Product",
-    quantity: 50,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Glass",
-    weight: 1200,
-    dimensions: { length: 40, width: 30, height: 20 },
-    minOrderQty: 2,
-    maxOrderQty: 50,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-HORE-004-PRICE",
-      singlePrice: 3999,
-      sales_0_10: 3899,
-      sales_10_30: 3799,
-      sales_30_above: 3699,
-      discountPrice: 3799,
-      discount: { type: "percentage", value: 5, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/horeca (2).webp",
-    tags: ["cork dessert tray", "horeca", "eco-friendly", "glass cover"],
-    keywords: ["cork", "dessert tray", "eco product", "horeca"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.8, count: 8 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Cork Dessert Display Tray with Glass",
+  slug: "cork-dessert-display-tray-with-glass",
+  description: {
+    short: "Eco-friendly cork dessert display tray.",
+    long: "Premium cork dessert display tray with glass cover, ideal for showcasing desserts in hotels, restaurants, bakeries, and catering services while maintaining sustainability."
+  },
+  price: 3999,
+  salePrice: 3799,
+  images: [
+    { url: "/assets/products/cork/horeca (2).webp", altText: "Cork Dessert Display Tray with Glass" }
+  ],
+  stock: 50,
+  sku: "CORK-HORE-DESSERT",
+  attributes: {
+    material: "Natural Cork & Glass"
+  },
+  specifications: [
+    { key: "HSN Code", value: "96190090" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork dessert tray",
+    "horeca display equipment",
+    "eco-friendly serving tray",
+    "sustainable catering display"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.8, count: 8 },
+  seo: {
     metaTitle: "Cork Dessert Display Tray with Glass | Eco-Friendly HoReCa",
     metaDescription: "Sustainable cork dessert display tray with glass cover for restaurants, hotels, and catering.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    keywords: [
+      "cork dessert display tray",
+      "eco horeca serving trays",
+      "sustainable catering display"
+    ]
   },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = corkHorecaProducts;

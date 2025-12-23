@@ -1,382 +1,245 @@
 const trophies = [
-  // -------------------------------------------------------------
-  // PRODUCT 1 — Images 1–2
-  // -------------------------------------------------------------
-  {
-    productCode: "TR-GOLD-001",
-    SKU: "TROPHY-GOLDEN-CUP",
-    name: "Golden Excellence Award Trophy",
-    slug: "golden-excellence-award-trophy",
-    description:
-      "Premium golden excellence award trophy ideal for corporate events, employee recognition programs, annual award ceremonies, and brand celebrations. Custom engraving and logo plating available. Bulk corporate supply across Delhi NCR, Noida, Gurgaon, Okhla, Faridabad & PAN India.",
-    HSNCode: "83062990",
-    type: "Trophy",
-    quantity: 300,
-    GSTRate: 18,
-    brand: "AwardCraft",
-    fabricType: "Metal + Gold Finish",
-    size: ["10 inch"],
-    colour: ["Gold"],
-    weight: 750,
-    dimensions: { length: 10, width: 6, height: 25 },
-    minOrderQty: 5,
-    maxOrderQty: 150,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TR-GOLD-001-PRICE",
-      singlePrice: 899,
-      sales_0_50: 849,
-      sales_50_100: 799,
-      sales_100_above: 749,
-      discountPrice: 849,
-      discount: { type: "percentage", value: 5, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/trophies/1.webp",
-    subImages: [
-      "/assets/products/trophies/1.webp",
-      "/assets/products/trophies/2.webp"
-    ],
-    tags: [
-      "gold trophy",
-      "corporate award",
-      "employee excellence trophy",
-      "custom engraved trophy",
-      "award ceremony supplies"
-    ],
-    keywords: [
-      "golden award trophy",
-      "corporate recognition gifts",
-      "engraved trophies India"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.8, count: 72 },
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Golden Excellence Award Trophy",
+  slug: "golden-excellence-award-trophy",
+  description: {
+    short: "Premium golden trophy for corporate excellence awards.",
+    long: "Premium golden excellence award trophy ideal for corporate events, employee recognition programs, annual award ceremonies, and brand celebrations. Custom engraving and logo plating available for bulk corporate orders PAN India."
+  },
+  price: 899,
+  salePrice: 849,
+  images: [
+    { url: "/assets/products/trophies/1.webp", altText: "Golden Excellence Award Trophy" },
+    { url: "/assets/products/trophies/2.webp", altText: "Corporate Gold Trophy Close View" }
+  ],
+  stock: 300,
+  sku: "TROPHY-GOLDEN-CUP",
+  attributes: {
+    material: "Metal",
+    finish: "Gold",
+    height: "10 inch",
+    engraving: "Yes"
+  },
+  specifications: [
+    { key: "HSN Code", value: "83062990" },
+    { key: "GST Rate", value: "18%" }
+  ],
+  tags: ["gold trophy", "corporate excellence award", "employee recognition trophy"],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.8, count: 72 },
+  seo: {
     metaTitle: "Golden Excellence Award Trophy | Custom Corporate Awards India",
-    metaDescription:
-      "Premium golden trophy for corporate recognition & events with custom engraving. Bulk supply in Delhi NCR & PAN India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    metaDescription: "Premium golden award trophies with custom engraving for corporate recognition and annual award ceremonies.",
+    keywords: ["gold award trophy", "corporate recognition award", "custom engraved trophy"]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 2 — Images 3–4
-  // -------------------------------------------------------------
-  {
-    productCode: "TR-SILVER-002",
-    SKU: "TROPHY-SILVER-STAR",
-    name: "Silver Star Achievement Trophy",
-    slug: "silver-star-achievement-trophy",
-    description:
-      "Elegant silver star trophy designed for employee appreciation, sales awards, school functions, and corporate recognition events. Custom branding plates available. Delivered across Delhi NCR, Noida, Gurgaon & all over India.",
-    HSNCode: "83062990",
-    type: "Trophy",
-    quantity: 350,
-    GSTRate: 18,
-    brand: "AwardCraft",
-    fabricType: "Metal + Silver Finish",
-    size: ["9 inch"],
-    colour: ["Silver"],
-    weight: 680,
-    dimensions: { length: 9, width: 5, height: 23 },
-    minOrderQty: 5,
-    maxOrderQty: 150,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TR-SILVER-002-PRICE",
-      singlePrice: 799,
-      sales_0_50: 769,
-      sales_50_100: 739,
-      sales_100_above: 699,
-      discountPrice: 769,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/trophies/3.webp",
-    subImages: [
-      "/assets/products/trophies/3.webp",
-      "/assets/products/trophies/4.webp"
-    ],
-    tags: [
-      "silver trophy",
-      "achievement trophy",
-      "employee award",
-      "corporate star trophy",
-      "recognition gifts"
-    ],
-    keywords: [
-      "silver trophy India",
-      "employee appreciation awards",
-      "corporate event trophies"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.7, count: 85 },
-    metaTitle:
-      "Silver Star Achievement Trophy | Employee Award Trophies India",
-    metaDescription:
-      "Stylish silver star trophy perfect for corporate awards & recognition events. Custom engraving available. PAN India delivery.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Silver Star Achievement Trophy",
+  slug: "silver-star-achievement-trophy",
+  description: {
+    short: "Elegant silver star trophy for achievements.",
+    long: "Stylish silver star achievement trophy designed for employee appreciation, sales awards, academic excellence, and corporate recognition programs."
   },
-
-  // -------------------------------------------------------------
-  // PRODUCT 3 — Images 5–6
-  // -------------------------------------------------------------
-  {
-    productCode: "TR-CRYSTAL-003",
-    SKU: "TROPHY-CRYSTAL-ELEGANT",
-    name: "Elegant Crystal Award Trophy",
-    slug: "elegant-crystal-award-trophy",
-    description:
-      "Beautiful crystal award trophy ideal for premium corporate awards, milestone celebrations, leadership recognition, and brand events. Engraved personalization available. Bulk corporate supply for Delhi NCR & PAN India.",
-    HSNCode: "70189090",
-    type: "Trophy",
-    quantity: 250,
-    GSTRate: 18,
-    brand: "AwardCraft",
-    fabricType: "Crystal Glass",
-    size: ["10 inch"],
-    colour: ["Transparent"],
-    weight: 950,
-    dimensions: { length: 10, width: 5, height: 24 },
-    minOrderQty: 5,
-    maxOrderQty: 120,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TR-CRYSTAL-003-PRICE",
-      singlePrice: 1399,
-      sales_0_50: 1350,
-      sales_50_100: 1300,
-      sales_100_above: 1250,
-      discountPrice: 1350,
-      discount: { type: "percentage", value: 4, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/trophies/5.webp",
-    subImages: [
-      "/assets/products/trophies/5.webp",
-      "/assets/products/trophies/6.webp"
-    ],
-    tags: [
-      "crystal trophy",
-      "premium award",
-      "corporate milestone award",
-      "engraved crystal trophy",
-      "luxury recognition gift"
-    ],
-    keywords: [
-      "crystal trophy India",
-      "premium corporate awards",
-      "leadership awards"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.9, count: 64 },
-    metaTitle:
-      "Elegant Crystal Award Trophy | Premium Corporate Awards India",
-    metaDescription:
-      "Premium crystal trophy with laser engraving for corporate milestones & recognition ceremonies. PAN India supply.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+  price: 799,
+  salePrice: 769,
+  images: [
+    { url: "/assets/products/trophies/3.webp", altText: "Silver Star Achievement Trophy" },
+    { url: "/assets/products/trophies/4.webp", altText: "Corporate Silver Trophy" }
+  ],
+  stock: 350,
+  sku: "TROPHY-SILVER-STAR",
+  attributes: {
+    material: "Metal",
+    finish: "Silver",
+    height: "9 inch",
+    engraving: "Yes"
   },
+  specifications: [
+    { key: "HSN Code", value: "83062990" },
+    { key: "GST Rate", value: "18%" }
+  ],
+  tags: ["silver trophy", "achievement award", "employee appreciation trophy"],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.7, count: 85 },
+  seo: {
+    metaTitle: "Silver Star Achievement Trophy | Employee Award Trophies India",
+    metaDescription: "Elegant silver trophies for corporate and institutional recognition programs.",
+    keywords: ["silver trophy India", "employee achievement award", "corporate trophies"]
+  },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 4 — Images 7–8
-  // -------------------------------------------------------------
-  {
-    productCode: "TR-WOOD-004",
-    SKU: "TROPHY-WOODEN-PLAQUE",
-    name: "Wooden Plaque Award Trophy",
-    slug: "wooden-plaque-award-trophy",
-    description:
-      "Classic wooden plaque trophy perfect for employee awards, long-service recognition, school events, sports occasions, and corporate ceremonies. Custom engraved metal plate included. Bulk delivery in Delhi NCR, Noida, Gurgaon, Faridabad & India.",
-    HSNCode: "44219990",
-    type: "Trophy",
-    quantity: 500,
-    GSTRate: 18,
-    brand: "AwardCraft",
-    fabricType: "Wood + Metal Plate",
-    size: ["11 inch"],
-    colour: ["Brown"],
-    weight: 850,
-    dimensions: { length: 12, width: 3, height: 24 },
-    minOrderQty: 10,
-    maxOrderQty: 300,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TR-WOOD-004-PRICE",
-      singlePrice: 599,
-      sales_0_50: 579,
-      sales_50_100: 559,
-      sales_100_above: 539,
-      discountPrice: 579,
-      discount: { type: "percentage", value: 5, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/trophies/7.webp",
-    subImages: [
-      "/assets/products/trophies/7.webp",
-      "/assets/products/trophies/8.webp"
-    ],
-    tags: [
-      "wooden trophy",
-      "wooden plaque award",
-      "employee milestone award",
-      "custom engraved plaque"
-    ],
-    keywords: [
-      "wooden plaque India",
-      "custom engraved trophies",
-      "corporate recognition awards"
-    ],
-    isFeatured: false,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.5, count: 100 },
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Elegant Crystal Award Trophy",
+  slug: "elegant-crystal-award-trophy",
+  description: {
+    short: "Premium crystal trophy for elite recognition.",
+    long: "Luxury crystal award trophy designed for leadership recognition, milestone celebrations, premium corporate awards, and CXO appreciation programs."
+  },
+  price: 1399,
+  salePrice: 1350,
+  images: [
+    { url: "/assets/products/trophies/5.webp", altText: "Elegant Crystal Award Trophy" },
+    { url: "/assets/products/trophies/6.webp", altText: "Crystal Corporate Award" }
+  ],
+  stock: 250,
+  sku: "TROPHY-CRYSTAL-ELEGANT",
+  attributes: {
+    material: "Crystal Glass",
+    finish: "Transparent",
+    height: "10 inch",
+    engraving: "Laser Engraving"
+  },
+  specifications: [
+    { key: "HSN Code", value: "70189090" },
+    { key: "GST Rate", value: "18%" }
+  ],
+  tags: ["crystal trophy", "premium corporate award", "leadership recognition"],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.9, count: 64 },
+  seo: {
+    metaTitle: "Elegant Crystal Award Trophy | Premium Corporate Awards India",
+    metaDescription: "Premium crystal trophies with laser engraving for leadership and milestone recognition.",
+    keywords: ["crystal award trophy", "premium corporate award", "luxury recognition trophy"]
+  },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Wooden Plaque Award Trophy",
+  slug: "wooden-plaque-award-trophy",
+  description: {
+    short: "Classic wooden plaque for recognition.",
+    long: "Traditional wooden plaque trophy ideal for long-service awards, employee appreciation, academic recognition, and corporate ceremonies."
+  },
+  price: 599,
+  salePrice: 579,
+  images: [
+    { url: "/assets/products/trophies/7.webp", altText: "Wooden Plaque Award Trophy" },
+    { url: "/assets/products/trophies/8.webp", altText: "Custom Engraved Wooden Plaque" }
+  ],
+  stock: 500,
+  sku: "TROPHY-WOODEN-PLAQUE",
+  attributes: {
+    material: "Wood + Metal Plate",
+    finish: "Brown",
+    height: "11 inch",
+    engraving: "Yes"
+  },
+  specifications: [
+    { key: "HSN Code", value: "44219990" },
+    { key: "GST Rate", value: "18%" }
+  ],
+  tags: ["wooden plaque", "service award", "employee milestone trophy"],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.5, count: 100 },
+  seo: {
     metaTitle: "Wooden Plaque Award Trophy | Corporate Recognition India",
-    metaDescription:
-      "Elegant wooden award plaque with custom engraving. Ideal for corporate ceremonies & employee recognition.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+    metaDescription: "Classic wooden award plaques with custom engraving for corporate and institutional recognition.",
+    keywords: ["wooden plaque award", "corporate recognition trophy", "engraved wooden award"]
   },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 5 — Images 9–10
-  // -------------------------------------------------------------
-  {
-    productCode: "TR-SHIELD-005",
-    SKU: "TROPHY-SHIELD-AWARD",
-    name: "Shield Style Award Trophy",
-    slug: "shield-style-award-trophy",
-    description:
-      "Shield-style award trophy suitable for achievements, competitions, sports events, academic excellence awards, and corporate recognition functions. Supports custom branding plates. Bulk supply across India.",
-    HSNCode: "83062990",
-    type: "Trophy",
-    quantity: 450,
-    GSTRate: 18,
-    brand: "AwardCraft",
-    fabricType: "Metal + Wood Base",
-    size: ["12 inch"],
-    colour: ["Gold + Brown"],
-    weight: 900,
-    dimensions: { length: 12, width: 4, height: 28 },
-    minOrderQty: 10,
-    maxOrderQty: 350,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TR-SHIELD-005-PRICE",
-      singlePrice: 699,
-      sales_0_50: 679,
-      sales_50_100: 659,
-      sales_100_above: 639,
-      discountPrice: 679,
-      discount: { type: "percentage", value: 5, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/trophies/9.webp",
-    subImages: [
-      "/assets/products/trophies/9.webp",
-      "/assets/products/trophies/10.webp"
-    ],
-    tags: [
-      "shield trophy",
-      "achievement shield award",
-      "custom award shield",
-      "corporate shielding trophy"
-    ],
-    keywords: [
-      "shield trophy India",
-      "sports award shield",
-      "corporate trophy suppliers"
-    ],
-    isFeatured: false,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.6, count: 82 },
-    metaTitle:
-      "Shield Style Award Trophy | Custom Corporate Awards India",
-    metaDescription:
-      "Premium shield trophy for sports & corporate awards with custom engraving. Bulk supply available PAN India.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
+/* ================= PRODUCT 5 ================= */
+
+{
+  name: "Shield Style Award Trophy",
+  slug: "shield-style-award-trophy",
+  description: {
+    short: "Shield-style trophy for competitions & awards.",
+    long: "Shield style award trophy suitable for sports events, competitions, academic excellence awards, and corporate recognition ceremonies."
   },
+  price: 699,
+  salePrice: 679,
+  images: [
+    { url: "/assets/products/trophies/9.webp", altText: "Shield Style Award Trophy" },
+    { url: "/assets/products/trophies/10.webp", altText: "Corporate Shield Trophy" }
+  ],
+  stock: 450,
+  sku: "TROPHY-SHIELD-AWARD",
+  attributes: {
+    material: "Metal + Wood Base",
+    finish: "Gold + Brown",
+    height: "12 inch",
+    engraving: "Yes"
+  },
+  specifications: [
+    { key: "HSN Code", value: "83062990" },
+    { key: "GST Rate", value: "18%" }
+  ],
+  tags: ["shield trophy", "sports award shield", "corporate achievement award"],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.6, count: 82 },
+  seo: {
+    metaTitle: "Shield Style Award Trophy | Custom Corporate Awards India",
+    metaDescription: "Shield style trophies for sports and corporate awards with custom branding options.",
+    keywords: ["shield award trophy", "sports shield trophy", "corporate shield awards"]
+  },
+  category: null,
+  subcategory: null
+},
 
-  // -------------------------------------------------------------
-  // PRODUCT 6 — Images 11–12
-  // -------------------------------------------------------------
-  {
-    productCode: "TR-ACRYLIC-006",
-    SKU: "TROPHY-ACRYLIC-PREMIUM",
-    name: "Premium Acrylic Award Trophy",
-    slug: "premium-acrylic-award-trophy",
-    description:
-      "Modern acrylic award trophy perfect for corporate events, appreciation functions, employee recognition, and promotional award ceremonies. Supports full-color logo printing. Delivered in bulk across Delhi NCR & India.",
-    HSNCode: "39269099",
-    type: "Trophy",
-    quantity: 400,
-    GSTRate: 18,
-    brand: "AwardCraft",
-    fabricType: "Acrylic",
-    size: ["10 inch"],
-    colour: ["Transparent"],
-    weight: 700,
-    dimensions: { length: 9, width: 4, height: 25 },
-    minOrderQty: 5,
-    maxOrderQty: 300,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "TR-ACRYLIC-006-PRICE",
-      singlePrice: 599,
-      sales_0_50: 579,
-      sales_50_100: 559,
-      sales_100_above: 539,
-      discountPrice: 579,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31")
-    },
-    image: "/assets/products/trophies/11.webp",
-    subImages: [
-      "/assets/products/trophies/11.webp",
-      "/assets/products/trophies/12.webp"
-    ],
-    tags: [
-      "acrylic trophy",
-      "modern award trophy",
-      "custom printed acrylic award",
-      "corporate recognition trophy"
-    ],
-    keywords: [
-      "acrylic award India",
-      "custom acrylic trophies",
-      "corporate award suppliers"
-    ],
-    isFeatured: true,
-    isPublished: true,
-    isDeleted: false,
-    ratings: { average: 4.8, count: 76 },
-    metaTitle:
-      "Premium Acrylic Award Trophy | Custom Printed Corporate Trophies India",
-    metaDescription:
-      "Stylish acrylic award trophy with custom print options. Perfect for corporate recognition. Bulk PAN India delivery.",
-    audit: { createdBy: "admin", updatedBy: "admin" }
-  }
+/* ================= PRODUCT 6 ================= */
+
+{
+  name: "Premium Acrylic Award Trophy",
+  slug: "premium-acrylic-award-trophy",
+  description: {
+    short: "Modern acrylic trophy for corporate awards.",
+    long: "Contemporary acrylic award trophy ideal for modern corporate events, employee recognition programs, and promotional award ceremonies. Supports full-color logo printing."
+  },
+  price: 599,
+  salePrice: 579,
+  images: [
+    { url: "/assets/products/trophies/11.webp", altText: "Premium Acrylic Award Trophy" },
+    { url: "/assets/products/trophies/12.webp", altText: "Modern Acrylic Corporate Award" }
+  ],
+  stock: 400,
+  sku: "TROPHY-ACRYLIC-PREMIUM",
+  attributes: {
+    material: "Acrylic",
+    finish: "Transparent",
+    height: "10 inch",
+    printing: "Full Color"
+  },
+  specifications: [
+    { key: "HSN Code", value: "39269099" },
+    { key: "GST Rate", value: "18%" }
+  ],
+  tags: ["acrylic trophy", "modern award trophy", "corporate recognition award"],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.8, count: 76 },
+  seo: {
+    metaTitle: "Premium Acrylic Award Trophy | Custom Corporate Trophies India",
+    metaDescription: "Modern acrylic trophies with full-color logo printing for corporate recognition and events.",
+    keywords: ["acrylic award trophy", "modern corporate award", "custom printed trophy"]
+  },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = trophies;

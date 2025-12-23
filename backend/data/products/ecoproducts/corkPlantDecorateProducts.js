@@ -1,164 +1,185 @@
 const corkPlantDecorateProducts = [
-  {
-    productCode: "CORK-PLANT-001",
-    SKU: "CORK-PL-MULTI",
-    name: "Cork Multicolored Planter",
-    slug: "cork-multicolored-planter",
-    description: "Eco-friendly multicolored cork planter, perfect for indoor plants and decorative purposes.",
-    HSNCode: "46019990",
-    type: "Eco Product",
-    quantity: 150,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 300,
-    dimensions: { length: 15, width: 15, height: 12 },
-    minOrderQty: 3,
-    maxOrderQty: 150,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-PL-001-PRICE",
-      singlePrice: 499,
-      sales_0_20: 479,
-      sales_20_50: 459,
-      sales_50_above: 439,
-      discountPrice: 459,
-      discount: { type: "percentage", value: 8, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/planter1.webp",
-    tags: ["cork planter", "multicolored", "eco-friendly", "decorative"],
-    keywords: ["cork", "planter", "eco product", "multicolored"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.6, count: 22 },
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Cork Multicolored Planter",
+  slug: "cork-multicolored-planter",
+  description: {
+    short: "Eco-friendly multicolored cork planter.",
+    long: "Eco-friendly multicolored cork planter designed for indoor plants and decorative spaces. Crafted from natural cork, it adds a vibrant yet sustainable touch to homes, offices, cafés, and eco-conscious interiors."
+  },
+  price: 499,
+  salePrice: 459,
+  images: [
+    { url: "/assets/products/cork/planter1.webp", altText: "Cork Multicolored Planter" }
+  ],
+  stock: 150,
+  sku: "CORK-PL-MULTI",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "46019990" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork planter",
+    "multicolored planter",
+    "eco-friendly home decor",
+    "sustainable indoor plants"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.6, count: 22 },
+  seo: {
     metaTitle: "Cork Multicolored Planter | Eco-Friendly Home Decor",
     metaDescription: "Vibrant multicolored cork planter for indoor plants, sustainably crafted for decorative use.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    keywords: [
+      "cork planter",
+      "eco-friendly plant pot",
+      "sustainable home decor"
+    ]
   },
-  {
-    productCode: "CORK-PLANT-002",
-    SKU: "CORK-PL-ROUND",
-    name: "Cork Round Planter",
-    slug: "cork-round-planter",
-    description: "Elegant round cork planter, perfect for small indoor plants and sustainable home décor.",
-    HSNCode: "46019990",
-    type: "Eco Product",
-    quantity: 120,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 280,
-    dimensions: { length: 14, width: 14, height: 14 },
-    minOrderQty: 3,
-    maxOrderQty: 120,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-PL-002-PRICE",
-      singlePrice: 449,
-      sales_0_20: 429,
-      sales_20_50: 409,
-      sales_50_above: 389,
-      discountPrice: 409,
-      discount: { type: "percentage", value: 9, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/planter2.webp",
-    tags: ["cork planter", "round", "eco-friendly", "indoor decor"],
-    keywords: ["cork", "planter", "eco product", "round"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.5, count: 18 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Cork Round Planter",
+  slug: "cork-round-planter",
+  description: {
+    short: "Elegant round cork planter for indoor plants.",
+    long: "Minimal and elegant round cork planter designed for small indoor plants. A perfect sustainable décor element for homes, workspaces, cafés, and eco-friendly interiors."
+  },
+  price: 449,
+  salePrice: 409,
+  images: [
+    { url: "/assets/products/cork/planter2.webp", altText: "Cork Round Planter" }
+  ],
+  stock: 120,
+  sku: "CORK-PL-ROUND",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "46019990" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "round cork planter",
+    "eco-friendly planter",
+    "indoor plant decor",
+    "sustainable pots"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.5, count: 18 },
+  seo: {
     metaTitle: "Cork Round Planter | Sustainable Indoor Decor",
     metaDescription: "Stylish round cork planter for indoor plants, eco-friendly and sustainably crafted.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    keywords: [
+      "round cork planter",
+      "eco indoor planter",
+      "sustainable plant decor"
+    ]
   },
-  {
-    productCode: "CORK-PLANT-003",
-    SKU: "CORK-PL-CHOC",
-    name: "Choco Chip Cork Planter",
-    slug: "choco-chip-cork-planter",
-    description: "Choco Chip style cork planter with natural texture, ideal for decorative and sustainable planting.",
-    HSNCode: "46019990",
-    type: "Eco Product",
-    quantity: 100,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 320,
-    dimensions: { length: 16, width: 16, height: 12 },
-    minOrderQty: 3,
-    maxOrderQty: 100,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-PL-003-PRICE",
-      singlePrice: 529,
-      sales_0_20: 509,
-      sales_20_50: 489,
-      sales_50_above: 469,
-      discountPrice: 489,
-      discount: { type: "percentage", value: 8, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/planter3.webp",
-    tags: ["cork planter", "choco chip", "eco-friendly", "decorative"],
-    keywords: ["cork", "planter", "eco product", "choco chip"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: { average: 4.4, count: 15 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Choco Chip Cork Planter",
+  slug: "choco-chip-cork-planter",
+  description: {
+    short: "Choco chip textured cork planter.",
+    long: "Choco chip style cork planter with a unique natural texture. Ideal for decorative planting, modern eco décor, and sustainable interior styling."
+  },
+  price: 529,
+  salePrice: 489,
+  images: [
+    { url: "/assets/products/cork/planter3.webp", altText: "Choco Chip Cork Planter" }
+  ],
+  stock: 100,
+  sku: "CORK-PL-CHOC",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "46019990" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "choco chip planter",
+    "cork plant pot",
+    "eco-friendly decor",
+    "sustainable indoor plants"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.4, count: 15 },
+  seo: {
     metaTitle: "Choco Chip Cork Planter | Eco-Friendly Decoration",
-    metaDescription: "Choco Chip textured cork planter for indoor plants, sustainable and stylish.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Choco chip textured cork planter for indoor plants, sustainable and stylish.",
+    keywords: [
+      "choco chip cork planter",
+      "eco-friendly planter",
+      "sustainable plant pot"
+    ]
   },
-  {
-    productCode: "CORK-PLANT-004",
-    SKU: "CORK-PL-AQUA",
-    name: "Aqua Cork Planter",
-    slug: "aqua-cork-planter",
-    description: "Aqua colored cork planter, perfect for modern eco-friendly home décor and small indoor plants.",
-    HSNCode: "46019990",
-    type: "Eco Product",
-    quantity: 90,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork",
-    weight: 310,
-    dimensions: { length: 15, width: 15, height: 13 },
-    minOrderQty: 3,
-    maxOrderQty: 90,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-PL-004-PRICE",
-      singlePrice: 559,
-      sales_0_20: 539,
-      sales_20_50: 519,
-      sales_50_above: 499,
-      discountPrice: 519,
-      discount: { type: "percentage", value: 7, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/planter4.webp",
-    tags: ["cork planter", "aqua color", "eco-friendly", "home decor"],
-    keywords: ["cork", "planter", "eco product", "aqua"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.5, count: 12 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Aqua Cork Planter",
+  slug: "aqua-cork-planter",
+  description: {
+    short: "Aqua colored cork planter.",
+    long: "Modern aqua-colored cork planter crafted for eco-friendly home décor. Perfect for small indoor plants, office desks, and contemporary sustainable interiors."
+  },
+  price: 559,
+  salePrice: 519,
+  images: [
+    { url: "/assets/products/cork/planter4.webp", altText: "Aqua Cork Planter" }
+  ],
+  stock: 90,
+  sku: "CORK-PL-AQUA",
+  attributes: {
+    material: "Natural Cork"
+  },
+  specifications: [
+    { key: "HSN Code", value: "46019990" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "aqua cork planter",
+    "eco-friendly planter",
+    "modern home decor",
+    "sustainable indoor plants"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.5, count: 12 },
+  seo: {
     metaTitle: "Aqua Cork Planter | Eco-Friendly Indoor Decor",
     metaDescription: "Stylish aqua cork planter for indoor plants, sustainable and modern eco-friendly design.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    keywords: [
+      "aqua cork planter",
+      "eco indoor planter",
+      "modern sustainable decor"
+    ]
   },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = corkPlantDecorateProducts;

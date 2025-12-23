@@ -17,7 +17,7 @@ const hats = [
     subImages: [],
 
     stock: 500,
-    sku: "HAT-ONE-BUCKET",
+    sku: "HAT-BUCKET-REV",
 
     attributes: {
       color: ["Navy/White", "Black/Grey", "Blue/Beige"],

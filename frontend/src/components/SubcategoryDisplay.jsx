@@ -30,23 +30,36 @@ const SubcategoryDisplay = () => {
     <>
       {/* SEO */}
       <Helmet>
-        <title>{categoryData.name} | MF Global Services</title>
+        <title>
+          {categoryData.seo?.metaTitle ||
+            `${categoryData.name} | MF Global Services`}
+        </title>
+
         <meta
           name="description"
           content={
-            categoryData.tag
-              ? categoryData.tag.replace(/\n/g, " ")
-              : `Explore our premium collection of ${categoryData.name} at MF Global Services. Customizable, branded, and corporate-ready gifting options.`
+            categoryData.seo?.metaDescription ||
+            categoryData.description ||
+            `Explore our premium collection of ${categoryData.name} at MF Global Services.`
           }
         />
+
         <meta
           name="keywords"
-          content={`${categoryData.name}, corporate gifts, ${categoryData.name} India, gifting categories, Printkee corporate gifting`}
+          content={
+            categoryData.seo?.keywords?.join(", ") ||
+            `${categoryData.name}, corporate gifts, ${categoryData.name} India`
+          }
         />
+
         <meta property="og:title" content={categoryData.name} />
         <meta
           property="og:description"
-          content={categoryData.tag || `Explore ${categoryData.name} category.`}
+          content={
+            categoryData.seo?.metaDescription ||
+            categoryData.description ||
+            `Explore ${categoryData.name} category.`
+          }
         />
         <meta property="og:url" content={canonicalUrl} />
         <link rel="canonical" href={canonicalUrl} />
@@ -67,7 +80,9 @@ const SubcategoryDisplay = () => {
           </Link>
 
           <h1 className="subcategory-title-3">{categoryData.name}</h1>
-          <p className="subcategory-description-3">{categoryData.tag}</p>
+          <p className="subcategory-description-3">
+            {categoryData.description}
+          </p>
         </div>
 
         <div className="head-img">
@@ -103,7 +118,7 @@ const SubcategoryDisplay = () => {
 
       {/* HIGHLIGHTS */}
       {categoryHighlights[categorySlug] && (
-        <section className="highlights-section" aria-label="Category highlights">
+        <section className="highlights-section">
           <h2 className="highlights-heading">
             {categoryHighlights[categorySlug].heading}
           </h2>
@@ -112,11 +127,11 @@ const SubcategoryDisplay = () => {
             {categoryHighlights[categorySlug].highlights.map(
               (highlight, index) => (
                 <div key={index} className="highlight-card">
-                  <div className="highlight-icon" aria-hidden="true">
-                    {highlight.icon}
-                  </div>
+                  <div className="highlight-icon">{highlight.icon}</div>
                   <h3 className="highlight-title">{highlight.title}</h3>
-                  <p className="highlight-description">{highlight.description}</p>
+                  <p className="highlight-description">
+                    {highlight.description}
+                  </p>
                 </div>
               )
             )}
@@ -126,10 +141,7 @@ const SubcategoryDisplay = () => {
 
       {/* ABOUT + FAQ */}
       {aboutSubcategoryData[categorySlug] && (
-        <section
-          className="aboutsubcat-wrapper"
-          aria-label={`About ${categoryData.name} and FAQs`}
-        >
+        <section className="aboutsubcat-wrapper">
           <div className="aboutsubcat-card">
             <h2 className="aboutsubcat-heading">
               {aboutSubcategoryData[categorySlug].heading}
@@ -140,44 +152,35 @@ const SubcategoryDisplay = () => {
             </p>
 
             <div className="aboutsubcat-faqs">
-              {aboutSubcategoryData[categorySlug].faqs.map(
-                (faq, index) => (
-                  <div
-                    key={index}
-                    className="aboutsubcat-faq-item"
-                    role="region"
-                    aria-label={`FAQ item ${index + 1}`}
+              {aboutSubcategoryData[categorySlug].faqs.map((faq, index) => (
+                <div key={index} className="aboutsubcat-faq-item">
+                  <button
+                    className="aboutsubcat-faq-question"
+                    onClick={(e) => {
+                      const answer = document.getElementById(
+                        `faq-answer-${index}`
+                      );
+                      answer.style.display =
+                        answer.style.display === "block" ? "none" : "block";
+                    }}
                   >
-                    <button
-                      className="aboutsubcat-faq-question"
-                      aria-expanded="false"
-                      aria-controls={`faq-answer-${index}`}
-                      onClick={(e) => {
-                        const answer = document.getElementById(`faq-answer-${index}`);
-                        const expanded = e.target.getAttribute("aria-expanded") === "true";
-                        e.target.setAttribute("aria-expanded", !expanded);
-                        answer.style.display = expanded ? "none" : "block";
-                      }}
-                    >
-                      {faq.question}
-                    </button>
+                    {faq.question}
+                  </button>
 
-                    <div
-                      id={`faq-answer-${index}`}
-                      className="aboutsubcat-faq-answer"
-                      style={{ display: "none" }}
-                    >
-                      <p>{faq.answer}</p>
-                    </div>
+                  <div
+                    id={`faq-answer-${index}`}
+                    className="aboutsubcat-faq-answer"
+                    style={{ display: "none" }}
+                  >
+                    <p>{faq.answer}</p>
                   </div>
-                )
-              )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
       )}
 
-      {/* TESTIMONIALS + CTA */}
       <Testimonials />
       <GetQuoteCTA />
     </>

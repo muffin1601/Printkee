@@ -1,164 +1,197 @@
 const corkYogaProducts = [
-  {
-    productCode: "CORK-YOGA-001",
-    SKU: "CORK-YG-EVA",
-    name: "Yoga Mat Cork Fabric with Eva",
-    slug: "yoga-mat-cork-fabric-eva",
-    description: "Eco-friendly cork fabric yoga mat with EVA backing, providing comfort, grip, and durability for daily practice.",
-    HSNCode: "95069100",
-    type: "Eco Product",
-    quantity: 200,
-    GSTRate: 12,
-    brand: "EcoCraft",
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Yoga Mat Cork Fabric with EVA",
+  slug: "yoga-mat-cork-fabric-eva",
+  description: {
+    short: "Eco-friendly cork yoga mat with EVA backing.",
+    long: "Eco-friendly cork fabric yoga mat with EVA backing designed to provide superior grip, comfort, moisture resistance, and durability for daily yoga, meditation, and fitness practice."
+  },
+  price: 2499,
+  salePrice: 2299,
+  images: [
+    { url: "/assets/products/cork/yoga (1).webp", altText: "Yoga Mat Cork Fabric with EVA" }
+  ],
+  stock: 200,
+  sku: "CORK-YG-EVA",
+  attributes: {
     material: "Natural Cork & EVA",
-    weight: 1500,
-    dimensions: { length: 183, width: 61, height: 0.5 },
-    minOrderQty: 1,
-    maxOrderQty: 200,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-YOGA-001-PRICE",
-      singlePrice: 2499,
-      sales_0_10: 2399,
-      sales_10_50: 2299,
-      sales_50_above: 2199,
-      discountPrice: 2299,
-      discount: { type: "percentage", value: 8, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/yoga (1).webp",
-    tags: ["cork yoga mat", "EVA backing", "eco-friendly", "fitness"],
-    keywords: ["cork", "yoga mat", "eco product", "EVA"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.6, count: 30 },
+    thickness: "5 mm",
+    size: "183 × 61 cm"
+  },
+  specifications: [
+    { key: "HSN Code", value: "95069100" },
+    { key: "GST Rate", value: "12%" },
+    { key: "Usage", value: "Yoga, Meditation, Fitness" }
+  ],
+  tags: [
+    "cork yoga mat",
+    "eva yoga mat",
+    "eco-friendly fitness mat",
+    "non-slip yoga mat"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.6, count: 30 },
+  seo: {
     metaTitle: "Yoga Mat Cork Fabric with EVA | Eco-Friendly Fitness",
     metaDescription: "Sustainable cork yoga mat with EVA backing for comfort, grip, and eco-conscious practice.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    keywords: [
+      "cork yoga mat",
+      "eco yoga mat",
+      "eva backed yoga mat"
+    ]
   },
-  {
-    productCode: "CORK-YOGA-002",
-    SKU: "CORK-YG-LATEX",
-    name: "Cork Fabric Yoga Mat with Latex",
-    slug: "cork-fabric-yoga-mat-latex",
-    description: "Eco-friendly cork yoga mat with latex backing, offering superior grip and durability for yoga enthusiasts.",
-    HSNCode: "95069100",
-    type: "Eco Product",
-    quantity: 180,
-    GSTRate: 12,
-    brand: "EcoCraft",
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Cork Fabric Yoga Mat with Latex",
+  slug: "cork-fabric-yoga-mat-latex",
+  description: {
+    short: "Eco-friendly cork yoga mat with latex backing.",
+    long: "Premium cork fabric yoga mat with natural latex backing offering enhanced grip, stability, durability, and comfort for professional and home yoga practice."
+  },
+  price: 2699,
+  salePrice: 2499,
+  images: [
+    { url: "/assets/products/cork/yoga (4).webp", altText: "Cork Fabric Yoga Mat with Latex" }
+  ],
+  stock: 180,
+  sku: "CORK-YG-LATEX",
+  attributes: {
     material: "Natural Cork & Latex",
-    weight: 1600,
-    dimensions: { length: 183, width: 61, height: 0.5 },
-    minOrderQty: 1,
-    maxOrderQty: 180,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-YOGA-002-PRICE",
-      singlePrice: 2699,
-      sales_0_10: 2599,
-      sales_10_50: 2499,
-      sales_50_above: 2399,
-      discountPrice: 2499,
-      discount: { type: "percentage", value: 7, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/yoga (4).webp",
-    tags: ["cork yoga mat", "latex backing", "eco-friendly", "fitness"],
-    keywords: ["cork", "yoga mat", "eco product", "latex"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.7, count: 25 },
+    thickness: "5 mm",
+    size: "183 × 61 cm"
+  },
+  specifications: [
+    { key: "HSN Code", value: "95069100" },
+    { key: "GST Rate", value: "12%" },
+    { key: "Grip Type", value: "High Grip Natural Latex Base" }
+  ],
+  tags: [
+    "latex cork yoga mat",
+    "eco yoga mat",
+    "natural latex yoga mat",
+    "premium yoga mat"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.7, count: 25 },
+  seo: {
     metaTitle: "Cork Fabric Yoga Mat with Latex | Eco-Friendly Practice",
     metaDescription: "Sustainable cork yoga mat with latex backing for enhanced grip, comfort, and durability.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    keywords: [
+      "latex cork yoga mat",
+      "eco-friendly yoga mat",
+      "premium yoga mat"
+    ]
   },
-  {
-    productCode: "CORK-YOGA-003",
-    SKU: "CORK-YG-RUB3MM",
-    name: "Fully Rubberized 3 mm Yoga Mat",
-    slug: "fully-rubberized-3mm-yoga-mat",
-    description: "Eco-friendly fully rubberized 3mm yoga mat providing superior cushioning, grip, and durability for all fitness levels.",
-    HSNCode: "95069100",
-    type: "Eco Product",
-    quantity: 150,
-    GSTRate: 12,
-    brand: "EcoCraft",
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Fully Rubberized 3 mm Yoga Mat",
+  slug: "fully-rubberized-3mm-yoga-mat",
+  description: {
+    short: "Eco-friendly 3mm rubberized yoga mat.",
+    long: "Eco-friendly fully rubberized 3mm yoga mat offering excellent grip, lightweight design, and reliable cushioning for yoga, pilates, and fitness routines."
+  },
+  price: 2199,
+  salePrice: 1999,
+  images: [
+    { url: "/assets/products/cork/yoga (3).webp", altText: "Fully Rubberized 3 mm Yoga Mat" }
+  ],
+  stock: 150,
+  sku: "CORK-YG-RUB3MM",
+  attributes: {
     material: "Natural Rubber & Cork",
-    weight: 1400,
-    dimensions: { length: 183, width: 61, height: 0.3 },
-    minOrderQty: 1,
-    maxOrderQty: 150,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-YOGA-003-PRICE",
-      singlePrice: 2199,
-      sales_0_10: 2099,
-      sales_10_50: 1999,
-      sales_50_above: 1899,
-      discountPrice: 1999,
-      discount: { type: "percentage", value: 9, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/yoga (3).webp",
-    tags: ["cork yoga mat", "rubberized", "eco-friendly", "fitness"],
-    keywords: ["cork", "yoga mat", "eco product", "rubberized"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: { average: 4.5, count: 20 },
-    metaTitle: "Fully Rubberized 3 mm Yoga Mat | Eco-Friendly Fitness",
-    metaDescription: "Sustainable fully rubberized 3mm cork yoga mat offering comfort, grip, and durability.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    thickness: "3 mm",
+    size: "183 × 61 cm"
   },
-  {
-    productCode: "CORK-YOGA-004",
-    SKU: "CORK-YG-RUB-LATEX",
-    name: "Cork Rubberized Yoga Mat with Latex",
-    slug: "cork-rubberized-yoga-mat-latex",
-    description: "Eco-friendly cork rubberized yoga mat with latex for superior durability, excellent grip, and a premium yoga experience.",
-    HSNCode: "95069100",
-    type: "Eco Product",
-    quantity: 140,
-    GSTRate: 12,
-    brand: "EcoCraft",
+  specifications: [
+    { key: "HSN Code", value: "95069100" },
+    { key: "GST Rate", value: "12%" },
+    { key: "Best For", value: "Travel & Lightweight Practice" }
+  ],
+  tags: [
+    "rubberized yoga mat",
+    "3mm yoga mat",
+    "eco fitness mat",
+    "travel yoga mat"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.5, count: 20 },
+  seo: {
+    metaTitle: "Fully Rubberized 3mm Yoga Mat | Eco-Friendly Fitness",
+    metaDescription: "Sustainable fully rubberized 3mm cork yoga mat offering comfort, grip, and durability.",
+    keywords: [
+      "3mm yoga mat",
+      "rubber yoga mat",
+      "eco-friendly yoga mat"
+    ]
+  },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Cork Rubberized Yoga Mat with Latex",
+  slug: "cork-rubberized-yoga-mat-latex",
+  description: {
+    short: "Premium cork rubberized yoga mat with latex.",
+    long: "Premium eco-friendly cork rubberized yoga mat with latex backing, engineered for superior grip, durability, sweat resistance, and high-performance yoga practice."
+  },
+  price: 2899,
+  salePrice: 2699,
+  images: [
+    { url: "/assets/products/cork/yoga (2).webp", altText: "Cork Rubberized Yoga Mat with Latex" }
+  ],
+  stock: 140,
+  sku: "CORK-YG-RUB-LATEX",
+  attributes: {
     material: "Natural Cork, Rubber & Latex",
-    weight: 1700,
-    dimensions: { length: 183, width: 61, height: 0.4 },
-    minOrderQty: 1,
-    maxOrderQty: 140,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-YOGA-004-PRICE",
-      singlePrice: 2899,
-      sales_0_10: 2799,
-      sales_10_50: 2699,
-      sales_50_above: 2599,
-      discountPrice: 2699,
-      discount: { type: "percentage", value: 7, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/yoga (2).webp",
-    tags: ["cork yoga mat", "rubberized yoga mat", "latex backing", "eco-friendly"],
-    keywords: ["cork", "yoga mat", "latex", "rubberized", "eco product"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.8, count: 22 },
+    thickness: "4 mm",
+    size: "183 × 61 cm"
+  },
+  specifications: [
+    { key: "HSN Code", value: "95069100" },
+    { key: "GST Rate", value: "12%" },
+    { key: "Grip Level", value: "Ultra High Grip" }
+  ],
+  tags: [
+    "premium cork yoga mat",
+    "rubberized yoga mat",
+    "latex yoga mat",
+    "eco-friendly fitness gear"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.8, count: 22 },
+  seo: {
     metaTitle: "Cork Rubberized Yoga Mat with Latex | Premium Eco-Friendly Mat",
     metaDescription: "Premium cork rubberized yoga mat with latex for durability, superior grip, and eco-conscious fitness practice.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
-  }
+    keywords: [
+      "premium cork yoga mat",
+      "latex rubber yoga mat",
+      "eco fitness mat"
+    ]
+  },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = corkYogaProducts;

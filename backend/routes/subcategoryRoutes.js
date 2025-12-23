@@ -1,41 +1,33 @@
 const express = require("express");
 const router = express.Router();
-const Category = require("../models/Category");   
 
+const Category = require("../models/Category");
+const Subcategory = require("../models/Subcategory");
 
-
+/**
+ * RELATED SUBCATEGORIES
+ * URL: /subcategories/related-subcategories/:subcatSlug
+ */
 router.get("/subcategories/related-subcategories/:subcatSlug", async (req, res) => {
   try {
     const { subcatSlug } = req.params;
 
-    // Find any category that contains this subcategory
-    const category = await Category.findOne({ "subcategories.slug": subcatSlug });
-
-    if (!category) {
-      return res.status(404).json({ error: "Category not found" });
-    }
-
-    // Get current subcategory
-    const currentSub = category.subcategories.find(
-      (sub) => sub.slug === subcatSlug
+    // 1. Find current subcategory
+    const currentSub = await Subcategory.findOne({ slug: subcatSlug }).populate(
+      "category",
+      "name slug"
     );
 
     if (!currentSub) {
       return res.status(404).json({ error: "Subcategory not found" });
     }
 
-    // Build related list
-    const related = category.subcategories
-      .filter((sub) => sub.slug !== subcatSlug && sub.isActive)
-      .map((sub) => ({
-        _id: sub._id,
-        name: sub.name,
-        slug: sub.slug,
-        image: sub.image,
-        hoverImage: sub.hoverImage,
-        tag: sub.tag,
-        isFeatured: sub.isFeatured,
-      }));
+    // 2. Find related subcategories from same category
+    const relatedSubcategories = await Subcategory.find({
+      category: currentSub.category._id,
+      _id: { $ne: currentSub._id },
+      isActive: true,
+    }).select("name slug image hoverImage tag isFeatured");
 
     res.json({
       currentSubcategory: {
@@ -46,8 +38,9 @@ router.get("/subcategories/related-subcategories/:subcatSlug", async (req, res) 
         hoverImage: currentSub.hoverImage,
         tag: currentSub.tag,
         isFeatured: currentSub.isFeatured,
+        category: currentSub.category,
       },
-      relatedSubcategories: related,
+      relatedSubcategories,
     });
   } catch (err) {
     console.error("❌ Error fetching related subcategories:", err);
@@ -55,45 +48,53 @@ router.get("/subcategories/related-subcategories/:subcatSlug", async (req, res) 
   }
 });
 
-
-
+/**
+ * FETCH SUBCATEGORY + PRODUCTS
+ * URL: /subcategory-fetch/:categorySlug/:subcategorySlug
+ */
 router.get("/subcategory-fetch/:categorySlug/:subcategorySlug", async (req, res) => {
   try {
     const { categorySlug, subcategorySlug } = req.params;
 
-    // Find category
-    const categoryDoc = await Category.findOne({ slug: categorySlug });
-    if (!categoryDoc) {
+    // 1. Find category
+    const category = await Category.findOne({ slug: categorySlug });
+    if (!category) {
       return res.status(404).json({ error: "Category not found" });
     }
 
-    // Find subcategory inside this category
-    const subcategoryDoc = categoryDoc.subcategories.find(
-      (sub) => sub.slug === subcategorySlug
-    );
-    if (!subcategoryDoc) {
+    // 2. Find subcategory under this category
+    const subcategory = await Subcategory.findOne({
+      slug: subcategorySlug,
+      category: category._id,
+    }).populate({
+      path: "products",
+      match: { isActive: true },
+      select:
+        "name slug price salePrice images stock ratings isFeatured seo",
+    });
+
+    if (!subcategory) {
       return res.status(404).json({ error: "Subcategory not found" });
     }
 
     res.json({
       category: {
-        _id: categoryDoc._id,
-        name: categoryDoc.name,
-        slug: categoryDoc.slug,
-        tag: categoryDoc.tag,
+        _id: category._id,
+        name: category.name,
+        slug: category.slug,
       },
       subcategory: {
-        _id: subcategoryDoc._id,
-        name: subcategoryDoc.name,
-        slug: subcategoryDoc.slug,
-        tag: subcategoryDoc.tag,
-        description: subcategoryDoc.description,
+        _id: subcategory._id,
+        name: subcategory.name,
+        slug: subcategory.slug,
+        description: subcategory.description,
+        tag: subcategory.tag,
       },
-      products: subcategoryDoc.products || [],
+      products: subcategory.products,
     });
   } catch (err) {
-    console.error("❌ Error fetching products by slug:", err);
-    res.status(500).json({ error: "Error fetching products" });
+    console.error("❌ Error fetching subcategory:", err);
+    res.status(500).json({ error: "Error fetching subcategory" });
   }
 });
 

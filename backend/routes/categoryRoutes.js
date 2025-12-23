@@ -1,14 +1,18 @@
 const express = require("express");
 const router = express.Router();
+
 const Category = require("../models/Category");
+const Subcategory = require("../models/Subcategory");
 
 
 router.get("/categories", async (req, res) => {
   try {
-    const categories = await Category.find(
-      {},
-      "-subcategories.products" 
-    ).sort({ sortOrder: 1 });
+    const categories = await Category.find({})
+      .populate({
+        path: "subcategories",
+        select: "name slug image description seo",
+      })
+      .sort({ createdAt: 1 });
 
     res.json(categories);
   } catch (err) {
@@ -20,9 +24,12 @@ router.get("/categories", async (req, res) => {
 
 router.get("/categories/:slug", async (req, res) => {
   try {
-    const slug = req.params.slug;
+    const { slug } = req.params;
 
-    const category = await Category.findOne({ slug });
+    const category = await Category.findOne({ slug }).populate({
+      path: "subcategories",
+      select: "name slug image description seo",
+    });
 
     if (!category) {
       return res.status(404).json({ message: "Category not found" });
@@ -35,20 +42,30 @@ router.get("/categories/:slug", async (req, res) => {
   }
 });
 
-
+/**
+ * GET SUBCATEGORY BY CATEGORY SLUG + SUBCATEGORY SLUG
+ * - Returns subcategory + products
+ */
 router.get("/categories/:slug/:subcategorySlug", async (req, res) => {
   try {
     const { slug, subcategorySlug } = req.params;
 
+    // 1. Find category
     const category = await Category.findOne({ slug });
-
     if (!category) {
       return res.status(404).json({ message: "Category not found" });
     }
 
-    const subcategory = category.subcategories.find(
-      (sc) => sc.slug === subcategorySlug
-    );
+    // 2. Find subcategory belonging to that category
+    const subcategory = await Subcategory.findOne({
+      slug: subcategorySlug,
+      category: category._id,
+    }).populate({
+      path: "products",
+      match: { isActive: true },
+      select:
+        "name slug price salePrice images stock ratings isFeatured seo",
+    });
 
     if (!subcategory) {
       return res.status(404).json({ message: "Subcategory not found" });

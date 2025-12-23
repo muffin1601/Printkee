@@ -1,164 +1,182 @@
 const corkGiftBoxProducts = [
-  {
-    productCode: "CORK-GIFT-001",
-    SKU: "CORK-GB-001",
-    name: "Cork Gift Boxes",
-    slug: "cork-gift-boxes",
-    description: "Eco-friendly cork gift boxes, perfect for packaging small gifts in a sustainable way.",
-    HSNCode: "48191000",
-    type: "Eco Product",
-    quantity: 200,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Cardboard",
-    weight: 300,
-    dimensions: { length: 20, width: 15, height: 10 },
-    minOrderQty: 5,
-    maxOrderQty: 200,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-GIFT-001-PRICE",
-      singlePrice: 399,
-      sales_0_20: 379,
-      sales_20_50: 359,
-      sales_50_above: 339,
-      discountPrice: 359,
-      discount: { type: "percentage", value: 10, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/box (1).webp",
-    tags: ["cork gift box", "eco-friendly packaging", "sustainable gift"],
-    keywords: ["cork", "gift box", "eco product", "packaging"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.6, count: 25 },
+
+/* ================= PRODUCT 1 ================= */
+
+{
+  name: "Cork Gift Boxes",
+  slug: "cork-gift-boxes",
+  description: {
+    short: "Eco-friendly cork gift boxes.",
+    long: "Eco-friendly cork gift boxes ideal for sustainable packaging of small gifts, corporate hampers, and eco-conscious gifting solutions."
+  },
+  price: 399,
+  salePrice: 359,
+  images: [
+    { url: "/assets/products/cork/box (1).webp", altText: "Cork Gift Boxes" }
+  ],
+  stock: 200,
+  sku: "CORK-GB-001",
+  attributes: {
+    material: "Natural Cork & Cardboard"
+  },
+  specifications: [
+    { key: "HSN Code", value: "48191000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork gift box",
+    "eco-friendly packaging",
+    "sustainable gift boxes",
+    "corporate eco packaging"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.6, count: 25 },
+  seo: {
     metaTitle: "Cork Gift Boxes | Eco-Friendly Packaging",
-    metaDescription: "Sustainable cork gift boxes for eco-conscious gifting and packaging.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Sustainable cork gift boxes ideal for eco-conscious gifting and premium packaging.",
+    keywords: [
+      "cork gift boxes",
+      "eco friendly packaging",
+      "sustainable gift packaging"
+    ]
   },
-  {
-    productCode: "CORK-GIFT-002",
-    SKU: "CORK-GB-002",
-    name: "Cork Gift Box",
-    slug: "cork-gift-box",
-    description: "Single eco-friendly cork gift box suitable for premium gifting and sustainable packaging.",
-    HSNCode: "48191000",
-    type: "Eco Product",
-    quantity: 150,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Cardboard",
-    weight: 250,
-    dimensions: { length: 18, width: 13, height: 8 },
-    minOrderQty: 5,
-    maxOrderQty: 150,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-GIFT-002-PRICE",
-      singlePrice: 299,
-      sales_0_20: 279,
-      sales_20_50: 259,
-      sales_50_above: 239,
-      discountPrice: 259,
-      discount: { type: "percentage", value: 12, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/box (2).webp",
-    tags: ["cork gift box", "eco-friendly packaging", "sustainable gift"],
-    keywords: ["cork", "gift box", "eco product", "single box"],
-    isFeatured: false,
-    isPublished: true,
-    ratings: { average: 4.5, count: 20 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 2 ================= */
+
+{
+  name: "Cork Gift Box",
+  slug: "cork-gift-box",
+  description: {
+    short: "Single eco-friendly cork gift box.",
+    long: "Single premium cork gift box designed for sustainable packaging of gifts, corporate giveaways, and eco-friendly hampers."
+  },
+  price: 299,
+  salePrice: 259,
+  images: [
+    { url: "/assets/products/cork/box (2).webp", altText: "Cork Gift Box" }
+  ],
+  stock: 150,
+  sku: "CORK-GB-002",
+  attributes: {
+    material: "Natural Cork & Cardboard"
+  },
+  specifications: [
+    { key: "HSN Code", value: "48191000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "single cork gift box",
+    "eco-friendly packaging",
+    "sustainable gift box"
+  ],
+  isFeatured: false,
+  isActive: true,
+  ratings: { average: 4.5, count: 20 },
+  seo: {
     metaTitle: "Cork Gift Box | Sustainable Eco Packaging",
-    metaDescription: "Single eco-friendly cork gift box ideal for premium sustainable gifting.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Eco-friendly cork gift box ideal for premium sustainable gifting.",
+    keywords: [
+      "cork gift box",
+      "eco packaging",
+      "sustainable gift box"
+    ]
   },
-  {
-    productCode: "CORK-GIFT-003",
-    SKU: "CORK-WINE-001",
-    name: "Cork Wine Boxes",
-    slug: "cork-wine-boxes",
-    description: "Eco-friendly cork wine boxes, designed to protect wine bottles and provide a sustainable gifting solution.",
-    HSNCode: "48191000",
-    type: "Eco Product",
-    quantity: 100,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Cardboard",
-    weight: 500,
-    dimensions: { length: 35, width: 12, height: 12 },
-    minOrderQty: 2,
-    maxOrderQty: 100,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-WINE-001-PRICE",
-      singlePrice: 599,
-      sales_0_20: 579,
-      sales_20_50: 559,
-      sales_50_above: 539,
-      discountPrice: 559,
-      discount: { type: "percentage", value: 7, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/box (3).webp",
-    tags: ["cork wine box", "eco-friendly packaging", "sustainable gift"],
-    keywords: ["cork", "wine box", "eco product", "gift box"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.7, count: 18 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 3 ================= */
+
+{
+  name: "Cork Wine Boxes",
+  slug: "cork-wine-boxes",
+  description: {
+    short: "Eco-friendly cork wine boxes.",
+    long: "Sustainable cork wine boxes designed to protect wine bottles while offering an elegant and eco-friendly gifting solution."
+  },
+  price: 599,
+  salePrice: 559,
+  images: [
+    { url: "/assets/products/cork/box (3).webp", altText: "Cork Wine Boxes" }
+  ],
+  stock: 100,
+  sku: "CORK-WINE-001",
+  attributes: {
+    material: "Natural Cork & Cardboard"
+  },
+  specifications: [
+    { key: "HSN Code", value: "48191000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork wine box",
+    "eco-friendly wine packaging",
+    "sustainable wine gift"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.7, count: 18 },
+  seo: {
     metaTitle: "Cork Wine Boxes | Sustainable Gift Packaging",
-    metaDescription: "Protect your wine bottles sustainably with eco-friendly cork wine boxes, perfect for gifting.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Eco-friendly cork wine boxes for sustainable wine gifting and premium packaging.",
+    keywords: [
+      "cork wine box",
+      "eco wine packaging",
+      "sustainable wine gift"
+    ]
   },
-  {
-    productCode: "CORK-GIFT-004",
-    SKU: "CORK-WINE-002",
-    name: "Cork Wine Gift Box",
-    slug: "cork-wine-gift-box",
-    description: "Premium eco-friendly cork wine gift box, perfect for gifting wine in a sustainable and stylish way.",
-    HSNCode: "48191000",
-    type: "Eco Product",
-    quantity: 80,
-    GSTRate: 12,
-    brand: "EcoCraft",
-    material: "Natural Cork & Cardboard",
-    weight: 520,
-    dimensions: { length: 36, width: 13, height: 13 },
-    minOrderQty: 2,
-    maxOrderQty: 80,
-    availabilityDate: new Date(),
-    price: {
-      priceCode: "CORK-WINE-002-PRICE",
-      singlePrice: 699,
-      sales_0_20: 679,
-      sales_20_50: 659,
-      sales_50_above: 639,
-      discountPrice: 659,
-      discount: { type: "percentage", value: 6, validUntil: new Date("2025-12-31") },
-      currency: "INR",
-      taxIncluded: true,
-      effectiveFrom: new Date(),
-      effectiveTo: new Date("2025-12-31"),
-    },
-    image: "/assets/products/cork/box (4).webp",
-    tags: ["cork wine gift box", "eco-friendly packaging", "premium sustainable gift"],
-    keywords: ["cork", "wine gift box", "eco product", "gift box"],
-    isFeatured: true,
-    isPublished: true,
-    ratings: { average: 4.8, count: 12 },
+  category: null,
+  subcategory: null
+},
+
+/* ================= PRODUCT 4 ================= */
+
+{
+  name: "Cork Wine Gift Box",
+  slug: "cork-wine-gift-box",
+  description: {
+    short: "Premium cork wine gift box.",
+    long: "Premium eco-friendly cork wine gift box ideal for stylish, sustainable wine gifting for corporate and personal occasions."
+  },
+  price: 699,
+  salePrice: 659,
+  images: [
+    { url: "/assets/products/cork/box (4).webp", altText: "Cork Wine Gift Box" }
+  ],
+  stock: 80,
+  sku: "CORK-WINE-002",
+  attributes: {
+    material: "Natural Cork & Cardboard"
+  },
+  specifications: [
+    { key: "HSN Code", value: "48191000" },
+    { key: "GST Rate", value: "12%" }
+  ],
+  tags: [
+    "cork wine gift box",
+    "premium eco packaging",
+    "sustainable wine gifting"
+  ],
+  isFeatured: true,
+  isActive: true,
+  ratings: { average: 4.8, count: 12 },
+  seo: {
     metaTitle: "Cork Wine Gift Box | Premium Eco-Friendly Packaging",
-    metaDescription: "Stylish and sustainable cork wine gift box, ideal for gifting wine in an eco-conscious way.",
-    audit: { createdBy: "admin", updatedBy: "admin" },
+    metaDescription: "Premium cork wine gift box for sustainable and elegant wine gifting.",
+    keywords: [
+      "cork wine gift box",
+      "eco wine packaging",
+      "premium sustainable gift box"
+    ]
   },
+  category: null,
+  subcategory: null
+}
+
 ];
 
 module.exports = corkGiftBoxProducts;
