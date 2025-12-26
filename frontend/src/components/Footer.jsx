@@ -17,7 +17,7 @@ const Footer = () => {
           />
 
           <p className="footer-description">
-            MF Global Services is your trusted partner in corporate gifting.
+            Printkee is your trusted partner in corporate gifting.
             We provide end-to-end customized gifting solutions that help brands
             create meaningful connections — with premium packaging, high-quality
             products, and timely delivery.
@@ -26,7 +26,7 @@ const Footer = () => {
           <a
             href="/about"
             className="footer-about-btn"
-            aria-label="Read more about MF Global Services"
+            aria-label="Read more about Printkee"
           >
             Read More <span className="sr-only"> about Printkee</span>
           </a>
