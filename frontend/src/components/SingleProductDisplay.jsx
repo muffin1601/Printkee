@@ -51,8 +51,8 @@ const SingleProductDisplay = () => {
 
         setMainImage(
           res.data.product.images?.[0]?.url ||
-            res.data.product.subImages?.[0]?.url ||
-            ""
+          res.data.product.subImages?.[0]?.url ||
+          ""
         );
       } catch (err) {
         console.error("Failed to fetch product", err);
@@ -113,9 +113,8 @@ const SingleProductDisplay = () => {
                       src={img.url}
                       loading="lazy"
                       alt={img.altText || productData.name}
-                      className={`thumbnail ${
-                        mainImage === img.url ? "active" : ""
-                      }`}
+                      className={`thumbnail ${mainImage === img.url ? "active" : ""
+                        }`}
                       onClick={() => setMainImage(img.url)}
                     />
                   ))}
@@ -221,24 +220,55 @@ const SingleProductDisplay = () => {
 
           <table className="spec-table">
             <tbody>
+              {/* SKU */}
               {productData.sku && (
-                <tr><td>SKU</td><td>{productData.sku}</td></tr>
+                <tr>
+                  <td>SKU</td>
+                  <td>{productData.sku}</td>
+                </tr>
               )}
+
+              {/* MATERIAL */}
               {productData.attributes?.material && (
-                <tr><td>Material</td><td>{productData.attributes.material}</td></tr>
+                <tr>
+                  <td>Material</td>
+                  <td>{productData.attributes.material}</td>
+                </tr>
               )}
+
+              {/* SIZES */}
               {productData.attributes?.size?.length > 0 && (
                 <tr>
                   <td>Available Sizes</td>
                   <td>{productData.attributes.size.join(", ")}</td>
                 </tr>
               )}
+
+              {/* COLORS */}
               {productData.attributes?.color?.length > 0 && (
                 <tr>
                   <td>Available Colours</td>
                   <td>{productData.attributes.color.join(", ")}</td>
                 </tr>
               )}
+
+              {/* ADDITIONAL INFO */}
+              {productData.additionalInfo?.length > 0 &&
+                productData.additionalInfo.map((info, i) => (
+                  <tr key={`add-${i}`}>
+                    <td>{info.label}</td>
+                    <td>{info.value}</td>
+                  </tr>
+                ))}
+
+              {/* SPECIFICATIONS */}
+              {productData.specifications?.length > 0 &&
+                productData.specifications.map((spec, i) => (
+                  <tr key={`spec-${i}`}>
+                    <td>{spec.key}</td>
+                    <td>{spec.value}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

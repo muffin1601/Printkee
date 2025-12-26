@@ -1,6 +1,6 @@
-import React from "react";
+import React  from "react";
 import Navbar from "./components/Navbar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import SubcategoryPage from "./pages/SubcategoryPage";
 import SingleProductPage from "./pages/SingleProductPage";
@@ -23,13 +23,25 @@ import BrandsDisplay from "./pages/BrandsDisplay";
 import ScrollToTop from "./components/ScrollToTop";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Login from "./pages/Login";
+import ProtectedRoute from "./utils/ProtectedRoute";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import HeroManagerPage from "./pages/admin/HeroManagerPage";
+import CategoryManager from "./pages/admin/CategoryManagerPage";
+import SubcategoryManager from "./pages/admin/SubcategoryManagerPage";
+import ProductManager from "./pages/admin/ProductManagerPage";
 
 function App() {
+  const location = useLocation();
+
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
     <>
-      <Navbar />
+      {/* Navbar */}
+      {!isAdminRoute && <Navbar />}
 
-      {/* MAIN LANDMARK FIX */}
+      {/* MAIN CONTENT */}
       <main id="main-content" role="main">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -51,19 +63,31 @@ function App() {
           />
           <Route path="/customize/:productType" element={<CustomizerSVG />} />
           <Route path="/customize" element={<CustomizerAll />} />
+          <Route path="/login" element={<Login />} />
+
+          {/* ADMIN ROUTES */}
+          <Route path="/admin" element={<ProtectedRoute />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="banners" element={<HeroManagerPage />} />
+            <Route path="categories" element={<CategoryManager />} />
+            <Route path="subcategories" element={<SubcategoryManager />} />
+            <Route path="products" element={<ProductManager />} />
+          </Route>
         </Routes>
       </main>
-      {/* END MAIN */}
 
-      <FloatingButton />
+      {/* Floating Button */}
+      {!isAdminRoute && <FloatingButton />}
+
+      {/* Footer */}
+      {!isAdminRoute && <Footer />}
+
       <ScrollToTop />
-      <Footer />
 
       <ToastContainer
         position="bottom-right"
         autoClose={4000}
         hideProgressBar={false}
-        newestOnTop={false}
         closeOnClick
         pauseOnFocusLoss
         draggable
@@ -74,4 +98,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;

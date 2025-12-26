@@ -102,6 +102,14 @@ const Navbar = () => {
           Visitors Today: <span>{visitorCount}</span>
         </div>
 
+        <button
+          className="login-btn"
+          onClick={() => navigate("/login")}
+          aria-label="Login to account"
+        >
+          Login
+        </button>
+
         {/* Mobile controls */}
         <div className="mobile-controls mobile-only">
           <button

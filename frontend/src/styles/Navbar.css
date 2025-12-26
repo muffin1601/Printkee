@@ -65,6 +65,23 @@
   transition: color 0.2s;
 }
 
+.login-btn {
+  padding: 8px 20px;
+  background-color: #4b2061;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-btn:hover {
+  background-color: #3a0a5d;
+}
+
 /* Mobile controls */
 .mobile-controls {
   display: flex;

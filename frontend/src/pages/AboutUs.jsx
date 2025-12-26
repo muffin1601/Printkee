@@ -16,9 +16,28 @@ const AboutUs = () => {
 
       <section className="aboutus-hero">
         <div className="aboutus-text">
-          <h1>About MF Global Services</h1>
+          <h1>About Printkee</h1>
           <p>
-            At MF Global Services, we specialize in premium corporate gifting solutions tailored to enhance your brand identity. With years of expertise, we bring creativity, quality, and reliability to every gift—whether it's for employees, clients, or events.
+           Printkee is your trusted destination for custom corporate gifting and
+promotional merchandise, designed to help brands stand out and leave a
+lasting impression. We specialize in high-quality, customized products that
+align perfectly with your brand identity and business goals.
+With a strong focus on creativity, quality, and reliability, Printkee works with
+corporates, startups, educational institutions, and event organizers to
+deliver end-to-end branding solutions. From product selection and
+customization to production and on-time delivery, we ensure a smooth and
+professional experience at every step.
+Our extensive product range includes custom apparel, bags, drinkware,
+eco-friendly products, office and writing essentials, technology accessories,
+trophies, and curated welcome kits. Whether it’s employee onboarding,
+corporate events, client gifting, promotional campaigns, or brand
+activations, Printkee provides solutions that make an impact.
+At Printkee, we believe corporate gifting is more than just a product—it’s a
+powerful branding tool. Our commitment to premium quality, attention to
+detail, and customer satisfaction has made us a preferred partner for
+businesses across India.
+Let Printkee help you transform your brand ideas into memorable,
+customized experiences.
           </p>
         </div>
         <img
@@ -30,7 +49,7 @@ const AboutUs = () => {
         />
       </section>
 
-      <section className="aboutus-section">
+      {/* <section className="aboutus-section">
         <h2>Who We Are</h2>
         <div className="aboutus-flex">
           <p>
@@ -38,7 +57,7 @@ const AboutUs = () => {
           </p>
           <img src="/assets/2.webp" height="300" width="500" alt="Our team working at MF Global Services" />
         </div>
-      </section>
+      </section> */}
 
       <section className="aboutus-section">
         <h2>Our Mission</h2>
