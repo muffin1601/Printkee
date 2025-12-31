@@ -63,7 +63,7 @@ const Footer = () => {
 
           <div className="footer-socials">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/1DF9K4wAHX/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit our Facebook page"
@@ -72,21 +72,12 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/printkee?igsh=MThmZDVhamJ1dGp6Mw=="
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit our Instagram profile"
             >
               <FaInstagram aria-hidden="true" />
-            </a>
-
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit our Twitter profile"
-            >
-              <FaTwitter aria-hidden="true" />
             </a>
 
             <a
@@ -103,7 +94,7 @@ const Footer = () => {
 
       {/* Footer Bottom Bar */}
       <div className="footer-bottom">
-        &copy; {new Date().getFullYear()} MF Global Services. All rights reserved.
+        &copy; {new Date().getFullYear()} Printkee. All rights reserved.
       </div>
     </footer>
   );
