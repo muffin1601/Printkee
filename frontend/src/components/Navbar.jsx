@@ -10,10 +10,10 @@ import {
   FaEnvelope,
   FaChevronDown,
   FaChevronUp,
+  FaPhoneAlt,
 } from "react-icons/fa";
 import { IoMenu, IoClose, IoSearch } from "react-icons/io5";
 import navbarSubcategories from "../data/list";
-import axios from "axios";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
@@ -24,16 +24,8 @@ const Navbar = () => {
 
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All Categories");
-  const [visitorCount, setVisitorCount] = useState(0);
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/visitors/count`)
-      .then((res) => setVisitorCount(res.data.totalVisitors))
-      .catch(() => console.warn("⚠ Visitor API failed"));
-  }, []);
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
@@ -98,8 +90,10 @@ const Navbar = () => {
           </select> */}
         </div>
 
-        <div className="navbar-visitor-count desktop-only">
-          Visitors Today: <span>{visitorCount}</span>
+        <div className="navbar-phone desktop-only">
+          <a href="tel:8800904543" className="phone-link">
+            <FaPhoneAlt /> 88009 04543
+          </a>
         </div>
 
         <button
@@ -298,7 +292,9 @@ const Navbar = () => {
         </ul>
 
         <div className="side-menu-footer">
-          <p>Visitors Today: {visitorCount}</p>
+          <a href="tel:8800904543" className="phone-link">
+            <FaPhoneAlt /> 88009 04543
+          </a>
         </div>
       </nav>
 

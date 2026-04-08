@@ -54,15 +54,40 @@
   position: relative;
 }
 
-.navbar-visitor-count {
+.navbar-phone {
   display: flex;
   align-items: center;
-  gap: 6px;
-  cursor: pointer;
+}
+
+.navbar-phone .phone-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: #4b2061;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
   transition: color 0.2s;
+}
+
+.navbar-phone .phone-link:hover {
+  color: #f39c12;
+}
+
+.side-menu-footer .phone-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #4b2061;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.side-menu-footer .phone-link:hover {
+  color: #f39c12;
 }
 
 .login-btn {

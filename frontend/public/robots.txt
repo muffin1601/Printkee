@@ -11,9 +11,6 @@ Disallow: /login
 # Block internal search pages
 Disallow: /search
 
-# Block customization tool if not meant for SEO
-Disallow: /customize
-
 # Allow blog section
 Allow: /blog/
 Allow: /blogs/
