@@ -1,8 +1,8 @@
 import "@/styles/Brands.css";
-import brandsList from "../../../data/brandsspl";
 import Link from "next/link";
 
 const BASE = "https://printkee.com";
+const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 
 export const metadata = {
   title: "Our Brand Partners | MF Global Services",
@@ -33,7 +33,15 @@ export const metadata = {
   },
 };
 
-export default function Brands() {
+export default async function BrandsPage() {
+  let brands = [];
+  try {
+    const res = await fetch(`${BACKEND}/api/brands`, { cache: "no-store" });
+    if (res.ok) brands = await res.json();
+  } catch (err) {
+    console.error("Brands page: failed to fetch brands:", err.message);
+  }
+
   return (
     <div className="brands-container">
       <h1 className="brands-heading">Brands We Offer</h1>
@@ -42,11 +50,11 @@ export default function Brands() {
       </p>
 
       <div className="brands-grid" role="list">
-        {brandsList.map((brand, index) => (
+        {brands.map((brand) => (
           <Link
             href={`/brands/${brand.slug}`}
             className="brand-card"
-            key={index}
+            key={brand._id || brand.slug}
             role="listitem"
             aria-label={`View ${brand.name} products`}
           >

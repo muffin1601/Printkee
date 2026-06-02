@@ -4,7 +4,6 @@ import Link from "next/link";
 import axios from "axios";
 import "../styles/BrandsDisplay.css";
 import brandProducts from "../data/brandProducts";
-import brandsList from "../data/brandsspl";
 
 const DiwaliBanner = () => (
   <Link href="/diwali-special" className="cta-banner-4" aria-label="View Diwali special offers">
@@ -16,14 +15,12 @@ const DiwaliBanner = () => (
   </Link>
 );
 
-const BrandsDisplayClient = ({ brand }) => {
+const BrandsDisplayClient = ({ brand, brandInfo }) => {
   const products = brandProducts[brand] || [];
-  const brandInfo = brandsList.find((b) => b.slug === brand);
-
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false);
   const [leadData, setLeadData] = useState({ name: "", company: "", email: "", phone: "" });
 
-  const firstProducts = products.slice(0, 5);
+  const firstProducts     = products.slice(0, 5);
   const remainingProducts = products.slice(5);
 
   if (!brandInfo) return <p className="not-found">Brand not found.</p>;
@@ -80,7 +77,11 @@ const BrandsDisplayClient = ({ brand }) => {
           </button>
         </div>
         <div className="brand-logo-wrapper">
-          <img src={brandInfo.logo} alt={`${brandInfo.name} brand logo`} className="brand-logo-7" />
+          <img
+            src={brandInfo.logo}
+            alt={`${brandInfo.name} brand logo`}
+            className="brand-logo-7"
+          />
         </div>
       </div>
 
@@ -126,8 +127,8 @@ const BrandsDisplayClient = ({ brand }) => {
               <label htmlFor="lead-phone">Phone Number</label>
               <input id="lead-phone" type="tel" name="phone" value={leadData.phone} onChange={handleChange} placeholder="Phone Number" required />
               <div className="lead-actions-2">
-                <button type="submit" className="lead-submit-2" aria-label="Submit form and download catalogue">Submit & Download</button>
-                <button type="button" className="lead-cancel-2" aria-label="Cancel" onClick={() => setIsLeadFormOpen(false)}>Cancel</button>
+                <button type="submit" className="lead-submit-2">Submit & Download</button>
+                <button type="button" className="lead-cancel-2" onClick={() => setIsLeadFormOpen(false)}>Cancel</button>
               </div>
             </form>
           </div>

@@ -1,11 +1,20 @@
 import BrandsDisplayClient from "../../../../components/BrandsDisplayClient";
-import brandsList from "../../../../data/brandsspl";
 
 const BASE = "https://printkee.com";
+const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
+
+async function getBrand(slug) {
+  try {
+    const res = await fetch(`${BACKEND}/api/brands/${slug}`, { cache: "no-store" });
+    return res.ok ? res.json() : null;
+  } catch {
+    return null;
+  }
+}
 
 export async function generateMetadata({ params }) {
   const { brand } = await params;
-  const brandInfo = brandsList.find((b) => b.slug === brand);
+  const brandInfo = await getBrand(brand);
   if (!brandInfo) return { title: "Brand Not Found" };
 
   return {
@@ -19,19 +28,20 @@ export async function generateMetadata({ params }) {
       url: `${BASE}/brands/${brand}`,
       type: "website",
       images: brandInfo.logo
-        ? [{ url: brandInfo.logo, alt: `${brandInfo.name} brand` }]
+        ? [{ url: `${BASE}${brandInfo.logo}`, alt: `${brandInfo.name} brand` }]
         : [],
     },
     twitter: {
       card: "summary_large_image",
       title: `${brandInfo.name} Corporate Gifts | MF Global Services`,
       description: brandInfo.description,
-      images: brandInfo.logo ? [brandInfo.logo] : [],
+      images: brandInfo.logo ? [`${BASE}${brandInfo.logo}`] : [],
     },
   };
 }
 
 export default async function BrandsDisplayPage({ params }) {
   const { brand } = await params;
-  return <BrandsDisplayClient brand={brand} />;
+  const brandInfo = await getBrand(brand);
+  return <BrandsDisplayClient brand={brand} brandInfo={brandInfo} />;
 }
