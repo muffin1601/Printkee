@@ -13,12 +13,16 @@ import { categoryContent } from "../data/categoryContent";
 
 const CategorySlider = () => {
   const [categories, setCategories] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/category/categories`)
-      .then((res) => res.json())
-      .then((data) => setCategories(data))
-      .catch((err) => console.error("Failed to fetch categories:", err));
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((data) => setCategories(Array.isArray(data) ? data : []))
+      .catch(() => setError(true));
   }, []);
 
   return (
@@ -37,6 +41,7 @@ const CategorySlider = () => {
         that leave a lasting impression.
       </p>
 
+      {error || categories.length === 0 ? null : (
       <Swiper
         aria-label="Browse product categories"
         modules={[Navigation, Pagination, Autoplay]}
@@ -100,6 +105,7 @@ const CategorySlider = () => {
           );
         })}
       </Swiper>
+      )}
     </section>
   );
 };

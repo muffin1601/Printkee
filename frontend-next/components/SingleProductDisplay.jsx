@@ -1,8 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/SingleProductDisplay.css";
 import { useParams, useRouter } from "next/navigation";
-import axios from "axios";
 import { FaChevronLeft } from "react-icons/fa";
 import { MdRequestQuote } from "react-icons/md";
 import EnquiryModal from "./EnquiryModal";
@@ -14,49 +13,40 @@ import { Navigation, Pagination } from "swiper/modules";
 import WhyChooseUsProduct from "./category/WhyChooseUsProduct";
 import ProductFAQ from "./category/FAQProduct";
 
-const SingleProductDisplay = ({ productData: initialProduct, subcategoryData: initialSubcat, categoryData: initialCat, relatedProducts: initialRelated = [] }) => {
-  const { category: categorySlug, subcategory: subcategorySlug, product: productSlug } = useParams();
+const SingleProductDisplay = ({
+  productData,
+  subcategoryData,
+  categoryData,
+  relatedProducts = [],
+}) => {
+  const { category: categorySlug, subcategory: subcategorySlug } = useParams();
   const router = useRouter();
 
-  const [productData, setProductData] = useState(initialProduct || null);
-  const [subcategoryData, setSubcategoryData] = useState(initialSubcat || null);
-  const [categoryData, setCategoryData] = useState(initialCat || null);
-  const [selectedStyle, setSelectedStyle] = useState("");
+  const [selectedStyle, setSelectedStyle] = useState(
+    productData?.attributes?.size?.[0] || ""
+  );
   const [quantity, setQuantity] = useState(1);
-  const [mainImage, setMainImage] = useState("");
-  const [relatedProducts, setRelatedProducts] = useState(initialRelated);
+  const [mainImage, setMainImage] = useState(
+    productData?.images?.[0]?.url || productData?.subImages?.[0]?.url || ""
+  );
   const [showModal, setShowModal] = useState(false);
 
+  /* Sync image/style when productData prop changes (e.g. navigation) */
   useEffect(() => {
-    if (initialProduct) {
-      setSelectedStyle(initialProduct.attributes?.size?.[0] || "");
-      setMainImage(
-        initialProduct.images?.[0]?.url || initialProduct.subImages?.[0]?.url || ""
-      );
-      return;
-    }
-    const fetchProduct = async () => {
-      try {
-        const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/product/product-fetch/${categorySlug}/${subcategorySlug}/${productSlug}`
-        );
-        setCategoryData(res.data.category);
-        setSubcategoryData(res.data.subcategory);
-        setProductData(res.data.product);
-        setSelectedStyle(res.data.product.attributes?.size?.[0] || "");
-        setMainImage(
-          res.data.product.images?.[0]?.url || res.data.product.subImages?.[0]?.url || ""
-        );
-      } catch (err) {
-        console.error("Failed to fetch product", err);
-      }
-    };
-    fetchProduct();
-  }, [categorySlug, subcategorySlug, productSlug, initialProduct]);
+    if (!productData) return;
+    setSelectedStyle(productData.attributes?.size?.[0] || "");
+    setMainImage(
+      productData.images?.[0]?.url || productData.subImages?.[0]?.url || ""
+    );
+  }, [productData]);
 
-  /* Related products are now passed from the server — no useEffect needed */
-
-  if (!productData || !subcategoryData || !categoryData) return <div>Loading...</div>;
+  if (!productData || !subcategoryData || !categoryData) {
+    return (
+      <div style={{ padding: "2rem", textAlign: "center" }}>
+        <p>Unable to load product. Please ensure the backend is running.</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -146,14 +136,17 @@ const SingleProductDisplay = ({ productData: initialProduct, subcategoryData: in
                   if (subcategorySlug === "polo-t-shirts") route = "/customize/polotshirt";
                   if (subcategorySlug === "round-neck-t-shirts") route = "/customize/roundneck";
                   if (subcategorySlug === "caps") route = "/customize/cap";
-                  sessionStorage.setItem("customizerState", JSON.stringify({
-                    productName: productData.name,
-                    productImages: [
-                      productData.images?.[0]?.url,
-                      ...(productData.subImages?.map((i) => i.url) || []),
-                    ],
-                    subcategory: subcategoryData.name,
-                  }));
+                  sessionStorage.setItem(
+                    "customizerState",
+                    JSON.stringify({
+                      productName: productData.name,
+                      productImages: [
+                        productData.images?.[0]?.url,
+                        ...(productData.subImages?.map((img) => img.url) || []),
+                      ],
+                      subcategory: subcategoryData.name,
+                    })
+                  );
                   router.push(route);
                 }}
               >
@@ -179,10 +172,16 @@ const SingleProductDisplay = ({ productData: initialProduct, subcategoryData: in
                 <tr><td>Material</td><td>{productData.attributes.material}</td></tr>
               )}
               {productData.attributes?.size?.length > 0 && (
-                <tr><td>Available Sizes</td><td>{productData.attributes.size.join(", ")}</td></tr>
+                <tr>
+                  <td>Available Sizes</td>
+                  <td>{productData.attributes.size.join(", ")}</td>
+                </tr>
               )}
               {productData.attributes?.color?.length > 0 && (
-                <tr><td>Available Colours</td><td>{productData.attributes.color.join(", ")}</td></tr>
+                <tr>
+                  <td>Available Colours</td>
+                  <td>{productData.attributes.color.join(", ")}</td>
+                </tr>
               )}
               {productData.additionalInfo?.length > 0 &&
                 productData.additionalInfo.map((info, i) => (
@@ -222,7 +221,9 @@ const SingleProductDisplay = ({ productData: initialProduct, subcategoryData: in
                   <button
                     className="related-product-card"
                     onClick={() => {
-                      router.push(`/${categorySlug}/${subcategorySlug}/${relProd.slug}`);
+                      router.push(
+                        `/${categorySlug}/${subcategorySlug}/${relProd.slug}`
+                      );
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                   >

@@ -1,7 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import axios from "axios";
 import Link from "next/link";
 import { FaHeart, FaEye } from "react-icons/fa";
 import "../styles/ProductDisplay.css";
@@ -11,29 +10,17 @@ import FAQSection from "./category/FAQSection";
 import banners from "../data/banners";
 import SubcategoryDescription from "./category/SubcategoryDescription";
 
-const ProductDisplay = ({ subcategoryData: initialSubcat, categoryData: initialCat, products: initialProducts }) => {
+const ProductDisplay = ({ subcategoryData, categoryData, products = [] }) => {
   const { category: categorySlug, subcategory: subcategorySlug } = useParams();
   const router = useRouter();
 
-  const [products, setProducts] = useState(initialProducts || []);
-  const [categoryData, setCategoryData] = useState(initialCat || null);
-  const [subcategoryData, setSubcategoryData] = useState(initialSubcat || null);
-
-  useEffect(() => {
-    if (initialSubcat && initialCat) return;
-    axios
-      .get(
-        `${process.env.NEXT_PUBLIC_API_URL}/subcategory/subcategory-fetch/${categorySlug}/${subcategorySlug}`
-      )
-      .then((res) => {
-        setProducts(res.data.products || []);
-        setCategoryData(res.data.category || null);
-        setSubcategoryData(res.data.subcategory || null);
-      })
-      .catch((err) => console.error("Failed to fetch products:", err));
-  }, [categorySlug, subcategorySlug, initialSubcat, initialCat]);
-
-  if (!subcategoryData || !categoryData) return <div>Loading...</div>;
+  if (!subcategoryData || !categoryData) {
+    return (
+      <div style={{ padding: "2rem", textAlign: "center" }}>
+        <p>Unable to load products. Please ensure the backend is running.</p>
+      </div>
+    );
+  }
 
   const categoryName = categoryData.name;
   const subcategoryName = subcategoryData.name;

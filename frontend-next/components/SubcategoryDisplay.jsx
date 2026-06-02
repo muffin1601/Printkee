@@ -1,7 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "next/navigation";
-import axios from "axios";
 import Link from "next/link";
 import "../styles/SubcategoryDisplay.css";
 import categoryHighlights from "../data/highlightsdata";
@@ -9,19 +8,17 @@ import aboutSubcategoryData from "../data/faqsdata";
 import Testimonials from "./Testimonials";
 import GetQuoteCTA from "./GetQuoteCTA";
 
-const SubcategoryDisplay = ({ categoryData: initialData }) => {
+const SubcategoryDisplay = ({ categoryData }) => {
   const { category: categorySlug } = useParams();
-  const [categoryData, setCategoryData] = useState(initialData || null);
+  const [openFaq, setOpenFaq] = useState(null);
 
-  useEffect(() => {
-    if (initialData) return;
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/category/categories/${categorySlug}`)
-      .then((res) => setCategoryData(res.data))
-      .catch((err) => console.error("Error fetching category:", err));
-  }, [categorySlug, initialData]);
-
-  if (!categoryData) return <div>Loading...</div>;
+  if (!categoryData) {
+    return (
+      <div style={{ padding: "2rem", textAlign: "center" }}>
+        <p>Unable to load category. Please ensure the backend is running.</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -103,21 +100,16 @@ const SubcategoryDisplay = ({ categoryData: initialData }) => {
                 <div key={index} className="aboutsubcat-faq-item">
                   <button
                     className="aboutsubcat-faq-question"
-                    onClick={(e) => {
-                      const answer = document.getElementById(`faq-answer-${index}`);
-                      answer.style.display =
-                        answer.style.display === "block" ? "none" : "block";
-                    }}
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    aria-expanded={openFaq === index}
                   >
                     {faq.question}
                   </button>
-                  <div
-                    id={`faq-answer-${index}`}
-                    className="aboutsubcat-faq-answer"
-                    style={{ display: "none" }}
-                  >
-                    <p>{faq.answer}</p>
-                  </div>
+                  {openFaq === index && (
+                    <div className="aboutsubcat-faq-answer">
+                      <p>{faq.answer}</p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
