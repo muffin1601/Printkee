@@ -1,5 +1,5 @@
-/* CTA Banner */
-.cta-banner { display: block; margin: var(--s-8) 0; border-radius: var(--r-xl); overflow: hidden; }
+/* CTA BANNER */
+.cta-banner { border-radius: 1.1rem; display: block; margin: 2rem 0; overflow: hidden; }
 .cta-figure { margin: 0; }
-.cta-full-image { width: 100%; display: block; transition: transform 500ms var(--ease); }
+.cta-full-image { display: block; transition: transform 0.45s ease; width: 100%; }
 .cta-banner:hover .cta-full-image { transform: scale(1.02); }

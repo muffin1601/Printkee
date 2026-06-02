@@ -1,28 +1,13 @@
-/* ============================================================
-   BRANDS PAGE
-   ============================================================ */
-
-.brands-container { max-width: var(--max-w); margin: 0 auto; padding: var(--s-16) var(--px) var(--s-24); }
-
-.brands-heading { font-size: clamp(var(--t-3xl), 4vw, var(--t-5xl)); font-weight: 900; letter-spacing: -0.03em; color: var(--text); line-height: 1.1; text-align: center; margin-bottom: var(--s-4); }
-
-.brands-description { font-size: var(--t-lg); color: var(--text-2); text-align: center; max-width: 56ch; margin: 0 auto var(--s-12); line-height: 1.65; }
-
-.brands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--s-4); }
-
-.brand-card {
-  background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-2xl);
-  padding: var(--s-6); display: flex; flex-direction: column; align-items: center; gap: var(--s-3);
-  text-decoration: none;
-  transition: box-shadow var(--dur-base) var(--ease), transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
-}
-.brand-card:hover { box-shadow: var(--sh-lg); transform: translateY(-4px); border-color: var(--border-2); }
-
-.brand-logo { height: 48px; width: auto; max-width: 100%; object-fit: contain; filter: grayscale(1) brightness(0.70); opacity: 0.60; transition: all var(--dur-fast) var(--ease); }
+/* BRANDS PAGE */
+.brands-container { max-width: var(--max-w); margin: 0 auto; padding: clamp(3rem,6vw,5rem) var(--px) clamp(4rem,8vw,7rem); }
+.brands-heading { color: var(--ink, #17211f); font-size: clamp(2.25rem,5vw,5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin: 0 0 0.9rem; text-align: center; }
+.brands-description { color: var(--ink-3, #65736f); font-size: 1.05rem; line-height: 1.75; margin: 0 auto clamp(2.5rem,5vw,4rem); max-width: 58ch; text-align: center; }
+.brands-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill,minmax(155px,1fr)); }
+.brand-card { align-items: center; background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 1.1rem; box-shadow: 0 6px 18px rgba(15,35,31,0.04); display: flex; flex-direction: column; gap: 0.75rem; padding: 1.5rem; text-decoration: none; transition: box-shadow 0.22s ease, transform 0.22s ease; }
+.brand-card:hover { box-shadow: 0 14px 35px rgba(15,35,31,0.09); transform: translateY(-5px); }
+.brand-logo { filter: grayscale(1) brightness(0.65); height: 44px; max-width: 100%; object-fit: contain; opacity: 0.55; transition: all 0.18s ease; width: auto; }
 .brand-card:hover .brand-logo { filter: none; opacity: 1; }
-
-.brand-name { font-size: var(--t-sm); font-weight: 700; color: var(--text-2); text-align: center; transition: color var(--dur-fast) var(--ease); }
-.brand-card:hover .brand-name { color: var(--brand); }
-
-@media (max-width: 768px) { .brands-container { padding: var(--s-10) var(--s-4) var(--s-16); } .brands-grid { grid-template-columns: repeat(3,1fr); gap: var(--s-3); } }
+.brand-name { color: var(--ink-2, #3d4e48); font-size: 0.88rem; font-weight: 700; text-align: center; transition: color 0.18s ease; }
+.brand-card:hover .brand-name { color: var(--brand, #4b2061); }
+@media (max-width: 768px) { .brands-container { padding: 2.5rem 1rem 4rem; } .brands-grid { gap: 0.75rem; grid-template-columns: repeat(3,1fr); } }
 @media (max-width: 480px) { .brands-grid { grid-template-columns: repeat(2,1fr); } }

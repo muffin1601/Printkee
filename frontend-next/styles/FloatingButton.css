@@ -1,5 +1,5 @@
-/* Floating WhatsApp */
-.floating-buttons { position: fixed; bottom: var(--s-5); right: var(--s-5); z-index: 900; display: flex; flex-direction: column; gap: var(--s-3); }
-.whatsapp-button { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; background: #25d366; color: #fff; border-radius: var(--r-full); box-shadow: var(--sh-lg); text-decoration: none; transition: all var(--dur-fast) var(--ease); }
-.whatsapp-button:hover { background: #1db956; transform: translateY(-3px) scale(1.08); box-shadow: 0 8px 28px rgba(37,211,102,0.40); }
+/* FLOATING WHATSAPP */
+.floating-buttons { bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; position: fixed; right: 1.5rem; z-index: 900; }
+.whatsapp-button { align-items: center; background: #25d366; border-radius: 999px; box-shadow: 0 8px 28px rgba(37,211,102,0.30); color: #fff; display: flex; height: 52px; justify-content: center; text-decoration: none; transition: all 0.18s ease; width: 52px; }
+.whatsapp-button:hover { background: #1db956; box-shadow: 0 14px 40px rgba(37,211,102,0.42); transform: translateY(-3px) scale(1.08); }
 .icon-btn { font-size: 26px; }

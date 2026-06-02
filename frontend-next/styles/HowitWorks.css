@@ -1,86 +1,18 @@
-/* ============================================================
-   HOW IT WORKS — Dark branded steps
-   ============================================================ */
-
-.how-it-works-section { position: relative; overflow: hidden; }
-
-.how-it-works-banner {
-  background: var(--brand);
-  padding: var(--py-sec) var(--px);
-  position: relative;
-}
-
-.how-it-works-banner::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 80% 20%, rgba(243,156,18,0.12) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.how-it-works-overlay {
-  position: relative; z-index: 1;
-  max-width: var(--max-w); margin: 0 auto; text-align: center;
-}
-
-.how-it-works-title {
-  font-size: clamp(var(--t-3xl), 4vw, var(--t-5xl));
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  color: #fff;
-  line-height: 1.1;
-  margin-bottom: var(--s-4);
-}
-
-.how-it-works-subheading {
-  font-size: var(--t-base);
-  color: rgba(255,255,255,0.65);
-  max-width: 52ch;
-  margin: 0 auto var(--s-12);
-  line-height: 1.65;
-}
-
-.how-it-works-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--s-5);
-  margin-bottom: var(--s-12);
-}
-
-.step-card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: var(--r-2xl);
-  padding: var(--s-8) var(--s-5);
-  text-align: center;
-  transition: background var(--dur-base) var(--ease),
-              transform var(--dur-base) var(--ease);
-}
-.step-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-3px); }
-
-.step-icon { display: block; margin: 0 auto var(--s-4); color: var(--accent); font-size: 2.25rem; }
-
-.step-card h3 { font-size: var(--t-base); font-weight: 700; color: #fff; margin-bottom: var(--s-2); }
-.step-card p { font-size: var(--t-sm); color: rgba(255,255,255,0.60); line-height: 1.65; }
-
-.how-it-works-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-2);
-  padding: 0.875rem 2.5rem;
-  font-family: var(--font); font-size: var(--t-base); font-weight: 700;
-  color: var(--brand);
-  background: #fff;
-  border: none; border-radius: var(--r-lg); cursor: pointer;
-  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), transform var(--dur-fast);
-}
-.how-it-works-cta:hover { background: var(--accent); color: #fff; transform: translateY(-1px); }
-
-.popup { /* shared styles from WhyChooseUs already defined */ }
-
+/* HOW IT WORKS — Brand purple section with step cards */
+.how-it-works-section { overflow: hidden; position: relative; }
+.how-it-works-banner { background: var(--brand, #4b2061); padding: clamp(4rem,8vw,7rem) var(--px); position: relative; }
+.how-it-works-banner::before { background: radial-gradient(circle at 85% 15%, rgba(243,156,18,0.14), transparent 50%); content: ''; inset: 0; pointer-events: none; position: absolute; }
+.how-it-works-overlay { max-width: var(--max-w); margin: 0 auto; position: relative; text-align: center; z-index: 1; }
+.how-it-works-title { color: #fff; font-size: clamp(2.25rem,5vw,5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin: 0 0 0.9rem; }
+.how-it-works-subheading { color: rgba(255,255,255,0.58); font-size: 1.05rem; line-height: 1.75; margin: 0 auto clamp(2.5rem,5vw,4rem); max-width: 52ch; }
+.how-it-works-steps { display: grid; gap: 1rem; grid-template-columns: repeat(4,1fr); margin-bottom: clamp(2.5rem,5vw,4rem); }
+.step-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 1.5rem; min-height: 16rem; padding: 1.75rem 1.25rem; text-align: center; transition: background 0.22s ease, transform 0.22s ease; }
+.step-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-5px); }
+.step-icon { color: var(--accent, #f39c12); display: block; font-size: 2.25rem; margin: 0 auto 1.25rem; }
+.step-card h3 { color: #fff; font-size: 1.05rem; font-weight: 700; margin: 0 0 0.65rem; }
+.step-card p { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.65; margin: 0; }
+.how-it-works-cta { align-items: center; background: #fff; border: none; border-radius: 999px; color: var(--ink, #17211f); cursor: pointer; display: inline-flex; font-family: var(--font); font-size: 0.95rem; font-weight: 900; gap: 0.55rem; min-height: 3rem; padding: 0.85rem 2rem; position: relative; transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease; z-index: 1; }
+.how-it-works-cta:hover { background: var(--accent, #f39c12); color: #fff; transform: translateY(-2px); }
 @media (max-width: 1024px) { .how-it-works-steps { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 768px) {
-  .how-it-works-banner { padding: var(--s-16) var(--s-4); }
-  .how-it-works-steps { gap: var(--s-4); }
-  .step-card { padding: var(--s-6) var(--s-4); }
-}
+@media (max-width: 768px) { .how-it-works-banner { padding: 3.5rem 1rem; } .how-it-works-steps { gap: 0.75rem; } }
 @media (max-width: 480px) { .how-it-works-steps { grid-template-columns: 1fr; } }

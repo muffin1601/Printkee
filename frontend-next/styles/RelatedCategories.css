@@ -1,11 +1,11 @@
-/* Related Categories */
-.related-categories { padding: var(--s-12) var(--px) var(--s-16); background: var(--bg-subtle); }
-.related-categories h2 { font-size: var(--t-2xl); font-weight: 800; color: var(--text); margin-bottom: var(--s-8); letter-spacing: -0.02em; }
-.related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--s-4); }
-.related-item { display: flex; flex-direction: column; text-decoration: none; background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; transition: box-shadow var(--dur-base) var(--ease), transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease); }
-.related-item:hover { box-shadow: var(--sh-md); transform: translateY(-2px); border-color: var(--border-2); }
-.related-item-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform 500ms var(--ease); }
+/* RELATED CATEGORIES */
+.related-categories { background: var(--paper, #fbfaf4); padding: clamp(2.5rem,5vw,4rem) var(--px); }
+.related-categories h2 { color: var(--ink, #17211f); font-size: clamp(1.5rem,3vw,2.5rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 2rem; }
+.related-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill,minmax(155px,1fr)); }
+.related-item-wrapper {}
+.related-item { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 1rem; box-shadow: 0 6px 18px rgba(15,35,31,0.04); display: flex; flex-direction: column; overflow: hidden; text-decoration: none; transition: box-shadow 0.22s ease, transform 0.22s ease; }
+.related-item:hover { box-shadow: 0 14px 35px rgba(15,35,31,0.09); transform: translateY(-4px); }
+.related-item-img { aspect-ratio: 4/3; object-fit: cover; transition: transform 0.45s ease; width: 100%; }
 .related-item:hover .related-item-img { transform: scale(1.05); }
-.item-name { padding: var(--s-3) var(--s-4); font-size: var(--t-sm); font-weight: 600; color: var(--text); }
-
-@media (max-width: 768px) { .related-categories { padding: var(--s-8) var(--s-4) var(--s-12); } .related-grid { grid-template-columns: repeat(3,1fr); gap: var(--s-3); } }
+.item-name { color: var(--ink, #17211f); font-size: 0.86rem; font-weight: 700; padding: 0.75rem 0.9rem; }
+@media (max-width: 768px) { .related-categories { padding: 2.5rem 1rem; } .related-grid { gap: 0.75rem; grid-template-columns: repeat(3,1fr); } }
