@@ -1,7 +1,7 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-"use client";
 import Link from "next/link";
 
 import "swiper/css";

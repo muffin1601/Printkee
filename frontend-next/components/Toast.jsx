@@ -1,3 +1,4 @@
+"use client";
 // components/Toast.jsx
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Toast.css';
