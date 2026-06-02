@@ -1,35 +1,5 @@
-/* ============================================================
-   FLOATING BUTTONS
-   ============================================================ */
-
-.floating-buttons {
-  position: fixed;
-  bottom: var(--space-5);
-  right: var(--space-5);
-  z-index: 900;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.whatsapp-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  background: #25d366;
-  color: #fff;
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-lg);
-  text-decoration: none;
-  transition: all var(--transition-fast);
-}
-
-.whatsapp-button:hover {
-  background: #1db956;
-  transform: translateY(-3px) scale(1.08);
-  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.40);
-}
-
+/* Floating WhatsApp */
+.floating-buttons { position: fixed; bottom: var(--s-5); right: var(--s-5); z-index: 900; display: flex; flex-direction: column; gap: var(--s-3); }
+.whatsapp-button { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; background: #25d366; color: #fff; border-radius: var(--r-full); box-shadow: var(--sh-lg); text-decoration: none; transition: all var(--dur-fast) var(--ease); }
+.whatsapp-button:hover { background: #1db956; transform: translateY(-3px) scale(1.08); box-shadow: 0 8px 28px rgba(37,211,102,0.40); }
 .icon-btn { font-size: 26px; }

@@ -1,127 +1,86 @@
 /* ============================================================
-   HOW IT WORKS SECTION
+   HOW IT WORKS — Dark branded steps
    ============================================================ */
 
-.how-it-works-section {
-  position: relative;
-  overflow: hidden;
-}
+.how-it-works-section { position: relative; overflow: hidden; }
 
 .how-it-works-banner {
+  background: var(--brand);
+  padding: var(--py-sec) var(--px);
   position: relative;
-  background: var(--color-brand);
-  padding: var(--space-20) var(--section-px);
 }
 
 .how-it-works-banner::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.05) 0%, transparent 60%);
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(243,156,18,0.12) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .how-it-works-overlay {
-  position: relative;
-  z-index: 1;
-  max-width: var(--max-w-xl);
-  margin: 0 auto;
-  text-align: center;
+  position: relative; z-index: 1;
+  max-width: var(--max-w); margin: 0 auto; text-align: center;
 }
 
 .how-it-works-title {
-  font-size: clamp(var(--font-2xl), 3vw, var(--font-4xl));
-  font-weight: var(--weight-extrabold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
-  color: var(--color-text-inverse);
-  margin-bottom: var(--space-3);
+  font-size: clamp(var(--t-3xl), 4vw, var(--t-5xl));
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: var(--s-4);
 }
 
 .how-it-works-subheading {
-  font-size: var(--font-base);
-  color: rgba(255, 255, 255, 0.65);
+  font-size: var(--t-base);
+  color: rgba(255,255,255,0.65);
   max-width: 52ch;
-  margin: 0 auto var(--space-12);
-  line-height: var(--leading-relaxed);
+  margin: 0 auto var(--s-12);
+  line-height: 1.65;
 }
 
-/* Steps */
 .how-it-works-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-6);
-  margin-bottom: var(--space-12);
+  gap: var(--s-5);
+  margin-bottom: var(--s-12);
 }
 
 .step-card {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8) var(--space-5);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--r-2xl);
+  padding: var(--s-8) var(--s-5);
   text-align: center;
-  transition: all var(--transition-base);
+  transition: background var(--dur-base) var(--ease),
+              transform var(--dur-base) var(--ease);
 }
+.step-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-3px); }
 
-.step-card:hover {
-  background: rgba(255, 255, 255, 0.12);
-  transform: translateY(-3px);
-}
+.step-icon { display: block; margin: 0 auto var(--s-4); color: var(--accent); font-size: 2.25rem; }
 
-.step-icon {
-  display: block;
-  margin: 0 auto var(--space-4);
-  color: var(--color-accent);
-  font-size: 2.25rem;
-}
+.step-card h3 { font-size: var(--t-base); font-weight: 700; color: #fff; margin-bottom: var(--s-2); }
+.step-card p { font-size: var(--t-sm); color: rgba(255,255,255,0.60); line-height: 1.65; }
 
-.step-card h3 {
-  font-size: var(--font-base);
-  font-weight: var(--weight-semibold);
-  color: var(--color-text-inverse);
-  margin-bottom: var(--space-2);
-}
-
-.step-card p {
-  font-size: var(--font-sm);
-  color: rgba(255, 255, 255, 0.60);
-  line-height: var(--leading-relaxed);
-}
-
-/* CTA */
 .how-it-works-cta {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 0.75rem var(--space-8);
-  font-size: var(--font-base);
-  font-weight: var(--weight-semibold);
-  font-family: inherit;
-  color: var(--color-brand);
-  background: var(--color-text-inverse);
-  border: none;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all var(--transition-fast);
+  gap: var(--s-2);
+  padding: 0.875rem 2.5rem;
+  font-family: var(--font); font-size: var(--t-base); font-weight: 700;
+  color: var(--brand);
+  background: #fff;
+  border: none; border-radius: var(--r-lg); cursor: pointer;
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), transform var(--dur-fast);
 }
+.how-it-works-cta:hover { background: var(--accent); color: #fff; transform: translateY(-1px); }
 
-.how-it-works-cta:hover {
-  background: var(--color-accent);
-  color: var(--color-text-inverse);
-  transform: translateY(-1px);
-}
+.popup { /* shared styles from WhyChooseUs already defined */ }
 
-/* ── RESPONSIVE ───────────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .how-it-works-steps { grid-template-columns: repeat(2, 1fr); }
-}
-
+@media (max-width: 1024px) { .how-it-works-steps { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 768px) {
-  .how-it-works-banner { padding: var(--space-16) var(--space-4); }
-  .how-it-works-steps { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
-  .step-card { padding: var(--space-5) var(--space-4); }
+  .how-it-works-banner { padding: var(--s-16) var(--s-4); }
+  .how-it-works-steps { gap: var(--s-4); }
+  .step-card { padding: var(--s-6) var(--s-4); }
 }
-
-@media (max-width: 480px) {
-  .how-it-works-steps { grid-template-columns: 1fr; }
-}
+@media (max-width: 480px) { .how-it-works-steps { grid-template-columns: 1fr; } }

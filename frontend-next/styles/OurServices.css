@@ -1,99 +1,74 @@
 /* ============================================================
-   OUR SERVICES SECTION
+   OUR SERVICES — Deep dark with glassmorphism cards
    ============================================================ */
 
 .our-services {
-  padding: var(--space-20) var(--section-px);
-  background: var(--color-brand-deeper, #2e1240);
+  padding: var(--py-sec) var(--px);
+  background: var(--bg-dark);
   position: relative;
   overflow: hidden;
 }
 
 .our-services::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 80% 20%, rgba(243, 156, 18, 0.06) 0%, transparent 60%);
+  position: absolute; top: -20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(243,156,18,0.07) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .services-container {
-  position: relative;
-  z-index: 1;
-  max-width: var(--max-w-xl);
-  margin: 0 auto;
-  text-align: center;
+  position: relative; z-index: 1;
+  max-width: var(--max-w); margin: 0 auto; text-align: center;
 }
 
 .services-heading {
-  font-size: clamp(var(--font-2xl), 3vw, var(--font-4xl));
-  font-weight: var(--weight-extrabold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
-  color: var(--color-text-inverse);
-  margin-bottom: var(--space-3);
+  font-size: clamp(var(--t-3xl), 4vw, var(--t-5xl));
+  font-weight: 900; letter-spacing: -0.03em;
+  color: #fff; line-height: 1.1; margin-bottom: var(--s-4);
 }
 
 .services-description {
-  font-size: var(--font-base);
-  color: rgba(255, 255, 255, 0.60);
-  max-width: 56ch;
-  margin: 0 auto var(--space-12);
-  line-height: var(--leading-relaxed);
+  font-size: var(--t-base); color: rgba(255,255,255,0.55);
+  max-width: 56ch; margin: 0 auto var(--s-12); line-height: 1.65;
 }
 
-/* Grid */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-5);
+  gap: var(--s-4);
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--r-2xl);
+  padding: var(--s-8);
   text-align: left;
-  transition: all var(--transition-base);
+  transition: background var(--dur-base) var(--ease),
+              border-color var(--dur-base) var(--ease),
+              transform var(--dur-base) var(--ease);
   backdrop-filter: blur(8px);
 }
 
 .service-card:hover {
-  background: rgba(255, 255, 255, 0.10);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.16);
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.30);
 }
 
-.service-icon {
-  font-size: 2.25rem;
-  color: var(--color-accent);
-  margin-bottom: var(--space-4);
-  display: flex;
-}
+.service-icon { font-size: 2.25rem; color: var(--accent); margin-bottom: var(--s-4); display: flex; }
 
 .service-card-heading {
-  font-size: var(--font-lg);
-  font-weight: var(--weight-bold);
-  color: var(--color-text-inverse);
-  margin-bottom: var(--space-3);
-  line-height: var(--leading-snug);
+  font-size: var(--t-lg); font-weight: 700;
+  color: #fff; margin-bottom: var(--s-3); line-height: 1.3;
 }
 
-.service-card-text {
-  font-size: var(--font-sm);
-  color: rgba(255, 255, 255, 0.60);
-  line-height: var(--leading-relaxed);
-}
+.service-card-text { font-size: var(--t-sm); color: rgba(255,255,255,0.55); line-height: 1.65; }
 
-/* ── RESPONSIVE ───────────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
+@media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 768px) {
-  .our-services { padding: var(--space-16) var(--space-4); }
-  .services-grid { grid-template-columns: 1fr; gap: var(--space-4); }
-  .service-card { padding: var(--space-6); }
+  .our-services { padding: var(--s-16) var(--s-4); }
+  .services-grid { grid-template-columns: 1fr; gap: var(--s-4); }
+  .service-card { padding: var(--s-6); }
 }

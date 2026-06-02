@@ -1,20 +1,5 @@
-/* ============================================================
-   CTA BANNER
-   ============================================================ */
-
-.cta-banner {
-  display: block;
-  margin: var(--space-8) 0;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
+/* CTA Banner */
+.cta-banner { display: block; margin: var(--s-8) 0; border-radius: var(--r-xl); overflow: hidden; }
 .cta-figure { margin: 0; }
-
-.cta-full-image {
-  width: 100%;
-  display: block;
-  transition: transform var(--transition-slow);
-}
-
+.cta-full-image { width: 100%; display: block; transition: transform 500ms var(--ease); }
 .cta-banner:hover .cta-full-image { transform: scale(1.02); }

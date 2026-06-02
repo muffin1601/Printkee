@@ -1,173 +1,71 @@
 /* ============================================================
-   ENQUIRY MODAL
+   ENQUIRY MODAL — Premium two-column
    ============================================================ */
 
 .enquiry-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(26, 15, 36, 0.60);
-  backdrop-filter: blur(4px);
+  position: fixed; inset: 0;
+  background: rgba(9,9,11,0.65); backdrop-filter: blur(8px);
   z-index: 1400;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-4);
-  overflow-y: auto;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--s-4); overflow-y: auto;
 }
 
 .enquiry-modal {
-  background: var(--color-surface);
-  border-radius: var(--radius-2xl);
-  width: min(900px, 100%);
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: var(--shadow-xl);
-  border: 1px solid var(--color-border);
-  animation: fadeInUp 200ms ease forwards;
+  background: var(--bg); border-radius: var(--r-2xl);
+  width: min(900px, 100%); max-height: 90vh; overflow-y: auto;
+  position: relative; box-shadow: var(--sh-xl); border: 1px solid var(--border);
+  animation: modalIn 200ms var(--ease) forwards;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .close-btn-enquiry {
-  position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  font-size: 20px;
-  color: var(--color-text-muted);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  background: none;
-  border: none;
-  line-height: 1;
-  transition: all var(--transition-fast);
-  z-index: 1;
+  position: absolute; top: var(--s-4); right: var(--s-4);
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; font-size: 20px;
+  color: var(--text-3); border-radius: var(--r-md);
+  cursor: pointer; background: none; border: none; line-height: 1; z-index: 1;
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
+.close-btn-enquiry:hover { background: var(--bg-muted); color: var(--text); }
 
-.close-btn-enquiry:hover {
-  background: var(--color-brand-light);
-  color: var(--color-brand);
-}
+.modal-container { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; }
 
-/* Two-column layout */
-.modal-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 480px;
-}
-
-/* Left: image + description */
 .left-content {
-  background: var(--color-brand);
-  border-radius: var(--radius-2xl) 0 0 var(--radius-2xl);
-  padding: var(--space-8);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
+  background: var(--brand); border-radius: var(--r-2xl) 0 0 var(--r-2xl);
+  padding: var(--s-8); display: flex; flex-direction: column; gap: var(--s-5);
 }
+.enquiry-image { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--r-xl); }
+.left-description { font-size: var(--t-sm); color: rgba(255,255,255,0.65); line-height: 1.65; }
+.sr-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 
-.enquiry-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
+.right-form { padding: var(--s-8); display: flex; flex-direction: column; }
+.enquiry-title { font-size: var(--t-2xl); font-weight: 800; color: var(--text); margin-bottom: var(--s-6); letter-spacing: -0.02em; }
+.enquiry-form { display: flex; flex-direction: column; gap: var(--s-4); flex: 1; }
+
+.form-input, .form-textarea {
+  width: 100%; padding: 0.75rem var(--s-4); font-family: var(--font); font-size: var(--t-base);
+  color: var(--text); background: var(--bg-muted); border: 1.5px solid var(--border);
+  border-radius: var(--r-lg); outline: none; resize: vertical;
+  transition: all var(--dur-fast) var(--ease);
 }
-
-.sr-label { /* Accessible only — visually hidden handled by sr-only utility */ }
-
-.left-description {
-  font-size: var(--font-sm);
-  color: rgba(255, 255, 255, 0.70);
-  line-height: var(--leading-relaxed);
-}
-
-/* Right: form */
-.right-form {
-  padding: var(--space-8);
-  display: flex;
-  flex-direction: column;
-}
-
-.enquiry-title {
-  font-size: var(--font-2xl);
-  font-weight: var(--weight-bold);
-  color: var(--color-text);
-  margin-bottom: var(--space-6);
-}
-
-.enquiry-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  flex: 1;
-}
-
-.enquiry-form .sr-label {
-  position: absolute; width: 1px; height: 1px;
-  overflow: hidden; clip: rect(0,0,0,0);
-}
-
-.form-input,
-.form-textarea {
-  width: 100%;
-  padding: 0.625rem var(--space-4);
-  font-size: var(--font-base);
-  font-family: var(--font-family);
-  color: var(--color-text);
-  background: var(--color-bg);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  outline: none;
-  transition: all var(--transition-fast);
-  resize: vertical;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-  border-color: var(--color-brand);
-  background: var(--color-surface);
-  box-shadow: 0 0 0 3px rgba(75, 32, 97, 0.08);
-}
-
-.form-input::placeholder,
-.form-textarea::placeholder { color: var(--color-text-muted); }
+.form-input:focus, .form-textarea:focus { border-color: var(--brand); background: var(--bg); box-shadow: 0 0 0 3px rgba(75,32,97,0.08); }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text-3); }
 
 .submit-btn-enquiry {
-  padding: 0.75rem var(--space-8);
-  font-size: var(--font-base);
-  font-weight: var(--weight-semibold);
-  font-family: inherit;
-  color: var(--color-text-inverse);
-  background: var(--color-brand);
-  border: none;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  box-shadow: var(--shadow-brand);
-  margin-top: var(--space-2);
+  padding: 0.875rem var(--s-8); font-family: var(--font); font-size: var(--t-base); font-weight: 800;
+  color: #fff; background: var(--brand); border: none; border-radius: var(--r-lg); cursor: pointer;
+  box-shadow: var(--sh-brand); margin-top: var(--s-2);
+  transition: background var(--dur-fast) var(--ease), transform var(--dur-fast), box-shadow var(--dur-fast) var(--ease);
 }
+.submit-btn-enquiry:hover { background: var(--brand-dark); transform: translateY(-1px); box-shadow: var(--sh-brand-lg); }
 
-.submit-btn-enquiry:hover {
-  background: var(--color-brand-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-brand-lg);
-}
-
-/* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 768px) {
   .modal-container { grid-template-columns: 1fr; }
-  .left-content {
-    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
-    padding: var(--space-6);
-  }
+  .left-content { border-radius: var(--r-2xl) var(--r-2xl) 0 0; padding: var(--s-6); }
   .enquiry-image { max-height: 200px; }
-  .right-form { padding: var(--space-6); }
+  .right-form { padding: var(--s-6); }
 }
