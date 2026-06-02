@@ -1,6 +1,23 @@
 import "../styles/global.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { Inter, Poppins } from "next/font/google";
+
+/* Self-hosted via next/font — no external request, no render-block */
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  preload: true,
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
+  display: "swap",
+  preload: false,
+});
 
 export const metadata = {
   metadataBase: new URL("https://printkee.com"),
@@ -62,7 +79,7 @@ const organizationSchema = {
     height: 130,
   },
   description:
-    "Printkee is India's trusted partner for premium corporate gifting and custom branding solutions — customized apparel, bags, drinkware, tech accessories, and promotional merchandise.",
+    "Printkee is India's trusted partner for premium corporate gifting and custom branding solutions.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "F90/1, Beside ESIC Hospital, Okhla Industrial Area Phase 1",
@@ -78,11 +95,6 @@ const organizationSchema = {
       contactType: "customer service",
       areaServed: "IN",
       availableLanguage: ["English", "Hindi"],
-    },
-    {
-      "@type": "ContactPoint",
-      email: "sales@printkee.com",
-      contactType: "sales",
     },
   ],
   sameAs: [
@@ -109,7 +121,7 @@ const websiteSchema = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body>
         <script
           type="application/ld+json"

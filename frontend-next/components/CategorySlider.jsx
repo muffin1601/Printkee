@@ -16,13 +16,19 @@ const CategorySlider = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/category/categories`)
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000); // 8s max
+
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/category/categories`, {
+      signal: controller.signal,
+    })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
       })
       .then((data) => setCategories(Array.isArray(data) ? data : []))
-      .catch(() => setError(true));
+      .catch(() => setError(true))
+      .finally(() => clearTimeout(timeout));
   }, []);
 
   return (

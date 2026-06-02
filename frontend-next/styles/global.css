@@ -3,7 +3,7 @@
    Reference: site-header design pattern adapted for purple/gold brand
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+/* Fonts loaded via next/font in layout.jsx — no @import needed */
 
 /* ── BRAND TOKENS ─────────────────────────────────────────── */
 :root {
@@ -37,8 +37,8 @@
   --error:         #e63946;
   --warning:       #f39c12;
 
-  /* ── TYPOGRAPHY ── */
-  --font:          'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* ── TYPOGRAPHY — uses CSS vars injected by next/font in layout.jsx ── */
+  --font:          var(--font-inter, var(--font-poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif));
   --font-family:   var(--font);
   --font-primary:  var(--font);
 
