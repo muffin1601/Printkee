@@ -44,7 +44,7 @@
 /* Orange underline accent — reference */
 .whychoose-accent-line {
   background: var(--orange, #f26a4f);
-  border-radius: 999px;
+  border-radius: 4px;
   height: 4px;
   width: 48px;
 }

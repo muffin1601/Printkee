@@ -2,7 +2,7 @@
 .aboutus-hero { align-items: center; display: grid; gap: clamp(2.5rem,5vw,4rem); grid-template-columns: 1fr 1fr; margin: 0 auto; max-width: var(--max-w); padding: clamp(3.5rem,7vw,6rem) var(--px); }
 .aboutus-text h1 { color: var(--ink, #1a2e2a); font-size: clamp(2.25rem,5vw,5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin-bottom: 1.25rem; }
 .aboutus-text p { color: var(--ink-3, #65736f); font-size: 1rem; line-height: 1.75; max-width: 52ch; }
-.aboutus-hero-image { aspect-ratio: 4/3; border-radius: 1.35rem; object-fit: cover; width: 100%; }
+.aboutus-hero-image { aspect-ratio: 4/3; border-radius: 4px; object-fit: cover; width: 100%; }
 .aboutus-section { margin: 0 auto; max-width: var(--max-w); padding: clamp(2rem,4vw,3.5rem) var(--px); }
 .aboutus-section h2 { color: var(--ink, #1a2e2a); font-size: clamp(1.5rem,3vw,2.5rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1.25rem; }
 .aboutus-flex { align-items: center; display: grid; gap: clamp(2rem,4vw,3rem); grid-template-columns: 1fr 1fr; }
@@ -10,11 +10,11 @@
 .aboutus-flex ul { display: flex; flex-direction: column; gap: 0.85rem; }
 .aboutus-flex ul li { color: var(--ink-2, #3d4e48); font-size: 0.97rem; line-height: 1.65; padding-left: 1.25rem; position: relative; }
 .aboutus-flex ul li::before { color: var(--brand, #0f7b5f); content: '→'; left: 0; position: absolute; }
-.aboutus-flex img { aspect-ratio: 4/3; border-radius: 1.1rem; object-fit: cover; width: 100%; }
+.aboutus-flex img { aspect-ratio: 4/3; border-radius: 4px; object-fit: cover; width: 100%; }
 .aboutus-contact-cta { background: var(--brand, #0f7b5f); padding: clamp(3.5rem,7vw,6rem) var(--px); text-align: center; }
 .aboutus-contact-cta h3 { color: #fff; font-size: clamp(1.75rem,4vw,4rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin-bottom: 1rem; }
 .aboutus-contact-cta p { color: rgba(255,255,255,0.62); font-size: 1.05rem; line-height: 1.75; margin: 0 auto 2rem; max-width: 52ch; }
-.aboutus-btn { align-items: center; background: #fff; border-radius: 999px; color: var(--ink, #1a2e2a); display: inline-flex; font-family: var(--font); font-size: 0.95rem; font-weight: 900; gap: 0.55rem; min-height: 3rem; padding: 0.85rem 2rem; text-decoration: none; transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease; }
+.aboutus-btn { align-items: center; background: #fff; border-radius: 4px; color: var(--ink, #1a2e2a); display: inline-flex; font-family: var(--font); font-size: 0.95rem; font-weight: 900; gap: 0.55rem; min-height: 3rem; padding: 0.85rem 2rem; text-decoration: none; transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease; }
 .aboutus-btn:hover { background: var(--accent, #f26a4f); color: #fff; transform: translateY(-1px); }
 @media (max-width: 1024px) { .aboutus-hero { grid-template-columns: 1fr; gap: 2rem; } .aboutus-flex { grid-template-columns: 1fr; gap: 1.75rem; } .aboutus-flex img { max-height: 280px; } }
 @media (max-width: 768px) { .aboutus-hero { padding: 2.5rem 1rem; } .aboutus-section { padding: 2rem 1rem; } .aboutus-contact-cta { padding: 3rem 1rem; } }

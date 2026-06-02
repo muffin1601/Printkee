@@ -6,7 +6,7 @@
 .search-page__category { color: var(--ink-3, #65736f); font-size: 1.15rem; font-weight: 400; }
 .search-page__grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); }
 .search-page__card-link { text-decoration: none; }
-.search-page__card { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 1rem; box-shadow: 0 6px 18px rgba(15,35,31,0.05); overflow: hidden; transition: box-shadow 0.22s ease, transform 0.22s ease; }
+.search-page__card { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 4px; box-shadow: 0 6px 18px rgba(15,35,31,0.05); overflow: hidden; transition: box-shadow 0.22s ease, transform 0.22s ease; }
 .search-page__card:hover { box-shadow: 0 18px 45px rgba(15,35,31,0.09); transform: translateY(-5px); }
 .search-page__image { aspect-ratio: 4/3; background: var(--paper, #f8fafc); display: block; object-fit: cover; transition: transform 0.45s ease; width: 100%; }
 .search-page__card:hover .search-page__image { transform: scale(1.05); }
@@ -16,8 +16,8 @@
 .search-page__no-results { color: var(--ink-3, #65736f); font-size: 1.1rem; padding: clamp(4rem,8vw,7rem) 0; text-align: center; }
 .search-page__card--loading { pointer-events: none; }
 .skeleton { animation: shimmer 1.5s infinite; background: linear-gradient(90deg, var(--paper, #f8fafc) 25%, var(--line, #dfe8e2) 50%, var(--paper, #f8fafc) 75%); background-size: 200% 100%; }
-.skeleton-title { border-radius: 0.5rem; height: 14px; margin-bottom: 0.5rem; width: 80%; }
-.skeleton-text { border-radius: 0.5rem; height: 11px; width: 60%; }
+.skeleton-title { border-radius: 2px; height: 14px; margin-bottom: 0.5rem; width: 80%; }
+.skeleton-text { border-radius: 2px; height: 11px; width: 60%; }
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 @media (max-width: 768px) { .search-page { padding: 2.5rem 1rem 4rem; } .search-page__grid { gap: 0.75rem; grid-template-columns: repeat(2,1fr); } .search-page__heading { font-size: clamp(1.5rem,5vw,2.25rem); } }
 @media (max-width: 480px) { .search-page__grid { gap: 0.55rem; } }

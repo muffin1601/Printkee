@@ -4,7 +4,7 @@
   max-width: 1000px;
   margin: 40px auto;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 4px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   font-family: 'Poppins', sans-serif;
   transition: all 0.3s ease;
@@ -100,7 +100,7 @@
 @media (max-width: 768px) {
   .sitemap-container {
     margin: 20px;
-    border-radius: 12px;
+    border-radius: 4px;
   }
   .sitemap-heading {
     font-size: 2rem;

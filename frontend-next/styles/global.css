@@ -41,24 +41,24 @@
   --success:      #0f7b5f;
   --error:        #e63946;
 
-  /* Typography — uses CSS vars from next/font */
-  --font: var(--font-inter, var(--font-poppins, -apple-system, 'Segoe UI', sans-serif));
+  /* Typography — Montserrat via next/font */
+  --font: var(--font-montserrat, 'Montserrat', -apple-system, 'Segoe UI', sans-serif);
 
-  /* Shadows */
+  /* Shadows — subtle, flat */
   --sh-xs:  0 1px 2px rgba(15,123,95,0.04);
-  --sh-sm:  0 2px 6px rgba(15,123,95,0.07);
-  --sh-md:  0 4px 16px rgba(15,123,95,0.09);
-  --sh-lg:  0 8px 28px rgba(15,123,95,0.12);
-  --sh-xl:  0 16px 48px rgba(15,123,95,0.14);
-  --sh-card: 0 2px 8px rgba(26,46,42,0.08), 0 8px 24px rgba(26,46,42,0.05);
+  --sh-sm:  0 1px 4px rgba(26,46,42,0.06);
+  --sh-md:  0 2px 8px rgba(26,46,42,0.07);
+  --sh-lg:  0 4px 16px rgba(26,46,42,0.09);
+  --sh-xl:  0 8px 32px rgba(26,46,42,0.11);
+  --sh-card: 0 1px 3px rgba(26,46,42,0.06), 0 4px 12px rgba(26,46,42,0.04);
 
-  /* Radius */
-  --r-sm: 6px;
-  --r-md: 10px;
-  --r-lg: 14px;
-  --r-xl: 20px;
-  --r-2xl: 28px;
-  --r-pill: 999px;
+  /* Radius — minimal / near-zero */
+  --r-sm:   2px;
+  --r-md:   3px;
+  --r-lg:   4px;
+  --r-xl:   6px;
+  --r-2xl:  6px;
+  --r-pill: 4px;    /* near-zero even for "pills" — sharp look */
 
   /* Transitions */
   --t-fast: 0.15s ease;
@@ -104,9 +104,9 @@
   --shadow-brand-lg:0 8px 36px rgba(15,123,95,0.36);
   --sh-brand: var(--shadow-brand);
   --sh-brand-lg: var(--shadow-brand-lg);
-  --radius-xs:4px; --radius-sm:var(--r-sm); --radius-md:var(--r-md);
+  --radius-xs:2px; --radius-sm:var(--r-sm); --radius-md:var(--r-md);
   --radius-lg:var(--r-lg); --radius-xl:var(--r-xl);
-  --radius-2xl:var(--r-2xl); --radius-full:999px;
+  --radius-2xl:var(--r-2xl); --radius-full:4px;
   --transition:var(--t-base); --transition-fast:150ms ease;
   --transition-base:var(--t-base); --transition-slow:var(--t-slow);
   --max-w-xl:var(--max-w); --max-w-2xl:1440px;
@@ -154,7 +154,7 @@ p { margin:0; }
 
 ::-webkit-scrollbar { width:5px; }
 ::-webkit-scrollbar-track { background:transparent; }
-::-webkit-scrollbar-thumb { background:#c8d8d2; border-radius:999px; }
+::-webkit-scrollbar-thumb { background:#c8d8d2; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background:var(--green-mid); }
 
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0; }

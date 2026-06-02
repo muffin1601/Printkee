@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import "../styles/HowitWorks.css";
-import { FaGift, FaPaintBrush, FaCheckCircle, FaTruck } from "react-icons/fa";
+import { Gift, Paintbrush, CheckCircle2, Truck } from "lucide-react";
 
 const HowitWorks = () => {
   const router = useRouter();
@@ -35,25 +35,25 @@ const HowitWorks = () => {
 
           <div className="how-it-works-steps">
             <div className="step-card">
-              <FaGift className="step-icon" aria-hidden="true" />
+              <Gift className="step-icon" size={32} aria-hidden="true" />
               <h3>Choose Gifts</h3>
               <p>Explore curated gifting options for your audience.</p>
             </div>
 
             <div className="step-card">
-              <FaPaintBrush className="step-icon" aria-hidden="true" />
+              <Paintbrush className="step-icon" size={32} aria-hidden="true" />
               <h3>Customize</h3>
               <p>Add your logo, colors, and message to make it personal.</p>
             </div>
 
             <div className="step-card">
-              <FaCheckCircle className="step-icon" aria-hidden="true" />
+              <CheckCircle2 className="step-icon" size={32} aria-hidden="true" />
               <h3>Approve & Pay</h3>
               <p>Confirm your order with a secure checkout process.</p>
             </div>
 
             <div className="step-card">
-              <FaTruck className="step-icon" aria-hidden="true" />
+              <Truck className="step-icon" size={32} aria-hidden="true" />
               <h3>Deliver with Care</h3>
               <p>We pack and ship gifts with precision and love.</p>
             </div>

@@ -18,7 +18,7 @@
 
 .back-link-3 { align-items: center; color: var(--ink-3, #65736f); display: inline-flex; font-size: 0.88rem; font-weight: 700; gap: 0.45rem; margin-bottom: 1.4rem; text-decoration: none; transition: color 0.18s ease; }
 .back-link-3:hover { color: var(--brand, #0f7b5f); }
-.circle-3 { align-items: center; border: 1.5px solid var(--line, #dfe8e2); border-radius: 999px; display: flex; font-size: 13px; height: 30px; justify-content: center; transition: all 0.18s ease; width: 30px; flex-shrink: 0; }
+.circle-3 { align-items: center; border: 1.5px solid var(--line, #dfe8e2); border-radius: 4px; display: flex; font-size: 13px; height: 30px; justify-content: center; transition: all 0.18s ease; width: 30px; flex-shrink: 0; }
 .back-link-3:hover .circle-3 { background: var(--brand-light, #f0e8f7); border-color: var(--brand, #0f7b5f); color: var(--brand, #0f7b5f); }
 .arrow-3 { font-size: 13px; } .span-name-3 { font-size: 0.88rem; }
 
@@ -26,7 +26,7 @@
 .subcategory-subtitle-3 { color: var(--brand, #0f7b5f); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; }
 .subcategory-description-3 { color: var(--ink-3, #65736f); font-size: 1rem; line-height: 1.75; max-width: 48ch; }
 
-.head-img { aspect-ratio: 4/3; border-radius: 1.35rem; overflow: hidden; }
+.head-img { aspect-ratio: 4/3; border-radius: 4px; overflow: hidden; }
 .head-img img { height: 100%; object-fit: cover; width: 100%; }
 
 /* ── SUBCATEGORY GRID ─────────────────────────────────────── */
@@ -34,7 +34,7 @@
 
 .subcategory-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); }
 
-.subcategory-card { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 1rem; box-shadow: 0 10px 30px rgba(15,35,31,0.04); display: flex; flex-direction: column; overflow: hidden; text-decoration: none; transition: box-shadow 0.22s ease, transform 0.22s ease; }
+.subcategory-card { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 4px; box-shadow: 0 10px 30px rgba(15,35,31,0.04); display: flex; flex-direction: column; overflow: hidden; text-decoration: none; transition: box-shadow 0.22s ease, transform 0.22s ease; }
 .subcategory-card:hover { box-shadow: 0 18px 45px rgba(15,35,31,0.09); transform: translateY(-5px); }
 .subcategory-image { aspect-ratio: 4/3; object-fit: cover; transition: transform 0.45s ease; width: 100%; }
 .subcategory-card:hover .subcategory-image { transform: scale(1.05); }
@@ -44,7 +44,7 @@
 .highlights-section { background: var(--brand-light, #f0e8f7); padding: clamp(3rem,6vw,5rem) var(--px); }
 .highlights-heading { color: var(--brand, #0f7b5f); font-size: clamp(1.5rem,3vw,2.5rem); font-weight: 900; letter-spacing: -0.03em; margin: 0 auto clamp(2rem,4vw,3rem); max-width: var(--max-w); text-align: center; }
 .highlights-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); max-width: var(--max-w); margin: 0 auto; }
-.highlight-card { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 1.35rem; padding: 1.75rem; text-align: center; transition: box-shadow 0.22s ease, transform 0.22s ease; }
+.highlight-card { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 4px; padding: 1.75rem; text-align: center; transition: box-shadow 0.22s ease, transform 0.22s ease; }
 .highlight-card:hover { box-shadow: 0 10px 30px rgba(15,35,31,0.07); transform: translateY(-3px); }
 .highlight-icon { align-items: center; color: var(--brand, #0f7b5f); display: flex; font-size: 2rem; justify-content: center; margin-bottom: 0.85rem; }
 .highlight-title { color: var(--ink, #1a2e2a); font-size: 0.97rem; font-weight: 700; margin-bottom: 0.5rem; }
@@ -52,11 +52,11 @@
 
 /* ── FAQ ──────────────────────────────────────────────────── */
 .aboutsubcat-wrapper { background: var(--paper, #f8fafc); padding: clamp(3rem,6vw,5rem) var(--px); }
-.aboutsubcat-card { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 1.5rem; max-width: 720px; margin: 0 auto; padding: clamp(1.5rem,3vw,2.5rem); }
+.aboutsubcat-card { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 4px; max-width: 720px; margin: 0 auto; padding: clamp(1.5rem,3vw,2.5rem); }
 .aboutsubcat-heading { color: var(--ink, #1a2e2a); font-size: clamp(1.5rem,3vw,2rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1rem; }
 .aboutsubcat-description { color: var(--ink-3, #65736f); font-size: 0.97rem; line-height: 1.75; margin-bottom: 2rem; }
 .aboutsubcat-faqs { display: flex; flex-direction: column; gap: 0.55rem; }
-.aboutsubcat-faq-item { border: 1px solid var(--line, #dfe8e2); border-radius: 0.65rem; overflow: hidden; }
+.aboutsubcat-faq-item { border: 1px solid var(--line, #dfe8e2); border-radius: 3px; overflow: hidden; }
 .aboutsubcat-faq-question { background: none; border: none; color: var(--ink, #1a2e2a); cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-family: var(--font); font-size: 0.95rem; font-weight: 700; padding: 1rem 1.25rem; text-align: left; transition: color 0.18s ease; width: 100%; }
 .aboutsubcat-faq-question:hover { color: var(--brand, #0f7b5f); }
 .aboutsubcat-faq-answer { background: var(--paper, #f8fafc); border-top: 1px solid var(--line, #dfe8e2); color: var(--ink-3, #65736f); font-size: 0.9rem; line-height: 1.75; padding: 1rem 1.25rem; }

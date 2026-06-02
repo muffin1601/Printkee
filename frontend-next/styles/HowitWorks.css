@@ -6,12 +6,12 @@
 .how-it-works-title { color: #fff; font-size: clamp(2.25rem,5vw,5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin: 0 0 0.9rem; }
 .how-it-works-subheading { color: rgba(255,255,255,0.58); font-size: 1.05rem; line-height: 1.75; margin: 0 auto clamp(2.5rem,5vw,4rem); max-width: 52ch; }
 .how-it-works-steps { display: grid; gap: 1rem; grid-template-columns: repeat(4,1fr); margin-bottom: clamp(2.5rem,5vw,4rem); }
-.step-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 1.5rem; min-height: 16rem; padding: 1.75rem 1.25rem; text-align: center; transition: background 0.22s ease, transform 0.22s ease; }
+.step-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; min-height: 16rem; padding: 1.75rem 1.25rem; text-align: center; transition: background 0.22s ease, transform 0.22s ease; }
 .step-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-5px); }
 .step-icon { color: var(--accent, #f26a4f); display: block; font-size: 2.25rem; margin: 0 auto 1.25rem; }
 .step-card h3 { color: #fff; font-size: 1.05rem; font-weight: 700; margin: 0 0 0.65rem; }
 .step-card p { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.65; margin: 0; }
-.how-it-works-cta { align-items: center; background: #fff; border: none; border-radius: 999px; color: var(--ink, #1a2e2a); cursor: pointer; display: inline-flex; font-family: var(--font); font-size: 0.95rem; font-weight: 900; gap: 0.55rem; min-height: 3rem; padding: 0.85rem 2rem; position: relative; transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease; z-index: 1; }
+.how-it-works-cta { align-items: center; background: #fff; border: none; border-radius: 4px; color: var(--ink, #1a2e2a); cursor: pointer; display: inline-flex; font-family: var(--font); font-size: 0.95rem; font-weight: 900; gap: 0.55rem; min-height: 3rem; padding: 0.85rem 2rem; position: relative; transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease; z-index: 1; }
 .how-it-works-cta:hover { background: var(--accent, #f26a4f); color: #fff; transform: translateY(-2px); }
 @media (max-width: 1024px) { .how-it-works-steps { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 768px) { .how-it-works-banner { padding: 3.5rem 1rem; } .how-it-works-steps { gap: 0.75rem; } }

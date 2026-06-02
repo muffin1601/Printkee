@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
+import { Star, Truck, BadgePercent, HeadphonesIcon } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
@@ -54,10 +55,10 @@ const TrustStrip = () => (
   <div className="trust-strip" aria-label="Why choose Printkee">
     <div className="trust-strip__inner">
       {[
-        { icon: "⭐", title: "Premium Quality", sub: "Top quality products that represent your brand" },
-        { icon: "🚚", title: "Pan India Delivery", sub: "Fast & reliable delivery across India" },
-        { icon: "💰", title: "Best Price Guarantee", sub: "Competitive pricing for bulk orders" },
-        { icon: "🎧", title: "Dedicated Support", sub: "Round the clock support for your queries" },
+        { icon: <Star size={18} strokeWidth={1.5} />, title: "Premium Quality", sub: "Top quality products that represent your brand" },
+        { icon: <Truck size={18} strokeWidth={1.5} />, title: "Pan India Delivery", sub: "Fast & reliable delivery across India" },
+        { icon: <BadgePercent size={18} strokeWidth={1.5} />, title: "Best Price Guarantee", sub: "Competitive pricing for bulk orders" },
+        { icon: <HeadphonesIcon size={18} strokeWidth={1.5} />, title: "Dedicated Support", sub: "Round the clock support for your queries" },
       ].map((item) => (
         <div key={item.title} className="trust-strip__item">
           <span className="trust-strip__icon" aria-hidden="true">{item.icon}</span>

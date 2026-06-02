@@ -68,7 +68,7 @@
 .ann-bar__cart-badge {
   align-items: center;
   background: var(--orange, #f26a4f);
-  border-radius: 999px;
+  border-radius: 4px;
   color: #fff;
   display: inline-flex;
   font-size: 0.62rem;

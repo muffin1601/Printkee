@@ -45,7 +45,7 @@
 
 .diwali-carousel-card {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 4px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   padding-bottom: 10px;
   text-align: center;
@@ -65,7 +65,7 @@
   width: 70%;
   height: 200px;
   object-fit: contain;
-  border-radius: 12px 12px 0 0;
+  border-radius: 4px 12px 0 0;
   margin: 10px auto;
 }
 
@@ -122,7 +122,7 @@
   font-size: 1.2rem;
   padding: 12px 25px;
   border: none;
-  border-radius: 8px;
+  border-radius: 3px;
   cursor: pointer;
   font-family: 'poppins', sans-serif;
   transition: background 0.3s ease, transform 0.3s ease;
@@ -151,7 +151,7 @@
 
 .diwali-brand-card {
   background: white;
-  border-radius: 8px;
+  border-radius: 3px;
   padding: 15px;
   border: 1px solid #f39c12;
   display: flex;
@@ -188,7 +188,7 @@
 .lead-modal {
   background: #fff;
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 4px;
   max-width: 500px;
   width: 90%;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
@@ -206,7 +206,7 @@
 .lead-form textarea {
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 3px;
   font-family: 'poppins', sans-serif;
   font-size: 1rem;
   width: 100%;
@@ -225,7 +225,7 @@
   border: none;
   font-family: 'poppins', sans-serif;
   padding: 10px 18px;
-  border-radius: 8px;
+  border-radius: 3px;
   cursor: pointer;
 }
 
@@ -234,7 +234,7 @@
   color: #333;
   border: none;
   padding: 10px 18px;
-  border-radius: 8px;
+  border-radius: 3px;
   font-family: 'poppins', sans-serif;
   cursor: pointer;
 }

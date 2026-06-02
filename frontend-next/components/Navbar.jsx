@@ -3,18 +3,20 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
-  FaHome,
-  FaThList,
-  FaTags,
-  FaGift,
-  FaInfoCircle,
-  FaPen,
-  FaEnvelope,
-  FaChevronDown,
-  FaChevronUp,
-  FaPhoneAlt,
-} from "react-icons/fa";
-import { IoMenu, IoClose, IoSearch } from "react-icons/io5";
+  Home,
+  LayoutGrid,
+  Tag,
+  Gift,
+  Info,
+  PenLine,
+  Mail,
+  ChevronDown,
+  ChevronUp,
+  Phone,
+  Menu,
+  X,
+  Search,
+} from "lucide-react";
 import navbarSubcategories from "../data/list";
 import "../styles/Navbar.css";
 
@@ -79,7 +81,7 @@ const Navbar = () => {
 
         <div className="navbar-phone desktop-only">
           <a href="tel:8800904543" className="phone-link">
-            <FaPhoneAlt /> 88009 04543
+            <Phone size={13} /> 88009 04543
           </a>
         </div>
 
@@ -98,14 +100,14 @@ const Navbar = () => {
             className="search-toggle"
             onClick={() => setIsSearchOpen(true)}
           >
-            <IoSearch size={28} />
+            <Search size={20} />
           </button>
           <button
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="menu-toggle"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <IoClose size={35} /> : <IoMenu size={35} />}
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -115,7 +117,7 @@ const Navbar = () => {
         <ul className="menu">
           <li>
             <Link href="/" className="nav-link">
-              <FaHome aria-hidden="true" /> Home
+              <Home size={15} aria-hidden="true" /> Home
             </Link>
           </li>
 
@@ -125,7 +127,7 @@ const Navbar = () => {
             onMouseLeave={() => setShowMegaMenu(false)}
           >
             <span className="nav-link">
-              <FaThList aria-hidden="true" /> All Categories ▾
+              <LayoutGrid size={15} aria-hidden="true" /> All Categories ▾
             </span>
 
             <div className={`mega-menu-wrapper ${showMegaMenu ? "open" : ""}`}>
@@ -158,25 +160,25 @@ const Navbar = () => {
 
           <li>
             <Link href="/brands" className="nav-link">
-              <FaTags aria-hidden="true" /> Brands
+              <Tag size={15} aria-hidden="true" /> Brands
             </Link>
           </li>
 
           <li>
             <Link href="/blogs" className="nav-link">
-              <FaPen aria-hidden="true" /> Blog
+              <PenLine size={15} aria-hidden="true" /> Blog
             </Link>
           </li>
 
           <li>
             <Link href="/contact" className="nav-link">
-              <FaEnvelope aria-hidden="true" /> Contact Us
+              <Mail size={15} aria-hidden="true" /> Contact Us
             </Link>
           </li>
 
           <li>
             <Link href="/about" className="nav-link">
-              <FaInfoCircle aria-hidden="true" /> About Us
+              <Info size={15} aria-hidden="true" /> About Us
             </Link>
           </li>
         </ul>
@@ -203,14 +205,14 @@ const Navbar = () => {
             aria-label="Close menu"
             onClick={() => setIsMenuOpen(false)}
           >
-            <IoClose size={30} />
+            <X size={20} />
           </button>
         </div>
 
         <ul>
           <li>
             <Link href="/" onClick={() => setIsMenuOpen(false)}>
-              <FaHome aria-hidden="true" /> Home
+              <Home size={15} aria-hidden="true" /> Home
             </Link>
           </li>
 
@@ -224,9 +226,9 @@ const Navbar = () => {
               }
             >
               <span>
-                <FaThList aria-hidden="true" /> All Categories
+                <LayoutGrid size={15} aria-hidden="true" /> All Categories
               </span>
-              {openCategory === "all" ? <FaChevronUp /> : <FaChevronDown />}
+              {openCategory === "all" ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
             </button>
 
             {openCategory === "all" && (
@@ -251,32 +253,32 @@ const Navbar = () => {
 
           <li>
             <Link href="/brands" onClick={() => setIsMenuOpen(false)}>
-              <FaTags aria-hidden="true" /> Brands
+              <Tag size={15} aria-hidden="true" /> Brands
             </Link>
           </li>
 
           <li>
             <Link href="/blogs" onClick={() => setIsMenuOpen(false)}>
-              <FaPen aria-hidden="true" /> Blogs
+              <PenLine size={15} aria-hidden="true" /> Blogs
             </Link>
           </li>
 
           <li>
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-              <FaEnvelope aria-hidden="true" /> Contact Us
+              <Mail size={15} aria-hidden="true" /> Contact Us
             </Link>
           </li>
 
           <li>
             <Link href="/about" onClick={() => setIsMenuOpen(false)}>
-              <FaInfoCircle aria-hidden="true" /> About Us
+              <Info size={15} aria-hidden="true" /> About Us
             </Link>
           </li>
         </ul>
 
         <div className="side-menu-footer">
           <a href="tel:8800904543" className="phone-link">
-            <FaPhoneAlt /> 88009 04543
+            <Phone size={13} /> 88009 04543
           </a>
         </div>
       </nav>
@@ -303,7 +305,7 @@ const Navbar = () => {
               aria-label="Close search"
               onClick={() => setIsSearchOpen(false)}
             >
-              <IoClose size={30} />
+              <X size={20} />
             </button>
           </div>
         </div>

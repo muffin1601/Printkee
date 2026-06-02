@@ -3,7 +3,7 @@
 .brands-heading { color: var(--ink, #1a2e2a); font-size: clamp(2.25rem,5vw,5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin: 0 0 0.9rem; text-align: center; }
 .brands-description { color: var(--ink-3, #65736f); font-size: 1.05rem; line-height: 1.75; margin: 0 auto clamp(2.5rem,5vw,4rem); max-width: 58ch; text-align: center; }
 .brands-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill,minmax(155px,1fr)); }
-.brand-card { align-items: center; background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 1.1rem; box-shadow: 0 6px 18px rgba(15,35,31,0.04); display: flex; flex-direction: column; gap: 0.75rem; padding: 1.5rem; text-decoration: none; transition: box-shadow 0.22s ease, transform 0.22s ease; }
+.brand-card { align-items: center; background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 4px; box-shadow: 0 6px 18px rgba(15,35,31,0.04); display: flex; flex-direction: column; gap: 0.75rem; padding: 1.5rem; text-decoration: none; transition: box-shadow 0.22s ease, transform 0.22s ease; }
 .brand-card:hover { box-shadow: 0 14px 35px rgba(15,35,31,0.09); transform: translateY(-5px); }
 .brand-logo { filter: grayscale(1) brightness(0.65); height: 44px; max-width: 100%; object-fit: contain; opacity: 0.55; transition: all 0.18s ease; width: auto; }
 .brand-card:hover .brand-logo { filter: none; opacity: 1; }
