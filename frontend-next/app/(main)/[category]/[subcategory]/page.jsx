@@ -1,4 +1,5 @@
 import ProductDisplay from "../../../../components/ProductDisplay";
+import seoConfig from "../../../../data/seoConfig";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
@@ -17,51 +18,49 @@ async function getSubcategory(category, subcategory) {
 
 export async function generateMetadata({ params }) {
   const { category, subcategory } = await params;
+  const seo = seoConfig[`/${category}/${subcategory}`];
   const data = await getSubcategory(category, subcategory);
-  if (!data) return { title: "Products | MF Global Services" };
-
-  const sub = data.subcategory;
-  const cat = data.category;
+  const sub = data?.subcategory;
+  const cat = data?.category;
   const canonical = `${BASE}/${category}/${subcategory}`;
-  const title =
-    sub?.seo?.metaTitle || `${sub?.name} | ${cat?.name} - MF Global Services`;
-  const desc =
-    sub?.seo?.metaDescription ||
-    sub?.description ||
-    `Explore premium ${sub?.name} under ${cat?.name}.`;
+
+  const title = seo?.title
+    || sub?.seo?.metaTitle
+    || `${sub?.name} | ${cat?.name} - MF Global Services`;
+  const description = seo?.description
+    || sub?.seo?.metaDescription
+    || sub?.description
+    || `Explore premium ${sub?.name} under ${cat?.name}.`;
+  const image = sub?.image || `${BASE}/assets/printkeeLogo.webp`;
 
   return {
     title,
-    description: desc,
-    keywords: sub?.seo?.keywords || [
-      sub?.name,
-      cat?.name,
-      "corporate gifting",
-      "bulk orders India",
-    ],
+    description,
+    keywords: sub?.seo?.keywords || [sub?.name, cat?.name, "corporate gifting", "bulk orders India"],
     alternates: { canonical },
     openGraph: {
-      title,
-      description: desc,
-      url: canonical,
-      type: "website",
-      images: sub?.image ? [{ url: sub.image, alt: sub.name }] : [],
+      title:       seo?.openGraph?.title       || title,
+      description: seo?.openGraph?.description || description,
+      url:         canonical,
+      type:        "website",
+      images:      image ? [{ url: image, alt: sub?.name || subcategory }] : [],
     },
     twitter: {
-      card: "summary_large_image",
-      title,
-      description: desc,
-      images: sub?.image ? [sub.image] : [],
+      card:        "summary_large_image",
+      title:       seo?.twitter?.title       || title,
+      description: seo?.twitter?.description || description,
+      images:      image ? [image] : [],
     },
   };
 }
 
 export default async function SubcategoryPage({ params }) {
   const { category, subcategory } = await params;
+  const seo = seoConfig[`/${category}/${subcategory}`];
   const data = await getSubcategory(category, subcategory);
 
-  const products = data?.products || [];
-  const categoryData = data?.category || null;
+  const products      = data?.products      || [];
+  const categoryData  = data?.category      || null;
   const subcategoryData = data?.subcategory || null;
 
   /* ── BreadcrumbList JSON-LD ── */
@@ -79,25 +78,25 @@ export default async function SubcategoryPage({ params }) {
       {
         "@type": "ListItem",
         position: 3,
-        name: subcategoryData?.name || subcategory,
+        name: seo?.h1 || subcategoryData?.name || subcategory,
         item: `${BASE}/${category}/${subcategory}`,
       },
     ],
   };
 
-  /* ── ItemList JSON-LD (product listing) ── */
+  /* ── ItemList JSON-LD ── */
   const itemListSchema =
     products.length > 0
       ? {
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: subcategoryData?.name || subcategory,
+          name: seo?.h1 || subcategoryData?.name || subcategory,
           url: `${BASE}/${category}/${subcategory}`,
           numberOfItems: products.length,
           itemListElement: products.slice(0, 20).map((prod, i) => ({
             "@type": "ListItem",
             position: i + 1,
-            url: `${BASE}/${category}/${subcategory}/${prod.slug}`,
+            url:  `${BASE}/${category}/${subcategory}/${prod.slug}`,
             name: prod.name,
           })),
         }
@@ -119,6 +118,8 @@ export default async function SubcategoryPage({ params }) {
         subcategoryData={subcategoryData}
         categoryData={categoryData}
         products={products}
+        seoH1={seo?.h1}
+        seoH2={seo?.h2}
       />
     </>
   );

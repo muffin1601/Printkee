@@ -8,7 +8,7 @@ import aboutSubcategoryData from "../data/faqsdata";
 import Testimonials from "./Testimonials";
 import GetQuoteCTA from "./GetQuoteCTA";
 
-const SubcategoryDisplay = ({ categoryData }) => {
+const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
   const { category: categorySlug } = useParams();
   const [openFaq, setOpenFaq] = useState(null);
 
@@ -19,6 +19,10 @@ const SubcategoryDisplay = ({ categoryData }) => {
       </div>
     );
   }
+
+  /* seoH1/seoH2 from seoConfig override the DB name for SEO-optimized headings */
+  const displayH1 = seoH1 || categoryData.name;
+  const displayH2 = seoH2 || null;
 
   return (
     <>
@@ -32,7 +36,8 @@ const SubcategoryDisplay = ({ categoryData }) => {
             <span className="span-name-3">Back to home</span>
           </Link>
 
-          <h1 className="subcategory-title-3">{categoryData.name}</h1>
+          <h1 className="subcategory-title-3">{displayH1}</h1>
+          {displayH2 && <h2 className="subcategory-subtitle-3">{displayH2}</h2>}
           <p className="subcategory-description-3">{categoryData.description}</p>
         </div>
 
@@ -40,7 +45,7 @@ const SubcategoryDisplay = ({ categoryData }) => {
           <img
             loading="lazy"
             src={`/assets/categories/${categorySlug}.webp`}
-            alt={`${categoryData.name} category banner`}
+            alt={`${displayH1} — ${categoryData.name}`}
           />
         </div>
       </div>

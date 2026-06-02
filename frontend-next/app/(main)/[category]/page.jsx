@@ -1,5 +1,6 @@
 import SubcategoryDisplay from "../../../components/SubcategoryDisplay";
 import aboutSubcategoryData from "../../../data/faqsdata";
+import seoConfig from "../../../data/seoConfig";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
@@ -17,43 +18,43 @@ async function getCategory(slug) {
 
 export async function generateMetadata({ params }) {
   const { category } = await params;
+  const seo = seoConfig[`/${category}`];
   const data = await getCategory(category);
-  if (!data) return { title: "Category | MF Global Services" };
-
   const canonical = `${BASE}/${category}`;
-  const title = data.seo?.metaTitle || `${data.name} | MF Global Services`;
-  const desc =
-    data.seo?.metaDescription ||
-    data.description ||
-    `Explore our premium collection of ${data.name} at MF Global Services.`;
+
+  const title = seo?.title
+    || data?.seo?.metaTitle
+    || `${data?.name} | MF Global Services`;
+  const description = seo?.description
+    || data?.seo?.metaDescription
+    || data?.description
+    || `Explore ${data?.name} at MF Global Services.`;
+  const image = data?.image || `${BASE}/assets/printkeeLogo.webp`;
 
   return {
     title,
-    description: desc,
-    keywords: data.seo?.keywords || [
-      data.name,
-      "corporate gifts",
-      `${data.name} India`,
-    ],
+    description,
+    keywords: data?.seo?.keywords || [data?.name, "corporate gifts", `${data?.name} India`],
     alternates: { canonical },
     openGraph: {
-      title,
-      description: desc,
-      url: canonical,
-      type: "website",
-      images: data.image ? [{ url: data.image, alt: data.name }] : [],
+      title:       seo?.openGraph?.title       || title,
+      description: seo?.openGraph?.description || description,
+      url:         canonical,
+      type:        "website",
+      images:      [{ url: image, alt: data?.name || category }],
     },
     twitter: {
-      card: "summary_large_image",
-      title,
-      description: desc,
-      images: data.image ? [data.image] : [],
+      card:        "summary_large_image",
+      title:       seo?.twitter?.title       || title,
+      description: seo?.twitter?.description || description,
+      images:      [image],
     },
   };
 }
 
 export default async function CategoryPage({ params }) {
   const { category } = await params;
+  const seo = seoConfig[`/${category}`];
   const categoryData = await getCategory(category);
 
   /* ── BreadcrumbList JSON-LD ── */
@@ -65,13 +66,13 @@ export default async function CategoryPage({ params }) {
       {
         "@type": "ListItem",
         position: 2,
-        name: categoryData?.name || category,
+        name: seo?.h1 || categoryData?.name || category,
         item: `${BASE}/${category}`,
       },
     ],
   };
 
-  /* ── FAQPage JSON-LD from static data ── */
+  /* ── FAQPage JSON-LD ── */
   const faqData = aboutSubcategoryData[category];
   const faqSchema =
     faqData?.faqs?.length > 0
@@ -98,7 +99,11 @@ export default async function CategoryPage({ params }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      <SubcategoryDisplay categoryData={categoryData} />
+      <SubcategoryDisplay
+        categoryData={categoryData}
+        seoH1={seo?.h1}
+        seoH2={seo?.h2}
+      />
     </>
   );
 }

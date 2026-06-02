@@ -10,7 +10,7 @@ import FAQSection from "./category/FAQSection";
 import banners from "../data/banners";
 import SubcategoryDescription from "./category/SubcategoryDescription";
 
-const ProductDisplay = ({ subcategoryData, categoryData, products = [] }) => {
+const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, seoH2 }) => {
   const { category: categorySlug, subcategory: subcategorySlug } = useParams();
   const router = useRouter();
 
@@ -24,6 +24,9 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [] }) => {
 
   const categoryName = categoryData.name;
   const subcategoryName = subcategoryData.name;
+  /* seoH1/seoH2 override the DB name for SEO-optimized headings */
+  const displayH1 = seoH1 || subcategoryName;
+  const displayH2 = seoH2 || null;
 
   const bannerImage =
     banners[categorySlug]?.subcategories?.[subcategorySlug] ||
@@ -46,7 +49,8 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [] }) => {
             <span className="span-name">Back to {categoryName}</span>
           </Link>
 
-          <h1 className="page-title">{subcategoryName}</h1>
+          <h1 className="page-title">{displayH1}</h1>
+          {displayH2 && <h2 className="page-subtitle">{displayH2}</h2>}
           <p className="subcategory-description">{subcategoryData?.description || ""}</p>
         </div>
       </div>
