@@ -1,141 +1,89 @@
+/* ============================================================
+   BRANDS PAGE
+   ============================================================ */
+
 .brands-container {
-  padding: 60px 20px;
-  background-color: #ffffff;
-  max-width: 1200px;
-  margin: auto;
-  text-align: center;
+  max-width: var(--max-w-xl);
+  margin: 0 auto;
+  padding: var(--space-16) var(--section-px) var(--space-20);
 }
 
 .brands-heading {
-  font-size: 2.5rem;
-  color: #4b2061;
-  margin-bottom: 20px;
-  font-weight: 700;
+  font-size: clamp(var(--font-2xl), 4vw, var(--font-4xl));
+  font-weight: var(--weight-extrabold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: var(--space-4);
 }
 
 .brands-description {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 40px;
-  max-width: 800px;
-  margin-inline: auto;
-  line-height: 1.6;
+  font-size: var(--font-base);
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 60ch;
+  margin: 0 auto var(--space-12);
+  line-height: var(--leading-relaxed);
 }
 
+/* Grid */
 .brands-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 24px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-4);
 }
 
 .brand-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f8f8f8;
-  padding: 16px;
-  border-radius: 14px;
+  gap: var(--space-3);
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  width: 100%;
-  max-width: 240px;
+  transition: all var(--transition-base);
 }
 
 .brand-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: var(--color-brand-mid);
+  box-shadow: var(--shadow-lg);
   transform: translateY(-3px);
 }
 
 .brand-logo {
-  max-width: 160px;
-  max-height: 120px;
+  height: 48px;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
-  margin-bottom: 12px;
-  transition: transform 0.2s ease;
+  filter: grayscale(1) brightness(0.75);
+  opacity: 0.65;
+  transition: all var(--transition-fast);
 }
 
 .brand-card:hover .brand-logo {
-  transform: scale(1.05);
+  filter: none;
+  opacity: 1;
 }
 
 .brand-name {
-  font-size: 1rem;
-  color: #333;
-  font-weight: 600;
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-secondary);
   text-align: center;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
 }
 
-.brand-card:hover .brand-name {
-  color: #4b2061;
-}
+.brand-card:hover .brand-name { color: var(--color-brand); }
 
-/* 📱 Mobile (up to 768px) */
+/* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .brands-container {
-    padding: 40px 15px;
-  }
-
-  .brands-heading {
-    font-size: 2rem;
-    margin-bottom: 16px;
-  }
-
-  .brands-description {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    padding: 0 10px;
-  }
-
-  .brands-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .brand-card {
-    max-width: 200px;
-    padding: 12px;
-  }
-
-  .brand-logo {
-    max-width: 140px;
-    max-height: 100px;
-  }
-
-  .brand-name {
-    font-size: 0.95rem;
-  }
+  .brands-container { padding: var(--space-10) var(--space-4) var(--space-16); }
+  .brands-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
 }
 
-/* 📱 Small Mobile (up to 480px) */
 @media (max-width: 480px) {
-  .brands-heading {
-    font-size: 1.6rem;
-  }
-
-  .brands-description {
-    font-size: 0.95rem;
-    margin-bottom: 24px;
-  }
-
-  .brands-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns in a row */
-    gap: 16px;
-  }
-
-  .brand-card {
-    max-width: 100%;
-    padding: 10px;
-  }
-
-  .brand-logo {
-    max-width: 120px;
-    max-height: 80px;
-  }
-
-  .brand-name {
-    font-size: 0.9rem;
-  }
+  .brands-grid { grid-template-columns: repeat(2, 1fr); }
 }

@@ -1,207 +1,131 @@
+/* ============================================================
+   BLOG LIST
+   ============================================================ */
+
 .blog-list-container {
-  padding: 60px 20px;
-  background-color: #ffffff;
-  max-width: 1200px;
-  margin: auto;
+  max-width: var(--max-w-xl);
+  margin: 0 auto;
+  padding: var(--space-16) var(--section-px) var(--space-20);
 }
 
-/* ===== Header Section ===== */
 .blog-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
-  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: var(--space-10);
+  gap: var(--space-4);
 }
 
 .blog-title {
-  font-size: 2rem;
-  color: #4b2061;
-  font-weight: 700;
+  font-size: var(--font-3xl);
+  font-weight: var(--weight-extrabold);
+  color: var(--color-text);
+  letter-spacing: var(--tracking-tight);
 }
 
 .post-blog-btn {
-  background: #f39c12;
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.5rem var(--space-5);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand);
+  border: 1.5px solid var(--color-brand);
+  border-radius: var(--radius-md);
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(243, 156, 18, 0.2);
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .post-blog-btn:hover {
-  background: #4b2061;
-  transform: scale(1.05);
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
 }
 
-/* ===== Blog Grid ===== */
+/* Grid */
 .blog-list-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
 }
 
+/* Card */
 .blog-card {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-  padding: 20px;
-  transition: transform 0.3s ease;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: all var(--transition-base);
 }
 
 .blog-card:hover {
-  transform: translateY(-5px);
+  border-color: var(--color-brand-mid);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
 }
 
 .blog-thumbnail {
   width: 100%;
-  height: 180px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
+  display: block;
+  transition: transform var(--transition-slow);
 }
 
+.blog-card:hover .blog-thumbnail { transform: scale(1.03); }
+
 .blog-heading {
-  color: #4b2061;
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  font-weight: 600;
+  padding: var(--space-4) var(--space-5) var(--space-2);
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .blog-meta {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
+  padding: 0 var(--space-5) var(--space-2);
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
 }
 
 .blog-excerpt {
-  color: #333;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 12px;
+  padding: 0 var(--space-5) var(--space-4);
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
 }
 
 .read-more-link {
-  display: inline-block;
-  background: #f39c12;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin: 0 var(--space-5) var(--space-5);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand);
   text-decoration: none;
-  align-self: flex-start; /* keeps button aligned */
-  transition: background 0.2s ease;
+  transition: gap var(--transition-fast);
 }
 
-.read-more-link:hover {
-  background: #4b2061;
-}
+.read-more-link:hover { gap: var(--space-2); }
 
-/* ===== Tablet (≤ 1024px) ===== */
-@media (max-width: 1024px) {
-  .blog-list-container {
-    padding: 50px 15px;
-  }
-
-  .blog-title {
-    font-size: 1.8rem;
-  }
-
-  .blog-list-grid {
-    gap: 30px;
-  }
-
-  .blog-heading {
-    font-size: 1.3rem;
-  }
-
-  .blog-excerpt {
-    font-size: 0.95rem;
-  }
-}
-
-/* ===== Mobile (≤ 768px) ===== */
+/* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .blog-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .blog-title {
-    font-size: 1.6rem;
-  }
-
-  .blog-list-grid {
-    grid-template-columns: 1fr; /* Single column */
-    gap: 25px;
-  }
-
-  .blog-thumbnail {
-    height: 160px;
-  }
-
-  .blog-heading {
-    font-size: 1.2rem;
-  }
-
-  .blog-excerpt {
-    font-size: 0.9rem;
-  }
-
-  .read-more-link {
-    font-size: 0.85rem;
-    padding: 7px 14px;
-  }
-}
-
-/* ===== Small Mobile (≤ 480px) ===== */
-@media (max-width: 480px) {
-  .blog-list-container {
-    padding: 40px 12px;
-  }
-
-  .blog-title {
-    font-size: 1.4rem;
-    text-align: center;
-  }
-
-  .post-blog-btn {
-    font-size: 0.9rem;
-    padding: 8px 14px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .blog-thumbnail {
-    height: 140px;
-  }
-
-  .blog-heading {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-
-  .blog-meta {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-
-  .blog-excerpt {
-    font-size: 0.85rem;
-    text-align: center;
-  }
-
-  .read-more-link {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-    margin: auto;
-  }
+  .blog-list-container { padding: var(--space-10) var(--space-4) var(--space-16); }
+  .blog-title { font-size: var(--font-2xl); }
+  .blog-list-grid { grid-template-columns: 1fr; gap: var(--space-4); }
 }
