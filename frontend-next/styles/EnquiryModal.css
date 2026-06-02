@@ -3,18 +3,18 @@
 .enquiry-modal { animation: modalIn 0.2s ease forwards; background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 1.75rem; box-shadow: 0 32px 90px rgba(17,24,21,0.18); max-height: 90vh; overflow-y: auto; position: relative; width: min(900px,100%); }
 @keyframes modalIn { from { opacity:0; transform:translateY(14px) scale(0.97); } to { opacity:1; transform:translateY(0) scale(1); } }
 .close-btn-enquiry { align-items: center; background: none; border: none; border-radius: 0.5rem; color: var(--ink-3, #65736f); cursor: pointer; display: flex; font-size: 20px; height: 36px; justify-content: center; line-height: 1; position: absolute; right: 1.25rem; top: 1.25rem; transition: all 0.18s ease; width: 36px; z-index: 1; }
-.close-btn-enquiry:hover { background: var(--paper, #fbfaf4); color: var(--ink, #17211f); }
+.close-btn-enquiry:hover { background: var(--paper, #f8fafc); color: var(--ink, #1a2e2a); }
 .modal-container { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; }
-.left-content { background: var(--brand, #4b2061); border-radius: 1.75rem 0 0 1.75rem; display: flex; flex-direction: column; gap: 1.25rem; padding: 2.5rem; }
+.left-content { background: var(--brand, #0f7b5f); border-radius: 1.75rem 0 0 1.75rem; display: flex; flex-direction: column; gap: 1.25rem; padding: 2.5rem; }
 .enquiry-image { aspect-ratio: 4/3; border-radius: 1.1rem; display: block; object-fit: cover; width: 100%; }
 .left-description { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.7; }
 .sr-label { clip: rect(0,0,0,0); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px; }
 .right-form { display: flex; flex-direction: column; padding: 2.5rem; }
-.enquiry-title { color: var(--ink, #17211f); font-size: clamp(1.5rem,3vw,2.5rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1.75rem; }
+.enquiry-title { color: var(--ink, #1a2e2a); font-size: clamp(1.5rem,3vw,2.5rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1.75rem; }
 .enquiry-form { display: flex; flex-direction: column; flex: 1; gap: 1rem; }
-.form-input, .form-textarea { background: var(--paper, #fbfaf4); border: 1px solid var(--line, #dfe8e2); border-radius: 0.65rem; color: var(--ink, #17211f); font: inherit; font-size: 0.95rem; font-weight: 500; outline: none; padding: 0.85rem 1rem; resize: vertical; transition: all 0.18s ease; width: 100%; }
-.form-input:focus, .form-textarea:focus { background: #fff; border-color: var(--brand, #4b2061); box-shadow: 0 0 0 3px rgba(75,32,97,0.09); }
+.form-input, .form-textarea { background: var(--paper, #f8fafc); border: 1px solid var(--line, #dfe8e2); border-radius: 0.65rem; color: var(--ink, #1a2e2a); font: inherit; font-size: 0.95rem; font-weight: 500; outline: none; padding: 0.85rem 1rem; resize: vertical; transition: all 0.18s ease; width: 100%; }
+.form-input:focus, .form-textarea:focus { background: #fff; border-color: var(--brand, #0f7b5f); box-shadow: 0 0 0 3px rgba(15,123,95,0.09); }
 .form-input::placeholder, .form-textarea::placeholder { color: var(--ink-3, #65736f); }
-.submit-btn-enquiry { background: var(--brand, #4b2061); border: none; border-radius: 999px; box-shadow: 0 8px 24px rgba(75,32,97,0.28); color: #fff; cursor: pointer; font-family: var(--font); font-size: 0.95rem; font-weight: 900; margin-top: 0.5rem; min-height: 3rem; padding: 0.85rem 2rem; transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease; }
-.submit-btn-enquiry:hover { background: var(--brand-dark, #3b184d); box-shadow: 0 14px 40px rgba(75,32,97,0.36); transform: translateY(-1px); }
+.submit-btn-enquiry { background: var(--brand, #0f7b5f); border: none; border-radius: 999px; box-shadow: 0 8px 24px rgba(15,123,95,0.28); color: #fff; cursor: pointer; font-family: var(--font); font-size: 0.95rem; font-weight: 900; margin-top: 0.5rem; min-height: 3rem; padding: 0.85rem 2rem; transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease; }
+.submit-btn-enquiry:hover { background: var(--brand-dark, #0b4e41); box-shadow: 0 14px 40px rgba(15,123,95,0.36); transform: translateY(-1px); }
 @media (max-width: 768px) { .modal-container { grid-template-columns: 1fr; } .left-content { border-radius: 1.75rem 1.75rem 0 0; padding: 1.75rem; } .enquiry-image { max-height: 200px; } .right-form { padding: 1.75rem; } }

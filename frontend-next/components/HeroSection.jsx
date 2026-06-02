@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
@@ -8,113 +9,173 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../styles/HeroSection.css";
 
+/* ── STATIC HERO DATA (visual only — no logic change) ─────── */
 const slides = [
   {
     image: "/assets/banner1.webp",
-    title: "Customized Corporate Apparel",
+    title: "Custom Products.",
+    titleAccent: "Stronger Connections.",
+    eyebrow: "PREMIUM CORPORATE MERCHANDISE",
     description:
-      "Dress your team in style with premium shirts, jackets, and uniforms—personalized with your company logo.",
-    tag: "Apparel & Uniforms",
+      "Elevate your brand with high-quality custom merchandise that leaves a lasting impression.",
     route: "/apparel-and-accessories",
+    cta1: "Explore Products",
+    cta2: "Get a Quote",
+    tag: "Apparel & Uniforms",
   },
   {
     image: "/assets/banner2.webp",
-    title: "Eco-Friendly Gift Solutions",
+    title: "Eco-Friendly",
+    titleAccent: "Gift Solutions.",
+    eyebrow: "SUSTAINABLE CORPORATE GIFTING",
     description:
-      "Make a sustainable impact with eco-conscious gifting options made from recycled and biodegradable materials.",
-    tag: "Eco Products",
+      "Make a lasting impact with eco-conscious products made from recycled and biodegradable materials.",
     route: "/eco-products",
+    cta1: "Explore Products",
+    cta2: "Get a Quote",
+    tag: "Eco Products",
   },
   {
     image: "/assets/banner3.webp",
-    title: "Smart Tech Gifts",
+    title: "Smart Tech",
+    titleAccent: "Gifts for Teams.",
+    eyebrow: "TECHNOLOGY ACCESSORIES",
     description:
-      "Impress clients and employees with innovative, branded tech products like wireless chargers, earbuds, and gadgets.",
-    tag: "Technology",
+      "Impress clients and employees with innovative branded tech products — chargers, earbuds and more.",
     route: "/technology-accessories",
-  },
-  {
-    image: "/assets/banner4.webp",
-    title: "Premium Drinkware Collection",
-    description:
-      "From stainless steel bottles to personalized mugs, our drinkware is perfect for daily use and corporate branding.",
-    tag: "Drinkware",
-    route: "/drink-ware",
-  },
-  {
-    image: "/assets/banner1.webp",
-    title: "Bags, Office, & Writing Essentials",
-    description:
-      "Discover a wide range of custom office bags, notebooks, and writing instruments—perfect for gifting and branding.",
-    tag: "Office & Bags",
-    route: "/office-and-writing",
+    cta1: "Explore Products",
+    cta2: "Get a Quote",
+    tag: "Technology",
   },
 ];
 
+/* ── TRUST INDICATORS ─────────────────────────────────────── */
+const TrustStrip = () => (
+  <div className="trust-strip" aria-label="Why choose Printkee">
+    <div className="trust-strip__inner">
+      {[
+        { icon: "⭐", title: "Premium Quality", sub: "Top quality products that represent your brand" },
+        { icon: "🚚", title: "Pan India Delivery", sub: "Fast & reliable delivery across India" },
+        { icon: "💰", title: "Best Price Guarantee", sub: "Competitive pricing for bulk orders" },
+        { icon: "🎧", title: "Dedicated Support", sub: "Round the clock support for your queries" },
+      ].map((item) => (
+        <div key={item.title} className="trust-strip__item">
+          <span className="trust-strip__icon" aria-hidden="true">{item.icon}</span>
+          <div>
+            <p className="trust-strip__title">{item.title}</p>
+            <p className="trust-strip__sub">{item.sub}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 const HeroSection = () => {
+  const router = useRouter();
+
   return (
-    <section
-      className="hero-slider-container"
-      aria-label="Corporate gifting categories and promotional product highlights"
-    >
-      {/* JSON-LD FOR SEO */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ImageGallery",
-          name: "PrintKee Corporate Gifting Highlights",
-          image: slides.map((s) => s.image),
-        })}
-      </script>
-
-      <Swiper
-        aria-roledescription="carousel"
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
-        loop={true}
-        className="heroSwiper"
+    <>
+      <section
+        className="hero-slider-container"
+        aria-label="Corporate gifting highlights"
       >
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
-            {/* Hidden IMG for SEO + background remains for UI */}
-            <img
-              src={slide.image}
-              alt={`${slide.title} – ${slide.tag}`}
-              loading={index === 0 ? "eager" : "lazy"}
-              className="seo-hidden-image"
-              style={{ display: "none" }}
-            />
+        {/* SEO JSON-LD kept intact */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageGallery",
+            name: "PrintKee Corporate Gifting Highlights",
+            image: slides.map((s) => s.image),
+          })}
+        </script>
 
-            <div
-              className="hero-slide"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
-              <div className="overlay">
-                <div className="content-box">
-                  <p className="tag">{slide.tag}</p>
-
-                  {/* Only ONE H1 remains for SEO hierarchy */}
-                  <h1 className="title">{slide.title}</h1>
-
-                  <p className="description">{slide.description}</p>
-
-                  <button
-                    className="show-products"
-                    aria-label={`View products for ${slide.tag}`}
-                    onClick={() => (window.location.href = slide.route)}
-                  >
-                    <span>Show products</span>
-                    <span className="arrow-1">→</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
+        {/* Hidden SEO images */}
+        {slides.map((slide, i) => (
+          <img
+            key={i}
+            src={slide.image}
+            alt={`${slide.title} ${slide.titleAccent} – ${slide.tag}`}
+            loading={i === 0 ? "eager" : "lazy"}
+            style={{ display: "none" }}
+          />
         ))}
-      </Swiper>
-    </section>
+
+        <Swiper
+          aria-roledescription="carousel"
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 5500, disableOnInteraction: false }}
+          loop={true}
+          className="heroSwiper"
+        >
+          {slides.map((slide, index) => (
+            <SwiperSlide key={index}>
+              {/* SPLIT LAYOUT: content left | image right */}
+              <div className="hero-slide">
+
+                {/* LEFT: Content */}
+                <div className="hero-content">
+                  <p className="hero-eyebrow">{slide.eyebrow}</p>
+
+                  <h1 className="hero-title">
+                    {slide.title}
+                    <br />
+                    <span className="hero-title-accent">{slide.titleAccent}</span>
+                  </h1>
+
+                  <p className="hero-description">{slide.description}</p>
+
+                  <div className="hero-cta-group">
+                    <button
+                      className="hero-btn-primary"
+                      onClick={() => router.push(slide.route)}
+                      aria-label={`${slide.cta1} for ${slide.tag}`}
+                    >
+                      {slide.cta1} <span aria-hidden="true">→</span>
+                    </button>
+                    <button
+                      className="hero-btn-ghost"
+                      onClick={() => router.push("/contact")}
+                      aria-label="Get a custom quote"
+                    >
+                      {slide.cta2} <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+
+                  <div className="hero-social-proof">
+                    <div className="hero-avatars" aria-hidden="true">
+                      {["👤", "👤", "👤", "👤"].map((a, i) => (
+                        <span key={i} className="hero-avatar">{a}</span>
+                      ))}
+                    </div>
+                    <div>
+                      <p className="hero-proof-number">5000+ Happy Customers</p>
+                      <p className="hero-proof-sub">Trusted by 1000+ brands across India</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* RIGHT: Product image */}
+                <div className="hero-image" aria-hidden="true">
+                  <img
+                    src={slide.image}
+                    alt=""
+                    className="hero-product-img"
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
+                </div>
+
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
+
+      {/* Trust strip below hero */}
+      <TrustStrip />
+    </>
   );
 };
 

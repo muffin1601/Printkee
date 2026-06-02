@@ -36,16 +36,15 @@ const CategorySlider = () => {
       className="category-slider-container"
       aria-labelledby="category-slider-heading"
     >
-      <h2 id="category-slider-heading" className="category-slider-heading">
-        All Categories to Explore
-      </h2>
-
-      <p className="category-slider-subheading">
-        Discover the best range of customized promotional products with PrintKee —
-        your trusted Promotional Items Manufacturer. From stylish personalized
-        apparel to eco-friendly gifts, we create impactful marketing giveaways
-        that leave a lasting impression.
-      </p>
+      {/* Header with "View all" link — matches reference */}
+      <div className="category-slider-header">
+        <h2 id="category-slider-heading" className="category-slider-heading">
+          Shop by Category
+        </h2>
+        <Link href="/sitemap" className="category-view-all">
+          View all categories →
+        </Link>
+      </div>
 
       {error || categories.length === 0 ? null : (
       <Swiper
@@ -59,11 +58,11 @@ const CategorySlider = () => {
         pagination={{ clickable: true }}
         className="category-swiper"
         breakpoints={{
-          1280: { slidesPerView: 4, spaceBetween: 30 },
-          1024: { slidesPerView: 3, spaceBetween: 24 },
-          768: { slidesPerView: 2, spaceBetween: 20 },
-          480: { slidesPerView: 1.5, spaceBetween: 16 },
-          0: { slidesPerView: 1, spaceBetween: 12 },
+          1280: { slidesPerView: 8, spaceBetween: 16 },
+          1024: { slidesPerView: 6, spaceBetween: 14 },
+          768:  { slidesPerView: 4, spaceBetween: 12 },
+          480:  { slidesPerView: 3, spaceBetween: 10 },
+          0:    { slidesPerView: 2.5, spaceBetween: 8 },
         }}
       >
         {categories.map((item) => {

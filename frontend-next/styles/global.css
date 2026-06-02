@@ -1,192 +1,160 @@
 /* ============================================================
-   PRINTKEE — PREMIUM DESIGN SYSTEM v4
-   Reference: site-header design pattern adapted for purple/gold brand
+   PRINTKEE — DESIGN SYSTEM v5
+   Reference: attached homepage mockup
+   Colors: #0f7b5f green, #f26a4f orange, #f8fafc bg
    ============================================================ */
 
-/* Fonts loaded via next/font in layout.jsx — no @import needed */
+/* Fonts via next/font — no @import needed */
 
 /* ── BRAND TOKENS ─────────────────────────────────────────── */
 :root {
-  /* Core brand */
-  --ink:           #17211f;
-  --ink-2:         #3d4e48;
-  --ink-3:         #65736f;
-  --line:          #dfe8e2;
-  --paper:         #fbfaf4;
-  --paper-2:       #f5f8f6;
+  /* Primary palette */
+  --green:        #0f7b5f;
+  --green-dark:   #0b4e41;
+  --green-deep:   #073d30;
+  --green-light:  #e8f5f1;
+  --green-mid:    #4aaa8e;
 
-  /* Printkee brand (purple primary, gold accent) */
-  --brand:         #4b2061;
-  --brand-dark:    #3b184d;
-  --brand-deep:    #26093a;
-  --brand-light:   #f0e8f7;
-  --brand-mid:     #9b6db5;
-  --accent:        #f39c12;
-  --accent-dark:   #d4870e;
-  --accent-light:  #fef3dc;
+  --orange:       #f26a4f;
+  --orange-dark:  #d4543b;
+  --orange-light: #fef0ed;
 
   /* Surfaces */
-  --white:         #ffffff;
-  --bg:            #fbfaf4;
-  --bg-2:          #f5f8f6;
-  --bg-dark:       #111815;
-  --bg-dark-2:     #1a2420;
+  --bg:           #f8fafc;
+  --bg-white:     #ffffff;
+  --bg-subtle:    #f1f5f3;
+  --bg-dark:      #0b4e41;
+  --bg-darkest:   #073d30;
+
+  /* Text */
+  --ink:          #1a2e2a;
+  --ink-2:        #3d5a54;
+  --ink-3:        #6b8a83;
+  --ink-inv:      #ffffff;
+  --ink-inv-2:    rgba(255,255,255,0.78);
+
+  /* Borders */
+  --border:       #e2ebe7;
+  --border-2:     #d0e2dc;
 
   /* Semantic */
-  --success:       #0f7b5f;
-  --error:         #e63946;
-  --warning:       #f39c12;
+  --success:      #0f7b5f;
+  --error:        #e63946;
 
-  /* ── TYPOGRAPHY — uses CSS vars injected by next/font in layout.jsx ── */
-  --font:          var(--font-inter, var(--font-poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif));
-  --font-family:   var(--font);
-  --font-primary:  var(--font);
+  /* Typography — uses CSS vars from next/font */
+  --font: var(--font-inter, var(--font-poppins, -apple-system, 'Segoe UI', sans-serif));
 
-  /* ── SHADOWS — multi-layer, natural ── */
-  --sh-sm:    0 1px 2px rgba(15,35,31,0.06), 0 3px 8px rgba(15,35,31,0.04);
-  --sh-md:    0 4px 12px rgba(15,35,31,0.07), 0 8px 28px rgba(15,35,31,0.05);
-  --sh-lg:    0 10px 30px rgba(15,35,31,0.09), 0 18px 50px rgba(15,35,31,0.06);
-  --sh-xl:    0 18px 60px rgba(15,35,31,0.12), 0 40px 100px rgba(15,35,31,0.08);
-  --sh-brand: 0 8px 30px rgba(75,32,97,0.28);
-  --sh-brand-lg: 0 14px 50px rgba(75,32,97,0.35);
+  /* Shadows */
+  --sh-xs:  0 1px 2px rgba(15,123,95,0.04);
+  --sh-sm:  0 2px 6px rgba(15,123,95,0.07);
+  --sh-md:  0 4px 16px rgba(15,123,95,0.09);
+  --sh-lg:  0 8px 28px rgba(15,123,95,0.12);
+  --sh-xl:  0 16px 48px rgba(15,123,95,0.14);
+  --sh-card: 0 2px 8px rgba(26,46,42,0.08), 0 8px 24px rgba(26,46,42,0.05);
 
-  /* LEGACY ALIASES */
-  --shadow-sm: var(--sh-sm); --shadow-md: var(--sh-md);
-  --shadow-lg: var(--sh-lg); --shadow-xl: var(--sh-xl);
-  --shadow-soft: var(--sh-md); --shadow-medium: var(--sh-lg);
-  --shadow-hover: var(--sh-xl); --shadow-brand: var(--sh-brand);
-  --shadow-brand-lg: var(--sh-brand-lg);
+  /* Radius */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-2xl: 28px;
+  --r-pill: 999px;
 
-  /* ── RADII ── */
-  --r:          0.55rem;
-  --r-sm:       0.5rem;
-  --r-md:       0.75rem;
-  --r-lg:       1rem;
-  --r-xl:       1.35rem;
-  --r-2xl:      2rem;
-  --r-pill:     999px;
+  /* Transitions */
+  --t-fast: 0.15s ease;
+  --t-base: 0.22s ease;
+  --t-slow: 0.35s ease;
 
-  --radius-xs: 4px; --radius-sm: 8px; --radius-md: 12px;
-  --radius-lg: 16px; --radius-xl: 20px; --radius-2xl: 24px;
-  --radius-full: 9999px;
+  /* Layout */
+  --max-w:  1200px;
+  --px:     clamp(1rem, 3.5vw, 2.5rem);
 
-  /* ── TRANSITIONS ── */
-  --t-fast: 0.18s ease;
-  --t-base: 0.25s ease;
-  --t-slow: 0.4s ease;
-  --transition: var(--t-base);
-  --transition-fast: 150ms ease;
-  --transition-base: 250ms ease;
-  --transition-slow: 350ms ease;
-
-  /* ── LAYOUT ── */
-  --max-w:    80rem;
-  --max-w-xl: 80rem;
-  --max-w-2xl: 90rem;
-  --px:       clamp(1rem, 3vw, 2rem);
-  --section-px: var(--px);
-  --nav-h:    var(--navbar-h, 62px);
-  --navbar-h: 62px;
-
-  /* ── SPACING LEGACY ── */
-  --space-1:0.25rem; --space-2:0.5rem; --space-3:0.75rem;
-  --space-4:1rem; --space-5:1.25rem; --space-6:1.5rem;
-  --space-8:2rem; --space-10:2.5rem; --space-12:3rem;
-  --space-16:4rem; --space-20:5rem; --space-24:6rem;
-  --s-1:0.25rem; --s-2:0.5rem; --s-3:0.75rem; --s-4:1rem;
-  --s-5:1.25rem; --s-6:1.5rem; --s-8:2rem; --s-10:2.5rem;
-  --s-12:3rem; --s-14:3.5rem; --s-16:4rem; --s-20:5rem;
-  --s-24:6rem; --s-32:8rem;
-
-  /* ── COLOR LEGACY ── */
-  --color-brand: var(--brand); --color-brand-dark: var(--brand-dark);
-  --color-brand-light: var(--brand-light); --color-brand-mid: var(--brand-mid);
-  --color-accent: var(--accent); --color-accent-dark: var(--accent-dark);
-  --color-accent-light: var(--accent-light);
-  --color-bg: var(--bg); --color-surface: var(--white);
-  --color-surface-raised: var(--bg-2); --color-surface-sunken: var(--bg-2);
+  /* ── LEGACY ALIASES — keep old code working ── */
+  --brand: var(--green); --brand-dark: var(--green-dark);
+  --brand-light: var(--green-light); --brand-mid: var(--green-mid);
+  --accent: var(--orange); --accent-dark: var(--orange-dark);
+  --accent-light: var(--orange-light);
+  --color-brand: var(--green); --color-brand-dark: var(--green-dark);
+  --color-brand-light: var(--green-light); --color-brand-mid: var(--green-mid);
+  --color-accent: var(--orange); --color-accent-dark: var(--orange-dark);
+  --color-accent-light: var(--orange-light);
+  --color-bg: var(--bg); --color-surface: var(--bg-white);
+  --color-surface-raised: var(--bg-subtle);
+  --color-surface-sunken: var(--bg-subtle);
   --color-text: var(--ink); --color-text-secondary: var(--ink-2);
-  --color-text-muted: var(--ink-3); --color-text-inverse: var(--white);
-  --color-border: var(--line); --color-border-strong: #cdd8d2;
-  --color-border-muted: #eaf0ec;
-  --color-error: var(--error); --color-success: var(--success);
-  --bg-dark: var(--bg-dark); --bg-dark-2: var(--bg-dark-2);
-  --text: var(--ink); --text-2: var(--ink-2); --text-3: var(--ink-3);
-  --text-inv: var(--white); --text-inv-2: rgba(255,255,255,0.75);
-  --border: var(--line); --border-2: #cdd8d2;
-  --bg-muted: var(--bg-2); --bg-subtle: var(--bg-2);
-
-  --purple: var(--brand); --purple-dark: var(--brand-dark);
-  --gold: var(--accent); --gold-light: var(--accent-light);
-  --beige-light: var(--bg); --beige-bg: var(--bg-2);
-  --text-dark: var(--ink); --text-mid: var(--ink-2); --text-light: var(--ink-3);
-
-  --t-xs:0.75rem; --t-sm:0.875rem; --t-base:1rem; --t-lg:1.125rem;
-  --t-xl:1.25rem; --t-2xl:1.5rem; --t-3xl:1.875rem; --t-4xl:2.25rem;
-  --t-5xl:3rem; --t-6xl:3.75rem; --t-7xl:4.5rem; --t-8xl:6rem;
+  --color-text-muted: var(--ink-3); --color-text-inverse: var(--ink-inv);
+  --color-border: var(--border); --color-border-strong: var(--border-2);
+  --color-border-muted: #edf4f0;
+  --purple: var(--green); --purple-dark: var(--green-dark);
+  --gold: var(--orange); --gold-light: var(--orange-light);
+  --beige-light: var(--bg); --beige-bg: var(--bg-subtle);
+  --white: #fff; --text-dark: var(--ink);
+  --text-mid: var(--ink-2); --text-light: var(--ink-3);
+  --font-family: var(--font); --font-primary: var(--font);
   --font-xs:0.75rem; --font-sm:0.875rem; --font-base:1rem;
   --font-lg:1.125rem; --font-xl:1.25rem; --font-2xl:1.5rem;
   --font-3xl:1.875rem; --font-4xl:2.25rem; --font-5xl:3rem;
-  --weight-normal:400; --weight-medium:500; --weight-semibold:600;
-  --weight-bold:700; --weight-extrabold:800;
-  --leading-tight:1.15; --leading-snug:1.3; --leading-normal:1.6; --leading-relaxed:1.75;
-  --tracking-tight:-0.025em; --tracking-normal:0; --tracking-wide:0.025em; --tracking-wider:0.06em;
-  --py-sec: clamp(4rem, 8vw, 7rem); --py-section: var(--py-sec);
-  --ease: cubic-bezier(0.4,0,0.2,1); --ease-out: cubic-bezier(0,0,0.2,1);
+  --weight-normal:400; --weight-medium:500;
+  --weight-semibold:600; --weight-bold:700; --weight-extrabold:800;
+  --shadow-sm:var(--sh-sm); --shadow-md:var(--sh-md);
+  --shadow-lg:var(--sh-lg); --shadow-xl:var(--sh-xl);
+  --shadow-soft:var(--sh-md); --shadow-medium:var(--sh-lg);
+  --shadow-hover:var(--sh-xl);
+  --shadow-brand:0 4px 20px rgba(15,123,95,0.28);
+  --shadow-brand-lg:0 8px 36px rgba(15,123,95,0.36);
+  --sh-brand: var(--shadow-brand);
+  --sh-brand-lg: var(--shadow-brand-lg);
+  --radius-xs:4px; --radius-sm:var(--r-sm); --radius-md:var(--r-md);
+  --radius-lg:var(--r-lg); --radius-xl:var(--r-xl);
+  --radius-2xl:var(--r-2xl); --radius-full:999px;
+  --transition:var(--t-base); --transition-fast:150ms ease;
+  --transition-base:var(--t-base); --transition-slow:var(--t-slow);
+  --max-w-xl:var(--max-w); --max-w-2xl:1440px;
+  --max-w-sm:640px; --max-w-md:768px; --max-w-lg:1024px;
+  --section-px:var(--px); --navbar-h:60px;
+  --py-sec:clamp(3.5rem,7vw,6rem); --py-section:var(--py-sec);
+  --nav-h:60px;
+  --s-1:0.25rem;--s-2:0.5rem;--s-3:0.75rem;--s-4:1rem;
+  --s-5:1.25rem;--s-6:1.5rem;--s-8:2rem;--s-10:2.5rem;
+  --s-12:3rem;--s-14:3.5rem;--s-16:4rem;--s-20:5rem;
+  --s-24:6rem;--s-32:8rem;
+  --space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;
+  --space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;
+  --space-8:2rem;--space-10:2.5rem;--space-12:3rem;
+  --space-16:4rem;--space-20:5rem;--space-24:6rem;
+  --ink-inv-3:rgba(255,255,255,0.40);
+  --border-inv:rgba(255,255,255,0.12);
+  --text-inv:var(--ink-inv); --text-inv-2:var(--ink-inv-2);
+  --text-3:var(--ink-3); --text-2:var(--ink-2); --text:var(--ink);
+  --line:var(--border); --paper:var(--bg);
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --t-xs:0.75rem; --t-sm:0.875rem; --t-base:1rem; --t-lg:1.125rem;
+  --t-xl:1.25rem; --t-2xl:1.5rem; --t-3xl:1.875rem; --t-4xl:2.25rem;
+  --t-5xl:3rem; --t-6xl:3.75rem; --t-7xl:4.5rem; --t-8xl:6rem;
   --dur-fast:120ms; --dur-base:200ms; --dur-slow:320ms;
+  --bg-dark-2:#1a2e2a; --bg-dark-3:#273e39;
+  --brand-deep:var(--green-deep);
+  --bg-muted:var(--bg-subtle); --bg-subtle:var(--bg-subtle);
 }
 
 /* ── RESET ──────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
+html { font-size:16px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; scroll-behavior:smooth; }
+body { margin:0; font-family:var(--font); font-size:1rem; line-height:1.6; color:var(--ink); background:var(--bg); overflow-x:hidden; }
+img,video { display:block; max-width:100%; height:auto; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; }
+a { color:inherit; text-decoration:none; }
+ul,ol { list-style:none; margin:0; padding:0; }
+input,select,textarea { font-family:inherit; }
+h1,h2,h3,h4,h5,h6 { margin:0; line-height:1.1; }
+p { margin:0; }
 
-html {
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
-}
+:focus-visible { outline:2px solid var(--green); outline-offset:3px; border-radius:4px; }
+::selection { background:var(--green-light); color:var(--green-dark); }
 
-body {
-  margin: 0;
-  font-family: var(--font);
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--ink);
-  background: var(--bg);
-  overflow-x: hidden;
-}
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:#c8d8d2; border-radius:999px; }
+::-webkit-scrollbar-thumb:hover { background:var(--green-mid); }
 
-img, video    { display: block; max-width: 100%; height: auto; }
-button        { font-family: inherit; cursor: pointer; border: none; background: none; }
-a             { color: inherit; text-decoration: none; }
-ul, ol        { list-style: none; margin: 0; padding: 0; }
-input, select, textarea { font-family: inherit; }
-
-/* Headings: remove aggressive !important overrides */
-h1,h2,h3,h4,h5,h6 { margin: 0; line-height: 1.1; font-weight: 800; }
-
-:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 4px; }
-::selection    { background: var(--brand-light); color: var(--brand-dark); }
-
-::-webkit-scrollbar             { width: 5px; }
-::-webkit-scrollbar-track       { background: transparent; }
-::-webkit-scrollbar-thumb       { background: #cdd8d2; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: var(--brand-mid); }
-
-.sr-only {
-  position: absolute; width: 1px; height: 1px;
-  padding: 0; margin: -1px; overflow: hidden;
-  clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
-}
-
-/* ── PAGE SHELL ─────────────────────────────────────────── */
-/* Apply brand context to all non-admin pages */
-body:not(.admin-page) {
-  --page-ink:    var(--ink);
-  --page-muted:  var(--ink-3);
-  --page-line:   var(--line);
-  --page-paper:  var(--paper);
-  --page-brand:  var(--brand);
-  --page-accent: var(--accent);
-}
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0; }

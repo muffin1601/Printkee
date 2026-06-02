@@ -60,17 +60,19 @@ const WhyChooseUs = () => {
 
   return (
     <section className="whychoose-section" aria-labelledby="whychoose-heading">
-      <h2 id="whychoose-heading" className="whychoose-heading">
-        Why Choose PrintKee for Your Customized Promotional Products?
-      </h2>
+      <div className="whychoose-inner">
+        <div className="whychoose-layout">
+          {/* Left: eyebrow + heading + accent line */}
+          <div className="whychoose-left">
+            <span className="whychoose-eyebrow">WHY CHOOSE PRINTKEE</span>
+            <h2 id="whychoose-heading" className="whychoose-heading">
+              Everything you need for perfect branding
+            </h2>
+            <div className="whychoose-accent-line" aria-hidden="true" />
+          </div>
 
-      <h3 className="whychoose-subheading">
-        PrintKee is your trusted partner for customized promotional products,
-        corporate gifting, branded merchandise, and promotional gift items across
-        Delhi NCR, Okhla, Gurgaon, Noida, and Haryana.
-      </h3>
-
-      <section className="whychoose-grid" aria-label="Reasons to choose PrintKee">
+          {/* Right: cards grid */}
+          <section className="whychoose-grid" aria-label="Reasons to choose PrintKee">
         {features.map((feature, index) => (
           <article className="whychoose-card" key={index}>
             <div className="icon">{feature.icon}</div>
@@ -79,7 +81,9 @@ const WhyChooseUs = () => {
             <p className="card-content">{feature.content}</p>
           </article>
         ))}
-      </section>
+          </section>
+        </div>
+      </div>
 
       <button
         className="whychoose-cta"

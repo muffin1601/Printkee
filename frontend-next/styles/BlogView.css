@@ -3,36 +3,36 @@
 .blog-view-loading { align-items: center; color: var(--ink-3, #65736f); display: flex; font-size: 1.05rem; justify-content: center; min-height: 60vh; }
 .blog-view-main { align-items: start; display: grid; gap: clamp(2.5rem,5vw,4rem); grid-template-columns: 1fr 360px; }
 .blog-left {}
-.blog-left h1 { color: var(--ink, #17211f); font-size: clamp(2.25rem,5vw,5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin-bottom: 1rem; }
+.blog-left h1 { color: var(--ink, #1a2e2a); font-size: clamp(2.25rem,5vw,5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin-bottom: 1rem; }
 .blog-view-meta { align-items: center; color: var(--ink-3, #65736f); display: flex; font-size: 0.86rem; font-weight: 600; gap: 0.75rem; margin-bottom: 1.75rem; }
 .blog-view-image { aspect-ratio: 16/9; border-radius: 1.35rem; display: block; margin-bottom: 2.5rem; object-fit: cover; width: 100%; }
 .blog-view-content { color: var(--ink-2, #3d4e48); font-size: 1.05rem; line-height: 1.8; max-width: 68ch; }
-.blog-view-content h2 { color: var(--ink, #17211f); font-size: clamp(1.5rem,3vw,2.5rem); font-weight: 900; letter-spacing: -0.03em; margin: 2.5rem 0 1rem; }
-.blog-view-content h3 { color: var(--ink, #17211f); font-size: 1.3rem; font-weight: 800; margin: 2rem 0 0.75rem; }
+.blog-view-content h2 { color: var(--ink, #1a2e2a); font-size: clamp(1.5rem,3vw,2.5rem); font-weight: 900; letter-spacing: -0.03em; margin: 2.5rem 0 1rem; }
+.blog-view-content h3 { color: var(--ink, #1a2e2a); font-size: 1.3rem; font-weight: 800; margin: 2rem 0 0.75rem; }
 .blog-view-content p { margin-bottom: 1.35rem; }
 .blog-view-content ul, .blog-view-content ol { margin-bottom: 1.35rem; padding-left: 1.5rem; }
 .blog-view-content ul { list-style: disc; } .blog-view-content ol { list-style: decimal; }
 .blog-view-content li { margin-bottom: 0.5rem; }
-.blog-view-content a { color: var(--brand, #4b2061); text-decoration: underline; text-underline-offset: 2px; }
+.blog-view-content a { color: var(--brand, #0f7b5f); text-decoration: underline; text-underline-offset: 2px; }
 .blog-view-content img { border-radius: 1rem; margin: 1.75rem 0; max-width: 100%; }
-.blog-view-content blockquote { border-left: 4px solid var(--brand, #4b2061); color: var(--ink-2, #3d4e48); font-size: 1.15rem; font-style: italic; margin: 2rem 0; padding-left: 1.5rem; }
-.blog-view-content code { background: var(--paper, #fbfaf4); border-radius: 0.35rem; color: var(--brand, #4b2061); font-size: 0.9em; padding: 2px 6px; }
+.blog-view-content blockquote { border-left: 4px solid var(--brand, #0f7b5f); color: var(--ink-2, #3d4e48); font-size: 1.15rem; font-style: italic; margin: 2rem 0; padding-left: 1.5rem; }
+.blog-view-content code { background: var(--paper, #f8fafc); border-radius: 0.35rem; color: var(--brand, #0f7b5f); font-size: 0.9em; padding: 2px 6px; }
 
 /* Comments sidebar */
 .blog-right { position: sticky; top: calc(var(--navbar-h,62px) + 1.5rem); }
-.comment-section { background: var(--paper, #fbfaf4); border: 1px solid var(--line, #dfe8e2); border-radius: 1.35rem; padding: 1.75rem; }
-.comment-section h3 { border-bottom: 1px solid var(--line, #dfe8e2); color: var(--ink, #17211f); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 1.25rem; padding-bottom: 1rem; }
+.comment-section { background: var(--paper, #f8fafc); border: 1px solid var(--line, #dfe8e2); border-radius: 1.35rem; padding: 1.75rem; }
+.comment-section h3 { border-bottom: 1px solid var(--line, #dfe8e2); color: var(--ink, #1a2e2a); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 1.25rem; padding-bottom: 1rem; }
 .comment { border-bottom: 1px solid var(--line, #dfe8e2); padding: 0.85rem 0; }
 .comment:last-of-type { border-bottom: none; }
-.comment b { color: var(--ink, #17211f); display: block; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.25rem; }
+.comment b { color: var(--ink, #1a2e2a); display: block; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.25rem; }
 .comment p { color: var(--ink-3, #65736f); font-size: 0.86rem; line-height: 1.6; }
 .comment-form { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.25rem; }
 .comment-form label { color: var(--ink-2, #3d4e48); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
-.comment-form input, .comment-form textarea { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 0.65rem; color: var(--ink, #17211f); font: inherit; font-size: 0.9rem; font-weight: 500; outline: none; padding: 0.7rem 0.9rem; resize: vertical; transition: border-color 0.18s ease; width: 100%; }
-.comment-form input:focus, .comment-form textarea:focus { border-color: var(--brand, #4b2061); box-shadow: 0 0 0 3px rgba(75,32,97,0.09); }
+.comment-form input, .comment-form textarea { background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 0.65rem; color: var(--ink, #1a2e2a); font: inherit; font-size: 0.9rem; font-weight: 500; outline: none; padding: 0.7rem 0.9rem; resize: vertical; transition: border-color 0.18s ease; width: 100%; }
+.comment-form input:focus, .comment-form textarea:focus { border-color: var(--brand, #0f7b5f); box-shadow: 0 0 0 3px rgba(15,123,95,0.09); }
 .comment-form input::placeholder, .comment-form textarea::placeholder { color: var(--ink-3, #65736f); }
-.comment-form button { background: var(--brand, #4b2061); border: none; border-radius: 999px; color: #fff; cursor: pointer; font-family: var(--font); font-size: 0.88rem; font-weight: 700; padding: 0.65rem 1.25rem; transition: background 0.18s ease, transform 0.18s ease; }
-.comment-form button:hover { background: var(--brand-dark, #3b184d); transform: translateY(-1px); }
+.comment-form button { background: var(--brand, #0f7b5f); border: none; border-radius: 999px; color: #fff; cursor: pointer; font-family: var(--font); font-size: 0.88rem; font-weight: 700; padding: 0.65rem 1.25rem; transition: background 0.18s ease, transform 0.18s ease; }
+.comment-form button:hover { background: var(--brand-dark, #0b4e41); transform: translateY(-1px); }
 
 @media (max-width: 1024px) { .blog-view-main { grid-template-columns: 1fr; gap: 2.5rem; } .blog-right { position: static; } }
 @media (max-width: 768px) { .blog-view-container { padding: 2.5rem 1rem 4rem; } .blog-view-content { font-size: 1rem; } }

@@ -1,6 +1,6 @@
 /* BRANDS PAGE */
 .brands-container { max-width: var(--max-w); margin: 0 auto; padding: clamp(3rem,6vw,5rem) var(--px) clamp(4rem,8vw,7rem); }
-.brands-heading { color: var(--ink, #17211f); font-size: clamp(2.25rem,5vw,5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin: 0 0 0.9rem; text-align: center; }
+.brands-heading { color: var(--ink, #1a2e2a); font-size: clamp(2.25rem,5vw,5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin: 0 0 0.9rem; text-align: center; }
 .brands-description { color: var(--ink-3, #65736f); font-size: 1.05rem; line-height: 1.75; margin: 0 auto clamp(2.5rem,5vw,4rem); max-width: 58ch; text-align: center; }
 .brands-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill,minmax(155px,1fr)); }
 .brand-card { align-items: center; background: #fff; border: 1px solid var(--line, #dfe8e2); border-radius: 1.1rem; box-shadow: 0 6px 18px rgba(15,35,31,0.04); display: flex; flex-direction: column; gap: 0.75rem; padding: 1.5rem; text-decoration: none; transition: box-shadow 0.22s ease, transform 0.22s ease; }
@@ -8,6 +8,6 @@
 .brand-logo { filter: grayscale(1) brightness(0.65); height: 44px; max-width: 100%; object-fit: contain; opacity: 0.55; transition: all 0.18s ease; width: auto; }
 .brand-card:hover .brand-logo { filter: none; opacity: 1; }
 .brand-name { color: var(--ink-2, #3d4e48); font-size: 0.88rem; font-weight: 700; text-align: center; transition: color 0.18s ease; }
-.brand-card:hover .brand-name { color: var(--brand, #4b2061); }
+.brand-card:hover .brand-name { color: var(--brand, #0f7b5f); }
 @media (max-width: 768px) { .brands-container { padding: 2.5rem 1rem 4rem; } .brands-grid { gap: 0.75rem; grid-template-columns: repeat(3,1fr); } }
 @media (max-width: 480px) { .brands-grid { grid-template-columns: repeat(2,1fr); } }
