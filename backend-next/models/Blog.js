@@ -6,13 +6,16 @@ const CommentSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now }
 });
 
-const BlogSchema = new mongoose.Schema({
-  title: String,
-  content: String,
-  author: String,
-  image: String, 
-  date: { type: Date, default: Date.now },
-  comments: [CommentSchema]
-});
+const BlogSchema = new mongoose.Schema(
+  {
+    title: String,
+    content: String,
+    author: String,
+    image: String,
+    date: { type: Date, default: Date.now },
+    comments: [CommentSchema],
+  },
+  { timestamps: true }
+);
 
 module.exports = mongoose.model('Blog', BlogSchema);
