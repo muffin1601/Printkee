@@ -1,0 +1,165 @@
+"use client";
+import React, { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import axios from "axios";
+import Link from "next/link";
+import { FaHeart, FaEye } from "react-icons/fa";
+import "../styles/ProductDisplay.css";
+import CTABanner from "./CTABanner";
+import RelatedCategories from "./RelatedCategories";
+import FAQSection from "./category/FAQSection";
+import banners from "../data/banners";
+import SubcategoryDescription from "./category/SubcategoryDescription";
+
+const ProductDisplay = ({ subcategoryData: initialSubcat, categoryData: initialCat, products: initialProducts }) => {
+  const { category: categorySlug, subcategory: subcategorySlug } = useParams();
+  const router = useRouter();
+
+  const [products, setProducts] = useState(initialProducts || []);
+  const [categoryData, setCategoryData] = useState(initialCat || null);
+  const [subcategoryData, setSubcategoryData] = useState(initialSubcat || null);
+
+  useEffect(() => {
+    if (initialSubcat && initialCat) return;
+    axios
+      .get(
+        `${process.env.NEXT_PUBLIC_API_URL}/subcategory/subcategory-fetch/${categorySlug}/${subcategorySlug}`
+      )
+      .then((res) => {
+        setProducts(res.data.products || []);
+        setCategoryData(res.data.category || null);
+        setSubcategoryData(res.data.subcategory || null);
+      })
+      .catch((err) => console.error("Failed to fetch products:", err));
+  }, [categorySlug, subcategorySlug, initialSubcat, initialCat]);
+
+  if (!subcategoryData || !categoryData) return <div>Loading...</div>;
+
+  const categoryName = categoryData.name;
+  const subcategoryName = subcategoryData.name;
+
+  const bannerImage =
+    banners[categorySlug]?.subcategories?.[subcategorySlug] ||
+    banners[categorySlug]?.banner ||
+    "/assets/product-banner.webp";
+
+  return (
+    <>
+      {/* Header */}
+      <div className="subcategory-header-2">
+        <div className="subcategory-header-content">
+          <Link
+            href={`/${categorySlug}`}
+            className="back-link"
+            aria-label={`Go back to ${categoryName}`}
+          >
+            <div className="circle">
+              <span className="arrow-2">&larr;</span>
+            </div>
+            <span className="span-name">Back to {categoryName}</span>
+          </Link>
+
+          <h1 className="page-title">{subcategoryName}</h1>
+          <p className="subcategory-description">{subcategoryData?.description || ""}</p>
+        </div>
+      </div>
+
+      {/* Product Grid */}
+      <div className="product-container-2">
+        <div className="page-wrapper">
+          <div className="product-container">
+            <nav className="breadcrumbs" aria-label="Breadcrumb">
+              <Link href="/">Home</Link>
+              <span className="breadcrumb-separator">/</span>
+              <Link href={`/${categorySlug}`}>{categoryName}</Link>
+              <span className="breadcrumb-separator">/</span>
+              <span className="current">{subcategoryName}</span>
+            </nav>
+
+            <div className="product-grid">
+              {products.map((product) => {
+                const sizeSelectId = `size-select-${product._id}`;
+                const colorSelectId = `color-select-${product._id}`;
+                const imageUrl = product.images?.[0]?.url || "/assets/placeholder.webp";
+
+                return (
+                  <div key={product._id} className="product-card">
+                    <div className="product-image-wrapper">
+                      <img
+                        className="product-img"
+                        src={imageUrl}
+                        alt={product.images?.[0]?.altText || product.name}
+                      />
+                      <div className="product-icons">
+                        <button aria-label={`Add ${product.name} to wishlist`}>
+                          <FaHeart />
+                        </button>
+                        <button aria-label={`View details of ${product.name}`}>
+                          <FaEye />
+                        </button>
+                      </div>
+                    </div>
+
+                    <h3 className="product-title">{product.name}</h3>
+
+                    <div className="dropdown-group">
+                      {product.attributes?.size?.length > 0 && (
+                        <>
+                          <label htmlFor={sizeSelectId}>Style:</label>
+                          <select id={sizeSelectId}>
+                            {product.attributes.size.map((s, index) => (
+                              <option key={index}>{s}</option>
+                            ))}
+                          </select>
+                        </>
+                      )}
+
+                      {product.attributes?.color?.length > 0 && (
+                        <>
+                          <label htmlFor={colorSelectId}>Color:</label>
+                          <select id={colorSelectId}>
+                            {product.attributes.color.map((c, index) => (
+                              <option key={index}>{c}</option>
+                            ))}
+                          </select>
+                        </>
+                      )}
+                    </div>
+
+                    <button
+                      className="add-to-cart"
+                      aria-label={`View product: ${product.name}`}
+                      onClick={() =>
+                        router.push(`/${categorySlug}/${subcategorySlug}/${product.slug}`)
+                      }
+                      disabled={product.stock === 0}
+                    >
+                      {product.stock === 0 ? "Sold out" : "View"} ➤
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <SubcategoryDescription subcategory={subcategorySlug} />
+
+        <CTABanner
+          imageSrc={bannerImage}
+          linkTo="/contact"
+          alt={`Get a Quote for ${subcategoryName}`}
+        />
+      </div>
+
+      <FAQSection subcategory={subcategorySlug} />
+
+      <RelatedCategories
+        categorySlug={categorySlug}
+        currentSubcategorySlug={subcategorySlug}
+      />
+    </>
+  );
+};
+
+export default ProductDisplay;
