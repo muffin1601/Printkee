@@ -9,6 +9,8 @@ import Testimonials from "../../components/Testimonials";
 import GetQuoteCTA from "../../components/GetQuoteCTA";
 import FaqSectionHome from "../../components/FaqSectionHome";
 
+const BASE = "https://printkee.com";
+
 export const metadata = {
   title: "Premium Corporate Gifting & Custom Branding Solutions India",
   description:
@@ -21,15 +23,30 @@ export const metadata = {
     "custom hampers",
     "promotional items",
     "branded merchandise",
+    "Printkee",
   ],
-  alternates: {
-    canonical: "https://printkee.com",
-  },
+  alternates: { canonical: BASE },
   openGraph: {
     title: "Premium Corporate Gifting & Custom Branding Solutions India",
     description:
-      "Discover top corporate gifting items with custom branding for events, promotions, onboarding and office needs.",
-    url: "https://printkee.com",
+      "Discover top corporate gifting items with custom branding for events, promotions, onboarding and office needs. Fast delivery, bulk order support across India.",
+    url: BASE,
+    type: "website",
+    images: [
+      {
+        url: `${BASE}/assets/printkeeLogo.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Printkee Corporate Gifting",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Premium Corporate Gifting & Custom Branding Solutions India",
+    description:
+      "Custom branding, bulk corporate gifts, fast delivery across India. Your trusted gifting partner.",
+    images: [`${BASE}/assets/printkeeLogo.webp`],
   },
 };
 

@@ -14,7 +14,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import WhyChooseUsProduct from "./category/WhyChooseUsProduct";
 import ProductFAQ from "./category/FAQProduct";
 
-const SingleProductDisplay = ({ productData: initialProduct, subcategoryData: initialSubcat, categoryData: initialCat }) => {
+const SingleProductDisplay = ({ productData: initialProduct, subcategoryData: initialSubcat, categoryData: initialCat, relatedProducts: initialRelated = [] }) => {
   const { category: categorySlug, subcategory: subcategorySlug, product: productSlug } = useParams();
   const router = useRouter();
 
@@ -24,7 +24,7 @@ const SingleProductDisplay = ({ productData: initialProduct, subcategoryData: in
   const [selectedStyle, setSelectedStyle] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [mainImage, setMainImage] = useState("");
-  const [relatedProducts, setRelatedProducts] = useState([]);
+  const [relatedProducts, setRelatedProducts] = useState(initialRelated);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -54,19 +54,7 @@ const SingleProductDisplay = ({ productData: initialProduct, subcategoryData: in
     fetchProduct();
   }, [categorySlug, subcategorySlug, productSlug, initialProduct]);
 
-  useEffect(() => {
-    const fetchRelatedProducts = async () => {
-      try {
-        const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/product/related-products/${categorySlug}/${subcategorySlug}/${productSlug}`
-        );
-        setRelatedProducts(res.data);
-      } catch (err) {
-        console.error("Failed to fetch related products", err);
-      }
-    };
-    fetchRelatedProducts();
-  }, [categorySlug, subcategorySlug, productSlug]);
+  /* Related products are now passed from the server — no useEffect needed */
 
   if (!productData || !subcategoryData || !categoryData) return <div>Loading...</div>;
 

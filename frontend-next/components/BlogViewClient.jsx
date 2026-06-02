@@ -1,58 +1,45 @@
 "use client";
-import React, { useEffect, useState, use } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import "../styles/BlogView.css";
 
-const BlogViewClient = () => {
+const BlogViewClient = ({ initialBlog, blogId }) => {
   const { id } = useParams();
-  const [blog, setBlog] = useState(null);
+  const resolvedId = blogId || id;
+
+  const [blog, setBlog] = useState(initialBlog || null);
   const [comment, setComment] = useState({ name: "", comment: "" });
 
-  useEffect(() => {
-    fetchBlog();
-  }, [id]);
-
-  const fetchBlog = async () => {
+  const refreshBlog = async () => {
     try {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${id}`);
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/blogs/${resolvedId}`
+      );
       setBlog(res.data);
     } catch (error) {
-      console.error("Error fetching blog:", error);
+      console.error("Error refreshing blog:", error);
     }
   };
 
   const handleComment = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${id}/comments`, comment);
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/blogs/${resolvedId}/comments`,
+        comment
+      );
       setComment({ name: "", comment: "" });
-      fetchBlog();
+      refreshBlog();
     } catch (error) {
       console.error("Error posting comment:", error);
     }
   };
 
-  if (!blog) return <div className="blog-view-loading">Loading blog post...</div>;
-
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: blog.title,
-    image: `${process.env.NEXT_PUBLIC_IMG_URL}/uploads/${blog.image}`,
-    author: { "@type": "Person", name: blog.author },
-    datePublished: blog.date,
-    description: blog.content?.slice(0, 150),
-    url: `https://printkee.com/blog/${id}`,
-  };
+  if (!blog) return <div className="blog-view-loading">Blog not found.</div>;
 
   return (
     <div className="blog-view-container">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-
       <div className="blog-view-main">
         <article className="blog-left">
           <h1>{blog.title}</h1>
@@ -75,10 +62,10 @@ const BlogViewClient = () => {
         <aside className="blog-right">
           <div className="comment-section">
             <h3 id="comments-title">Comments</h3>
-            {blog.comments?.length === 0 ? (
+            {!blog.comments?.length ? (
               <p>No comments yet. Be the first to comment!</p>
             ) : (
-              blog.comments?.map((c, i) => (
+              blog.comments.map((c, i) => (
                 <div className="comment" key={i}>
                   <b>{c.name}</b>
                   <p>{c.comment}</p>
@@ -86,7 +73,11 @@ const BlogViewClient = () => {
               ))
             )}
 
-            <form onSubmit={handleComment} className="comment-form" aria-labelledby="comments-title">
+            <form
+              onSubmit={handleComment}
+              className="comment-form"
+              aria-labelledby="comments-title"
+            >
               <label htmlFor="comment-name">Your Name</label>
               <input
                 id="comment-name"
@@ -102,10 +93,14 @@ const BlogViewClient = () => {
                 name="comment"
                 placeholder="Write your comment…"
                 value={comment.comment}
-                onChange={(e) => setComment({ ...comment, comment: e.target.value })}
+                onChange={(e) =>
+                  setComment({ ...comment, comment: e.target.value })
+                }
                 required
               />
-              <button type="submit" aria-label="Post your comment">Post Comment</button>
+              <button type="submit" aria-label="Post your comment">
+                Post Comment
+              </button>
             </form>
           </div>
         </aside>

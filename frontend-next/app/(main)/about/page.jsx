@@ -1,11 +1,26 @@
 import "@/styles/AboutUs.css";
 
+const BASE = "https://printkee.com";
+
 export const metadata = {
   title: "About MF Global Services | Corporate Gifting Solutions",
   description:
     "Learn about MF Global Services – your trusted partner for premium corporate gifting solutions. Discover our mission, values, and why top brands choose us for personalized gifts.",
-  alternates: {
-    canonical: "https://printkee.com/about",
+  alternates: { canonical: `${BASE}/about` },
+  openGraph: {
+    title: "About MF Global Services | Corporate Gifting Solutions",
+    description:
+      "MF Global Services — trusted partner for premium corporate gifting solutions across India. Custom branding, bulk orders, timely delivery.",
+    url: `${BASE}/about`,
+    type: "website",
+    images: [{ url: `${BASE}/assets/1.webp`, alt: "About Printkee" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About MF Global Services | Corporate Gifting Solutions",
+    description:
+      "Trusted partner for premium corporate gifting across India — custom branding, eco-friendly options, bulk orders.",
+    images: [`${BASE}/assets/1.webp`],
   },
 };
 
@@ -27,10 +42,10 @@ export default function AboutUs() {
             professional experience at every step.
             Our extensive product range includes custom apparel, bags, drinkware,
             eco-friendly products, office and writing essentials, technology accessories,
-            trophies, and curated welcome kits. Whether it's employee onboarding,
+            trophies, and curated welcome kits. Whether it&apos;s employee onboarding,
             corporate events, client gifting, promotional campaigns, or brand
             activations, Printkee provides solutions that make an impact.
-            At Printkee, we believe corporate gifting is more than just a product—it's a
+            At Printkee, we believe corporate gifting is more than just a product—it&apos;s a
             powerful branding tool. Our commitment to premium quality, attention to
             detail, and customer satisfaction has made us a preferred partner for
             businesses across India.

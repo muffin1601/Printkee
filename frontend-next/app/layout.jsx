@@ -23,10 +23,87 @@ export const metadata = {
     siteName: "Printkee",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/assets/printkeeLogo.webp",
+        width: 1200,
+        height: 630,
+        alt: "Printkee — Corporate Gifting & Custom Branding",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@printkee",
+    creator: "@printkee",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Printkee",
+  alternateName: "MF Global Services",
+  url: "https://printkee.com",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://printkee.com/assets/printkeeLogo.webp",
+    width: 300,
+    height: 130,
+  },
+  description:
+    "Printkee is India's trusted partner for premium corporate gifting and custom branding solutions — customized apparel, bags, drinkware, tech accessories, and promotional merchandise.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "F90/1, Beside ESIC Hospital, Okhla Industrial Area Phase 1",
+    addressLocality: "New Delhi",
+    addressRegion: "Delhi",
+    postalCode: "110020",
+    addressCountry: "IN",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+91-8800904543",
+      contactType: "customer service",
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi"],
+    },
+    {
+      "@type": "ContactPoint",
+      email: "sales@printkee.com",
+      contactType: "sales",
+    },
+  ],
+  sameAs: [
+    "https://www.facebook.com/share/1DF9K4wAHX/",
+    "https://www.instagram.com/printkee",
+    "https://linkedin.com",
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Printkee",
+  url: "https://printkee.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://printkee.com/search?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
   },
 };
 
@@ -34,6 +111,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         {children}
         <ToastContainer
           position="bottom-right"

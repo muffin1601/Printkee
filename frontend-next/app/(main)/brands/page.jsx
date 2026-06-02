@@ -1,11 +1,36 @@
 import "@/styles/Brands.css";
 import brandsList from "../../../data/brandsspl";
+import Link from "next/link";
+
+const BASE = "https://printkee.com";
 
 export const metadata = {
   title: "Our Brand Partners | MF Global Services",
   description:
     "MF Global Services partners with premium brands like Adidas, Puma, Noise, and American Tourister to provide top-quality corporate gifts. Explore our brand collaborations.",
-  alternates: { canonical: "https://printkee.com/brands" },
+  keywords: [
+    "brand partners corporate gifting",
+    "Adidas corporate gifts",
+    "Puma promotional products",
+    "American Tourister bulk gifting",
+    "premium brand gifting India",
+  ],
+  alternates: { canonical: `${BASE}/brands` },
+  openGraph: {
+    title: "Our Brand Partners | MF Global Services",
+    description:
+      "Premium brand partnerships — Adidas, Puma, Noise, American Tourister and more for top-quality corporate gifting.",
+    url: `${BASE}/brands`,
+    type: "website",
+    images: [{ url: `${BASE}/assets/printkeeLogo.webp`, alt: "Brand Partners Printkee" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Brand Partners | MF Global Services",
+    description:
+      "Adidas, Puma, Noise, American Tourister and more — premium brands for corporate gifting.",
+    images: [`${BASE}/assets/printkeeLogo.webp`],
+  },
 };
 
 export default function Brands() {
@@ -18,18 +43,16 @@ export default function Brands() {
 
       <div className="brands-grid" role="list">
         {brandsList.map((brand, index) => (
-          <a
-            href={brand.url}
+          <Link
+            href={`/brands/${brand.slug}`}
             className="brand-card"
             key={index}
-            target="_blank"
-            rel="noopener noreferrer"
             role="listitem"
-            aria-label={`Visit ${brand.name} official website`}
+            aria-label={`View ${brand.name} products`}
           >
             <img src={brand.logo} alt={`${brand.name} logo`} className="brand-logo" />
             <p className="brand-name">{brand.name}</p>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
