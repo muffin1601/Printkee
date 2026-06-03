@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "../styles/Industries.css";
+import styles from "../styles/Industries.module.css";
 import {
   Building2,
   GraduationCap,
@@ -22,35 +22,35 @@ const industries = [
 const Industries = () => {
   return (
     <section
-      className="industries-section-full"
-      
+      className={styles["industries-section-full"]}
+
       aria-labelledby="industries-heading"
     >
-      <div className="industries-section">
-        <h2 className="industries-heading" id="industries-heading">
+      <div className={styles["industries-section"]}>
+        <h2 className={styles["industries-heading"]} id="industries-heading">
           Industries We Serve
         </h2>
 
-        <div className="industries-grid">
+        <div className={styles["industries-grid"]}>
           {industries.map((industry, index) => (
             <div
-              className="industry-card"
+              className={styles["industry-card"]}
               key={index}
-           
+
               aria-label={industry.title}
             >
-              <div className="industry-icon">{industry.icon}</div>
-              <p className="industry-title">{industry.title}</p>
+              <div className={styles["industry-icon"]}>{industry.icon}</div>
+              <p className={styles["industry-title"]}>{industry.title}</p>
             </div>
           ))}
         </div>
 
         <button
-          className="industries-cta"
+          className={styles["industries-cta"]}
           aria-label="Talk to a gifting expert"
           onClick={() => (window.location.href = "/contact")}
         >
-          Talk to Gifting Expert <span className="arrow-1">→</span>
+          Talk to Gifting Expert <span aria-hidden="true">→</span>
         </button>
       </div>
     </section>

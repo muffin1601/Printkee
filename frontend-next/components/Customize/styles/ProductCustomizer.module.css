@@ -1,0 +1,6 @@
+/* Canvas element — do not constrain width/height; Fabric.js sets them programmatically */
+.product-customizer-canvas {
+  border: none;
+  display: block;
+  max-width: 100%;
+}

@@ -1,0 +1,114 @@
+/* ============================================================
+   BRANDS PAGE — camelCase class names match brands/page.jsx
+   Same rules: no shadows/transforms, 2px radius, purple/gold
+   ============================================================ */
+
+/* ── PAGE WRAPPER ──────────────────────────────────────────── */
+.brandsContainer {
+  background: var(--bg, #FAF8FF);
+}
+
+/* ── HERO BAND ─────────────────────────────────────────────── */
+.brandsHero {
+  background: var(--bg-dark, #2D1167);
+  padding: 2.5rem var(--px, 1.5rem);
+  text-align: center;
+}
+
+.brandsHeroInner {
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+}
+
+.brandsEyebrow {
+  color: var(--orange, #C9A84C);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+}
+
+.brandsHeading {
+  color: #fff;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.brandsDescription {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 58ch;
+}
+
+/* ── CONTENT AREA ──────────────────────────────────────────── */
+.brandsContent {
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  padding: 2rem var(--px, 1.5rem) 3rem;
+}
+
+/* ── BRAND CARD GRID ───────────────────────────────────────── */
+.brandsGrid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
+/* ── SINGLE BRAND CARD ─────────────────────────────────────── */
+.brandCard {
+  align-items: center;
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.25rem 1rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.brandCard:hover {
+  background: var(--green-light, #EDE1FF);
+  border-color: var(--green, #3D1C8A);
+}
+
+.brandLogo {
+  height: 44px;
+  max-width: 100%;
+  object-fit: contain;
+  width: auto;
+}
+
+.brandName {
+  color: var(--ink-2, #3E2D6B);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  transition: color 0.15s ease;
+}
+.brandCard:hover .brandName {
+  color: var(--green, #3D1C8A);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .brandsGrid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .brandsHero    { padding: 2rem 1rem; }
+  .brandsContent { padding: 1.5rem 1rem 2.5rem; }
+  .brandsGrid    { grid-template-columns: repeat(3, 1fr); gap: 0.55rem; }
+}
+
+@media (max-width: 480px) {
+  .brandsHero    { padding: 1.5rem 1rem; }
+  .brandsContent { padding: 1.25rem 1rem 2rem; }
+  .brandsGrid    { grid-template-columns: repeat(2, 1fr); }
+}

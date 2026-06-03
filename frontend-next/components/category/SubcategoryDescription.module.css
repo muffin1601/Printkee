@@ -1,0 +1,93 @@
+/* ============================================================
+   SUBCATEGORY DESCRIPTION — camelCase matches SubcategoryDescription.jsx
+   ============================================================ */
+
+.subcategoryDescriptionWrapper {
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+}
+
+.subcategoryDescriptionTitle {
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.85rem;
+  text-transform: capitalize;
+}
+
+/* Rich text content from dangerouslySetInnerHTML */
+.subcategoryDescriptionContent h3 {
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.subcategoryDescriptionContent h4 {
+  color: var(--ink, #1A0A3D);
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin: 1rem 0 0.4rem;
+}
+
+.subcategoryDescriptionContent p {
+  color: var(--ink-3, #7B6BA8);
+  font-size: 0.78rem;
+  line-height: 1.75;
+  margin: 0 0 0.65rem;
+}
+
+.subcategoryDescriptionContent ul {
+  list-style: none;
+  margin: 0.5rem 0 0.85rem;
+  padding: 0;
+}
+
+.subcategoryDescriptionContent li {
+  color: var(--ink-2, #3E2D6B);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  margin-bottom: 0.4rem;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.subcategoryDescriptionContent li::before {
+  color: var(--orange, #C9A84C);
+  content: '→';
+  font-size: 0.75rem;
+  font-weight: 700;
+  left: 0;
+  position: absolute;
+  top: 1px;
+}
+
+.subcategoryDescriptionContent .bullet-item {
+  color: var(--ink-2, #3E2D6B);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  margin-bottom: 0.4rem;
+  padding-left: 1.25rem;
+  position: relative;
+}
+.subcategoryDescriptionContent .bullet-item::before {
+  color: var(--orange, #C9A84C);
+  content: '→';
+  font-size: 0.75rem;
+  font-weight: 700;
+  left: 0;
+  position: absolute;
+  top: 1px;
+}
+
+@media (max-width: 768px) {
+  .subcategoryDescriptionWrapper { padding: 1.25rem; margin: 1.25rem 0; }
+}
+@media (max-width: 480px) {
+  .subcategoryDescriptionWrapper { padding: 1rem; }
+}

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "next/navigation";
-import "../styles/BlogView.css";
+import styles from "../styles/BlogView.module.css";
 
 const BlogViewClient = ({ initialBlog, blogId }) => {
   const { id } = useParams();
@@ -36,37 +36,49 @@ const BlogViewClient = ({ initialBlog, blogId }) => {
     }
   };
 
-  if (!blog) return <div className="blog-view-loading">Blog not found.</div>;
+  if (!blog) return <div className={styles["blog-view-loading"]}>Blog not found.</div>;
 
   return (
-    <div className="blog-view-container">
-      <div className="blog-view-main">
-        <article className="blog-left">
-          <h1>{blog.title}</h1>
-          <p className="blog-view-meta">
-            By {blog.author} on {new Date(blog.date).toLocaleDateString()}
+    <div className={styles["blog-view-container"]}>
+
+      {/* ── HERO BAND — blog title ── */}
+      <div className={styles["blog-view-hero"]}>
+        <div className={styles["blog-view-hero-inner"]}>
+          <p className={styles["blog-view-eyebrow"]}>Blog</p>
+          <h1 className={styles["blog-view-heading"]}>{blog.title}</h1>
+          <p className={styles["blog-view-meta-hero"]}>
+            By {blog.author} &nbsp;·&nbsp;{" "}
+            {blog.date ? new Date(blog.date).toLocaleDateString("en-IN", { day:"numeric", month:"short", year:"numeric" }) : ""}
+          </p>
+        </div>
+      </div>
+
+      <div className={styles["blog-view-main"]}>
+        <article className={styles["blog-left"]}>
+          <p className={styles["blog-view-meta"]}>
+            By {blog.author} &nbsp;·&nbsp; {new Date(blog.date).toLocaleDateString("en-IN", { day:"numeric", month:"short", year:"numeric" })}
           </p>
           {blog.image && (
             <img
-              className="blog-view-image"
+              className={styles["blog-view-image"]}
               src={`${process.env.NEXT_PUBLIC_IMG_URL}/uploads/${blog.image}`}
               alt={blog.title}
             />
           )}
           <div
-            className="blog-view-content"
+            className={styles["blog-view-content"]}
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
         </article>
 
-        <aside className="blog-right">
-          <div className="comment-section">
+        <aside className={styles["blog-right"]}>
+          <div className={styles["comment-section"]}>
             <h3 id="comments-title">Comments</h3>
             {!blog.comments?.length ? (
               <p>No comments yet. Be the first to comment!</p>
             ) : (
               blog.comments.map((c, i) => (
-                <div className="comment" key={i}>
+                <div className={styles["comment"]} key={i}>
                   <b>{c.name}</b>
                   <p>{c.comment}</p>
                 </div>
@@ -75,7 +87,7 @@ const BlogViewClient = ({ initialBlog, blogId }) => {
 
             <form
               onSubmit={handleComment}
-              className="comment-form"
+              className={styles["comment-form"]}
               aria-labelledby="comments-title"
             >
               <label htmlFor="comment-name">Your Name</label>

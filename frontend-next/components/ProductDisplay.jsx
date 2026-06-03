@@ -1,13 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { FaHeart, FaEye } from "react-icons/fa";
-import "../styles/ProductDisplay.css";
-import CTABanner from "./CTABanner";
+import {
+  ArrowLeft, ChevronRight, Heart, Eye,
+  ArrowRight, ShoppingBag, Package, Home, Phone,
+} from "lucide-react";
+import styles from "../styles/ProductDisplay.module.css";
 import RelatedCategories from "./RelatedCategories";
 import FAQSection from "./category/FAQSection";
-import banners from "../data/banners";
 import SubcategoryDescription from "./category/SubcategoryDescription";
 
 const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, seoH2 }) => {
@@ -16,139 +17,137 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
 
   if (!subcategoryData || !categoryData) {
     return (
-      <div style={{ padding: "2rem", textAlign: "center" }}>
+      <div className={styles["empty-state"]}>
+        <Package size={32} className={styles["empty-icon"]} />
         <p>Unable to load products. Please ensure the backend is running.</p>
       </div>
     );
   }
 
-  const categoryName = categoryData.name;
+  const categoryName    = categoryData.name;
   const subcategoryName = subcategoryData.name;
-  /* seoH1/seoH2 override the DB name for SEO-optimized headings */
-  const displayH1 = seoH1 || subcategoryName;
-  const displayH2 = seoH2 || null;
-
-  const bannerImage =
-    banners[categorySlug]?.subcategories?.[subcategorySlug] ||
-    banners[categorySlug]?.banner ||
-    "/assets/product-banner.webp";
+  const displayH1       = seoH1 || subcategoryName;
+  const displayH2       = seoH2 || null;
 
   return (
     <>
-      {/* Header */}
-      <div className="subcategory-header-2">
-        <div className="subcategory-header-content">
-          <Link
-            href={`/${categorySlug}`}
-            className="back-link"
-            aria-label={`Go back to ${categoryName}`}
-          >
-            <div className="circle">
-              <span className="arrow-2">&larr;</span>
-            </div>
-            <span className="span-name">Back to {categoryName}</span>
+      {/* ── HERO HEADER ── */}
+      <div className={styles["subcategory-header-2"]}>
+        <div className={styles["subcategory-header-content"]}>
+          <Link href={`/${categorySlug}`} className={styles["back-link"]} aria-label={`Back to ${categoryName}`}>
+            <span className={styles.circle}><ArrowLeft size={13} /></span>
+            <span className={styles["span-name"]}>Back to {categoryName}</span>
           </Link>
-
-          <h1 className="page-title">{displayH1}</h1>
-          {displayH2 && <h2 className="page-subtitle">{displayH2}</h2>}
-          <p className="subcategory-description">{subcategoryData?.description || ""}</p>
+          <h1 className={styles["page-title"]}>{displayH1}</h1>
+          {displayH2 && <h2 className={styles["page-subtitle"]}>{displayH2}</h2>}
+          {subcategoryData?.description && (
+            <p className={styles["subcategory-description"]}>{subcategoryData.description}</p>
+          )}
         </div>
       </div>
 
-      {/* Product Grid */}
-      <div className="product-container-2">
-        <div className="page-wrapper">
-          <div className="product-container">
-            <nav className="breadcrumbs" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span className="breadcrumb-separator">/</span>
+      {/* ── PRODUCT GRID ── */}
+      <div className={styles["product-container-2"]}>
+        <div className={styles["page-wrapper"]}>
+          <div className={styles["product-container"]}>
+
+            <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
+              <Link href="/"><Home size={12} /> Home</Link>
+              <ChevronRight size={11} className={styles["breadcrumb-separator"]} />
               <Link href={`/${categorySlug}`}>{categoryName}</Link>
-              <span className="breadcrumb-separator">/</span>
-              <span className="current">{subcategoryName}</span>
+              <ChevronRight size={11} className={styles["breadcrumb-separator"]} />
+              <span className={styles.current}>{subcategoryName}</span>
             </nav>
 
-            <div className="product-grid">
-              {products.map((product) => {
-                const sizeSelectId = `size-select-${product._id}`;
-                const colorSelectId = `color-select-${product._id}`;
-                const imageUrl = product.images?.[0]?.url || "/assets/placeholder.webp";
+            {products.length === 0 ? (
+              <div className={styles["empty-state"]}>
+                <ShoppingBag size={32} className={styles["empty-icon"]} />
+                <p>No products found in this category.</p>
+              </div>
+            ) : (
+              <div className={styles["product-grid"]}>
+                {products.map((product) => {
+                  const sizeSelectId  = `size-${product._id}`;
+                  const colorSelectId = `color-${product._id}`;
+                  const imageUrl = product.images?.[0]?.url || "/assets/placeholder.webp";
 
-                return (
-                  <div key={product._id} className="product-card">
-                    <div className="product-image-wrapper">
-                      <img
-                        className="product-img"
-                        src={imageUrl}
-                        alt={product.images?.[0]?.altText || product.name}
-                      />
-                      <div className="product-icons">
-                        <button aria-label={`Add ${product.name} to wishlist`}>
-                          <FaHeart />
-                        </button>
-                        <button aria-label={`View details of ${product.name}`}>
-                          <FaEye />
+                  return (
+                    <article key={product._id} className={styles["product-card"]}>
+                      <div className={styles["product-image-wrapper"]}>
+                        <img className={styles["product-img"]} src={imageUrl}
+                          alt={product.images?.[0]?.altText || product.name} loading="lazy" />
+                        <div className={styles["product-icons"]}>
+                          <button aria-label={`Save ${product.name}`} title="Save"><Heart size={13} /></button>
+                          <button aria-label={`Quick view ${product.name}`} title="Quick view"
+                            onClick={() => router.push(`/${categorySlug}/${subcategorySlug}/${product.slug}`)}>
+                            <Eye size={13} />
+                          </button>
+                        </div>
+                      </div>
+                      <div className={styles["product-body"]}>
+                        <h3 className={styles["product-title"]}>{product.name}</h3>
+                        {(product.attributes?.size?.length > 0 || product.attributes?.color?.length > 0) && (
+                          <div className={styles["dropdown-group"]}>
+                            {product.attributes?.size?.length > 0 && (
+                              <div>
+                                <label htmlFor={sizeSelectId}>Style</label>
+                                <select id={sizeSelectId}>
+                                  {product.attributes.size.map((s, i) => <option key={i}>{s}</option>)}
+                                </select>
+                              </div>
+                            )}
+                            {product.attributes?.color?.length > 0 && (
+                              <div>
+                                <label htmlFor={colorSelectId}>Color</label>
+                                <select id={colorSelectId}>
+                                  {product.attributes.color.map((c, i) => <option key={i}>{c}</option>)}
+                                </select>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                        <button className={styles["add-to-cart"]} disabled={product.stock === 0}
+                          onClick={() => router.push(`/${categorySlug}/${subcategorySlug}/${product.slug}`)}>
+                          {product.stock === 0 ? "Sold Out" : <><span>View Details</span><ArrowRight size={13} /></>}
                         </button>
                       </div>
-                    </div>
-
-                    <h3 className="product-title">{product.name}</h3>
-
-                    <div className="dropdown-group">
-                      {product.attributes?.size?.length > 0 && (
-                        <>
-                          <label htmlFor={sizeSelectId}>Style:</label>
-                          <select id={sizeSelectId}>
-                            {product.attributes.size.map((s, index) => (
-                              <option key={index}>{s}</option>
-                            ))}
-                          </select>
-                        </>
-                      )}
-
-                      {product.attributes?.color?.length > 0 && (
-                        <>
-                          <label htmlFor={colorSelectId}>Color:</label>
-                          <select id={colorSelectId}>
-                            {product.attributes.color.map((c, index) => (
-                              <option key={index}>{c}</option>
-                            ))}
-                          </select>
-                        </>
-                      )}
-                    </div>
-
-                    <button
-                      className="add-to-cart"
-                      aria-label={`View product: ${product.name}`}
-                      onClick={() =>
-                        router.push(`/${categorySlug}/${subcategorySlug}/${product.slug}`)
-                      }
-                      disabled={product.stock === 0}
-                    >
-                      {product.stock === 0 ? "Sold out" : "View"} ➤
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
+                    </article>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
 
         <SubcategoryDescription subcategory={subcategorySlug} />
-
-        <CTABanner
-          imageSrc={bannerImage}
-          linkTo="/contact"
-          alt={`Get a Quote for ${subcategoryName}`}
-        />
       </div>
 
+      {/* ── FAQ ── */}
       <FAQSection subcategory={subcategorySlug} />
 
-      <RelatedCategories
-        categorySlug={categorySlug}
-        currentSubcategorySlug={subcategorySlug}
-      />
+      {/* ── RELATED CATEGORIES ── */}
+      <RelatedCategories categorySlug={categorySlug} currentSubcategorySlug={subcategorySlug} />
+
+      {/* ── BOTTOM CTA — matches home page dark section style ── */}
+      <section className={styles["product-cta"]}>
+        <div className={styles["product-cta-inner"]}>
+          <p className={styles["product-cta-eyebrow"]}>Bulk Orders Available</p>
+          <h2 className={styles["product-cta-heading"]}>
+            Need Custom {subcategoryName}?
+          </h2>
+          <p className={styles["product-cta-sub"]}>
+            Premium branding, bulk discounts and fast pan-India delivery. Let&apos;s create something memorable.
+          </p>
+          <div className={styles["product-cta-actions"]}>
+            <Link href="/contact" className={styles["product-cta-btn-primary"]}>
+              Get a Quote <ArrowRight size={14} />
+            </Link>
+            <a href="tel:+918800904543" className={styles["product-cta-btn-ghost"]}>
+              <Phone size={13} /> +91 88009 04543
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

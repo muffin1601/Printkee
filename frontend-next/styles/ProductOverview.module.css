@@ -1,0 +1,31 @@
+/* styles/ProductOverview.module.css */
+
+.product-overview {
+  background: var(--bg, #FAF8FF);
+  border-top: 1px solid var(--border, #E5DCF5);
+  padding: 2rem var(--px, 1.5rem) 2.5rem;
+}
+
+.product-overview__title {
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 0.75rem;
+  max-width: var(--max-w, 1200px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-overview__description {
+  color: var(--ink-3, #7B6BA8);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+}
+
+@media (max-width: 768px) {
+  .product-overview { padding: 1.5rem 1rem 2rem; }
+}

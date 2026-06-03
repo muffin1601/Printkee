@@ -1,0 +1,5 @@
+/* CTA BANNER */
+.cta-banner { border-radius: 2px; display: block; margin: 1.5rem 0; overflow: hidden; }
+.cta-figure { margin: 0; }
+.cta-full-image { display: block; transition: opacity 0.15s ease; width: 100%; }
+.cta-banner:hover .cta-full-image { opacity: 0.92; }

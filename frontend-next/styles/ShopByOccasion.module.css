@@ -1,0 +1,128 @@
+/* ============================================================
+   SHOP BY OCCASION — minimal, purple / gold palette
+   ============================================================ */
+
+/* ── SECTION ───────────────────────────────────────────────── */
+.occasionWrapper {
+  background: var(--bg, #FAF8FF);
+  border-top: 1px solid var(--border, #E5DCF5);
+  padding: 2rem var(--px, 1.5rem) 2.5rem;
+}
+
+/* ── HEADER ────────────────────────────────────────────────── */
+.occasionHeading {
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.occasionSub {
+  color: var(--ink-3, #7B6BA8);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin: 0 auto 1.5rem;
+  max-width: 64ch;
+  text-align: center;
+}
+
+/* ── GRID ──────────────────────────────────────────────────── */
+.occasionGrid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+}
+
+/* ── CARD ──────────────────────────────────────────────────── */
+.occasionCard {
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.occasionCard:hover {
+  background: var(--green-light, #EDE1FF);
+  border-color: var(--green, #3D1C8A);
+}
+
+/* ── IMAGE ─────────────────────────────────────────────────── */
+.imageBox {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.occasionImg {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  transition: opacity 0.15s ease;
+}
+.occasionCard:hover .occasionImg { opacity: 0.92; }
+
+/* ── BODY ──────────────────────────────────────────────────── */
+.occasionTitle {
+  color: var(--ink, #1A0A3D);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  padding: 0.85rem 0.9rem 0.3rem;
+}
+
+.occasionDescription {
+  color: var(--ink-3, #7B6BA8);
+  flex: 1;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  padding: 0 0.9rem 0.65rem;
+}
+
+.occasionBtn {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border, #E5DCF5);
+  color: var(--orange, #C9A84C);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 800;
+  gap: 5px;
+  padding: 0.65rem 0.9rem;
+  transition: background 0.15s ease, color 0.15s ease;
+  width: 100%;
+}
+.occasionBtn:hover {
+  background: var(--orange, #C9A84C);
+  color: #fff;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+
+/* Tablet landscape */
+@media (max-width: 1024px) {
+  .occasionGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .occasionWrapper { padding: 1.5rem 1rem 2rem; }
+  .occasionGrid { grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
+  .occasionTitle { font-size: 0.78rem; }
+  .occasionDescription { font-size: 0.72rem; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .occasionWrapper { padding: 1.25rem 1rem 1.75rem; }
+  .occasionGrid { grid-template-columns: 1fr; gap: 0.6rem; }
+  .imageBox { aspect-ratio: 16 / 7; }
+}

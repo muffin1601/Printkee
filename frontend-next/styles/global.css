@@ -1,75 +1,92 @@
 /* ============================================================
-   PRINTKEE — DESIGN SYSTEM v5
-   Reference: attached homepage mockup
-   Colors: #0f7b5f green, #f26a4f orange, #f8fafc bg
+   PRINTKEE — DESIGN SYSTEM v6
+   Primary palette: Dark Purple / Gold / Peach
+   --green  → primary purple   #3D1C8A
+   --orange → gold             #C9A84C
+   --peach  → peach accent     #E8855A
    ============================================================ */
 
 /* Fonts via next/font — no @import needed */
 
 /* ── BRAND TOKENS ─────────────────────────────────────────── */
 :root {
-  /* Primary palette */
-  --green:        #0f7b5f;
-  --green-dark:   #0b4e41;
-  --green-deep:   #073d30;
-  --green-light:  #e8f5f1;
-  --green-mid:    #4aaa8e;
+  /* ── PRIMARY: Purple ───────────────────────────────────── */
+  --green:        #3D1C8A;   /* primary purple  — buttons, links, brand */
+  --green-dark:   #2D1167;   /* dark purple     — hover, dark surfaces  */
+  --green-deep:   #1A0845;   /* deepest purple  — darkest backgrounds   */
+  --green-light:  #EDE1FF;   /* pale purple     — icon bg, tag surfaces */
+  --green-mid:    #7C4DBC;   /* medium purple   — secondary elements    */
 
-  --orange:       #f26a4f;
-  --orange-dark:  #d4543b;
-  --orange-light: #fef0ed;
+  /* ── ACCENT: Gold ──────────────────────────────────────── */
+  --orange:       #C9A84C;   /* gold   — CTAs, eyebrows, highlights     */
+  --orange-dark:  #A8872A;   /* dark gold — hover states                */
+  --orange-light: #FBF5E3;   /* pale gold — subtle surfaces             */
 
-  /* Surfaces */
-  --bg:           #f8fafc;
+  /* ── THIRD ACCENT: Peach ───────────────────────────────── */
+  --peach:        #E8855A;   /* peach — badges, secondary CTAs          */
+  --peach-dark:   #D4643A;   /* dark peach                              */
+  --peach-light:  #FEF0E8;   /* pale peach surface                      */
+
+  /* Mega-menu aliases (kept in sync) */
+  --mp:        var(--green-dark);    /* #2D1167 */
+  --mp-mid:    var(--green-mid);     /* #7C4DBC */
+  --mp-light:  var(--green-light);   /* #EDE1FF */
+  --mg:        var(--orange);        /* #C9A84C */
+  --mg-light:  var(--orange-light);  /* #FBF5E3 */
+  --mpc:       var(--peach);         /* #E8855A */
+  --mpc-light: var(--peach-light);   /* #FEF0E8 */
+
+  /* ── SURFACES ──────────────────────────────────────────── */
+  --bg:           #FAF8FF;   /* off-white, very subtle purple tint       */
   --bg-white:     #ffffff;
-  --bg-subtle:    #f1f5f3;
-  --bg-dark:      #0b4e41;
-  --bg-darkest:   #073d30;
+  --bg-subtle:    #F3EEFF;   /* soft purple surface for cards, inputs   */
+  --bg-dark:      #2D1167;   /* dark purple — announcement bar, hero    */
+  --bg-darkest:   #1A0845;   /* deepest purple — footer dark mode       */
 
-  /* Text */
-  --ink:          #1a2e2a;
-  --ink-2:        #3d5a54;
-  --ink-3:        #6b8a83;
+  /* ── TEXT ──────────────────────────────────────────────── */
+  --ink:          #1A0A3D;   /* near-black purple — primary body text   */
+  --ink-2:        #3E2D6B;   /* medium purple — secondary text          */
+  --ink-3:        #7B6BA8;   /* muted purple — captions, placeholders   */
   --ink-inv:      #ffffff;
   --ink-inv-2:    rgba(255,255,255,0.78);
 
-  /* Borders */
-  --border:       #e2ebe7;
-  --border-2:     #d0e2dc;
+  /* ── BORDERS ───────────────────────────────────────────── */
+  --border:       #E5DCF5;   /* light purple border                     */
+  --border-2:     #D0BFEC;   /* medium purple border                    */
 
-  /* Semantic */
-  --success:      #0f7b5f;
+  /* ── SEMANTIC ──────────────────────────────────────────── */
+  --success:      #1A7A4A;   /* keep green for success states           */
   --error:        #e63946;
 
   /* Typography — Montserrat via next/font */
   --font: var(--font-montserrat, 'Montserrat', -apple-system, 'Segoe UI', sans-serif);
 
-  /* Shadows — subtle, flat */
-  --sh-xs:  0 1px 2px rgba(15,123,95,0.04);
-  --sh-sm:  0 1px 4px rgba(26,46,42,0.06);
-  --sh-md:  0 2px 8px rgba(26,46,42,0.07);
-  --sh-lg:  0 4px 16px rgba(26,46,42,0.09);
-  --sh-xl:  0 8px 32px rgba(26,46,42,0.11);
-  --sh-card: 0 1px 3px rgba(26,46,42,0.06), 0 4px 12px rgba(26,46,42,0.04);
+  /* ── SHADOWS — purple-tinted ───────────────────────────── */
+  --sh-xs:   0 1px 2px rgba(61,28,138,0.04);
+  --sh-sm:   0 1px 4px rgba(26,10,61,0.06);
+  --sh-md:   0 2px 8px rgba(26,10,61,0.08);
+  --sh-lg:   0 4px 16px rgba(26,10,61,0.10);
+  --sh-xl:   0 8px 32px rgba(26,10,61,0.12);
+  --sh-card: 0 1px 3px rgba(26,10,61,0.06), 0 4px 12px rgba(26,10,61,0.04);
 
-  /* Radius — minimal / near-zero */
+  /* ── RADIUS — minimal / near-zero ─────────────────────── */
   --r-sm:   2px;
   --r-md:   3px;
   --r-lg:   4px;
   --r-xl:   6px;
   --r-2xl:  6px;
-  --r-pill: 4px;    /* near-zero even for "pills" — sharp look */
+  --r-pill: 4px;
 
-  /* Transitions */
+  /* ── TRANSITIONS ───────────────────────────────────────── */
   --t-fast: 0.15s ease;
   --t-base: 0.22s ease;
   --t-slow: 0.35s ease;
 
-  /* Layout */
+  /* ── LAYOUT ────────────────────────────────────────────── */
   --max-w:  1200px;
   --px:     clamp(1rem, 3.5vw, 2.5rem);
 
-  /* ── LEGACY ALIASES — keep old code working ── */
+  /* ── LEGACY ALIASES — keep every existing module working ── */
   --brand: var(--green); --brand-dark: var(--green-dark);
   --brand-light: var(--green-light); --brand-mid: var(--green-mid);
   --accent: var(--orange); --accent-dark: var(--orange-dark);
@@ -84,7 +101,7 @@
   --color-text: var(--ink); --color-text-secondary: var(--ink-2);
   --color-text-muted: var(--ink-3); --color-text-inverse: var(--ink-inv);
   --color-border: var(--border); --color-border-strong: var(--border-2);
-  --color-border-muted: #edf4f0;
+  --color-border-muted: #EEE7FF;
   --purple: var(--green); --purple-dark: var(--green-dark);
   --gold: var(--orange); --gold-light: var(--orange-light);
   --beige-light: var(--bg); --beige-bg: var(--bg-subtle);
@@ -100,9 +117,9 @@
   --shadow-lg:var(--sh-lg); --shadow-xl:var(--sh-xl);
   --shadow-soft:var(--sh-md); --shadow-medium:var(--sh-lg);
   --shadow-hover:var(--sh-xl);
-  --shadow-brand:0 4px 20px rgba(15,123,95,0.28);
-  --shadow-brand-lg:0 8px 36px rgba(15,123,95,0.36);
-  --sh-brand: var(--shadow-brand);
+  --shadow-brand:    0 4px 20px rgba(61,28,138,0.28);
+  --shadow-brand-lg: 0 8px 36px rgba(61,28,138,0.36);
+  --sh-brand:    var(--shadow-brand);
   --sh-brand-lg: var(--shadow-brand-lg);
   --radius-xs:2px; --radius-sm:var(--r-sm); --radius-md:var(--r-md);
   --radius-lg:var(--r-lg); --radius-xl:var(--r-xl);
@@ -132,9 +149,9 @@
   --t-xl:1.25rem; --t-2xl:1.5rem; --t-3xl:1.875rem; --t-4xl:2.25rem;
   --t-5xl:3rem; --t-6xl:3.75rem; --t-7xl:4.5rem; --t-8xl:6rem;
   --dur-fast:120ms; --dur-base:200ms; --dur-slow:320ms;
-  --bg-dark-2:#1a2e2a; --bg-dark-3:#273e39;
-  --brand-deep:var(--green-deep);
-  --bg-muted:var(--bg-subtle); --bg-subtle:var(--bg-subtle);
+  --bg-dark-2: #1A0845; --bg-dark-3: #2D1167;
+  --brand-deep: var(--green-deep);
+  --bg-muted: var(--bg-subtle);
 }
 
 /* ── RESET ──────────────────────────────────────────────── */
@@ -154,7 +171,7 @@ p { margin:0; }
 
 ::-webkit-scrollbar { width:5px; }
 ::-webkit-scrollbar-track { background:transparent; }
-::-webkit-scrollbar-thumb { background:#c8d8d2; border-radius: 4px; }
+::-webkit-scrollbar-thumb { background:#C4B0E8; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background:var(--green-mid); }
 
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0; }

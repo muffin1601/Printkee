@@ -1,0 +1,154 @@
+/* ============================================================
+   BLOG FORM — bracket-notation → hyphenated class names
+   Same rules: no shadows/transforms, 2px radius, purple/gold
+   ============================================================ */
+
+/* ── WRAPPER — page bg ─────────────────────────────────────── */
+.blog-form-wrapper {
+  background: var(--bg, #FAF8FF);
+  min-height: 80vh;
+}
+
+/* ── HERO BAND ─────────────────────────────────────────────── */
+.blog-form-hero {
+  background: var(--bg-dark, #2D1167);
+  padding: 2.5rem var(--px, 1.5rem);
+  text-align: center;
+}
+.blog-form-eyebrow {
+  color: var(--orange, #C9A84C);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+}
+.blog-form-title {
+  color: #fff;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 0.45rem;
+}
+.blog-form-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.78rem;
+  margin: 0;
+}
+
+/* ── FORM AREA ─────────────────────────────────────────────── */
+.blog-form-wrapper > form,
+.blog-form-wrapper form.blog-form {
+  padding: 2rem var(--px, 1.5rem) 3rem;
+}
+
+/* ── FORM CARD — centred, max-width ────────────────────────── */
+.blog-form {
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+/* slide-up class — no-op (animation removed) */
+.slide-up {}
+
+/* Heading */
+.blog-form h2 {
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--orange, #C9A84C);
+  display: inline-block;
+}
+
+/* Labels */
+.blog-form label {
+  color: var(--ink, #1A0A3D);
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+/* Inputs & textarea */
+.blog-form input,
+.blog-form textarea {
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  color: var(--ink, #1A0A3D);
+  display: block;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 0.65rem 0.9rem;
+  resize: vertical;
+  transition: border-color 0.15s ease;
+  width: 100%;
+}
+.blog-form input:focus,
+.blog-form textarea:focus {
+  background: var(--bg-white, #fff);
+  border-color: var(--green, #3D1C8A);
+}
+.blog-form input::placeholder,
+.blog-form textarea::placeholder {
+  color: var(--ink-3, #7B6BA8);
+}
+
+/* File input */
+.blog-form input[type="file"] {
+  background: transparent;
+  border: 1px dashed var(--border, #E5DCF5);
+  color: var(--ink-3, #7B6BA8);
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.55rem 0.9rem;
+}
+.blog-form input[type="file"]:hover {
+  border-color: var(--green, #3D1C8A);
+}
+
+/* Submit button — purple → gold on hover */
+.submit-btn {
+  background: var(--green, #3D1C8A);
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+  min-height: 40px;
+  padding: 0 1.75rem;
+  transition: background 0.15s ease;
+  width: 100%;
+}
+.submit-btn:hover {
+  background: var(--orange, #C9A84C);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .blog-form-wrapper { padding: 2rem 1rem 2.5rem; }
+  .blog-form         { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .blog-form-wrapper { padding: 1.5rem 1rem 2rem; }
+  .blog-form         { padding: 1.25rem; }
+}

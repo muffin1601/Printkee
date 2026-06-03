@@ -1,0 +1,610 @@
+/* ============================================================
+   NAVBAR — premium minimal, 2-row desktop + full-width mega menu
+   ============================================================ */
+
+.root {
+  background: #fff;
+  box-shadow: 0 1px 0 var(--border, #e2ebe7);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.srOnly {
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* ─────────────────────────────────────────────────────────
+   ROW 2  Logo | Search | Phone | Login
+   Grid: logo (auto) | search (1fr) | right-cluster (auto)
+   ───────────────────────────────────────────────────────── */
+.mainBar {
+  border-bottom: 1px solid var(--border, #e2ebe7);
+}
+
+.mainBarInner {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  min-height: 68px;
+  padding: 0 var(--px, 1.5rem);
+}
+
+/* Logo */
+.logoLink { align-items: center; display: flex; flex-shrink: 0; }
+.logo     { display: block; height: 40px; width: auto; }
+
+/* Search bar — takes remaining space in flex row */
+.searchBar {
+  align-items: center;
+  background: var(--bg, #f8fafc);
+  border: 1.5px solid var(--border, #e2ebe7);
+  flex: 1;
+  min-width: 0;
+  border-radius: 4px;
+  display: flex;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding: 0 0.9rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.searchBar:focus-within {
+  border-color: var(--green, #0f7b5f);
+  box-shadow: 0 0 0 3px rgba(15,123,95,0.10);
+}
+.searchIcon { color: var(--ink-3, #6b8a83); flex-shrink: 0; }
+.searchBar input {
+  background: transparent;
+  border: none;
+  color: var(--ink, #1a2e2a);
+  flex: 1;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-width: 0;
+  outline: none;
+}
+.searchBar input::placeholder { color: var(--ink-3, #6b8a83); }
+
+/* Right cluster: phone + login */
+.rightCluster {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.85rem;
+}
+
+.phoneLink {
+  align-items: center;
+  color: var(--ink-2, #3d5a54);
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 600;
+  gap: 0.35rem;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+.phoneLink:hover { color: var(--green, #3D1C8A); }
+
+.divider {
+  background: var(--border, #E5DCF5);
+  display: block;
+  height: 16px;
+  width: 1px;
+}
+
+.loginBtn {
+  align-items: center;
+  background: transparent;
+  border: 1.5px solid var(--border-2, #d0e2dc);
+  border-radius: 4px;
+  color: var(--ink-2, #3d5a54);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 700;
+  gap: 0.35rem;
+  min-height: 38px;
+  padding: 0 1rem;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.loginBtn:hover {
+  background: var(--green-light, #e8f5f1);
+  border-color: var(--green, #0f7b5f);
+  color: var(--green, #0f7b5f);
+}
+
+/* Mobile icon buttons — hidden on desktop, pushed to far right via margin-left:auto */
+.mobileControls {
+  align-items: center;
+  display: none;
+  flex-shrink: 0;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+/* Search toggle — hidden at tablet (search bar is visible there), shown only on mobile */
+.searchToggleBtn { display: none; }
+.iconBtn {
+  align-items: center;
+  background: var(--bg, #f8fafc);
+  border: 1.5px solid var(--border, #e2ebe7);
+  border-radius: 4px;
+  color: var(--ink, #1a2e2a);
+  cursor: pointer;
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  transition: all 0.15s ease;
+  width: 40px;
+}
+.iconBtn:hover {
+  background: var(--green-light, #e8f5f1);
+  border-color: var(--green, #0f7b5f);
+  color: var(--green, #0f7b5f);
+}
+
+/* ─────────────────────────────────────────────────────────
+   ROW 3  Nav links — centred
+   position: relative so mega menu can span full width
+   ───────────────────────────────────────────────────────── */
+.navBar {
+  background: #fff;
+  position: relative;
+}
+
+.navList {
+  align-items: center;
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  list-style: none;
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  min-height: 44px;
+  padding: 0 var(--px, 1.5rem);
+}
+
+/* Shared link style */
+.navLink,
+.navBtn {
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--ink-2, #3d5a54);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  gap: 5px;
+  padding: 0.5rem 0.9rem;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+/* Orange underline indicator */
+.navLink::after,
+.navBtn::after {
+  background: var(--orange, #f26a4f);
+  border-radius: 2px;
+  bottom: 3px;
+  content: '';
+  height: 2px;
+  left: 0.9rem;
+  position: absolute;
+  right: 0.9rem;
+  transform: scaleX(0);
+  transition: transform 0.15s ease;
+}
+.navLink:hover,
+.navBtn:hover { color: var(--ink, #1a2e2a); }
+.navLink:hover::after,
+.navBtn:hover::after { transform: scaleX(1); }
+
+/* Chevron rotates when menu is open */
+.chevron { transition: transform 0.18s ease; opacity: 0.55; }
+.chevronUp { transform: rotate(-180deg); }
+
+/* "All Categories" item — no underline indicator, triggers mega menu */
+.megaTrigger { position: static; }
+.megaTrigger .navBtn::after { display: none; }
+
+/* ─────────────────────────────────────────────────────────
+   MEGA MENU — full width · auto height · no scroll
+   8 categories in 4 columns, 2 stacked per column
+   ───────────────────────────────────────────────────────── */
+@keyframes megaReveal {
+  from { clip-path: inset(0 0 100% 0); opacity: 0.5; }
+  to   { clip-path: inset(0 0   0% 0); opacity: 1;   }
+}
+
+.megaMenu {
+  background: #fff;
+  border-top: 3px solid var(--green-dark, #2D1167);
+  box-shadow: 0 24px 56px rgba(45,17,103,0.13), 0 4px 10px rgba(45,17,103,0.06);
+  clip-path: inset(0 0 100% 0);
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transition: clip-path 0.30s cubic-bezier(0.16,1,0.3,1),
+              opacity    0.22s ease,
+              visibility 0.30s ease;
+  visibility: hidden;
+  z-index: 200;
+}
+
+.megaOpen {
+  animation: megaReveal 0.30s cubic-bezier(0.16,1,0.3,1) forwards;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Outer padded wrapper — no scroll */
+.megaScroll {
+  padding: 2rem 0 2.25rem;
+}
+
+/* 4-column grid — one column-group per column */
+.megaGrid {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  padding: 0 var(--px, 1.5rem);
+}
+
+/* Column group — holds 2 stacked category blocks */
+.megaColGroup {
+  border-right: 1px solid #EDE5F8;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1.75rem;
+}
+.megaColGroup:first-child { padding-left: 0; }
+.megaColGroup:last-child  { border-right: none; padding-right: 0; }
+
+/* Individual category block within a column */
+.megaCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Category heading — dark purple + gold underline ── */
+.megaHeading {
+  border-bottom: 2px solid var(--mg, #B8962E);
+  color: var(--mp, #2D1167);
+  display: block;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  margin-bottom: 0.55rem;
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.14s ease;
+}
+.megaHeading:hover { color: var(--mp-mid, #6B3FA0); }
+
+/* ── "View All →" — gold ── */
+.megaViewAll {
+  align-items: center;
+  color: var(--mg, #B8962E);
+  display: inline-flex;
+  font-size: 0.74rem;
+  font-weight: 700;
+  gap: 3px;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.65rem;
+  text-decoration: none;
+  transition: color 0.14s ease, gap 0.14s ease;
+}
+.megaViewAll:hover { color: var(--mp, #2D1167); gap: 7px; }
+
+/* ── Subcategory list ── */
+.megaCol ul { list-style: none; margin: 0; padding: 0; }
+
+.megaItem {
+  border-radius: 2px;
+  color: #3e2d6b;
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 0.28rem 0.45rem;
+  text-decoration: none;
+  transition: color 0.12s ease, background 0.12s ease, padding-left 0.12s ease;
+}
+.megaItem:hover {
+  background: var(--mp-light, #F5EFFE);
+  color: var(--mp, #2D1167);
+  padding-left: 0.9rem;
+}
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE DRAWER
+   ───────────────────────────────────────────────────────── */
+/* Backdrop — sits behind drawer, dims content */
+.drawerBackdrop {
+  background: rgba(26,10,61,0.45);
+  inset: 0;
+  position: fixed;
+  z-index: 1050;
+}
+
+.drawer {
+  background: #fff;
+  border-right: 1px solid var(--border, #e2ebe7);
+  box-shadow: 8px 0 32px rgba(45,17,103,0.14);
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  transform: translateX(-100%);
+  transition: transform 0.26s cubic-bezier(0.4,0,0.2,1);
+  width: min(320px, 100vw);
+  z-index: 1100;
+}
+.drawerOpen { transform: translateX(0); }
+
+.drawerHead {
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid var(--border, #e2ebe7);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.drawerLogo  { height: 32px; width: auto; }
+.drawerClose {
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  color: var(--ink-3, #6b8a83);
+  cursor: pointer;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  transition: all 0.15s ease;
+  width: 36px;
+}
+.drawerClose:hover { background: var(--green-light, #e8f5f1); color: var(--green, #0f7b5f); }
+
+.drawerNav  { flex: 1; list-style: none; margin: 0; padding: 0.75rem 1rem; }
+.drawerLink {
+  align-items: center;
+  border: 1px solid var(--border, #e2ebe7);
+  border-radius: 4px;
+  color: var(--ink, #1a2e2a);
+  display: flex;
+  font-size: 0.92rem;
+  font-weight: 600;
+  gap: 0.65rem;
+  margin-bottom: 0.4rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.drawerLink:hover {
+  background: var(--green-light, #e8f5f1);
+  border-color: var(--green, #0f7b5f);
+  color: var(--green, #0f7b5f);
+}
+
+.drawerToggle {
+  align-items: center;
+  background: none;
+  border: 1px solid var(--border, #e2ebe7);
+  border-radius: 4px;
+  color: var(--ink, #1a2e2a);
+  cursor: pointer;
+  display: flex;
+  font-family: var(--font);
+  font-size: 0.92rem;
+  font-weight: 600;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.15s ease;
+  width: 100%;
+}
+.drawerToggle:hover { background: var(--green-light, #e8f5f1); border-color: var(--green, #0f7b5f); color: var(--green, #0f7b5f); }
+.drawerToggle > span { align-items: center; display: flex; gap: 0.65rem; }
+
+.drawerSub {
+  background: var(--bg, #f8fafc);
+  border: 1px solid var(--border, #e2ebe7);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.4rem;
+  overflow: hidden;
+  padding: 0.35rem;
+}
+.drawerSubLink {
+  border-radius: 2px;
+  color: var(--ink-2, #3d5a54);
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.55rem 0.75rem;
+  text-decoration: none;
+  transition: all 0.13s ease;
+}
+.drawerSubLink:hover { background: var(--green-light, #e8f5f1); color: var(--green, #0f7b5f); }
+
+.drawerFoot {
+  border-top: 1px solid var(--border, #e2ebe7);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1rem 1.25rem;
+}
+.drawerPhone {
+  align-items: center;
+  color: var(--ink-2, #3d5a54);
+  display: flex;
+  font-size: 0.9rem;
+  font-weight: 700;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.drawerLoginBtn {
+  align-items: center;
+  background: var(--green, #0f7b5f);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 0.45rem;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 1rem;
+  transition: background 0.15s ease;
+  width: 100%;
+}
+.drawerLoginBtn:hover { background: var(--green-dark, #0b4e41); }
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE SEARCH OVERLAY
+   ───────────────────────────────────────────────────────── */
+.searchOverlay {
+  align-items: flex-start;
+  backdrop-filter: blur(6px);
+  background: rgba(26,46,42,0.48);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding-top: 80px;
+  position: fixed;
+  z-index: 1200;
+}
+.searchModal {
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--border, #e2ebe7);
+  border-radius: 4px;
+  box-shadow: 0 20px 48px rgba(15,123,95,0.12);
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.9rem 1.25rem;
+  width: min(560px, calc(100vw - 2rem));
+}
+.searchModal input {
+  background: transparent;
+  border: none;
+  color: var(--ink, #1a2e2a);
+  flex: 1;
+  font-family: var(--font);
+  font-size: 1.1rem;
+  font-weight: 600;
+  outline: none;
+}
+.searchModal input::placeholder { color: var(--ink-3, #6b8a83); }
+.searchCloseBtn {
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  color: var(--ink-3, #6b8a83);
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  height: 36px;
+  justify-content: center;
+  transition: all 0.15s ease;
+  width: 36px;
+}
+.searchCloseBtn:hover { background: var(--green-light, #e8f5f1); color: var(--green, #0f7b5f); }
+
+/* ─────────────────────────────────────────────────────────
+   RESPONSIVE — 3 breakpoints
+   ≥ 1024px  Desktop: full 3-row, mega menu, all visible
+   640-1023  Tablet:  search + login + hamburger; drawer
+   < 640px   Mobile:  logo + icons only; drawer
+   ───────────────────────────────────────────────────────── */
+
+/* ── TABLET: 640px – 1023px ───────────────────────────── */
+@media (max-width: 1023px) {
+
+  /* Hide the desktop nav link row */
+  .navBar { display: none; }
+
+  /* Hide phone number — too tight at this width */
+  .phoneLink { display: none; }
+
+  /* Show the hamburger button */
+  .mobileControls { display: flex; }
+
+  /* Keep search icon hidden — inline search bar is still shown */
+  .searchToggleBtn { display: none; }
+
+  /* Tighten bar slightly */
+  .mainBarInner { gap: 0.75rem; min-height: 62px; }
+  .logo { height: 36px; }
+
+  /* Login button: compact — icon + text still readable */
+  .loginBtn { font-size: 0.82rem; padding: 0 0.85rem; min-height: 36px; }
+
+  /* Drawer wider on tablet */
+  .drawer { width: min(360px, 100vw); }
+}
+
+/* ── MOBILE: < 640px ──────────────────────────────────── */
+@media (max-width: 639px) {
+
+  /* Hide inline search bar and right cluster entirely */
+  .searchBar    { display: none; }
+  .rightCluster { display: none; }
+
+  /* Show search icon button alongside hamburger */
+  .searchToggleBtn { display: flex; }
+
+  /* Compact top bar */
+  .mainBarInner {
+    min-height: 54px;
+    padding: 0 1rem;
+    gap: 0;
+  }
+  .logo { height: 30px; }
+
+  /* Drawer full-width on small screens */
+  .drawer { width: 100vw; border-right: none; }
+
+  /* Search modal fills more width on small screens */
+  .searchModal { padding: 0.75rem 1rem; }
+}
+
+/* ── EXTRA SMALL: < 380px ─────────────────────────────── */
+@media (max-width: 379px) {
+  .mainBarInner { padding: 0 0.75rem; }
+  .logo { height: 28px; }
+  .iconBtn { height: 36px; width: 36px; }
+}

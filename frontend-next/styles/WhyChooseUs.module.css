@@ -1,0 +1,249 @@
+/* ============================================================
+   WHY CHOOSE US — camelCase class names match WhyChooseUs.jsx
+   ============================================================ */
+
+/* ── SECTION ───────────────────────────────────────────────── */
+.whychooseSection {
+  background: var(--bg-white, #fff);
+  border-top: 1px solid var(--border, #E5DCF5);
+  padding: 2rem var(--px, 1.5rem) 2.5rem;
+}
+
+.whychooseInner {
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+}
+
+/* ── TWO-COLUMN LAYOUT ─────────────────────────────────────── */
+.whychooseLayout {
+  align-items: flex-start;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 200px 1fr;
+}
+
+/* ── LEFT COLUMN ───────────────────────────────────────────── */
+.whychooseLeft { /* container — no extra styles needed */ }
+
+.whychooseEyebrow {
+  color: var(--orange, #C9A84C);
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.whychooseHeading {
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  max-width: 20ch;
+}
+
+.whychooseAccentLine {
+  background: var(--orange, #C9A84C);
+  border-radius: 1px;
+  height: 2px;
+  width: 32px;
+}
+
+/* ── RIGHT — cards grid ────────────────────────────────────── */
+.whychooseGrid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ── CARD ──────────────────────────────────────────────────── */
+.whychooseCard {
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  padding: 1rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.whychooseCard:hover {
+  background: var(--green-light, #EDE1FF);
+  border-color: var(--green, #3D1C8A);
+}
+
+/* Icon — scoped descendant: .whychooseCard .icon */
+.whychooseCard .icon {
+  align-items: center;
+  background: var(--green-light, #EDE1FF);
+  border-radius: 1px;
+  color: var(--green, #3D1C8A);
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  margin-bottom: 0.65rem;
+  width: 36px;
+}
+.whychooseCard .icon svg {
+  height: 16px;
+  width: 16px;
+}
+
+/* ── CARD TEXT ─────────────────────────────────────────────── */
+.cardTitle {
+  color: var(--ink, #1A0A3D);
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+}
+
+.cardSubtitle {
+  color: var(--orange, #C9A84C);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.cardContent {
+  color: var(--ink-3, #7B6BA8);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+/* CTA — centered below the layout grid */
+.whychooseCta {
+  align-items: center;
+  background: var(--green, #3D1C8A);
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 800;
+  gap: 0.4rem;
+  margin: 1.5rem auto 0;
+  min-height: 38px;
+  padding: 0 1.75rem;
+  transition: background 0.15s ease;
+}
+.whychooseCta:hover { background: var(--orange, #C9A84C); }
+
+/* Centre the button in the section */
+.whychooseSection { display: flex; flex-direction: column; }
+.whychooseSection .whychooseCta { align-self: center; }
+
+.arrow1 { font-style: normal; }
+
+/* ── POPUP ─────────────────────────────────────────────────── */
+.popupOverlay {
+  align-items: center;
+  backdrop-filter: blur(4px);
+  background: rgba(26, 8, 69, 0.50);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  z-index: 1500;
+}
+
+.popup {
+  animation: popIn 0.18s ease forwards;
+  background: #fff;
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  padding: 1.75rem;
+  width: min(400px, 100%);
+}
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.popup h4 {
+  color: var(--ink, #1A0A3D);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.popup select {
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  color: var(--ink, #1A0A3D);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 0.65rem 0.9rem;
+  transition: border-color 0.15s ease;
+  width: 100%;
+}
+.popup select:focus { border-color: var(--green, #3D1C8A); }
+
+.visuallyHidden {
+  clip: rect(0,0,0,0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.popupButtons {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+.popupButtons button {
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 700;
+  min-height: 38px;
+  padding: 0.6rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.popupButtons button:first-child {
+  background: var(--green, #3D1C8A);
+  border: none;
+  color: #fff;
+}
+.popupButtons button:first-child:hover { background: var(--green-dark, #2D1167); }
+.popupButtons button:first-child:disabled {
+  background: var(--border, #E5DCF5);
+  color: var(--ink-3, #7B6BA8);
+  cursor: not-allowed;
+}
+
+.cancelBtn2 {
+  background: var(--bg, #FAF8FF) !important;
+  border: 1px solid var(--border, #E5DCF5) !important;
+  color: var(--ink-2, #3E2D6B) !important;
+}
+.cancelBtn2:hover {
+  background: var(--green-light, #EDE1FF) !important;
+  border-color: var(--green, #3D1C8A) !important;
+  color: var(--green, #3D1C8A) !important;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .whychooseLayout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .whychooseGrid { grid-template-columns: repeat(3, 1fr); }
+  .whychooseHeading { max-width: none; }
+}
+@media (max-width: 768px) {
+  .whychooseSection { padding: 1.5rem 1rem 2rem; }
+  .whychooseGrid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+}
+@media (max-width: 480px) {
+  .whychooseGrid { grid-template-columns: 1fr; gap: 0.5rem; }
+  .whychooseCard { padding: 0.85rem; }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/ProductRange.css";
+import styles from "../styles/ProductRange.module.css";
 import {
   Shirt,
   Briefcase,
@@ -14,7 +14,7 @@ const productData = [
     icon: <Shirt size={38} />,
     title: "Custom Apparel",
     description:
-      "Your team’s uniform or giveaway apparel is often the first impression people get of your brand. We offer high-quality custom t-shirts, polo shirts, hoodies, jackets, and corporate shirts that combine comfort, style, and branding impact.",
+      "Your team's uniform or giveaway apparel is often the first impression people get of your brand. We offer high-quality custom t-shirts, polo shirts, hoodies, jackets, and corporate shirts that combine comfort, style, and branding impact.",
     points: [
       "Round Neck T-Shirts: Perfect for events, giveaways, and casual branding.",
       "Polo T-Shirts: Ideal for corporate uniforms and staff apparel.",
@@ -73,31 +73,31 @@ const productData = [
 
 const ProductRange = () => {
   return (
-    <section className="productrange-section">
-      <h2 className="productrange-heading">Our Product Range</h2>
-      <p className="productrange-subheading">
+    <section className={styles["productrange-section"]}>
+      <h2 className={styles["productrange-heading"]}>Our Product Range</h2>
+      <p className={styles["productrange-subheading"]}>
         We offer a wide variety of products, each customizable to meet your specific branding goals.
       </p>
 
-      <div className="productrange-grid">
+      <div className={styles["productrange-grid"]}>
         {productData.map((item) => (
-          <div key={item.id} className="productrange-card">
-            <div className="productrange-icon">{item.icon}</div>
+          <div key={item.id} className={styles["productrange-card"]}>
+            <div className={styles["productrange-icon"]}>{item.icon}</div>
 
-            <h3 className="productrange-title">{item.title}</h3>
+            <h3 className={styles["productrange-title"]}>{item.title}</h3>
 
-            <p className="productrange-description">{item.description}</p>
+            <p className={styles["productrange-description"]}>{item.description}</p>
 
-            <ul className="productrange-list">
+            <ul className={styles["productrange-list"]}>
               {item.points.map((point, idx) => (
                 <li key={idx}>
-                  <ChevronRight size={16} className="productrange-bullet-icon" />
+                  <ChevronRight size={16} className={styles["productrange-bullet-icon"]} />
                   {point}
                 </li>
               ))}
             </ul>
 
-            <p className="productrange-footer">{item.footer}</p>
+            <p className={styles["productrange-footer"]}>{item.footer}</p>
           </div>
         ))}
       </div>

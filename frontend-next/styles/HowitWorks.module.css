@@ -1,0 +1,211 @@
+/* ============================================================
+   HOW IT WORKS — dark purple section, minimal step cards
+   Bracket-notation classes use hyphens; camelCase classes are camelCase
+   ============================================================ */
+
+.how-it-works-section { overflow: hidden; position: relative; }
+
+/* ── BANNER — dark purple bg ───────────────────────────────── */
+.how-it-works-banner {
+  background: var(--bg-dark, #2D1167);
+  padding: 2rem var(--px, 1.5rem) 2.5rem;
+  position: relative;
+}
+
+/* ── INNER ─────────────────────────────────────────────────── */
+.how-it-works-overlay {
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+/* ── HEADING ───────────────────────────────────────────────── */
+.how-it-works-title {
+  color: #fff;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 0.45rem;
+}
+
+.how-it-works-subheading {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin: 0 auto 1.5rem;
+  max-width: 52ch;
+}
+
+/* ── STEPS GRID ────────────────────────────────────────────── */
+.how-it-works-steps {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 1.5rem;
+}
+
+/* ── STEP CARD ─────────────────────────────────────────────── */
+.step-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 2px;
+  padding: 1.1rem 1rem;
+  text-align: center;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.step-card:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(201, 168, 76, 0.40);
+}
+
+/* Icon — gold */
+.step-icon {
+  color: var(--orange, #C9A84C);
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+.step-icon svg { height: 22px; width: 22px; }
+
+.step-card h3 {
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+
+.step-card p {
+  color: rgba(255, 255, 255, 0.50);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── CTA BUTTON ────────────────────────────────────────────── */
+.how-it-works-cta {
+  align-items: center;
+  background: #fff;
+  border: none;
+  border-radius: 2px;
+  color: var(--green-dark, #2D1167);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 800;
+  gap: 0.45rem;
+  min-height: 38px;
+  padding: 0 1.5rem;
+  position: relative;
+  transition: background 0.15s ease, color 0.15s ease;
+  z-index: 1;
+}
+.how-it-works-cta:hover {
+  background: var(--orange, #C9A84C);
+  color: #fff;
+}
+
+/* ── POPUP — camelCase (matches JSX) ───────────────────────── */
+.popupOverlay {
+  align-items: center;
+  backdrop-filter: blur(4px);
+  background: rgba(26, 8, 69, 0.50);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  z-index: 1500;
+}
+
+.popup {
+  animation: popIn 0.18s ease forwards;
+  background: #fff;
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  padding: 1.75rem;
+  width: min(400px, 100%);
+}
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.popup h4 {
+  color: var(--ink, #1A0A3D);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.popup select {
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  color: var(--ink, #1A0A3D);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 0.65rem 0.9rem;
+  transition: border-color 0.15s ease;
+  width: 100%;
+}
+.popup select:focus { border-color: var(--green, #3D1C8A); }
+
+.visuallyHidden {
+  clip: rect(0,0,0,0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.popupButtons { display: grid; gap: 0.5rem; grid-template-columns: 1fr 1fr; }
+
+.popupButtons button {
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 700;
+  min-height: 38px;
+  padding: 0.6rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.popupButtons button:first-child { background: var(--green, #3D1C8A); border: none; color: #fff; }
+.popupButtons button:first-child:hover { background: var(--green-dark, #2D1167); }
+.popupButtons button:first-child:disabled {
+  background: var(--border, #E5DCF5);
+  color: var(--ink-3, #7B6BA8);
+  cursor: not-allowed;
+}
+
+.cancelBtn2 {
+  background: var(--bg, #FAF8FF) !important;
+  border: 1px solid var(--border, #E5DCF5) !important;
+  color: var(--ink-2, #3E2D6B) !important;
+}
+.cancelBtn2:hover {
+  background: var(--green-light, #EDE1FF) !important;
+  border-color: var(--green, #3D1C8A) !important;
+  color: var(--green, #3D1C8A) !important;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .how-it-works-steps { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .how-it-works-banner { padding: 1.5rem 1rem 2rem; }
+  .how-it-works-steps { gap: 0.55rem; }
+  .step-card { padding: 0.9rem 0.75rem; }
+}
+@media (max-width: 480px) {
+  .how-it-works-steps { grid-template-columns: 1fr; }
+}

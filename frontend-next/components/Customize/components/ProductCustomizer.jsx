@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useCallback } from "react";
 import { fabric } from "fabric";
-import "../styles/ProductCustomizer.css";
+import styles from "../styles/ProductCustomizer.module.css";
 
 const ProductCustomizer = ({
   canvasRef,
@@ -57,6 +57,7 @@ const ProductCustomizer = ({
             ...options,
             selectable: false,
             evented: false,
+            isSvgGroup: true,   // custom flag — reliable after JSON round-trip
           });
 
           const canvasWidth = canvas.getWidth();
@@ -109,7 +110,10 @@ const ProductCustomizer = ({
     };
 
     const { width, height } = calculateSize();
-    if (!canvasRef.current) {
+
+    const isCanvasAlive = (ref) => ref.current && ref.current.lowerCanvasEl;
+
+    if (!isCanvasAlive(canvasRef)) {
       canvasRef.current = new fabric.Canvas(canvasEl, {
         width,
         height,
@@ -122,6 +126,7 @@ const ProductCustomizer = ({
     }
 
     const handleResize = () => {
+      if (!isCanvasAlive(canvasRef)) return;
       const { width, height } = calculateSize();
       canvasRef.current.setWidth(width);
       canvasRef.current.setHeight(height);
@@ -142,7 +147,11 @@ const ProductCustomizer = ({
         : [];
 
       canvas.loadFromJSON(savedState, () => {
-        canvas.mainGroup = canvas.getObjects().find((obj) => obj.isPartOfGroup);
+        // FIX B10: use custom flag "isSvgGroup" (set at creation) rather than
+        // unreliable Fabric internal "isPartOfGroup" which isn't reliably restored
+        canvas.mainGroup = canvas.getObjects().find(
+          (obj) => obj.isSvgGroup || obj.type === "group"
+        ) || null;
         fabric.util.enlivenObjects(savedUserObjectsData, (objects) => {
           objects.forEach((obj) => {
             obj.set({ selectable: true, evented: true });
@@ -206,7 +215,7 @@ const ProductCustomizer = ({
   return (
     <canvas
       id="product-customizer-canvas"
-      className="product-customizer-canvas"
+      className={styles["product-customizer-canvas"]}
     />
   );
 };

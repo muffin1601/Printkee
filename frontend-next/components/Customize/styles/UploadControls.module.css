@@ -1,0 +1,24 @@
+/* UPLOAD CONTROLS */
+.upload-controls-container {
+  font-family: var(--font);
+  padding: 1rem;
+  width: 100%;
+}
+
+.upload-file-input {
+  background: var(--green-light, #EDE1FF);
+  border: 1px dashed var(--green, #3D1C8A);
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: var(--green, #3D1C8A);
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.65rem;
+  text-align: center;
+  transition: background 0.15s ease;
+  width: 100%;
+}
+.upload-file-input:hover { background: var(--green-light, #EDE1FF); }
+.upload-file-input::file-selector-button { display: none; }

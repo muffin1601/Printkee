@@ -1,0 +1,46 @@
+/* CANVAS TOOLBAR */
+.canvas-toolbar-wrapper {
+  border-bottom: 1px solid var(--border, #E5DCF5);
+  padding: 0.6rem 0.9rem 0.55rem;
+}
+
+.canvas-toolbar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: flex-end;
+}
+
+.canvas-toolbar__button {
+  align-items: center;
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  color: var(--ink-2, #3E2D6B);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 0.70rem;
+  font-weight: 600;
+  gap: 0.3rem;
+  height: 30px;
+  padding: 0 0.65rem;
+  transition: background 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+  white-space: nowrap;
+}
+.canvas-toolbar__button:hover {
+  background: var(--green-light, #EDE1FF);
+  border-color: var(--green, #3D1C8A);
+  color: var(--green, #3D1C8A);
+}
+.canvas-toolbar__button .icon-2 { font-size: 0.82rem; }
+
+@media (max-width: 768px) {
+  .canvas-toolbar { justify-content: flex-start; }
+  .canvas-toolbar__button { font-size: 0.67rem; height: 28px; padding: 0 0.55rem; }
+}
+@media (max-width: 480px) {
+  .canvas-toolbar-wrapper { padding: 0.5rem 0.75rem 0.45rem; }
+  .canvas-toolbar__button { font-size: 0.63rem; height: 26px; }
+}

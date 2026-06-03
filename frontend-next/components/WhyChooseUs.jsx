@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import "../styles/WhyChooseUs.css";
+import styles from "../styles/WhyChooseUs.module.css";
 import { Truck, Leaf, BadgeCheck, Users, Percent } from "lucide-react";
 
 const WhyChooseUs = () => {
@@ -59,26 +59,26 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="whychoose-section" aria-labelledby="whychoose-heading">
-      <div className="whychoose-inner">
-        <div className="whychoose-layout">
+    <section className={styles.whychooseSection} aria-labelledby="whychoose-heading">
+      <div className={styles.whychooseInner}>
+        <div className={styles.whychooseLayout}>
           {/* Left: eyebrow + heading + accent line */}
-          <div className="whychoose-left">
-            <span className="whychoose-eyebrow">WHY CHOOSE PRINTKEE</span>
-            <h2 id="whychoose-heading" className="whychoose-heading">
+          <div className={styles.whychooseLeft}>
+            <span className={styles.whychooseEyebrow}>WHY CHOOSE PRINTKEE</span>
+            <h2 id="whychoose-heading" className={styles.whychooseHeading}>
               Everything you need for perfect branding
             </h2>
-            <div className="whychoose-accent-line" aria-hidden="true" />
+            <div className={styles.whychooseAccentLine} aria-hidden="true" />
           </div>
 
           {/* Right: cards grid */}
-          <section className="whychoose-grid" aria-label="Reasons to choose PrintKee">
+          <section className={styles.whychooseGrid} aria-label="Reasons to choose PrintKee">
         {features.map((feature, index) => (
-          <article className="whychoose-card" key={index}>
-            <div className="icon">{feature.icon}</div>
-            <h4 className="card-title">{feature.title}</h4>
-            <p className="card-subtitle">{feature.subtitle}</p>
-            <p className="card-content">{feature.content}</p>
+          <article className={styles.whychooseCard} key={index}>
+            <div className={styles.icon}>{feature.icon}</div>
+            <h4 className={styles.cardTitle}>{feature.title}</h4>
+            <p className={styles.cardSubtitle}>{feature.subtitle}</p>
+            <p className={styles.cardContent}>{feature.content}</p>
           </article>
         ))}
           </section>
@@ -86,24 +86,24 @@ const WhyChooseUs = () => {
       </div>
 
       <button
-        className="whychoose-cta"
+        className={styles.whychooseCta}
         aria-label="Start customizing your promotional product"
         onClick={() => setShowPopup(true)}
       >
-        Start Customizing <span className="arrow-1">→</span>
+        Start Customizing <span className={styles.arrow1}>→</span>
       </button>
 
       {showPopup && (
         <div
-          className="popup-overlay"
+          className={styles.popupOverlay}
           role="dialog"
           aria-modal="true"
           aria-labelledby="popup-title"
         >
-          <div className="popup">
+          <div className={styles.popup}>
             <h4 id="popup-title">What would you like to customize?</h4>
 
-            <label htmlFor="wcu-customize-select" className="visually-hidden">
+            <label htmlFor="wcu-customize-select" className={styles.visuallyHidden}>
               Choose an item to customize
             </label>
             <select
@@ -117,7 +117,7 @@ const WhyChooseUs = () => {
               <option value="Cap">Cap</option>
             </select>
 
-            <div className="popup-buttons">
+            <div className={styles.popupButtons}>
               <button
                 onClick={handleProceed}
                 disabled={!selectedOption}
@@ -126,7 +126,7 @@ const WhyChooseUs = () => {
                 Proceed
               </button>
               <button
-                className="cancel-btn-2"
+                className={styles.cancelBtn2}
                 aria-label="Close popup"
                 onClick={() => setShowPopup(false)}
               >

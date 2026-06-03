@@ -10,6 +10,7 @@ import TextControls from "./components/TextControls";
 import ExportButtons from "./components/ExportButtons";
 import ProductCustomizer from "./components/ProductCustomizer";
 import PreviewModalpng from "./components/PreviewModalpng";
+import styles from "./styles/CustomizerSVG.module.css";
 
 const CustomizeAll = () => {
   const canvasRef = useRef(null);
@@ -181,12 +182,12 @@ const CustomizeAll = () => {
   }, [isPreviewOpen]);
 
   return (
-    <div className="customizer-page">
-      <h2 className="customizer-title">Customize your product</h2>
+    <div className={styles["customizer-page"]}>
+      <h2 className={styles["customizer-title"]}>Customize your product</h2>
 
-      <div className="customizer-container">
+      <div className={styles["customizer-container"]}>
         {/* ---------------- TOP TOOLBAR ---------------- */}
-        <div className="top-tools-bar">
+        <div className={styles["top-tools-bar"]}>
           <CanvasToolbar
             canvasRef={canvasRef}
             onUndo={handleUndo}
@@ -201,8 +202,8 @@ const CustomizeAll = () => {
         </div>
 
         {/* ---------------- MAIN BODY ---------------- */}
-        <div className="customizer-main">
-          <div className="vertical-toolbar">
+        <div className={styles["customizer-main"]}>
+          <div className={styles["vertical-toolbar"]}>
             <VerticalToolbar
               onSelectTool={handleToolChange}
               activeTool={activeTool}
@@ -211,7 +212,7 @@ const CustomizeAll = () => {
             />
           </div>
 
-          <div className="customizer-controls">
+          <div className={styles["customizer-controls"]}>
             {activeTool === "upload" && (
               <UploadControls
                 canvasRef={canvasRef}
@@ -231,7 +232,7 @@ const CustomizeAll = () => {
             )}
           </div>
 
-          <div className="canvas-wrapper">
+          <div className={styles["canvas-wrapper"]}>
             <ProductCustomizer
               canvasRef={canvasRef}
               mainImageUrl={safeImages[activeIndex]}

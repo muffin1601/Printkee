@@ -1,0 +1,43 @@
+/* THUMBNAIL GALLERY — camelCase names match ThumbnailGallery.jsx */
+.thumbnail-navigation-container { margin: 0; }
+
+.thumbnail-buttons {
+  display: flex;
+  font-family: var(--font);
+  gap: 0;
+  overflow-x: auto;
+  padding: 0.55rem 0.9rem;
+  scrollbar-width: none;
+}
+.thumbnail-buttons::-webkit-scrollbar { display: none; }
+
+/* JSX uses styles.thumbnailButton */
+.thumbnailButton {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: var(--ink-3, #7B6BA8);
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.70rem;
+  font-weight: 600;
+  padding: 0.25rem 0.85rem 0.35rem;
+  text-align: center;
+  transition: color 0.14s ease, border-color 0.14s ease;
+  white-space: nowrap;
+}
+.thumbnailButton:hover {
+  color: var(--green, #3D1C8A);
+}
+
+/* JSX uses styles.activeThumbnailButton */
+.activeThumbnailButton {
+  border-bottom-color: var(--green, #3D1C8A);
+  color: var(--green, #3D1C8A);
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .thumbnailButton { font-size: 0.65rem; padding: 0.25rem 0.65rem 0.3rem; }
+}

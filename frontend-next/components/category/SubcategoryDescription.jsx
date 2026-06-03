@@ -2,7 +2,7 @@
 
 import React from "react";
 import subcategoryDescriptions from "../../data/subcategorydescriptions";
-import "./SubcategoryDescription.css";
+import styles from "./SubcategoryDescription.module.css";
 
 const SubcategoryDescription = ({ subcategory }) => {
   const rawHTML = subcategoryDescriptions[subcategory];
@@ -33,15 +33,15 @@ const SubcategoryDescription = ({ subcategory }) => {
 
   return (
     <section
-      className="subcategory-description-wrapper"
+      className={styles.subcategoryDescriptionWrapper}
       aria-labelledby="subcategory-desc-title"
     >
-      {/* <h2 id="subcategory-desc-title" className="subcategory-description-title">
+      {/* <h2 id="subcategory-desc-title" className={styles.subcategoryDescriptionTitle}>
         {title}
       </h2> */}
 
       <div
-        className="subcategory-description-content"
+        className={styles.subcategoryDescriptionContent}
         dangerouslySetInnerHTML={{ __html: formattedHTML }}
       />
     </section>

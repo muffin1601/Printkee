@@ -1,0 +1,60 @@
+/* ============================================================
+   ANNOUNCEMENT BAR — 4 centered trust items, no auth links
+   ============================================================ */
+
+.bar {
+  background: var(--bg-dark, #0b4e41);
+  padding: 0.55rem var(--px);
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  list-style: none;
+  margin: 0 auto;
+  max-width: var(--max-w);
+  padding: 0;
+}
+
+.item {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.80);
+  display: flex;
+  font-size: 0.78rem;
+  font-weight: 500;
+  gap: 0.4rem;
+  letter-spacing: 0.01em;
+  padding: 0 2rem;
+  position: relative;
+  white-space: nowrap;
+}
+
+.item svg { flex-shrink: 0; opacity: 0.75; }
+
+/* thin vertical divider between items */
+.item + .item::before {
+  background: rgba(255, 255, 255, 0.18);
+  content: '';
+  height: 14px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+}
+
+@media (max-width: 900px) {
+  .item { padding: 0 1.1rem; font-size: 0.73rem; }
+}
+
+@media (max-width: 640px) {
+  .list { flex-wrap: wrap; gap: 0.5rem 1.25rem; justify-content: center; padding: 0.25rem 0; }
+  .item + .item::before { display: none; }
+  .item { padding: 0; font-size: 0.71rem; }
+}
+
+@media (max-width: 420px) {
+  .bar { display: none; }
+}

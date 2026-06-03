@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "../styles/SubmitForm.css"; 
+import styles from "../styles/SubmitForm.module.css";
 
 const SubmitForm = ({
   onSubmit,
@@ -19,8 +19,8 @@ const SubmitForm = ({
   };
 
   return (
-    <div className="popup-form-overlay">
-      <div className="popup-form">
+    <div className={styles["popup-form-overlay"]}>
+      <div className={styles["popup-form"]}>
         <h3 className="heading">Enter Details</h3>
         <form onSubmit={handleSubmit}>
           <input
@@ -49,11 +49,11 @@ const SubmitForm = ({
             required
             aria-label="Requirement"
           />
-          <div className="form-buttons">
-            <button type="submit" className="download-submit-btn" disabled={loading}>
+          <div className={styles["form-buttons"]}>
+            <button type="submit" className={styles["download-submit-btn"]} disabled={loading}>
               {loading ? (
                 <>
-                  <span className="loading-spinner" />
+                  <span className={styles["loading-spinner"]} />
                   Processing...
                 </>
               ) : "Submit & Download"}
@@ -61,7 +61,7 @@ const SubmitForm = ({
             <button
               type="button"
               onClick={onCancel}
-              className="cancel-btn"
+              className={styles["cancel-btn"]}
               disabled={loading}
             >
               Cancel

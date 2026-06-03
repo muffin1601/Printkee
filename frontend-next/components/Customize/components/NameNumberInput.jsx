@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { fabric } from "fabric";
-import "../styles/NameNumberInput.css"; // Updated CSS import
+import styles from "../styles/NameNumberInput.module.css";
 
 const fonts = [
   "Arial",
@@ -122,40 +122,40 @@ const NameNumberInput = ({ canvasRef, updateThumbnail, saveCurrentViewState, act
   };
 
   return (
-    <div className="name-number-input-container">
-      <div className="name-number-input-fields">
+    <div className={styles["name-number-input-container"]}>
+      <div className={styles["name-number-input-fields"]}>
         <input
-          className="name-number-input-field name-input"
+          className={`${styles.nameNumberInputField} ${styles.nameInput}`}
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
         />
         <input
-          className="name-number-input-field number-input"
+          className={`${styles.nameNumberInputField} ${styles.numberInput}`}
           value={number}
           onChange={(e) => setNumber(e.target.value)}
           placeholder="Number"
         />
         <input
-          className="name-number-color-picker"
+          className={styles["name-number-color-picker"]}
           type="color"
           value={color}
           onChange={(e) => setColor(e.target.value)}
           title="Pick text color"
         />
         <select
-          className="name-number-font-selector"
+          className={styles["name-number-font-selector"]}
           value={font}
           onChange={(e) => setFont(e.target.value)}
         >
           {fonts.map((f) => (
-            <option key={f} value={f} className="name-number-font-option">
+            <option key={f} value={f} className={styles["name-number-font-option"]}>
               {f}
             </option>
           ))}
         </select>
       </div>
-      <button className="name-number-add-button" onClick={addNameAndNumber}>
+      <button className={styles["name-number-add-button"]} onClick={addNameAndNumber}>
         Add to Design
       </button>
     </div>

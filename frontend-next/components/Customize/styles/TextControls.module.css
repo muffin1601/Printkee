@@ -1,0 +1,56 @@
+/* TEXT CONTROLS */
+.text-controls-container {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font);
+  gap: 0.65rem;
+  padding: 1rem;
+}
+
+.text-controls-input,
+.text-controls-font,
+.text-controls-color { box-sizing: border-box; width: 100%; }
+
+.text-controls-input {
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  font-size: 0.82rem;
+  font-family: var(--font);
+  outline: none;
+  padding: 0.6rem 0.75rem;
+  transition: border-color 0.15s ease;
+}
+.text-controls-input:focus { border-color: var(--green, #3D1C8A); }
+
+.text-controls-font {
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  color: var(--ink, #1A0A3D);
+  font-family: var(--font);
+  font-size: 0.82rem;
+  outline: none;
+  padding: 0.6rem 0.75rem;
+}
+
+.text-controls-color {
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  cursor: pointer;
+  height: 36px;
+}
+
+.text-controls-add-btn {
+  background: var(--green, #3D1C8A);
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-height: 36px;
+  padding: 0 1rem;
+  transition: background 0.15s ease;
+}
+.text-controls-add-btn:hover { background: var(--orange, #C9A84C); }

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
-import "../styles/SearchResults.css";
+import styles from "../styles/SearchResults.module.css";
 import WhyChooseUs from "./WhyChooseUs";
 
 const SearchResultsClient = () => {
@@ -44,15 +44,15 @@ const SearchResultsClient = () => {
 
   return (
     <>
-      <div className="search-page">
-        <div className="search-page__container">
-          <h2 className="search-page__heading" aria-live="polite">
+      <div className={styles["search-page"]}>
+        <div className={styles["search-page__container"]}>
+          <h2 className={styles["search-page__heading"]} aria-live="polite">
             {query ? (
               <>
                 Search Results for:{" "}
-                <span className="search-page__query">&quot;{query}&quot;</span>{" "}
+                <span className={styles["search-page__query"]}>&quot;{query}&quot;</span>{" "}
                 {category && category !== "All Categories" && (
-                  <span className="search-page__category">in {category}</span>
+                  <span className={styles["search-page__category"]}>in {category}</span>
                 )}
               </>
             ) : (
@@ -61,42 +61,42 @@ const SearchResultsClient = () => {
           </h2>
 
           {loading ? (
-            <div className="search-page__grid">
+            <div className={styles["search-page__grid"]}>
               {[...Array(6)].map((_, idx) => (
                 <div
                   key={idx}
-                  className="search-page__card search-page__card--loading"
+                  className={`${styles["search-page__card"]} ${styles["search-page__card--loading"]}`}
                   role="status"
                   aria-label="Loading search result"
                 >
-                  <div className="search-page__image skeleton" />
-                  <div className="search-page__card-content">
-                    <div className="skeleton skeleton-title" />
-                    <div className="skeleton skeleton-text" />
+                  <div className={`${styles["search-page__image"]} ${styles["skeleton"]}`} />
+                  <div className={styles["search-page__card-content"]}>
+                    <div className={`${styles["skeleton"]} ${styles["skeleton-title"]}`} />
+                    <div className={`${styles["skeleton"]} ${styles["skeleton-text"]}`} />
                   </div>
                 </div>
               ))}
             </div>
           ) : results.length === 0 ? (
-            <p className="search-page__no-results" role="alert">No results found.</p>
+            <p className={styles["search-page__no-results"]} role="alert">No results found.</p>
           ) : (
-            <section className="search-page__grid" aria-label="Search results listing">
+            <section className={styles["search-page__grid"]} aria-label="Search results listing">
               {results.map((item, idx) => (
                 <Link
                   key={idx}
                   href={`/${slugify(item.category)}/${slugify(item.subcategory)}/${slugify(item.name)}`}
-                  className="search-page__card-link"
+                  className={styles["search-page__card-link"]}
                   aria-label={`View details for ${item.name}`}
                 >
-                  <div className="search-page__card">
+                  <div className={styles["search-page__card"]}>
                     <img
                       src={item.image}
                       alt={`${item.name} - corporate gifting product`}
-                      className="search-page__image"
+                      className={styles["search-page__image"]}
                     />
-                    <div className="search-page__card-content">
-                      <h3 className="search-page__title">{item.name}</h3>
-                      <p className="search-page__description">{item.description}</p>
+                    <div className={styles["search-page__card-content"]}>
+                      <h3 className={styles["search-page__title"]}>{item.name}</h3>
+                      <p className={styles["search-page__description"]}>{item.description}</p>
                     </div>
                   </div>
                 </Link>

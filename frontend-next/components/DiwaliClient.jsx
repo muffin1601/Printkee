@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import "../styles/Diwali.css";
+import styles from "../styles/Diwali.module.css";
 import giftsList from "../data/diwalispl";
 import brandsList from "../data/brandsspl";
 import axios from "axios";
@@ -52,18 +52,18 @@ const DiwaliClient = () => {
   };
 
   return (
-    <div className="diwali-page">
-      <div className="diwali-banner">
+    <div className={styles["diwali-page"]}>
+      <div className={styles["diwali-banner"]}>
         <img
           src="/images/diwali-banner.webp"
           alt="Premium Diwali Corporate Gifting Hampers for Employees & Clients"
-          className="diwali-banner-img"
+          className={styles["diwali-banner-img"]}
         />
       </div>
 
       {Object.keys(groupedGifts).map((category, idx) => (
-        <section className="diwali-carousel-section" key={idx}>
-          <h2 className="diwali-carousel-title">{category}</h2>
+        <section className={styles["diwali-carousel-section"]} key={idx}>
+          <h2 className={styles["diwali-carousel-title"]}>{category}</h2>
           <Swiper
             modules={[Navigation, Pagination, Autoplay, Scrollbar]}
             navigation
@@ -79,10 +79,10 @@ const DiwaliClient = () => {
           >
             {groupedGifts[category].map((gift) => (
               <SwiperSlide key={gift.id}>
-                <div className="diwali-carousel-card">
-                  <img src={gift.image} alt={`${gift.name} – ${gift.description}`} className="diwali-carousel-img" />
-                  <p className="diwali-gift-name">{gift.name}</p>
-                  <p className="diwali-gift-description">{gift.description}</p>
+                <div className={styles["diwali-carousel-card"]}>
+                  <img src={gift.image} alt={`${gift.name} – ${gift.description}`} className={styles["diwali-carousel-img"]} />
+                  <p className={styles["diwali-gift-name"]}>{gift.name}</p>
+                  <p className={styles["diwali-gift-description"]}>{gift.description}</p>
                 </div>
               </SwiperSlide>
             ))}
@@ -90,14 +90,14 @@ const DiwaliClient = () => {
         </section>
       ))}
 
-      <div className="diwali-cta-section">
+      <div className={styles["diwali-cta-section"]}>
         <h2>🎉 Download Our Diwali Catalogue!</h2>
-        <button className="diwali-cta-button" aria-label="Open lead form to download Diwali catalogue" onClick={() => setIsLeadFormOpen(true)}>
+        <button className={styles["diwali-cta-button"]} aria-label="Open lead form to download Diwali catalogue" onClick={() => setIsLeadFormOpen(true)}>
           Download Now
         </button>
       </div>
 
-      <section className="diwali-brands-section">
+      <section className={styles["diwali-brands-section"]}>
         <h2>✨ Brands We Offer ✨</h2>
         <Swiper
           modules={[Autoplay, Scrollbar]}
@@ -110,8 +110,8 @@ const DiwaliClient = () => {
         >
           {brandsList.map((brand) => (
             <SwiperSlide key={brand.slug}>
-              <a href={brand.url} target="_blank" rel="noopener noreferrer" className="diwali-brand-card" aria-label={`Visit ${brand.name} brand page`}>
-                <img src={brand.logo} alt={`${brand.name} brand logo`} className="diwali-brand-logo" />
+              <a href={brand.url} target="_blank" rel="noopener noreferrer" className={styles["diwali-brand-card"]} aria-label={`Visit ${brand.name} brand page`}>
+                <img src={brand.logo} alt={`${brand.name} brand logo`} className={styles["diwali-brand-logo"]} />
               </a>
             </SwiperSlide>
           ))}
@@ -119,10 +119,10 @@ const DiwaliClient = () => {
       </section>
 
       {isLeadFormOpen && (
-        <div className="lead-overlay" role="dialog" aria-modal="true" aria-label="Download Diwali catalogue form">
-          <div className="lead-modal">
+        <div className={styles["lead-overlay"]} role="dialog" aria-modal="true" aria-label="Download Diwali catalogue form">
+          <div className={styles["lead-modal"]}>
             <h3>Get Your Free Diwali Catalogue</h3>
-            <form onSubmit={handleLeadSubmit} className="lead-form">
+            <form onSubmit={handleLeadSubmit} className={styles["lead-form"]}>
               <label htmlFor="diwali-lead-name">Your Name</label>
               <input id="diwali-lead-name" type="text" name="name" value={leadData.name} onChange={handleLeadChange} placeholder="Your Name" required />
               <label htmlFor="diwali-lead-company">Company Name</label>
@@ -131,9 +131,9 @@ const DiwaliClient = () => {
               <input id="diwali-lead-email" type="email" name="email" value={leadData.email} onChange={handleLeadChange} placeholder="Email Address" required />
               <label htmlFor="diwali-lead-phone">Phone Number</label>
               <input id="diwali-lead-phone" type="tel" name="phone" value={leadData.phone} onChange={handleLeadChange} placeholder="Phone Number" required />
-              <div className="lead-actions">
-                <button type="submit" className="lead-submit" aria-label="Submit details and download the catalogue">Submit & Download</button>
-                <button type="button" className="lead-cancel" aria-label="Close form" onClick={() => setIsLeadFormOpen(false)}>Cancel</button>
+              <div className={styles["lead-actions"]}>
+                <button type="submit" className={styles["lead-submit"]} aria-label="Submit details and download the catalogue">Submit & Download</button>
+                <button type="button" className={styles["lead-cancel"]} aria-label="Close form" onClick={() => setIsLeadFormOpen(false)}>Cancel</button>
               </div>
             </form>
           </div>

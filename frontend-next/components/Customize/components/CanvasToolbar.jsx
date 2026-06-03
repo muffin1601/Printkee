@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "../styles/CanvasToolbar.css";
+import styles from "../styles/CanvasToolbar.module.css";
 import { FaSearchPlus, FaSearchMinus, FaUndo, FaRedo, FaTrash } from "react-icons/fa";
 
 const CanvasToolbar = ({ canvasRef, onUndo, onRedo }) => {
@@ -13,24 +13,24 @@ const CanvasToolbar = ({ canvasRef, onUndo, onRedo }) => {
   };
 
   return (
-    <div className="canvas-toolbar">
-      <button className="canvas-toolbar__button" onClick={zoomIn}>
+    <div className={styles["canvas-toolbar"]}>
+      <button className={styles["canvas-toolbar__button"]} onClick={zoomIn}>
         <FaSearchPlus className="icon-2" />
         Zoom In
       </button>
-      <button className="canvas-toolbar__button" onClick={zoomOut}>
+      <button className={styles["canvas-toolbar__button"]} onClick={zoomOut}>
         <FaSearchMinus className="icon=2" />
         Zoom Out
       </button>
-      <button className="canvas-toolbar__button" onClick={onUndo}>
+      <button className={styles["canvas-toolbar__button"]} onClick={onUndo}>
         <FaUndo className="icon-2" />
         Undo
       </button>
-      <button className="canvas-toolbar__button" onClick={onRedo}>
+      <button className={styles["canvas-toolbar__button"]} onClick={onRedo}>
         <FaRedo className="icon-2" />
         Redo
       </button>
-      <button className="canvas-toolbar__button" onClick={clearCanvas}>
+      <button className={styles["canvas-toolbar__button"]} onClick={clearCanvas}>
         <FaTrash className="icon-2" />
         Clear All
       </button>

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { fabric } from "fabric";
-import "../styles/UploadControls.css";
+import styles from "../styles/UploadControls.module.css";
 
 const UploadControls = ({ canvasRef, updateThumbnail, saveCurrentViewState, activeIndex }) => {
   const fileInputRef = useRef(null);
@@ -116,10 +116,10 @@ const UploadControls = ({ canvasRef, updateThumbnail, saveCurrentViewState, acti
   }, []);
 
   return (
-    <div className="upload-controls-container">
+    <div className={styles["upload-controls-container"]}>
       <input
         ref={fileInputRef}
-        className="upload-file-input"
+        className={styles["upload-file-input"]}
         type="file"
         onChange={handleUpload}
         accept="image/*"

@@ -1,4 +1,4 @@
-import "@/styles/Brands.css";
+import styles from "@/styles/Brands.module.css";
 import Link from "next/link";
 
 const BASE = "https://printkee.com";
@@ -43,25 +43,35 @@ export default async function BrandsPage() {
   }
 
   return (
-    <div className="brands-container">
-      <h1 className="brands-heading">Brands We Offer</h1>
-      <p className="brands-description">
-        At MF Global Services, we collaborate with top-tier national and international brands to deliver high-quality corporate gifts. From tech to lifestyle, these brands ensure your gifting experience is premium and memorable.
-      </p>
+    <div className={styles.brandsContainer}>
 
-      <div className="brands-grid" role="list">
+      {/* Hero band */}
+      <div className={styles.brandsHero}>
+        <div className={styles.brandsHeroInner}>
+          <p className={styles.brandsEyebrow}>Our Partners</p>
+          <h1 className={styles.brandsHeading}>Brands We Offer</h1>
+          <p className={styles.brandsDescription}>
+            We collaborate with top-tier national and international brands to deliver high-quality corporate gifts. From tech to lifestyle, these brands ensure your gifting experience is premium and memorable.
+          </p>
+        </div>
+      </div>
+
+      {/* Grid */}
+      <div className={styles.brandsContent}>
+      <div className={styles.brandsGrid} role="list">
         {brands.map((brand) => (
           <Link
             href={`/brands/${brand.slug}`}
-            className="brand-card"
+            className={styles.brandCard}
             key={brand._id || brand.slug}
             role="listitem"
             aria-label={`View ${brand.name} products`}
           >
-            <img src={brand.logo} alt={`${brand.name} logo`} className="brand-logo" />
-            <p className="brand-name">{brand.name}</p>
+            <img src={brand.logo} alt={`${brand.name} logo`} className={styles.brandLogo} />
+            <p className={styles.brandName}>{brand.name}</p>
           </Link>
         ))}
+      </div>
       </div>
     </div>
   );

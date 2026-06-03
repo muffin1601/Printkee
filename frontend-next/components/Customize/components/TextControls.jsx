@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { fabric } from "fabric";
-import "../styles/TextControls.css";
+import styles from "../styles/TextControls.module.css";
 
 const TextControls = ({ canvasRef, updateThumbnail, saveCurrentViewState, activeIndex }) => {
   const [text, setText] = useState("");
@@ -82,16 +82,16 @@ const TextControls = ({ canvasRef, updateThumbnail, saveCurrentViewState, active
   };
 
   return (
-    <div className="text-controls-container">
+    <div className={styles["text-controls-container"]}>
       <input
-        className="text-controls-input"
+        className={styles["text-controls-input"]}
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Enter text"
         style={{ fontFamily: font }}
       />
       <select
-        className="text-controls-font"
+        className={styles["text-controls-font"]}
         value={font}
         onChange={(e) => setFont(e.target.value)}
         style={{ fontFamily: font }}
@@ -106,12 +106,12 @@ const TextControls = ({ canvasRef, updateThumbnail, saveCurrentViewState, active
         <option style={{ fontFamily: "Tahoma" }}>Tahoma</option>
       </select>
       <input
-        className="text-controls-color"
+        className={styles["text-controls-color"]}
         type="color"
         value={color}
         onChange={(e) => setColor(e.target.value)}
       />
-      <button className="text-controls-add-btn" onClick={addText} style={{ fontFamily: font }}>
+      <button className={styles["text-controls-add-btn"]} onClick={addText} style={{ fontFamily: font }}>
         Add Text
       </button>
     </div>

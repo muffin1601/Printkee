@@ -1,0 +1,131 @@
+.preview-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: var(--font);
+  padding: 1rem;
+}
+
+.preview-modal-content {
+  background-color: var(--bg-white, #fff);
+  padding: 2rem;
+  border-radius: 2px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  font-family: var(--font);
+  box-sizing: border-box;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--green, #3D1C8A);
+  cursor: pointer;
+}
+
+.head {
+  color: var(--green, #3D1C8A);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.download-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.download-buttons button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--green, #3D1C8A);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: var(--font);
+  flex: 1;
+  min-width: 140px;
+}
+
+.download-buttons button:hover {
+  background-color: var(--orange, #C9A84C);
+}
+
+.preview-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.preview-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-canvas {
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  background-color: var(--bg-white, #fff);
+  margin-bottom: 0.5rem;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+
+.preview-label {
+  color: var(--green, #3D1C8A);
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .preview-gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .preview-canvas {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .preview-modal-content {
+    padding: 1rem;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .download-buttons button {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .preview-canvas {
+    max-width: 100%;
+    height: auto;
+  }
+}

@@ -1,32 +1,29 @@
 "use client";
 import React, { useState } from "react";
 import { X, Mail, Lock, Loader2, Eye, EyeOff } from "lucide-react";
-import "../styles/Login.css";
+import styles from "../styles/Login.module.css";
 
 const LoginClient = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail]               = useState("");
+  const [password, setPassword]         = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [loading, setLoading]           = useState(false);
+  const [error, setError]               = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
-
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || "Login failed");
       }
-
       const data = await response.json();
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
@@ -39,37 +36,45 @@ const LoginClient = () => {
   };
 
   return (
-    <div className="login-wrapper">
-      <video autoPlay muted loop playsInline className="login-bg-video">
-        <source
-          src="https://videos.pexels.com/video-files/1448735/1448735-hd_1920_1080_25fps.mp4"
-          type="video/mp4"
-        />
-      </video>
+    <div className={styles["login-wrapper"]}>
+      <div className={styles["login-card"]}>
 
-      <div className="login-card">
-        <button className="login-close" onClick={() => (window.location.href = "/")}>
-          <X />
+        {/* Close → back to site */}
+        <button
+          className={styles["login-close"]}
+          onClick={() => (window.location.href = "/")}
+          aria-label="Back to site"
+        >
+          <X size={14} />
         </button>
-        <h2 className="login-title">Admin Login</h2>
-        <p className="login-subtitle">Welcome!</p>
 
+        {/* Header */}
+        <p className={styles["login-eyebrow"]}>Printkee</p>
+        <h2 className={styles["login-title"]}>Admin Login</h2>
+        <p className={styles["login-subtitle"]}>Sign in to access the admin panel.</p>
+
+        {/* Form */}
         <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <Mail className="input-icon" />
+
+          <div className={styles["input-group"]}>
+            <Mail className={styles["input-icon"]} />
+            <label htmlFor="login-email" className={styles["sr-only"]}>Email</label>
             <input
+              id="login-email"
               type="email"
               value={email}
               required
-              placeholder="Email"
+              placeholder="Email address"
               onChange={(e) => setEmail(e.target.value)}
               disabled={loading}
             />
           </div>
 
-          <div className="input-group password-group">
-            <Lock className="input-icon" />
+          <div className={`${styles["input-group"]} ${styles["password-group"]}`}>
+            <Lock className={styles["input-icon"]} />
+            <label htmlFor="login-password" className={styles["sr-only"]}>Password</label>
             <input
+              id="login-password"
               type={showPassword ? "text" : "password"}
               value={password}
               required
@@ -79,26 +84,31 @@ const LoginClient = () => {
             />
             <button
               type="button"
-              className="toggle-password-btn"
+              className={styles["toggle-password-btn"]}
               onClick={() => setShowPassword(!showPassword)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
               tabIndex={-1}
             >
-              {showPassword ? <EyeOff className="toggle-icon" /> : <Eye className="toggle-icon" />}
+              {showPassword
+                ? <EyeOff className={styles["toggle-icon"]} />
+                : <Eye    className={styles["toggle-icon"]} />}
             </button>
           </div>
 
-          {error && <p className="error">{error}</p>}
+          {error && <p className={styles["error"]}>{error}</p>}
 
-          <button className="login-button" disabled={loading}>
+          <button
+            type="submit"
+            className={styles["login-button"]}
+            disabled={loading}
+          >
             {loading ? (
-              <span className="loader-container">
-                <Loader2 className="spinner" />
-                Logging in...
+              <span className={styles["loader-container"]}>
+                <Loader2 className={styles["spinner"]} /> Signing in…
               </span>
-            ) : (
-              "Log in"
-            )}
+            ) : "Log In →"}
           </button>
+
         </form>
       </div>
     </div>

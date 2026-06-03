@@ -1,4 +1,4 @@
-import "@/styles/AboutUs.css";
+import styles from "@/styles/AboutUs.module.css";
 
 const BASE = "https://printkee.com";
 
@@ -26,9 +26,11 @@ export const metadata = {
 
 export default function AboutUs() {
   return (
-    <div className="aboutus-container">
-      <section className="aboutus-hero">
-        <div className="aboutus-text">
+    <div className={styles.aboutusContainer}>
+
+      {/* ── HERO ── */}
+      <section className={styles.aboutusHero}>
+        <div className={styles.aboutusText}>
           <h1>About Printkee</h1>
           <p>
             Printkee is your trusted destination for custom corporate gifting and
@@ -58,13 +60,14 @@ export default function AboutUs() {
           height="300"
           width="500"
           alt="Corporate Gifting by MF Global Services"
-          className="aboutus-hero-image"
+          className={styles.aboutusHeroImage}
         />
       </section>
 
-      <section className="aboutus-section">
+      {/* ── OUR MISSION ── */}
+      <section className={styles.aboutusSection}>
         <h2>Our Mission</h2>
-        <div className="aboutus-flex">
+        <div className={styles.aboutusFlex}>
           <p>
             Our mission is to simplify corporate gifting with innovative, customizable solutions that elevate your brand. Whether you&apos;re welcoming new employees, rewarding performers, or building client relationships, every gift we create is designed to make an impact.
           </p>
@@ -72,9 +75,10 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="aboutus-section">
+      {/* ── WHY CHOOSE US ── */}
+      <section className={styles.aboutusSection}>
         <h2>Why Choose Us?</h2>
-        <div className="aboutus-flex">
+        <div className={styles.aboutusFlex}>
           <ul>
             <li><strong>Customization:</strong> Tailor products with logos, messages, and premium packaging.</li>
             <li><strong>Quality:</strong> We source premium materials and follow strict quality checks.</li>
@@ -86,9 +90,10 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="aboutus-section">
+      {/* ── TRUSTED BY BRANDS ── */}
+      <section className={styles.aboutusSection}>
         <h2>Trusted by Leading Brands</h2>
-        <div className="aboutus-flex">
+        <div className={styles.aboutusFlex}>
           <p>
             We have proudly partnered with 500+ corporate clients across industries such as technology, finance, healthcare, and education. Our reputation is built on trust, transparency, and timely delivery.
           </p>
@@ -96,15 +101,17 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="aboutus-contact-cta">
+      {/* ── CTA ── */}
+      <section className={styles.aboutusContactCta}>
         <h3>Looking to Create an Unforgettable Gifting Experience?</h3>
         <p>
           Get in touch today! Whether you&apos;re planning a large corporate campaign or a one-time luxury gift box, MF Global Services is your ideal gifting partner.
         </p>
-        <a href="/contact" className="aboutus-btn" aria-label="Contact MF Global Services">
+        <a href="/contact" className={styles.aboutusBtn} aria-label="Contact MF Global Services">
           Contact Us
         </a>
       </section>
+
     </div>
   );
 }

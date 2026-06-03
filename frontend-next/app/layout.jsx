@@ -1,4 +1,5 @@
 import "../styles/global.css";
+import "../styles/chatbot.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { Montserrat } from "next/font/google";

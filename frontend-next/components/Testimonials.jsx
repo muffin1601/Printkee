@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import "../styles/Testimonials.css";
+import styles from "../styles/Testimonials.module.css";
 
-/* ── DATA (unchanged) ─────────────────────────────────────── */
 const testimonials = [
   {
     name: "Ananya Sharma",
@@ -29,68 +28,75 @@ const testimonials = [
 
 const brandLogos = [
   { src: "/assets/accenture.webp", alt: "Accenture" },
-  { src: "/assets/amazon.webp",    alt: "Amazon" },
-  { src: "/assets/google.webp",    alt: "Google" },
+  { src: "/assets/amazon.webp",    alt: "Amazon"    },
+  { src: "/assets/google.webp",    alt: "Google"    },
   { src: "/assets/microsoft.webp", alt: "Microsoft" },
-  { src: "/assets/nike.webp",      alt: "Nike" },
-  { src: "/assets/zomato.webp",    alt: "Zomato" },
+  { src: "/assets/nike.webp",      alt: "Nike"      },
 ];
 
 const Testimonials = () => (
-  <section className="testimonials-section" aria-labelledby="testimonials-heading">
-    <h2 id="testimonials-heading" className="testimonials-heading">
-      What Our Clients Say
-    </h2>
+  <section className={styles.section} aria-labelledby="testimonials-heading">
 
-    {/* Three-column layout: quotes | brands | CTA */}
-    <div className="testimonials-layout">
-
-      {/* Left: testimonial cards */}
-      <div className="testimonials-grid">
-        {testimonials.map((item, index) => (
-          <figure key={index} className="testimonial-card" aria-label={`Testimonial from ${item.name}`}>
-            <div className="quote-icon" aria-hidden="true">&ldquo;</div>
-            <div className="star-rating" aria-label="5 stars">★★★★★</div>
-            <blockquote className="testimonial-text">"{item.review}"</blockquote>
-            <figcaption className="testimonial-client">
-              <div className="client-avatar" aria-hidden="true">
-                {item.name.charAt(0)}
-              </div>
-              <div>
-                <p className="client-name">{item.name}</p>
-                <p className="client-role">{item.position}, {item.company}</p>
-              </div>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-
-      {/* Center: trusted brands */}
-      <div className="testimonials-brands">
-        <h3 className="testimonials-brands-title">
-          Trusted by 1000+ brands across India
-        </h3>
-        <div className="brand-logos-strip">
-          {brandLogos.map((brand, index) => (
-            <div key={index} className="brand-logo-item">
-              <img src={brand.src} alt={`${brand.alt} logo`} loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Right: CTA card */}
-      <div className="testimonials-cta-card">
-        <div>
-          <h3>Need something custom?</h3>
-          <p>We create tailored solutions to match your brand needs.</p>
-        </div>
-        <Link href="/contact" className="testimonials-cta-btn">
-          Get a Custom Quote →
-        </Link>
-      </div>
-
+    {/* ── Header ── */}
+    <div className={styles.header}>
+      <h2 id="testimonials-heading" className={styles.heading}>
+        What Our Clients Say
+      </h2>
+      <p className={styles.sub}>
+        Trusted by 1000+ brands across India for corporate gifting and custom branding.
+      </p>
     </div>
+
+    {/* ── 3 equal testimonial cards ── */}
+    <div className={styles.cards}>
+      {testimonials.map((item, i) => (
+        <figure
+          key={i}
+          className={styles.card}
+          aria-label={`Testimonial from ${item.name}`}
+        >
+          {/* Quote + stars */}
+          <div className={styles.cardTop}>
+            <span className={styles.quoteIcon} aria-hidden="true">&ldquo;</span>
+            <div className={styles.stars} aria-label="5 stars">★★★★★</div>
+          </div>
+
+          {/* Review */}
+          <blockquote className={styles.review}>
+            {item.review}
+          </blockquote>
+
+          {/* Author */}
+          <figcaption className={styles.author}>
+            <div className={styles.avatar} aria-hidden="true">
+              {item.name.charAt(0)}
+            </div>
+            <div>
+              <p className={styles.name}>{item.name}</p>
+              <p className={styles.role}>{item.position}, {item.company}</p>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    {/* ── Brand logos strip ── */}
+    <div className={styles.brandsRow}>
+      <p className={styles.brandsLabel}>Trusted by</p>
+      {brandLogos.map((b) => (
+        <div key={b.alt} className={styles.brandLogo}>
+          <img src={b.src} alt={`${b.alt} logo`} loading="lazy" />
+        </div>
+      ))}
+    </div>
+
+    {/* ── CTA ── */}
+    <div className={styles.ctaWrap}>
+      <Link href="/contact" className={styles.ctaBtn}>
+        Need something custom? Get a Quote →
+      </Link>
+    </div>
+
   </section>
 );
 

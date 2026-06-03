@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import "./FAQProduct.css";
+import styles from "./FAQProduct.module.css";
 
 const FAQProduct = ({ productName, subcategoryName, categoryName }) => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -46,14 +46,14 @@ const FAQProduct = ({ productName, subcategoryName, categoryName }) => {
   ];
 
   return (
-    <div className="product-faq-wrapper">
-      <h2 className="product-faq-title">Frequently Asked Questions</h2>
+    <div className={styles.productFaqWrapper}>
+      <h2 className={styles.productFaqTitle}>Frequently Asked Questions</h2>
 
-      <div className="product-faq-list">
+      <div className={styles.productFaqList}>
         {faqs.map((item, index) => (
-          <div key={index} className="product-faq-item">
+          <div key={index} className={styles.productFaqItem}>
             <button
-              className="product-faq-question"
+              className={styles.productFaqQuestion}
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
             >
               {item.q}
@@ -61,7 +61,7 @@ const FAQProduct = ({ productName, subcategoryName, categoryName }) => {
             </button>
 
             {openIndex === index && (
-              <div className="product-faq-answer">
+              <div className={styles.productFaqAnswer}>
                 <p>{item.a}</p>
               </div>
             )}

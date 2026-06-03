@@ -1,0 +1,356 @@
+/* ============================================================
+   PRINTKEE CHATBOT — purple / gold palette, minimal design
+   All classes prefixed pk- to avoid conflicts
+   ============================================================ */
+
+/* ── LAUNCHER ──────────────────────────────────────────────── */
+.pk-launcher-wrap {
+  align-items: center;
+  bottom: 24px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  position: fixed;
+  right: 24px;
+  z-index: 9999;
+}
+
+/* Speech bubble */
+.pk-launcher-bubble {
+  background: #fff;
+  border: 1px solid #E5DCF5;
+  border-radius: 2px;
+  color: #1A0A3D;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  max-width: 220px;
+  padding: 9px 14px;
+  position: relative;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  animation: pkBubbleFloat 3.5s ease-in-out infinite;
+}
+.pk-launcher-bubble::after {
+  background: #fff;
+  border-right: 1px solid #E5DCF5;
+  border-bottom: 1px solid #E5DCF5;
+  content: '';
+  height: 10px;
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+  width: 10px;
+}
+.pk-bubble-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.pk-bubble-hidden  { opacity: 0; pointer-events: none; transform: translateY(6px); }
+
+/* Launcher button */
+.pk-launcher {
+  align-items: center;
+  animation: pkLauncherPulse 3s infinite;
+  background: #2D1167;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  height: 62px;
+  justify-content: center;
+  position: relative;
+  transition: background 0.15s ease;
+  width: 62px;
+}
+.pk-launcher:hover { background: #1A0845; }
+
+.pk-launcher-avatar {
+  border-radius: 2px;
+  height: 52px;
+  object-fit: cover;
+  width: 52px;
+}
+
+.pk-launcher-icon {
+  align-items: center;
+  background: #C9A84C;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  bottom: -2px;
+  color: #fff;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  position: absolute;
+  right: -2px;
+  width: 20px;
+}
+
+@keyframes pkBubbleFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+@keyframes pkLauncherPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(45,17,103,0.45); }
+  70%  { box-shadow: 0 0 0 14px rgba(45,17,103,0); }
+  100% { box-shadow: 0 0 0 0 rgba(45,17,103,0); }
+}
+
+/* ── CHAT WINDOW ───────────────────────────────────────────── */
+.pk-chat-window {
+  background: #FAF8FF;
+  border: 1px solid #E5DCF5;
+  border-radius: 2px;
+  border-bottom-right-radius: 2px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  height: 460px;
+  overflow: hidden;
+  position: fixed;
+  right: 24px;
+  width: 340px;
+  z-index: 9990;
+  animation: pkWindowIn 0.22s ease forwards;
+}
+@keyframes pkWindowIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── HEADER ────────────────────────────────────────────────── */
+.pk-chat-header {
+  align-items: center;
+  background: #1A0845;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+}
+
+.pk-chat-title {
+  align-items: center;
+  display: flex;
+  gap: 9px;
+}
+
+.pk-agent-avatar {
+  border: 2px solid #C9A84C;
+  border-radius: 2px;
+  height: 36px;
+  object-fit: cover;
+  width: 36px;
+}
+
+.pk-agent-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.pk-agent-name {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+.pk-agent-status {
+  color: #C9A84C;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.pk-close-btn {
+  align-items: center;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  height: 28px;
+  justify-content: center;
+  transition: background 0.15s ease;
+  width: 28px;
+}
+.pk-close-btn:hover { background: rgba(255,255,255,0.22); }
+
+/* ── CHAT BODY ─────────────────────────────────────────────── */
+.pk-chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #D0BFEC transparent;
+}
+.pk-chat-body::-webkit-scrollbar { width: 4px; }
+.pk-chat-body::-webkit-scrollbar-thumb { background: #D0BFEC; border-radius: 2px; }
+
+/* ── MESSAGE ROWS ──────────────────────────────────────────── */
+.pk-chat-row {
+  align-items: flex-end;
+  display: flex;
+  margin-bottom: 10px;
+}
+.pk-chat-row.pk-bot  { justify-content: flex-start; }
+.pk-chat-row.pk-user { justify-content: flex-end; }
+
+.pk-chat-avatar {
+  border-radius: 2px;
+  height: 28px;
+  margin-right: 7px;
+  object-fit: cover;
+  width: 28px;
+  flex-shrink: 0;
+}
+
+/* ── BUBBLES ───────────────────────────────────────────────── */
+.pk-bubble {
+  animation: pkFadeIn 0.22s ease;
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: 1.55;
+  max-width: 78%;
+  padding: 9px 13px;
+}
+.pk-bubble p { margin: 0; }
+
+.pk-bubble.pk-bot {
+  background: #fff;
+  border: 1px solid #E5DCF5;
+  border-bottom-left-radius: 2px;
+  color: #1A0A3D;
+}
+.pk-bubble.pk-user {
+  background: #3D1C8A;
+  border-bottom-right-radius: 2px;
+  color: #fff;
+}
+
+/* ── QUICK REPLY OPTIONS ───────────────────────────────────── */
+.pk-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.pk-options button {
+  background: transparent;
+  border: 1px solid #3D1C8A;
+  border-radius: 2px;
+  color: #3D1C8A;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 11px;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+.pk-options button:hover {
+  background: #3D1C8A;
+  color: #fff;
+}
+
+/* ── TYPING INDICATOR ──────────────────────────────────────── */
+.pk-typing-bubble {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #E5DCF5;
+  border-radius: 2px;
+  border-bottom-left-radius: 2px;
+  display: flex;
+  gap: 5px;
+  padding: 10px 14px;
+}
+.pk-typing-bubble span {
+  animation: pkTyping 1.4s infinite ease-in-out both;
+  background: #D0BFEC;
+  border-radius: 2px;
+  height: 6px;
+  width: 6px;
+}
+.pk-typing-bubble span:nth-child(2) { animation-delay: 0.15s; }
+.pk-typing-bubble span:nth-child(3) { animation-delay: 0.30s; }
+
+/* ── CHAT INPUT ────────────────────────────────────────────── */
+.pk-chat-input {
+  background: #fff;
+  border-top: 1px solid #E5DCF5;
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+}
+.pk-chat-input input {
+  background: #FAF8FF;
+  border: 1px solid #E5DCF5;
+  border-radius: 2px;
+  color: #1A0A3D;
+  flex: 1;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  padding: 8px 14px;
+  transition: border-color 0.14s ease;
+}
+.pk-chat-input input:focus { border-color: #3D1C8A; background: #fff; }
+.pk-chat-input input::placeholder { color: #7B6BA8; }
+.pk-chat-input input:disabled { opacity: 0.6; }
+
+.pk-chat-input button {
+  align-items: center;
+  background: #C9A84C;
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  height: 36px;
+  justify-content: center;
+  transition: background 0.14s ease;
+  width: 36px;
+}
+.pk-chat-input button:hover    { background: #A8872A; }
+.pk-chat-input button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── ANIMATIONS ────────────────────────────────────────────── */
+@keyframes pkFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pkTyping {
+  0%   { opacity: 0.3; transform: translateY(0); }
+  30%  { opacity: 1;   transform: translateY(-3px); }
+  60%  { opacity: 0.4; transform: translateY(0); }
+  100% { opacity: 0.3; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .pk-chat-window  { height: 480px; right: 18px; width: 320px; }
+  .pk-launcher-wrap { right: 18px; }
+}
+
+@media (max-width: 768px) {
+  .pk-chat-window  {
+    border-radius: 2px;
+    bottom: 88px;
+    height: calc(100vh - 140px);
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+  .pk-launcher-bubble { display: none; }
+  .pk-launcher-wrap { right: 16px; }
+}
+
+@media (max-width: 480px) {
+  .pk-chat-window {
+    border-radius: 0;
+    bottom: 0;
+    height: 100dvh;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  .pk-launcher-wrap { right: 14px; bottom: 14px; }
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pk-chat-window  { padding-bottom: env(safe-area-inset-bottom); }
+  .pk-launcher-wrap { padding-bottom: env(safe-area-inset-bottom); }
+}

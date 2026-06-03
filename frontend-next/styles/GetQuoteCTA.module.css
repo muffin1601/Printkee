@@ -1,0 +1,155 @@
+/* ============================================================
+   GET QUOTE CTA — full-bleed image, dark purple overlay
+   All bracket-notation → hyphenated class names
+   ============================================================ */
+
+/* ── SECTION — bg image ────────────────────────────────────── */
+.quote-cta-section {
+  background-image: url('/assets/banner-sect.webp');
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── OVERLAY — dark purple ─────────────────────────────────── */
+.quote-cta-overlay {
+  background: rgba(26, 8, 69, 0.88);
+  padding: 2rem var(--px, 1.5rem) 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── INNER CONTENT ─────────────────────────────────────────── */
+.quote-cta-content {
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  text-align: center;
+}
+
+/* ── HEADING ───────────────────────────────────────────────── */
+.quote-heading {
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 1.25rem;
+}
+
+/* ── FEATURE PILLS ─────────────────────────────────────────── */
+.quote-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.feature-item {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  transition: background 0.15s ease;
+}
+.feature-item:hover { background: rgba(255, 255, 255, 0.11); }
+
+.feature-item span {
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.feature-icon {
+  color: var(--orange, #C9A84C);
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+/* ── CTA BUTTON ────────────────────────────────────────────── */
+.quote-cta-button {
+  align-items: center;
+  background: #fff;
+  border: none;
+  border-radius: 2px;
+  color: var(--green-dark, #2D1167);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 800;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+  min-height: 38px;
+  padding: 0 1.75rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.quote-cta-button:hover {
+  background: var(--orange, #C9A84C);
+  color: #fff;
+}
+
+.arrow-1 { font-style: normal; }
+
+/* ── EXTRA INFO LINES ──────────────────────────────────────── */
+.quote-cta-extra-info {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.42);
+  display: flex;
+  font-size: 0.73rem;
+  gap: 0.35rem;
+  justify-content: center;
+  margin: 0 0 0.4rem;
+}
+
+.quote-cta-extra-info a {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: underline;
+  transition: color 0.15s ease;
+}
+.quote-cta-extra-info a:hover { color: #fff; }
+
+/* Call-us row */
+.call-us {
+  color: var(--orange, #C9A84C);
+  font-size: 0.82rem;
+  font-weight: 700;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.call-us a {
+  color: var(--orange, #C9A84C);
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.call-us a:hover { color: #fff; }
+
+.call-icon { flex-shrink: 0; font-size: 0.78rem; }
+
+/* Legacy aliases — kept for backward compatibility */
+.quote-cta-inner { margin: 0 auto; max-width: var(--max-w, 1200px); text-align: center; }
+.quote-cta-heading { color: #fff; font-size: clamp(1rem,2.5vw,1.5rem); font-weight: 800; }
+.quote-feature-item { align-items: center; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 2px; display: flex; gap: 0.5rem; padding: 0.5rem 0.9rem; }
+.quote-feature-icon { color: var(--orange,#C9A84C); flex-shrink: 0; font-size: 0.9rem; }
+.quote-btn-primary { align-items: center; background: #fff; border: none; border-radius: 2px; color: var(--green-dark,#2D1167); cursor: pointer; display: inline-flex; font-family: var(--font); font-size: 0.82rem; font-weight: 800; gap: 0.45rem; min-height: 38px; padding: 0 1.75rem; transition: background 0.15s ease, color 0.15s ease; }
+.quote-extra-info { color: rgba(255,255,255,0.42); font-size: 0.73rem; margin: 0 0 0.4rem; }
+.quote-call-us { color: var(--orange,#C9A84C); font-size: 0.82rem; font-weight: 700; }
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .quote-cta-overlay { padding: 1.5rem 1rem 2rem; }
+  .quote-features { flex-direction: column; align-items: center; }
+  .feature-item { justify-content: center; width: 100%; max-width: 260px; }
+  .quote-cta-button { justify-content: center; min-width: 200px; }
+}
+
+@media (max-width: 480px) {
+  .quote-cta-overlay { padding: 1.25rem 1rem 1.75rem; }
+  .quote-heading { font-size: clamp(0.95rem, 4.5vw, 1.2rem); }
+}

@@ -1,50 +1,52 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import "../styles/EnquiryModal.css";
+import {
+  X, User, Building2, Mail, Phone,
+  FileText, Send, CheckCircle2, Truck, BadgePercent,
+} from "lucide-react";
+import styles from "../styles/EnquiryModal.module.css";
 import axios from "axios";
+
+const perks = [
+  { icon: <CheckCircle2 size={14} />, text: "Premium quality guaranteed" },
+  { icon: <Truck size={14} />,        text: "Pan-India delivery" },
+  { icon: <BadgePercent size={14} />, text: "Bulk order discounts" },
+];
 
 const EnquiryModal = ({ isOpen, onClose, image, description }) => {
   const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    requirement: "",
+    name: "", company: "", email: "", phone: "", requirement: "",
   });
-
+  const [loading, setLoading] = useState(false);
   const modalRef = useRef(null);
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
-      // CRM call goes through our server-side Route Handler to keep the API key secret
       await fetch("/api/crm-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/send-email`, formData);
-
       alert("Thank you! Your inquiry has been submitted.");
       setFormData({ name: "", company: "", email: "", phone: "", requirement: "" });
       onClose();
     } catch (error) {
       console.error("Submission failed:", error);
       alert("Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     if (!isOpen) return;
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
+    const handleEsc = (e) => { if (e.key === "Escape") onClose(); };
     document.addEventListener("keydown", handleEsc);
     return () => document.removeEventListener("keydown", handleEsc);
   }, [isOpen, onClose]);
@@ -53,112 +55,115 @@ const EnquiryModal = ({ isOpen, onClose, image, description }) => {
 
   return (
     <div
-      className="enquiry-modal-overlay"
+      className={styles["enquiry-modal-overlay"]}
       onClick={onClose}
       role="presentation"
     >
       <div
-        className="enquiry-modal"
+        className={styles["enquiry-modal"]}
         role="dialog"
         aria-modal="true"
         aria-labelledby="enquiry-title"
-        aria-describedby="enquiry-description"
         onClick={(e) => e.stopPropagation()}
         ref={modalRef}
       >
-        <button
-          className="close-btn-enquiry"
-          onClick={onClose}
-          aria-label="Close enquiry form"
-        >
-          ×
+        {/* Close */}
+        <button className={styles["close-btn-enquiry"]} onClick={onClose} aria-label="Close">
+          <X size={16} />
         </button>
 
-        <div className="modal-container">
-          <div className="left-content">
-            <img
-              src={image || "/assets/t shirt.jpg"}
-              alt="Product enquiry illustration"
-              className="enquiry-image"
-            />
-            <p id="enquiry-description" className="left-description">
+        <div className={styles["modal-container"]}>
+
+          {/* ── LEFT — dark purple brand panel ── */}
+          <div className={styles["left-content"]}>
+            <p className={styles["left-eyebrow"]}>Get In Touch</p>
+            <h3 className={styles["left-title"]}>Let&apos;s Create Something Great</h3>
+            <p id="enquiry-description" className={styles["left-description"]}>
               {description ||
-                "Reach out to us for tailored solutions, expert consultation, and a personalized quote that fits your business needs."}
+                "Tell us your requirement and we'll get back within 24 hours with a personalised quote."}
             </p>
+
+            {/* Perks */}
+            <ul className={styles["left-perks"]}>
+              {perks.map(({ icon, text }) => (
+                <li key={text} className={styles["left-perk"]}>
+                  <span className={styles["perk-icon"]}>{icon}</span>
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Product image */}
+            {image && (
+              <img
+                src={image}
+                alt="Product enquiry"
+                className={styles["enquiry-image"]}
+              />
+            )}
           </div>
 
-          <div className="right-form">
-            <h2 id="enquiry-title" className="enquiry-title">
-              Get a Quote
+          {/* ── RIGHT — form ── */}
+          <div className={styles["right-form"]}>
+            <h2 id="enquiry-title" className={styles["enquiry-title"]}>
+              Request a Quote
             </h2>
+            <p className={styles["enquiry-subtitle"]}>
+              Fill in the details and we&apos;ll send you a custom pricing plan.
+            </p>
 
-            <form onSubmit={handleSubmit} className="enquiry-form">
-              <label htmlFor="enq-name" className="sr-label">Your Name</label>
-              <input
-                id="enq-name"
-                className="form-input"
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-                onChange={handleChange}
-                value={formData.name}
-              />
+            <form onSubmit={handleSubmit} className={styles["enquiry-form"]}>
 
-              <label htmlFor="enq-company" className="sr-label">Company Name</label>
-              <input
-                id="enq-company"
-                className="form-input"
-                type="text"
-                name="company"
-                placeholder="Company Name"
-                required
-                onChange={handleChange}
-                value={formData.company}
-              />
+              {/* Name */}
+              <div className={styles["input-wrap"]}>
+                <User size={14} className={styles["input-icon"]} aria-hidden="true" />
+                <label htmlFor="enq-name" className={styles["sr-label"]}>Your Name</label>
+                <input id="enq-name" className={styles["form-input"]} type="text"
+                  name="name" placeholder="Your Name" required
+                  onChange={handleChange} value={formData.name} />
+              </div>
 
-              <label htmlFor="enq-email" className="sr-label">Email Address</label>
-              <input
-                id="enq-email"
-                className="form-input"
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                required
-                onChange={handleChange}
-                value={formData.email}
-              />
+              {/* Company */}
+              <div className={styles["input-wrap"]}>
+                <Building2 size={14} className={styles["input-icon"]} aria-hidden="true" />
+                <label htmlFor="enq-company" className={styles["sr-label"]}>Company</label>
+                <input id="enq-company" className={styles["form-input"]} type="text"
+                  name="company" placeholder="Company Name" required
+                  onChange={handleChange} value={formData.company} />
+              </div>
 
-              <label htmlFor="enq-phone" className="sr-label">Phone Number</label>
-              <input
-                id="enq-phone"
-                className="form-input"
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                required
-                onChange={handleChange}
-                value={formData.phone}
-              />
+              {/* Email + Phone row */}
+              <div className={styles["form-row"]}>
+                <div className={styles["input-wrap"]}>
+                  <Mail size={14} className={styles["input-icon"]} aria-hidden="true" />
+                  <label htmlFor="enq-email" className={styles["sr-label"]}>Email</label>
+                  <input id="enq-email" className={styles["form-input"]} type="email"
+                    name="email" placeholder="Email Address" required
+                    onChange={handleChange} value={formData.email} />
+                </div>
+                <div className={styles["input-wrap"]}>
+                  <Phone size={14} className={styles["input-icon"]} aria-hidden="true" />
+                  <label htmlFor="enq-phone" className={styles["sr-label"]}>Phone</label>
+                  <input id="enq-phone" className={styles["form-input"]} type="tel"
+                    name="phone" placeholder="Phone Number" required
+                    onChange={handleChange} value={formData.phone} />
+                </div>
+              </div>
 
-              <label htmlFor="enq-requirement" className="sr-label">Your Requirement</label>
-              <textarea
-                id="enq-requirement"
-                className="form-textarea"
-                name="requirement"
-                placeholder="Your Requirement"
-                rows="4"
-                onChange={handleChange}
-                value={formData.requirement}
-              ></textarea>
+              {/* Requirement */}
+              <div className={styles["input-wrap"]} style={{ alignItems: "flex-start" }}>
+                <FileText size={14} className={styles["input-icon"]} style={{ marginTop: "0.7rem" }} aria-hidden="true" />
+                <label htmlFor="enq-requirement" className={styles["sr-label"]}>Requirement</label>
+                <textarea id="enq-requirement" className={styles["form-textarea"]}
+                  name="requirement" placeholder="Describe your requirement…"
+                  rows="4" onChange={handleChange} value={formData.requirement} />
+              </div>
 
-              <button
-                type="submit"
-                className="submit-btn-enquiry"
-                aria-label="Submit enquiry form"
-              >
-                Get a Quote
+              <button type="submit" className={styles["submit-btn-enquiry"]}
+                disabled={loading} aria-label="Submit enquiry">
+                {loading ? "Sending…" : <><Send size={14} /> Get a Quote</>}
               </button>
+
             </form>
           </div>
         </div>

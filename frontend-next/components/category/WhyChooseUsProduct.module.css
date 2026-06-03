@@ -1,0 +1,54 @@
+.wcupWrapper {
+  background: var(--bg-subtle,#F3EEFF);
+  border-top: 1px solid var(--border,#E5DCF5);
+  padding: 2rem var(--px,1.5rem) 2.5rem;
+}
+
+.wcupTitle {
+  color: var(--ink,#1A0A3D);
+  font-size: clamp(1rem,2.2vw,1.3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 auto 1.25rem;
+  max-width: var(--max-w,1200px);
+  text-align: center;
+}
+
+.wcupGrid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(3,1fr);
+  margin: 0 auto;
+  max-width: var(--max-w,1200px);
+}
+
+.wcupCard {
+  background: var(--bg-white,#fff);
+  border: 1px solid var(--border,#E5DCF5);
+  border-radius: 2px;
+  padding: 1.1rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.wcupCard:hover {
+  background: var(--green-light,#EDE1FF);
+  border-color: var(--green,#3D1C8A);
+}
+
+.wcupCardTitle {
+  color: var(--ink,#1A0A3D);
+  font-size: 0.82rem;
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+}
+
+.wcupCardText {
+  color: var(--ink-3,#7B6BA8);
+  font-size: 0.75rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 1024px) { .wcupGrid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 768px) { .wcupWrapper { padding: 1.5rem 1rem 2rem; } }
+@media (max-width: 480px) { .wcupGrid { grid-template-columns: 1fr; gap: 0.5rem; } }

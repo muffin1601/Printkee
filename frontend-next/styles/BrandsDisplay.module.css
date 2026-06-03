@@ -1,0 +1,312 @@
+/* ============================================================
+   BRAND DETAIL PAGE — bracket-notation → hyphenated class names
+   Same rules: no shadows/transforms, 2px radius, purple/gold
+   ============================================================ */
+
+/* ── PAGE WRAPPER ──────────────────────────────────────────── */
+.brand-display-page {
+  background: var(--bg, #FAF8FF);
+}
+
+/* ── TOP SECTION — dark purple hero band ───────────────────── */
+.brand-top-section {
+  background: var(--bg-dark, #2D1167);
+  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr auto;
+  padding: 2.5rem var(--px, 1.5rem);
+}
+
+.brand-top-content {
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  width: 100%;
+}
+
+/* Back link */
+.brand-back-link {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.55);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 600;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.brand-back-link:hover { color: var(--orange, #C9A84C); }
+
+.brand-back-circle {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  display: flex;
+  flex-shrink: 0;
+  height: 24px;
+  justify-content: center;
+  transition: border-color 0.15s ease;
+  width: 24px;
+}
+.brand-back-link:hover .brand-back-circle {
+  border-color: var(--orange, #C9A84C);
+  color: var(--orange, #C9A84C);
+}
+.brand-back-arrow { font-size: 11px; }
+
+/* Brand heading & description */
+.brand-heading {
+  color: #fff;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+}
+
+.brand-subtext {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.80rem;
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+  max-width: 52ch;
+}
+
+/* Download catalogue button — white → gold on hover */
+.brand-download-btn {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  color: var(--green-dark, #2D1167);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 800;
+  gap: 0.4rem;
+  min-height: 36px;
+  padding: 0 1.25rem;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.brand-download-btn:hover {
+  background: var(--orange, #C9A84C);
+  border-color: var(--orange, #C9A84C);
+  color: #fff;
+}
+
+/* Brand logo box */
+.brand-logo-wrapper {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 2px;
+  display: flex;
+  height: 90px;
+  justify-content: center;
+  padding: 1rem;
+  width: 150px;
+}
+
+.brand-logo-7 {
+  max-height: 60px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+/* ── PRODUCT GRID ──────────────────────────────────────────── */
+.brand-products-grid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  padding: 1.75rem var(--px, 1.5rem);
+}
+
+/* Product card */
+.brand-product-card {
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.brand-product-card:hover {
+  background: var(--green-light, #EDE1FF);
+  border-color: var(--green, #3D1C8A);
+}
+
+.brand-product-image {
+  aspect-ratio: 4 / 3;
+  display: block;
+  object-fit: cover;
+  transition: opacity 0.15s ease;
+  width: 100%;
+}
+.brand-product-card:hover .brand-product-image { opacity: 0.88; }
+
+.brand-product-name {
+  color: var(--ink, #1A0A3D);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.65rem 0.85rem;
+}
+
+/* ── NOT FOUND ─────────────────────────────────────────────── */
+.not-found {
+  color: var(--ink-3, #7B6BA8);
+  font-size: 0.85rem;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+/* ── DIWALI BANNER ─────────────────────────────────────────── */
+.cta-banner-4 {
+  border-radius: 2px;
+  display: block;
+  margin: 0 var(--px, 1.5rem);
+  overflow: hidden;
+}
+.cta-banner-image-4 {
+  display: block;
+  transition: opacity 0.15s ease;
+  width: 100%;
+}
+.cta-banner-4:hover .cta-banner-image-4 { opacity: 0.92; }
+
+/* ── CATALOGUE LEAD MODAL ──────────────────────────────────── */
+.lead-overlay-2 {
+  align-items: center;
+  backdrop-filter: blur(4px);
+  background: rgba(26, 8, 69, 0.55);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  z-index: 1400;
+}
+
+.lead-modal-2 {
+  animation: modalIn 0.18s ease forwards;
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  padding: 1.75rem;
+  width: min(460px, 100%);
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.lead-modal-2 h3 {
+  color: var(--ink, #1A0A3D);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem;
+}
+
+.lead-form-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.lead-form-2 label {
+  color: var(--ink, #1A0A3D);
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.lead-form-2 input {
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  color: var(--ink, #1A0A3D);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  outline: none;
+  padding: 0.6rem 0.85rem;
+  transition: border-color 0.15s ease;
+  width: 100%;
+}
+.lead-form-2 input:focus {
+  background: var(--bg-white, #fff);
+  border-color: var(--green, #3D1C8A);
+}
+.lead-form-2 input::placeholder { color: var(--ink-3, #7B6BA8); }
+
+.lead-actions-2 {
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 0.35rem;
+}
+
+/* Submit — purple → gold */
+.lead-submit-2 {
+  background: var(--green, #3D1C8A);
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-height: 38px;
+  padding: 0.6rem;
+  transition: background 0.15s ease;
+}
+.lead-submit-2:hover { background: var(--orange, #C9A84C); }
+
+/* Cancel */
+.lead-cancel-2 {
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  color: var(--ink-2, #3E2D6B);
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-height: 38px;
+  padding: 0.6rem;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.lead-cancel-2:hover {
+  background: var(--green-light, #EDE1FF);
+  border-color: var(--green, #3D1C8A);
+  color: var(--green, #3D1C8A);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .brand-top-section     { grid-template-columns: 1fr; }
+  .brand-logo-wrapper    { height: 70px; width: 120px; }
+}
+
+@media (max-width: 768px) {
+  .brand-top-section     { padding: 2rem 1rem; gap: 1.25rem; }
+  .brand-products-grid   { gap: 0.55rem; grid-template-columns: repeat(2, 1fr); padding: 1.5rem 1rem; }
+  .cta-banner-4          { margin: 0 1rem; }
+  .lead-actions-2        { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .brand-top-section     { padding: 1.5rem 1rem; }
+  .brand-products-grid   { grid-template-columns: repeat(2, 1fr); }
+}

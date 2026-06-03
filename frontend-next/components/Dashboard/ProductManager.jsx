@@ -5,7 +5,7 @@ import axios from "axios";
 import AdminLayout from "../../components/Dashboard/AdminLayout";
 import Modal from "../../components/Dashboard/Modal";
 import FormInput from "../../components/Dashboard/FormInput";
-import "../../styles/admin/HeroManager.css";
+import styles from "../../styles/admin/HeroManager.module.css";
 
 const emptyForm = {
   name: "",
@@ -262,9 +262,9 @@ const ProductManager = () => {
 
   return (
     <AdminLayout>
-      <div className="hm-wrapper">
-        <div className="hm-header">
-          <h3 className="hm-title"><Layers size={18} /> Product Manager</h3>
+      <div className={styles.hmWrapper}>
+        <div className={styles.hmHeader}>
+          <h3 className={styles.hmTitle}><Layers size={18} /> Product Manager</h3>
 
           <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
             <form onSubmit={handleSearch} style={{ display: "flex", gap: 8 }}>
@@ -272,39 +272,39 @@ const ProductManager = () => {
                 placeholder="Search name/slug/sku/tags"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="hm-select"
+                className={styles.hmSelect}
                 style={{ width: 260 }}
               />
-              <button className="hm-add-btn" type="submit"><Search size={16}/> Search</button>
+              <button className={styles.hmAddBtn} type="submit"><Search size={16}/> Search</button>
             </form>
 
-            <button className="hm-add-btn" onClick={openAdd}>
+            <button className={styles.hmAddBtn} onClick={openAdd}>
               <Plus size={16}/> Add Product
             </button>
           </div>
         </div>
 
-        <p className="hm-description">Manage products, media, attributes, and SEO.</p>
+        <p className={styles.hmDescription}>Manage products, media, attributes, and SEO.</p>
 
         {/* List */}
-        <ul className="hm-slide-list">
+        <ul className={styles.hmSlideList}>
           {items.length === 0 ? (
-            <li className="hm-empty">No products found.</li>
+            <li className={styles.hmEmpty}>No products found.</li>
           ) : items.map((p) => (
-            <li className="hm-slide-item" key={p._id}>
-              <div className="hm-slide-info">
-                <strong className="hm-slide-title">{p.name}</strong>
-                <div className="hm-slide-type">₹{p.price}{p.salePrice ? ` (Sale: ₹${p.salePrice})` : ""}</div>
-                <div className="hm-slide-sub">
+            <li className={styles.hmSlideItem} key={p._id}>
+              <div className={styles.hmSlideInfo}>
+                <strong className={styles.hmSlideTitle}>{p.name}</strong>
+                <div className={styles.hmSlideType}>₹{p.price}{p.salePrice ? ` (Sale: ₹${p.salePrice})` : ""}</div>
+                <div className={styles.hmSlideSub}>
                   {p.category?.name} {p.subcategory ? `› ${p.subcategory?.name}` : ""} • SKU: {p.sku || "N/A"}
                 </div>
               </div>
 
-              <div className="hm-slide-actions">
-                <button className="hm-edit-btn" onClick={() => handleEdit(p)}>
+              <div className={styles.hmSlideActions}>
+                <button className={styles.hmEditBtn} onClick={() => handleEdit(p)}>
                   <Edit size={16}/> Edit
                 </button>
-                <button className="hm-delete-btn" onClick={() => handleDelete(p._id)}>
+                <button className={styles.hmDeleteBtn} onClick={() => handleDelete(p._id)}>
                   <Trash2 size={16}/> Delete
                 </button>
               </div>
@@ -314,10 +314,10 @@ const ProductManager = () => {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="pagination-container">
+          <div className={styles.paginationContainer}>
 
             {/* Prev */}
-            <button className="pg-btn" onClick={() => goTo(page - 1)} disabled={page === 1}>
+            <button className={styles.pgBtn} onClick={() => goTo(page - 1)} disabled={page === 1}>
               ◀ Prev
             </button>
 
@@ -330,7 +330,7 @@ const ProductManager = () => {
                 btns.push(
                   <button
                     key={p}
-                    className={`pg-number ${page === p ? "active" : ""}`}
+                    className={`${styles.pgNumber} ${page === p ? styles.active : ""}`}
                     onClick={() => goTo(p)}
                   >
                     {p}
@@ -340,7 +340,7 @@ const ProductManager = () => {
               // Always show 1
               if (page > 3) {
                 addBtn(1);
-                btns.push(<span key="dots-left" className="pg-dots">...</span>);
+                btns.push(<span key="dots-left" className={styles.pgDots}>...</span>);
               }
 
               // Middle range (visible pages)
@@ -353,7 +353,7 @@ const ProductManager = () => {
 
               // Always show last
               if (page < total - 2) {
-                btns.push(<span key="dots-right" className="pg-dots">...</span>);
+                btns.push(<span key="dots-right" className={styles.pgDots}>...</span>);
                 addBtn(total);
               }
 
@@ -361,7 +361,7 @@ const ProductManager = () => {
             })()}
 
             {/* Next */}
-            <button className="pg-btn" onClick={() => goTo(page + 1)} disabled={page === totalPages}>
+            <button className={styles.pgBtn} onClick={() => goTo(page + 1)} disabled={page === totalPages}>
               Next ▶
             </button>
           </div>
@@ -379,11 +379,11 @@ const ProductManager = () => {
         <FormInput label="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}/>
         <FormInput label="Slug" value={form.slug} onChange={(e) => setForm({ ...form, slug: e.target.value })}/>
         <FormInput label="Short Description" value={form.description.short} onChange={(e) => setForm({ ...form, description: { ...form.description, short: e.target.value }})}/>
-        <div className="hm-form-group">
-          <label className="hm-input-label">Long Description</label>
+        <div className={styles.hmFormGroup}>
+          <label className={styles.hmInputLabel}>Long Description</label>
           <textarea
             rows={4}
-            className="hm-select"
+            className={styles.hmSelect}
             value={form.description.long}
             onChange={(e) => setForm({ ...form, description: { ...form.description, long: e.target.value }})}
           />
@@ -396,16 +396,16 @@ const ProductManager = () => {
 
         {/* CATEGORY/SUB */}
         <h4 style={{ marginTop: 16 }}>Categorization</h4>
-        <div className="hm-form-group">
-          <label className="hm-input-label">Category</label>
-          <select className="hm-select" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value, subcategory: "" })}>
+        <div className={styles.hmFormGroup}>
+          <label className={styles.hmInputLabel}>Category</label>
+          <select className={styles.hmSelect} value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value, subcategory: "" })}>
             <option value="">-- Select Category --</option>
             {categories.map(c => <option value={c._id} key={c._id}>{c.name}</option>)}
           </select>
         </div>
-        <div className="hm-form-group">
-          <label className="hm-input-label">Subcategory</label>
-          <select className="hm-select" value={form.subcategory} onChange={(e) => setForm({ ...form, subcategory: e.target.value })}>
+        <div className={styles.hmFormGroup}>
+          <label className={styles.hmInputLabel}>Subcategory</label>
+          <select className={styles.hmSelect} value={form.subcategory} onChange={(e) => setForm({ ...form, subcategory: e.target.value })}>
             <option value="">-- Select Subcategory --</option>
             {filteredSubs.map(s => <option value={s._id} key={s._id}>{s.name}</option>)}
           </select>
@@ -413,8 +413,8 @@ const ProductManager = () => {
 
         {/* MEDIA */}
         <h4 style={{ marginTop: 16 }}>Media</h4>
-        <div className="hm-upload-group">
-          <label className="hm-input-label">Upload Primary Images</label>
+        <div className={styles.hmUploadGroup}>
+          <label className={styles.hmInputLabel}>Upload Primary Images</label>
           <input type="file" accept="image/*" multiple onChange={handleUploadPrimary}/>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
@@ -422,13 +422,13 @@ const ProductManager = () => {
             <div key={i} style={{ border: "1px solid #e4e4e4", padding: 8 }}>
               <img src={img.url} alt="" style={{ width: "100%", height: 100, objectFit: "cover" }}/>
               <FormInput label="Alt text" value={img.altText} onChange={(e) => updateImageAlt("images", i, e.target.value)}/>
-              <button className="hm-delete-btn" onClick={() => removeImage("images", i)}>Remove</button>
+              <button className={styles.hmDeleteBtn} onClick={() => removeImage("images", i)}>Remove</button>
             </div>
           ))}
         </div>
 
-        <div className="hm-upload-group" style={{ marginTop: 10 }}>
-          <label className="hm-input-label">Upload Sub Images</label>
+        <div className={styles.hmUploadGroup} style={{ marginTop: 10 }}>
+          <label className={styles.hmInputLabel}>Upload Sub Images</label>
           <input type="file" accept="image/*" multiple onChange={handleUploadSecondary}/>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
@@ -436,7 +436,7 @@ const ProductManager = () => {
             <div key={i} style={{ border: "1px solid #e4e4e4", padding: 8 }}>
               <img src={img.url} alt="" style={{ width: "100%", height: 100, objectFit: "cover" }}/>
               <FormInput label="Alt text" value={img.altText} onChange={(e) => updateImageAlt("subImages", i, e.target.value)}/>
-              <button className="hm-delete-btn" onClick={() => removeImage("subImages", i)}>Remove</button>
+              <button className={styles.hmDeleteBtn} onClick={() => removeImage("subImages", i)}>Remove</button>
             </div>
           ))}
         </div>
@@ -464,23 +464,23 @@ const ProductManager = () => {
 
         {/* ADDITIONAL INFO */}
         <h4 style={{ marginTop: 16 }}>Additional Info</h4>
-        <button className="hm-add-btn" onClick={() => addKV("additionalInfo")}><Plus size={14}/> Add Row</button>
+        <button className={styles.hmAddBtn} onClick={() => addKV("additionalInfo")}><Plus size={14}/> Add Row</button>
         {form.additionalInfo.map((row, i) => (
           <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr auto", gap: 8, marginTop: 8 }}>
             <FormInput label="Label" value={row.label} onChange={(e) => updateKV("additionalInfo", i, "label", e.target.value)}/>
             <FormInput label="Value" value={row.value} onChange={(e) => updateKV("additionalInfo", i, "value", e.target.value)}/>
-            <button className="hm-delete-btn-2" onClick={() => removeKV("additionalInfo", i)}>Remove</button>
+            <button className={styles.hmDeleteBtn2} onClick={() => removeKV("additionalInfo", i)}>Remove</button>
           </div>
         ))}
 
         {/* SPECIFICATIONS */}
         <h4 style={{ marginTop: 16 }}>Specifications</h4>
-        <button className="hm-add-btn" onClick={addSpec}><Plus size={14}/> Add Spec</button>
+        <button className={styles.hmAddBtn} onClick={addSpec}><Plus size={14}/> Add Spec</button>
         {form.specifications.map((row, i) => (
           <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr auto", gap: 8, marginTop: 8 }}>
             <FormInput label="Key" value={row.key} onChange={(e) => updateSpec(i, "key", e.target.value)}/>
             <FormInput label="Value" value={row.value} onChange={(e) => updateSpec(i, "value", e.target.value)}/>
-            <button className="hm-delete-btn" onClick={() => removeSpec(i)}>Remove</button>
+            <button className={styles.hmDeleteBtn} onClick={() => removeSpec(i)}>Remove</button>
           </div>
         ))}
 
@@ -488,7 +488,7 @@ const ProductManager = () => {
         <h4 style={{ marginTop: 16 }}>Tags</h4>
         <FormInput label="Tags (comma separated)" value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })}/>
 
-        <button className="hm-save-btn" style={{ marginTop: 16 }} onClick={handleSave}>
+        <button className={styles.hmSaveBtn} style={{ marginTop: 16 }} onClick={handleSave}>
           {editId ? "Update" : "Save"}
         </button>
       </Modal>

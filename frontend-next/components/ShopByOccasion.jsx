@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/ShopByOccasion.css";
+import styles from "../styles/ShopByOccasion.module.css";
 
 
 const occasions = [
@@ -38,12 +38,12 @@ const occasions = [
 ];
 
 const ShopByOccasion = () => (
-  <section className="occasion-wrapper" aria-labelledby="occasion-heading">
-    <h2 id="occasion-heading" className="occasion-heading">
+  <section className={styles.occasionWrapper} aria-labelledby="occasion-heading">
+    <h2 id="occasion-heading" className={styles.occasionHeading}>
       Corporate Gifting by Category
     </h2>
 
-    <p className="occasion-sub">
+    <p className={styles.occasionSub}>
       Discover a wide range of corporate gifting solutions in Delhi NCR, Noida,
       Gurgaon, and across India. At PrintKee, we specialize in curated branded
       gifts, employee welcome kits, festive hampers, client thank you presents,
@@ -51,29 +51,29 @@ const ShopByOccasion = () => (
       and lasting impressions.
     </p>
 
-    <div className="occasion-grid">
+    <div className={styles.occasionGrid}>
       {occasions.map(({ id, title, description, image, cta }) => (
         <article
           key={id}
-          className="occasion-card"
+          className={styles.occasionCard}
           aria-labelledby={`occasion-title-${id}`}
         >
-          <div className="image-box">
+          <div className={styles.imageBox}>
             <img
               src={image}
               alt={`${title} – Corporate Gifting by PrintKee`}
-              className="occasion-img"
+              className={styles.occasionImg}
             />
           </div>
 
-          <h3 id={`occasion-title-${id}`} className="occasion-title">
+          <h3 id={`occasion-title-${id}`} className={styles.occasionTitle}>
             {title}
           </h3>
 
-          <p className="occasion-description">{description}</p>
+          <p className={styles.occasionDescription}>{description}</p>
 
           <button
-            className="occasion-btn"
+            className={styles.occasionBtn}
             aria-label={`${cta} for ${title}`}
           >
             {cta} <span aria-hidden="true">→</span>

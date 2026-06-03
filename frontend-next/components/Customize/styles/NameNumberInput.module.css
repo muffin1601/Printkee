@@ -1,0 +1,85 @@
+/* NAME NUMBER INPUT — mixed bracket/camelCase, all handled */
+.name-number-input-container {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font);
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.name-number-input-fields {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* JSX uses styles.nameNumberInputField — must match */
+.nameNumberInputField {
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  flex: 1;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  min-width: 100px;
+  outline: none;
+  padding: 0.6rem 0.75rem;
+  transition: border-color 0.15s ease;
+}
+.nameNumberInputField:focus { border-color: var(--green, #3D1C8A); }
+
+/* JSX uses styles.nameInput */
+.nameInput { flex: 2; }
+
+/* JSX uses styles.numberInput */
+.numberInput { flex: 1; }
+
+.name-number-color-picker {
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  cursor: pointer;
+  height: 36px;
+  padding: 0;
+  width: 40px;
+}
+.name-number-color-picker::-webkit-color-swatch { border: none; border-radius: 1px; }
+
+.name-number-font-selector {
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  color: var(--ink, #1A0A3D);
+  cursor: pointer;
+  font-size: 0.82rem;
+  min-width: 140px;
+  padding: 0.6rem 0.75rem;
+}
+.name-number-font-option { font-family: inherit; }
+
+.name-number-add-button {
+  align-self: flex-start;
+  background: var(--green, #3D1C8A);
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-height: 36px;
+  padding: 0 1.25rem;
+  transition: background 0.15s ease;
+}
+.name-number-add-button:hover { background: var(--orange, #C9A84C); }
+
+@media (max-width: 992px) {
+  .name-number-input-fields { flex-direction: column; align-items: stretch; }
+  .nameNumberInputField, .name-number-font-selector { width: 100%; }
+  .name-number-add-button { width: 100%; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .name-number-input-container { padding: 0.85rem; gap: 0.6rem; }
+  .name-number-color-picker { height: 32px; width: 100%; }
+}

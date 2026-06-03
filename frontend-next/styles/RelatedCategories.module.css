@@ -1,0 +1,91 @@
+/* RELATED CATEGORIES — purple/gold palette */
+.related-categories {
+  background: var(--bg, #FAF8FF);
+  border-top: 1px solid var(--border, #E5DCF5);
+  padding: 2rem var(--px, 1.5rem) 2.5rem;
+}
+
+/* Header row with icon */
+.related-header {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 auto 1.25rem;
+  max-width: var(--max-w, 1200px);
+}
+
+.related-icon { color: var(--orange, #C9A84C); flex-shrink: 0; }
+
+.related-header h2 {
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Grid */
+.related-grid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+}
+
+.related-item-wrapper {}
+
+/* Card — used for both image cards and label-only fallback */
+.related-item {
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.related-item:hover {
+  background: var(--green-light, #EDE1FF);
+  border-color: var(--green, #3D1C8A);
+}
+
+/* Image (API data) */
+.related-item-img {
+  aspect-ratio: 4 / 3;
+  display: block;
+  object-fit: cover;
+  transition: opacity 0.15s ease;
+  width: 100%;
+}
+.related-item:hover .related-item-img { opacity: 0.88; }
+
+/* Name label */
+.item-name {
+  color: var(--ink, #1A0A3D);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  padding: 0.6rem 0.8rem;
+}
+
+/* Fallback label-only card (no image) */
+.related-item-label {
+  align-items: center;
+  display: flex;
+  min-height: 60px;
+  padding: 0.75rem 0.8rem;
+}
+.related-item-label .item-name {
+  padding: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .related-categories { padding: 1.5rem 1rem 2rem; }
+  .related-grid { gap: 0.55rem; grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 480px) {
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+}

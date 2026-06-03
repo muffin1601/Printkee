@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import "../styles/BlogForm.css";
+import styles from "../styles/BlogForm.module.css";
 
 const BlogFormClient = () => {
   const [form, setForm] = useState({ title: "", content: "", author: "" });
@@ -31,9 +31,16 @@ const BlogFormClient = () => {
   };
 
   return (
-    <section className="blog-form-wrapper">
-      <form onSubmit={handleSubmit} className="blog-form slide-up" aria-label="Post a new blog form">
-        <h2>Post a New Blog</h2>
+    <section className={styles["blog-form-wrapper"]}>
+      {/* Hero band */}
+      <div className={styles["blog-form-hero"]}>
+        <p className={styles["blog-form-eyebrow"]}>Blogs</p>
+        <h1 className={styles["blog-form-title"]}>Post a New Blog</h1>
+        <p className={styles["blog-form-sub"]}>Share insights, tips and updates with the Printkee community.</p>
+      </div>
+
+      <form onSubmit={handleSubmit} className={`${styles["blog-form"]} ${styles["slide-up"]}`} aria-label="Post a new blog form">
+        <h2>Article Details</h2>
 
         <label htmlFor="title">Blog Title</label>
         <input id="title" name="title" placeholder="Enter blog title" value={form.title} onChange={handleChange} required />
@@ -47,7 +54,7 @@ const BlogFormClient = () => {
         <label htmlFor="image-upload">Upload Blog Image</label>
         <input id="image-upload" type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
 
-        <button type="submit" className="submit-btn" aria-label="Post blog">Post Blog</button>
+        <button type="submit" className={styles["submit-btn"]} aria-label="Post blog">Post Blog</button>
       </form>
     </section>
   );

@@ -1,0 +1,209 @@
+/* ============================================================
+   TESTIMONIALS — 3 equal cards + brand strip + centered CTA
+   camelCase class names match Testimonials.jsx
+   ============================================================ */
+
+/* ── SECTION ───────────────────────────────────────────────── */
+.section {
+  background: var(--bg-white, #fff);
+  border-top: 1px solid var(--border, #E5DCF5);
+  padding: 2rem var(--px, 1.5rem) 2.5rem;
+}
+
+/* ── HEADER ────────────────────────────────────────────────── */
+.header {
+  margin: 0 auto 1.5rem;
+  max-width: var(--max-w, 1200px);
+  text-align: center;
+}
+
+.heading {
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 0.4rem;
+}
+
+.sub {
+  color: var(--ink-3, #7B6BA8);
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+/* ── CARDS — 3 equal columns ───────────────────────────────── */
+.cards {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto 1.5rem;
+  max-width: var(--max-w, 1200px);
+}
+
+/* ── SINGLE CARD ───────────────────────────────────────────── */
+.card {
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 1.1rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.card:hover {
+  background: var(--green-light, #EDE1FF);
+  border-color: var(--green, #3D1C8A);
+}
+
+/* Quote + stars row */
+.cardTop {
+  align-items: center;
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
+}
+
+.quoteIcon {
+  color: var(--orange, #C9A84C);
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  line-height: 0.8;
+  user-select: none;
+}
+
+.stars {
+  color: var(--orange, #C9A84C);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+}
+
+/* Review text */
+.review {
+  color: var(--ink-2, #3E2D6B);
+  flex: 1;
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+
+/* Author */
+.author {
+  align-items: center;
+  border-top: 1px solid var(--border, #E5DCF5);
+  display: flex;
+  gap: 0.6rem;
+  padding-top: 0.75rem;
+}
+
+.avatar {
+  align-items: center;
+  background: var(--green-light, #EDE1FF);
+  border-radius: 50%;
+  color: var(--green, #3D1C8A);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.name {
+  color: var(--ink, #1A0A3D);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.role {
+  color: var(--ink-3, #7B6BA8);
+  font-size: 0.67rem;
+  margin: 0;
+}
+
+/* ── BRAND LOGOS STRIP ─────────────────────────────────────── */
+.brandsRow {
+  align-items: center;
+  border-top: 1px solid var(--border, #E5DCF5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  max-width: var(--max-w, 1200px);
+  padding-top: 1.5rem;
+}
+
+.brandsLabel {
+  color: var(--ink-3, #7B6BA8);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.brandLogo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.brandLogo img {
+  filter: grayscale(1) brightness(0.55);
+  height: 36px;
+  object-fit: contain;
+  opacity: 0.70;
+  transition: opacity 0.15s ease, filter 0.15s ease;
+  width: auto;
+  max-width: 110px;
+}
+.brandLogo img:hover { filter: none; opacity: 1; }
+
+/* ── CTA ───────────────────────────────────────────────────── */
+.ctaWrap {
+  text-align: center;
+}
+
+.ctaBtn {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--green, #3D1C8A);
+  border-radius: 2px;
+  color: var(--green, #3D1C8A);
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 700;
+  gap: 0.4rem;
+  min-height: 36px;
+  padding: 0 1.5rem;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.ctaBtn:hover {
+  background: var(--green, #3D1C8A);
+  color: #fff;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .cards { grid-template-columns: repeat(3, 1fr); gap: 0.65rem; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 1.5rem 1rem 2rem; }
+  .cards { grid-template-columns: 1fr; }
+  .brandsRow { gap: 1rem 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 1.25rem 1rem 1.75rem; }
+  .cards { gap: 0.55rem; }
+  .brandsRow { gap: 0.75rem 1.25rem; padding-top: 1.25rem; }
+  .brandLogo img { height: 28px; }
+}

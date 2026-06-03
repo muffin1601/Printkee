@@ -5,7 +5,7 @@ import axios from "axios";
 import Modal from "../../components/Dashboard/Modal";
 import FormInput from "../../components/Dashboard/FormInput";
 import AdminLayout from "../../components/Dashboard/AdminLayout";
-import "../../styles/admin/HeroManager.css"; // reuse same styling
+import styles from "../../styles/admin/HeroManager.module.css"; // reuse same styling
 
 const CategoryManager = () => {
   const [categories, setCategories] = useState([]);
@@ -142,27 +142,27 @@ const CategoryManager = () => {
 
   return (
     <AdminLayout>
-      <div className="hm-wrapper">
-        <div className="hm-header">
-          <h3 className="hm-title">
+      <div className={styles.hmWrapper}>
+        <div className={styles.hmHeader}>
+          <h3 className={styles.hmTitle}>
             <ImageIcon size={18} /> Category Manager
           </h3>
 
-          <button className="hm-add-btn" onClick={openAddModal}>
+          <button className={styles.hmAddBtn} onClick={openAddModal}>
             <Plus size={16} /> Add Category
           </button>
         </div>
 
-        <p className="hm-description">Manage all product categories.</p>
+        <p className={styles.hmDescription}>Manage all product categories.</p>
 
         {/* Category List */}
-        <ul className="hm-slide-list">
+        <ul className={styles.hmSlideList}>
           {categories.length === 0 ? (
-            <li className="hm-empty">No categories available.</li>
+            <li className={styles.hmEmpty}>No categories available.</li>
           ) : (
             categories.map((cat) => (
-              <li key={cat._id} className="hm-slide-item">
-                <div className="hm-slide-info">
+              <li key={cat._id} className={styles.hmSlideItem}>
+                <div className={styles.hmSlideInfo}>
 
                   {/* Thumbnail */}
                   {/* {cat.image && (
@@ -172,17 +172,17 @@ const CategoryManager = () => {
                     />
                   )} */}
 
-                  <strong className="hm-slide-title">{cat.name}</strong>
-                  <div className="hm-slide-type">(slug: {cat.slug})</div>
-                  <div className="hm-slide-sub">{cat.description}</div>
+                  <strong className={styles.hmSlideTitle}>{cat.name}</strong>
+                  <div className={styles.hmSlideType}>(slug: {cat.slug})</div>
+                  <div className={styles.hmSlideSub}>{cat.description}</div>
                 </div>
 
-                <div className="hm-slide-actions">
-                  <button className="hm-edit-btn" onClick={() => handleEdit(cat)}>
+                <div className={styles.hmSlideActions}>
+                  <button className={styles.hmEditBtn} onClick={() => handleEdit(cat)}>
                     <Edit size={16} /> Edit
                   </button>
 
-                  <button className="hm-delete-btn" onClick={() => handleDelete(cat._id)}>
+                  <button className={styles.hmDeleteBtn} onClick={() => handleDelete(cat._id)}>
                     <Trash2 size={16} /> Delete
                   </button>
                 </div>
@@ -217,8 +217,8 @@ const CategoryManager = () => {
         />
 
         {/* Upload */}
-        <div className="hm-upload-group">
-          <label className="hm-input-label">Upload Image</label>
+        <div className={styles.hmUploadGroup}>
+          <label className={styles.hmInputLabel}>Upload Image</label>
           <input type="file" accept="image/*" onChange={handleImageUpload} />
         </div>
 
@@ -231,7 +231,7 @@ const CategoryManager = () => {
 
         {/* Preview */}
         {form.image && (
-          <div className="hm-preview">
+          <div className={styles.hmPreview}>
             <img src={form.image} alt="Preview" />
           </div>
         )}
@@ -266,7 +266,7 @@ const CategoryManager = () => {
           }
         />
 
-        <button className="hm-save-btn" onClick={handleSave}>
+        <button className={styles.hmSaveBtn} onClick={handleSave}>
           {editId ? "Update" : "Save"}
         </button>
       </Modal>

@@ -1,20 +1,20 @@
 import React from "react";
 import Link from "next/link";
-import "../styles/Footer.css";
-/* Social icons — using compact SVG since lucide doesn't include brand icons */
+import { Phone, Mail, MapPin } from "lucide-react";
+import styles from "../styles/Footer.module.css";
 
 const Footer = () => (
-  <footer className="footer-wrapper" role="contentinfo">
+  <footer className={styles["footer-wrapper"]} role="contentinfo">
 
-    <div className="footer-grid">
+    <div className={styles["footer-grid"]}>
 
       {/* Col 1: Brand */}
-      <div className="footer-branding">
-        <img src="/assets/printkeeLogo.webp" alt="Printkee logo" className="footer-logo-img" />
-        <p className="footer-description">
+      <div className={styles["footer-branding"]}>
+        <img src="/assets/printkeeLogo.webp" alt="Printkee logo" className={styles["footer-logo-img"]} />
+        <p className={styles["footer-description"]}>
           India's leading corporate gifting and custom merchandise solution for businesses of all sizes.
         </p>
-        <div className="footer-socials">
+        <div className={styles["footer-socials"]}>
           <a href="https://www.facebook.com/share/1DF9K4wAHX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
@@ -31,8 +31,8 @@ const Footer = () => (
       </div>
 
       {/* Col 2: Shop by Category */}
-      <div className="footer-column">
-        <h3 className="footer-heading">Shop by Category</h3>
+      <div className={styles["footer-column"]}>
+        <h3 className={styles["footer-heading"]}>Shop by Category</h3>
         <ul>
           <li><Link href="/apparel-and-accessories">Apparel & Accessories</Link></li>
           <li><Link href="/bags-and-travel">Bags & Travel</Link></li>
@@ -46,50 +46,60 @@ const Footer = () => (
       </div>
 
       {/* Col 3: Company */}
-      <div className="footer-column">
-        <h3 className="footer-heading">Company</h3>
+      <div className={styles["footer-column"]}>
+        <h3 className={styles["footer-heading"]}>Company</h3>
         <ul>
           <li><Link href="/about">About Us</Link></li>
-          <li><Link href="/contact">Our Services</Link></li>
-          <li><Link href="/contact">Bulk Order</Link></li>
-          <li><Link href="/contact">Industries</Link></li>
           <li><Link href="/blogs">Blog</Link></li>
+          <li><Link href="/brands">Brands</Link></li>
           <li><Link href="/contact">Contact Us</Link></li>
+          <li><Link href="/sitemap">Sitemap</Link></li>
         </ul>
       </div>
 
-      {/* Col 4: Customer Care */}
-      <div className="footer-column">
-        <h3 className="footer-heading">Customer Care</h3>
-        <ul>
-          <li><Link href="/contact">Track Order</Link></li>
-          <li><Link href="/contact">Shipping Policy</Link></li>
-          <li><Link href="/contact">Bulk Order</Link></li>
-          <li><Link href="/contact">Privacy Policy</Link></li>
-          <li><Link href="/contact">Terms & Conditions</Link></li>
-          <li><Link href="/sitemap">Sitemap</Link></li>
-          <li><Link href="/contact">FAQs</Link></li>
+      {/* Col 4: Contact */}
+      <div className={styles["footer-column"]}>
+        <h3 className={styles["footer-heading"]}>Contact Us</h3>
+        <ul className={styles["footer-contact-list"]}>
+          <li>
+            <a href="tel:+918800904543" className={styles["footer-contact-item"]}>
+              <Phone size={13} aria-hidden="true" />
+              <span>+91 88009 04543</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:sales@printkee.com" className={styles["footer-contact-item"]}>
+              <Mail size={13} aria-hidden="true" />
+              <span>sales@printkee.com</span>
+            </a>
+          </li>
+          <li>
+            <div className={styles["footer-contact-item"]}>
+              <MapPin size={13} aria-hidden="true" />
+              <span>F90/1, Beside ESIC Hospital, Okhla Industrial Area Phase 1, New Delhi – 110020, India</span>
+            </div>
+          </li>
         </ul>
       </div>
 
       {/* Col 5: Newsletter */}
-      <div className="footer-column">
-        <h3 className="footer-heading">Newsletter</h3>
-        <p className="footer-newsletter-text">
+      <div className={styles["footer-column"]}>
+        <h3 className={styles["footer-heading"]}>Newsletter</h3>
+        <p className={styles["footer-newsletter-text"]}>
           Subscribe to get updates on new products and offers.
         </p>
-        <div className="footer-newsletter-form">
+        <div className={styles["footer-newsletter-form"]}>
           <input
             type="email"
             placeholder="Enter your email"
-            className="footer-newsletter-input"
+            className={styles["footer-newsletter-input"]}
             aria-label="Email for newsletter"
           />
-          <button type="button" className="footer-newsletter-btn">
+          <button type="button" className={styles["footer-newsletter-btn"]}>
             Subscribe
           </button>
         </div>
-        <div className="footer-secure" style={{ marginTop: "1rem" }}>
+        <div className={styles["footer-secure"]} style={{ marginTop: "1rem" }}>
           🔒 <span>100% Secure &amp; Safe Payments</span>
         </div>
       </div>
@@ -97,9 +107,9 @@ const Footer = () => (
     </div>
 
     {/* Bottom bar */}
-    <div className="footer-bottom">
+    <div className={styles["footer-bottom"]}>
       <span>© {new Date().getFullYear()} Printkee. All rights reserved.</span>
-      <div className="footer-bottom-right">
+      <div className={styles["footer-bottom-right"]}>
         <Link href="/contact">Privacy Policy</Link>
         <Link href="/contact">Terms of Service</Link>
         <Link href="/sitemap">Sitemap</Link>

@@ -1,20 +1,20 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import "../styles/FloatingButton.css";
+import styles from "../styles/FloatingButton.module.css";
 
 const FloatingButtons = () => {
   return (
-    <div className="floating-buttons">
+    <div className={styles["floating-buttons"]}>
       <a
         href="https://wa.me/+918750708222"
-        className="whatsapp-button"
+        className={styles["whatsapp-button"]}
         target="_blank"
         rel="noopener noreferrer"
         title="Chat with us on WhatsApp"
         aria-label="Chat with us on WhatsApp"
         role="button"
       >
-        <FaWhatsapp className="icon-btn" aria-hidden="true" />
+        <FaWhatsapp className={styles["icon-btn"]} aria-hidden="true" />
       </a>
     </div>
   );

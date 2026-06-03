@@ -1,0 +1,203 @@
+/* ============================================================
+   CATEGORY SLIDER — minimal, purple / gold palette
+   ============================================================ */
+
+/* ── SECTION ───────────────────────────────────────────────── */
+.section {
+  background: var(--bg-white, #fff);
+  border-top: 1px solid var(--border, #E5DCF5);
+  padding: 1.75rem var(--px, 1.5rem) 2rem;
+}
+
+/* ── HEADER ────────────────────────────────────────────────── */
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 1.25rem;
+  max-width: var(--max-w, 1200px);
+}
+
+.heading {
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.viewAll {
+  color: var(--orange, #C9A84C);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+.viewAll:hover { opacity: 0.75; }
+
+/* ── SWIPER ────────────────────────────────────────────────── */
+.swiper {
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  padding-bottom: 2rem !important;
+}
+
+/* All slides in a row → same height; card fills the slide */
+.swiper :global(.swiper-slide) { height: auto; }
+.swiper :global(.swiper-wrapper) { align-items: stretch; }
+
+/* ── CARD — entire card is a link ──────────────────────────── */
+.card {
+  align-items: center;
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  height: 100%;          /* stretch to fill the slide */
+  padding: 0.9rem 0.5rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.card:hover {
+  background: var(--green-light, #EDE1FF);
+  border-color: var(--green, #3D1C8A);
+}
+
+/* ── IMAGE CONTAINER ───────────────────────────────────────── */
+.imgWrap {
+  align-items: center;
+  background: var(--bg-subtle, #F3EEFF);
+  border-radius: 1px;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 60px;
+}
+
+.img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  transition: opacity 0.15s ease;
+}
+.card:hover .img { opacity: 0.9; }
+
+/* NEW badge */
+.badge {
+  background: var(--peach, #E8855A);
+  border-radius: 1px;
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 800;
+  left: 3px;
+  letter-spacing: 0.04em;
+  padding: 1px 4px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 3px;
+}
+
+/* ── CATEGORY NAME ─────────────────────────────────────────── */
+.name {
+  color: var(--ink, #1A0A3D);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  /* always reserve exactly 2 lines so every card is the same height */
+  min-height: calc(0.72rem * 1.3 * 2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── SWIPER NAVIGATION ARROWS ──────────────────────────────── */
+.section :global(.swiper-button-prev),
+.section :global(.swiper-button-next) {
+  background: #fff;
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 50%;
+  color: var(--ink, #1A0A3D);
+  height: 26px;
+  margin-top: -13px;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  width: 26px;
+}
+.section :global(.swiper-button-prev)::after,
+.section :global(.swiper-button-next)::after {
+  font-size: 8px;
+  font-weight: 900;
+}
+.section :global(.swiper-button-prev):hover,
+.section :global(.swiper-button-next):hover {
+  background: var(--green, #3D1C8A);
+  border-color: var(--green, #3D1C8A);
+  color: #fff;
+}
+
+/* ── SWIPER PAGINATION DOTS ────────────────────────────────── */
+.section :global(.swiper-pagination-bullet) {
+  background: var(--border, #E5DCF5);
+  border-radius: 1px;
+  height: 5px;
+  opacity: 1;
+  width: 5px;
+}
+.section :global(.swiper-pagination-bullet-active) {
+  background: var(--green, #3D1C8A);
+  border-radius: 1px;
+  width: 16px;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+
+/* Large screens — slightly more padding */
+@media (min-width: 1280px) {
+  .section { padding: 2rem var(--px, 1.5rem) 2.25rem; }
+  .imgWrap { height: 68px; width: 68px; }
+  .name { font-size: 0.75rem; }
+}
+
+/* Tablet landscape */
+@media (max-width: 1024px) {
+  .imgWrap { height: 56px; width: 56px; }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .section { padding: 1.5rem var(--px, 1rem) 1.75rem; }
+  .header { margin-bottom: 1rem; }
+  .imgWrap { height: 52px; width: 52px; }
+  .name { font-size: 0.7rem; }
+
+  /* Hide arrows on tablet — swipe is enough */
+  .section :global(.swiper-button-prev),
+  .section :global(.swiper-button-next) { display: none; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .section { padding: 1.25rem 1rem 1.5rem; }
+  .card { padding: 0.75rem 0.4rem 0.65rem; gap: 0.45rem; }
+  .imgWrap { height: 48px; width: 48px; }
+  .name { font-size: 0.65rem; }
+  .heading { font-size: 0.9rem; }
+  .viewAll { font-size: 0.72rem; }
+}
+
+/* Small mobile */
+@media (max-width: 400px) {
+  .imgWrap { height: 44px; width: 44px; }
+  .card { padding: 0.65rem 0.35rem 0.55rem; }
+  .name { font-size: 0.62rem; }
+}

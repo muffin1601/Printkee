@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import "../styles/CTABanner.css";
+import styles from "../styles/CTABanner.module.css";
 
 const CTABanner = ({
   imageSrc,
@@ -9,16 +9,16 @@ const CTABanner = ({
 }) => {
   return (
     <div
-      className="cta-banner"
+      className={styles["cta-banner"]}
       role="region"
       aria-label="Promotional call to action banner"
     >
-      <figure className="cta-figure">
+      <figure className={styles["cta-figure"]}>
         <Link href={linkTo} aria-label="Visit contact page to request a quote">
           <img
             src={imageSrc}
             alt={alt}
-            className="cta-full-image"
+            className={styles["cta-full-image"]}
             loading="lazy"
             decoding="async"
           />

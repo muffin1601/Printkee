@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "../styles/ColorPalette.css";
+import styles from "../styles/ColorPalette.module.css";
 
 const ColorPalette = ({
   canvasRef,
@@ -45,15 +45,15 @@ const ColorPalette = ({
   };
 
   return (
-    <div className="color-palette-container">
+    <div className={styles["color-palette-container"]}>
       {Object.entries(labels).map(([part, label]) => (
-        <div className="color-palette-row" key={part}>
-          <label className="color-palette-label">{label}</label>
-          <div className="color-swatches">
+        <div className={styles["color-palette-row"]} key={part}>
+          <label className={styles["color-palette-label"]}>{label}</label>
+          <div className={styles["color-swatches"]}>
             {colorSet.map((c) => (
               <div
                 key={c}
-                className={`color-swatch ${globalPartColors[part] === c ? "selected" : ""}`}
+                className={`${styles.colorSwatch} ${globalPartColors[part] === c ? styles.selected : ""}`}
                 style={{ backgroundColor: c }}
                 onClick={() => changePartColor(part, c)}
               />

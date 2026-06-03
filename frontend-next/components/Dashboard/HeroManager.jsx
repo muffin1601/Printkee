@@ -5,7 +5,7 @@ import axios from "axios";
 import Modal from "../../components/Dashboard/Modal";
 import FormInput from "../../components/Dashboard/FormInput";
 import AdminLayout from "../../components/Dashboard/AdminLayout";
-import "../../styles/admin/HeroManager.css";
+import styles from "../../styles/admin/HeroManager.module.css";
 
 const HeroManager = () => {
   const [slides, setSlides] = useState([]);
@@ -123,45 +123,45 @@ const HeroManager = () => {
 
   return (
     <AdminLayout>
-      <div className="hm-wrapper">
-        <div className="hm-header">
-          <h3 className="hm-title">
+      <div className={styles.hmWrapper}>
+        <div className={styles.hmHeader}>
+          <h3 className={styles.hmTitle}>
             <ImageIcon size={18} /> Hero Section Manager
           </h3>
 
-          <button className="hm-add-btn" onClick={openAddModal}>
+          <button className={styles.hmAddBtn} onClick={openAddModal}>
             <Plus size={16} /> Add Slide
           </button>
         </div>
 
-        <p className="hm-description">
+        <p className={styles.hmDescription}>
           Manage homepage banners (image or video).
         </p>
 
-        <ul className="hm-slide-list">
+        <ul className={styles.hmSlideList}>
           {slides.length === 0 ? (
-            <li className="hm-empty">No banners available.</li>
+            <li className={styles.hmEmpty}>No banners available.</li>
           ) : (
             slides.map((slide) => (
-              <li key={slide.id} className="hm-slide-item">
-                <div className="hm-slide-info">
-                  <strong className="hm-slide-title">
+              <li key={slide.id} className={styles.hmSlideItem}>
+                <div className={styles.hmSlideInfo}>
+                  <strong className={styles.hmSlideTitle}>
                     {slide.title || "Untitled"}
                   </strong>
-                  <span className="hm-slide-type">({slide.type})</span>
-                  <div className="hm-slide-sub">{slide.subtitle}</div>
+                  <span className={styles.hmSlideType}>({slide.type})</span>
+                  <div className={styles.hmSlideSub}>{slide.subtitle}</div>
                 </div>
 
-                <div className="hm-slide-actions">
+                <div className={styles.hmSlideActions}>
                   <button
-                    className="hm-edit-btn"
+                    className={styles.hmEditBtn}
                     onClick={() => handleEdit(slide)}
                   >
                     <Edit size={16} /> Edit
                   </button>
 
                   <button
-                    className="hm-delete-btn"
+                    className={styles.hmDeleteBtn}
                     onClick={() => handleDelete(slide.id)}
                   >
                     <Trash2 size={16} /> Delete
@@ -193,10 +193,10 @@ const HeroManager = () => {
         />
 
         {/* Type Selector */}
-        <div className="hm-form-group">
-          <label className="hm-input-label">Type</label>
+        <div className={styles.hmFormGroup}>
+          <label className={styles.hmInputLabel}>Type</label>
           <select
-            className="hm-select"
+            className={styles.hmSelect}
             value={form.type}
             onChange={(e) => setForm({ ...form, type: e.target.value })}
           >
@@ -206,12 +206,12 @@ const HeroManager = () => {
         </div>
 
         {/*  Upload Input */}
-        <div className="hm-upload-group">
-          <label className="hm-input-label">Upload Image/Video</label>
+        <div className={styles.hmUploadGroup}>
+          <label className={styles.hmInputLabel}>Upload Image/Video</label>
           <input
             type="file"
             accept="image/*,video/*"
-            className="hm-file-input"
+            className={styles.hmFileInput}
             onChange={handleFileUpload}
           />
         </div>
@@ -225,7 +225,7 @@ const HeroManager = () => {
 
         {/*  Preview */}
         {form.src && (
-          <div className="hm-preview">
+          <div className={styles.hmPreview}>
             {form.type === "image" ? (
               <img src={form.src} alt="Preview" />
             ) : (
@@ -237,7 +237,7 @@ const HeroManager = () => {
         )}
 
         {/*  Save Button */}
-        <button className="hm-save-btn" onClick={handleSave}>
+        <button className={styles.hmSaveBtn} onClick={handleSave}>
           {editId ? "Update" : "Save"}
         </button>
       </Modal>

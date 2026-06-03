@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { fabric } from "fabric";
 import jsPDF from "jspdf";
-import "../styles/PreviewModal.css";
+import styles from "../styles/PreviewModal.module.css";
 import { toast } from "react-toastify";
 import SubmitForm from "./SubmitForm";
 
@@ -207,18 +207,18 @@ const PreviewModal = ({ isOpen, onClose, viewStates, globalPartColors = {} }) =>
   const labels = ["Front View", "Back View", "Left View", "Right View"];
 
   return (
-    <div className="preview-modal-overlay">
-      <div className="preview-modal-content">
-        <button className="close-button" onClick={onClose}>&times;</button>
-        <h3 className="head">Preview Design</h3>
-        <div className="download-buttons">
+    <div className={styles["preview-modal-overlay"]}>
+      <div className={styles["preview-modal-content"]}>
+        <button className={styles["close-button"]} onClick={onClose}>&times;</button>
+        <h3 className={styles["head"]}>Preview Design</h3>
+        <div className={styles["download-buttons"]}>
           <button onClick={() => setShowForm(true)}>Download Design</button>
         </div>
-        <div className="preview-gallery">
+        <div className={styles["preview-gallery"]}>
           {canvasRefs.current.map((ref, idx) => (
-            <div key={`preview-${idx}`} className="preview-item">
-              <canvas ref={ref} width={300} height={300} className="preview-canvas" />
-              <p className="preview-label">{labels[idx]}</p>
+            <div key={`preview-${idx}`} className={styles["preview-item"]}>
+              <canvas ref={ref} width={300} height={300} className={styles["preview-canvas"]} />
+              <p className={styles["preview-label"]}>{labels[idx]}</p>
             </div>
           ))}
         </div>

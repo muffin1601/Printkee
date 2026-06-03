@@ -5,7 +5,7 @@ import axios from "axios";
 import Modal from "../../components/Dashboard/Modal";
 import FormInput from "../../components/Dashboard/FormInput";
 import AdminLayout from "../../components/Dashboard/AdminLayout";
-import "../../styles/admin/HeroManager.css";
+import styles from "../../styles/admin/HeroManager.module.css";
 
 const SubcategoryManager = () => {
   const [subcategories, setSubcategories] = useState([]);
@@ -167,41 +167,41 @@ const SubcategoryManager = () => {
 
   return (
     <AdminLayout>
-      <div className="hm-wrapper">
-        <div className="hm-header">
-          <h3 className="hm-title">
+      <div className={styles.hmWrapper}>
+        <div className={styles.hmHeader}>
+          <h3 className={styles.hmTitle}>
             <ImageIcon size={18} /> Subcategory Manager
           </h3>
 
-          <button className="hm-add-btn" onClick={openAddModal}>
+          <button className={styles.hmAddBtn} onClick={openAddModal}>
             <Plus size={16} /> Add Subcategory
           </button>
         </div>
 
-        <p className="hm-description">Manage all subcategories.</p>
+        <p className={styles.hmDescription}>Manage all subcategories.</p>
 
         {/*  List */}
-        <ul className="hm-slide-list">
+        <ul className={styles.hmSlideList}>
           {currentSubs.length === 0 ? (
-            <li className="hm-empty">No subcategories found.</li>
+            <li className={styles.hmEmpty}>No subcategories found.</li>
           ) : (
             currentSubs.map((sub) => (
-              <li key={sub._id} className="hm-slide-item">
+              <li key={sub._id} className={styles.hmSlideItem}>
 
-                <div className="hm-slide-info">
-                  <strong className="hm-slide-title">{sub.name}</strong>
-                  <div className="hm-slide-type">(slug: {sub.slug})</div>
-                  <div className="hm-slide-sub">
+                <div className={styles.hmSlideInfo}>
+                  <strong className={styles.hmSlideTitle}>{sub.name}</strong>
+                  <div className={styles.hmSlideType}>(slug: {sub.slug})</div>
+                  <div className={styles.hmSlideSub}>
                     Category: {sub.category?.name}
                   </div>
                 </div>
 
-                <div className="hm-slide-actions">
-                  <button className="hm-edit-btn" onClick={() => handleEdit(sub)}>
+                <div className={styles.hmSlideActions}>
+                  <button className={styles.hmEditBtn} onClick={() => handleEdit(sub)}>
                     <Edit size={16} /> Edit
                   </button>
 
-                  <button className="hm-delete-btn" onClick={() => handleDelete(sub._id)}>
+                  <button className={styles.hmDeleteBtn} onClick={() => handleDelete(sub._id)}>
                     <Trash2 size={16} /> Delete
                   </button>
                 </div>
@@ -213,10 +213,10 @@ const SubcategoryManager = () => {
 
         {/* Pagination UI */}
         {totalPages > 1 && (
-          <div className="pagination-container">
+          <div className={styles.paginationContainer}>
             {/* Prev */}
             <button
-              className="pg-btn"
+              className={styles.pgBtn}
               disabled={currentPage === 1}
               onClick={() => goToPage(currentPage - 1)}
             >
@@ -230,7 +230,7 @@ const SubcategoryManager = () => {
                 buttons.push(
                   <button
                     key={p}
-                    className={`pg-number ${currentPage === p ? "active" : ""}`}
+                    className={`${styles.pgNumber} ${currentPage === p ? styles.active : ""}`}
                     onClick={() => goToPage(p)}
                   >
                     {p}
@@ -241,7 +241,7 @@ const SubcategoryManager = () => {
               // Always show first page
               if (currentPage > 3) {
                 addButton(1);
-                buttons.push(<span key="dots-left" className="pg-dots">...</span>);
+                buttons.push(<span key="dots-left" className={styles.pgDots}>...</span>);
               }
 
               // Middle pages
@@ -252,7 +252,7 @@ const SubcategoryManager = () => {
 
               // Always show last page
               if (currentPage < totalPages - 2) {
-                buttons.push(<span key="dots-right" className="pg-dots">...</span>);
+                buttons.push(<span key="dots-right" className={styles.pgDots}>...</span>);
                 addButton(totalPages);
               }
 
@@ -261,7 +261,7 @@ const SubcategoryManager = () => {
 
             {/* Next */}
             <button
-              className="pg-btn"
+              className={styles.pgBtn}
               disabled={currentPage === totalPages}
               onClick={() => goToPage(currentPage + 1)}
             >
@@ -295,10 +295,10 @@ const SubcategoryManager = () => {
           onChange={(e) => setForm({ ...form, description: e.target.value })}
         />
 
-        <div className="hm-form-group">
-          <label className="hm-input-label">Select Category</label>
+        <div className={styles.hmFormGroup}>
+          <label className={styles.hmInputLabel}>Select Category</label>
           <select
-            className="hm-select"
+            className={styles.hmSelect}
             value={form.category}
             onChange={(e) => setForm({ ...form, category: e.target.value })}
           >
@@ -312,8 +312,8 @@ const SubcategoryManager = () => {
         </div>
 
         {/*  Upload image */}
-        <div className="hm-upload-group">
-          <label className="hm-input-label">Upload Image</label>
+        <div className={styles.hmUploadGroup}>
+          <label className={styles.hmInputLabel}>Upload Image</label>
           <input type="file" accept="image/*" onChange={handleImageUpload} />
         </div>
 
@@ -324,7 +324,7 @@ const SubcategoryManager = () => {
         />
 
         {form.image && (
-          <div className="hm-preview">
+          <div className={styles.hmPreview}>
             <img src={form.image} alt="Preview" />
           </div>
         )}
@@ -359,7 +359,7 @@ const SubcategoryManager = () => {
           }
         />
 
-        <button className="hm-save-btn" onClick={handleSave}>
+        <button className={styles.hmSaveBtn} onClick={handleSave}>
           {editId ? "Update" : "Save"}
         </button>
       </Modal>

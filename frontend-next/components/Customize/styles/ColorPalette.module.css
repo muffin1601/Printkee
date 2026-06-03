@@ -1,0 +1,46 @@
+/* COLOR PALETTE — camelCase names match ColorPalette.jsx */
+.color-palette-container {
+  font-family: var(--font);
+  padding: 1rem;
+}
+
+.color-palette-row { margin-bottom: 1rem; }
+
+.color-palette-label {
+  color: var(--ink, #1A0A3D);
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.color-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* JSX uses styles.colorSwatch */
+.colorSwatch {
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 22px;
+  transition: border-color 0.15s ease;
+  width: 22px;
+}
+.colorSwatch:hover { border-color: var(--green, #3D1C8A); }
+
+/* JSX uses styles.selected */
+.selected {
+  border-color: var(--orange, #C9A84C);
+  outline: 1px solid var(--orange, #C9A84C);
+  outline-offset: 1px;
+}
+
+@media (max-width: 480px) {
+  .colorSwatch { height: 20px; width: 20px; }
+  .color-palette-row { margin-bottom: 0.75rem; }
+}

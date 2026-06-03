@@ -1,7 +1,7 @@
 "use client";
 // components/Toast.jsx
 import React, { useEffect, useRef, useState } from 'react';
-import '../styles/Toast.css';
+import styles from '../styles/Toast.module.css';
 import { FaCheckCircle, FaExclamationCircle, FaInfoCircle, FaTimes } from 'react-icons/fa';
 
 const icons = {
@@ -36,20 +36,27 @@ const Toast = ({ type = 'info', message, onClose }) => {
     setTimeout(() => onClose(), 200); // allow fade-out animation if CSS exists
   };
 
+  const typeClass = {
+    success: styles.printkeToastSuccess,
+    error: styles.printkeToastError,
+    info: styles.printkeToastInfo,
+    warning: styles.printkeToastWarning,
+  }[type] || "";
+
   return (
     <div
       ref={toastRef}
-      className={`printkee-toast printkee-toast-${type} ${closing ? "closing" : ""}`}
+      className={`${styles.printkeeToast} ${typeClass} ${closing ? styles.closing : ""}`}
       role="alert"
       aria-live="assertive"
       tabIndex="0"
     >
-      <span className="toast-icon">{icons[type]}</span>
+      <span className={styles.toastIcon}>{icons[type]}</span>
 
-      <span className="toast-message">{message}</span>
+      <span className={styles.toastMessage}>{message}</span>
 
       <button
-        className="toast-close"
+        className={styles.toastClose}
         aria-label="Close notification"
         onClick={triggerClose}
         onKeyDown={(e) => {

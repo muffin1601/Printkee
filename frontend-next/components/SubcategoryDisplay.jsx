@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import "../styles/SubcategoryDisplay.css";
+import styles from "../styles/SubcategoryDisplay.module.css";
 import categoryHighlights from "../data/highlightsdata";
 import aboutSubcategoryData from "../data/faqsdata";
 import Testimonials from "./Testimonials";
@@ -27,21 +27,21 @@ const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
   return (
     <>
       {/* HEADER */}
-      <div className="subcategory-header-3">
-        <div className="subcategory-header-content-3">
-          <Link href="/" className="back-link-3" aria-label="Go back to homepage">
-            <div className="circle-3">
-              <span className="arrow-3">&larr;</span>
+      <div className={styles["subcategory-header-3"]}>
+        <div className={styles["subcategory-header-content-3"]}>
+          <Link href="/" className={styles["back-link-3"]} aria-label="Go back to homepage">
+            <div className={styles["circle-3"]}>
+              <span className={styles["arrow-3"]}>&larr;</span>
             </div>
-            <span className="span-name-3">Back to home</span>
+            <span className={styles["span-name-3"]}>Back to home</span>
           </Link>
 
-          <h1 className="subcategory-title-3">{displayH1}</h1>
-          {displayH2 && <h2 className="subcategory-subtitle-3">{displayH2}</h2>}
-          <p className="subcategory-description-3">{categoryData.description}</p>
+          <h1 className={styles["subcategory-title-3"]}>{displayH1}</h1>
+          {displayH2 && <h2 className={styles["subcategory-subtitle-3"]}>{displayH2}</h2>}
+          <p className={styles["subcategory-description-3"]}>{categoryData.description}</p>
         </div>
 
-        <div className="head-img">
+        <div className={styles["head-img"]}>
           <img
             loading="lazy"
             src={`/assets/categories/${categorySlug}.webp`}
@@ -51,22 +51,22 @@ const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
       </div>
 
       {/* SUBCATEGORY GRID */}
-      <section className="subcategory-container" aria-label="Subcategory list">
-        <div className="subcategory-grid">
+      <section className={styles["subcategory-container"]} aria-label="Subcategory list">
+        <div className={styles["subcategory-grid"]}>
           {categoryData.subcategories?.map((sub) => (
             <Link
               key={sub._id}
               href={`/${categorySlug}/${sub.slug}`}
-              className="subcategory-card"
+              className={styles["subcategory-card"]}
               aria-label={`Explore ${sub.name}`}
             >
               <img
                 src={sub.image}
                 loading="lazy"
                 alt={`${sub.name} subcategory image`}
-                className="subcategory-image"
+                className={styles["subcategory-image"]}
               />
-              <h3 className="subcategory-name">{sub.name}</h3>
+              <h3 className={styles["subcategory-name"]}>{sub.name}</h3>
             </Link>
           ))}
         </div>
@@ -74,16 +74,16 @@ const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
 
       {/* HIGHLIGHTS */}
       {categoryHighlights[categorySlug] && (
-        <section className="highlights-section">
-          <h2 className="highlights-heading">
+        <section className={styles["highlights-section"]}>
+          <h2 className={styles["highlights-heading"]}>
             {categoryHighlights[categorySlug].heading}
           </h2>
-          <div className="highlights-grid">
+          <div className={styles["highlights-grid"]}>
             {categoryHighlights[categorySlug].highlights.map((highlight, index) => (
-              <div key={index} className="highlight-card">
-                <div className="highlight-icon">{highlight.icon}</div>
-                <h3 className="highlight-title">{highlight.title}</h3>
-                <p className="highlight-description">{highlight.description}</p>
+              <div key={index} className={styles["highlight-card"]}>
+                <div className={styles["highlight-icon"]}>{highlight.icon}</div>
+                <h3 className={styles["highlight-title"]}>{highlight.title}</h3>
+                <p className={styles["highlight-description"]}>{highlight.description}</p>
               </div>
             ))}
           </div>
@@ -92,26 +92,26 @@ const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
 
       {/* ABOUT + FAQ */}
       {aboutSubcategoryData[categorySlug] && (
-        <section className="aboutsubcat-wrapper">
-          <div className="aboutsubcat-card">
-            <h2 className="aboutsubcat-heading">
+        <section className={styles["aboutsubcat-wrapper"]}>
+          <div className={styles["aboutsubcat-card"]}>
+            <h2 className={styles["aboutsubcat-heading"]}>
               {aboutSubcategoryData[categorySlug].heading}
             </h2>
-            <p className="aboutsubcat-description">
+            <p className={styles["aboutsubcat-description"]}>
               {aboutSubcategoryData[categorySlug].description}
             </p>
-            <div className="aboutsubcat-faqs">
+            <div className={styles["aboutsubcat-faqs"]}>
               {aboutSubcategoryData[categorySlug].faqs.map((faq, index) => (
-                <div key={index} className="aboutsubcat-faq-item">
+                <div key={index} className={styles["aboutsubcat-faq-item"]}>
                   <button
-                    className="aboutsubcat-faq-question"
+                    className={styles["aboutsubcat-faq-question"]}
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
                     aria-expanded={openFaq === index}
                   >
                     {faq.question}
                   </button>
                   {openFaq === index && (
-                    <div className="aboutsubcat-faq-answer">
+                    <div className={styles["aboutsubcat-faq-answer"]}>
                       <p>{faq.answer}</p>
                     </div>
                   )}

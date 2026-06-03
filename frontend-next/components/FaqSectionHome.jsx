@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import "../styles/FaqSectionHome.css";
+import styles from "../styles/FaqSectionHome.module.css";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqData = [
@@ -65,36 +65,36 @@ const FaqSectionHome = () => {
 
   return (
     <section
-      className="faqhome-section"
+      className={styles["faqhome-section"]}
       role="region"
       aria-labelledby="faqhome-title"
     >
-      <h2 id="faqhome-title" className="faqhome-title">
+      <h2 id="faqhome-title" className={styles["faqhome-title"]}>
         FAQ – Frequently Asked Questions
       </h2>
 
-      <p className="faqhome-subtitle">
+      <p className={styles["faqhome-subtitle"]}>
         Find answers to the most commonly asked questions about our promotional
         products, delivery, customization, and corporate gifting services.
       </p>
 
-      <div className="faqhome-container" role="list">
+      <div className={styles["faqhome-container"]} role="list">
         {faqData.map((faq, index) => {
           const isOpen = activeIndex === index;
           const answerId = `faq-answer-${index}`;
           const questionId = `faq-question-${index}`;
 
           return (
-            <div className="faqhome-item" key={index} role="listitem">
+            <div className={styles["faqhome-item"]} key={index} role="listitem">
               <button
                 id={questionId}
-                className="faqhome-question"
+                className={styles["faqhome-question"]}
                 aria-expanded={isOpen}
                 aria-controls={answerId}
                 onClick={() => toggleFAQ(index)}
               >
-                <span className="faqhome-question-text">{faq.question}</span>
-                <span className="faqhome-icon" aria-hidden="true">
+                <span className={styles["faqhome-question-text"]}>{faq.question}</span>
+                <span className={styles["faqhome-icon"]} aria-hidden="true">
                   {isOpen ? <ChevronUp /> : <ChevronDown />}
                 </span>
               </button>
@@ -104,9 +104,9 @@ const FaqSectionHome = () => {
                   id={answerId}
                   role="region"
                   aria-labelledby={questionId}
-                  className="faqhome-answer"
+                  className={styles["faqhome-answer"]}
                 >
-                  <p className="faqhome-answer-text">{faq.answer}</p>
+                  <p className={styles["faqhome-answer-text"]}>{faq.answer}</p>
                 </div>
               )}
             </div>

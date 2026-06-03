@@ -1,0 +1,204 @@
+/* ============================================================
+   ABOUT US — camelCase class names, original content kept,
+   restyled to match home page: dark hero, small images
+   ============================================================ */
+
+/* ── PAGE WRAPPER ──────────────────────────────────────────── */
+.aboutusContainer {
+  background: var(--bg, #FAF8FF);
+}
+
+/* ── HERO — dark purple band, text + small image ───────────── */
+.aboutusHero {
+  align-items: center;
+  background: var(--bg-dark, #2D1167);
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr 280px;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 2.5rem var(--px, 1.5rem);
+}
+
+/* Inner content max-width */
+.aboutusHero > .aboutusText {
+  margin: 0 auto 0 max(0px, calc((100vw - 1200px) / 2));
+  max-width: 680px;
+}
+
+.aboutusText h1 {
+  color: #fff;
+  font-size: clamp(1.3rem, 2.8vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.85rem;
+}
+
+/* Gold eyebrow above h1 via pseudo — add to first child */
+.aboutusText h1::before {
+  color: var(--orange, #C9A84C);
+  content: 'ABOUT PRINTKEE';
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  margin-bottom: 0.5rem;
+}
+
+.aboutusText p {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+
+/* Hero image — small, tucked to the right */
+.aboutusHeroImage {
+  aspect-ratio: 4 / 3;
+  border-radius: 2px;
+  display: block;
+  max-height: 200px;
+  object-fit: cover;
+  opacity: 0.85;
+  width: 100%;
+}
+
+/* ── CONTENT SECTIONS ──────────────────────────────────────── */
+.aboutusSection {
+  border-top: 1px solid var(--border, #E5DCF5);
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  padding: 1.75rem var(--px, 1.5rem);
+}
+
+.aboutusSection h2 {
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+/* Two-column: text takes more space, image is small */
+.aboutusFlex {
+  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 220px;
+}
+
+.aboutusFlex p {
+  color: var(--ink-3, #7B6BA8);
+  font-size: 0.80rem;
+  line-height: 1.75;
+}
+
+/* Bullet list */
+.aboutusFlex ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aboutusFlex ul li {
+  color: var(--ink-2, #3E2D6B);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.aboutusFlex ul li::before {
+  color: var(--orange, #C9A84C);
+  content: '→';
+  left: 0;
+  position: absolute;
+}
+.aboutusFlex ul li strong {
+  color: var(--ink, #1A0A3D);
+  font-weight: 700;
+}
+
+/* Section images — fixed small size */
+.aboutusFlex img {
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  display: block;
+  height: 180px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* ── CTA BAND ──────────────────────────────────────────────── */
+.aboutusContactCta {
+  background: var(--bg-darkest, #1A0845);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 2.5rem var(--px, 1.5rem);
+  text-align: center;
+}
+
+.aboutusContactCta h3 {
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.55rem;
+}
+
+.aboutusContactCta p {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  margin: 0 auto 1.5rem;
+  max-width: 52ch;
+}
+
+/* White → gold on hover */
+.aboutusBtn {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  color: var(--green-dark, #2D1167);
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 800;
+  gap: 0.4rem;
+  min-height: 38px;
+  padding: 0 1.5rem;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.aboutusBtn:hover {
+  background: var(--orange, #C9A84C);
+  border-color: var(--orange, #C9A84C);
+  color: #fff;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .aboutusHero   { grid-template-columns: 1fr; }
+  .aboutusHeroImage { max-height: 180px; max-width: 360px; }
+  .aboutusFlex   { grid-template-columns: 1fr; gap: 1.25rem; }
+  .aboutusFlex img { height: 160px; max-width: 360px; }
+  .aboutusHero > .aboutusText { margin: 0; max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .aboutusHero       { padding: 2rem 1rem; gap: 1.5rem; }
+  .aboutusSection    { padding: 1.5rem 1rem; }
+  .aboutusContactCta { padding: 2rem 1rem; }
+  .aboutusFlex img   { height: 140px; }
+}
+
+@media (max-width: 480px) {
+  .aboutusHero       { padding: 1.5rem 1rem; }
+  .aboutusSection    { padding: 1.25rem 1rem; }
+  .aboutusFlex img   { height: 120px; }
+  .aboutusHeroImage  { display: none; }
+}

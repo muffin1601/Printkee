@@ -1,0 +1,152 @@
+/* ============================================================
+   SITEMAP PAGE — camelCase class names match sitemap/page.jsx
+   Same rules: no shadows, no transforms, 2px radius, purple/gold
+   ============================================================ */
+
+/* ── PAGE WRAPPER ──────────────────────────────────────────── */
+.page {
+  background: var(--bg, #FAF8FF);
+  min-height: 60vh;
+}
+
+/* ── HERO — dark purple band ───────────────────────────────── */
+.hero {
+  background: var(--bg-dark, #2D1167);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2.5rem var(--px, 1.5rem);
+}
+
+.heroInner {
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--orange, #C9A84C);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+.heading {
+  color: #fff;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.sub {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── CONTENT AREA ──────────────────────────────────────────── */
+.content {
+  margin: 0 auto;
+  max-width: var(--max-w, 1200px);
+  padding: 2rem var(--px, 1.5rem) 3rem;
+}
+
+/* ── SECTIONS GRID — 4 columns ─────────────────────────────── */
+.grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ── SINGLE SECTION CARD ───────────────────────────────────── */
+.section {
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  padding: 1.25rem;
+}
+
+/* Section heading with gold left accent bar */
+.sectionTitle {
+  align-items: center;
+  border-bottom: 1px solid var(--border, #E5DCF5);
+  color: var(--ink, #1A0A3D);
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 800;
+  gap: 0.5rem;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+.sectionTitle::before {
+  background: var(--orange, #C9A84C);
+  border-radius: 1px;
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  height: 14px;
+  width: 3px;
+}
+
+/* ── LINK LIST ─────────────────────────────────────────────── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  border-bottom: 1px solid var(--border, #E5DCF5);
+}
+.item:last-child { border-bottom: none; }
+
+.link {
+  align-items: center;
+  color: var(--ink-2, #3E2D6B);
+  display: flex;
+  font-size: 0.78rem;
+  font-weight: 500;
+  gap: 0.4rem;
+  padding: 0.44rem 0.25rem;
+  text-decoration: none;
+  transition: color 0.14s ease, padding-left 0.14s ease;
+}
+.link:hover {
+  color: var(--green, #3D1C8A);
+  padding-left: 0.45rem;
+}
+
+/* Gold arrow › */
+.arrow {
+  color: var(--orange, #C9A84C);
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: 1;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero    { padding: 2rem 1rem; }
+  .content { padding: 1.5rem 1rem 2.5rem; }
+  .grid    { grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
+}
+
+@media (max-width: 480px) {
+  .hero    { padding: 1.5rem 1rem; }
+  .content { padding: 1.25rem 1rem 2rem; }
+  .grid    { grid-template-columns: 1fr; gap: 0.6rem; }
+  .section { padding: 1rem; }
+}

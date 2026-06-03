@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import jsPDF from "jspdf";
-import "../styles/ExportButtons.css";
+import styles from "../styles/ExportButtons.module.css";
 import { toast } from "react-toastify";
 import { FaTimes } from "react-icons/fa";
 import SubmitForm from "./SubmitForm";
@@ -135,14 +135,14 @@ const ExportButtons = ({ thumbnailCanvasRefs, viewStates }) => {
   };
 
   return (
-    <div className="export-buttons-container">
-      <div className="size-inputs">
+    <div className={styles["export-buttons-container"]}>
+      <div className={styles["size-inputs"]}>
         {["M", "L", "XL", "XXL", "3XL", "4XL", "5XL", "6XL", "7XL"].map((size) => (
           <div key={size}>
-            <label className="size-label" htmlFor={`size-${size}`}>{size}:</label>
+            <label className={styles["size-label"]} htmlFor={`size-${size}`}>{size}:</label>
             <input
               id={`size-${size}`}
-              className="size-input"
+              className={styles["size-input"]}
               type="number"
               min="0"
               value={sizes[size]}
@@ -151,10 +151,10 @@ const ExportButtons = ({ thumbnailCanvasRefs, viewStates }) => {
             />
           </div>
         ))}
-        <div className="total-quantity">
-          <label className="size-label">Total:</label>
+        <div className={styles["total-quantity"]}>
+          <label className={styles["size-label"]}>Total:</label>
           <input
-            className="size-input"
+            className={styles["size-input"]}
             type="number"
             value={totalQuantity}
             readOnly
@@ -162,8 +162,8 @@ const ExportButtons = ({ thumbnailCanvasRefs, viewStates }) => {
           />
         </div>
       </div>
-      <div className="type-selection">
-        <select className="type-dropdown" defaultValue="">
+      <div className={styles["type-selection"]}>
+        <select className={styles["type-dropdown"]} defaultValue="">
           <option value="" disabled>
             Select Material Type
           </option>
@@ -171,7 +171,7 @@ const ExportButtons = ({ thumbnailCanvasRefs, viewStates }) => {
           <option value="polycotton">Polycotton</option>
           <option value="dryfit">Dry Fit</option>
         </select>
-        <select className="type-dropdown" defaultValue="">
+        <select className={styles["type-dropdown"]} defaultValue="">
           <option value="" disabled>
             Select Print Type
           </option>
@@ -180,25 +180,25 @@ const ExportButtons = ({ thumbnailCanvasRefs, viewStates }) => {
           <option value="gEmbroidary">Embroidary</option>
         </select>
       </div>
-      <div className="btns-container">
-        <button className="view-schart-btn" onClick={() => setShowChart(true)}>
+      <div className={styles["btns-container"]}>
+        <button className={styles["view-schart-btn"]} onClick={() => setShowChart(true)}>
           View Size Chart
         </button>
-        <button className="export-pdf-btn" onClick={() => setShowForm(true)}>
+        <button className={styles["export-pdf-btn"]} onClick={() => setShowForm(true)}>
           Download Design
         </button>
       </div>
 
       {showChart && (
-        <div className="size-chart-overlay">
-          <div className="size-chart-bg">
-            <div className="size-chart-header">
-              <h2 className="size-chart-title">Size Chart</h2>
-              <button className="close-chart-btn" onClick={() => setShowChart(false)}>
+        <div className={styles["size-chart-overlay"]}>
+          <div className={styles["size-chart-bg"]}>
+            <div className={styles["size-chart-header"]}>
+              <h2 className={styles["size-chart-title"]}>Size Chart</h2>
+              <button className={styles["close-chart-btn"]} onClick={() => setShowChart(false)}>
                 <FaTimes />
               </button>
             </div>
-            <img src="/size-chart.jpeg" alt="Size Chart" className="size-chart-image" />
+            <img src="/size-chart.jpeg" alt="Size Chart" className={styles["size-chart-image"]} />
           </div>
         </div>
       )}

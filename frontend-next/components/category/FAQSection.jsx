@@ -2,7 +2,8 @@
 // src/components/FAQSection.jsx
 
 import React, { useState } from "react";
-import "./FAQSection.css";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import styles from "./FAQSection.module.css";
 import productFAQs from "../../data/productfaqs";
 
 const FAQSection = ({ subcategory }) => {
@@ -19,34 +20,31 @@ const FAQSection = ({ subcategory }) => {
     text.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
   return (
-    <section className="pk-faq-wrapper" aria-labelledby="faq-title">
-      <h2 id="faq-title" className="pk-faq-title">
+    <section className={styles.pkFaqWrapper} aria-labelledby="faq-title">
+      <h2 id="faq-title" className={styles.pkFaqTitle}>
         {formatTitle(subcategory)} – Frequently Asked Questions
       </h2>
 
-      <div className="pk-faq-list">
+      <div className={styles.pkFaqList}>
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
           const answerId = `faq-answer-${index}`;
           const questionId = `faq-question-${index}`;
 
           return (
-            <div key={index} className="pk-faq-card">
-              
+            <div key={index} className={styles.pkFaqCard}>
+
               {/* Accessible button for screen readers */}
               <button
                 id={questionId}
-                className="pk-faq-question"
+                className={styles.pkFaqQuestion}
                 onClick={() => toggleFAQ(index)}
                 aria-expanded={isOpen}
                 aria-controls={answerId}
               >
-                <span className="pk-faq-question-text">{faq.question}</span>
-                <span
-                  className={`pk-faq-icon ${isOpen ? "pk-faq-rotate" : ""}`}
-                  aria-hidden="true"
-                >
-                  ⌄
+                <span className={styles.pkFaqQuestionText}>{faq.question}</span>
+                <span className={styles.pkFaqIcon} aria-hidden="true">
+                  {isOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
                 </span>
               </button>
 
@@ -54,10 +52,10 @@ const FAQSection = ({ subcategory }) => {
                 id={answerId}
                 role="region"
                 aria-labelledby={questionId}
-                className="pk-faq-answer"
+                className={styles.pkFaqAnswer}
                 style={{ maxHeight: isOpen ? "300px" : "0px" }}
               >
-                <p className="pk-faq-answer-text">{faq.answer}</p>
+                <p className={styles.pkFaqAnswerText}>{faq.answer}</p>
               </div>
 
             </div>

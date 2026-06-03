@@ -1,0 +1,113 @@
+/* ============================================================
+   CUSTOMIZER PAGE LAYOUT
+   Shared by CustomizerSVG.jsx + CustomizerAll.jsx
+   All bracket-notation → hyphenated class names
+   ============================================================ */
+
+/* ── PAGE WRAPPER ──────────────────────────────────────────── */
+.customizer-page {
+  background: var(--bg, #FAF8FF);
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 112px);
+}
+
+/* ── PAGE HEADER — dark purple band ───────────────────────── */
+.customizer-title {
+  background: var(--bg-dark, #2D1167);
+  color: #fff;
+  font-size: clamp(0.88rem, 1.8vw, 1rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0.85rem var(--px, 1.5rem);
+}
+
+/* ── MAIN CONTAINER ────────────────────────────────────────── */
+.customizer-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0;
+  padding: 0.75rem var(--px, 1.5rem) 1rem;
+}
+
+/* ── TOP BAR — canvas controls + view tabs ─────────────────── */
+.top-tools-bar {
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0.75rem;
+}
+
+/* ── MAIN BODY — sidebar | controls | canvas ───────────────── */
+.customizer-main {
+  align-items: stretch;
+  display: flex;
+  flex: 1;
+  gap: 0.65rem;
+  min-height: 0;
+}
+
+/* Vertical toolbar — dark sidebar */
+.vertical-toolbar {
+  flex-shrink: 0;
+  width: 76px;
+}
+
+/* Controls panel */
+.customizer-controls {
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  flex-shrink: 0;
+  max-height: 600px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-2, #D0BFEC) transparent;
+  width: 250px;
+}
+.customizer-controls::-webkit-scrollbar { width: 4px; }
+.customizer-controls::-webkit-scrollbar-thumb { background: var(--border-2,#D0BFEC); border-radius: 2px; }
+
+/* Canvas area — takes remaining space */
+.canvas-wrapper {
+  align-items: center;
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  min-height: 480px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .customizer-controls { width: 220px; }
+  .vertical-toolbar    { width: 68px; }
+}
+
+@media (max-width: 992px) {
+  .customizer-container { padding: 0.65rem 1rem 1rem; }
+  .customizer-main      { flex-direction: column; }
+  .vertical-toolbar     { order: -1; width: 100%; }
+  .customizer-controls  { max-height: none; width: 100%; }
+  .canvas-wrapper       { min-height: 380px; width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .customizer-container { padding: 0.5rem 0.75rem 0.75rem; }
+  .canvas-wrapper       { min-height: 300px; }
+}
+
+@media (max-width: 480px) {
+  .customizer-title { padding: 0.75rem 1rem; }
+  .canvas-wrapper   { min-height: 260px; }
+}
