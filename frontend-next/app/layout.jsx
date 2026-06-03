@@ -52,10 +52,50 @@ const websiteSchema = {
   potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: "https://printkee.com/search?q={search_term_string}" }, "query-input": "required name=search_term_string" },
 };
 
+const extensionAttributeCleanup = `
+(() => {
+  const shouldRemove = (name) =>
+    name.startsWith("bis_") || name.startsWith("__processed_");
+
+  const clean = (node) => {
+    if (!node || node.nodeType !== 1) return;
+    Array.from(node.attributes || []).forEach((attr) => {
+      if (shouldRemove(attr.name)) node.removeAttribute(attr.name);
+    });
+  };
+
+  const cleanTree = (root) => {
+    clean(root);
+    root.querySelectorAll?.("*").forEach(clean);
+  };
+
+  cleanTree(document.documentElement);
+
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === "attributes") clean(mutation.target);
+      mutation.addedNodes.forEach(cleanTree);
+    });
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    childList: true,
+    subtree: true,
+  });
+
+  window.addEventListener("load", () => {
+    cleanTree(document.documentElement);
+    setTimeout(() => observer.disconnect(), 1000);
+  });
+})();
+`;
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={montserrat.variable}>
-      <body>
+    <html lang="en" className={montserrat.variable} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <script dangerouslySetInnerHTML={{ __html: extensionAttributeCleanup }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         {children}

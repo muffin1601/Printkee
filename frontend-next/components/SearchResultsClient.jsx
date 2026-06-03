@@ -28,7 +28,8 @@ const SearchResultsClient = () => {
       setLoading(true);
       try {
         const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/search?q=${query}&cat=${category}`
+          `${process.env.NEXT_PUBLIC_API_URL}/search`,
+          { params: { q: query, cat: category || "All Categories" } }
         );
         setResults(res.data);
       } catch (err) {
@@ -84,7 +85,7 @@ const SearchResultsClient = () => {
               {results.map((item, idx) => (
                 <Link
                   key={idx}
-                  href={`/${slugify(item.category)}/${slugify(item.subcategory)}/${slugify(item.name)}`}
+                  href={`/${item.categorySlug || slugify(item.category)}/${item.subcategorySlug || slugify(item.subcategory)}/${item.slug || slugify(item.name)}`}
                   className={styles["search-page__card-link"]}
                   aria-label={`View details for ${item.name}`}
                 >

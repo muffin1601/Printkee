@@ -30,9 +30,9 @@
   backdrop-filter: blur(1.5px);
   background: linear-gradient(
     108deg,
-    rgba(0, 0, 0, 0.42) 0%,
-    rgba(0, 0, 0, 0.28) 35%,
-    rgba(0, 0, 0, 0.10) 65%,
+    rgba(0, 0, 0, 0.841) 0%,
+    rgba(0, 0, 0, 0.599) 35%,
+    rgba(0, 0, 0, 0.433) 65%,
     transparent         100%
   );
   inset: 0;

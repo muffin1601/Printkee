@@ -3,6 +3,9 @@ import React, { useEffect, useCallback } from "react";
 import { fabric } from "fabric";
 import styles from "../styles/ProductCustomizer.module.css";
 
+const isCanvasUsable = (canvas) =>
+  Boolean(canvas && canvas.lowerCanvasEl && canvas.contextContainer);
+
 const ProductCustomizer = ({
   canvasRef,
   mainImageUrl,
@@ -11,7 +14,7 @@ const ProductCustomizer = ({
   globalPartColors = {},
 }) => {
   const applyGlobalColors = useCallback((canvas) => {
-    if (!canvas) return;
+    if (!isCanvasUsable(canvas)) return;
     const applyColor = (o) => {
       if (o.customPart && globalPartColors[o.customPart]) {
         o.set("fill", globalPartColors[o.customPart]);
@@ -21,13 +24,17 @@ const ProductCustomizer = ({
       if (o._objects) o._objects.forEach(applyColor);
     };
     canvas.getObjects().forEach(applyColor);
-    canvas.requestRenderAll();
+    if (isCanvasUsable(canvas)) canvas.requestRenderAll();
   }, [globalPartColors]);
 
   const loadSVG = useCallback(async (url, canvas) => {
     try {
       const response = await fetch(url);
+      if (!isCanvasUsable(canvas)) return;
+
       const svgText = await response.text();
+      if (!isCanvasUsable(canvas)) return;
+
       const cleaned = svgText
         .replace(/<\?xml[^>]+\?>/, "")
         .replace(/<!DOCTYPE[^>[]+(\[[^]]+\])?>/, "")
@@ -36,6 +43,7 @@ const ProductCustomizer = ({
       fabric.loadSVGFromString(
         cleaned,
         (objects, options) => {
+          if (!isCanvasUsable(canvas)) return;
           if (!objects || objects.length === 0) return;
 
           const assignParts = (obj) => {
@@ -81,7 +89,7 @@ const ProductCustomizer = ({
           canvas.mainGroup = group;
 
           applyGlobalColors(canvas);
-          canvas.renderAll();
+          if (isCanvasUsable(canvas)) canvas.renderAll();
         },
         null,
         {
@@ -111,9 +119,7 @@ const ProductCustomizer = ({
 
     const { width, height } = calculateSize();
 
-    const isCanvasAlive = (ref) => ref.current && ref.current.lowerCanvasEl;
-
-    if (!isCanvasAlive(canvasRef)) {
+    if (!isCanvasUsable(canvasRef.current)) {
       canvasRef.current = new fabric.Canvas(canvasEl, {
         width,
         height,
@@ -122,15 +128,15 @@ const ProductCustomizer = ({
     } else {
       canvasRef.current.setWidth(width);
       canvasRef.current.setHeight(height);
-      canvasRef.current.renderAll();
+      if (isCanvasUsable(canvasRef.current)) canvasRef.current.renderAll();
     }
 
     const handleResize = () => {
-      if (!isCanvasAlive(canvasRef)) return;
+      if (!isCanvasUsable(canvasRef.current)) return;
       const { width, height } = calculateSize();
       canvasRef.current.setWidth(width);
       canvasRef.current.setHeight(height);
-      canvasRef.current.renderAll();
+      if (isCanvasUsable(canvasRef.current)) canvasRef.current.renderAll();
     };
 
     window.addEventListener("resize", handleResize);
@@ -139,7 +145,11 @@ const ProductCustomizer = ({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || !mainImageUrl) return;
+    if (!isCanvasUsable(canvas) || !mainImageUrl) return;
+
+    let cancelled = false;
+    const isCurrentCanvasUsable = () =>
+      !cancelled && canvasRef.current === canvas && isCanvasUsable(canvas);
 
     if (savedState) {
       const savedUserObjectsData = Array.isArray(savedState.userObjects)
@@ -147,21 +157,25 @@ const ProductCustomizer = ({
         : [];
 
       canvas.loadFromJSON(savedState, () => {
+        if (!isCurrentCanvasUsable()) return;
         // FIX B10: use custom flag "isSvgGroup" (set at creation) rather than
         // unreliable Fabric internal "isPartOfGroup" which isn't reliably restored
         canvas.mainGroup = canvas.getObjects().find(
           (obj) => obj.isSvgGroup || obj.type === "group"
         ) || null;
         fabric.util.enlivenObjects(savedUserObjectsData, (objects) => {
+          if (!isCurrentCanvasUsable()) return;
           objects.forEach((obj) => {
             obj.set({ selectable: true, evented: true });
             canvas.add(obj);
           });
           applyGlobalColors(canvas);
-          canvas.renderAll();
+          if (isCurrentCanvasUsable()) canvas.renderAll();
         });
       });
-      return;
+      return () => {
+        cancelled = true;
+      };
     }
 
     const isSvg = mainImageUrl.toLowerCase().endsWith(".svg");
@@ -171,6 +185,8 @@ const ProductCustomizer = ({
       fabric.Image.fromURL(
         mainImageUrl,
         (img) => {
+          if (!isCurrentCanvasUsable()) return;
+
           const canvasWidth = canvas.getWidth();
           const canvasHeight = canvas.getHeight();
           const scale = Math.min(
@@ -190,17 +206,21 @@ const ProductCustomizer = ({
           });
 
           canvas.setBackgroundImage(img, () => {
-            canvas.renderAll();
+            if (isCurrentCanvasUsable()) canvas.renderAll();
           });
         },
         { crossOrigin: "anonymous" }
       );
     }
+
+    return () => {
+      cancelled = true;
+    };
   }, [mainImageUrl, partMap, savedState, loadSVG, applyGlobalColors]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!isCanvasUsable(canvas)) return;
     applyGlobalColors(canvas);
   }, [globalPartColors, applyGlobalColors]);
 
@@ -208,9 +228,10 @@ const ProductCustomizer = ({
     return () => {
       if (canvasRef.current) {
         canvasRef.current.dispose();
+        canvasRef.current = null;
       }
     };
-  }, []);
+  }, [canvasRef]);
 
   return (
     <canvas

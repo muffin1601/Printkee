@@ -47,7 +47,7 @@ const CategorySlider = () => {
       <Swiper
         aria-label="Browse product categories"
         modules={[Navigation, Pagination, Autoplay]}
-        loop
+        loop={categories.length > 8}
         autoplay={{ delay: 2800, disableOnInteraction: false }}
         navigation
         pagination={{ clickable: true }}

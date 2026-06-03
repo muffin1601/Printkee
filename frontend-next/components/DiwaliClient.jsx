@@ -61,7 +61,10 @@ const DiwaliClient = () => {
         />
       </div>
 
-      {Object.keys(groupedGifts).map((category, idx) => (
+      {Object.keys(groupedGifts).map((category, idx) => {
+        const gifts = groupedGifts[category];
+
+        return (
         <section className={styles["diwali-carousel-section"]} key={idx}>
           <h2 className={styles["diwali-carousel-title"]}>{category}</h2>
           <Swiper
@@ -74,10 +77,10 @@ const DiwaliClient = () => {
             breakpoints={{ 480: { slidesPerView: 1 }, 640: { slidesPerView: 2 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 }, 1280: { slidesPerView: 4 } }}
             autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }}
             speed={4000}
-            loop
+            loop={gifts.length > 4}
             aria-label={`Diwali gifts carousel for ${category}`}
           >
-            {groupedGifts[category].map((gift) => (
+            {gifts.map((gift) => (
               <SwiperSlide key={gift.id}>
                 <div className={styles["diwali-carousel-card"]}>
                   <img src={gift.image} alt={`${gift.name} – ${gift.description}`} className={styles["diwali-carousel-img"]} />
@@ -88,7 +91,8 @@ const DiwaliClient = () => {
             ))}
           </Swiper>
         </section>
-      ))}
+        );
+      })}
 
       <div className={styles["diwali-cta-section"]}>
         <h2>🎉 Download Our Diwali Catalogue!</h2>
@@ -106,7 +110,7 @@ const DiwaliClient = () => {
           slidesPerView={2}
           breakpoints={{ 480: { slidesPerView: 2 }, 640: { slidesPerView: 3 }, 768: { slidesPerView: 4 }, 1024: { slidesPerView: 5 }, 1440: { slidesPerView: 6 } }}
           autoplay={{ delay: 2000 }}
-          loop
+          loop={brandsList.length > 6}
         >
           {brandsList.map((brand) => (
             <SwiperSlide key={brand.slug}>
