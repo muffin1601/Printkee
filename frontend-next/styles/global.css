@@ -21,6 +21,7 @@
   --orange:       #C9A84C;   /* gold   — CTAs, eyebrows, highlights     */
   --orange-dark:  #A8872A;   /* dark gold — hover states                */
   --orange-light: #FBF5E3;   /* pale gold — subtle surfaces             */
+  --orange-text:  #846713;   /* deep gold — gold TEXT on light bg (AA)  */
 
   /* ── THIRD ACCENT: Peach ───────────────────────────────── */
   --peach:        #E8855A;   /* peach — badges, secondary CTAs          */
@@ -46,7 +47,7 @@
   /* ── TEXT ──────────────────────────────────────────────── */
   --ink:          #1A0A3D;   /* near-black purple — primary body text   */
   --ink-2:        #3E2D6B;   /* medium purple — secondary text          */
-  --ink-3:        #7B6BA8;   /* muted purple — captions, placeholders   */
+  --ink-3:        #6E5E9A;   /* muted purple — captions, placeholders (AA on light) */
   --ink-inv:      #ffffff;
   --ink-inv-2:    rgba(255,255,255,0.78);
 

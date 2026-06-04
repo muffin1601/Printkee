@@ -76,7 +76,7 @@
 /* ── DESCRIPTION ───────────────────────────────────────────── */
 .serviceDescription,
 .service-card-text {
-  color: rgba(255, 255, 255, 0.50);
+  color: rgba(255, 255, 255, 0.62);
   font-size: 0.75rem;
   line-height: 1.65;
 }

@@ -28,7 +28,7 @@
 }
 
 .viewAll {
-  color: var(--orange, #C9A84C);
+  color: var(--orange-text, #846713);
   font-size: 0.78rem;
   font-weight: 700;
   text-decoration: none;

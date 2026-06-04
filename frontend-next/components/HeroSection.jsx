@@ -12,7 +12,7 @@ import styles from "../styles/HeroSection.module.css";
 
 const slides = [
   {
-    image: "/assets/banner1.webp",
+    image: "/assets/banner12.webp",
     title: "Custom Products.",
     titleAccent: "Stronger Connections.",
     eyebrow: "PREMIUM CORPORATE MERCHANDISE",
@@ -24,7 +24,7 @@ const slides = [
     tag: "Apparel & Uniforms",
   },
   {
-    image: "/assets/banner2.webp",
+    image: "/assets/banner34.webp",
     title: "Eco-Friendly",
     titleAccent: "Gift Solutions.",
     eyebrow: "SUSTAINABLE CORPORATE GIFTING",
@@ -36,7 +36,7 @@ const slides = [
     tag: "Eco Products",
   },
   {
-    image: "/assets/banner3.webp",
+    image: "/assets/banner56.webp",
     title: "Smart Tech",
     titleAccent: "Gifts for Teams.",
     eyebrow: "TECHNOLOGY ACCESSORIES",
@@ -96,6 +96,7 @@ const HeroSection = () => {
             src={slide.image}
             alt={`${slide.title} ${slide.titleAccent} – ${slide.tag}`}
             loading={i === 0 ? "eager" : "lazy"}
+            fetchPriority={i === 0 ? "high" : "low"}
             style={{ display: "none" }}
           />
         ))}
@@ -150,7 +151,7 @@ const HeroSection = () => {
                       </button>
                     </div>
 
-                    <div className={styles.heroSocialProof}>
+                    {/* <div className={styles.heroSocialProof}>
                       <div className={styles.heroAvatars} aria-hidden="true">
                         {["👤", "👤", "👤", "👤"].map((a, i) => (
                           <span key={i} className={styles.heroAvatar}>{a}</span>
@@ -160,7 +161,7 @@ const HeroSection = () => {
                         <p className={styles.heroProofNumber}>5000+ Happy Customers</p>
                         <p className={styles.heroProofSub}>Trusted by 1000+ brands across India</p>
                       </div>
-                    </div>
+                    </div> */}
 
                   </div>
                 </div>

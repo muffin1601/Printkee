@@ -76,7 +76,7 @@ const WhyChooseUs = () => {
         {features.map((feature, index) => (
           <article className={styles.whychooseCard} key={index}>
             <div className={styles.icon}>{feature.icon}</div>
-            <h4 className={styles.cardTitle}>{feature.title}</h4>
+            <h3 className={styles.cardTitle}>{feature.title}</h3>
             <p className={styles.cardSubtitle}>{feature.subtitle}</p>
             <p className={styles.cardContent}>{feature.content}</p>
           </article>

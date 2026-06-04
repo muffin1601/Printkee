@@ -299,10 +299,10 @@
   cursor: pointer;
   display: flex;
   flex-shrink: 0;
-  height: 36px;
+  height: 44px;
   justify-content: center;
   transition: background 0.14s ease;
-  width: 36px;
+  width: 44px;
 }
 .pk-chat-input button:hover    { background: #A8872A; }
 .pk-chat-input button:disabled { opacity: 0.6; cursor: not-allowed; }

@@ -1,20 +1,18 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import FloatingButton from "../../components/FloatingButton";
-import ScrollToTop from "../../components/ScrollToTop";
 import AnnouncementBar from "../../components/AnnouncementBar";
-import Chatbot from "../../components/Chatbot/index";
+import DeferredWidgets from "../../components/DeferredWidgets";
 
 export default function MainLayout({ children }) {
   return (
     <>
       <AnnouncementBar />
       <Navbar />
-      {children}
+      <main id="main-content">{children}</main>
       <FloatingButton />
       <Footer />
-      <ScrollToTop />
-      <Chatbot />
+      <DeferredWidgets />
     </>
   );
 }

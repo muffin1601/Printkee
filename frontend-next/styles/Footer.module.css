@@ -28,12 +28,13 @@
 }
 
 .footer-logo-img {
+  align-self: flex-start;   /* don't stretch to the flex column width */
   display: block;
   filter: brightness(0) invert(1);
   height: 26px;
   margin-bottom: 1rem;
   opacity: 0.90;
-  width: 100px;
+  width: 63px;              /* 26 × 930/386 ≈ matches natural 2.41 ratio */
 }
 
 .footer-description {

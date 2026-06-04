@@ -1,309 +1,246 @@
-:root {
-  --brand-purple: #5b2d8b;
-  --brand-purple-dark: #4a2374;
-  --brand-gold: #d4af37;
-  --brand-gold-dark: #b8962e;
+/* ============================================================
+   Shared manager styling (Category / Subcategory / Product /
+   Hero / Blog managers). Class names are camelCase to match the
+   `styles.hmXxx` access in the JSX. Uses site tokens from
+   global.css (purple/gold, near-zero radius, Montserrat).
+   ============================================================ */
 
-  --neutral-gray: #6b7280;
-  --light-border: #e5e7eb;
-  --light-bg: #faf9fc;
-  --white: #ffffff;
+.hmWrapper {
+  background: var(--bg-white, #fff);
+  padding: 1.5rem;
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
 }
 
-
-.hm-wrapper {
-  background: var(--white);
-  padding: 25px;
-  
-  border: 1px solid var(--light-border);
-  
-}
-
-.hm-header {
+.hmHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.hm-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--brand-purple);
+.hmTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink, #1A0A3D);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
+}
+.hmTitle svg { color: var(--green, #3D1C8A); }
+
+.hmDescription {
+  margin-top: 0.6rem;
+  color: var(--ink-3, #6E5E9A);
+  font-size: 0.82rem;
 }
 
-.hm-description {
-  margin-top: 10px;
-  color: var(--neutral-gray);
-}
-
-/* ===============================
-   ADD BUTTON
-================================ */
-
-.hm-add-btn {
-  background: var(--brand-purple);
-  color: white;
-  padding: 8px 14px;
+/* ── ADD BUTTON ───────────────────────────────────────────── */
+.hmAddBtn {
+  background: var(--green, #3D1C8A);
+  color: #fff;
+  padding: 0.5rem 0.85rem;
   border: none;
+  border-radius: 2px;
   cursor: pointer;
-  font-weight: 400;
-  display: flex;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-family: 'Outfit', sans-serif;
-  transition: 0.2s;
+  gap: 0.4rem;
+  font-family: var(--font);
+  transition: background 0.15s ease;
 }
+.hmAddBtn:hover { background: var(--orange, #C9A84C); }
 
-.hm-add-btn:hover {
-  background: var(--brand-gold);
-  color: #1a1a1a;
-}
-
-/* ===============================
-   LIST
-================================ */
-
-.hm-slide-list {
-  margin-top: 25px;
+/* ── LIST ─────────────────────────────────────────────────── */
+.hmSlideList {
+  margin-top: 1.5rem;
   list-style: none;
   padding: 0;
 }
 
-/* ===============================
-   ITEM CARD
-================================ */
-
-.hm-slide-item {
-  padding: 16px;
-  border: 1px solid var(--light-border);
-  margin-bottom: 15px;
+.hmSlideItem {
+  padding: 1rem;
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background: var(--light-bg);
-  gap: 20px;
+  background: var(--bg, #FAF8FF);
+  gap: 1.25rem;
+  transition: border-color 0.15s ease;
+}
+.hmSlideItem:hover { border-color: var(--green, #3D1C8A); }
+.hmSlideItem * { box-sizing: border-box; }
+
+.hmSlideInfo { max-width: 75%; }
+
+.hmSlideTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink, #1A0A3D);
 }
 
-/* Prevent clipping issues */
-.hm-slide-item * {
-  box-sizing: border-box;
+.hmSlideType {
+  font-size: 0.78rem;
+  color: var(--ink-3, #6E5E9A);
+  margin-left: 0.3rem;
 }
 
-/* ===============================
-   INFO
-================================ */
-
-.hm-slide-info {
-  max-width: 75%;
+.hmSlideSub {
+  margin-top: 0.35rem;
+  color: var(--ink-3, #6E5E9A);
+  font-size: 0.82rem;
+  line-height: 1.5;
 }
 
-.hm-slide-title {
-  font-size: 18px;
-  color: var(--brand-purple);
-}
-
-.hm-slide-type {
-  font-size: 13px;
-  color: var(--neutral-gray);
-  margin-left: 5px;
-}
-
-.hm-slide-sub {
-  margin-top: 6px;
-  color: var(--neutral-gray);
-  font-size: 14px;
-}
-
-/* ===============================
-   ACTION BUTTONS (FIXED)
-================================ */
-
-.hm-slide-actions {
+/* ── ACTION BUTTONS ───────────────────────────────────────── */
+.hmSlideActions {
   display: flex;
-  gap: 10px;
+  gap: 0.5rem;
   align-items: center;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
 }
 
-/* ===============================
-   EDIT / DELETE BUTTONS
-================================ */
-
-.hm-edit-btn,
-.hm-delete-btn,
-.hm-delete-btn-2,
+.hmEditBtn,
+.hmDeleteBtn,
 .hmDeleteBtn2 {
-  padding: 6px 12px;
+  padding: 0.4rem 0.7rem;
   border: none;
+  border-radius: 2px;
   cursor: pointer;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Outfit', sans-serif;
-  transition: 0.2s;
-}
-
-/* EDIT */
-.hm-edit-btn {
-  background: var(--brand-gold);
-  color: #1a1a1a;
-}
-
-.hm-edit-btn:hover {
-  background: var(--brand-gold-dark);
-}
-
-/* DELETE */
-.hm-delete-btn,
-.hm-delete-btn-2,
-.hmDeleteBtn2 {
-  background: #c62828;
-  color: white;
-}
-
-.hm-delete-btn:hover,
-.hm-delete-btn-2:hover,
-.hmDeleteBtn2:hover {
-  background: #9a1f1f;
-}
-
-/* ===============================
-   FORM ELEMENTS
-================================ */
-
-.hm-form-group {
-  margin-top: 12px;
-}
-
-.hm-input-label {
   font-weight: 600;
+  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font);
+  transition: background 0.15s ease;
+}
+
+.hmEditBtn { background: var(--orange, #C9A84C); color: #fff; }
+.hmEditBtn:hover { background: var(--orange-dark, #A8872A); }
+
+.hmDeleteBtn,
+.hmDeleteBtn2 { background: #c62828; color: #fff; }
+.hmDeleteBtn:hover,
+.hmDeleteBtn2:hover { background: #9a1f1f; }
+
+/* ── FORM ELEMENTS ────────────────────────────────────────── */
+.hmFormGroup { margin-top: 0.85rem; }
+
+.hmInputLabel {
+  font-weight: 700;
+  font-size: 0.78rem;
   display: block;
-  margin-bottom: 6px;
-  color: var(--brand-purple);
+  margin-bottom: 0.35rem;
+  color: var(--ink-2, #3E2D6B);
 }
 
-.hm-select {
-  width: 94%;
-  padding: 10px;
-  border: 1px solid var(--light-border);
-  font-family: 'Outfit', sans-serif;
+.hmSelect {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  background: var(--bg-white, #fff);
+  color: var(--ink, #1A0A3D);
+  transition: border-color 0.15s ease;
 }
+.hmSelect:focus { outline: none; border-color: var(--green, #3D1C8A); }
 
-/* ===============================
-   IMAGE PREVIEW
-================================ */
-
-.hm-preview {
-  margin-top: 12px;
-}
-
-.hm-preview img,
-.hm-preview video {
+/* ── IMAGE PREVIEW ────────────────────────────────────────── */
+.hmPreview { margin-top: 0.85rem; }
+.hmPreview img,
+.hmPreview video {
   width: 50%;
-  border: 1px solid var(--light-border);
+  min-width: 160px;
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
 }
 
-/* ===============================
-   SAVE BUTTON
-================================ */
-
-.hm-save-btn {
-  margin-top: 18px;
-  background: var(--brand-purple);
-  padding: 10px 18px;
+/* ── SAVE BUTTON ──────────────────────────────────────────── */
+.hmSaveBtn {
+  margin-top: 1.1rem;
+  background: var(--green, #3D1C8A);
+  padding: 0.65rem 1.1rem;
   border: none;
-  color: white;
-  font-weight: 400;
-  font-family: 'Outfit', sans-serif;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  font-family: var(--font);
   cursor: pointer;
-  transition: 0.2s;
+  transition: background 0.15s ease;
+}
+.hmSaveBtn:hover { background: var(--orange, #C9A84C); }
+
+/* ── EMPTY STATE ──────────────────────────────────────────── */
+.hmEmpty {
+  color: var(--ink-3, #6E5E9A);
+  padding: 0.75rem 0;
+  list-style: none;
+  font-size: 0.85rem;
 }
 
-.hm-save-btn:hover {
-  background: var(--brand-gold);
-  color: #1a1a1a;
-}
+/* ── FILE UPLOAD ──────────────────────────────────────────── */
+.hmUploadGroup { margin: 0.85rem 0; }
 
-/* ===============================
-   EMPTY STATE
-================================ */
-
-.hm-empty {
-  color: var(--neutral-gray);
-  padding: 10px 0;
-}
-
-/* ===============================
-   FILE UPLOAD
-================================ */
-
-.hm-upload-group {
-  margin: 12px 0;
-}
-
-.hm-file-input {
-  width: 90%;
-  padding: 10px;
-  border: 1px solid var(--light-border);
-  background: var(--light-bg);
+.hmFileInput {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  background: var(--bg, #FAF8FF);
   cursor: pointer;
+  font-size: 0.82rem;
 }
+.hmFileInput:hover { border-color: var(--green, #3D1C8A); }
 
-.hm-file-input:hover {
-  border-color: var(--brand-purple);
-}
-
-/* ===============================
-   PAGINATION
-================================ */
-
-.pagination-container {
+/* ── PAGINATION ───────────────────────────────────────────── */
+.paginationContainer {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 20px;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
   overflow-x: auto;
   white-space: nowrap;
-  padding: 12px 0;
+  padding: 0.5rem 0;
 }
 
-.pg-btn,
-.pg-number {
-  padding: 6px 12px;
-  border: 1px solid var(--light-border);
-  background: white;
+.pgBtn,
+.pgNumber {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: 2px;
+  background: var(--bg-white, #fff);
+  color: var(--ink, #1A0A3D);
   cursor: pointer;
-  font-family: 'Outfit', sans-serif;
-  transition: 0.2s;
-  font-size: 14px;
+  font-family: var(--font);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  font-size: 0.8rem;
 }
 
-.pg-btn[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
+.pgBtn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+.pgNumber.active {
+  background: var(--green, #3D1C8A);
+  color: #fff;
+  border-color: var(--green, #3D1C8A);
 }
 
-.pg-number.active {
-  background: var(--brand-purple);
-  color: white;
-  border-color: var(--brand-purple);
+.pgNumber:hover,
+.pgBtn:hover:not([disabled]) {
+  background: var(--green-light, #EDE1FF);
+  border-color: var(--green, #3D1C8A);
 }
 
-.pg-number:hover,
-.pg-btn:hover:not([disabled]) {
-  background: var(--brand-gold);
-  color: #1a1a1a;
-  border-color: var(--brand-gold);
-}
-
-.pg-dots {
-  padding: 0 6px;
-  color: #777;
-  font-size: 14px;
+.pgDots {
+  padding: 0 0.35rem;
+  color: var(--ink-3, #6E5E9A);
+  font-size: 0.8rem;
 }

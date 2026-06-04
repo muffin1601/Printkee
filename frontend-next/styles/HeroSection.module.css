@@ -20,21 +20,21 @@
   background-position: center;
   background-size: cover;
   display: flex;
-  min-height: clamp(360px, 48vh, 520px);
+  min-height: clamp(360px, 48vh, 580px);
   position: relative;
   width: 100%;
 }
 
 /* ── GRADIENT OVERLAY — subtle dark + blur, no purple tint ─── */
 .heroOverlay {
-  backdrop-filter: blur(1.5px);
+  /* backdrop-filter: blur(1.5px);
   background: linear-gradient(
     108deg,
     rgba(0, 0, 0, 0.841) 0%,
     rgba(0, 0, 0, 0.599) 35%,
     rgba(0, 0, 0, 0.433) 65%,
     transparent         100%
-  );
+  ); */
   inset: 0;
   pointer-events: none;
   position: absolute;

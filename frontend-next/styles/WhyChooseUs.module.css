@@ -26,7 +26,7 @@
 .whychooseLeft { /* container — no extra styles needed */ }
 
 .whychooseEyebrow {
-  color: var(--orange, #C9A84C);
+  color: var(--orange-text, #846713);
   display: block;
   font-size: 0.62rem;
   font-weight: 700;
@@ -98,7 +98,7 @@
 }
 
 .cardSubtitle {
-  color: var(--orange, #C9A84C);
+  color: var(--orange-text, #846713);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.05em;

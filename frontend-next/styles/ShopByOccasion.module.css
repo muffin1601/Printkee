@@ -89,7 +89,7 @@
   background: transparent;
   border: none;
   border-top: 1px solid var(--border, #E5DCF5);
-  color: var(--orange, #C9A84C);
+  color: var(--orange-text, #846713);
   cursor: pointer;
   display: inline-flex;
   font-family: var(--font);

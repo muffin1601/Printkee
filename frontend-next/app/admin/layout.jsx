@@ -1,3 +1,4 @@
+import "../../styles/admin.css";
 import AdminGuard from "../../components/AdminGuard";
 
 export const metadata = {

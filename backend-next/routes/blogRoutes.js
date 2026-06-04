@@ -72,4 +72,36 @@ router.post('/:id/comments', async (req, res) => {
   }
 });
 
+
+// Update a blog (optionally replace the cover image)
+router.put('/:id', upload.single('image'), async (req, res) => {
+  try {
+    const { title, content, author } = req.body;
+    const update = {};
+    if (title !== undefined) update.title = title;
+    if (content !== undefined) update.content = content;
+    if (author !== undefined) update.author = author;
+    if (req.file) update.image = req.file.filename;
+
+    const blog = await Blog.findByIdAndUpdate(req.params.id, update, { new: true });
+    if (!blog) return res.status(404).json({ error: 'Blog not found' });
+    res.json(blog);
+  } catch (err) {
+    console.error('Blog update error:', err);
+    res.status(500).json({ error: 'Failed to update blog' });
+  }
+});
+
+// Delete a blog
+router.delete('/:id', async (req, res) => {
+  try {
+    const blog = await Blog.findByIdAndDelete(req.params.id);
+    if (!blog) return res.status(404).json({ error: 'Blog not found' });
+    res.json({ message: 'Blog deleted successfully' });
+  } catch (err) {
+    console.error('Blog delete error:', err);
+    res.status(500).json({ error: 'Failed to delete blog' });
+  }
+});
+
 module.exports = router;
