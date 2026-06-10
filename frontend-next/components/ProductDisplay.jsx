@@ -119,7 +119,7 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
           </div>
         </div>
 
-        <SubcategoryDescription subcategory={subcategorySlug} />
+        <SubcategoryDescription subcategory={subcategorySlug} seoH2={seoH2} />
       </div>
 
       {/* ── FAQ ── */}
