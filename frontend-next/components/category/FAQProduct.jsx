@@ -2,10 +2,14 @@
 import React, { useState } from "react";
 import styles from "./FAQProduct.module.css";
 
-const FAQProduct = ({ productName, subcategoryName, categoryName }) => {
+const FAQProduct = ({ productName, subcategoryName, categoryName, faqs: productFaqs }) => {
   const [openIndex, setOpenIndex] = useState(null);
 
-  const faqs = [
+  // Prefer the product's own approved FAQs (from the DB) when present;
+  // otherwise fall back to the generic generated set.
+  const faqs = productFaqs?.length
+    ? productFaqs.map((f) => ({ q: f.question, a: f.answer }))
+    : [
     {
       q: `Why is ${productName} a popular promotional gift item?`,
       a: `${productName} is one of the most preferred promotional gift items because it offers high branding visibility, long-term usability, and great value. Businesses use it as a branded promotional item to increase recall and build trust with clients.`

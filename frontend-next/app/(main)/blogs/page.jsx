@@ -1,5 +1,7 @@
 import BlogListClient from "../../../components/BlogListClient";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Latest Blogs on Corporate Gifting | MF Global Services",
   description:

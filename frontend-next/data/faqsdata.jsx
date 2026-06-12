@@ -1,251 +1,309 @@
 const aboutSubcategoryData = {
   "bags-and-travel": {
-    heading: "Corporate Travel Solutions – Bags that Boost Brand Recall",
-    description: `MF Global Services offers durable, stylish, and high-impact branding promotional items including backpacks, laptop bags, travel pouches, and duffle bags. These promotional gift items are ideal for corporate gifting, promotional gifts for business, seminars, events, and employee welcome kits. As a leading promotional items manufacturer in Delhi NCR and Noida, we ensure premium quality, long-term visibility, and professional custom branding on every bag.`,
-
+    heading: "Frequently Asked Questions",
+    description: ``,
     image: "/images/bags-and-travel.jpg",
-
     faqs: [
       {
-        question: "Can I add my company logo on travel bags?",
+        question: "Can I customize bags with my company logo?",
         answer:
-          "Yes, you can fully customize all bags with your company logo using screen printing, embroidery, heat press, or woven labels—making them perfect custom promotional items.",
+          "Yes, all bags can be customized with logo printing, text, or custom artwork.",
       },
       {
-        question: "Do you offer bags suitable for corporate promotional gifting?",
+        question: "Do you provide bulk orders for events and businesses?",
         answer:
-          "Absolutely. Our bags are specially designed as business promotional products, ideal for corporate gifts in Delhi, Noida, Gurgaon, and Okhla.",
+          "Yes, we specialize in bulk orders for corporate events, promotions, schools, startups, and organizations.",
       },
       {
-        question: "Are these bags long-lasting promotional gift items?",
+        question: "Which printing methods are available?",
         answer:
-          "Yes, all bags are made with premium-grade material ensuring durability, making them reliable branding promotional items that offer long-term brand exposure.",
+          "We offer screen printing, DTF printing, digital printing, heat transfer printing, and embroidery options.",
       },
       {
-        question: "Do you manufacture bags in bulk for companies?",
+        question: "Are different colors and sizes available?",
         answer:
-          "Yes, we are a promotional gift manufacturer in Noida and Delhi NCR, offering bulk orders with attractive pricing and fast delivery.",
+          "Yes, multiple colors, styles, and size options are available depending on the product type.",
       },
       {
-        question: "Are eco-friendly travel bags available?",
+        question: "Do you deliver across India?",
         answer:
-          "Yes, we offer recycled, reusable, and sustainable bags that work as eco-friendly corporate promotional products.",
+          "Yes, we provide fast and reliable Pan India delivery.",
+      },
+      {
+        question: "Are the bags suitable for promotional branding?",
+        answer:
+          "Yes, our bags are widely used for promotional campaigns, exhibitions, giveaways, and brand marketing activities.",
       },
     ],
   },
 
   // ================= ECO PRODUCTS ======================
   "eco-products": {
-    heading: "Sustainable Corporate Promotional Products",
-    description: `Our eco-friendly range includes bamboo bottles, cork stationery, reusable drinkware, organic accessories, and biodegradable gifting options. These sustainable promotional gift items are perfect for businesses wanting to reduce environmental impact while using branding promotional items to enhance brand visibility. Ideal for CSR activities, eco events, and organizations seeking personalized promotional products in Delhi NCR.`,
-
+    heading: "Frequently Asked Questions",
+    description: ``,
     image: "/images/eco-products.jpg",
-
     faqs: [
       {
-        question: "Are all eco-products biodegradable or sustainable?",
+        question: "Can eco-products be customized with company logos?",
         answer:
-          "Many items are biodegradable, while others are crafted from sustainable materials like bamboo, cork, jute, and recycled fabrics—ideal for eco-friendly corporate promotional gift items.",
+          "Yes, all eco-products can be customized with logo branding, artwork, and personalized designs.",
       },
       {
-        question: "Can eco-products be customized with logos?",
+        question: "Do you provide bulk eco-friendly corporate gifting solutions?",
         answer:
-          "Yes, all eco products support personalization through engraving, UV printing, or screen printing—making them excellent personalized promotional products.",
+          "Yes, we specialize in bulk eco-friendly gifting and promotional orders for businesses and organizations.",
       },
       {
-        question: "Do you offer eco-friendly promotional gifts for business events?",
+        question: "Which branding methods are available?",
         answer:
-          "Yes, our eco products are popular promotional gifts for clients, employees, seminars, and business promotional activities across Delhi NCR.",
+          "We offer laser engraving, UV printing, embossing, screen printing, and vinyl branding options.",
       },
       {
-        question: "Are eco-friendly products available in bulk?",
+        question: "Are these products suitable for sustainable corporate gifting?",
         answer:
-          "Yes, MF Global Services is a leading promotional items manufacturer in Delhi NCR providing bulk eco gifting solutions with corporate branding.",
+          "Yes, our eco-products are widely used for sustainable branding and premium corporate gifting.",
       },
       {
-        question: "Do you deliver eco-products to Noida, Okhla, and Gurgaon?",
+        question: "Do you deliver across India?",
         answer:
-          "Yes, we provide pan-India delivery with strong demand from Noida, Okhla, and Gurgaon for sustainable promotional gifts.",
+          "Yes, we provide fast and reliable Pan India delivery.",
+      },
+      {
+        question: "Are cork products durable for everyday use?",
+        answer:
+          "Yes, cork products are lightweight, durable, reusable, and suitable for daily professional and personal use.",
       },
     ],
   },
 
   // ================= APPAREL ======================
   "apparel-and-accessories": {
-    heading: "Branding Corporate Apparel & Custom T-Shirts",
-    description: `We provide high-quality custom T-shirts, polo shirts, hoodies, jackets, caps, and corporate shirts designed for events, staff uniforms, seminars, and promotional campaigns. These apparel pieces are among the most popular corporate promotional products and promotional gift items in Delhi NCR. Each item is customizable with logos, branding, quotes, and designs to create powerful branding promotional items for your business.`,
-
+    heading: "Frequently Asked Questions",
+    description: ``,
     image: "/images/apparel-and-accessories.jpg",
-
     faqs: [
       {
-        question: "What printing and branding options do you offer for apparel?",
+        question: "Do you offer bulk customization for businesses?",
         answer:
-          "We offer screen printing, DTF printing, embroidery, sublimation, and vinyl printing to produce high-quality custom promotional products.",
+          "Yes, we provide bulk customization services for companies, schools, events, and organizations across India.",
       },
       {
-        question: "Is bulk pricing available for business promotional items?",
+        question: "Can I print my company logo on apparel?",
         answer:
-          "Yes, we offer discounted bulk pricing for corporate orders, making us one of the top promotional gift manufacturers in Noida and Delhi NCR.",
+          "Yes, you can customize all apparel and accessories with your logo, text, or design.",
       },
       {
-        question: "Do you make personalized promotional apparel for employees?",
+        question: "Which printing methods are available?",
         answer:
-          "Absolutely. Our branding apparel is ideal for employee uniforms, onboarding kits, and corporate promotional gifting.",
+          "We offer screen printing, DTF printing, digital printing, heat transfer printing, and embroidery.",
       },
       {
-        question: "Can I order custom apparel as promotional gifts for clients?",
+        question: "Do you deliver across India?",
         answer:
-          "Yes, custom T-shirts and jackets are widely chosen as promotional gifts for clients due to their long-term brand exposure.",
+          "Yes, we provide fast and reliable Pan India delivery.",
       },
       {
-        question: "Do you offer fast delivery for corporate gifts in Delhi?",
+        question: "What is the minimum order quantity?",
         answer:
-          "Yes, we offer quick turnaround and reliable delivery across Delhi, Gurgaon, Noida, and Okhla.",
+          "We support both small and bulk orders depending on the product type and customization requirement.",
+      },
+      {
+        question: "Are multiple sizes and colors available?",
+        answer:
+          "Yes, all products are available in various sizes, colors, and styles.",
       },
     ],
   },
 
   // ================= DRINKWARE ======================
   "drink-ware": {
-    heading: "Custom Drinkware for Corporate Gifting",
-    description: `Our custom mugs, sippers, thermos flasks, and stainless-steel bottles are some of the most preferred promotional products in Delhi NCR. These branding promotional items provide excellent brand visibility and are perfect as promotional gifts for business, corporate events, offices, and employee welcome kits.`,
-
-    image: "/images/drinkware.jpg",
-
+    heading: "Frequently Asked Questions",
+    description: ``,
+    image: "/images/drink-ware.jpg",
     faqs: [
       {
-        question: "Do you provide insulated and premium drinkware options?",
+        question: "Can I customize drinkware with my company logo?",
         answer:
-          "Yes, we offer insulated steel bottles, vacuum flasks, and tumblers suitable for premium corporate promotional gifts.",
+          "Yes, all drink ware products can be customized with logo printing, text, or custom designs.",
       },
       {
-        question: "Can drinkware items be customized with corporate logos?",
+        question: "Do you provide bulk drinkware orders for businesses?",
         answer:
-          "Yes, using UV printing, laser engraving, and screen printing we convert drinkware into personalized promotional products.",
+          "Yes, we specialize in bulk corporate gifting and promotional orders across India.",
       },
       {
-        question: "Do you manufacture promotional drinkware in Delhi NCR?",
+        question: "Which printing methods are available?",
         answer:
-          "Yes, we are a leading promotional items manufacturer in Delhi NCR and Noida specializing in drinkware branding.",
+          "We offer UV printing, sublimation printing, screen printing, laser engraving, and vinyl printing.",
       },
       {
-        question: "Are drinkware products good as promotional gifts for clients?",
+        question: "Are eco-friendly products available?",
         answer:
-          "Absolutely. They are practical, long-lasting promotional gift items with consistent brand visibility.",
+          "Yes, we offer eco-friendly options like customized bamboo bottles.",
       },
       {
-        question: "Do you offer bulk pricing for companies?",
+        question: "Do you deliver across India?",
         answer:
-          "Yes, bulk order discounts are available for corporate gifting and business promotional items.",
+          "Yes, we provide fast and reliable Pan India delivery.",
+      },
+      {
+        question: "Are these products suitable for employee gifting?",
+        answer:
+          "Yes, our customized drink ware products are widely used for employee welcome kits and corporate gifting.",
       },
     ],
   },
 
   // ================= OFFICE & WRITING ======================
   "office-and-writing": {
-    heading: "Professional Stationery for Business Branding",
-    description: `Our range includes premium notebooks, diaries, pens, folders, planners, and office kits — highly effective business promotional products. These branding promotional items are cost-effective and deliver strong brand recall, making them ideal as promotional gifts for clients and employees.`,
-
-    image: "/images/stationery.jpg",
-
+    heading: "Frequently Asked Questions",
+    description: ``,
+    image: "/images/office-and-writing.jpg",
     faqs: [
       {
-        question: "Why are stationery items popular promotional gifts for business?",
+        question: "Can office products be customized with company logos?",
         answer:
-          "Because they are practical, affordable, and used daily, making them high-impact corporate gifts and promotional items.",
+          "Yes, all office and writing products can be customized with logos, text, artwork, and branding designs.",
       },
       {
-        question: "Can I customize notebooks and diaries?",
+        question: "Do you provide bulk corporate orders?",
         answer:
-          "Yes, we offer embossing, UV printing, screen printing, and full-cover printing for personalized promotional products.",
+          "Yes, we specialize in bulk office branding and corporate gifting orders across India.",
       },
       {
-        question: "Do you offer office gift sets for corporate gifting?",
+        question: "Which branding methods are available?",
         answer:
-          "Yes, we create customized stationery sets ideal for onboarding, seminars, and corporate promotional gifting.",
+          "We offer screen printing, UV printing, laser engraving, embossing, foil printing, and digital printing.",
       },
       {
-        question: "Do you manufacture promotional stationery in Delhi NCR?",
+        question: "Are these products suitable for employee welcome kits?",
         answer:
-          "Yes, we are a promotional gift manufacturer in Delhi NCR and Noida supplying bulk stationery products.",
+          "Yes, our office and writing products are widely used in employee onboarding and welcome kits.",
       },
       {
-        question: "Can stationery be included in welcome kits?",
+        question: "Do you deliver across India?",
         answer:
-          "Absolutely. They are ideal additions to employee kits and corporate promotional products.",
+          "Yes, we provide fast and reliable Pan India delivery.",
+      },
+      {
+        question: "Are customized lanyards and ID cards available?",
+        answer:
+          "Yes, we provide fully customized lanyards and ID card solutions for offices, events, schools, and organizations.",
       },
     ],
   },
 
   // ================= COLLECTION ======================
   "collection": {
-    heading: "Premium Corporate Gift Collections",
-    description: `Our curated corporate gift boxes, luxury hampers, festival packs, and welcome kits include branding promotional items ideal for clients, employees, and business partners. As a promotional gifts manufacturer in Delhi NCR and Noida, we specialize in creating personalized promotional products for all occasions.`,
-
-    image: "/images/corporate-gifts.jpg",
-
+    heading: "Frequently Asked Questions",
+    description: ``,
+    image: "/images/collection.jpg",
     faqs: [
       {
-        question: "Do you offer ready-made and customizable corporate gift sets?",
+        question: "Can I customize all collection products with my company logo?",
         answer:
-          "Yes, we offer premium corporate gifts and promotional items with full branding customization options.",
+          "Yes, all products can be customized with logo printing, text, artwork, or branding designs.",
       },
       {
-        question: "Are your corporate gift boxes suitable for clients?",
+        question: "Do you provide bulk corporate gifting solutions?",
         answer:
-          "Yes, these gift sets are elegant, professional, and ideal promotional gifts for clients, partners, and VIPs.",
+          "Yes, we specialize in bulk corporate gifting and promotional product orders across India.",
       },
       {
-        question: "Do you offer festival gifting solutions?",
+        question: "What products can be included in welcome kits?",
         answer:
-          "Yes, we provide Diwali gift sets, New Year hampers, and seasonal promotional gift items.",
+          "Welcome kits can include customized bottles, diaries, mugs, pens, apparel, office accessories, and more.",
       },
       {
-        question: "Can you include branding items inside the gift box?",
+        question: "Which branding methods are available?",
         answer:
-          "Absolutely. All items inside the box can be converted into personalized promotional products.",
+          "We offer UV printing, laser engraving, embossing, screen printing, digital printing, and vinyl branding.",
       },
       {
-        question: "Do you supply corporate gifts in Delhi, Noida, and Okhla?",
+        question: "Do you deliver across India?",
         answer:
-          "Yes, we are a trusted supplier of corporate gifts in Delhi with fast delivery across NCR.",
+          "Yes, we provide fast and reliable Pan India delivery.",
+      },
+      {
+        question: "Are these products suitable for promotional campaigns?",
+        answer:
+          "Yes, our customized collection products are widely used for business promotions, events, giveaways, and brand marketing activities.",
       },
     ],
   },
 
   // ================= TECHNOLOGY ======================
   "technology-accessories": {
-    heading: "Smart Corporate Tech Accessories",
-    description: `Our tech gifting range includes power banks, USB drives, Bluetooth speakers, wireless chargers, and smart accessories. These are among the most effective business promotional items and branding corporate gifts preferred by companies across Delhi NCR, Noida, Okhla, and Gurgaon.`,
-
-    image: "/images/tech-accessories.jpg",
-
+    heading: "Frequently Asked Questions",
+    description: ``,
+    image: "/images/technology-accessories.jpg",
     faqs: [
       {
-        question: "Why are tech gadgets popular corporate promotional products?",
+        question: "Can technology accessories be customized with names and logos?",
         answer:
-          "Because they offer high utility and perceived value, making them top choices for personalized promotional products.",
+          "Yes, all products can be personalized with company logos, employee names, event details, and brand messages.",
       },
       {
-        question: "Can USB drives be preloaded with company data?",
+        question: "Do you provide bulk orders for corporate gifting?",
         answer:
-          "Yes, we preload catalogues, presentations, or welcome kits—ideal for custom promotional items.",
+          "Yes, we specialize in bulk orders for corporate gifting, onboarding kits, conferences, and promotional events.",
       },
       {
-        question: "Do you offer warranty on tech gifts?",
+        question: "Which customization methods are available?",
         answer:
-          "Yes, all tech promotional gift items come with quality certification and warranty support.",
+          "We offer UV printing, laser engraving, pad printing, screen printing, and digital printing.",
       },
       {
-        question: "Do you provide tech promotional products in Delhi NCR?",
+        question: "Are different models and capacities available?",
         answer:
-          "Yes, we supply and manufacture tech promotional products in Delhi NCR, Noida, and Okhla.",
+          "Yes, power banks, wireless chargers, and computer accessories are available in multiple capacities, sizes, and designs.",
       },
       {
-        question: "Are tech gifts suitable as promotional gifts for clients?",
+        question: "Do you deliver across India?",
         answer:
-          "Absolutely. Tech gadgets are considered premium branding items ideal for clients and business partners.",
+          "Yes, we provide fast and reliable Pan India delivery.",
+      },
+      {
+        question: "Are these products suitable for employee welcome kits?",
+        answer:
+          "Yes, our customized technology accessories are widely used for employee onboarding, appreciation, and daily-use corporate gifts.",
+      },
+    ],
+  },
+  "trophy-and-momento": {
+    heading: "Frequently Asked Questions",
+    description: ``,
+    image: "/images/trophy-and-momento.jpg",
+    faqs: [
+      {
+        question: "Can trophies and momentos be customized with names and logos?",
+        answer:
+          "Yes, all products can be personalized with company logos, employee names, award titles, and event details.",
+      },
+      {
+        question: "Do you provide bulk trophy orders for events?",
+        answer:
+          "Yes, we specialize in bulk orders for corporate events, schools, sports tournaments, and award ceremonies.",
+      },
+      {
+        question: "Which customization methods are available?",
+        answer:
+          "We offer laser engraving, UV printing, digital printing, acrylic engraving, and metal plate branding.",
+      },
+      {
+        question: "Are different materials and sizes available?",
+        answer:
+          "Yes, trophies and momentos are available in acrylic, wood, crystal, and metal materials with multiple size options.",
+      },
+      {
+        question: "Do you deliver across India?",
+        answer:
+          "Yes, we provide fast and reliable Pan India delivery.",
+      },
+      {
+        question: "Are these products suitable for corporate employee recognition?",
+        answer:
+          "Yes, our customized trophies and momento gifts are widely used for employee appreciation and corporate recognition programs.",
       },
     ],
   },

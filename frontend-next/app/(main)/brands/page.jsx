@@ -4,6 +4,8 @@ import Link from "next/link";
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Our Brand Partners | MF Global Services",
   description:

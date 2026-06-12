@@ -1,0 +1,40 @@
+/* ============================================================
+   PRODUCT CTA — self-contained styling for the approved doc CTA
+   block (title + paragraph). Does not affect other sections.
+   ============================================================ */
+
+.ctaWrapper {
+  margin: 2.5rem auto 0;
+  max-width: 1180px;
+  padding: 0 1.5rem 3rem;
+}
+
+.ctaInner {
+  background: linear-gradient(135deg, #2D1167 0%, #4A3A78 100%);
+  border-radius: 16px;
+  color: #fff;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.ctaTitle {
+  color: #fff;
+  font-size: clamp(1.3rem, 2.6vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0 0 0.85rem;
+}
+
+.ctaDescription {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0 auto;
+  max-width: 70ch;
+}
+
+@media (max-width: 768px) {
+  .ctaWrapper { padding: 0 1.1rem 2.25rem; }
+  .ctaInner { padding: 2rem 1.25rem; }
+}

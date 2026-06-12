@@ -1,6 +1,8 @@
 const BASE    = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 
+export const dynamic = "force-dynamic";
+
 /**
  * Next.js native sitemap — generates /sitemap.xml at request time.
  *

@@ -16,6 +16,15 @@ const productSchema = new mongoose.Schema(
       long: String,
     },
 
+    idealFor: [String],
+    features: [String],
+    faqs: [
+      {
+        question: String,
+        answer: String,
+      },
+    ],
+
     price: { type: Number, required: true },
     salePrice: { type: Number, default: null },
 

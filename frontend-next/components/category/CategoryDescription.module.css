@@ -1,0 +1,89 @@
+/* ============================================================
+   CATEGORY DESCRIPTION — dedicated styling for the rich category
+   SEO body. Self-contained; does not affect other sections.
+   ============================================================ */
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 2.75rem 1.5rem 3.25rem;
+}
+
+/* Intro paragraphs */
+.content > p {
+  color: var(--ink-2, #4A3A78);
+  font-size: 1rem;
+  line-height: 1.85;
+  margin: 0 0 1rem;
+  max-width: 78ch;
+}
+
+/* Section headings (Range, Features, Customization, Why Choose, etc.) */
+.content h3 {
+  color: var(--mp, #2D1167);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.6rem;
+  position: relative;
+}
+.content h3::after {
+  background: var(--mg, #B8962E);
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 48px;
+}
+
+/* Sub-headings (range items, why-choose points) */
+.content h4 {
+  color: var(--ink, #1A0A3D);
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin: 1.35rem 0 0.35rem;
+}
+
+/* Paragraph that follows a sub-heading or lead text under a section */
+.content h4 + p,
+.content h3 + p {
+  color: var(--ink-3, #6B5B96);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0 0 0.5rem;
+  max-width: 78ch;
+}
+
+/* Lists — multi-column so short items don't stretch into a long thin column */
+.content ul {
+  display: grid;
+  gap: 0.55rem 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  list-style: none;
+  margin: 0.75rem 0 0.5rem;
+  padding: 0;
+}
+
+.content li {
+  color: var(--ink-2, #3E2D6B);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  padding-left: 1.4rem;
+  position: relative;
+}
+.content li::before {
+  color: var(--mg, #B8962E);
+  content: "✓";
+  font-weight: 700;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+@media (max-width: 768px) {
+  .wrapper { padding: 2rem 1.1rem 2.5rem; }
+  .content h3 { margin-top: 2rem; }
+}

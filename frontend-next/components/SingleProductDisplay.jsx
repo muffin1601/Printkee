@@ -12,6 +12,8 @@ import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import WhyChooseUsProduct from "./category/WhyChooseUsProduct";
 import ProductFAQ from "./category/FAQProduct";
+import ProductCTA from "./category/ProductCTA";
+import productContent from "../data/productcontent";
 
 const SingleProductDisplay = ({
   productData,
@@ -19,8 +21,12 @@ const SingleProductDisplay = ({
   categoryData,
   relatedProducts = [],
 }) => {
-  const { category: categorySlug, subcategory: subcategorySlug } = useParams();
+  const { category: categorySlug, subcategory: subcategorySlug, product: productSlug } = useParams();
   const router = useRouter();
+
+  /* Approved document SEO title + CTA wording, keyed by product slug.
+     Rendered in addition to (never replacing) the existing H1 / metadata. */
+  const docContent = productContent[productSlug] || {};
 
   const [selectedStyle, setSelectedStyle] = useState(
     productData?.attributes?.size?.[0] || ""
@@ -96,8 +102,15 @@ const SingleProductDisplay = ({
 
             <h1 className={styles["product-title-1"]}>{productData.name}</h1>
 
+            {docContent.seoTitle && (
+              <p className={styles["product-seo-title"]}>{docContent.seoTitle}</p>
+            )}
+
             <h3 className={styles["description-title"]}>Description:</h3>
-            <p className={styles["product-description"]}>{productData.description?.long}</p>
+            <div
+              className={styles["product-description"]}
+              dangerouslySetInnerHTML={{ __html: productData.description?.long || "" }}
+            />
 
             {/* STYLES */}
             {productData.attributes?.size?.length > 0 && (
@@ -160,6 +173,30 @@ const SingleProductDisplay = ({
           </div>
         </div>
 
+        {/* IDEAL FOR */}
+        {productData.idealFor?.length > 0 && (
+          <div className={styles["product-info-section"]}>
+            <h3 className={styles["info-title"]}>Ideal For</h3>
+            <ul className={styles["info-list"]}>
+              {productData.idealFor.map((item, i) => (
+                <li key={`ideal-${i}`}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* PRODUCT FEATURES */}
+        {productData.features?.length > 0 && (
+          <div className={styles["product-info-section"]}>
+            <h3 className={styles["info-title"]}>Product Features</h3>
+            <ul className={styles["info-list"]}>
+              {productData.features.map((item, i) => (
+                <li key={`feature-${i}`}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {/* SPECIFICATIONS */}
         <div className={styles["product-spec-section"]}>
           <h3 className={styles["spec-title"]}>Product Specifications</h3>
@@ -194,6 +231,19 @@ const SingleProductDisplay = ({
             </tbody>
           </table>
         </div>
+
+        {/* FREQUENTLY ASKED QUESTIONS */}
+        {productData.faqs?.length > 0 && (
+          <div className={styles["product-info-section"]}>
+            <h3 className={styles["info-title"]}>Frequently Asked Questions</h3>
+            {productData.faqs.map((faq, i) => (
+              <div key={`faq-${i}`} className={styles["product-faq-item"]}>
+                <h4 className={styles["product-faq-question"]}>{faq.question}</h4>
+                <p className={styles["product-faq-answer"]}>{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        )}
 
         <WhyChooseUsProduct
           productName={productData.name}
@@ -246,6 +296,8 @@ const SingleProductDisplay = ({
         subcategoryName={subcategoryData.name}
         categoryName={categoryData.name}
       />
+
+      <ProductCTA title={docContent.ctaTitle} description={docContent.ctaDescription} />
 
       <EnquiryModal
         isOpen={showModal}

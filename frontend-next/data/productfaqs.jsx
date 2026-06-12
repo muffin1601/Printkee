@@ -1,12 +1,43 @@
  const productFAQs = {
+  "trophy-and-momento": [
+    { question: "Can I customize trophies and awards with my company logo?", answer: "Yes, Printkee provides logo printing, engraving, and personalized branding on trophies and awards." },
+    { question: "What types of trophies and awards are available?", answer: "We offer acrylic trophies, crystal awards, wooden trophies, glass trophies, metal awards, plaques, and customized mementos." },
+    { question: "Are customized trophies suitable for employee recognition?", answer: "Yes, corporate trophies and awards are perfect for employee appreciation, achievement recognition, and annual award functions." },
+    { question: "Do you provide bulk trophy and award orders?", answer: "Yes, we specialize in bulk customized trophy and award orders for companies, schools, colleges, and sports events." },
+    { question: "What customization methods are available?", answer: "We offer Laser Engraving, UV Printing, Screen Printing, Digital Printing, and Metal Embossing options." },
+    { question: "Can I add custom names and award titles?", answer: "Yes, personalized names, award titles, logos, and messages can be added according to your requirements." },
+    { question: "What is the delivery time for customized trophies and awards?", answer: "Delivery time depends on quantity and customization requirements, but we provide fast Pan India delivery services." },
+    { question: "Why are customized trophies and awards important for businesses?", answer: "Customized trophies and awards help motivate employees, recognize achievements, strengthen company culture, and create memorable appreciation experiences." },
+  ],
+  "keychains": [
+    { question: "Can I customize metal keychains with my company logo?", answer: "Yes, Printkee provides custom logo printing and engraving options for promotional metal keychains." },
+    { question: "What branding methods are available for metal keychains?", answer: "We offer Laser Engraving, UV Printing, Screen Printing, Epoxy Printing, and Metal Embossing options." },
+    { question: "Are promotional metal keychains suitable for corporate gifting?", answer: "Yes, customized metal keychains are perfect for corporate gifting, promotional events, employee welcome kits, and marketing campaigns." },
+    { question: "Do you provide bulk promotional keychain orders?", answer: "Yes, we specialize in bulk customized keychain orders for businesses, startups, schools, and corporate events." },
+    { question: "Can I choose custom shapes and designs?", answer: "Yes, multiple shapes, sizes, and design customization options are available according to your branding requirements." },
+    { question: "Are metal keychains durable for daily use?", answer: "Yes, our promotional metal keychains are made using durable materials with long-lasting finishing for regular use." },
+    { question: "What is the delivery time for customized keychains?", answer: "Delivery time depends on order quantity and customization requirements, but we provide fast delivery services across India." },
+    { question: "Why are promotional metal keychains effective for branding?", answer: "Promotional metal keychains provide long-term brand visibility because they are practical, portable, and used daily by customers and employees." },
+  ],
+  "backpacks": [
+    { question: "Can I print my company logo on backpacks?", answer: "Yes, Printkee provides logo printing and embroidery customization on promotional backpacks." },
+    { question: "What printing options are available for customized backpacks?", answer: "We offer Screen Printing, DTF Printing, Heat Transfer Printing, UV Printing, and Embroidery branding options." },
+    { question: "Are customized backpacks suitable for corporate gifting?", answer: "Yes, customized backpacks are perfect for corporate gifting, employee welcome kits, conferences, and promotional events." },
+    { question: "Do you provide backpacks in bulk quantity?", answer: "Yes, we specialize in bulk backpack orders for companies, schools, colleges, startups, and events across India." },
+    { question: "Can I choose different colors and sizes?", answer: "Yes, multiple backpack colors, sizes, and styles are available according to your branding requirements." },
+    { question: "Are laptop backpacks available for customization?", answer: "Yes, we offer customized laptop backpacks with secure compartments and professional branding options." },
+    { question: "What is the delivery time for bulk backpack orders?", answer: "Delivery time depends on order quantity and customization requirements, but we provide fast Pan India delivery services." },
+    { question: "Why are promotional backpacks useful for branding?", answer: "Promotional backpacks provide long-term brand visibility because they are used daily for office, travel, school, and outdoor activities." },
+  ],
   "polo-t-shirts": [
-    { question: "Can we customize polo t-shirts with our company logo?", answer: "Yes, we provide custom embroidery and printing for corporate gifting, office uniforms, and promotional events." },
-    { question: "Are bulk orders available for corporate gifting?", answer: "Absolutely. We handle large-scale orders with fast delivery and competitive pricing for Delhi NCR businesses." },
-    { question: "What fabric options are available for polo t-shirts?", answer: "We use premium cotton, polyester blends, and eco-friendly fabrics for comfort and durability." },
-    { question: "How can branding polo t-shirts enhance corporate identity?", answer: "Custom-branding polo t-shirts boost employee morale, reinforce your brand, and create a professional presence at events and client meetings." },
-    { question: "Can we choose custom colors and designs?", answer: "Yes, we offer full customization including colors, collar styles, sleeve lengths, and logos." },
-    { question: "How do branding polo t-shirts help in promotional campaigns?", answer: "Branding polo t-shirts increase brand visibility, create a professional look for employees, and act as effective marketing tools at trade shows and events." },
-    { question: "How long does it take to deliver a bulk order?", answer: "Delivery depends on quantity and customization, but we ensure timely shipping across Delhi, Noida, Gurgaon, Okhla, and Faridabad." }
+    { question: "What printing options are available for customized polo t-shirts?", answer: "We offer Screen Printing, DTF Printing, Heat Transfer Printing, Sublimation Printing, and Embroidery branding options." },
+    { question: "Do you provide polo t-shirts in bulk quantity?", answer: "Yes, we specialize in bulk polo t-shirt orders for companies, startups, schools, colleges, events, and organizations across India." },
+    { question: "Can I choose different colors and sizes?", answer: "Yes, multiple colors, fabric options, and sizes are available according to your branding and customization requirements." },
+    { question: "Are dry-fit and cotton polo t-shirts available?", answer: "Yes, we provide both cotton polo t-shirts and dry-fit polo t-shirts suitable for office wear, sports events, and promotional activities." },
+    { question: "What is the delivery time for bulk polo t-shirt orders?", answer: "Delivery time depends on the quantity and customization requirements, but we offer fast Pan India delivery services." },
+    { question: "Why are promotional polo t-shirts useful for branding?", answer: "Promotional polo t-shirts increase brand visibility because they are worn at offices, events, exhibitions, meetings, and outdoor activities." },
+    { question: "Can I customize polo t-shirts for staff uniforms?", answer: "Yes, we provide customized polo t-shirts for staff uniforms, field teams, sales teams, hospitality staff, and corporate employees." },
+    { question: "Why choose Printkee for customized polo t-shirt printing?", answer: "Printkee offers premium fabric quality, professional printing, bulk order support, competitive pricing, and reliable delivery across India." },
   ],
 
   "round-neck-t-shirts": [
@@ -80,42 +111,25 @@
   ],
 
   "welcome-kits": [
-    { question: "Can welcome kits be customized for corporate gifting?", answer: "Yes, we provide custom branding, logo printing, and personalized items in welcome kits, making them perfect for employee onboarding and client gifting." },
-    { question: "Are bulk orders of welcome kits available?", answer: "Absolutely. We handle large-scale corporate orders for offices in Delhi, Noida, Gurgaon, Okhla, Faridabad, and the wider Delhi NCR region." },
-    { question: "What items can be included in a welcome kit?", answer: "Welcome kits can include stationery, drinkware, office accessories, apparel, tech gadgets, and promotional merchandise tailored to your branding needs." },
-    { question: "How do welcome kits enhance corporate identity?", answer: "Branding welcome kits create a professional impression, strengthen your company image, and boost employee engagement from day one." },
-    { question: "Can the design and packaging be customized?", answer: "Yes, businesses can choose colors, themes, packaging styles, and logo placement for a fully personalized welcome kit." },
-    { question: "How do welcome kits help in promotional campaigns?", answer: "Custom welcome kits increase brand visibility, leave a memorable impression on employees and clients, and act as effective marketing tools for corporate events." },
-    { question: "What is the delivery timeline for bulk welcome kit orders?", answer: "Delivery depends on quantity and customization, but we ensure fast and reliable shipping across Delhi NCR including Noida, Gurgaon, Okhla, and Faridabad." }
+    { question: "What is included in a customized employee welcome kit?", answer: "Employee welcome kits can include bottles, diaries, notebooks, mugs, t-shirts, pens, backpacks, ID card holders, and other branded office essentials." },
+    { question: "Can I add my company logo to all products?", answer: "Yes, Printkee provides complete logo branding and customization options for all products included in the welcome kit." },
+    { question: "Are employee welcome kits suitable for startups?", answer: "Yes, customized onboarding kits are perfect for startups, IT companies, corporate offices, and organizations to improve employee experience." },
+    { question: "Do you provide bulk employee welcome kits?", answer: "Yes, we specialize in bulk customized employee welcome kit orders for HR onboarding and corporate gifting." },
+    { question: "Can I customize the products inside the welcome kit?", answer: "Yes, you can select different products and create personalized combinations according to your company requirements and budget." },
+    { question: "What printing methods are available for branding?", answer: "We offer Screen Printing, UV Printing, DTF Printing, Laser Engraving, Embroidery, and Custom Packaging branding options." },
+    { question: "What is the delivery time for customized employee kits?", answer: "Delivery time depends on the order quantity and customization requirements, but we provide fast Pan India delivery services." },
+    { question: "Why are employee welcome kits important for businesses?", answer: "Customized employee welcome kits help create a positive first impression, improve employee engagement, strengthen company branding, and provide useful office essentials for new team members." },
   ],
 
   "promotional-clocks": [
-    { question: "Can promotional clocks be customized with company logos?", answer: "Yes, we offer custom printing and engraving on promotional clocks, making them perfect for corporate gifting and office branding." },
-    { question: "Are bulk orders of promotional clocks available?", answer: "Absolutely. We manage large-scale orders for corporate events, giveaways, and employee gifting in Delhi NCR." },
-    { question: "What types of clocks can be customized?", answer: "We provide wall clocks, desk clocks, table clocks, and designer clocks, all suitable for branding and corporate gifting." },
-    { question: "How do promotional clocks enhance brand visibility?", answer: "Branding clocks keep your logo in sight daily, create a lasting impression, and reinforce corporate identity among employees and clients." },
-    { question: "Can we customize colors, designs, and packaging?", answer: "Yes, promotional clocks can be personalized with corporate colors, themes, and packaging to suit your branding needs." },
-    { question: "How do promotional clocks help in corporate marketing campaigns?", answer: "Custom clocks serve as functional gifts, increase brand recall, and make impactful giveaways for clients and employees." },
-    { question: "What is the delivery timeline for bulk orders of promotional clocks?", answer: "Delivery depends on quantity and customization, but we ensure timely shipping across Delhi, Noida, Gurgaon, Okhla, and Faridabad." }
-  ],
-
-  keychains: [
-    { question: "Can keychains be customized with logos or company branding?", answer: "Yes, we provide custom printing, engraving, and shape customization for keychains ideal for corporate gifting and promotional campaigns." },
-    { question: "Are bulk orders of keychains available?", answer: "Absolutely. We handle large-scale corporate gifting and promotional orders for offices across Delhi NCR." },
-    { question: "What types of keychains can be customized?", answer: "We offer metal, acrylic, leather, wooden, and eco-friendly keychains, all suitable for branding and corporate gifting." },
-    { question: "How do branding keychains enhance corporate identity?", answer: "Custom keychains provide daily brand exposure, make memorable gifts, and strengthen corporate visibility among employees and clients." },
-    { question: "Can we choose colors, shapes, and packaging for keychains?", answer: "Yes, businesses can select custom colors, shapes, finishes, and packaging for fully personalized keychains." },
-    { question: "How do keychains help in promotional campaigns?", answer: "Branding keychains act as effective giveaway items, enhance brand recall, and serve as low-cost yet impactful corporate gifts." },
-    { question: "What is the delivery timeline for bulk keychain orders?", answer: "Delivery depends on quantity and customization, but we ensure fast and reliable shipping across Delhi, Noida, Gurgaon, Okhla, and Faridabad." }
-  ],
-
-  backpacks: [
-    { question: "Do you offer branding backpacks for corporate gifting?", answer: "Yes, we provide custom logo printing and embroidery on corporate backpacks, ideal for office teams, events, and promotional gifting." },
-    { question: "Can we place bulk orders for backpacks?", answer: "Absolutely! We supply bulk corporate orders across Delhi, Noida, Gurgaon, Okhla & Faridabad." },
-    { question: "What materials are available?", answer: "Premium fabrics including polyester, canvas, waterproof nylon & eco-friendly options." },
-    { question: "Are backpacks suitable for employee welcome kits?", answer: "Yes, backpacks make excellent welcome kit essentials for new employees and clients." },
-    { question: "Do you offer different backpack styles?", answer: "Yes — laptop backpacks, travel backpacks, corporate backpacks, and daily-use designs." },
-    { question: "Is customization available on multiple sections of the bag?", answer: "Yes, logo branding can be applied on front panels, pockets, and shoulder straps." }
+    { question: "Can I print my company logo on promotional clocks?", answer: "Yes, Printkee provides logo printing and branding customization on promotional clocks." },
+    { question: "What types of clocks are available for customization?", answer: "We offer wall clocks, desk clocks, digital clocks, and decorative promotional clock options." },
+    { question: "Are customized clocks suitable for corporate gifting?", answer: "Yes, promotional clocks are ideal for corporate gifting, employee appreciation, conferences, and branding campaigns." },
+    { question: "Do you provide bulk customized clock orders?", answer: "Yes, we specialize in bulk promotional clock orders for companies, schools, startups, and events across India." },
+    { question: "What printing methods are available for clocks?", answer: "We offer UV Printing, Screen Printing, Digital Printing, Laser Engraving, and Vinyl Branding options." },
+    { question: "Can I choose different designs and sizes?", answer: "Yes, multiple clock styles, colors, and sizes are available according to your branding requirements." },
+    { question: "What is the delivery time for customized promotional clocks?", answer: "Delivery time depends on order quantity and customization requirements, but we provide fast Pan India delivery services." },
+    { question: "Why are promotional clocks useful for branding?", answer: "Customized promotional clocks provide long-term brand visibility because they are used daily in offices, homes, schools, and commercial spaces." },
   ],
 
   "foldable-bags": [
@@ -155,40 +169,47 @@
   ],
 
   "notebooks-and-diary-sets": [
-    { question: "Are notebooks and diaries customizable with company logos?", answer: "Yes, we offer UV printing, embossing, foil stamping & screen printing for professional corporate branding." },
-    { question: "Do you handle bulk notebook orders for employee welcome kits?", answer: "Yes, we cater to large corporate gifting and onboarding requirements with timely delivery." },
-    { question: "What paper and cover options are available?", answer: "We offer premium quality paper, leatherette covers, spiral binding, hardbound, and eco-friendly options." },
-    { question: "Why are branding notebooks useful for corporate gifting?", answer: "They are practical, professional, and increase brand visibility in everyday office usage." },
-    { question: "Can we customize internal pages with company details?", answer: "Yes, you can include employee info pages, calendars, quotes & branding pages." },
-    { question: "Which regions do you deliver bulk diary sets to?", answer: "We deliver across Delhi, Noida, Gurgaon, Faridabad & Okhla with reliable timelines." }
+    { question: "Can I customize notebooks and diaries with my company logo?", answer: "Yes, Printkee provides complete customization options including logo printing, embossing, debossing, foil stamping, and personalized branding." },
+    { question: "Which notebook or diary is suitable for corporate gifting?", answer: "Executive diaries, leatherette journals, and premium notebook gift sets are highly preferred for corporate gifting and client appreciation programs." },
+    { question: "What branding methods are available for notebook and diary customization?", answer: "We offer UV Printing, Screen Printing, Digital Printing, Foil Stamping, Embossing, Debossing, and Laser Engraving options." },
+    { question: "Do you provide bulk notebook and diary orders?", answer: "Yes, we specialize in bulk customized notebook and diary orders for companies, educational institutions, events, and promotional campaigns across India." },
+    { question: "Can I choose different sizes and cover designs?", answer: "Yes, multiple sizes, cover materials, colors, page formats, and finishing options are available according to your branding requirements." },
+    { question: "Are notebook and diary sets suitable for employee welcome kits?", answer: "Yes, branded notebooks and diaries are among the most popular items included in employee onboarding kits and corporate stationery sets." },
+    { question: "What is the delivery time for customized notebook and diary orders?", answer: "Delivery depends on quantity and customization requirements, but we provide fast Pan India delivery and quick dispatch for bulk orders." },
+    { question: "Why are customized notebooks and diaries useful for branding?", answer: "Customized notebooks and diaries offer long-term brand visibility because they are practical, professional, and used regularly during meetings, training sessions, office work, and business interactions." },
   ],
 
   "pen-and-writing-set": [
-    { question: "Can pens be customized with a logo?", answer: "Yes, we provide laser engraving & printed branding for pens and writing gift sets." },
-    { question: "Do you offer premium pens for corporate gifting?", answer: "We have luxury gift pens and combo writing sets ideal for executive gifting." },
-    { question: "Do you support bulk promotional orders?", answer: "Yes, we handle high-volume branding projects for exhibitions and promotional campaigns." },
-    { question: "Why are writing sets effective promotional gifts?", answer: "They ensure daily brand recall as employees and clients use them regularly." },
-    { question: "Can packaging be customized with branding?", answer: "Yes, gift boxes can include logos, colors, and corporate taglines." },
-    { question: "What’s the minimum order quantity?", answer: "We offer flexible MOQs, especially for corporate gifting in Delhi NCR." }
+    { question: "Can I customize both plastic pens and metal pens with my logo?", answer: "Yes, Printkee provides customization for both plastic pens and metal pens with logo printing and engraving options." },
+    { question: "Which pens are suitable for promotional campaigns?", answer: "Plastic pens are ideal for bulk promotional campaigns, while metal pens are perfect for premium corporate gifting." },
+    { question: "What printing methods are available for custom pens?", answer: "We offer UV Printing, Screen Printing, Pad Printing, Digital Printing, and Laser Engraving options." },
+    { question: "Do you provide bulk custom pen orders?", answer: "Yes, we specialize in bulk customized pen orders for companies, schools, startups, and events across India." },
+    { question: "Can I choose different pen colors and designs?", answer: "Yes, multiple colors, finishes, and pen styles are available according to your branding requirements." },
+    { question: "Are custom pens suitable for employee welcome kits?", answer: "Yes, branded plastic and metal pens are commonly used in employee onboarding kits and office stationery sets." },
+    { question: "What is the delivery time for custom logo pens?", answer: "Delivery time depends on quantity and customization requirements, but we provide fast Pan India delivery services." },
+    { question: "Why are custom pens useful for branding?", answer: "Custom pens provide long-term brand visibility because they are practical, affordable, and used daily in offices, schools, meetings, and events." },
   ],
 
   "lanyard-and-id-card": [
-    { question: "Do you print logos on lanyards and ID cards?", answer: "Yes, we provide full-color logo branding, employee details, and secure access features." },
-    { question: "Do you offer corporate bulk orders?", answer: "Yes, we supply lanyards and ID cards to companies, offices, events & institutions across Delhi NCR." },
-    { question: "What materials do you offer for lanyards?", answer: "We have polyester, satin, eco-friendly & woven lanyards with multiple clip options." },
-    { question: "Are these suitable for employee onboarding kits?", answer: "Absolutely — they are essential for office identity and professional appearance." },
-    { question: "Can we upload our own designs?", answer: "Yes, we support custom designs and brand templates." },
-    { question: "Do you provide fast delivery for urgent corporate orders?", answer: "Yes, delivery is quick and reliable across Delhi, Noida, Gurgaon, Faridabad & Okhla." }
+    { question: "Can I print my company logo on lanyards?", answer: "Yes, Printkee provides custom logo printing on lanyards and ID cards." },
+    { question: "What printing methods are available for lanyards?", answer: "We offer Sublimation Printing, Screen Printing, UV Printing, Digital Printing, and Heat Transfer Printing options." },
+    { question: "Are customized lanyards suitable for corporate offices?", answer: "Yes, customized lanyards and ID cards are widely used for employee identification, office branding, and access management." },
+    { question: "Do you provide bulk lanyard and ID card orders?", answer: "Yes, we specialize in bulk customized lanyard and ID card orders for companies, schools, colleges, hospitals, and events." },
+    { question: "Can I choose different lanyard colors and hooks?", answer: "Yes, multiple colors, clips, hooks, and card holder options are available according to your requirements." },
+    { question: "Are ID cards and lanyards durable for daily use?", answer: "Yes, our lanyards and ID cards are made using durable materials suitable for regular office and institutional use." },
+    { question: "What is the delivery time for customized lanyards and ID cards?", answer: "Delivery time depends on quantity and customization requirements, but we provide fast Pan India delivery services." },
+    { question: "Why are customized lanyards and ID cards important for branding?", answer: "Customized lanyards and ID cards improve professional identity, security, employee recognition, and provide continuous brand visibility in offices, schools, and events." },
   ],
 
   "sipper": [
-    { question: "Can we customize sipper bottles with company branding?", answer: "Yes, we provide logo printing, name personalization, and brand-themed designs for sipper bottles ideal for corporate gifting and promotional events." },
-    { question: "Do you support bulk orders for corporate events?", answer: "Absolutely! We handle large bulk quantities for offices, marathons, exhibitions & employee gifting across Delhi NCR." },
-    { question: "How do branding sipper bottles help in brand promotion?", answer: "Sipper bottles offer daily brand exposure at office, gym & travel — making them a perfect promotional product." },
-    { question: "Can we match the bottle color with our brand theme?", answer: "Yes, customized color options & branding placement are available to align with your brand identity." },
-    { question: "Are sipper bottles suitable for employee welcome kits?", answer: "Definitely — they are practical, reusable, and encourage a healthy lifestyle, making welcome kits more impactful." },
-    { question: "Do you provide custom packaging for corporate gifting?", answer: "Yes, gift boxes and personalized packaging options are available for premium presentation." },
-    { question: "Do you deliver bulk branding sippers in Delhi NCR?", answer: "Yes, we ensure fast delivery in Delhi, Noida, Gurgaon, Faridabad & Okhla for corporate orders." }
+    { question: "Can I print my company logo on sipper bottles?", answer: "Yes, Printkee provides customized logo printing on sipper bottles for branding and promotional use." },
+    { question: "What printing methods are available for custom sippers?", answer: "We offer UV Printing, Screen Printing, Sublimation Printing, DTF Printing, and Laser Engraving options." },
+    { question: "Are customized sippers suitable for corporate gifting?", answer: "Yes, custom sippers are ideal for corporate gifting, employee welcome kits, fitness campaigns, and promotional events." },
+    { question: "Do you provide bulk custom sipper orders in Delhi?", answer: "Yes, we specialize in bulk customized sipper bottle printing for companies, schools, gyms, and events." },
+    { question: "Are the sipper bottles leak-proof?", answer: "Yes, our customized sippers are designed with secure leak-proof caps for daily use." },
+    { question: "Can I choose different bottle colors and sizes?", answer: "Yes, multiple colors, capacities, and styles are available according to your branding requirements." },
+    { question: "What is the delivery time for custom sipper orders?", answer: "Delivery time depends on the quantity and customization requirements, but we provide fast delivery services across Delhi and India." },
+    { question: "Why are customized sippers good for promotional branding?", answer: "Customized sippers offer long-term brand visibility because they are practical, reusable, and used daily in offices, gyms, schools, and outdoor activities." },
   ],
 
   "bamboo-bottle": [
@@ -222,52 +243,58 @@
   ],
 
   "wireless-charging": [
-    { question: "Do you provide custom branding on wireless chargers?", answer: "Yes, we offer logo printing and branding on wireless charging devices to make them perfect corporate gifts." },
-    { question: "Are wireless chargers suitable for corporate gifting and promotions?", answer: "Absolutely — they are premium and trending gifts that enhance your company’s modern brand image." },
-    { question: "Do you offer bulk wireless charger orders for businesses?", answer: "Yes, we supply bulk branding orders across Delhi, Noida, Gurgaon, Faridabad & Okhla." },
-    { question: "Can wireless chargers be included in welcome kits?", answer: "Yes, they add a premium tech touch to employee onboarding & client gifting sets." },
-    { question: "Can we personalize packaging for gifting?", answer: "Yes, customized gift boxes & branding sleeves are available." },
-    { question: "Are wireless chargers compatible with major smartphone brands?", answer: "Yes, they support most Qi-enabled devices including iOS & Android phones." },
-    { question: "What is the lead time for bulk corporate orders?", answer: "We ensure fast and reliable delivery within Delhi NCR based on order size." }
+    { question: "Can I print my company logo on chargers?", answer: "Yes, Printkee provides custom logo printing and branding on chargers, power banks, and wireless charging accessories." },
+    { question: "What types of chargers are available for customization?", answer: "We offer wireless chargers, USB chargers, charging cables, fast chargers, LED logo chargers, and customized power banks." },
+    { question: "Are customized chargers suitable for corporate gifting?", answer: "Yes, personalized chargers are one of the most popular corporate gifting products because they are practical and used daily." },
+    { question: "Do you provide bulk custom charger orders?", answer: "Yes, we specialize in bulk customized charger orders for companies, startups, events, and promotional campaigns." },
+    { question: "What printing methods are available for chargers?", answer: "We offer UV Printing, Screen Printing, Laser Engraving, Digital Printing, and LED Logo Branding options." },
+    { question: "Can I choose different charger designs and colors?", answer: "Yes, multiple charger styles, colors, and customization options are available according to your branding requirements." },
+    { question: "What is the delivery time for custom charger orders?", answer: "Delivery time depends on quantity and customization requirements, but we provide fast Pan India delivery services." },
+    { question: "Why are personalised chargers useful for branding?", answer: "Customized chargers provide long-term brand visibility because they are useful daily accessories used in offices, homes, travel, and business events." },
   ],
 
   "computer-accessories": [
-    { question: "Can computer accessories be customized with logos?", answer: "Yes, we provide branding on gadgets, hubs, laptop stands, headphones, keyboards, and more." },
-    { question: "Do you support promotional bulk orders?", answer: "Yes, we manage large corporate gifting orders for seminars, conferences & events." },
-    { question: "Why are branding computer accessories great corporate gifts?", answer: "Because they are practical, used daily, and increase brand visibility at work." },
-    { question: "Can we create corporate combos with multiple tech items?", answer: "Yes, we offer custom curated tech gift sets for employees and clients." },
-    { question: "Do you offer premium corporate packaging?", answer: "Yes, we provide gift-ready packaging with corporate branding." },
-    { question: "Which industries commonly order tech accessories?", answer: "We supply IT companies, startups, co-working spaces, enterprises & events in Delhi NCR." },
-    { question: "What are the delivery locations for bulk tech accessory orders?", answer: "We deliver across Delhi, Noida, Gurgaon, Faridabad & Okhla." }
+    { question: "Can I customize computer accessories with my company logo?", answer: "Yes, Printkee provides custom logo printing and branding on various computer accessories." },
+    { question: "What types of computer accessories are available for customization?", answer: "We offer mouse pads, keyboards, laptop sleeves, USB drives, laptop stands, webcam covers, wireless mouse, desk organizers, and more." },
+    { question: "Are personalized computer accessories suitable for corporate gifting?", answer: "Yes, customized computer accessories are ideal for corporate gifting, employee onboarding kits, and office branding." },
+    { question: "Do you provide bulk customized computer accessories?", answer: "Yes, we specialize in bulk orders for startups, IT companies, offices, schools, and promotional events across India." },
+    { question: "What branding methods are available?", answer: "We offer UV Printing, Screen Printing, Laser Engraving, Digital Printing, and Heat Transfer Printing options." },
+    { question: "Can I choose different colors and product styles?", answer: "Yes, multiple colors, designs, and customization options are available according to your branding requirements." },
+    { question: "What is the delivery time for customized computer accessories?", answer: "Delivery time depends on order quantity and customization requirements, but we provide fast Pan India delivery services." },
+    { question: "Why are personalized computer accessories useful for branding?", answer: "Personalized computer accessories provide daily brand visibility because they are commonly used in offices, remote work setups, meetings, and business environments." },
   ],
 
   "power-banks": [
-    { question: "Do you customize power banks with company branding?", answer: "Yes, we provide printing and engraving options for power banks used in corporate gifting." },
-    { question: "Are power banks suitable for corporate giveaways?", answer: "Yes — they are high-utility gifts with great brand recall value." },
-    { question: "Do you support bulk orders for branding campaigns?", answer: "Yes, we specialize in bulk promotional orders for corporate campaigns and events." },
-    { question: "Can we choose custom colors and designs?", answer: "Yes, power banks can be designed in brand-specific colors and themes." },
-    { question: "Do you offer premium and high-capacity options?", answer: "Yes, multiple capacity options are available for employees and VIP gifting." },
-    { question: "Can power banks be included in onboarding kits?", answer: "Yes, they make smart and practical additions to welcome kits." },
-    { question: "Do you offer delivery across Delhi NCR?", answer: "Yes, we ensure on-time delivery to Delhi, Noida, Gurgaon, Okhla & Faridabad." }
+    { question: "Can I print my company logo on power banks?", answer: "Yes, Printkee provides custom logo printing and branding on promotional power banks." },
+    { question: "What types of power banks are available for customization?", answer: "We offer wireless power banks, LED logo power banks, slim power banks, fast charging power banks, bamboo finish power banks, and more." },
+    { question: "Are customized power banks suitable for corporate gifting?", answer: "Yes, promotional power banks are highly popular for corporate gifting, employee welcome kits, and promotional events." },
+    { question: "Do you provide bulk custom power bank orders?", answer: "Yes, we specialize in bulk customized power bank orders for companies, startups, schools, and business events across India." },
+    { question: "What printing methods are available for power banks?", answer: "We offer UV Printing, Screen Printing, Laser Engraving, Digital Printing, and LED Logo Branding options." },
+    { question: "Can I choose different colors and battery capacities?", answer: "Yes, multiple colors, styles, and battery capacity options are available according to your branding requirements." },
+    { question: "What is the delivery time for customized power banks?", answer: "Delivery time depends on order quantity and customization requirements, but we provide fast Pan India delivery services." },
+    { question: "Why are promotional power banks effective for branding?", answer: "Promotional power banks provide long-term brand visibility because they are practical tech accessories used daily for mobile charging at offices, travel, and events." },
   ],
 
   "desktop-and-mousepad": [
-    { question: "Do you offer custom mousepads with logo branding?", answer: "Yes, we provide full-color printing and custom shapes for desktop branding." },
-    { question: "Are desktop accessories good for corporate gifting?", answer: "Yes, they stay on employee desks and promote constant brand visibility." },
-    { question: "Do you handle bulk promotional orders?", answer: "Yes, we manage corporate bulk orders for trade shows, events & office gifting." },
-    { question: "Can we create desk accessory combos for employees?", answer: "Yes, we curate Desktop Gift Sets including mousepads, desk organizers & writing tools." },
-    { question: "Is packaging customization available?", answer: "Yes, we provide branding packaging suitable for gifting and onboarding." },
-    { question: "Can designs be customized with brand guidelines?", answer: "Yes, we match your brand colors, typography & guidelines for professional appearance." },
-    { question: "Do you deliver bulk desktop accessories across Delhi NCR?", answer: "Yes, we offer fast shipping to major business hubs: Delhi, Noida, Gurgaon, Okhla & Faridabad." }
+    { question: "Can I print my company logo on mouse pads?", answer: "Yes, Printkee provides custom logo printing and branding on mouse pads." },
+    { question: "What types of mouse pads are available for customization?", answer: "We offer office mouse pads, gaming mouse pads, desk mouse pads, round mouse pads, and photo printed mouse pads." },
+    { question: "Are customized mouse pads suitable for corporate gifting?", answer: "Yes, custom mouse pads are ideal for employee welcome kits, office branding, promotional campaigns, and corporate gifting." },
+    { question: "Do you provide bulk custom mouse pad orders?", answer: "Yes, we specialize in bulk customized mouse pad orders for businesses, schools, startups, and events across India." },
+    { question: "What printing methods are available for mouse pads?", answer: "We offer Sublimation Printing, UV Printing, Screen Printing, Digital Printing, and Heat Transfer Printing options." },
+    { question: "Can I choose different sizes and shapes?", answer: "Yes, multiple sizes, colors, and shapes are available according to your branding and office requirements." },
+    { question: "What is the delivery time for custom printed mouse pads?", answer: "Delivery time depends on quantity and customization requirements, but we provide fast Pan India delivery services." },
+    { question: "Why are custom mouse pads effective for branding?", answer: "Custom mouse pads provide daily brand visibility because they are regularly used on office desks, gaming setups, and workstations." },
   ],
 
   "cork-sheet": [
-    { question: "Are cork sheets suitable for corporate branding and office decor?", answer: "Yes, cork sheets are ideal for office branding, notice boards, workstation panels, and eco-friendly decor in corporate spaces." },
-    { question: "Do you provide cork sheets in customized sizes?", answer: "Yes, sizes can be fully customized based on office requirements and design projects." },
-    { question: "Are cork sheets an eco-friendly gifting option?", answer: "Absolutely — cork is 100% sustainable, biodegradable, and lightweight, making it perfect for green corporate initiatives." },
-    { question: "Can companies place bulk orders for cork sheets in Delhi NCR?", answer: "Yes, we provide bulk supply and fast delivery in Delhi, Noida, Gurgaon, Okhla, and Faridabad." },
-    { question: "Where can cork sheets be used in corporate environments?", answer: "They are ideal for meeting rooms, creative studios, coworking spaces, office branding, and workstation walls." },
-    { question: "Do cork sheets support custom printing or branding?", answer: "Yes, branding and pattern printing can be added for promotional and interior themes." }
+    { question: "Can I print my company logo on cork sheets?", answer: "Yes, Printkee provides custom logo printing and branding options on cork sheets." },
+    { question: "What printing methods are available for cork sheets?", answer: "We offer UV Printing, Screen Printing, Digital Printing, Vinyl Branding, and Custom Shape Cutting options." },
+    { question: "Are customized cork sheets suitable for office use?", answer: "Yes, cork sheets are widely used for office notice boards, planning boards, presentations, and branding displays." },
+    { question: "Do you provide cork sheets in bulk?", answer: "Yes, we specialize in bulk customized cork sheet orders for offices, schools, colleges, startups, and exhibitions." },
+    { question: "Can I choose custom sizes and thickness?", answer: "Yes, customized sizes and thickness options are available according to your project requirements." },
+    { question: "Are cork sheets eco-friendly?", answer: "Yes, cork sheets are made from eco-friendly and reusable material suitable for sustainable branding solutions." },
+    { question: "What is the delivery time for customized cork sheets?", answer: "Delivery time depends on the order quantity and customization requirements, but we provide fast Pan India delivery." },
+    { question: "Why are Promotional cork sheets useful for branding?", answer: "Promotional cork sheets provide professional brand visibility and are highly useful for office displays, presentations, exhibitions, and educational purposes." },
   ],
 
   "cork-corporate-gifting-combo": [
@@ -360,14 +387,5 @@
     { question: "Delivery support?", answer: "Fast deliveries across Delhi, Noida, Gurgaon, Okhla & Faridabad." }
   ],
 
-  "trophy-and-momento": [
-    { question: "Can trophies and momentos be customized with our logo and branding?", answer: "Yes, we provide logo engraving, custom printing, name plates, and personalized designs on all trophies and momentos for corporate events, award ceremonies, and recognition programs." },
-    { question: "Do you support bulk orders for corporate gifting and award functions?", answer: "Absolutely. We specialize in bulk corporate orders for annual functions, sports events, employee recognition, and promotional awards across Delhi, Noida, Gurgaon, Okhla, and Faridabad." },
-    { question: "What material options are available for customized trophies and momentos?", answer: "We offer crystal, acrylic, wood, metal, glass, and premium resin trophies to match your brand identity, budget, and event theme." },
-    { question: "How do customized trophies help elevate company culture and branding?", answer: "Personalized awards boost employee motivation, reinforce brand recognition, and create a premium corporate image at every event and achievement celebration." },
-    { question: "Can the shape, size, and theme of trophies be customized?", answer: "Yes, we provide fully personalized designs including corporate shapes, innovation themes, sports styles, and custom structures based on your event purpose." },
-    { question: "What types of corporate trophies and momentos do you offer?", answer: "Our range includes achievement awards, excellence trophies, appreciation momentos, long-service awards, conference recognition pieces, and branding corporate souvenirs." },
-    { question: "What is the delivery time for large trophy and momento orders in Delhi NCR?", answer: "Delivery time depends on customization, but we ensure fast production and reliable shipping for corporate events and award shows across Delhi NCR." }
-  ]
 };
  export default productFAQs;

@@ -167,15 +167,7 @@ const Navbar = () => {
                                 onClick={() => setShowMegaMenu(false)}
                               >
                                 {cat}
-                              </Link>
-
-                              {/* View All */}
-                              <Link
-                                href={data.href}
-                                className={styles.megaViewAll}
-                                onClick={() => setShowMegaMenu(false)}
-                              >
-                                View All <ArrowRight size={11} aria-hidden="true" />
+                                <ArrowRight size={11} aria-hidden="true" />
                               </Link>
 
                               {/* Subcategories */}

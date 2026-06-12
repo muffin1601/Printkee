@@ -91,8 +91,8 @@ export default async function ProductPage({ params }) {
         "@type": "Product",
         name: productData.name,
         description:
-          productData.description?.long ||
           productData.description?.short ||
+          (productData.description?.long || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() ||
           productData.name,
         image: productData.images?.map((img) => img.url) || [],
         sku: productData.sku || undefined,

@@ -274,8 +274,8 @@
   border-right: 1px solid #EDE5F8;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 0 1.75rem;
+  gap: 1.25rem;
+  padding: 0 1.25rem;
 }
 .megaColGroup:first-child { padding-left: 0; }
 .megaColGroup:last-child  { border-right: none; padding-right: 0; }
@@ -288,34 +288,23 @@
 
 /* ── Category heading — dark purple + gold underline ── */
 .megaHeading {
+  align-items: center;
   border-bottom: 2px solid var(--mg, #B8962E);
   color: var(--mp, #2D1167);
-  display: block;
+  display: flex;
+  gap: 4px;
   font-size: 0.73rem;
   font-weight: 800;
   letter-spacing: 0.11em;
-  margin-bottom: 0.55rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.14s ease;
 }
+.megaHeading svg { color: var(--mg, #B8962E); transition: transform 0.14s ease; }
 .megaHeading:hover { color: var(--mp-mid, #6B3FA0); }
-
-/* ── "View All →" — gold ── */
-.megaViewAll {
-  align-items: center;
-  color: var(--mg, #B8962E);
-  display: inline-flex;
-  font-size: 0.74rem;
-  font-weight: 700;
-  gap: 3px;
-  letter-spacing: 0.03em;
-  margin-bottom: 0.65rem;
-  text-decoration: none;
-  transition: color 0.14s ease, gap 0.14s ease;
-}
-.megaViewAll:hover { color: var(--mp, #2D1167); gap: 7px; }
+.megaHeading:hover svg { transform: translateX(3px); }
 
 /* ── Subcategory list ── */
 .megaCol ul { list-style: none; margin: 0; padding: 0; }

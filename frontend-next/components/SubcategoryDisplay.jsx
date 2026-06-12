@@ -7,6 +7,7 @@ import categoryHighlights from "../data/highlightsdata";
 import aboutSubcategoryData from "../data/faqsdata";
 import Testimonials from "./Testimonials";
 import GetQuoteCTA from "./GetQuoteCTA";
+import CategoryDescription from "./category/CategoryDescription";
 
 const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
   const { category: categorySlug } = useParams();
@@ -121,6 +122,9 @@ const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
           </div>
         </section>
       )}
+
+      {/* CATEGORY SEO DESCRIPTION */}
+      <CategoryDescription category={categorySlug} />
 
       <Testimonials />
       <GetQuoteCTA />
