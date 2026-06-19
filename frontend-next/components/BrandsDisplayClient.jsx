@@ -5,16 +5,6 @@ import axios from "axios";
 import styles from "../styles/BrandsDisplay.module.css";
 import brandProducts from "../data/brandProducts";
 
-const DiwaliBanner = () => (
-  <Link href="/diwali-special" className={styles["cta-banner-4"]} aria-label="View Diwali special offers">
-    <img
-      src="/assets/diwali-brand-banner.webp"
-      alt="Diwali Special Corporate Gifting Offers"
-      className={styles["cta-banner-image-4"]}
-    />
-  </Link>
-);
-
 const BrandsDisplayClient = ({ brand, brandInfo }) => {
   const products = brandProducts[brand] || [];
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false);
@@ -97,8 +87,6 @@ const BrandsDisplayClient = ({ brand, brandInfo }) => {
               </Link>
             ))}
           </div>
-
-          <DiwaliBanner />
 
           {remainingProducts.length > 0 && (
             <div className={styles["brand-products-grid"]}>
