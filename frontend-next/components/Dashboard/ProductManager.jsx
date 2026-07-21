@@ -135,10 +135,13 @@ const ProductManager = () => {
 
   const handleEdit = (p) => {
     setEditId(p._id);
-    setSlugEdited(true); // never silently rewrite an existing product's slug
+    // Only lock auto-slug if a real slug already exists — never silently
+    // rewrite it. If the product has no slug at all (data gap), keep
+    // auto-generating from the name like the Add flow does.
+    setSlugEdited(!!p.slug);
     setForm({
       name: p.name,
-      slug: p.slug,
+      slug: p.slug || slugify(p.name || ""),
       description: { short: p.description?.short || "", long: p.description?.long || "" },
       price: p.price ?? "",
       salePrice: p.salePrice ?? "",
