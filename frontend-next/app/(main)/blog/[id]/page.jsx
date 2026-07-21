@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import BlogViewClient from "../../../../components/BlogViewClient";
 
 const IMG_URL = process.env.NEXT_PUBLIC_IMG_URL || "";
@@ -48,6 +49,8 @@ export async function generateMetadata({ params }) {
 export default async function BlogPage({ params }) {
   const { id } = await params;
   const blog = await getBlog(id);
+
+  if (!blog) notFound();
 
   /* ── BlogPosting JSON-LD — server-rendered, visible to Googlebot ── */
   const jsonLd = blog

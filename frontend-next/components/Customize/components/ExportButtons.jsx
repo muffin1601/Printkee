@@ -113,7 +113,13 @@ const ExportButtons = ({ thumbnailCanvasRefs, viewStates }) => {
         formData.append("message", message);
         formData.append("sizes", JSON.stringify(sizes || {}));
 
-        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/send-email`, { method: "POST", body: formData });
+        const emailRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/send-email`, {
+          method: "POST",
+          body: formData,
+        });
+        if (!emailRes.ok) {
+          console.error("send-email failed:", await emailRes.text().catch(() => ""));
+        }
 
         await fetch("/api/crm-lead", {
           method: "POST",

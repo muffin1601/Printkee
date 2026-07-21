@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import BrandsDisplayClient from "../../../../components/BrandsDisplayClient";
 
 const BASE = "https://printkee.com";
@@ -43,5 +44,8 @@ export async function generateMetadata({ params }) {
 export default async function BrandsDisplayPage({ params }) {
   const { brand } = await params;
   const brandInfo = await getBrand(brand);
+
+  if (!brandInfo) notFound();
+
   return <BrandsDisplayClient brand={brand} brandInfo={brandInfo} />;
 }

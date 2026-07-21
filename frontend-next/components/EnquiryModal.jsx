@@ -5,7 +5,7 @@ import {
   FileText, Send, CheckCircle2, Truck, BadgePercent,
 } from "lucide-react";
 import styles from "../styles/EnquiryModal.module.css";
-import axios from "axios";
+import { submitLead } from "../utils/submitLead";
 
 const perks = [
   { icon: <CheckCircle2 size={14} />, text: "Premium quality guaranteed" },
@@ -26,22 +26,15 @@ const EnquiryModal = ({ isOpen, onClose, image, description }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      await fetch("/api/crm-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/send-email`, formData);
+    const { emailOk } = await submitLead(formData);
+    if (emailOk) {
       alert("Thank you! Your inquiry has been submitted.");
       setFormData({ name: "", company: "", email: "", phone: "", requirement: "" });
       onClose();
-    } catch (error) {
-      console.error("Submission failed:", error);
+    } else {
       alert("Something went wrong. Please try again later.");
-    } finally {
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   useEffect(() => {

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import styles from "../styles/ContactUs.module.css";
-import axios from "axios";
+import { submitLead } from "../utils/submitLead";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -19,17 +19,11 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await fetch("/api/crm-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/send-email`, formData);
+    const { emailOk } = await submitLead(formData);
+    if (emailOk) {
       alert("Thank you! Your message has been sent.");
       setFormData({ name: "", company: "", email: "", phone: "", requirement: "" });
-    } catch (error) {
-      console.error("Contact form submission error:", error);
+    } else {
       alert("Something went wrong. Please try again later.");
     }
   };

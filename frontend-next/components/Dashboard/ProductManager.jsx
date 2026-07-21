@@ -1,11 +1,19 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
 import { Plus, Edit, Trash2, Image as ImageIcon, Search, Layers } from "lucide-react";
-import axios from "axios";
+import axios from "@/lib/api";
 import AdminLayout from "../../components/Dashboard/AdminLayout";
 import Modal from "../../components/Dashboard/Modal";
 import FormInput from "../../components/Dashboard/FormInput";
 import styles from "../../styles/admin/HeroManager.module.css";
+
+const slugify = (value) =>
+  value
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 const emptyForm = {
   name: "",
@@ -41,6 +49,7 @@ const ProductManager = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form, setForm] = useState(emptyForm);
   const [editId, setEditId] = useState(null);
+  const [slugEdited, setSlugEdited] = useState(false);
 
   // Dependent subs filter by category
   const filteredSubs = useMemo(
@@ -84,14 +93,15 @@ const ProductManager = () => {
   const openAdd = () => {
     setForm({ ...emptyForm });
     setEditId(null);
+    setSlugEdited(false);
     setIsModalOpen(true);
   };
 
   // Save
   const handleSave = async () => {
     // Quick validation
-    if (!form.name || !form.slug || !form.price || !form.category) {
-      alert("Name, slug, price, and category are required.");
+    if (!form.name || !form.slug || !form.price || !form.category || !form.subcategory) {
+      alert("Name, slug, price, category, and subcategory are required.");
       return;
     }
 
@@ -125,6 +135,7 @@ const ProductManager = () => {
 
   const handleEdit = (p) => {
     setEditId(p._id);
+    setSlugEdited(true); // never silently rewrite an existing product's slug
     setForm({
       name: p.name,
       slug: p.slug,
@@ -376,8 +387,26 @@ const ProductManager = () => {
       >
         {/* BASIC INFO */}
         <h4>Basic Info</h4>
-        <FormInput label="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}/>
-        <FormInput label="Slug" value={form.slug} onChange={(e) => setForm({ ...form, slug: e.target.value })}/>
+        <FormInput
+          label="Name"
+          value={form.name}
+          onChange={(e) => {
+            const name = e.target.value;
+            setForm((prev) => ({
+              ...prev,
+              name,
+              slug: slugEdited ? prev.slug : slugify(name),
+            }));
+          }}
+        />
+        <FormInput
+          label="Slug"
+          value={form.slug}
+          onChange={(e) => {
+            setSlugEdited(true);
+            setForm({ ...form, slug: e.target.value });
+          }}
+        />
         <FormInput label="Short Description" value={form.description.short} onChange={(e) => setForm({ ...form, description: { ...form.description, short: e.target.value }})}/>
         <div className={styles.hmFormGroup}>
           <label className={styles.hmInputLabel}>Long Description</label>

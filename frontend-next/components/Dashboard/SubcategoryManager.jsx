@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Plus, Edit, Trash2, Image as ImageIcon } from "lucide-react";
-import axios from "axios";
+import axios from "@/lib/api";
 import Modal from "../../components/Dashboard/Modal";
 import FormInput from "../../components/Dashboard/FormInput";
 import AdminLayout from "../../components/Dashboard/AdminLayout";

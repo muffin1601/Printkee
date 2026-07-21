@@ -97,4 +97,8 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+productSchema.index({ category: 1 });
+productSchema.index({ subcategory: 1 });
+productSchema.index({ isActive: 1 });
+
 module.exports = mongoose.model("Product", productSchema);

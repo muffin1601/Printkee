@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import ProductDisplay from "../../../../components/ProductDisplay";
 import seoConfig from "../../../../data/seoConfig";
 
@@ -20,6 +21,8 @@ export async function generateMetadata({ params }) {
   const { category, subcategory } = await params;
   const seo = seoConfig[`/${category}/${subcategory}`];
   const data = await getSubcategory(category, subcategory);
+  if (!data) return { title: "Subcategory Not Found | Printkee" };
+
   const sub = data?.subcategory;
   const cat = data?.category;
   const canonical = `${BASE}/${category}/${subcategory}`;
@@ -58,6 +61,8 @@ export default async function SubcategoryPage({ params }) {
   const { category, subcategory } = await params;
   const seo = seoConfig[`/${category}/${subcategory}`];
   const data = await getSubcategory(category, subcategory);
+
+  if (!data) notFound();
 
   const products      = data?.products      || [];
   const categoryData  = data?.category      || null;

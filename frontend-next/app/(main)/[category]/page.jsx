@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import SubcategoryDisplay from "../../../components/SubcategoryDisplay";
 import aboutSubcategoryData from "../../../data/faqsdata";
 import seoConfig from "../../../data/seoConfig";
@@ -20,6 +21,8 @@ export async function generateMetadata({ params }) {
   const { category } = await params;
   const seo = seoConfig[`/${category}`];
   const data = await getCategory(category);
+  if (!data) return { title: "Category Not Found | Printkee" };
+
   const canonical = `${BASE}/${category}`;
 
   const title = seo?.title
@@ -56,6 +59,8 @@ export default async function CategoryPage({ params }) {
   const { category } = await params;
   const seo = seoConfig[`/${category}`];
   const categoryData = await getCategory(category);
+
+  if (!categoryData) notFound();
 
   /* ── BreadcrumbList JSON-LD ── */
   const breadcrumbSchema = {

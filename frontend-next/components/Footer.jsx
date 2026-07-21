@@ -1,9 +1,34 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
+import axios from "axios";
 import styles from "../styles/Footer.module.css";
 
-const Footer = () => (
+const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+
+    setStatus("loading");
+    try {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/newsletter/subscribe`, {
+        email: email.trim(),
+      });
+      setStatus("success");
+      setMessage(res.data?.message || "Subscribed successfully!");
+      setEmail("");
+    } catch (err) {
+      setStatus("error");
+      setMessage(err.response?.data?.message || "Something went wrong. Please try again.");
+    }
+  };
+
+  return (
   <footer className={styles["footer-wrapper"]} role="contentinfo">
 
     <div className={styles["footer-grid"]}>
@@ -88,17 +113,30 @@ const Footer = () => (
         <p className={styles["footer-newsletter-text"]}>
           Subscribe to get updates on new products and offers.
         </p>
-        <div className={styles["footer-newsletter-form"]}>
+        <form className={styles["footer-newsletter-form"]} onSubmit={handleSubscribe}>
           <input
             type="email"
             placeholder="Enter your email"
             className={styles["footer-newsletter-input"]}
             aria-label="Email for newsletter"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
-          <button type="button" className={styles["footer-newsletter-btn"]}>
-            Subscribe
+          <button
+            type="submit"
+            className={styles["footer-newsletter-btn"]}
+            disabled={status === "loading"}
+          >
+            {status === "loading" ? "Subscribing…" : "Subscribe"}
           </button>
-        </div>
+        </form>
+        {status === "success" && (
+          <p className={styles["footer-newsletter-text"]} role="status">{message}</p>
+        )}
+        {status === "error" && (
+          <p className={styles["footer-newsletter-text"]} role="alert">{message}</p>
+        )}
         <div className={styles["footer-secure"]} style={{ marginTop: "1rem" }}>
           🔒 <span>100% Secure &amp; Safe Payments</span>
         </div>
@@ -117,6 +155,7 @@ const Footer = () => (
     </div>
 
   </footer>
-);
+  );
+};
 
 export default Footer;

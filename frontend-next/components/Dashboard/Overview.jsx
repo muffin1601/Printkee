@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "@/lib/api";
 import { Package, Layers, Eye, Image } from "lucide-react";
 
 const Overview = () => {
@@ -19,7 +19,7 @@ const Overview = () => {
         );
         setStats(res.data);
       } catch (error) {
-        console.log("Error fetching stats", error);
+        console.error("Error fetching stats", error);
       }
     };
 

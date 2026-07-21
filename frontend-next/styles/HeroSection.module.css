@@ -17,12 +17,19 @@
 /* ── SLIDE ─────────────────────────────────────────────────── */
 .heroSlide {
   align-items: center;
+  background-image: var(--hero-bg-desktop);
   background-position: center;
   background-size: cover;
   display: flex;
   min-height: clamp(360px, 48vh, 580px);
   position: relative;
   width: 100%;
+}
+
+@media (max-width: 640px) {
+  .heroSlide {
+    background-image: var(--hero-bg-mobile, var(--hero-bg-desktop));
+  }
 }
 
 /* ── GRADIENT OVERLAY — subtle dark + blur, no purple tint ─── */
@@ -84,6 +91,14 @@
 /* Accent */
 .heroTitleAccent {
   color: var(--orange, #C9A84C);
+}
+
+/* Subtitle — smaller line under the title, above the description */
+.heroSubtitle {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
 }
 
 /* Description */

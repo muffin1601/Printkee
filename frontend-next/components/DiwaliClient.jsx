@@ -9,7 +9,7 @@ import "swiper/css/scrollbar";
 import styles from "../styles/Diwali.module.css";
 import giftsList from "../data/diwalispl";
 import brandsList from "../data/brandsspl";
-import axios from "axios";
+import { submitLead } from "../utils/submitLead";
 
 const DiwaliClient = () => {
   const groupedGifts = giftsList.reduce((acc, gift) => {
@@ -27,28 +27,24 @@ const DiwaliClient = () => {
 
   const handleLeadSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await fetch("/api/crm-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(leadData),
-      });
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/send-email`, leadData);
-      alert("Thank you! Catalogue will be downloaded shortly");
+    const { emailOk } = await submitLead(leadData);
 
-      const link = document.createElement("a");
-      link.href = "/catalogue.pdf";
-      link.download = "Diwali_Catalogue.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      setLeadData({ name: "", company: "", email: "", phone: "" });
-      setIsLeadFormOpen(false);
-    } catch (err) {
-      console.error("Lead form submission error:", err);
+    if (!emailOk) {
       alert("Something went wrong. Please try again later.");
+      return;
     }
+
+    alert("Thank you! Catalogue will be downloaded shortly");
+
+    const link = document.createElement("a");
+    link.href = "/catalogue.pdf";
+    link.download = "Diwali_Catalogue.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setLeadData({ name: "", company: "", email: "", phone: "" });
+    setIsLeadFormOpen(false);
   };
 
   return (

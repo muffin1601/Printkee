@@ -3,33 +3,32 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const Category = require("../models/Category");
 const Subcategory = require("../models/Subcategory");
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
+const Product = require("../models/product");
+const { verifyToken } = require("../middleware/auth");
+const { makeUploader, handleUploadError } = require("../middleware/upload");
+const { ok, fail, asyncHandler } = require("../utils/response");
 
+const upload = makeUploader("subcategories");
+const isValidId = (id) => mongoose.Types.ObjectId.isValid(id);
 
-router.get("/subcategories/related-subcategories/:subcatSlug", async (req, res) => {
-  try {
+router.get(
+  "/subcategories/related-subcategories/:subcatSlug",
+  asyncHandler(async (req, res) => {
     const { subcatSlug } = req.params;
 
-    // 1. Find current subcategory
     const currentSub = await Subcategory.findOne({ slug: subcatSlug }).populate(
       "category",
       "name slug"
     );
+    if (!currentSub) return fail(res, 404, "Subcategory not found");
 
-    if (!currentSub) {
-      return res.status(404).json({ error: "Subcategory not found" });
-    }
-
-    // 2. Find related subcategories from same category
     const relatedSubcategories = await Subcategory.find({
       category: currentSub.category._id,
       _id: { $ne: currentSub._id },
       isActive: true,
     }).select("name slug image hoverImage tag isFeatured");
 
-    res.json({
+    return ok(res, {
       currentSubcategory: {
         _id: currentSub._id,
         name: currentSub.name,
@@ -42,47 +41,34 @@ router.get("/subcategories/related-subcategories/:subcatSlug", async (req, res) 
       },
       relatedSubcategories,
     });
-  } catch (err) {
-    console.error("❌ Error fetching related subcategories:", err);
-    res.status(500).json({ error: "Server error" });
-  }
-});
+  })
+);
 
 /**
  * FETCH SUBCATEGORY + PRODUCTS
  * URL: /subcategory-fetch/:categorySlug/:subcategorySlug
  */
-router.get("/subcategory-fetch/:categorySlug/:subcategorySlug", async (req, res) => {
-  try {
+router.get(
+  "/subcategory-fetch/:categorySlug/:subcategorySlug",
+  asyncHandler(async (req, res) => {
     const { categorySlug, subcategorySlug } = req.params;
 
-    // 1. Find category
     const category = await Category.findOne({ slug: categorySlug });
-    if (!category) {
-      return res.status(404).json({ error: "Category not found" });
-    }
+    if (!category) return fail(res, 404, "Category not found");
 
-    // 2. Find subcategory under this category
     const subcategory = await Subcategory.findOne({
       slug: subcategorySlug,
       category: category._id,
     }).populate({
       path: "products",
       match: { isActive: true },
-      select:
-        "name slug price salePrice images stock ratings isFeatured seo",
+      select: "name slug price salePrice images stock ratings isFeatured seo",
     });
 
-    if (!subcategory) {
-      return res.status(404).json({ error: "Subcategory not found" });
-    }
+    if (!subcategory) return fail(res, 404, "Subcategory not found");
 
-    res.json({
-      category: {
-        _id: category._id,
-        name: category.name,
-        slug: category.slug,
-      },
+    return ok(res, {
+      category: { _id: category._id, name: category.name, slug: category.slug },
       subcategory: {
         _id: subcategory._id,
         name: subcategory.name,
@@ -92,69 +78,28 @@ router.get("/subcategory-fetch/:categorySlug/:subcategorySlug", async (req, res)
       },
       products: subcategory.products,
     });
-  } catch (err) {
-    console.error("❌ Error fetching subcategory:", err);
-    res.status(500).json({ error: "Error fetching subcategory" });
-  }
-});
-
-
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const dir = "uploads/subcategories";
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    cb(null, dir);
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      `${Date.now()}-${Math.round(Math.random() * 1e9)}${path.extname(
-        file.originalname
-      )}`
-    );
-  },
-});
-
-const upload = multer({
-  storage,
-  fileFilter: (req, file, cb) => {
-    const allowed = /jpeg|jpg|png|webp/;
-    const ext = allowed.test(path.extname(file.originalname).toLowerCase());
-    if (ext) cb(null, true);
-    else cb(new Error("Only image files allowed"));
-  },
-});
+  })
+);
 
 /* ==============================
    CREATE SUBCATEGORY
 ============================== */
-
-router.post("/create", async (req, res) => {
-  try {
+router.post(
+  "/create",
+  verifyToken,
+  asyncHandler(async (req, res) => {
     const { name, slug, description, image, category, seo } = req.body;
 
     if (!name || !slug || !category) {
-      return res
-        .status(400)
-        .json({ message: "Name, slug and category are required" });
+      return fail(res, 400, "Name, slug and category are required");
     }
+    if (!isValidId(category)) return fail(res, 400, "Invalid category ID");
 
-    // Validate category
-    if (!mongoose.Types.ObjectId.isValid(category)) {
-      return res.status(400).json({ message: "Invalid category ID" });
-    }
+    const categoryDoc = await Category.findById(category);
+    if (!categoryDoc) return fail(res, 404, "Category not found");
 
-    const exists = await Subcategory.findOne({
-      $or: [{ slug }, { name }],
-      category,
-    });
-
-    if (exists) {
-      return res.status(409).json({ message: "Subcategory already exists" });
-    }
+    const exists = await Subcategory.findOne({ $or: [{ slug }, { name }], category });
+    if (exists) return fail(res, 409, "Subcategory already exists");
 
     const subcategory = await Subcategory.create({
       name,
@@ -165,48 +110,51 @@ router.post("/create", async (req, res) => {
       seo: {
         metaTitle: seo?.metaTitle || "",
         metaDescription: seo?.metaDescription || "",
-        keywords: seo?.keywords
-          ? seo.keywords.split(",").map((k) => k.trim())
-          : [],
+        keywords: seo?.keywords ? seo.keywords.split(",").map((k) => k.trim()) : [],
       },
     });
 
-    // Attach to category
-    await Category.findByIdAndUpdate(category, {
-      $addToSet: { subcategories: subcategory._id },
-    });
+    await Category.findByIdAndUpdate(category, { $addToSet: { subcategories: subcategory._id } });
 
-    res.status(201).json(subcategory);
-  } catch (err) {
-    console.error("Create subcategory error:", err);
-    res.status(500).json({ message: "Failed to create subcategory" });
-  }
-});
+    return ok(res, subcategory, 201);
+  })
+);
 
 /* ==============================
    GET ALL SUBCATEGORIES
 ============================== */
-
-router.get("/all", async (req, res) => {
-  try {
-    const subs = await Subcategory.find()
-      .populate("category", "name")
-      .sort({ createdAt: -1 });
-
-    res.json(subs);
-  } catch (err) {
-    console.error("Fetch subcategories error:", err);
-    res.status(500).json({ message: "Failed to fetch subcategories" });
-  }
-});
+router.get(
+  "/all",
+  asyncHandler(async (req, res) => {
+    const subs = await Subcategory.find().populate("category", "name").sort({ createdAt: -1 });
+    return ok(res, subs);
+  })
+);
 
 /* ==============================
    UPDATE SUBCATEGORY
 ============================== */
+router.put(
+  "/update/:id",
+  verifyToken,
+  asyncHandler(async (req, res) => {
+    if (!isValidId(req.params.id)) return fail(res, 400, "Invalid subcategory ID");
 
-router.put("/update/:id", async (req, res) => {
-  try {
     const { name, slug, description, image, category, seo } = req.body;
+
+    if (category && !isValidId(category)) return fail(res, 400, "Invalid category ID");
+
+    const existing = await Subcategory.findById(req.params.id);
+    if (!existing) return fail(res, 404, "Subcategory not found");
+
+    if (name || slug) {
+      const duplicate = await Subcategory.findOne({
+        _id: { $ne: req.params.id },
+        category: category || existing.category,
+        $or: [...(name ? [{ name }] : []), ...(slug ? [{ slug }] : [])],
+      });
+      if (duplicate) return fail(res, 409, "Subcategory name or slug already in use");
+    }
 
     const updated = await Subcategory.findByIdAndUpdate(
       req.params.id,
@@ -219,67 +167,60 @@ router.put("/update/:id", async (req, res) => {
         seo: {
           metaTitle: seo?.metaTitle || "",
           metaDescription: seo?.metaDescription || "",
-          keywords: seo?.keywords
-            ? seo.keywords.split(",").map((k) => k.trim())
-            : [],
+          keywords: seo?.keywords ? seo.keywords.split(",").map((k) => k.trim()) : [],
         },
       },
-      { new: true }
+      { new: true, runValidators: true }
     ).populate("category", "name");
 
-    if (!updated) {
-      return res.status(404).json({ message: "Subcategory not found" });
+    // Category reassigned: fix subcategories[] refs on both old and new parent
+    if (category && String(existing.category) !== String(category)) {
+      await Category.findByIdAndUpdate(existing.category, { $pull: { subcategories: existing._id } });
+      await Category.findByIdAndUpdate(category, { $addToSet: { subcategories: existing._id } });
     }
 
-    res.json(updated);
-  } catch (err) {
-    console.error("Update subcategory error:", err);
-    res.status(500).json({ message: "Failed to update subcategory" });
-  }
-});
+    return ok(res, updated);
+  })
+);
 
 /* ==============================
    DELETE SUBCATEGORY
 ============================== */
+router.delete(
+  "/delete/:id",
+  verifyToken,
+  asyncHandler(async (req, res) => {
+    if (!isValidId(req.params.id)) return fail(res, 400, "Invalid subcategory ID");
 
-router.delete("/delete/:id", async (req, res) => {
-  try {
     const sub = await Subcategory.findById(req.params.id);
+    if (!sub) return fail(res, 404, "Subcategory not found");
 
-    if (!sub) {
-      return res.status(404).json({ message: "Subcategory not found" });
+    const hasProducts = await Product.exists({ subcategory: sub._id });
+    if (hasProducts) {
+      return fail(res, 409, "Cannot delete a subcategory that still has products");
     }
 
-    // Remove reference from category
-    await Category.findByIdAndUpdate(sub.category, {
-      $pull: { subcategories: sub._id },
-    });
-
+    await Category.findByIdAndUpdate(sub.category, { $pull: { subcategories: sub._id } });
     await sub.deleteOne();
 
-    res.json({ message: "Subcategory deleted" });
-  } catch (err) {
-    console.error("Delete subcategory error:", err);
-    res.status(500).json({ message: "Failed to delete subcategory" });
-  }
-});
+    return ok(res, { message: "Subcategory deleted" });
+  })
+);
 
 /* ==============================
    IMAGE UPLOAD
 ============================== */
+router.post(
+  "/upload",
+  verifyToken,
+  upload.single("image"),
+  handleUploadError,
+  (req, res) => {
+    if (!req.file) return fail(res, 400, "No file uploaded");
 
-router.post("/upload", upload.single("image"), (req, res) => {
-  try {
-    const imageUrl = `${process.env.BASE_URL}/${req.file.path.replace(
-      /\\/g,
-      "/"
-    )}`;
-
-    res.json({ url: imageUrl });
-  } catch (err) {
-    console.error("Upload error:", err);
-    res.status(500).json({ message: "Upload failed" });
+    const imageUrl = `${process.env.BASE_URL}/${req.file.path.replace(/\\/g, "/")}`;
+    return ok(res, { url: imageUrl });
   }
-});
+);
 
 module.exports = router;

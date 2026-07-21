@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import SingleProductDisplay from "../../../../../components/SingleProductDisplay";
 
 const BASE = "https://printkee.com";
@@ -30,7 +31,7 @@ async function getRelatedProducts(category, subcategory, product) {
 export async function generateMetadata({ params }) {
   const { category, subcategory, product } = await params;
   const data = await getProduct(category, subcategory, product);
-  if (!data) return { title: "Product | MF Global Services" };
+  if (!data) return { title: "Product Not Found | Printkee" };
 
   const prod = data.product;
   const sub = data.subcategory;
@@ -77,6 +78,8 @@ export default async function ProductPage({ params }) {
     getProduct(category, subcategory, product),
     getRelatedProducts(category, subcategory, product),
   ]);
+
+  if (!data) notFound();
 
   const productData = data?.product || null;
   const subcategoryData = data?.subcategory || null;

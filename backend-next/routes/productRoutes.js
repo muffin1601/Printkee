@@ -1,190 +1,168 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
 
 const Category = require("../models/Category");
 const Subcategory = require("../models/Subcategory");
 const Product = require("../models/product");
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
+const { verifyToken } = require("../middleware/auth");
+const { makeUploader, handleUploadError } = require("../middleware/upload");
+const { ok, fail, asyncHandler } = require("../utils/response");
 
+const upload = makeUploader("products");
+
+const isValidId = (id) => mongoose.Types.ObjectId.isValid(id);
+const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 router.get(
   "/product-fetch/:categorySlug/:subcategorySlug/:productSlug",
-  async (req, res) => {
+  asyncHandler(async (req, res) => {
     const categorySlug = decodeURIComponent(req.params.categorySlug);
     const subcategorySlug = decodeURIComponent(req.params.subcategorySlug);
     const productSlug = decodeURIComponent(req.params.productSlug);
 
-    try {
-      // 1. Find category
-      const category = await Category.findOne({ slug: categorySlug });
-      if (!category) {
-        return res.status(404).json({ message: "Category not found" });
-      }
+    const category = await Category.findOne({ slug: categorySlug });
+    if (!category) return fail(res, 404, "Category not found");
 
-      // 2. Find subcategory under category
-      const subcategory = await Subcategory.findOne({
-        slug: subcategorySlug,
-        category: category._id,
-      });
-      if (!subcategory) {
-        return res.status(404).json({ message: "Subcategory not found" });
-      }
+    const subcategory = await Subcategory.findOne({
+      slug: subcategorySlug,
+      category: category._id,
+    });
+    if (!subcategory) return fail(res, 404, "Subcategory not found");
 
-      // 3. Find product under subcategory
-      const product = await Product.findOne({
-        slug: productSlug,
-        category: category._id,
-        subcategory: subcategory._id,
-        isActive: true,
-      });
+    const product = await Product.findOne({
+      slug: productSlug,
+      category: category._id,
+      subcategory: subcategory._id,
+      isActive: true,
+    });
+    if (!product) return fail(res, 404, "Product not found");
 
-      if (!product) {
-        return res.status(404).json({ message: "Product not found" });
-      }
-
-      // 4. Return structured response
-      res.json({
-        category: {
-          _id: category._id,
-          name: category.name,
-          slug: category.slug,
-        },
-        subcategory: {
-          _id: subcategory._id,
-          name: subcategory.name,
-          slug: subcategory.slug,
-        },
-        product,
-      });
-    } catch (error) {
-      console.error("❌ Error fetching product:", error);
-      res.status(500).json({ message: "Server error" });
-    }
-  }
+    return ok(res, {
+      category: { _id: category._id, name: category.name, slug: category.slug },
+      subcategory: { _id: subcategory._id, name: subcategory.name, slug: subcategory.slug },
+      product,
+    });
+  })
 );
 
 /**
  * RELATED PRODUCTS
- * URL:
- * /related-products/:categorySlug/:subcategorySlug/:productSlug
+ * URL: /related-products/:categorySlug/:subcategorySlug/:productSlug
  */
 router.get(
   "/related-products/:categorySlug/:subcategorySlug/:productSlug",
-  async (req, res) => {
+  asyncHandler(async (req, res) => {
     const categorySlug = decodeURIComponent(req.params.categorySlug);
     const subcategorySlug = decodeURIComponent(req.params.subcategorySlug);
     const productSlug = decodeURIComponent(req.params.productSlug);
 
-    try {
-      // 1. Find category
-      const category = await Category.findOne({ slug: categorySlug });
-      if (!category) {
-        return res.status(404).json({ message: "Category not found" });
-      }
+    const category = await Category.findOne({ slug: categorySlug });
+    if (!category) return fail(res, 404, "Category not found");
 
-      // 2. Find subcategory
-      const subcategory = await Subcategory.findOne({
-        slug: subcategorySlug,
-        category: category._id,
-      });
-      if (!subcategory) {
-        return res.status(404).json({ message: "Subcategory not found" });
-      }
+    const subcategory = await Subcategory.findOne({
+      slug: subcategorySlug,
+      category: category._id,
+    });
+    if (!subcategory) return fail(res, 404, "Subcategory not found");
 
-      // 3. Fetch related products (exclude current product)
-      const relatedProducts = await Product.find({
-        category: category._id,
-        subcategory: subcategory._id,
-        slug: { $ne: productSlug },
-        isActive: true,
-      })
-        .limit(8)
-        .select(
-          "name slug price salePrice images ratings isFeatured"
-        );
+    const relatedProducts = await Product.find({
+      category: category._id,
+      subcategory: subcategory._id,
+      slug: { $ne: productSlug },
+      isActive: true,
+    })
+      .limit(8)
+      .select("name slug price salePrice images ratings isFeatured");
 
-      res.json(relatedProducts);
-    } catch (err) {
-      console.error("❌ Error fetching related products:", err);
-      res.status(500).json({ message: "Server error" });
-    }
-  }
+    return ok(res, relatedProducts);
+  })
 );
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const dir = "uploads/products";
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    cb(null, dir);
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      Date.now() + "-" + Math.round(Math.random() * 1e9) + path.extname(file.originalname)
-    );
-  },
-});
-
-const upload = multer({ storage });
 
 /* ======================================================
    CREATE PRODUCT
 ====================================================== */
-router.post("/create", async (req, res) => {
-  try {
+router.post(
+  "/create",
+  verifyToken,
+  asyncHandler(async (req, res) => {
+    const { name, slug, price, category, subcategory } = req.body;
+
+    if (!name || !slug || price === undefined || !category || !subcategory) {
+      return fail(res, 400, "name, slug, price, category and subcategory are required");
+    }
+    if (!isValidId(category) || !isValidId(subcategory)) {
+      return fail(res, 400, "Invalid category or subcategory ID");
+    }
+
+    const exists = await Product.findOne({ slug });
+    if (exists) return fail(res, 409, "A product with this slug already exists");
+
     const product = await Product.create(req.body);
-    res.status(201).json(product);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
+    return ok(res, product, 201);
+  })
+);
 
 /* ======================================================
    UPDATE PRODUCT
 ====================================================== */
-router.put("/update/:id", async (req, res) => {
-  try {
-    const updated = await Product.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    res.json(updated);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
+router.put(
+  "/update/:id",
+  verifyToken,
+  asyncHandler(async (req, res) => {
+    if (!isValidId(req.params.id)) return fail(res, 400, "Invalid product ID");
+
+    if (req.body.slug) {
+      const duplicate = await Product.findOne({
+        slug: req.body.slug,
+        _id: { $ne: req.params.id },
+      });
+      if (duplicate) return fail(res, 409, "A product with this slug already exists");
+    }
+
+    const updated = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!updated) return fail(res, 404, "Product not found");
+
+    return ok(res, updated);
+  })
+);
 
 /* ======================================================
    DELETE PRODUCT
 ====================================================== */
-router.delete("/delete/:id", async (req, res) => {
-  try {
-    await Product.findByIdAndDelete(req.params.id);
-    res.json({ message: "Product deleted" });
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
+router.delete(
+  "/delete/:id",
+  verifyToken,
+  asyncHandler(async (req, res) => {
+    if (!isValidId(req.params.id)) return fail(res, 400, "Invalid product ID");
+
+    const deleted = await Product.findByIdAndDelete(req.params.id);
+    if (!deleted) return fail(res, 404, "Product not found");
+
+    return ok(res, { message: "Product deleted" });
+  })
+);
 
 /* ======================================================
    GET ALL PRODUCTS (PAGINATION + SEARCH)
 ====================================================== */
-router.get("/all", async (req, res) => {
-  try {
-    const page = Number(req.query.page) || 1;
-    const limit = Number(req.query.limit) || 5;
-    const search = req.query.search || "";
+router.get(
+  "/all",
+  asyncHandler(async (req, res) => {
+    const page = Math.max(1, Number(req.query.page) || 1);
+    const limit = Math.min(100, Math.max(1, Number(req.query.limit) || 5));
+    const search = (req.query.search || "").trim();
 
     const query = search
       ? {
           $or: [
-            { name: new RegExp(search, "i") },
-            { slug: new RegExp(search, "i") },
-            { sku: new RegExp(search, "i") },
-            { tags: new RegExp(search, "i") },
+            { name: new RegExp(escapeRegex(search), "i") },
+            { slug: new RegExp(escapeRegex(search), "i") },
+            { sku: new RegExp(escapeRegex(search), "i") },
+            { tags: new RegExp(escapeRegex(search), "i") },
           ],
         }
       : {};
@@ -198,44 +176,46 @@ router.get("/all", async (req, res) => {
       .skip((page - 1) * limit)
       .limit(limit);
 
-    res.json({
+    return ok(res, {
       items,
       page,
       totalPages: Math.ceil(total / limit),
       totalItems: total,
     });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+  })
+);
 
 /* ======================================================
    GET SINGLE PRODUCT
 ====================================================== */
-router.get("/:id", async (req, res) => {
-  try {
+router.get(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    if (!isValidId(req.params.id)) return fail(res, 400, "Invalid product ID");
+
     const product = await Product.findById(req.params.id)
       .populate("category", "name")
       .populate("subcategory", "name");
 
-    if (!product) return res.status(404).json({ message: "Not found" });
-    res.json(product);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+    if (!product) return fail(res, 404, "Product not found");
+    return ok(res, product);
+  })
+);
 
 /* ======================================================
    UPLOAD PRODUCT IMAGE
 ====================================================== */
-router.post("/upload", upload.single("image"), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ message: "No file uploaded" });
+router.post(
+  "/upload",
+  verifyToken,
+  upload.single("image"),
+  handleUploadError,
+  (req, res) => {
+    if (!req.file) return fail(res, 400, "No file uploaded");
+
+    const imageUrl = `${process.env.BASE_URL}/uploads/products/${req.file.filename}`;
+    return ok(res, { url: imageUrl });
   }
-
-  const imageUrl = `${process.env.BASE_URL}/uploads/products/${req.file.filename}`;
-
-  res.json({ url: imageUrl });
-});
+);
 
 module.exports = router;

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Star, Truck, BadgePercent, HeadphonesIcon } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,42 +10,39 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import styles from "../styles/HeroSection.module.css";
 
-const slides = [
+// Fallback content shown until the API responds, and permanently if the
+// backend is unreachable or no active banners exist — the homepage must
+// never render an empty hero.
+const FALLBACK_SLIDES = [
   {
     image: "/assets/banner12.webp",
-    title: "Custom Products.",
-    titleAccent: "Stronger Connections.",
-    eyebrow: "PREMIUM CORPORATE MERCHANDISE",
+    badgeText: "PREMIUM CORPORATE MERCHANDISE",
+    title: "Custom Products. Stronger Connections.",
     description:
       "Elevate your brand with high-quality custom merchandise that leaves a lasting impression.",
-    route: "/apparel-and-accessories",
-    cta1: "Explore Products",
-    cta2: "Get a Quote",
-    tag: "Apparel & Uniforms",
+    ctaText: "Explore Products",
+    ctaUrl: "/apparel-and-accessories",
+    showButton: true,
   },
   {
     image: "/assets/banner34.webp",
-    title: "Eco-Friendly",
-    titleAccent: "Gift Solutions.",
-    eyebrow: "SUSTAINABLE CORPORATE GIFTING",
+    badgeText: "SUSTAINABLE CORPORATE GIFTING",
+    title: "Eco-Friendly Gift Solutions.",
     description:
       "Make a lasting impact with eco-conscious products made from recycled and biodegradable materials.",
-    route: "/eco-products",
-    cta1: "Explore Products",
-    cta2: "Get a Quote",
-    tag: "Eco Products",
+    ctaText: "Explore Products",
+    ctaUrl: "/eco-products",
+    showButton: true,
   },
   {
     image: "/assets/banner56.webp",
-    title: "Smart Tech",
-    titleAccent: "Gifts for Teams.",
-    eyebrow: "TECHNOLOGY ACCESSORIES",
+    badgeText: "TECHNOLOGY ACCESSORIES",
+    title: "Smart Tech Gifts for Teams.",
     description:
       "Impress clients and employees with innovative branded tech products — chargers, earbuds and more.",
-    route: "/technology-accessories",
-    cta1: "Explore Products",
-    cta2: "Get a Quote",
-    tag: "Technology",
+    ctaText: "Explore Products",
+    ctaUrl: "/technology-accessories",
+    showButton: true,
   },
 ];
 
@@ -72,8 +69,47 @@ const TrustStrip = () => (
   </div>
 );
 
+const isExternal = (url) => /^https?:\/\//.test(url || "");
+
 const HeroSection = () => {
   const router = useRouter();
+  const [slides, setSlides] = useState(FALLBACK_SLIDES);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/slides/active`);
+        if (!res.ok) return;
+
+        const banners = await res.json();
+        if (!cancelled && Array.isArray(banners) && banners.length > 0) {
+          setSlides(banners);
+        }
+      } catch (err) {
+        // Network/API failure (including third-party browser extensions that
+        // intercept fetch, e.g. ad-blockers/privacy tools) — keep the
+        // fallback slides so the homepage never breaks or shows an empty
+        // hero. Logged at warn, not error: this is an expected, self-healing
+        // path, not an application fault.
+        console.warn("Failed to load hero banners, using fallback:", err);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const goTo = (url) => {
+    if (!url) return;
+    if (isExternal(url)) {
+      window.location.href = url;
+    } else {
+      router.push(url);
+    }
+  };
 
   return (
     <>
@@ -94,7 +130,7 @@ const HeroSection = () => {
           <img
             key={i}
             src={slide.image}
-            alt={`${slide.title} ${slide.titleAccent} – ${slide.tag}`}
+            alt={slide.title}
             loading={i === 0 ? "eager" : "lazy"}
             fetchPriority={i === 0 ? "high" : "low"}
             style={{ display: "none" }}
@@ -107,15 +143,20 @@ const HeroSection = () => {
           navigation
           pagination={{ clickable: true }}
           autoplay={{ delay: 5500, disableOnInteraction: false }}
-          loop={true}
+          loop={slides.length > 1}
           className={styles.heroSwiper}
         >
           {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={slide._id || index}>
               {/* Full-bleed background slide */}
               <div
                 className={styles.heroSlide}
-                style={{ backgroundImage: `url(${slide.image})` }}
+                style={{
+                  "--hero-bg-desktop": `url(${slide.image})`,
+                  ...(slide.mobileImage
+                    ? { "--hero-bg-mobile": `url(${slide.mobileImage})` }
+                    : {}),
+                }}
               >
                 {/* Dark purple gradient overlay */}
                 <div className={styles.heroOverlay} aria-hidden="true" />
@@ -123,46 +164,38 @@ const HeroSection = () => {
                 {/* Content — constrained to max-width, left-aligned */}
                 <div className={styles.heroInner}>
                   <div className={styles.heroContent}>
+                    {slide.badgeText && (
+                      <p className={styles.heroEyebrow}>{slide.badgeText}</p>
+                    )}
 
-                    <p className={styles.heroEyebrow}>{slide.eyebrow}</p>
+                    <h1 className={styles.heroTitle}>{slide.title}</h1>
 
-                    <h1 className={styles.heroTitle}>
-                      {slide.title}
-                      <br />
-                      <span className={styles.heroTitleAccent}>{slide.titleAccent}</span>
-                    </h1>
+                    {slide.subtitle && (
+                      <p className={styles.heroSubtitle}>{slide.subtitle}</p>
+                    )}
 
-                    <p className={styles.heroDescription}>{slide.description}</p>
+                    {slide.description && (
+                      <p className={styles.heroDescription}>{slide.description}</p>
+                    )}
 
                     <div className={styles.heroCTAGroup}>
-                      <button
-                        className={styles.heroBtnPrimary}
-                        onClick={() => router.push(slide.route)}
-                        aria-label={`${slide.cta1} for ${slide.tag}`}
-                      >
-                        {slide.cta1} <span aria-hidden="true">→</span>
-                      </button>
+                      {slide.showButton !== false && slide.ctaText && (
+                        <button
+                          className={styles.heroBtnPrimary}
+                          onClick={() => goTo(slide.ctaUrl)}
+                          aria-label={slide.ctaText}
+                        >
+                          {slide.ctaText} <span aria-hidden="true">→</span>
+                        </button>
+                      )}
                       <button
                         className={styles.heroBtnGhost}
                         onClick={() => router.push("/contact")}
                         aria-label="Get a custom quote"
                       >
-                        {slide.cta2} <span aria-hidden="true">→</span>
+                        Get a Quote <span aria-hidden="true">→</span>
                       </button>
                     </div>
-
-                    {/* <div className={styles.heroSocialProof}>
-                      <div className={styles.heroAvatars} aria-hidden="true">
-                        {["👤", "👤", "👤", "👤"].map((a, i) => (
-                          <span key={i} className={styles.heroAvatar}>{a}</span>
-                        ))}
-                      </div>
-                      <div>
-                        <p className={styles.heroProofNumber}>5000+ Happy Customers</p>
-                        <p className={styles.heroProofSub}>Trusted by 1000+ brands across India</p>
-                      </div>
-                    </div> */}
-
                   </div>
                 </div>
               </div>

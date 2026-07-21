@@ -79,7 +79,7 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
                         <div className={styles["product-icons"]}>
                           <button aria-label={`Save ${product.name}`} title="Save"><Heart size={13} /></button>
                           <button aria-label={`Quick view ${product.name}`} title="Quick view"
-                            onClick={() => router.push(`/${categorySlug}/${subcategorySlug}/${product.slug}`)}>
+                            onClick={() => router.push(`/${encodeURIComponent(categorySlug)}/${encodeURIComponent(subcategorySlug)}/${encodeURIComponent(product.slug)}`)}>
                             <Eye size={13} />
                           </button>
                         </div>
@@ -107,7 +107,7 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
                           </div>
                         )}
                         <button className={styles["add-to-cart"]} disabled={product.stock === 0}
-                          onClick={() => router.push(`/${categorySlug}/${subcategorySlug}/${product.slug}`)}>
+                          onClick={() => router.push(`/${encodeURIComponent(categorySlug)}/${encodeURIComponent(subcategorySlug)}/${encodeURIComponent(product.slug)}`)}>
                           {product.stock === 0 ? "Sold Out" : <><span>View Details</span><ArrowRight size={13} /></>}
                         </button>
                       </div>

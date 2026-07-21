@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import axios from "axios";
 import styles from "../styles/BrandsDisplay.module.css";
 import brandProducts from "../data/brandProducts";
+import { submitLead } from "../utils/submitLead";
 
 const BrandsDisplayClient = ({ brand, brandInfo }) => {
   const products = brandProducts[brand] || [];
@@ -22,28 +22,24 @@ const BrandsDisplayClient = ({ brand, brandInfo }) => {
 
   const handleLeadSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await fetch("/api/crm-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(leadData),
-      });
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/send-email`, leadData);
-      alert("Thank you! Catalogue will be downloaded shortly");
+    const { emailOk } = await submitLead(leadData);
 
-      const link = document.createElement("a");
-      link.href = "/catalogue.pdf";
-      link.download = `${brandInfo.name}_Catalogue.pdf`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      setLeadData({ name: "", company: "", email: "", phone: "" });
-      setIsLeadFormOpen(false);
-    } catch (error) {
-      console.error("Lead form submission error:", error);
+    if (!emailOk) {
       alert("Something went wrong. Please try again later.");
+      return;
     }
+
+    alert("Thank you! Catalogue will be downloaded shortly");
+
+    const link = document.createElement("a");
+    link.href = "/catalogue.pdf";
+    link.download = `${brandInfo.name}_Catalogue.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setLeadData({ name: "", company: "", email: "", phone: "" });
+    setIsLeadFormOpen(false);
   };
 
   return (
