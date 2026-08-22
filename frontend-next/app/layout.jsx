@@ -3,6 +3,7 @@ import "../styles/chatbot.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { Montserrat } from "next/font/google";
+import Script from "next/script";
 
 /* Montserrat — self-hosted via next/font, no render-block */
 const montserrat = Montserrat({
@@ -95,6 +96,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={montserrat.variable} suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-4BP50X9E7L" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4BP50X9E7L');
+          `}
+        </Script>
         <script dangerouslySetInnerHTML={{ __html: extensionAttributeCleanup }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
