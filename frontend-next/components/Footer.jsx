@@ -74,6 +74,7 @@ const Footer = () => {
       <div className={styles["footer-column"]}>
         <h3 className={styles["footer-heading"]}>Company</h3>
         <ul>
+          <li><Link href="/diwali-special">Diwali Gifts</Link></li>
           <li><Link href="/about">About Us</Link></li>
           <li><Link href="/blogs">Blog</Link></li>
           <li><Link href="/brands">Brands</Link></li>

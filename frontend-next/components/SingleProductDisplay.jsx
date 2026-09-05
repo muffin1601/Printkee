@@ -14,6 +14,7 @@ import WhyChooseUsProduct from "./category/WhyChooseUsProduct";
 import ProductFAQ from "./category/FAQProduct";
 import ProductCTA from "./category/ProductCTA";
 import productContent from "../data/productcontent";
+import { recordProductView } from "../utils/recentlyViewed";
 
 const SingleProductDisplay = ({
   productData,
@@ -45,6 +46,21 @@ const SingleProductDisplay = ({
       productData.images?.[0]?.url || productData.subImages?.[0]?.url || ""
     );
   }, [productData]);
+
+  /* Local browsing history — powers the "Recently Viewed" rail on the
+     Diwali campaign page. Storage-only; nothing leaves the device. */
+  useEffect(() => {
+    if (!productData || !categorySlug || !subcategorySlug) return;
+    recordProductView({
+      slug: productData.slug || productSlug,
+      name: productData.name,
+      image: productData.images?.[0]?.url || productData.subImages?.[0]?.url || "",
+      price: productData.price ?? null,
+      salePrice: productData.salePrice ?? null,
+      categorySlug,
+      subcategorySlug,
+    });
+  }, [productData, productSlug, categorySlug, subcategorySlug]);
 
   if (!productData || !subcategoryData || !categoryData) {
     return (

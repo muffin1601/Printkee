@@ -63,7 +63,10 @@ router.post(
       `,
     };
 
-    if (email) mailPayload.reply_to = email;
+    // SDK field is `replyTo` — it maps to the API's `reply_to` internally.
+    // Passing `reply_to` here is silently dropped, which breaks "reply to
+    // the customer" straight from the sales inbox.
+    if (email) mailPayload.replyTo = email;
 
     if (req.file) {
       mailPayload.attachments = [
@@ -75,11 +78,25 @@ router.post(
     }
 
     try {
-      const response = await resend.emails.send(mailPayload);
-      return ok(res, { message: "Email sent successfully!", response });
+      // The Resend SDK resolves with { data, error } instead of throwing on
+      // API-level rejections (unverified domain, rate limit, bad address).
+      // Without this check a rejected email would still report success and
+      // the lead would be lost with no trace.
+      const { data, error } = await resend.emails.send(mailPayload);
+
+      if (error) {
+        console.error("send-email: Resend rejected the message:", error);
+        return fail(res, 502, error.message || "Failed to send email");
+      }
+
+      console.log(
+        `send-email: lead delivered (id=${data?.id}) name="${resolvedName}" phone="${phone || "N/A"}" email="${email || "N/A"}"`
+      );
+      return ok(res, { message: "Email sent successfully!", id: data?.id });
     } catch (error) {
-      console.error("Error sending email:", error.message);
-      return fail(res, 500, "Failed to send email");
+      // Network/transport failure — the SDK does throw for these.
+      console.error("send-email: transport failure:", error.message);
+      return fail(res, 502, "Failed to send email");
     }
   })
 );

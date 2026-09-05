@@ -1,318 +1,753 @@
+/* ============================================================
+   PRINTKEE — DIWALI CAMPAIGN
+   Uses the site's v6 design system directly (purple / gold /
+   peach, near-zero radii, light surfaces). The only festive
+   liberty is the dark purple hero + offer band, which matches
+   the dark CTA sections already used on the home and category
+   pages. No page-local palette.
+   ============================================================ */
 
-.diwali-page {
-  font-family: 'Poppins', sans-serif;
-  max-width: 100%;
-  color: #333;
-  margin: 0 auto;
-  overflow-x: hidden;
+.page {
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
 }
 
+.svgDefs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
 
-.diwali-banner {
-  height: auto;
+/* ── SCROLL REVEAL ─────────────────────────────────────────── */
+/* Only opacity/transform animate — the element occupies its final
+   space from first paint, so revealing never shifts layout. */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease, ease), transform 0.5s var(--ease, ease);
+  will-change: opacity, transform;
+}
+
+.revealVisible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* ── AMBIENT SPARKS (scoped to the dark hero) ──────────────── */
+.ambience {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.spark {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--orange-light, #FBF5E3);
+  opacity: 0;
+  animation-name: drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes drift {
+  0%   { opacity: 0;   transform: translate3d(0, 12px, 0); }
+  20%  { opacity: 0.8; }
+  50%  { transform: translate3d(10px, -26px, 0); }
+  80%  { opacity: 0.45; }
+  100% { opacity: 0;   transform: translate3d(-6px, -60px, 0); }
+}
+
+/* ── HERO — dark purple band, same family as the site's CTA
+      sections (rgba(26,8,69,.88) over brand purple) ────────── */
+.hero {
+  position: relative;
+  padding: clamp(3rem, 7vw, 5rem) var(--px) clamp(6rem, 11vw, 8.5rem);
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(760px 420px at 50% -10%, rgba(201, 168, 76, 0.20), transparent 62%),
+    linear-gradient(160deg, var(--green-deep, #1A0845) 0%, var(--green, #3D1C8A) 58%, var(--green-deep, #1A0845) 100%);
+  color: var(--ink-inv, #fff);
+}
+
+.heroDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.rangoli {
+  position: absolute;
+  bottom: -34%;
+  left: 50%;
+  width: min(660px, 130%);
+  transform: translateX(-50%);
+  color: rgba(201, 168, 76, 0.15);
+  animation: spin 90s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Eyebrow — matches the site's gold uppercase eyebrow */
+.eyebrow {
+  color: var(--orange-text, #846713);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+
+.heroEyebrow {
+  composes: eyebrow;
+  color: var(--orange, #C9A84C);
+  padding: 0.35rem 0.8rem;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: var(--r-sm, 2px);
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.heroTitle {
+  margin: 0 0 1rem;
+  font-size: clamp(1.9rem, 5.6vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.heroTitleAccent {
+  display: block;
+  color: var(--orange, #C9A84C);
+}
+
+.heroSub {
+  margin: 0 auto 1.9rem;
+  max-width: 600px;
+  font-size: clamp(0.9rem, 2vw, 1.02rem);
+  line-height: 1.7;
+  color: var(--ink-inv-2, rgba(255, 255, 255, 0.78));
+  text-wrap: pretty;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 1.9rem;
+}
+
+/* Buttons follow the site's flat, near-square button language */
+.heroCtaPrimary,
+.heroCtaGhost,
+.offerCta,
+.catalogueBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--r-sm, 2px);
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+}
+
+.heroCtaPrimary,
+.offerCta {
+  background: var(--orange, #C9A84C);
+  color: var(--green-deep, #1A0845);
+}
+
+.heroCtaPrimary:hover,
+.offerCta:hover {
+  background: var(--orange-dark, #A8872A);
+  color: #fff;
+}
+
+.heroCtaGhost {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #fff;
+}
+
+.heroCtaGhost:hover {
+  background: #fff;
+  color: var(--green, #3D1C8A);
+  border-color: #fff;
+}
+
+.heroTrust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.76rem;
+  color: var(--ink-inv-2, rgba(255, 255, 255, 0.78));
+}
+
+.heroTrust li {
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  gap: 0.45rem;
 }
 
-.diwali-banner-img {
+.heroTrust li::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--orange, #C9A84C);
+}
+
+/* ── DIYA ROW ──────────────────────────────────────────────── */
+.diyaRow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(0.5rem, 4vw, 3rem);
+  padding: 0 1rem;
+  pointer-events: none;
+}
+
+.diyaWrap {
+  display: block;
+  animation: bob 5s ease-in-out infinite;
+}
+
+.diyaWrap:nth-child(even) { animation-duration: 6.5s; }
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+.diya {
+  display: block;
+  width: clamp(44px, 8.5vw, 88px);
+  height: auto;
+}
+
+.diyaFlame {
+  transform-origin: 60px 42px;
+  animation: flicker 2.4s ease-in-out infinite;
+}
+
+.diyaHalo { animation: halo 2.4s ease-in-out infinite; }
+
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1)    scaleX(1);    opacity: 1; }
+  35%      { transform: scaleY(1.14) scaleX(0.93); opacity: 0.9; }
+  65%      { transform: scaleY(0.94) scaleX(1.05); opacity: 1; }
+}
+
+@keyframes halo {
+  0%, 100% { opacity: 0.42; }
+  50%      { opacity: 0.72; }
+}
+
+/* ── SECTIONS — light surfaces, site rhythm ────────────────── */
+.section {
+  padding: clamp(2.5rem, 5.5vw, 4rem) var(--px);
+}
+
+/* Alternating surface so consecutive rails stay separable. Applied by an
+   explicit prop rather than :nth-of-type — sections are not the only
+   siblings on this page, so positional matching would drift. */
+.sectionAlt { background: var(--bg-white, #fff); }
+
+.sectionInner {
+  max-width: var(--max-w, 1200px);
+  margin: 0 auto;
+}
+
+.sectionHead {
+  margin-bottom: clamp(1.4rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.sectionTitle {
+  margin: 0 0 0.6rem;
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.sectionDesc {
+  margin: 0 auto;
+  max-width: 580px;
+  color: var(--ink-2, #3E2D6B);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.sectionMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.9rem;
+  color: var(--green, #3D1C8A);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.sectionMore:hover {
+  color: var(--orange-text, #846713);
+  border-bottom-color: var(--orange, #C9A84C);
+}
+
+/* ── PRODUCT GRID ──────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: clamp(0.75rem, 1.6vw, 1.1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gridItem { display: flex; }
+
+/* ── PRODUCT CARD — flat: no shadow, no lift, no zoom ──────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: var(--r-sm, 2px);
+  transition: border-color var(--t-fast);
+}
+
+/* The only hover feedback is the border. Removing this too would leave an
+   interactive card with no pointer/keyboard affordance at all. */
+.card:hover,
+.card:focus-within {
+  border-color: var(--green, #3D1C8A);
+}
+
+.cardMediaLink { display: block; text-decoration: none; }
+
+.cardMedia {
+  position: relative;
+  /* Fixed ratio reserves the space before the image loads — no CLS. */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--bg-subtle, #F3EEFF);
+}
+
+.cardImg {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  max-height: 500px;
 }
 
-
-.diwali-carousel-section {
-  padding: 0 20px;
-  background: white;
-  text-align: center;
-  max-width: 1300px;
-  margin: 0 auto;
+.cardSoldOut {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.22rem 0.5rem;
+  border-radius: var(--r-sm, 2px);
+  background: var(--ink, #1A0A3D);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.diwali-carousel-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #f39c12;
-  border-bottom: 2px solid rgba(243, 156, 18, 0.5);
-  display: inline-block;
-  padding-bottom: 5px;
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 0.8rem;
 }
 
-.diwali-carousel-card {
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  padding-bottom: 10px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  margin: 20px auto;
-  max-height: 430px;
-  max-width: 350px;
+.cardTitle {
+  margin: 0 0 0.45rem;
+  color: var(--ink, #1A0A3D);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.35;
+  /* Two-line clamp keeps every card in a row the same height. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.7em;
 }
 
-.diwali-carousel-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+.cardTitleLink { color: inherit; text-decoration: none; }
+.cardTitleLink:hover { color: var(--green, #3D1C8A); }
+
+.cardRating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin: 0 0 0.6rem;
+  color: var(--orange, #C9A84C);
+  font-size: 0.72rem;
+  font-weight: 600;
 }
 
-.diwali-carousel-img {
-  width: 70%;
-  height: 200px;
-  object-fit: contain;
-  border-radius: 4px 12px 0 0;
-  margin: 10px auto;
+.cardRating span:last-child { color: var(--ink-3, #6E5E9A); font-size: 0.68rem; }
+.cardStar { fill: currentColor; }
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
 }
 
-.diwali-gift-name {
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin: 10px;
-  color: #4b2061;
-}
-
-.diwali-gift-description {
-  font-size: 0.95rem;
-  color: #555;
-  margin: 0 10px 10px;
-}
-
-/* Swiper Navigation */
-:global(.swiper-button-prev),
-:global(.swiper-button-next) {
-  color: #f39c12;
-}
-
-.diwali-page :global(.swiper-pagination) {
-  position: relative;
-  margin-top: 25px;
-}
-
-.diwali-bullet {
-  background: rgba(177, 177, 177, 0.8);
-  opacity: 0.8;
-}
-
-.diwali-bullet-active {
-  background: #ffaf38;
-  opacity: 1;
-}
-
-.diwali-cta-section {
-  text-align: center;
-  padding: 40px 20px;
-  background: #fcefdb;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.diwali-cta-section h2 {
-  color: #4b2061;
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
-
-.diwali-cta-button {
-  background: #f39c12;
-  color: white;
-  font-size: 1.2rem;
-  padding: 12px 25px;
+.cardCta {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.6rem;
   border: none;
-  border-radius: 3px;
+  border-radius: var(--r-sm, 2px);
+  background: var(--green, #3D1C8A);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
-  font-family: 'poppins', sans-serif;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background var(--t-fast);
 }
 
-.diwali-cta-button:hover {
-  background: #4b2061;
-  transform: translateY(-2px);
+.cardCta:hover { background: var(--orange, #C9A84C); color: var(--green-deep, #1A0845); }
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.55rem 0.4rem;
+  color: var(--ink-2, #3E2D6B);
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--t-fast);
 }
 
+.cardLink:hover { color: var(--green, #3D1C8A); }
 
-.diwali-brands-section {
-  padding: 40px 20px;
-  background: #fff8f0;
-  border-top: 3px solid #f39c12;
-  font-family: 'poppins', sans-serif;
+/* ── OFFER BAND — dark purple, like the site's CTA sections ── */
+.offerWrap { padding: 0; }
+
+.offer {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.25rem, 5vw, 3.5rem) var(--px);
   text-align: center;
+  background:
+    radial-gradient(600px 300px at 50% 0%, rgba(232, 133, 90, 0.18), transparent 65%),
+    linear-gradient(135deg, var(--green-deep, #1A0845) 0%, var(--green, #3D1C8A) 55%, var(--green-deep, #1A0845) 100%);
+  color: #fff;
 }
 
-.diwali-brands-section h2 {
-  color: #4b2061;
-  margin-bottom: 25px;
-  font-size: 1.8rem;
-  font-weight: bold;
+.offerEyebrow {
+  composes: eyebrow;
+  position: relative;
+  color: var(--orange, #C9A84C);
 }
 
-.diwali-brand-card {
-  background: white;
-  border-radius: 3px;
-  padding: 15px;
-  border: 1px solid #f39c12;
+.offerTitle {
+  position: relative;
+  margin: 0 auto 0.85rem;
+  max-width: 900px;
+  font-size: clamp(1.3rem, 3.8vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.offerTitleAccent { color: var(--orange, #C9A84C); }
+
+.offerBody {
+  position: relative;
+  margin: 0 auto 1.5rem;
+  max-width: 620px;
+  color: var(--ink-inv-2, rgba(255, 255, 255, 0.78));
+  font-size: 0.88rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.offerActions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem 1.3rem;
+}
+
+.offerLink {
+  color: var(--ink-inv-2, rgba(255, 255, 255, 0.78));
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.offerLink:hover {
+  color: var(--orange, #C9A84C);
+  border-bottom-color: var(--orange, #C9A84C);
+}
+
+/* ── CATALOGUE ─────────────────────────────────────────────── */
+.catalogueWrap { padding: clamp(2.5rem, 5.5vw, 4rem) var(--px); }
+
+.catalogue {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(1.75rem, 4vw, 2.5rem) 1.5rem;
+  text-align: center;
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: var(--r-sm, 2px);
+}
+
+.catalogueTitle {
+  margin: 0 0 0.6rem;
+  color: var(--ink, #1A0A3D);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.catalogueSub {
+  margin: 0 auto 1.4rem;
+  max-width: 460px;
+  color: var(--ink-2, #3E2D6B);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.catalogueBtn {
+  background: var(--green, #3D1C8A);
+  color: #fff;
+}
+
+.catalogueBtn:hover { background: var(--orange, #C9A84C); color: var(--green-deep, #1A0845); }
+
+/* ── BRANDS ────────────────────────────────────────────────── */
+.brands {
+  padding: clamp(2.5rem, 5.5vw, 4rem) var(--px);
+  background: var(--bg-white, #fff);
+  border-top: 1px solid var(--border, #E5DCF5);
+}
+
+.brandCard {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 92px;
+  padding: 0.85rem;
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: var(--r-sm, 2px);
+  transition: border-color var(--t-fast);
 }
 
-.diwali-brand-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.brandCard:hover { border-color: var(--green, #3D1C8A); }
+
+.brandLogo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
-.diwali-brand-logo {
-  max-width: 120px;
-  height: auto;
-  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.15));
-}
-
-
-.lead-overlay {
+/* ── CATALOGUE LEAD MODAL ──────────────────────────────────── */
+.leadOverlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  inset: 0;
+  z-index: 9999;
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 1000;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(26, 8, 69, 0.55);
+  overflow-y: auto;
 }
 
-.lead-modal {
-  background: #fff;
-  padding: 30px;
-  border-radius: 4px;
-  max-width: 500px;
-  width: 90%;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  text-align: center;
+.leadModal {
+  width: 100%;
+  max-width: 430px;
+  padding: 1.6rem;
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: var(--r-sm, 2px);
 }
 
-.lead-form {
+.leadTitle {
+  margin: 0 0 1.15rem;
+  color: var(--ink, #1A0A3D);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.leadForm {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 15px;
+  gap: 0.25rem;
 }
 
-.lead-form input,
-.lead-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-family: 'poppins', sans-serif;
-  font-size: 1rem;
-  width: 100%;
+.leadForm label {
+  color: var(--ink-3, #6E5E9A);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.lead-actions {
+.leadForm input {
+  margin-bottom: 0.7rem;
+  padding: 0.65rem 0.75rem;
+  background: var(--bg-subtle, #F3EEFF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: var(--r-sm, 2px);
+  color: var(--ink, #1A0A3D);
+  font-family: var(--font);
+  font-size: 0.86rem;
+}
+
+.leadForm input::placeholder { color: var(--ink-3, #6E5E9A); }
+
+.leadForm input:focus-visible {
+  outline: none;
+  border-color: var(--green, #3D1C8A);
+  background: var(--bg-white, #fff);
+}
+
+.leadActions {
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 15px;
+  gap: 0.6rem;
+  margin-top: 0.35rem;
 }
 
-.lead-submit {
-  background: #ff9800;
-  color: white;
-  border: none;
-  font-family: 'poppins', sans-serif;
-  padding: 10px 18px;
-  border-radius: 3px;
+.leadSubmit,
+.leadCancel {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: var(--r-sm, 2px);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
 }
 
-.lead-cancel {
-  background: #ccc;
-  color: #333;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 3px;
-  font-family: 'poppins', sans-serif;
-  cursor: pointer;
+.leadSubmit {
+  border: 1px solid var(--green, #3D1C8A);
+  background: var(--green, #3D1C8A);
+  color: #fff;
 }
 
-.lead-submit:hover {
-  background: #4b2061;
+.leadSubmit:hover:not(:disabled) {
+  background: var(--orange, #C9A84C);
+  border-color: var(--orange, #C9A84C);
+  color: var(--green-deep, #1A0845);
 }
 
-.lead-cancel:hover {
-  background: #bbb;
+.leadSubmit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.leadCancel {
+  border: 1px solid var(--border, #E5DCF5);
+  background: transparent;
+  color: var(--ink-2, #3E2D6B);
 }
 
+.leadCancel:hover { border-color: var(--green, #3D1C8A); color: var(--green, #3D1C8A); }
 
+/* ── SWIPER SCROLLBAR ──────────────────────────────────────── */
+.brands :global(.swiper) { padding-bottom: 1.75rem; }
+.brands :global(.swiper-scrollbar) { background: var(--bg-subtle, #F3EEFF); }
+.brands :global(.swiper-scrollbar-drag) { background: var(--green-mid, #7C4DBC); }
 
-/* Tablets */
-@media (max-width: 992px) {
-  .diwali-carousel-card {
-    max-width: 280px;
-    max-height: 380px;
-  }
-
-  .diwali-carousel-img {
-    width: 80%;
-    height: 160px;
-  }
-
-  .diwali-cta-section h2 {
-    font-size: 1.6rem;
-  }
-
-  .diwali-brand-logo {
-    max-width: 100px;
-  }
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .diwali-carousel-title {
-    font-size: 1.4rem;
+@media (max-width: 640px) {
+  /* Two real columns on phones rather than one stretched card. */
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+
+  .cardBody { padding: 0.65rem; }
+  .cardTitle { font-size: 0.76rem; }
+
+  .cardActions { flex-direction: column; align-items: stretch; gap: 0.3rem; }
+  .cardCta { width: 100%; }
+  .cardLink { justify-content: center; }
+
+  .heroActions { flex-direction: column; }
+  .heroCtaPrimary,
+  .heroCtaGhost { justify-content: center; width: 100%; }
+
+  /* Keep only three lamps on narrow screens so they stay legible. */
+  .diyaWrap:nth-child(n + 4) { display: none; }
+}
+
+@media (max-width: 360px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ── REDUCED MOTION ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 
-  .diwali-carousel-card {
-    max-width: 90%;
-    margin: 15px auto;
-  }
-
-  .diwali-carousel-img {
-    height: 140px;
-    width: 90%;
-  }
-
-  .diwali-cta-section {
-    padding: 25px 15px;
-  }
-
-  .diwali-cta-button {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-
-  .diwali-brands-section h2 {
-    font-size: 1.4rem;
-  }
-
-  .diwali-brand-logo {
-    max-width: 80px;
-  }
-
-  .lead-modal {
-    padding: 20px;
-  }
-
-  .lead-actions {
-    flex-direction: column;
-  }
-
-  .lead-submit,
-  .lead-cancel {
-    width: 100%;
-  }
+  .reveal { opacity: 1; transform: none; }
 }

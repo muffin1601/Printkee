@@ -18,6 +18,7 @@ import {
   User,
   ArrowRight,
   AtSign,
+  Sparkles,
 } from "lucide-react";
 import navbarSubcategories from "../data/list";
 import styles from "../styles/Navbar.module.css";
@@ -196,12 +197,22 @@ const Navbar = () => {
             </div>
           </li>
 
+          {/* Seasonal campaign link — highlighted so it reads as a promotion */}
+          <li>
+            <Link
+              href="/diwali-special"
+              className={`${styles.navLink} ${styles.navLinkFestive}`}
+            >
+              <Sparkles size={14} aria-hidden="true" /> Diwali Gifts
+            </Link>
+          </li>
+
           <li>
             <Link href="/brands" className={styles.navLink}>
               <Tag size={14} aria-hidden="true" /> Brands
             </Link>
           </li>
-          
+
           <li>
             <Link href="/contact" className={styles.navLink}>
               <Mail size={14} aria-hidden="true" /> Contact Us
@@ -274,6 +285,7 @@ const Navbar = () => {
             )}
           </li>
 
+          <li><Link href="/diwali-special" className={`${styles.drawerLink} ${styles.drawerLinkFestive}`} onClick={() => setIsMenuOpen(false)}><Sparkles size={15} /> Diwali Gifts</Link></li>
           <li><Link href="/brands"  className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><Tag size={15} /> Brands</Link></li>
           <li><Link href="/blogs"   className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><PenLine size={15} /> Blog</Link></li>
           <li><Link href="/contact" className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><Mail size={15} /> Contact Us</Link></li>

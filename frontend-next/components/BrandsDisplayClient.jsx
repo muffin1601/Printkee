@@ -22,9 +22,9 @@ const BrandsDisplayClient = ({ brand, brandInfo }) => {
 
   const handleLeadSubmit = async (e) => {
     e.preventDefault();
-    const { emailOk } = await submitLead(leadData);
+    const { ok } = await submitLead(leadData);
 
-    if (!emailOk) {
+    if (!ok) {
       alert("Something went wrong. Please try again later.");
       return;
     }

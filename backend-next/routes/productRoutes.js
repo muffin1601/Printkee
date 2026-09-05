@@ -147,6 +147,86 @@ router.delete(
 );
 
 /* ======================================================
+   GET A CURATED COLLECTION (campaign / landing pages)
+
+   Public, read-only. Selects active products matching any of the
+   supplied tags, and — when a tag yields too few results — tops the
+   list up with featured/newest products so a campaign section is
+   never rendered empty. Returns category/subcategory slugs so the
+   caller can build product URLs.
+
+   URL: /api/product/collection?tags=diwali,hamper&limit=8&exclude=slug-a,slug-b
+   NOTE: must stay declared BEFORE the "/:id" route below, otherwise
+   Express matches "collection" as an :id.
+====================================================== */
+const COLLECTION_FIELDS =
+  "name slug description.short price salePrice images ratings tags isFeatured stock";
+
+router.get(
+  "/collection",
+  asyncHandler(async (req, res) => {
+    const limit = Math.min(24, Math.max(1, Number(req.query.limit) || 8));
+
+    const tags = String(req.query.tags || "")
+      .split(",")
+      .map((t) => t.trim())
+      .filter(Boolean);
+
+    const exclude = String(req.query.exclude || "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    const base = { isActive: true };
+    if (exclude.length) base.slug = { $nin: exclude };
+
+    const populate = [
+      { path: "category", select: "name slug" },
+      { path: "subcategory", select: "name slug" },
+    ];
+
+    let items = [];
+
+    if (tags.length) {
+      /* Substring (not anchored) matching: seeded products store their tags
+         as a single comma-joined string, so an exact-equality match would
+         never hit. Also searched across name/description/keywords so a
+         theme like "corporate" finds genuinely relevant products. */
+      const matchers = tags.map((t) => new RegExp(escapeRegex(t), "i"));
+      const or = [];
+      matchers.forEach((rx) => {
+        or.push({ tags: rx }, { name: rx }, { "description.short": rx }, { "seo.keywords": rx });
+      });
+
+      items = await Product.find({ ...base, $or: or })
+        .select(COLLECTION_FIELDS)
+        .populate(populate)
+        .sort({ isFeatured: -1, "ratings.average": -1, createdAt: -1 })
+        .limit(limit)
+        .lean();
+    }
+
+    /* Top-up so a campaign section is never empty */
+    if (items.length < limit) {
+      const seen = items.map((p) => p.slug);
+      const fillQuery = { ...base };
+      fillQuery.slug = { $nin: [...exclude, ...seen] };
+
+      const fill = await Product.find(fillQuery)
+        .select(COLLECTION_FIELDS)
+        .populate(populate)
+        .sort({ isFeatured: -1, "ratings.average": -1, createdAt: -1 })
+        .limit(limit - items.length)
+        .lean();
+
+      items = items.concat(fill);
+    }
+
+    return ok(res, items);
+  })
+);
+
+/* ======================================================
    GET ALL PRODUCTS (PAGINATION + SEARCH)
 ====================================================== */
 router.get(

@@ -212,6 +212,30 @@
 .navLink:hover::after,
 .navBtn:hover::after { transform: scaleX(1); }
 
+/* ── Seasonal campaign link (Diwali) ──────────────────────
+   Uses the existing gold accent so it reads as a promotion
+   without introducing a colour outside the design system. */
+.navLinkFestive {
+  color: var(--orange-text, #846713);
+  font-weight: 700;
+}
+
+.navLinkFestive:hover { color: var(--orange-dark, #a8872a); }
+
+.navLinkFestive::after { background: var(--orange, #c9a84c); }
+
+.drawerLinkFestive {
+  border-color: var(--orange, #c9a84c);
+  background: var(--orange-light, #fbf5e3);
+  color: var(--orange-text, #846713);
+}
+
+.drawerLinkFestive:hover {
+  border-color: var(--orange-dark, #a8872a);
+  background: var(--orange-light, #fbf5e3);
+  color: var(--orange-dark, #a8872a);
+}
+
 /* Chevron rotates when menu is open */
 .chevron { transition: transform 0.18s ease; opacity: 0.55; }
 .chevronUp { transform: rotate(-180deg); }

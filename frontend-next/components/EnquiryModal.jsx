@@ -13,7 +13,9 @@ const perks = [
   { icon: <BadgePercent size={14} />, text: "Bulk order discounts" },
 ];
 
-const EnquiryModal = ({ isOpen, onClose, image, description }) => {
+/* `onSuccess` is optional — existing callers omit it and keep the old
+   behaviour. It fires only after the lead is genuinely accepted. */
+const EnquiryModal = ({ isOpen, onClose, image, description, onSuccess }) => {
   const [formData, setFormData] = useState({
     name: "", company: "", email: "", phone: "", requirement: "",
   });
@@ -26,8 +28,9 @@ const EnquiryModal = ({ isOpen, onClose, image, description }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const { emailOk } = await submitLead(formData);
-    if (emailOk) {
+    const { ok } = await submitLead(formData);
+    if (ok) {
+      onSuccess?.();
       alert("Thank you! Your inquiry has been submitted.");
       setFormData({ name: "", company: "", email: "", phone: "", requirement: "" });
       onClose();

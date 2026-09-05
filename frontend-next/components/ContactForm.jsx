@@ -19,8 +19,8 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { emailOk } = await submitLead(formData);
-    if (emailOk) {
+    const { ok } = await submitLead(formData);
+    if (ok) {
       alert("Thank you! Your message has been sent.");
       setFormData({ name: "", company: "", email: "", phone: "", requirement: "" });
     } else {
