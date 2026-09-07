@@ -7,12 +7,11 @@ import Reveal from "./Reveal";
 /**
  * Festive offer banner.
  *
- * `offerCount` is the number of products the backend has genuinely marked
- * down — used only to decide the wording, never to publish a figure. Pricing
- * is quoted per enquiry, so the banner points at the quote flow instead of
- * advertising a percentage.
+ * `productCount` is how many products the 2026 catalogue lists — used only to
+ * decide the wording, never to publish a price. Pricing is quoted per enquiry,
+ * so the banner points at the quote flow instead of advertising a percentage.
  */
-const DiwaliOfferBanner = ({ offerCount = 0, onEnquire }) => (
+const DiwaliOfferBanner = ({ productCount = 0, onEnquire }) => (
   <Reveal as="section" className={styles.offerWrap}>
     <div className={styles.offer} aria-labelledby="diwali-offer-heading">
       <p className={styles.offerEyebrow}>
@@ -26,9 +25,9 @@ const DiwaliOfferBanner = ({ offerCount = 0, onEnquire }) => (
       </h2>
 
       <p className={styles.offerBody}>
-        {offerCount > 0
-          ? "Festive pricing is live across the collection this season, with bulk rates that improve the more you gift. Share your quantities and we'll send a costed proposal within 24 hours."
-          : "Bulk festive pricing on every gift below — the more you gift, the better the rate. Share your quantities and we'll send a costed proposal within 24 hours."}
+        {productCount > 0
+          ? `Bulk festive pricing across all ${productCount} gifts in the 2026 catalogue — the more you gift, the better the rate. Share your quantities and we'll send a costed proposal within 24 hours.`
+          : "Bulk festive pricing on every gift in the 2026 catalogue — the more you gift, the better the rate. Share your quantities and we'll send a costed proposal within 24 hours."}
       </p>
 
       <div className={styles.offerActions}>
@@ -36,9 +35,9 @@ const DiwaliOfferBanner = ({ offerCount = 0, onEnquire }) => (
           Get Festive Pricing
           <ArrowRight size={14} aria-hidden="true" />
         </button>
-        {offerCount > 0 && (
-          <a href="#diwali-offers" className={styles.offerLink}>
-            See festive offers
+        {productCount > 0 && (
+          <a href="#diwali-catalogue" className={styles.offerLink}>
+            Browse the catalogue
           </a>
         )}
       </div>

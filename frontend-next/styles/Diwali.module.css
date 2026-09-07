@@ -739,6 +739,502 @@
   .grid { grid-template-columns: minmax(0, 1fr); }
 }
 
+/* ── CATALOGUE PRODUCT GRID (Diwali 2026) ──────────────────── */
+.catFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 0 1.75rem;
+}
+
+.catFilter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-2, #3E2D6B);
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: var(--r-sm, 2px);
+  cursor: pointer;
+  transition: border-color var(--t-fast), color var(--t-fast),
+    background var(--t-fast);
+}
+
+.catFilter:hover { border-color: var(--green, #3D1C8A); }
+
+.catFilterOn {
+  color: #fff;
+  background: var(--green, #3D1C8A);
+  border-color: var(--green, #3D1C8A);
+}
+
+.catFilterCount { font-size: 0.7rem; font-weight: 700; opacity: 0.65; }
+
+.catGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.catGridItem { min-width: 0; display: flex; }
+
+.catCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: var(--r-sm, 2px);
+  overflow: hidden;
+  transition: border-color var(--t-fast), transform var(--t-fast);
+}
+
+.catCard:hover {
+  border-color: var(--orange, #C9A84C);
+  transform: translateY(-2px);
+}
+
+/* Square media box reserves its space before the PNG decodes, so the grid
+   never reflows as cards stream in. `contain` keeps SKU codes and prices
+   printed inside the artwork from being cropped away. */
+.catMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  border-bottom: 1px solid var(--border, #E5DCF5);
+}
+
+.catImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.25s var(--ease, ease);
+}
+
+.catImg[data-loaded="true"] { opacity: 1; }
+
+.catSkeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    var(--bg, #FAF8FF) 30%,
+    #F2ECFF 50%,
+    var(--bg, #FAF8FF) 70%
+  );
+  background-size: 200% 100%;
+  animation: catShimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes catShimmer {
+  from { background-position: 150% 0; }
+  to   { background-position: -50% 0; }
+}
+
+.catBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.4rem;
+  padding: 0.85rem 0.9rem 0.9rem;
+}
+
+.catBrand {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange-dark, #a8872a);
+}
+
+.catName {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink, #1A0A3D);
+}
+
+.catDesc {
+  margin: 0;
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: var(--ink-2, #3E2D6B);
+  /* Keeps cards on a similar height without hiding the whole description */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.catSpecs {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--ink-2, #3E2D6B);
+  opacity: 0.85;
+}
+
+.catMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.55rem;
+}
+
+.catPrice {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--ink, #1A0A3D);
+}
+
+/* The figure is the originating brand's printed MRP, not our quote — the
+   label has to stay visible so the two are never confused. */
+.catPriceNote {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-2, #3E2D6B);
+  opacity: 0.7;
+}
+
+.catPriceAsk {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink-2, #3E2D6B);
+  opacity: 0.85;
+}
+
+.catSku {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: var(--ink-2, #3E2D6B);
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: var(--r-sm, 2px);
+}
+
+.catCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  margin-top: 0.7rem;
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--green, #3D1C8A);
+  border: none;
+  border-radius: var(--r-sm, 2px);
+  cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.catCta:hover {
+  background: var(--orange, #C9A84C);
+  color: var(--green-deep, #1A0845);
+}
+
+.catEmpty {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  font-size: 0.86rem;
+  color: var(--ink-2, #3E2D6B);
+}
+
+@media (max-width: 600px) {
+  .catGrid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.7rem; }
+  .catBody { padding: 0.7rem 0.75rem 0.8rem; }
+  .catDesc { -webkit-line-clamp: 2; }
+  .catSpecs { display: none; }
+}
+
+/* ── CATALOGUE LOOKBOOK ────────────────────────────────────── */
+/* Catalogue artwork sits on the light surface used by the other
+   product sections; the artwork itself is already saturated, so the
+   chrome around it stays quiet. */
+.lookbook {
+  padding: clamp(2.5rem, 5.5vw, 4rem) var(--px);
+  background: var(--bg-white, #fff);
+  border-top: 1px solid var(--border, #E5DCF5);
+}
+
+.lookbookInner {
+  max-width: var(--maxw, 1240px);
+  margin: 0 auto;
+}
+
+.lookbookFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 0 1.6rem;
+}
+
+.lookbookFilter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-2, #3E2D6B);
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: var(--r-sm, 2px);
+  cursor: pointer;
+  transition: border-color var(--t-fast), color var(--t-fast),
+    background var(--t-fast);
+}
+
+.lookbookFilter:hover { border-color: var(--green, #3D1C8A); }
+
+.lookbookFilterOn {
+  color: #fff;
+  background: var(--green, #3D1C8A);
+  border-color: var(--green, #3D1C8A);
+}
+
+.lookbookCount {
+  font-size: 0.7rem;
+  font-weight: 700;
+  opacity: 0.65;
+}
+
+/* Uniform square tiles. The catalogue mixes landscape plates with portrait
+   cut-outs, so letting tiles span columns by shape left wide artwork
+   letterboxed inside an even wider box; one square cell with `contain`
+   keeps every piece whole and the rows aligned. */
+.lookbookGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lookbookItem { min-width: 0; }
+
+.lookbookTile {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: var(--bg, #FAF8FF);
+  border: 1px solid var(--border, #E5DCF5);
+  border-radius: var(--r-sm, 2px);
+  cursor: zoom-in;
+  overflow: hidden;
+  transition: border-color var(--t-fast), transform var(--t-fast);
+}
+
+.lookbookTile:hover {
+  border-color: var(--orange, #C9A84C);
+  transform: translateY(-2px);
+}
+
+.lookbookTile:focus-visible {
+  outline: 2px solid var(--green, #3D1C8A);
+  outline-offset: 2px;
+}
+
+/* Square box + `contain` puts a ragged mix of catalogue aspect ratios on
+   one baseline without cropping any artwork (these plates carry SKU codes
+   and prices, so a crop would cut real information away). */
+.lookbookImg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+}
+
+.lookbookPage {
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--green-deep, #1A0845);
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: var(--r-sm, 2px);
+  opacity: 0;
+  transition: opacity var(--t-fast);
+}
+
+.lookbookTile:hover .lookbookPage,
+.lookbookTile:focus-visible .lookbookPage { opacity: 1; }
+
+.lookbookMoreWrap {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.lookbookMore {
+  padding: 0.7rem 1.5rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--green, #3D1C8A);
+  background: transparent;
+  border: 1px solid var(--green, #3D1C8A);
+  border-radius: var(--r-sm, 2px);
+  cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.lookbookMore:hover { background: var(--green, #3D1C8A); color: #fff; }
+
+/* ── LIGHTBOX ──────────────────────────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: clamp(0.75rem, 3vw, 2rem);
+  background: rgba(16, 6, 40, 0.92);
+  backdrop-filter: blur(3px);
+}
+
+.lightboxFigure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: min(1000px, 100%);
+  max-height: 100%;
+  margin: 0;
+}
+
+.lightboxImg {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  /* Leaves room for the caption row below the artwork */
+  max-height: calc(100vh - 9rem);
+  object-fit: contain;
+  background: #fff;
+  border-radius: var(--r-sm, 2px);
+}
+
+.lightboxCap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.lightboxActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lightboxCta {
+  padding: 0.5rem 1rem;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--green-deep, #1A0845);
+  background: var(--orange, #C9A84C);
+  border: none;
+  border-radius: var(--r-sm, 2px);
+  cursor: pointer;
+}
+
+.lightboxGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--r-sm, 2px);
+}
+
+.lightboxGhost:hover { border-color: var(--orange, #C9A84C); }
+
+.lightboxClose {
+  position: absolute;
+  top: clamp(0.5rem, 2vw, 1rem);
+  right: clamp(0.5rem, 2vw, 1rem);
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: var(--r-sm, 2px);
+  cursor: pointer;
+}
+
+.lightboxClose:hover { background: rgba(255, 255, 255, 0.24); }
+
+.lightboxNav {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: var(--r-sm, 2px);
+  cursor: pointer;
+}
+
+.lightboxNav:hover { background: rgba(255, 255, 255, 0.24); }
+
+@media (max-width: 700px) {
+  .lookbookGrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .lightboxNav { position: absolute; bottom: 1rem; }
+  .lightboxPrev { left: 1rem; }
+  .lightboxNext { right: 1rem; }
+}
+
 /* ── REDUCED MOTION ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .page *,

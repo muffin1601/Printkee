@@ -32,7 +32,7 @@ const BrandsDisplayClient = ({ brand, brandInfo }) => {
     alert("Thank you! Catalogue will be downloaded shortly");
 
     const link = document.createElement("a");
-    link.href = "/catalogue.pdf";
+    link.href = "/diwali-catalogue-2026.pdf";
     link.download = `${brandInfo.name}_Catalogue.pdf`;
     document.body.appendChild(link);
     link.click();

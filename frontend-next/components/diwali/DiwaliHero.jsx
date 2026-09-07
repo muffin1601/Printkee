@@ -79,19 +79,19 @@ const DiwaliHero = ({ onSecondaryAction }) => (
       </p>
 
       <h1 id="diwali-hero-heading" className={styles.heroTitle}>
-        This Diwali, Gift{" "}
-        <span className={styles.heroTitleAccent}>Something Personal</span>
+        Diwali 2026 Gifts,{" "}
+        <span className={styles.heroTitleAccent}>Hampers &amp; Corporate Gifting</span>
       </h1>
 
       <p className={styles.heroSub}>
-        Custom-printed hampers, desk gifts and festive kits — branded with your
-        logo or a loved one&apos;s name. Designed in-house, produced at scale and
-        delivered across India in time for the festival.
+        The full Diwali 2026 catalogue — dry-fruit hampers, audio and desk tech,
+        luggage, kitchen appliances, copper sets and home textiles. Branded with
+        your logo and delivered across India in time for the festival.
       </p>
 
       <div className={styles.heroActions}>
-        <a href="#diwali-bestsellers" className={styles.heroCtaPrimary}>
-          Shop Diwali Gifts
+        <a href="#diwali-catalogue" className={styles.heroCtaPrimary}>
+          Browse the 2026 Catalogue
           <ArrowRight size={15} aria-hidden="true" />
         </a>
         <Link

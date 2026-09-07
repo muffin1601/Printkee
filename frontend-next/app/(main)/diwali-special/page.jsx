@@ -1,113 +1,79 @@
 import DiwaliClient from "../../../components/DiwaliClient";
-import { productUrl } from "../../../utils/product";
+import diwali2026Products from "../../../data/diwali-2026-products";
 
 const BASE = "https://printkee.com";
-const BACKEND = process.env.BACKEND_URL;
+const PATH = "/diwali-special";
 
+/**
+ * Diwali 2026 campaign page.
+ *
+ * Products are read from the local catalogue dataset, not from the backend.
+ * The page previously fetched `/api/product/collection`, which returns the
+ * shared ecommerce catalogue filtered by tag — that surfaced general products
+ * rather than this season's catalogue, so the fetch has been removed. The
+ * products database itself is untouched and still powers every other route.
+ *
+ * With no remote data left, the page is fully static.
+ */
 export const metadata = {
-  title: "Diwali Gifts 2026 | Personalized & Corporate Diwali Gifting",
+  /* The root layout's "%s | Printkee" template supplies the brand suffix, so
+     this stays a bare page title. */
+  title: "Diwali 2026 Gifts, Hampers & Corporate Gifts",
   description:
-    "Shop premium personalized Diwali gifts — custom hampers, branded desk gifts and festive kits for family, friends and corporate gifting. Bulk pricing, pan-India delivery.",
+    "Browse the Diwali 2026 catalogue — Nutraj dry-fruit hampers, boAt and TEMPT audio, FUZO desk gadgets, American Tourister and Swiss Military luggage, Prestige and Skyline kitchen appliances, copper gift sets and home textiles. Bulk enquiry pricing, pan-India delivery.",
   keywords: [
-    "Diwali gifts",
-    "personalized Diwali gifts",
-    "Diwali corporate gifting",
+    "Diwali 2026 gifts",
     "Diwali gift hampers",
-    "custom printed Diwali gifts",
+    "Diwali corporate gifting",
+    "Diwali catalogue 2026",
     "festive gifting India",
   ],
-  alternates: { canonical: `${BASE}/diwali-special` },
+  alternates: { canonical: `${BASE}${PATH}` },
   openGraph: {
-    title: "Diwali Gifts 2026 | Personalized & Corporate Diwali Gifting",
+    title: "Diwali 2026 Gifts, Hampers & Corporate Gifts | Printkee",
     description:
-      "This Diwali, gift something personal — custom hampers, branded desk gifts and festive kits, delivered across India.",
-    url: `${BASE}/diwali-special`,
+      "The full Diwali 2026 catalogue — dry-fruit hampers, audio and desk tech, luggage, kitchen appliances, copper sets and home textiles. Enquire for bulk festive pricing.",
+    url: `${BASE}${PATH}`,
     type: "website",
-    images: [{ url: `${BASE}/images/diwali-banner.webp`, alt: "Printkee Diwali Gifts" }],
+    images: [
+      {
+        url: `${BASE}/catalogue-2026-images/page-02-img-01_560x396.png`,
+        alt: "Nutraj Wishes Leafy Whispers gift box from the Diwali 2026 catalogue",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Diwali Gifts 2026 | Personalized & Corporate Diwali Gifting",
+    title: "Diwali 2026 Gifts, Hampers & Corporate Gifts | Printkee",
     description:
-      "Personalized and corporate Diwali gifts with custom branding. Bulk pricing, pan-India delivery.",
-    images: [`${BASE}/images/diwali-banner.webp`],
+      "Browse the Diwali 2026 catalogue — hampers, tech, luggage, kitchen and home gifts. Bulk enquiry pricing, pan-India delivery.",
+    images: [`${BASE}/catalogue-2026-images/page-02-img-01_560x396.png`],
   },
 };
 
-/**
- * Fetches one curated collection of real products.
- * Never throws: a failing section renders as empty rather than taking the
- * whole campaign page down.
- */
-async function getCollection(tags, limit = 8, exclude = []) {
-  if (!BACKEND) return [];
-  try {
-    const params = new URLSearchParams({
-      tags: tags.join(","),
-      limit: String(limit),
-    });
-    if (exclude.length) params.set("exclude", exclude.join(","));
-
-    const res = await fetch(`${BACKEND}/api/product/collection?${params}`, {
-      next: { revalidate: 300 },
-    });
-    if (!res.ok) return [];
-    const body = await res.json();
-    /* utils/response `ok()` returns the raw payload — an array here. */
-    return Array.isArray(body) ? body : [];
-  } catch {
-    return [];
-  }
-}
-
-export default async function DiwaliPage() {
-  /* Themes are resolved in order, each excluding everything already shown,
-     so the six rails stay distinct even when the tag data is sparse and the
-     backend falls back to featured/newest products. Sequential rather than
-     parallel for that reason — six indexed queries against a page that is
-     ISR-cached for five minutes. */
-  const THEMES = [
-    { key: "bestsellers",  tags: ["diwali", "bestseller", "gift set"] },
-    { key: "personalized", tags: ["personalized", "custom", "printing", "branding"] },
-    { key: "family",       tags: ["hamper", "home", "kitchen", "drink"] },
-    { key: "friends",      tags: ["lifestyle", "mug", "apparel", "accessor"] },
-    { key: "corporate",    tags: ["corporate", "executive", "employee", "office"] },
-    { key: "recommended",  tags: ["premium", "trophy", "technology"] },
-  ];
-
-  const collections = {};
-  const used = [];
-
-  for (const theme of THEMES) {
-    const items = await getCollection(theme.tags, 8, used);
-    collections[theme.key] = items;
-    items.forEach((p) => p?.slug && used.push(p.slug));
-  }
-
-  /* ── ItemList JSON-LD built from the real bestseller products ── */
-  const listed = (collections.bestsellers || []).filter((p) => productUrl(p));
-  const itemListSchema = listed.length
-    ? {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        name: "Diwali Bestsellers",
-        url: `${BASE}/diwali-special`,
-        numberOfItems: listed.length,
-        /* No `offers`/price block: pricing is quoted per enquiry and is not
-           published anywhere on the site, so it must not leak into search
-           results through structured data either. */
-        itemListElement: listed.map((product, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          item: {
-            "@type": "Product",
-            name: product.name,
-            url: `${BASE}${productUrl(product)}`,
-            image: product.images?.[0]?.url || undefined,
-          },
-        })),
-      }
-    : null;
+export default function DiwaliPage() {
+  /* ItemList of the real catalogue products. No `offers` block: an `mrp` here
+     is the originating brand's printed MRP, not a price this site sells at, so
+     publishing it as an offer would be inaccurate structured data. */
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Diwali 2026 Catalogue",
+    url: `${BASE}${PATH}`,
+    numberOfItems: diwali2026Products.length,
+    itemListElement: diwali2026Products.map((product, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Product",
+        name: product.name,
+        image: `${BASE}${product.image}`,
+        ...(product.brand ? { brand: { "@type": "Brand", name: product.brand } } : {}),
+        ...(product.sku ? { sku: product.sku } : {}),
+        ...(product.description ? { description: product.description } : {}),
+      },
+    })),
+  };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -117,8 +83,8 @@ export default async function DiwaliPage() {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Diwali Gifts",
-        item: `${BASE}/diwali-special`,
+        name: "Diwali 2026",
+        item: `${BASE}${PATH}`,
       },
     ],
   };
@@ -129,13 +95,11 @@ export default async function DiwaliPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      {itemListSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
-        />
-      )}
-      <DiwaliClient collections={collections} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
+      <DiwaliClient />
     </>
   );
 }

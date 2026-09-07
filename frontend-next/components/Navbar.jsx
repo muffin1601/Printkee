@@ -23,6 +23,11 @@ import {
 import navbarSubcategories from "../data/list";
 import styles from "../styles/Navbar.module.css";
 
+/* Login is admin-only and hidden from the public nav for now. The /login
+   route itself still works when visited directly — flip this to true to
+   bring the button back in both the desktop bar and the mobile drawer. */
+const SHOW_LOGIN = false;
+
 const Navbar = () => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
   const [isMenuOpen, setIsMenuOpen]   = useState(false);
@@ -81,18 +86,31 @@ const Navbar = () => {
               <Phone size={14} aria-hidden="true" />
               <span>88009 04543</span>
             </a>
-            <button
-              className={styles.loginBtn}
-              onClick={() => router.push("/login")}
-              aria-label="Admin login"
-            >
-              <User size={14} aria-hidden="true" />
-              Login
-            </button>
+            {SHOW_LOGIN && (
+              <button
+                className={styles.loginBtn}
+                onClick={() => router.push("/login")}
+                aria-label="Admin login"
+              >
+                <User size={14} aria-hidden="true" />
+                Login
+              </button>
+            )}
           </div>
 
           {/* Mobile controls — search toggle (mobile only) + hamburger (tablet+mobile) */}
           <div className={styles.mobileControls}>
+            {/* Below 1024px the desktop nav row is hidden, which would leave
+                the seasonal campaign reachable only from inside the drawer.
+                This compact link keeps it one tap away on tablet and mobile. */}
+            <Link
+              href="/diwali-special"
+              className={styles.festiveCompact}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Sparkles size={14} aria-hidden="true" />
+              <span className={styles.festiveCompactText}>Diwali</span>
+            </Link>
             <button
               className={`${styles.iconBtn} ${styles.searchToggleBtn}`}
               aria-label="Open search"
@@ -203,7 +221,7 @@ const Navbar = () => {
               href="/diwali-special"
               className={`${styles.navLink} ${styles.navLinkFestive}`}
             >
-              <Sparkles size={14} aria-hidden="true" /> Diwali Gifts
+              <Sparkles size={14} aria-hidden="true" /> Diwali 2026
             </Link>
           </li>
 
@@ -285,7 +303,7 @@ const Navbar = () => {
             )}
           </li>
 
-          <li><Link href="/diwali-special" className={`${styles.drawerLink} ${styles.drawerLinkFestive}`} onClick={() => setIsMenuOpen(false)}><Sparkles size={15} /> Diwali Gifts</Link></li>
+          <li><Link href="/diwali-special" className={`${styles.drawerLink} ${styles.drawerLinkFestive}`} onClick={() => setIsMenuOpen(false)}><Sparkles size={15} /> Diwali 2026</Link></li>
           <li><Link href="/brands"  className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><Tag size={15} /> Brands</Link></li>
           <li><Link href="/blogs"   className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><PenLine size={15} /> Blog</Link></li>
           <li><Link href="/contact" className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><Mail size={15} /> Contact Us</Link></li>
@@ -294,9 +312,11 @@ const Navbar = () => {
 
         <div className={styles.drawerFoot}>
           <a href="tel:8800904543" className={styles.drawerPhone}><Phone size={14} /> 88009 04543</a>
-          <button className={styles.drawerLoginBtn} onClick={() => { router.push("/login"); setIsMenuOpen(false); }}>
-            <User size={14} /> Login
-          </button>
+          {SHOW_LOGIN && (
+            <button className={styles.drawerLoginBtn} onClick={() => { router.push("/login"); setIsMenuOpen(false); }}>
+              <User size={14} /> Login
+            </button>
+          )}
         </div>
       </nav>
 

@@ -9,52 +9,33 @@ import { Download } from "lucide-react";
 import styles from "../styles/Diwali.module.css";
 import brandsList from "../data/brandsspl";
 import { submitLead } from "../utils/submitLead";
-import { hasFestiveOffer } from "../utils/product";
+import diwali2026Products, {
+  diwali2026Categories,
+} from "../data/diwali-2026-products";
 
 import DiwaliHero from "./diwali/DiwaliHero";
-import DiwaliCollection from "./diwali/DiwaliCollection";
 import DiwaliOfferBanner from "./diwali/DiwaliOfferBanner";
+import DiwaliCatalogueGrid from "./diwali/DiwaliCatalogueGrid";
+import DiwaliLookbook from "./diwali/DiwaliLookbook";
 
-import RecentlyViewed from "./diwali/RecentlyViewed";
 import Reveal from "./diwali/Reveal";
 import useConfetti from "./diwali/useConfetti";
 import EnquiryModal from "./EnquiryModal";
 
 /**
- * Diwali campaign page.
+ * Diwali 2026 campaign page.
  *
- * All product data arrives pre-fetched from the server component; this
- * component owns only interaction state (enquiry modal, catalogue lead
- * form). Ordering runs through the site's existing enquiry/quote flow —
- * this storefront has no cart or checkout.
+ * Products come exclusively from `data/diwali-2026-products.js`, transcribed
+ * from the Diwali 2026 catalogue. This page no longer queries the backend
+ * `/api/product/collection` endpoint: that endpoint serves the shared
+ * ecommerce catalogue by tag, so the old rails showed general products rather
+ * than this season's catalogue. The database is untouched — only this page's
+ * data source changed.
+ *
+ * Ordering runs through the site's existing enquiry/quote flow; this
+ * storefront has no cart or checkout.
  */
-const DiwaliClient = ({ collections = {} }) => {
-  const {
-    bestsellers = [],
-    personalized = [],
-    family = [],
-    friends = [],
-    corporate = [],
-    recommended = [],
-  } = collections;
-
-  /* Real offers only: products the backend actually marked down. */
-  const allProducts = [
-    ...bestsellers,
-    ...personalized,
-    ...family,
-    ...friends,
-    ...corporate,
-    ...recommended,
-  ];
-  const seen = new Set();
-  const offerProducts = allProducts.filter((p) => {
-    if (!hasFestiveOffer(p)) return false;
-    if (seen.has(p.slug)) return false;
-    seen.add(p.slug);
-    return true;
-  });
-
+const DiwaliClient = () => {
   const fireConfetti = useConfetti();
 
   /* ── Enquiry (quote) modal ───────────────────────────────── */
@@ -62,9 +43,11 @@ const DiwaliClient = ({ collections = {} }) => {
 
   const openEnquiry = useCallback((product) => {
     setEnquiry({
-      image: product?.images?.[0]?.url || "",
+      image: product?.image || "",
       description: product?.name
-        ? `Diwali enquiry for ${product.name}. Tell us your quantity and branding needs and we'll send festive pricing within 24 hours.`
+        ? `Diwali 2026 enquiry for ${product.name}${
+            product.sku ? ` (${product.sku})` : ""
+          }. Tell us your quantity and branding needs and we'll send festive pricing within 24 hours.`
         : "Tell us what you'd like to gift this Diwali and we'll send festive pricing within 24 hours.",
     });
   }, []);
@@ -100,8 +83,8 @@ const DiwaliClient = ({ collections = {} }) => {
     alert("Thank you! Catalogue will be downloaded shortly");
 
     const link = document.createElement("a");
-    link.href = "/catalogue.pdf";
-    link.download = "Diwali_Catalogue.pdf";
+    link.href = "/diwali-catalogue-2026.pdf";
+    link.download = "Diwali_Catalogue_2026.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -114,77 +97,21 @@ const DiwaliClient = ({ collections = {} }) => {
     <div className={styles.page}>
       <DiwaliHero />
 
-      <DiwaliCollection
-        id="diwali-bestsellers"
-        eyebrow="Most gifted this season"
-        title="Diwali Bestsellers"
-        description="The festive gifts our clients reorder year after year — proven, premium and ready to brand."
-        products={bestsellers}
+      {/* The season's range, straight from the 2026 catalogue. */}
+      <DiwaliCatalogueGrid
+        products={diwali2026Products}
+        categories={diwali2026Categories}
         onEnquire={openEnquiry}
-        priority
       />
 
       <DiwaliOfferBanner
-        offerCount={offerProducts.length}
+        productCount={diwali2026Products.length}
         onEnquire={openGeneralEnquiry}
       />
 
-      <DiwaliCollection
-        id="diwali-personalized"
-        alt
-        eyebrow="Made just for them"
-        title="Personalized Diwali Gifts"
-        description="Add a name, a photo or a message. Every piece is printed to order in our own facility."
-        products={personalized}
-        onEnquire={openEnquiry}
-        moreHref="/customize"
-        moreLabel="Start customising"
-      />
-
-      <DiwaliCollection
-        id="diwali-family"
-        eyebrow="For the people at home"
-        title="Gifts for Family"
-        description="Warm, useful and beautifully packaged — hampers and keepsakes the whole household will enjoy."
-        products={family}
-        onEnquire={openEnquiry}
-      />
-
-      <DiwaliCollection
-        id="diwali-friends"
-        alt
-        eyebrow="For your favourite people"
-        title="Gifts for Friends"
-        description="Thoughtful, playful and personal — the kind of gift that gets a photo sent back."
-        products={friends}
-        onEnquire={openEnquiry}
-      />
-
-      <DiwaliCollection
-        id="diwali-corporate"
-        eyebrow="Employees, clients & partners"
-        title="Corporate Diwali Gifts"
-        description="Branded festive hampers at scale, with logo placement, custom packaging and pan-India dispatch."
-        products={corporate}
-        onEnquire={openEnquiry}
-        moreHref="/contact"
-        moreLabel="Talk to our gifting team"
-      />
-
-      <DiwaliCollection
-        id="diwali-offers"
-        alt
-        eyebrow="Best festive rates"
-        title="Diwali Offers"
-        description="Gifts carrying special festive pricing this season. Request a quote and we'll confirm your rate against your quantity."
-        products={offerProducts.slice(0, 8)}
-        onEnquire={openEnquiry}
-      />
-
-      <RecentlyViewed
-        fallbackProducts={recommended.length ? recommended : bestsellers}
-        onEnquire={openEnquiry}
-      />
+      {/* Catalogue artwork that carries no printed product name, so it cannot
+          become a product without inventing one. Browsable, not listed. */}
+      <DiwaliLookbook onEnquire={openEnquiry} />
 
       {/* ── Catalogue download (existing lead-capture flow) ── */}
       <Reveal as="section" className={styles.catalogueWrap}>
