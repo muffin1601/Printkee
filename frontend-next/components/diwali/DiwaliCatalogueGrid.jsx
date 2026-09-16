@@ -13,12 +13,9 @@ import Reveal from "./Reveal";
  * and there is no add-to-cart. Every card routes to the site's existing
  * enquiry modal, matching the quote-based flow used elsewhere.
  *
- * `mrp` is the printing brand's own MRP and is labelled as such, so it is
- * never mistaken for a Printkee quote.
+ * Catalogue prices are intentionally not displayed. Every product is
+ * quote-based and directs customers to enquire.
  */
-
-const inr = (n) =>
-  typeof n === "number" ? `₹${n.toLocaleString("en-IN")}` : null;
 
 /** One catalogue product. Image gets its own load state so a slow PNG
  *  shows a placeholder tile instead of collapsing the grid row. */
@@ -32,9 +29,6 @@ const CatalogueCard = ({ product, onEnquire, priority }) => {
   useEffect(() => {
     if (imgRef.current?.complete) setLoaded(true);
   }, []);
-
-  const price = inr(product.mrp);
-  const multi = product.variants && product.variants.length > 1;
 
   return (
     <article className={styles.catCard}>
@@ -75,16 +69,7 @@ const CatalogueCard = ({ product, onEnquire, priority }) => {
         )}
 
         <div className={styles.catMeta}>
-          {/* Only ever shown when the catalogue actually prints a figure. */}
-          {price ? (
-            <span className={styles.catPrice}>
-              {multi ? "From " : ""}
-              {price}
-              <span className={styles.catPriceNote}>MRP</span>
-            </span>
-          ) : (
-            <span className={styles.catPriceAsk}>Price on enquiry</span>
-          )}
+          <span className={styles.catPriceAsk}>Price on enquiry</span>
           {product.sku && (
             <span className={styles.catSku}>
               <Tag size={11} aria-hidden="true" />
