@@ -960,6 +960,19 @@
   color: var(--green-deep, #1A0845);
 }
 
+.catDetailLink {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 0.1rem;
+  color: var(--green, #3D1C8A);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.catDetailLink:hover { color: var(--orange-dark, #a8872a); }
+
 .catEmpty {
   padding: 2.5rem 1rem;
   text-align: center;

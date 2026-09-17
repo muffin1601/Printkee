@@ -27,6 +27,69 @@
  */
 
 const diwali2026Products = [
+  /* ── CUSTOM HAMPER SETS ──────────────────────────────────────────────── */
+  {
+    id: "diwali-hamper-set-1",
+    slug: "festive-snack-travel-mug-hamper",
+    name: "Festive Snack & Travel Mug Hamper",
+    brand: null,
+    category: "Gourmet & Hampers",
+    subcategory: "Festive Hampers",
+    image: "/Hampers/set%201/gift_set_1600x1600.webp",
+    gallery: [
+      "/Hampers/set%201/gift_set_1600x1600.webp",
+      "/Hampers/set%201/gift_hamper_1600x1600_transparent.webp",
+      "/Hampers/set%201/gift_hamper_1600x1600(1).webp",
+    ],
+    mrp: null,
+    sku: null,
+    description: "A festive gifting set with a travel mug, roasted nuts and an assorted cookie box.",
+    specifications: ["Travel mug", "Roasted nuts", "Assorted cookie box"],
+    variants: [],
+    sourceImage: "Hampers/set 1/gift_set_1600x1600.webp",
+  },
+  {
+    id: "diwali-hamper-set-2",
+    slug: "festive-copper-dry-fruit-hamper",
+    name: "Festive Copper & Dry Fruit Hamper",
+    brand: null,
+    category: "Gourmet & Hampers",
+    subcategory: "Festive Hampers",
+    image: "/Hampers/set%202/gift_hamper_1600x1600_final.webp",
+    gallery: [
+      "/Hampers/set%202/gift_hamper_1600x1600_final.webp",
+      "/Hampers/set%202/diwali_hamper_final_1600x1600.webp",
+      "/Hampers/set%202/diwali_hamper_1600x1600_transparent.webp",
+      "/Hampers/set%202/FINAL_1600x1600_TRANSPARENT_GIFT_HAMPER.webp",
+    ],
+    mrp: null,
+    sku: null,
+    description: "A festive hamper with a copper bottle, roasted nuts, decorative diyas and luxury incense cones.",
+    specifications: ["Copper bottle", "Roasted nuts", "Diyas & incense cones"],
+    variants: [],
+    sourceImage: "Hampers/set 2/gift_hamper_1600x1600_final.webp",
+  },
+  {
+    id: "diwali-hamper-set-3",
+    slug: "premium-coffee-gourmet-hamper",
+    name: "Premium Coffee & Gourmet Hamper",
+    brand: null,
+    category: "Gourmet & Hampers",
+    subcategory: "Festive Hampers",
+    image: "/Hampers/set%203/gift_hamper_1600x1600_clean%20(1).webp",
+    gallery: [
+      "/Hampers/set%203/gift_hamper_1600x1600_clean%20(1).webp",
+      "/Hampers/set%203/Gift_Hamper_1600x1600(3).webp",
+      "/Hampers/set%203/gift_hamper_1600x1600(2)%20(1).webp",
+    ],
+    mrp: null,
+    sku: null,
+    description: "A premium festive hamper with a travel mug, coffee, cookies, roasted nuts and chocolates.",
+    specifications: ["Travel mug", "Specialty coffee", "Cookies, nuts & chocolates"],
+    variants: [],
+    sourceImage: "Hampers/set 3/gift_hamper_1600x1600_clean (1).webp",
+  },
+
   /* ── PAGE 2 — Nutraj Wishes dry-fruit gift boxes ─────────── */
   {
     id: "nutraj-gb52-leafy-whispers-300gm",

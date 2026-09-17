@@ -23,6 +23,9 @@ export default async function sitemap() {
     { path: "/brands",         priority: 0.8, freq: "weekly"  },
     { path: "/blogs",          priority: 0.8, freq: "weekly"  },
     { path: "/diwali-special", priority: 0.7, freq: "monthly" },
+    { path: "/diwali-special/hampers/festive-snack-travel-mug-hamper", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/festive-copper-dry-fruit-hamper", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/premium-coffee-gourmet-hamper", priority: 0.6, freq: "monthly" },
   ];
 
   staticPages.forEach(({ path, priority, freq }) => {

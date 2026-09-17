@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { MessageSquareQuote, Tag } from "lucide-react";
 import styles from "../../styles/Diwali.module.css";
 import Reveal from "./Reveal";
@@ -86,6 +87,14 @@ const CatalogueCard = ({ product, onEnquire, priority }) => {
           <MessageSquareQuote size={14} aria-hidden="true" />
           Enquire
         </button>
+        {product.slug && (
+          <Link
+            className={styles.catDetailLink}
+            href={`/diwali-special/hampers/${product.slug}`}
+          >
+            View hamper details
+          </Link>
+        )}
       </div>
     </article>
   );
