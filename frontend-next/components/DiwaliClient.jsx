@@ -132,6 +132,12 @@ const DiwaliClient = () => {
             <Download size={15} aria-hidden="true" />
             Download Now
           </button>
+          <p className={styles.catalogueSub}>
+            Planning a bulk order? Read the{" "}
+            <a href="/blog/corporate-diwali-gifts-buying-guide-2026">corporate Diwali gifting buying guide</a>{" "}
+            or the{" "}
+            <a href="/blog/best-corporate-diwali-gifts-delhi-ncr-2026">Delhi NCR corporate gifting guide</a>.
+          </p>
         </div>
       </Reveal>
 

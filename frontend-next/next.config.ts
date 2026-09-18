@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/gurugram/corporate-gifts",
+        destination: "/gurgaon/corporate-gifts",
+        permanent: true,
+      },
+    ];
+  },
   reactCompiler: true,
   experimental: {
     // Trim Swiper's barrel imports to only the modules actually used

@@ -4,6 +4,11 @@ import Link from "next/link";
 import styles from "../styles/BlogList.module.css";
 
 const BlogListClient = ({ initialBlogs = [] }) => {
+  const editorialPosts = [
+    { _id: "corporate-diwali-gifts-buying-guide-2026", slug: "corporate-diwali-gifts-buying-guide-2026", title: "Corporate Diwali Gifts for Employees & Clients: Complete 2026 Buying Guide", author: "Printkee", date: "2026-09-18", image: "/catalogue-2026-images/page-02-img-01_560x396.png", content: "A practical bulk-buying guide for employee and client Diwali gifting, from budgets and branding to fulfilment planning." },
+    { _id: "best-corporate-diwali-gifts-delhi-ncr-2026", slug: "best-corporate-diwali-gifts-delhi-ncr-2026", title: "Best Corporate Diwali Gifts in Delhi NCR for Companies in 2026", author: "Printkee", date: "2026-09-18", image: "/catalogue-2026-images/page-01-img-04_640x427.png", content: "A Delhi NCR planning guide for HR and procurement teams arranging branded festive gifts across offices and recipients." },
+  ];
+  const blogs = [...editorialPosts, ...initialBlogs];
   return (
     <div className={styles["blog-page"]}>
 
@@ -28,14 +33,14 @@ const BlogListClient = ({ initialBlogs = [] }) => {
         </div>
 
         <div className={styles["blog-list-grid"]}>
-          {initialBlogs.length === 0 ? (
+          {blogs.length === 0 ? (
             <p className={styles["blog-empty"]}>No blogs available at the moment.</p>
           ) : (
-            initialBlogs.map((blog) => (
+            blogs.map((blog) => (
               <article className={styles["blog-card"]} key={blog._id}>
                 <div className={styles["blog-img-wrap"]}>
                   <img
-                    src={`${process.env.NEXT_PUBLIC_IMG_URL}/uploads/${blog.image}`}
+                    src={blog.slug ? blog.image : `${process.env.NEXT_PUBLIC_IMG_URL}/uploads/${blog.image}`}
                     alt={blog.title || "Blog thumbnail image"}
                     className={styles["blog-thumbnail"]}
                     loading="lazy"
@@ -51,7 +56,7 @@ const BlogListClient = ({ initialBlogs = [] }) => {
                     {blog.content ? blog.content.replace(/<[^>]+>/g, "").slice(0, 120) : ""}…
                   </p>
                   <Link
-                    href={`/blog/${blog._id}`}
+                    href={`/blog/${blog.slug || blog._id}`}
                     className={styles["read-more-link"]}
                     aria-label={`Read full blog: ${blog.title}`}
                   >

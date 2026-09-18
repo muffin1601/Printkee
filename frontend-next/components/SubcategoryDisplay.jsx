@@ -8,6 +8,7 @@ import aboutSubcategoryData from "../data/faqsdata";
 import Testimonials from "./Testimonials";
 import GetQuoteCTA from "./GetQuoteCTA";
 import CategoryDescription from "./category/CategoryDescription";
+import { locationPageEntries } from "../data/locationSeo";
 
 const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
   const { category: categorySlug } = useParams();
@@ -125,6 +126,20 @@ const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
 
       {/* CATEGORY SEO DESCRIPTION */}
       <CategoryDescription category={categorySlug} />
+
+      {categorySlug === "collection" && (
+        <section className={styles["highlights-section"]} aria-labelledby="corporate-gift-locations">
+          <h2 id="corporate-gift-locations" className={styles["highlights-heading"]}>Corporate Gifting in Delhi NCR</h2>
+          <div className={styles["highlights-grid"]}>
+            {locationPageEntries.map((location) => (
+              <Link key={location.slug} href={`/${location.slug}/corporate-gifts`} className={styles["highlight-card"]}>
+                <h3 className={styles["highlight-title"]}>Corporate Gifts in {location.name}</h3>
+                <p className={styles["highlight-description"]}>Plan employee, client and branded business gifting for {location.name}.</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <Testimonials />
       <GetQuoteCTA />

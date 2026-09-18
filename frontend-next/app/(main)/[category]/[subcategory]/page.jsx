@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import ProductDisplay from "../../../../components/ProductDisplay";
+import LocationCorporateGifts from "../../../../components/LocationCorporateGifts";
+import { getLocationCorporateGiftPage, locationCorporateGiftPages, locationPageEntries } from "../../../../data/locationSeo";
 import seoConfig from "../../../../data/seoConfig";
 
 const BASE = "https://printkee.com";
@@ -19,6 +21,19 @@ async function getSubcategory(category, subcategory) {
 
 export async function generateMetadata({ params }) {
   const { category, subcategory } = await params;
+  const locationPage = getLocationCorporateGiftPage(category, subcategory);
+  if (locationPage) {
+    const canonical = `${BASE}/${category}/${subcategory}`;
+    return {
+      title: locationPage.title,
+      description: locationPage.description,
+      keywords: [locationPage.primaryKeyword, `customised corporate gifts ${locationPage.name}`, `branded corporate gifts ${locationPage.name}`, "bulk corporate gifting"],
+      alternates: { canonical },
+      openGraph: { title: locationPage.title, description: locationPage.description, url: canonical, type: "website" },
+      twitter: { card: "summary_large_image", title: locationPage.title, description: locationPage.description },
+    };
+  }
+  if (locationCorporateGiftPages[category]) return { title: "Page Not Found | Printkee", robots: { index: false, follow: false } };
   const seo = seoConfig[`/${category}/${subcategory}`];
   const data = await getSubcategory(category, subcategory);
   if (!data) return { title: "Subcategory Not Found | Printkee" };
@@ -59,6 +74,9 @@ export async function generateMetadata({ params }) {
 
 export default async function SubcategoryPage({ params }) {
   const { category, subcategory } = await params;
+  const locationPage = getLocationCorporateGiftPage(category, subcategory);
+  if (locationPage) return <LocationCorporateGifts location={category} page={locationPage} />;
+  if (locationCorporateGiftPages[category]) notFound();
   const seo = seoConfig[`/${category}/${subcategory}`];
   const data = await getSubcategory(category, subcategory);
 
@@ -128,4 +146,8 @@ export default async function SubcategoryPage({ params }) {
       />
     </>
   );
+}
+
+export function generateStaticParams() {
+  return locationPageEntries.map(({ slug }) => ({ category: slug, subcategory: "corporate-gifts" }));
 }
