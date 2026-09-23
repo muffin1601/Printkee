@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "../styles/ShopByOccasion.module.css";
 
 
@@ -10,6 +11,7 @@ const occasions = [
       "Kickstart new employee journeys with thoughtfully designed employee welcome kits. Our personalized onboarding gift boxes include branded stationery, eco-friendly drinkware, tech accessories, and customized merchandise that reflect your company culture.",
     image: "/assets/onboarding.webp",
     cta: "Explore Kits",
+    href: "/collection/welcome-kits",
   },
   {
     id: 2,
@@ -18,6 +20,7 @@ const occasions = [
       "Celebrate special occasions with premium festive hampers for corporate gifting. Choose from luxury chocolates, gourmet treats, dry fruits, and personalized gift boxes to spread joy during Diwali, Christmas, New Year, and other festive celebrations.",
     image: "/assets/festive.webp",
     cta: "Shop Hampers",
+    href: "/diwali-special",
   },
   {
     id: 3,
@@ -26,6 +29,7 @@ const occasions = [
       "Strengthen professional relationships with premium client appreciation gifts. From elegant desk essentials to luxury hampers, our corporate gifting solutions ensure your brand leaves a memorable impact on clients, partners, and associates.",
     image: "/assets/client.webp",
     cta: "Send a Gift",
+    href: "/collection",
   },
   {
     id: 4,
@@ -34,6 +38,7 @@ const occasions = [
       "Make your brand unforgettable at trade shows, corporate events, and exhibitions with custom giveaways and promotional products. Choose from branded T-shirts, eco-friendly bags, pens, bottles, and tech accessories designed to boost brand recall.",
     image: "/assets/conference.webp",
     cta: "Browse Giveaways",
+    href: "/apparel-and-accessories",
   },
 ];
 
@@ -52,7 +57,7 @@ const ShopByOccasion = () => (
     </p>
 
     <div className={styles.occasionGrid}>
-      {occasions.map(({ id, title, description, image, cta }) => (
+      {occasions.map(({ id, title, description, image, cta, href }) => (
         <article
           key={id}
           className={styles.occasionCard}
@@ -72,12 +77,13 @@ const ShopByOccasion = () => (
 
           <p className={styles.occasionDescription}>{description}</p>
 
-          <button
+          <Link
+            href={href}
             className={styles.occasionBtn}
             aria-label={`${cta} for ${title}`}
           >
             {cta} <span aria-hidden="true">→</span>
-          </button>
+          </Link>
         </article>
       ))}
     </div>

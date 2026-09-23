@@ -18,7 +18,8 @@ router.get("/sitemap-data", async (req, res) => {
     const [categories, subcategories, products, blogs, brands] = await Promise.all([
       Category.find({}, "slug updatedAt").lean(),
       Subcategory.find({}, "slug updatedAt").populate("category", "slug").lean(),
-      Product.find({}, "slug updatedAt")
+      // Only URLs that can resolve to a public product page belong in the sitemap.
+      Product.find({ isActive: true }, "slug updatedAt")
         .populate("category",    "slug")
         .populate("subcategory", "slug")
         .lean(),

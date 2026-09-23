@@ -4,7 +4,7 @@ export default function robots() {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin/", "/login", "/customize/", "/search"],
+        disallow: ["/admin/", "/api/", "/login", "/customize/", "/search", "/blogs/post"],
       },
     ],
     sitemap: "https://printkee.com/sitemap.xml",

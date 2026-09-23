@@ -100,17 +100,6 @@ export default async function ProductPage({ params }) {
         image: productData.images?.map((img) => img.url) || [],
         sku: productData.sku || undefined,
         brand: { "@type": "Brand", name: "Printkee" },
-        offers: {
-          "@type": "Offer",
-          url: canonical,
-          priceCurrency: "INR",
-          price: productData.price ? String(productData.price) : undefined,
-          availability:
-            productData.stock === 0
-              ? "https://schema.org/OutOfStock"
-              : "https://schema.org/InStock",
-          seller: { "@type": "Organization", name: "Printkee" },
-        },
       }
     : null;
 
