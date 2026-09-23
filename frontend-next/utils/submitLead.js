@@ -50,6 +50,10 @@ export const submitLead = async (data) => {
 
   if (!crmOk && !emailOk) {
     console.error("submitLead: lead was not captured by any channel");
+  } else {
+    // The base Meta Pixel is loaded globally. Count a lead only after at
+    // least one capture channel has confirmed receipt of the submission.
+    window.fbq?.("track", "Lead");
   }
 
   return { ok: crmOk || emailOk, crmOk, emailOk };

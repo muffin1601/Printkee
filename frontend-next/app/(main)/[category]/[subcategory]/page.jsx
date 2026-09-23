@@ -1,11 +1,17 @@
 import { notFound } from "next/navigation";
 import ProductDisplay from "../../../../components/ProductDisplay";
 import LocationCorporateGifts from "../../../../components/LocationCorporateGifts";
-import { getLocationCorporateGiftPage, locationCorporateGiftPages, locationPageEntries } from "../../../../data/locationSeo";
+import { getLocationCorporateGiftPage, locationCorporateGiftPages } from "../../../../data/locationSeo";
 import seoConfig from "../../../../data/seoConfig";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
+
+// Product listings are database-backed and intentionally use no-store below.
+// Keeping this route dynamic avoids treating only the location pages as static
+// while all other category/subcategory combinations are first-request routes.
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 
 async function getSubcategory(category, subcategory) {
   try {
@@ -146,8 +152,4 @@ export default async function SubcategoryPage({ params }) {
       />
     </>
   );
-}
-
-export function generateStaticParams() {
-  return locationPageEntries.map(({ slug }) => ({ category: slug, subcategory: "corporate-gifts" }));
 }
