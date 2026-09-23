@@ -3,21 +3,21 @@ import styles from "@/styles/AboutUs.module.css";
 const BASE = "https://printkee.com";
 
 export const metadata = {
-  title: "About MF Global Services | Corporate Gifting Solutions",
+  title: "About Printkee | Corporate Gifting Solutions",
   description:
-    "Learn about MF Global Services – your trusted partner for premium corporate gifting solutions. Discover our mission, values, and why top brands choose us for personalized gifts.",
+    "Learn about Printkee, your partner for corporate gifting and branded merchandise. Explore our approach to custom products, employee gifts and business campaigns.",
   alternates: { canonical: `${BASE}/about` },
   openGraph: {
-    title: "About MF Global Services | Corporate Gifting Solutions",
+    title: "About Printkee | Corporate Gifting Solutions",
     description:
-      "MF Global Services — trusted partner for premium corporate gifting solutions across India. Custom branding, bulk orders, timely delivery.",
+      "Printkee offers corporate gifting and custom branding solutions across India.",
     url: `${BASE}/about`,
     type: "website",
     images: [{ url: `${BASE}/assets/1.webp`, alt: "About Printkee" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About MF Global Services | Corporate Gifting Solutions",
+    title: "About Printkee | Corporate Gifting Solutions",
     description:
       "Trusted partner for premium corporate gifting across India — custom branding, eco-friendly options, bulk orders.",
     images: [`${BASE}/assets/1.webp`],
@@ -59,7 +59,7 @@ export default function AboutUs() {
           src="/assets/1.webp"
           height="300"
           width="500"
-          alt="Corporate Gifting by MF Global Services"
+          alt="Corporate gifting by Printkee"
           className={styles.aboutusHeroImage}
         />
       </section>
@@ -71,7 +71,7 @@ export default function AboutUs() {
           <p>
             Our mission is to simplify corporate gifting with innovative, customizable solutions that elevate your brand. Whether you&apos;re welcoming new employees, rewarding performers, or building client relationships, every gift we create is designed to make an impact.
           </p>
-          <img src="/assets/3.webp" height="300" width="500" alt="MF Global Services mission illustration" />
+          <img src="/assets/3.webp" height="300" width="500" alt="Printkee mission illustration" />
         </div>
       </section>
 
@@ -86,7 +86,7 @@ export default function AboutUs() {
             <li><strong>Eco-Friendly Options:</strong> Promote sustainability with our green gifting catalog.</li>
             <li><strong>End-to-End Service:</strong> From concept to delivery—we manage everything.</li>
           </ul>
-          <img src="/assets/5.webp" height="300" width="500" alt="Reasons to choose MF Global Services" />
+          <img src="/assets/5.webp" height="300" width="500" alt="Reasons to choose Printkee" />
         </div>
       </section>
 
@@ -97,7 +97,7 @@ export default function AboutUs() {
           <p>
             We have proudly partnered with 500+ corporate clients across industries such as technology, finance, healthcare, and education. Our reputation is built on trust, transparency, and timely delivery.
           </p>
-          <img src="/assets/8.webp" height="300" width="500" alt="Corporate clients of MF Global Services" />
+          <img src="/assets/8.webp" height="300" width="500" alt="Corporate clients of Printkee" />
         </div>
       </section>
 
@@ -105,9 +105,9 @@ export default function AboutUs() {
       <section className={styles.aboutusContactCta}>
         <h3>Looking to Create an Unforgettable Gifting Experience?</h3>
         <p>
-          Get in touch today! Whether you&apos;re planning a large corporate campaign or a one-time luxury gift box, MF Global Services is your ideal gifting partner.
+          Get in touch today! Whether you&apos;re planning a large corporate campaign or a one-time luxury gift box, Printkee is ready to help.
         </p>
-        <a href="/contact" className={styles.aboutusBtn} aria-label="Contact MF Global Services">
+        <a href="/contact" className={styles.aboutusBtn} aria-label="Contact Printkee">
           Contact Us
         </a>
       </section>

@@ -18,14 +18,14 @@ async function getBlog(id) {
 export async function generateMetadata({ params }) {
   const { id } = await params;
   const blog = await getBlog(id);
-  if (!blog) return { title: "Blog | MF Global Services" };
+  if (!blog) return { title: "Blog | Printkee" };
 
   const desc = blog.content?.replace(/<[^>]+>/g, "").slice(0, 160) || "";
   const imageUrl = blog.image ? `${IMG_URL}/uploads/${blog.image}` : "";
   const canonical = `${BASE}/blog/${id}`;
 
   return {
-    title: `${blog.title} | MF Global Blog`,
+    title: `${blog.title} | Printkee`,
     description: desc,
     alternates: { canonical },
     openGraph: {
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
       url: canonical,
       type: "article",
       publishedTime: blog.date,
-      authors: [blog.author || "MF Global Services"],
+      authors: [blog.author || "Printkee"],
       images: imageUrl ? [{ url: imageUrl, alt: blog.title }] : [],
     },
     twitter: {
@@ -62,7 +62,7 @@ export default async function BlogPage({ params }) {
         image: blog.image ? `${IMG_URL}/uploads/${blog.image}` : undefined,
         author: {
           "@type": "Person",
-          name: blog.author || "MF Global Services",
+          name: blog.author || "Printkee",
         },
         publisher: {
           "@type": "Organization",

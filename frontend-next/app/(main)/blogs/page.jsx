@@ -3,29 +3,29 @@ import BlogListClient from "../../../components/BlogListClient";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Latest Blogs on Corporate Gifting | MF Global Services",
+  title: "Corporate Gifting Insights & Ideas | Printkee",
   description:
-    "Explore insightful blogs and updates from MF Global Services. Stay informed about corporate gifting trends, branding tips, and industry insights.",
+    "Explore Printkee insights on corporate gifting, branded merchandise, employee onboarding and business-event gift ideas.",
   keywords: [
     "corporate gifting blog",
     "branding tips",
     "promotional products India",
-    "MF Global Services blog",
+    "Printkee blog",
     "corporate gifting trends",
   ],
   alternates: { canonical: "https://printkee.com/blogs" },
   openGraph: {
-    title: "Latest Blogs on Corporate Gifting | MF Global Services",
+    title: "Corporate Gifting Insights & Ideas | Printkee",
     description:
-      "Explore insightful blogs from MF Global Services on corporate gifting, branding, and promotional products.",
+      "Explore Printkee insights on corporate gifting, branding and promotional products.",
     url: "https://printkee.com/blogs",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Latest Blogs on Corporate Gifting | MF Global Services",
+    title: "Corporate Gifting Insights & Ideas | Printkee",
     description:
-      "Corporate gifting trends, branding tips, and industry insights from MF Global Services.",
+      "Corporate gifting trends, branding tips and industry insights from Printkee.",
   },
 };
 

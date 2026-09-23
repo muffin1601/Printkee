@@ -7,9 +7,9 @@ const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Our Brand Partners | MF Global Services",
+  title: "Corporate Gift Brand Partners | Printkee",
   description:
-    "MF Global Services partners with premium brands like Adidas, Puma, Noise, and American Tourister to provide top-quality corporate gifts. Explore our brand collaborations.",
+    "Printkee partners with premium brands including Adidas, Puma, Noise and American Tourister for corporate gifting and branded merchandise.",
   keywords: [
     "brand partners corporate gifting",
     "Adidas corporate gifts",
@@ -19,7 +19,7 @@ export const metadata = {
   ],
   alternates: { canonical: `${BASE}/brands` },
   openGraph: {
-    title: "Our Brand Partners | MF Global Services",
+    title: "Corporate Gift Brand Partners | Printkee",
     description:
       "Premium brand partnerships — Adidas, Puma, Noise, American Tourister and more for top-quality corporate gifting.",
     url: `${BASE}/brands`,
@@ -28,7 +28,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Our Brand Partners | MF Global Services",
+    title: "Corporate Gift Brand Partners | Printkee",
     description:
       "Adidas, Puma, Noise, American Tourister and more — premium brands for corporate gifting.",
     images: [`${BASE}/assets/printkeeLogo.webp`],

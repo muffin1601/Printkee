@@ -27,11 +27,11 @@ export async function generateMetadata({ params }) {
 
   const title = seo?.title
     || data?.seo?.metaTitle
-    || `${data?.name} | MF Global Services`;
+    || `${data?.name} | Printkee`;
   const description = seo?.description
     || data?.seo?.metaDescription
     || data?.description
-    || `Explore ${data?.name} at MF Global Services.`;
+    || `Explore ${data?.name} at Printkee.`;
   const image = data?.image || `${BASE}/assets/printkeeLogo.webp`;
 
   return {

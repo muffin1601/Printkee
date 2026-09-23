@@ -50,7 +50,7 @@ export async function generateMetadata({ params }) {
 
   const title = seo?.title
     || sub?.seo?.metaTitle
-    || `${sub?.name} | ${cat?.name} - MF Global Services`;
+    || `${sub?.name} | ${cat?.name} | Printkee`;
   const description = seo?.description
     || sub?.seo?.metaDescription
     || sub?.description

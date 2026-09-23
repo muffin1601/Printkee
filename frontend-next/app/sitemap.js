@@ -35,6 +35,15 @@ export default async function sitemap() {
     { path: "/diwali-special/hampers/festive-snack-travel-mug-hamper", priority: 0.6, freq: "monthly" },
     { path: "/diwali-special/hampers/festive-copper-dry-fruit-hamper", priority: 0.6, freq: "monthly" },
     { path: "/diwali-special/hampers/premium-coffee-gourmet-hamper", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/white-drinkware-ferrero-diya-kit", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/executive-notebook-pen-bottle-kit", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/notebook-pen-bottle-gift-kit", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/copper-bottle-cookie-ferrero-diya-kit", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/copper-canister-chocolate-diya-kit", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/black-tumbler-cookie-chocolate-diya-kit", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/black-bottle-mug-ferrero-diya-kit", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/wallet-mug-ferrero-diya-kit", priority: 0.6, freq: "monthly" },
+    { path: "/diwali-special/hampers/glass-jar-diya-gift-set", priority: 0.6, freq: "monthly" },
   ];
 
   staticPages.forEach(({ path, priority, freq }) => {

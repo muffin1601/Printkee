@@ -19,12 +19,12 @@ export async function generateMetadata({ params }) {
   if (!brandInfo) return { title: "Brand Not Found" };
 
   return {
-    title: `${brandInfo.name} Corporate Gifts | MF Global Services`,
+    title: `${brandInfo.name} Corporate Gifts | Printkee`,
     description: brandInfo.description,
     keywords: brandInfo.tags,
     alternates: { canonical: `${BASE}/brands/${brand}` },
     openGraph: {
-      title: `${brandInfo.name} Corporate Gifts | MF Global Services`,
+      title: `${brandInfo.name} Corporate Gifts | Printkee`,
       description: brandInfo.description,
       url: `${BASE}/brands/${brand}`,
       type: "website",
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${brandInfo.name} Corporate Gifts | MF Global Services`,
+      title: `${brandInfo.name} Corporate Gifts | Printkee`,
       description: brandInfo.description,
       images: brandInfo.logo ? [`${BASE}${brandInfo.logo}`] : [],
     },

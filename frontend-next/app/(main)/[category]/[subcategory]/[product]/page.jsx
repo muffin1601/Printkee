@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
     prod?.description?.short ||
     `Explore premium ${prod?.name} from our ${sub?.name} range.`;
   const title =
-    prod?.seo?.metaTitle || `${prod?.name} | ${sub?.name} - MF Global Services`;
+    prod?.seo?.metaTitle || `${prod?.name} | ${sub?.name} | Printkee`;
   const image = prod?.images?.[0]?.url;
 
   return {

@@ -3,11 +3,11 @@ import ContactForm from "../../../components/ContactForm";
 const BASE = "https://printkee.com";
 
 export const metadata = {
-  title: "Contact Us | MF Global Services",
+  title: "Contact Printkee | Corporate Gifting Enquiries",
   description:
-    "Get in touch with MF Global Services for customized corporate gifting solutions. Reach out via our contact form, email, or phone.",
+    "Contact Printkee for customised corporate gifts, branded merchandise and bulk-gifting enquiries. Share your requirement, quantity and branding needs.",
   keywords: [
-    "contact MF Global Services",
+    "contact Printkee",
     "corporate gifting enquiry",
     "Printkee contact",
     "gifting solutions India",
@@ -15,7 +15,7 @@ export const metadata = {
   ],
   alternates: { canonical: `${BASE}/contact` },
   openGraph: {
-    title: "Contact Us | MF Global Services",
+    title: "Contact Printkee | Corporate Gifting Enquiries",
     description:
       "Reach out for customized corporate gifting solutions. Fast response, bulk orders, custom branding.",
     url: `${BASE}/contact`,
@@ -24,9 +24,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Contact Us | MF Global Services",
+    title: "Contact Printkee | Corporate Gifting Enquiries",
     description:
-      "Get in touch with MF Global Services for customized corporate gifting solutions.",
+      "Get in touch with Printkee for customised corporate gifting solutions.",
   },
 };
 
