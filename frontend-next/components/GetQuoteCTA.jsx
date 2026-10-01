@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import styles from "../styles/GetQuoteCTA.module.css";
 import { FaGift, FaClock, FaBoxOpen, FaPhoneAlt } from "react-icons/fa";
 import EnquiryModal from './EnquiryModal';
+import { BUSINESS } from "../lib/siteConfig";
+import { trackContactClick, trackQuoteRequest } from "../utils/analytics";
 
 const GetQuoteCTA = () => {
   const [showModal, setShowModal] = useState(false);
@@ -30,7 +32,7 @@ const GetQuoteCTA = () => {
 
               <div className={styles["feature-item"]} role="listitem">
                 <FaClock className={styles["feature-icon"]} aria-hidden="true" />
-                <span>Fast Delivery</span>
+                <span>Delivery Planning</span>
               </div>
 
               <div className={styles["feature-item"]} role="listitem">
@@ -42,7 +44,7 @@ const GetQuoteCTA = () => {
             {/* Accessible button */}
             <button
               className={styles["quote-cta-button"]}
-              onClick={() => setShowModal(true)}
+              onClick={() => { trackQuoteRequest("homepage_cta"); setShowModal(true); }}
               aria-label="Request a customized quote for bulk gifting"
             >
               Request a Quote <span className={styles["arrow-1"]} aria-hidden="true">→</span>
@@ -51,7 +53,8 @@ const GetQuoteCTA = () => {
             <p className={styles["quote-cta-extra-info"]}>
               Have questions?{" "}
               <a
-                href="mailto:sales@mfglobalservices.com"
+                href={`mailto:${BUSINESS.email}`}
+                onClick={() => trackContactClick("email", "homepage_cta")}
                 aria-label="Email our gifting support team"
               >
                 Contact our team
@@ -63,10 +66,11 @@ const GetQuoteCTA = () => {
               <FaPhoneAlt className={styles["call-icon"]} aria-hidden="true" />
               <span>Call us at </span>
               <a
-                href="tel:+918750708222"
-                aria-label="Call PrintKee at 8750708222"
+                href={`tel:${BUSINESS.phoneE164}`}
+                onClick={() => trackContactClick("phone", "homepage_cta")}
+                aria-label={`Call Printkee at ${BUSINESS.phoneDisplay}`}
               >
-                +91 8750708222
+                {BUSINESS.phoneDisplay}
               </a>
             </p>
           </div>

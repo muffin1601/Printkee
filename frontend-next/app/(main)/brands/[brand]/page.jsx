@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import BrandsDisplayClient from "../../../../components/BrandsDisplayClient";
+import { brandedTitle } from "../../../../lib/siteConfig";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }) {
   if (!brandInfo) return { title: "Brand Not Found" };
 
   return {
-    title: `${brandInfo.name} Corporate Gifts | Printkee`,
+    title: { absolute: brandedTitle(`${brandInfo.name} Corporate Gifts`) },
     description: brandInfo.description,
     keywords: brandInfo.tags,
     alternates: { canonical: `${BASE}/brands/${brand}` },
@@ -47,5 +48,10 @@ export default async function BrandsDisplayPage({ params }) {
 
   if (!brandInfo) notFound();
 
-  return <BrandsDisplayClient brand={brand} brandInfo={brandInfo} />;
+  const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+    { "@type": "ListItem", position: 2, name: "Brands", item: `${BASE}/brands` },
+    { "@type": "ListItem", position: 3, name: brandInfo.name, item: `${BASE}/brands/${brand}` },
+  ] };
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} /><BrandsDisplayClient brand={brand} brandInfo={brandInfo} /></>;
 }

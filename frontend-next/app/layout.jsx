@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
+import { BUSINESS, SITE_URL, absoluteUrl } from "../lib/siteConfig";
 
 /* Montserrat — self-hosted via next/font, no render-block */
 const montserrat = Montserrat({
@@ -15,13 +16,13 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://printkee.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Premium Corporate Gifting & Custom Branding Solutions India",
     template: "%s | Printkee",
   },
   description:
-    "Discover top corporate gifting items with custom branding for events, promotions, onboarding and office needs. Fast delivery, bulk order support across India.",
+    "Explore corporate gifts and branded merchandise for employee, client, event, onboarding and promotional requirements across India.",
   keywords: [
     "corporate gifting India", "MF Global Services", "business gifts",
     "employee gifts", "custom hampers", "promotional items", "branded merchandise", "Printkee",
@@ -32,25 +33,24 @@ export const metadata = {
     type: "website",
     images: [{ url: "/assets/printkeeLogo.webp", width: 1200, height: 630, alt: "Printkee" }],
   },
-  twitter: { card: "summary_large_image", site: "@printkee", creator: "@printkee" },
+  twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
 };
 
 const organizationSchema = {
   "@context": "https://schema.org", "@type": "Organization",
-  name: "Printkee", alternateName: "MF Global Services",
-  url: "https://printkee.com",
-  logo: { "@type": "ImageObject", url: "https://printkee.com/assets/printkeeLogo.webp", width: 300, height: 130 },
-  description: "Printkee is India's trusted partner for premium corporate gifting and custom branding solutions.",
-  address: { "@type": "PostalAddress", streetAddress: "F90/1, Beside ESIC Hospital, Okhla Industrial Area Phase 1", addressLocality: "New Delhi", addressRegion: "Delhi", postalCode: "110020", addressCountry: "IN" },
-  contactPoint: [{ "@type": "ContactPoint", telephone: "+91-8800904543", contactType: "customer service", areaServed: "IN", availableLanguage: ["English", "Hindi"] }],
-  sameAs: ["https://www.facebook.com/share/1DF9K4wAHX/", "https://www.instagram.com/printkee", "https://linkedin.com"],
+  name: BUSINESS.name, alternateName: BUSINESS.legalName,
+  url: SITE_URL,
+  logo: { "@type": "ImageObject", url: absoluteUrl("/assets/printkeeLogo.webp"), width: 300, height: 130 },
+  description: "Printkee provides corporate gifting, promotional merchandise and custom branding solutions for businesses in India.",
+  address: { "@type": "PostalAddress", streetAddress: BUSINESS.address.street, addressLocality: BUSINESS.address.locality, addressRegion: BUSINESS.address.region, postalCode: BUSINESS.address.postalCode, addressCountry: "IN" },
+  contactPoint: [{ "@type": "ContactPoint", telephone: BUSINESS.phoneE164, contactType: "sales", areaServed: "IN", availableLanguage: ["English", "Hindi"] }],
 };
 
 const websiteSchema = {
   "@context": "https://schema.org", "@type": "WebSite",
-  name: "Printkee", url: "https://printkee.com",
-  potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: "https://printkee.com/search?q={search_term_string}" }, "query-input": "required name=search_term_string" },
+  name: BUSINESS.name, url: SITE_URL,
+  potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/search?q={search_term_string}` }, "query-input": "required name=search_term_string" },
 };
 
 const extensionAttributeCleanup = `
@@ -105,7 +105,7 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-4BP50X9E7L');
           `}
         </Script>
-        <Script id="meta-pixel" strategy="afterInteractive">
+        <Script id="meta-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

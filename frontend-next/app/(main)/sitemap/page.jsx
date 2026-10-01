@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "@/styles/Sitemap.module.css";
 
 export const metadata = {
-  title: "Sitemap | Printkee",
+  title: { absolute: "Sitemap | Printkee" },
   description:
     "Navigate all Printkee pages including categories, brands, blogs, and contact information through our easy-to-use sitemap.",
   keywords: ["sitemap", "Printkee sitemap", "corporate gifting sitemap", "categories", "brands"],
@@ -18,6 +18,7 @@ const sections = [
       { label: "Blog",        href: "/blogs" },
       { label: "Brands",      href: "/brands" },
       { label: "Contact Us",  href: "/contact" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
     ],
   },
   {
@@ -47,10 +48,8 @@ const sections = [
   {
     title: "Customer Support",
     links: [
-      { label: "Shipping Policy",   href: "/contact" },
-      { label: "Privacy Policy",    href: "/contact" },
-      { label: "Terms & Conditions",href: "/contact" },
-      { label: "FAQs",              href: "/contact" },
+      { label: "Privacy Policy",    href: "/privacy-policy" },
+      { label: "FAQs",              href: "/#faqhome-title" },
     ],
   },
 ];

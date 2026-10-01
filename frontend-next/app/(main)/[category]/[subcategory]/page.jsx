@@ -3,6 +3,7 @@ import ProductDisplay from "../../../../components/ProductDisplay";
 import LocationCorporateGifts from "../../../../components/LocationCorporateGifts";
 import { getLocationCorporateGiftPage, locationCorporateGiftPages } from "../../../../data/locationSeo";
 import seoConfig from "../../../../data/seoConfig";
+import { brandedTitle } from "../../../../lib/siteConfig";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }) {
   if (locationPage) {
     const canonical = `${BASE}/${category}/${subcategory}`;
     return {
-      title: locationPage.title,
+      title: { absolute: locationPage.title },
       description: locationPage.description,
       keywords: [locationPage.primaryKeyword, `customised corporate gifts ${locationPage.name}`, `branded corporate gifts ${locationPage.name}`, "bulk corporate gifting"],
       alternates: { canonical },
@@ -48,9 +49,10 @@ export async function generateMetadata({ params }) {
   const cat = data?.category;
   const canonical = `${BASE}/${category}/${subcategory}`;
 
-  const title = seo?.title
+  const rawTitle = seo?.title
     || sub?.seo?.metaTitle
-    || `${sub?.name} | ${cat?.name} | Printkee`;
+    || `${sub?.name} | ${cat?.name}`;
+  const title = brandedTitle(rawTitle);
   const description = seo?.description
     || sub?.seo?.metaDescription
     || sub?.description
@@ -58,7 +60,7 @@ export async function generateMetadata({ params }) {
   const image = sub?.image || `${BASE}/assets/printkeeLogo.webp`;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: sub?.seo?.keywords || [sub?.name, cat?.name, "corporate gifting", "bulk orders India"],
     alternates: { canonical },

@@ -13,6 +13,9 @@ const BlogSchema = new mongoose.Schema(
     author: String,
     image: String,
     date: { type: Date, default: Date.now },
+    status: { type: String, enum: ["draft", "published", "archived"], default: "draft", index: true },
+    publishedAt: { type: Date, default: null },
+    reviewedBy: { type: String, default: "" },
     comments: [CommentSchema],
   },
   { timestamps: true }

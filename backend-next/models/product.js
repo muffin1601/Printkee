@@ -50,6 +50,18 @@ const productSchema = new mongoose.Schema(
       color: [String],
       size: [String],
       material: String,
+      dimensions: String,
+      weight: String,
+      gsm: String,
+      capacity: String,
+      printingMethods: [String],
+      brandingAreas: [String],
+      packaging: String,
+      moq: String,
+      leadTime: String,
+      sampleAvailability: String,
+      customization: String,
+      careInstructions: String,
     },
 
     additionalInfo: [

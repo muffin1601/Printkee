@@ -1,5 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import styles from "../styles/SingleProductDisplay.module.css";
 import { useParams, useRouter } from "next/navigation";
 import { FaChevronLeft } from "react-icons/fa";
@@ -73,6 +75,15 @@ const SingleProductDisplay = ({
   return (
     <>
       <div className={styles["single-product-page"]}>
+        <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
+          <Link href="/">Home</Link>
+          <span aria-hidden="true">/</span>
+          <Link href={`/${categorySlug}`}>{categoryData.name}</Link>
+          <span aria-hidden="true">/</span>
+          <Link href={`/${categorySlug}/${subcategorySlug}`}>{subcategoryData.name}</Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{productData.name}</span>
+        </nav>
         <div className={styles["single-product-container"]}>
 
           {/* PRODUCT IMAGES */}
@@ -81,7 +92,9 @@ const SingleProductDisplay = ({
               {productData.subImages?.length > 0 && (
                 <div className={styles["thumbnail-column"]}>
                   {productData.subImages.map((img, i) => (
-                    <img
+                    <Image
+                      width={64}
+                      height={64}
                       key={i}
                       src={img.url}
                       loading="lazy"
@@ -94,8 +107,10 @@ const SingleProductDisplay = ({
               )}
 
               <div className={styles["main-image-wrapper"]}>
-                <img
-                  src={mainImage}
+                <Image
+                  width={800}
+                  height={800}
+                  src={mainImage || "/assets/placeholder.webp"}
                   alt={productData.images?.[0]?.altText || productData.name}
                   className={styles["main-image"]}
                 />
@@ -236,6 +251,22 @@ const SingleProductDisplay = ({
                   <td>{productData.attributes.color.join(", ")}</td>
                 </tr>
               )}
+              {[
+                ["Dimensions", productData.attributes?.dimensions],
+                ["Weight", productData.attributes?.weight],
+                ["GSM", productData.attributes?.gsm],
+                ["Capacity", productData.attributes?.capacity],
+                ["Printing Methods", productData.attributes?.printingMethods?.join(", ")],
+                ["Branding Areas", productData.attributes?.brandingAreas?.join(", ")],
+                ["Packaging", productData.attributes?.packaging],
+                ["Minimum Order", productData.attributes?.moq],
+                ["Lead Time", productData.attributes?.leadTime],
+                ["Sample Availability", productData.attributes?.sampleAvailability],
+                ["Customization", productData.attributes?.customization],
+                ["Care Instructions", productData.attributes?.careInstructions],
+              ].filter(([, value]) => value).map(([label, value]) => (
+                <tr key={label}><td>{label}</td><td>{value}</td></tr>
+              ))}
               {productData.additionalInfo?.length > 0 &&
                 productData.additionalInfo.map((info, i) => (
                   <tr key={`add-${i}`}><td>{info.label}</td><td>{info.value}</td></tr>
@@ -247,19 +278,6 @@ const SingleProductDisplay = ({
             </tbody>
           </table>
         </div>
-
-        {/* FREQUENTLY ASKED QUESTIONS */}
-        {productData.faqs?.length > 0 && (
-          <div className={styles["product-info-section"]}>
-            <h3 className={styles["info-title"]}>Frequently Asked Questions</h3>
-            {productData.faqs.map((faq, i) => (
-              <div key={`faq-${i}`} className={styles["product-faq-item"]}>
-                <h4 className={styles["product-faq-question"]}>{faq.question}</h4>
-                <p className={styles["product-faq-answer"]}>{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        )}
 
         <WhyChooseUsProduct
           productName={productData.name}
@@ -293,8 +311,10 @@ const SingleProductDisplay = ({
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                   >
-                    <img
-                      src={relProd.images?.[0]?.url}
+                    <Image
+                      width={360}
+                      height={360}
+                      src={relProd.images?.[0]?.url || "/assets/placeholder.webp"}
                       alt={relProd.name}
                       className={styles["related-product-image"]}
                     />
@@ -307,11 +327,14 @@ const SingleProductDisplay = ({
         )}
       </div>
 
-      <ProductFAQ
-        productName={productData.name}
-        subcategoryName={subcategoryData.name}
-        categoryName={categoryData.name}
-      />
+      {productData.faqs?.length > 0 && (
+        <ProductFAQ
+          productName={productData.name}
+          subcategoryName={subcategoryData.name}
+          categoryName={categoryData.name}
+          faqs={productData.faqs}
+        />
+      )}
 
       <ProductCTA title={docContent.ctaTitle} description={docContent.ctaDescription} />
 

@@ -10,7 +10,7 @@ import styles from "../../styles/admin/HeroManager.module.css";
 const API = process.env.NEXT_PUBLIC_API_URL;
 const IMG = process.env.NEXT_PUBLIC_IMG_URL;
 
-const emptyForm = { title: "", author: "", content: "", image: "", imageFile: null };
+const emptyForm = { title: "", author: "", content: "", image: "", imageFile: null, status: "draft", reviewedBy: "" };
 
 const blogImageUrl = (image) => {
   if (!image) return "";
@@ -27,7 +27,7 @@ const BlogManager = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get(`${API}/blogs`);
+      const res = await axios.get(`${API}/blogs/admin`);
       setBlogs(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Error fetching blogs:", err);
@@ -51,6 +51,8 @@ const BlogManager = () => {
       content: blog.content || "",
       image: blog.image || "",
       imageFile: null,
+      status: blog.status || "published",
+      reviewedBy: blog.reviewedBy || "",
     });
     setEditId(blog._id);
     setIsModalOpen(true);
@@ -71,6 +73,8 @@ const BlogManager = () => {
     fd.append("title", form.title);
     fd.append("author", form.author);
     fd.append("content", form.content);
+    fd.append("status", form.status);
+    fd.append("reviewedBy", form.reviewedBy);
     if (form.imageFile) fd.append("image", form.imageFile);
 
     setSaving(true);
@@ -140,7 +144,7 @@ const BlogManager = () => {
                     {blog.title || "Untitled"}
                   </strong>
                   <span className={styles.hmSlideType}>
-                    by {blog.author || "Unknown"}
+                    by {blog.author || "Unknown"} · {blog.status || "published (legacy)"}
                   </span>
                   <div className={styles.hmSlideSub}>
                     {blog.date ? new Date(blog.date).toLocaleDateString() : ""}
@@ -180,6 +184,21 @@ const BlogManager = () => {
           value={form.author}
           onChange={(e) => setForm({ ...form, author: e.target.value })}
         />
+
+        <FormInput
+          label="Reviewed by"
+          value={form.reviewedBy}
+          onChange={(e) => setForm({ ...form, reviewedBy: e.target.value })}
+        />
+
+        <div className={styles.hmFormGroup}>
+          <label className={styles.hmInputLabel}>Publication status</label>
+          <select className={styles.hmSelect} value={form.status} onChange={(e) => setForm({ ...form, status: e.target.value })}>
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+            <option value="archived">Archived</option>
+          </select>
+        </div>
 
         <div className={styles.hmFormGroup}>
           <label className={styles.hmInputLabel}>Content</label>

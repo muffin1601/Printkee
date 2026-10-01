@@ -2,10 +2,11 @@
 
 import React from "react";
 import subcategoryDescriptions from "../../data/subcategorydescriptions";
+import growthSubcategoryContent from "../../data/growthSubcategoryContent";
 import styles from "./SubcategoryDescription.module.css";
 
 const SubcategoryDescription = ({ subcategory, seoH2 }) => {
-  const rawHTML = subcategoryDescriptions[subcategory];
+  const rawHTML = growthSubcategoryContent[subcategory] || subcategoryDescriptions[subcategory];
 
   if (!rawHTML) return null;
 

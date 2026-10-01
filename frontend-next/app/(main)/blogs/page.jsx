@@ -3,7 +3,7 @@ import BlogListClient from "../../../components/BlogListClient";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Corporate Gifting Insights & Ideas | Printkee",
+  title: { absolute: "Corporate Gifting Insights & Ideas | Printkee" },
   description:
     "Explore Printkee insights on corporate gifting, branded merchandise, employee onboarding and business-event gift ideas.",
   keywords: [

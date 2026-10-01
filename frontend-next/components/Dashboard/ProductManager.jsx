@@ -25,7 +25,7 @@ const emptyForm = {
   subImages: [],    // [{url, altText}]
   stock: 0,
   sku: "",
-  attributes: { color: [], size: [], material: "" },
+  attributes: { color: [], size: [], material: "", dimensions: "", weight: "", gsm: "", capacity: "", printingMethods: [], brandingAreas: [], packaging: "", moq: "", leadTime: "", sampleAvailability: "", customization: "", careInstructions: "" },
   additionalInfo: [], // [{label, value}]
   specifications: [], // [{key, value}]
   tags: "",           // comma string in UI
@@ -153,6 +153,18 @@ const ProductManager = () => {
         color: p.attributes?.color || [],
         size: p.attributes?.size || [],
         material: p.attributes?.material || "",
+        dimensions: p.attributes?.dimensions || "",
+        weight: p.attributes?.weight || "",
+        gsm: p.attributes?.gsm || "",
+        capacity: p.attributes?.capacity || "",
+        printingMethods: p.attributes?.printingMethods || [],
+        brandingAreas: p.attributes?.brandingAreas || [],
+        packaging: p.attributes?.packaging || "",
+        moq: p.attributes?.moq || "",
+        leadTime: p.attributes?.leadTime || "",
+        sampleAvailability: p.attributes?.sampleAvailability || "",
+        customization: p.attributes?.customization || "",
+        careInstructions: p.attributes?.careInstructions || "",
       },
       additionalInfo: p.additionalInfo || [],
       specifications: p.specifications || [],
@@ -478,6 +490,18 @@ const ProductManager = () => {
         <FormInput label="Colors (comma separated)" value={form.attributes.color.join(", ")} onChange={(e) => setArrayFromComma("color", e.target.value)}/>
         <FormInput label="Sizes (comma separated)" value={form.attributes.size.join(", ")} onChange={(e) => setArrayFromComma("size", e.target.value)}/>
         <FormInput label="Material" value={form.attributes.material} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, material: e.target.value }})}/>
+        <FormInput label="Dimensions" value={form.attributes.dimensions} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, dimensions: e.target.value }})}/>
+        <FormInput label="Weight" value={form.attributes.weight} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, weight: e.target.value }})}/>
+        <FormInput label="GSM" value={form.attributes.gsm} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, gsm: e.target.value }})}/>
+        <FormInput label="Capacity" value={form.attributes.capacity} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, capacity: e.target.value }})}/>
+        <FormInput label="Printing methods (comma separated)" value={form.attributes.printingMethods.join(", ")} onChange={(e) => setArrayFromComma("printingMethods", e.target.value)}/>
+        <FormInput label="Branding areas (comma separated)" value={form.attributes.brandingAreas.join(", ")} onChange={(e) => setArrayFromComma("brandingAreas", e.target.value)}/>
+        <FormInput label="Packaging" value={form.attributes.packaging} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, packaging: e.target.value }})}/>
+        <FormInput label="MOQ (approved wording only)" value={form.attributes.moq} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, moq: e.target.value }})}/>
+        <FormInput label="Lead time (approved wording only)" value={form.attributes.leadTime} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, leadTime: e.target.value }})}/>
+        <FormInput label="Sample availability" value={form.attributes.sampleAvailability} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, sampleAvailability: e.target.value }})}/>
+        <FormInput label="Customization" value={form.attributes.customization} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, customization: e.target.value }})}/>
+        <FormInput label="Care instructions" value={form.attributes.careInstructions} onChange={(e) => setForm({ ...form, attributes: { ...form.attributes, careInstructions: e.target.value }})}/>
 
         {/* INVENTORY */}
         <h4 style={{ marginTop: 16 }}>Inventory</h4>

@@ -27,7 +27,7 @@ const faqData = [
   {
     question: "How can I get a quote?",
     answer:
-      "You can request a quote directly on our website or call +91 8750708222. Our team will help you choose the right products and provide a customized pricing plan.",
+      "You can request a quote directly on our website or call +91 88009 04543. Our team can discuss the product, quantity, artwork and delivery requirements for your enquiry.",
   },
   {
     question: "Can I get a sample before placing a big order?",
@@ -64,7 +64,22 @@ const FaqSectionHome = () => {
   };
 
   return (
-    <section
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqData.map(({ question, answer }) => ({
+              "@type": "Question",
+              name: question,
+              acceptedAnswer: { "@type": "Answer", text: answer },
+            })),
+          }),
+        }}
+      />
+      <section
       className={styles["faqhome-section"]}
       role="region"
       aria-labelledby="faqhome-title"
@@ -113,7 +128,8 @@ const FaqSectionHome = () => {
           );
         })}
       </div>
-    </section>
+      </section>
+    </>
   );
 };
 

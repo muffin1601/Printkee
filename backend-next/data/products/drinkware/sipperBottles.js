@@ -170,7 +170,7 @@ const sipperBottles = [
   attributes: {
     color: ["Transparent"],
     size: ["700ml"],
-    material: "BPA-Free Plastic"
+    material: "Plastic (confirm grade and compliance documentation)"
   },
   tags: [
     "fruit infuser bottle",

@@ -14,8 +14,8 @@ const isValidId = (id) => mongoose.Types.ObjectId.isValid(id);
 router.get(
   "/categories",
   asyncHandler(async (req, res) => {
-    const categories = await Category.find({})
-      .populate({ path: "subcategories", select: "name slug image description seo" })
+    const categories = await Category.find({ isActive: { $ne: false } })
+      .populate({ path: "subcategories", match: { isActive: { $ne: false } }, select: "name slug image description seo" })
       .sort({ createdAt: 1 });
 
     return ok(res, categories);
@@ -27,8 +27,9 @@ router.get(
   asyncHandler(async (req, res) => {
     const { slug } = req.params;
 
-    const category = await Category.findOne({ slug }).populate({
+    const category = await Category.findOne({ slug, isActive: { $ne: false } }).populate({
       path: "subcategories",
+      match: { isActive: { $ne: false } },
       select: "name slug image description seo",
     });
 
@@ -46,12 +47,13 @@ router.get(
   asyncHandler(async (req, res) => {
     const { slug, subcategorySlug } = req.params;
 
-    const category = await Category.findOne({ slug });
+    const category = await Category.findOne({ slug, isActive: { $ne: false } });
     if (!category) return fail(res, 404, "Category not found");
 
     const subcategory = await Subcategory.findOne({
       slug: subcategorySlug,
       category: category._id,
+      isActive: { $ne: false },
     }).populate({
       path: "products",
       match: { isActive: true },

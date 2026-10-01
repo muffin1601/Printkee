@@ -22,6 +22,9 @@ import {
 } from "lucide-react";
 import navbarSubcategories from "../data/list";
 import styles from "../styles/Navbar.module.css";
+import Image from "next/image";
+import { BUSINESS } from "../lib/siteConfig";
+import { trackContactClick } from "../utils/analytics";
 
 /* Login is admin-only and hidden from the public nav for now. The /login
    route itself still works when visited directly — flip this to true to
@@ -54,9 +57,11 @@ const Navbar = () => {
 
           {/* Logo */}
           <Link href="/" className={styles.logoLink} aria-label="Printkee home">
-            <img
+            <Image
               src="/assets/printkeeLogo.webp"
               alt="Printkee"
+              width={180}
+              height={78}
               className={styles.logo}
             />
           </Link>
@@ -77,14 +82,14 @@ const Navbar = () => {
 
           {/* Right cluster ─ desktop */}
           <div className={styles.rightCluster}>
-            <a href="mailto:sales@printkee.com" className={styles.phoneLink}>
+            <a href={`mailto:${BUSINESS.email}`} onClick={() => trackContactClick("email", "header")} className={styles.phoneLink}>
               <AtSign size={13} aria-hidden="true" />
-              <span>sales@printkee.com</span>
+              <span>{BUSINESS.email}</span>
             </a>
             <span className={styles.divider} aria-hidden="true" />
-            <a href="tel:8800904543" className={styles.phoneLink}>
+            <a href={`tel:${BUSINESS.phoneE164}`} onClick={() => trackContactClick("phone", "header")} className={styles.phoneLink}>
               <Phone size={14} aria-hidden="true" />
-              <span>88009 04543</span>
+              <span>{BUSINESS.phoneDisplay}</span>
             </a>
             {SHOW_LOGIN && (
               <button
@@ -265,7 +270,7 @@ const Navbar = () => {
         aria-label="Mobile navigation"
       >
         <div className={styles.drawerHead}>
-          <img src="/assets/printkeeLogo.webp" alt="Printkee" className={styles.drawerLogo} />
+          <Image src="/assets/printkeeLogo.webp" alt="Printkee" width={150} height={65} className={styles.drawerLogo} />
           <button className={styles.drawerClose} aria-label="Close menu" onClick={() => setIsMenuOpen(false)}>
             <X size={20} />
           </button>
@@ -311,7 +316,7 @@ const Navbar = () => {
         </ul>
 
         <div className={styles.drawerFoot}>
-          <a href="tel:8800904543" className={styles.drawerPhone}><Phone size={14} /> 88009 04543</a>
+          <a href={`tel:${BUSINESS.phoneE164}`} onClick={() => trackContactClick("phone", "mobile_drawer")} className={styles.drawerPhone}><Phone size={14} /> {BUSINESS.phoneDisplay}</a>
           {SHOW_LOGIN && (
             <button className={styles.drawerLoginBtn} onClick={() => { router.push("/login"); setIsMenuOpen(false); }}>
               <User size={14} /> Login

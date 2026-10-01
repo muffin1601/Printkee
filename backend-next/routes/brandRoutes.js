@@ -5,7 +5,7 @@ const Brand = require("../models/Brand");
 /* GET /api/brands — all brands */
 router.get("/", async (req, res) => {
   try {
-    const brands = await Brand.find().sort({ name: 1 }).lean();
+    const brands = await Brand.find({ isActive: { $ne: false } }).sort({ name: 1 }).lean();
     res.json(brands);
   } catch (err) {
     console.error("brands fetch error:", err);
@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 /* GET /api/brands/:slug — single brand */
 router.get("/:slug", async (req, res) => {
   try {
-    const brand = await Brand.findOne({ slug: req.params.slug }).lean();
+    const brand = await Brand.findOne({ slug: req.params.slug, isActive: { $ne: false } }).lean();
     if (!brand) return res.status(404).json({ error: "Brand not found" });
     res.json(brand);
   } catch (err) {

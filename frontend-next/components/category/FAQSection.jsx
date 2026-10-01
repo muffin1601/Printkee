@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import styles from "./FAQSection.module.css";
 import productFAQs from "../../data/productfaqs";
+import growthFaqs from "../../data/growthFaqs";
 
 const FAQSection = ({ subcategory }) => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -13,7 +14,7 @@ const FAQSection = ({ subcategory }) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const faqs = productFAQs[subcategory] || [];
+  const faqs = growthFaqs[subcategory] || productFAQs[subcategory] || [];
   if (faqs.length === 0) return null;
 
   const formatTitle = (text) =>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Star, Truck, BadgePercent, HeadphonesIcon } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -17,9 +18,9 @@ const FALLBACK_SLIDES = [
   {
     image: "/assets/banner12.webp",
     badgeText: "PREMIUM CORPORATE MERCHANDISE",
-    title: "Custom Products. Stronger Connections.",
+    title: "Corporate Gifts & Branded Merchandise for Businesses",
     description:
-      "Elevate your brand with high-quality custom merchandise that leaves a lasting impression.",
+      "Explore custom merchandise for employee, client, event, onboarding and promotional requirements.",
     ctaText: "Explore Products",
     ctaUrl: "/apparel-and-accessories",
     showButton: true,
@@ -47,10 +48,10 @@ const FALLBACK_SLIDES = [
 ];
 
 const trustItems = [
-  { icon: <Star size={20} strokeWidth={1.5} />, title: "Premium Quality", sub: "Top quality products that represent your brand" },
-  { icon: <Truck size={20} strokeWidth={1.5} />, title: "Pan India Delivery", sub: "Fast & reliable delivery across India" },
-  { icon: <BadgePercent size={20} strokeWidth={1.5} />, title: "Best Price Guarantee", sub: "Competitive pricing for bulk orders" },
-  { icon: <HeadphonesIcon size={20} strokeWidth={1.5} />, title: "Dedicated Support", sub: "Round the clock support for your queries" },
+  { icon: <Star size={20} strokeWidth={1.5} />, title: "Product Selection", sub: "Options for teams, events and client gifting" },
+  { icon: <Truck size={20} strokeWidth={1.5} />, title: "Delivery Planning", sub: "Requirements reviewed for each order" },
+  { icon: <BadgePercent size={20} strokeWidth={1.5} />, title: "Bulk Quotations", sub: "Pricing based on product and quantity" },
+  { icon: <HeadphonesIcon size={20} strokeWidth={1.5} />, title: "Branding Support", sub: "Discuss artwork and customization needs" },
 ];
 
 const TrustStrip = () => (
@@ -118,25 +119,6 @@ const HeroSection = () => {
         aria-label="Corporate gifting highlights"
       >
         {/* SEO — hidden images for crawlers */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ImageGallery",
-            name: "PrintKee Corporate Gifting Highlights",
-            image: slides.map((s) => s.image),
-          })}
-        </script>
-        {slides.map((slide, i) => (
-          <img
-            key={i}
-            src={slide.image}
-            alt={slide.title}
-            loading={i === 0 ? "eager" : "lazy"}
-            fetchPriority={i === 0 ? "high" : "low"}
-            style={{ display: "none" }}
-          />
-        ))}
-
         <Swiper
           aria-roledescription="carousel"
           modules={[Navigation, Pagination, Autoplay]}
@@ -151,13 +133,15 @@ const HeroSection = () => {
               {/* Full-bleed background slide */}
               <div
                 className={styles.heroSlide}
-                style={{
-                  "--hero-bg-desktop": `url(${slide.image})`,
-                  ...(slide.mobileImage
-                    ? { "--hero-bg-mobile": `url(${slide.mobileImage})` }
-                    : {}),
-                }}
               >
+                <Image
+                  src={slide.image || "/assets/banner12.webp"}
+                  alt=""
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className={styles.heroImage}
+                />
                 {/* Dark purple gradient overlay */}
                 <div className={styles.heroOverlay} aria-hidden="true" />
 
@@ -168,7 +152,11 @@ const HeroSection = () => {
                       <p className={styles.heroEyebrow}>{slide.badgeText}</p>
                     )}
 
-                    <h1 className={styles.heroTitle}>{slide.title}</h1>
+                    {index === 0 ? (
+                      <h1 className={styles.heroTitle}>{slide.title}</h1>
+                    ) : (
+                      <h2 className={styles.heroTitle}>{slide.title}</h2>
+                    )}
 
                     {slide.subtitle && (
                       <p className={styles.heroSubtitle}>{slide.subtitle}</p>

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../styles/SubcategoryDisplay.module.css";
 import categoryHighlights from "../data/highlightsdata";
 import aboutSubcategoryData from "../data/faqsdata";
@@ -31,12 +32,7 @@ const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
       {/* HEADER */}
       <div className={styles["subcategory-header-3"]}>
         <div className={styles["subcategory-header-content-3"]}>
-          <Link href="/" className={styles["back-link-3"]} aria-label="Go back to homepage">
-            <div className={styles["circle-3"]}>
-              <span className={styles["arrow-3"]}>&larr;</span>
-            </div>
-            <span className={styles["span-name-3"]}>Back to home</span>
-          </Link>
+          <nav aria-label="Breadcrumb"><Link href="/" className={styles["back-link-3"]}><span className={styles["circle-3"]} aria-hidden="true"><span className={styles["arrow-3"]}>&larr;</span></span><span className={styles["span-name-3"]}>Home / {categoryData.name}</span></Link></nav>
 
           <h1 className={styles["subcategory-title-3"]}>{displayH1}</h1>
           {displayH2 && <h2 className={styles["subcategory-subtitle-3"]}>{displayH2}</h2>}
@@ -44,8 +40,9 @@ const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
         </div>
 
         <div className={styles["head-img"]}>
-          <img
-            loading="lazy"
+          <Image
+            width={640}
+            height={480}
             src={`/assets/categories/${categorySlug}.webp`}
             alt={`${displayH1} — ${categoryData.name}`}
           />
@@ -62,8 +59,10 @@ const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
               className={styles["subcategory-card"]}
               aria-label={`Explore ${sub.name}`}
             >
-              <img
-                src={sub.image}
+              <Image
+                width={480}
+                height={360}
+                src={sub.image || "/assets/placeholder.webp"}
                 loading="lazy"
                 alt={`${sub.name} subcategory image`}
                 className={styles["subcategory-image"]}

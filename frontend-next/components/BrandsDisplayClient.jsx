@@ -22,7 +22,7 @@ const BrandsDisplayClient = ({ brand, brandInfo }) => {
 
   const handleLeadSubmit = async (e) => {
     e.preventDefault();
-    const { ok } = await submitLead(leadData);
+    const { ok } = await submitLead({ ...leadData, source: "brand_catalogue" });
 
     if (!ok) {
       alert("Something went wrong. Please try again later.");
@@ -46,12 +46,12 @@ const BrandsDisplayClient = ({ brand, brandInfo }) => {
     <div className={styles["brand-display-page"]}>
       <div className={styles["brand-top-section"]}>
         <div className={styles["brand-top-content"]}>
-          <Link href="/brands" className={styles["brand-back-link"]} aria-label="Go back to all brands">
+          <nav aria-label="Breadcrumb"><Link href="/brands" className={styles["brand-back-link"]} aria-label="Go back to all brands">
             <div className={styles["brand-back-circle"]}>
               <span className={styles["brand-back-arrow"]}>&larr;</span>
             </div>
             <span>Back to Brands</span>
-          </Link>
+          </Link></nav>
           <h1 className={styles["brand-heading"]}>{brandInfo.name}</h1>
           <p className={styles["brand-subtext"]}>{brandInfo.description}</p>
           <button
@@ -77,20 +77,20 @@ const BrandsDisplayClient = ({ brand, brandInfo }) => {
         <>
           <div className={styles["brand-products-grid"]}>
             {firstProducts.map((product, index) => (
-              <Link href="#" key={index} className={styles["brand-product-card"]} aria-label={`View product: ${product.name}`}>
+              <article key={index} className={styles["brand-product-card"]}>
                 <img src={product.image} alt={`${product.name} product image`} className={styles["brand-product-image"]} />
                 <div className={styles["brand-product-name"]}>{product.name}</div>
-              </Link>
+              </article>
             ))}
           </div>
 
           {remainingProducts.length > 0 && (
             <div className={styles["brand-products-grid"]}>
               {remainingProducts.map((product, index) => (
-                <Link href="#" key={index} className={styles["brand-product-card"]} aria-label={`View product: ${product.name}`}>
+                <article key={index} className={styles["brand-product-card"]}>
                   <img src={product.image} alt={`${product.name} product image`} className={styles["brand-product-image"]} />
                   <div className={styles["brand-product-name"]}>{product.name}</div>
-                </Link>
+                </article>
               ))}
             </div>
           )}

@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import SingleProductDisplay from "../../../../../components/SingleProductDisplay";
+import { brandedTitle } from "../../../../../lib/siteConfig";
+import { neutralizeUnverifiedClaims } from "../../../../../lib/contentCompliance";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
@@ -10,7 +12,7 @@ async function getProduct(category, subcategory, product) {
       `${BACKEND}/api/product/product-fetch/${category}/${subcategory}/${product}`,
       { cache: "no-store" }
     );
-    return res.ok ? res.json() : null;
+    return res.ok ? neutralizeUnverifiedClaims(await res.json()) : null;
   } catch {
     return null;
   }
@@ -22,7 +24,7 @@ async function getRelatedProducts(category, subcategory, product) {
       `${BACKEND}/api/product/related-products/${category}/${subcategory}/${product}`,
       { cache: "no-store" }
     );
-    return res.ok ? res.json() : [];
+    return res.ok ? neutralizeUnverifiedClaims(await res.json()) : [];
   } catch {
     return [];
   }
@@ -37,16 +39,17 @@ export async function generateMetadata({ params }) {
   const sub = data.subcategory;
   const cat = data.category;
   const canonical = `${BASE}/${category}/${subcategory}/${product}`;
+
   const desc =
     prod?.seo?.metaDescription ||
     prod?.description?.short ||
     `Explore premium ${prod?.name} from our ${sub?.name} range.`;
-  const title =
-    prod?.seo?.metaTitle || `${prod?.name} | ${sub?.name} | Printkee`;
+  const rawTitle = prod?.seo?.metaTitle || `${prod?.name} | ${sub?.name}`;
+  const title = brandedTitle(rawTitle);
   const image = prod?.images?.[0]?.url;
 
   return {
-    title,
+    title: { absolute: title },
     description: desc,
     keywords: prod?.seo?.keywords || [
       prod?.name,
@@ -87,6 +90,18 @@ export default async function ProductPage({ params }) {
 
   const canonical = `${BASE}/${category}/${subcategory}/${product}`;
 
+  const schemaProperties = [
+    ["Dimensions", productData?.attributes?.dimensions],
+    ["Weight", productData?.attributes?.weight],
+    ["GSM", productData?.attributes?.gsm],
+    ["Capacity", productData?.attributes?.capacity],
+    ["Printing Methods", productData?.attributes?.printingMethods?.join(", ")],
+    ["Branding Areas", productData?.attributes?.brandingAreas?.join(", ")],
+    ["Packaging", productData?.attributes?.packaging],
+    ["Customization", productData?.attributes?.customization],
+    ["Care Instructions", productData?.attributes?.careInstructions],
+  ].filter(([, value]) => value).map(([name, value]) => ({ "@type": "PropertyValue", name, value }));
+
   /* ── Product JSON-LD ── */
   const productSchema = productData
     ? {
@@ -100,6 +115,10 @@ export default async function ProductPage({ params }) {
         image: productData.images?.map((img) => img.url) || [],
         sku: productData.sku || undefined,
         brand: { "@type": "Brand", name: "Printkee" },
+        material: productData.attributes?.material || undefined,
+        size: productData.attributes?.size?.join(", ") || undefined,
+        weight: productData.attributes?.weight || undefined,
+        additionalProperty: schemaProperties.length ? schemaProperties : undefined,
       }
     : null;
 

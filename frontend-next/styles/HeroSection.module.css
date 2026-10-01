@@ -17,20 +17,13 @@
 /* ── SLIDE ─────────────────────────────────────────────────── */
 .heroSlide {
   align-items: center;
-  background-image: var(--hero-bg-desktop);
-  background-position: center;
-  background-size: cover;
   display: flex;
   min-height: clamp(360px, 48vh, 580px);
   position: relative;
   width: 100%;
 }
 
-@media (max-width: 640px) {
-  .heroSlide {
-    background-image: var(--hero-bg-mobile, var(--hero-bg-desktop));
-  }
-}
+.heroImage { object-fit: cover; object-position: center; z-index: 0; }
 
 /* ── GRADIENT OVERLAY — subtle dark + blur, no purple tint ─── */
 .heroOverlay {

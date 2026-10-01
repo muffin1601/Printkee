@@ -1,0 +1,153 @@
+.page {
+  background: #fbf9ff;
+  color: #20142e;
+  min-height: 100vh;
+}
+
+.hero {
+  background: linear-gradient(135deg, #251044 0%, #4b2183 100%);
+  color: #fff;
+  padding: 5rem 1.25rem 4rem;
+}
+
+.heroInner,
+.layout {
+  margin: 0 auto;
+  max-width: 920px;
+}
+
+.eyebrow {
+  color: #d8c1ff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.hero h1 + p {
+  color: #eee5fb;
+  line-height: 1.75;
+  margin: 1rem 0 0;
+  max-width: 700px;
+}
+
+.updated {
+  color: #d8c1ff;
+  font-size: 0.82rem;
+  margin: 1rem 0 0;
+}
+
+.layout {
+  padding: 2rem 1.25rem 5rem;
+}
+
+.breadcrumbs {
+  align-items: center;
+  color: #73647e;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumbs a,
+.content a {
+  color: #54279a;
+}
+
+.summary {
+  background: #f1e9ff;
+  border-left: 4px solid #6c35b5;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.4rem;
+}
+
+.summary h2 {
+  font-size: 1.05rem;
+  margin: 0 0 0.45rem;
+}
+
+.summary p,
+.content p,
+.content li {
+  line-height: 1.75;
+}
+
+.summary p {
+  margin: 0;
+}
+
+.content {
+  background: #fff;
+  border: 1px solid #e8dff1;
+  box-shadow: 0 18px 50px rgba(47, 21, 78, 0.06);
+  padding: clamp(1.25rem, 4vw, 3rem);
+}
+
+.content section + section {
+  border-top: 1px solid #eee8f4;
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+
+.content h2 {
+  color: #2d1748;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+}
+
+.content p {
+  margin: 0.65rem 0;
+}
+
+.content ul {
+  margin: 0.75rem 0;
+  padding-left: 1.3rem;
+}
+
+.content li + li {
+  margin-top: 0.45rem;
+}
+
+.contact {
+  background: #fbf8ff;
+  margin-left: clamp(-1rem, -2vw, -1.5rem);
+  margin-right: clamp(-1rem, -2vw, -1.5rem);
+  padding: 2rem clamp(1rem, 2vw, 1.5rem) 0;
+}
+
+.contact address {
+  font-style: normal;
+  line-height: 1.8;
+}
+
+.reviewNote {
+  color: #73647e;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin: 1.25rem 0 0;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 3.5rem 1rem 3rem;
+  }
+
+  .layout {
+    padding: 1.5rem 1rem 3.5rem;
+  }
+
+  .content {
+    padding: 1.25rem;
+  }
+}

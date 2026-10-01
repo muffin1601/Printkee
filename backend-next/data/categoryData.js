@@ -69,7 +69,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Polo T-Shirts for Corporate Branding & Promotions",
           metaDescription:
-            "custom polo t-shirts with logo printing for corporate uniforms, events, promotions and gifting. Bulk order support, quality fabric and fast delivery across India.",
+            "custom polo t-shirts with logo printing for corporate uniforms, events, promotions and gifting. Bulk order support, quality fabric and delivery coordination across India.",
           keywords: [
             "polo t-shirts",
             "custom polo t-shirts",
@@ -113,7 +113,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Caps for Brand Promotion, Events & Corporate Use",
           metaDescription:
-            "Premium custom caps with logo embroidery and printing for events, marketing, corporate gifting and outdoor branding. Fast delivery and affordable bulk order pricing.",
+            "Premium custom caps with logo embroidery and printing for events, marketing, corporate gifting and outdoor branding. delivery coordination and affordable bulk order pricing.",
           keywords: [
             "custom caps",
             "promotional caps",
@@ -129,13 +129,13 @@ const categoryData = [
         name: "Promotional Hat in Delhi",
         slug: "hats",
         description:
-          "Premium-quality custom hats designed for businesses, coaching institutes, schools, and corporate events in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and stylish materials ideal for outdoor use and promotions.\nPerfect for branding, giveaways, and team uniforms.",
+          "customized custom hats designed for businesses, coaching institutes, schools, and corporate events in Noida, Gurgaon, Okhla, and Delhi NCR.\nDurable and stylish materials ideal for outdoor use and promotions.\nPerfect for branding, giveaways, and team uniforms.",
         image: "/assets/subcategories/hats.webp",
 
         seo: {
           metaTitle: "Promotional Hats with Custom Logo for Events & Branding",
           metaDescription:
-            "Premium promotional hats with custom logo printing for corporate branding, outdoor events and marketing campaigns. Bulk order support with fast delivery across India.",
+            "Premium promotional hats with custom logo printing for corporate branding, outdoor events and marketing campaigns. Bulk order support with delivery coordination across India.",
           keywords: [
             "custom hats",
             "promotional hats",
@@ -157,7 +157,7 @@ const categoryData = [
         seo: {
           metaTitle: "Corporate Shirts with Custom Logo for Office Uniforms",
           metaDescription:
-            "Premium corporate shirts for office uniforms with custom logo printing and embroidery. Ideal for branding and promotions, with bulk order support and fast delivery",
+            "Premium corporate shirts for office uniforms with custom logo printing and embroidery. Ideal for branding and promotions, with bulk order support and delivery coordination",
           keywords: [
             "corporate shirts",
             "formal shirts",
@@ -223,7 +223,7 @@ const categoryData = [
         seo: {
           metaTitle: "Branded Winter Wear for Employees & Promotional Gifting",
           metaDescription:
-            "Premium winter wear with custom logo printing for employees, gifting and outdoor events. Soft fabric, bulk order support and fast delivery across India.",
+            "Premium winter wear with custom logo printing for employees, gifting and outdoor events. Soft fabric, bulk order support and delivery coordination across India.",
           keywords: [
             "custom winter wear",
             "branded jackets",
@@ -288,7 +288,7 @@ const categoryData = [
         seo: {
           metaTitle: "Customized Pen & Writing Sets for Corporate Gifts",
           metaDescription:
-            "Elegant writing sets for premium corporate gifting, events, and branding. Custom logo printing, bulk pricing, and fast delivery across India.",
+            "Elegant writing sets for premium corporate gifting, events, and branding. Custom logo printing, bulk pricing, and delivery coordination across India.",
           keywords: [
             "custom pens",
             "writing sets",
@@ -310,7 +310,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Printed Lanyards & ID Cards for Offices & Events",
           metaDescription:
-            "High-quality lanyards and ID cards for offices, events and branding. Logo printing available with bulk orders and fast delivery across India.",
+            "High-quality lanyards and ID cards for offices, events and branding. Logo printing available with bulk orders and delivery coordination across India.",
           keywords: [
             "custom lanyards",
             "id cards",
@@ -332,7 +332,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Notebooks & Diary Sets for Corporate Gifting",
           metaDescription:
-            "Premium notebooks and diaries with logo printing for office, clients and events. Perfect for corporate gifting with bulk order support and fast delivery across India.",
+            "Premium notebooks and diaries with logo printing for office, clients and events. Perfect for corporate gifting with bulk order support and delivery coordination across India.",
           keywords: [
             "custom notebooks",
             "corporate diaries",
@@ -376,7 +376,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Welcome Kits for Corporate Onboarding & Events",
           metaDescription:
-            "Personalized welcome kits with branded products for new employees, events and promotional gifting. Bulk pricing and India-wide fast delivery available.",
+            "Personalized welcome kits with branded products for new employees, events and promotional gifting. Bulk pricing and India-wide delivery coordination available.",
           keywords: [
             "welcome kits",
             "corporate onboarding kits",
@@ -398,7 +398,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Logo Promotional Clocks for Office & Brand Gifting",
           metaDescription:
-            "Elegant promotional clocks with custom logo printing for offices, events, and brand gifting. Bulk orders and fast delivery across India.",
+            "Elegant promotional clocks with custom logo printing for offices, events, and brand gifting. Bulk orders and delivery coordination across India.",
           keywords: [
             "promotional clocks",
             "custom clocks",
@@ -463,7 +463,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Backpacks for Corporate Gifting, Travel & Promotions",
           metaDescription:
-            "Durable custom backpacks for employees, events and corporate gifting. Premium printing, bulk order support and fast delivery across India to boost brand visibility.",
+            "Durable custom backpacks for employees, events and corporate gifting. Premium printing, bulk order support and delivery coordination across India to boost brand visibility.",
           keywords: [
             "custom backpacks",
             "corporate backpacks",
@@ -485,7 +485,7 @@ const categoryData = [
         seo: {
           metaTitle: "Branded Foldable Bags for Corporate Gifting & Promotions",
           metaDescription:
-            "Easy-to-carry foldable bags with custom logo printing for events, giveaways and eco-friendly branding. Best quality for bulk orders with fast delivery across India.",
+            "Easy-to-carry foldable bags with custom logo printing for events, giveaways and eco-friendly branding. Best quality for bulk orders with delivery coordination across India.",
           keywords: [
             "foldable bags",
             "custom foldable bags",
@@ -529,7 +529,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Logo Tote Bags for Branding & Eco-Friendly Gifting",
           metaDescription:
-            "tote bags with custom logo printing for events, trade shows and corporate gifting. Eco-friendly materials, bulk order pricing and fast delivery across India.",
+            "tote bags with custom logo printing for events, trade shows and corporate gifting. Eco-friendly materials, bulk order pricing and delivery coordination across India.",
           keywords: [
             "custom tote bags",
             "eco friendly tote bags",
@@ -595,7 +595,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Computer Accessories for Office Branding",
           metaDescription:
-            "Custom computer accessories for corporate gifting and office branding. Bulk orders, logo printing and fast delivery across India for employee welcome kits.",
+            "Custom computer accessories for corporate gifting and office branding. Bulk orders, logo printing and delivery coordination across India for employee welcome kits.",
           keywords: [
             "computer accessories",
             "office accessories",
@@ -682,7 +682,7 @@ const categoryData = [
         seo: {
           metaTitle: "Cork Sheets for Eco-Friendly Corporate Branding Solutions",
           metaDescription:
-            "Premium cork sheets for sustainable innovation, office décor & product designing. Eco-friendly material available with competitive bulk pricing and fast delivery across India.",
+            "Premium cork sheets for sustainable innovation, office décor & product designing. Eco-friendly material available with competitive bulk pricing and delivery coordination across India.",
           keywords: [
             "cork sheets",
             "eco friendly cork",
@@ -704,7 +704,7 @@ const categoryData = [
         seo: {
           metaTitle: "Cork Corporate Gift Combos for Sustainable Brand Promotion",
           metaDescription:
-            "Eco-friendly cork gifting combos with custom branding, ideal for corporate events and employee welcome kits. Bulk order pricing with fast delivery",
+            "Eco-friendly cork gifting combos with custom branding, ideal for corporate events and employee welcome kits. Bulk order pricing with delivery coordination",
           keywords: [
             "cork gift combos",
             "eco friendly gift sets",
@@ -792,7 +792,7 @@ const categoryData = [
         seo: {
           metaTitle: "Premium Cork HoReCa Products for Hotels, Bars & Restaurants",
           metaDescription:
-            "High-quality sustainable cork products for hotels, bars, and restaurants. Custom branding, durable finish, bulk supplies, and fast delivery across India.",
+            "High-quality sustainable cork products for hotels, bars, and restaurants. Custom branding, durable finish, bulk supplies, and delivery coordination across India.",
           keywords: [
             "cork horeca products",
             "hotel cork accessories",
@@ -902,7 +902,7 @@ const categoryData = [
         seo: {
           metaTitle: "Eco-Friendly Cork Yoga Accessories for Fitness Branding",
           metaDescription:
-            "Anti-slip cork yoga accessories perfect for wellness branding, gyms and corporate gifting. Sustainable products with bulk order support and fast delivery.",
+            "Anti-slip cork yoga accessories perfect for wellness branding, gyms and corporate gifting. Sustainable products with bulk order support and delivery coordination.",
           keywords: [
             "cork yoga accessories",
             "eco friendly yoga mats",
@@ -946,7 +946,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Sipper Bottles for Branding & Promotional Gifting",
           metaDescription:
-            "Premium sipper bottles with custom logo printing for branding, events & corporate gifting. Bulk orders with fast delivery across India.",
+            "Premium sipper bottles with custom logo printing for branding, events & corporate gifting. Bulk orders with delivery coordination across India.",
           keywords: [
             "custom sippers",
             "branded water bottles",
@@ -968,7 +968,7 @@ const categoryData = [
         seo: {
           metaTitle: "Customized Bamboo Bottles for Corporate Gifting",
           metaDescription:
-            "Eco-friendly bamboo bottles with custom branding for corporate gifting, events & employee welcome kits. Bulk order pricing with fast delivery across India",
+            "Eco-friendly bamboo bottles with custom branding for corporate gifting, events & employee welcome kits. Bulk order pricing with delivery coordination across India",
           keywords: [
             "bamboo bottles",
             "eco friendly bottles",
@@ -990,7 +990,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Coffee Mugs for Office Branding & Corporate Gifts",
           metaDescription:
-            "Premium coffee mugs with custom logo printing for employee gifting, events & office branding. Bulk order pricing with fast delivery across India. Request a quote today!",
+            "Premium coffee mugs with custom logo printing for employee gifting, events & office branding. Bulk order pricing with delivery coordination across India. Request a quote today!",
           keywords: [
             "custom coffee mugs",
             "branded mugs",
@@ -1036,7 +1036,7 @@ const categoryData = [
     seo: {
       metaTitle: "Custom Trophies & Mementos for Corporate Recognition",
       metaDescription:
-        "Premium trophies and mementos for awards, sports events and corporate recognition with custom engraving and fast delivery.",
+        "Premium trophies and mementos for awards, sports events and corporate recognition with custom engraving and delivery coordination.",
       keywords: [
         "custom trophies",
         "corporate mementos",
@@ -1056,7 +1056,7 @@ const categoryData = [
         seo: {
           metaTitle: "Custom Trophies & Mementos for Awards and Corporate Events",
           metaDescription:
-            "Premium trophies and mementos designed for recognition events and corporate awards. Logo engraving and customization available with fast delivery across India.",
+            "Premium trophies and mementos designed for recognition events and corporate awards. Logo engraving and customization available with delivery coordination across India.",
           keywords: [
             "award trophies",
             "corporate trophies",

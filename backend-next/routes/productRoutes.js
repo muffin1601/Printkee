@@ -31,7 +31,7 @@ router.get(
     if (!subcategory) return fail(res, 404, "Subcategory not found");
 
     const product = await Product.findOne({
-      slug: productSlug,
+      $expr: { $eq: [{ $trim: { input: "$slug" } }, productSlug.trim()] },
       category: category._id,
       subcategory: subcategory._id,
       isActive: true,

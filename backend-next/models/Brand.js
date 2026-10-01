@@ -7,6 +7,7 @@ const BrandSchema = new mongoose.Schema(
     logo:        { type: String, default: "" },
     description: { type: String, default: "" },
     tags:        [{ type: String }],
+    isActive:    { type: Boolean, default: true, index: true },
   },
   { timestamps: true }
 );

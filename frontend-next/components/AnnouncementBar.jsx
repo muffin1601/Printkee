@@ -6,7 +6,7 @@ const items = [
   { icon: <Package size={13} />, label: "Bulk Order Support" },
   { icon: <Palette size={13} />, label: "Custom Branding" },
   { icon: <Truck size={13} />, label: "Pan India Delivery" },
-  { icon: <ShieldCheck size={13} />, label: "Lowest Prices Guaranteed" },
+  { icon: <ShieldCheck size={13} />, label: "Quote-Based Ordering" },
 ];
 
 const AnnouncementBar = () => (

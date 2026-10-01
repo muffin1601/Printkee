@@ -16,7 +16,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const { subcatSlug } = req.params;
 
-    const currentSub = await Subcategory.findOne({ slug: subcatSlug }).populate(
+    const currentSub = await Subcategory.findOne({ slug: subcatSlug, isActive: { $ne: false } }).populate(
       "category",
       "name slug"
     );
@@ -25,7 +25,7 @@ router.get(
     const relatedSubcategories = await Subcategory.find({
       category: currentSub.category._id,
       _id: { $ne: currentSub._id },
-      isActive: true,
+      isActive: { $ne: false },
     }).select("name slug image hoverImage tag isFeatured");
 
     return ok(res, {
@@ -53,12 +53,13 @@ router.get(
   asyncHandler(async (req, res) => {
     const { categorySlug, subcategorySlug } = req.params;
 
-    const category = await Category.findOne({ slug: categorySlug });
+    const category = await Category.findOne({ slug: categorySlug, isActive: { $ne: false } });
     if (!category) return fail(res, 404, "Category not found");
 
     const subcategory = await Subcategory.findOne({
       slug: subcategorySlug,
       category: category._id,
+      isActive: { $ne: false },
     }).populate({
       path: "products",
       match: { isActive: true },

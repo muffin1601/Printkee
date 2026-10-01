@@ -8,9 +8,9 @@ import styles from "../styles/EnquiryModal.module.css";
 import { submitLead } from "../utils/submitLead";
 
 const perks = [
-  { icon: <CheckCircle2 size={14} />, text: "Premium quality guaranteed" },
+  { icon: <CheckCircle2 size={14} />, text: "Product-specific guidance" },
   { icon: <Truck size={14} />,        text: "Pan-India delivery" },
-  { icon: <BadgePercent size={14} />, text: "Bulk order discounts" },
+  { icon: <BadgePercent size={14} />, text: "Bulk order quotations" },
 ];
 
 /* `onSuccess` is optional — existing callers omit it and keep the old

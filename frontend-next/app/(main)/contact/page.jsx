@@ -3,7 +3,7 @@ import ContactForm from "../../../components/ContactForm";
 const BASE = "https://printkee.com";
 
 export const metadata = {
-  title: "Contact Printkee | Corporate Gifting Enquiries",
+  title: { absolute: "Contact Printkee | Corporate Gifting Enquiries" },
   description:
     "Contact Printkee for customised corporate gifts, branded merchandise and bulk-gifting enquiries. Share your requirement, quantity and branding needs.",
   keywords: [

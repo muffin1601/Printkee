@@ -16,7 +16,7 @@
     { question: "Do you provide bulk promotional keychain orders?", answer: "Yes, we specialize in bulk customized keychain orders for businesses, startups, schools, and corporate events." },
     { question: "Can I choose custom shapes and designs?", answer: "Yes, multiple shapes, sizes, and design customization options are available according to your branding requirements." },
     { question: "Are metal keychains durable for daily use?", answer: "Yes, our promotional metal keychains are made using durable materials with long-lasting finishing for regular use." },
-    { question: "What is the delivery time for customized keychains?", answer: "Delivery time depends on order quantity and customization requirements, but we provide fast delivery services across India." },
+    { question: "What is the delivery time for customized keychains?", answer: "Delivery time depends on order quantity and customization requirements, but we provide delivery planning services across India." },
     { question: "Why are promotional metal keychains effective for branding?", answer: "Promotional metal keychains provide long-term brand visibility because they are practical, portable, and used daily by customers and employees." },
   ],
   "backpacks": [
@@ -47,7 +47,7 @@
     { question: "How can branding round neck t-shirts help in corporate branding?", answer: "Custom round neck t-shirts strengthen brand visibility, enhance team identity, and make memorable corporate gifts for clients and employees." },
     { question: "Can we choose colors and sizes for our team?", answer: "Absolutely. We offer custom sizing and color options to match corporate branding requirements." },
     { question: "How can round neck t-shirts be used in promotional campaigns?", answer: "They act as walking advertisements, enhance brand recognition, and leave a lasting impression during corporate events and trade shows." },
-    { question: "What is the delivery timeline for bulk orders?", answer: "Timelines vary depending on quantity and customization, but we guarantee fast delivery across Delhi NCR." }
+    { question: "What is the delivery timeline for bulk orders?", answer: "Timelines vary depending on quantity and customization, but delivery timing is confirmed from the quantity and customization requirements." }
   ],
 
   caps: [
@@ -147,7 +147,7 @@
     { question: "Can you handle bulk orders?", answer: "Yes, we supply large corporate quantities on time." },
     { question: "What material options are available?", answer: "Leatherette, canvas, polyester & waterproof fabric options." },
     { question: "Do you provide multiple sizes?", answer: "Yes — small, medium & large depending on requirement." },
-    { question: "Delivery location?", answer: "Fast delivery across Delhi NCR." }
+    { question: "Delivery location?", answer: "delivery planning across Delhi NCR." }
   ],
 
   "tote-bags": [
@@ -165,7 +165,7 @@
     { question: "What material options are available for files and folders?", answer: "We offer PP, leatherite, fabric, cardboard, and premium executive materials suitable for professional business use." },
     { question: "Do you provide customized sizes and internal layouts?", answer: "Yes, you can customize pockets, document dividers, and card slots based on your requirements." },
     { question: "Are files and folders suitable for corporate gifting?", answer: "Absolutely — they enhance office productivity and make excellent branding corporate gifts for employees and clients." },
-    { question: "What is the delivery timeline for bulk file and folder orders?", answer: "We provide fast delivery for all bulk corporate orders within Delhi NCR depending on customization quantity." }
+    { question: "What is the delivery timeline for bulk file and folder orders?", answer: "We provide delivery planning for all bulk corporate orders within Delhi NCR depending on customization quantity." }
   ],
 
   "notebooks-and-diary-sets": [
@@ -208,7 +208,7 @@
     { question: "Do you provide bulk custom sipper orders in Delhi?", answer: "Yes, we specialize in bulk customized sipper bottle printing for companies, schools, gyms, and events." },
     { question: "Are the sipper bottles leak-proof?", answer: "Yes, our customized sippers are designed with secure leak-proof caps for daily use." },
     { question: "Can I choose different bottle colors and sizes?", answer: "Yes, multiple colors, capacities, and styles are available according to your branding requirements." },
-    { question: "What is the delivery time for custom sipper orders?", answer: "Delivery time depends on the quantity and customization requirements, but we provide fast delivery services across Delhi and India." },
+    { question: "What is the delivery time for custom sipper orders?", answer: "Delivery time depends on the quantity and customization requirements, but we provide delivery planning services across Delhi and India." },
     { question: "Why are customized sippers good for promotional branding?", answer: "Customized sippers offer long-term brand visibility because they are practical, reusable, and used daily in offices, gyms, schools, and outdoor activities." },
   ],
 
@@ -229,7 +229,7 @@
     { question: "Can we choose custom shapes & styles?", answer: "Yes, mugs can be personalized with special designs, lids, and unique shapes." },
     { question: "Do you offer corporate-ready gift packaging?", answer: "Yes, premium packing options are available for employee and client gifting." },
     { question: "Are coffee mugs suitable for marketing giveaways?", answer: "Yes, they are cost-effective promotional gifts with a long brand lifetime." },
-    { question: "Do you deliver corporate mug orders across Delhi NCR?", answer: "Yes, we provide fast delivery to major business hubs in Delhi NCR." }
+    { question: "Do you deliver corporate mug orders across Delhi NCR?", answer: "Yes, we provide delivery planning to major business hubs in Delhi NCR." }
   ],
 
   "ceramic-mug": [
@@ -366,7 +366,7 @@
     { question: "Bulk orders for onboarding kits?", answer: "Yes — addition to work-from-home kits & office gifts." },
     { question: "Durable for office use?", answer: "Yes — scratch-resistant & long-lasting." },
     { question: "Eco-friendly USP?", answer: "Supports sustainability and green office initiatives." },
-    { question: "Delivery?", answer: "Fast delivery in Delhi NCR." }
+    { question: "Delivery?", answer: "delivery planning in Delhi NCR." }
   ],
 
   "cork-laptop-bag-and-wallet": [

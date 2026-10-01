@@ -20,6 +20,7 @@ export default async function sitemap() {
     { path: "/",               priority: 1.0, freq: "daily"   },
     { path: "/about",          priority: 0.7, freq: "monthly" },
     { path: "/contact",        priority: 0.7, freq: "monthly" },
+    { path: "/privacy-policy", priority: 0.3, freq: "yearly"  },
     { path: "/brands",         priority: 0.8, freq: "weekly"  },
     { path: "/blogs",          priority: 0.8, freq: "weekly"  },
     { path: "/locations",      priority: 0.7, freq: "monthly" },
@@ -87,7 +88,7 @@ export default async function sitemap() {
 
     /* Subcategory pages */
     subcategories.forEach(({ slug, updatedAt, category }) => {
-      if (!slug || !category?.slug) return;
+      if (!slug || !category?.slug || category.isActive === false) return;
       entries.push({
         url:             `${BASE}/${category.slug}/${slug}`,
         lastModified:    updatedAt ? new Date(updatedAt) : undefined,
@@ -99,8 +100,10 @@ export default async function sitemap() {
     /* Product pages */
     products.forEach(({ slug, updatedAt, category, subcategory }) => {
       if (!slug || !category?.slug || !subcategory?.slug) return;
+      const cleanSlug = slug.trim();
+      if (!cleanSlug) return;
       entries.push({
-        url:             `${BASE}/${category.slug}/${subcategory.slug}/${slug}`,
+        url:             `${BASE}/${category.slug}/${subcategory.slug}/${encodeURIComponent(cleanSlug)}`,
         lastModified:    updatedAt ? new Date(updatedAt) : undefined,
         changeFrequency: "monthly",
         priority:        0.6,
@@ -108,9 +111,9 @@ export default async function sitemap() {
     });
 
     /* Blog pages — updatedAt from timestamps; falls back to publication date */
-    blogs.forEach(({ _id, updatedAt, date }) => {
+    blogs.forEach(({ _id, updatedAt, publishedAt, date }) => {
       if (!_id) return;
-      const modified = updatedAt || date;
+      const modified = updatedAt || publishedAt || date;
       entries.push({
         url:             `${BASE}/blog/${_id}`,
         lastModified:    modified ? new Date(modified) : undefined,
@@ -124,5 +127,18 @@ export default async function sitemap() {
     /* Graceful degradation — returns partial sitemap (static pages only) */
   }
 
-  return entries;
+  const seen = new Set();
+  return entries.filter((entry) => {
+    try {
+      const parsed = new URL(entry.url);
+      const normalizedPath = parsed.pathname === "/" ? "/" : parsed.pathname.replace(/\/+$/, "");
+      const normalized = `${BASE}${normalizedPath}`;
+      if (parsed.origin !== BASE || parsed.search || parsed.hash || seen.has(normalized)) return false;
+      seen.add(normalized);
+      entry.url = normalized;
+      return true;
+    } catch {
+      return false;
+    }
+  });
 }

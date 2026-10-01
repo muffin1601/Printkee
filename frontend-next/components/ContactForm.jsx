@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import styles from "../styles/ContactUs.module.css";
 import { submitLead } from "../utils/submitLead";
+import { BUSINESS } from "../lib/siteConfig";
+import { trackContactClick } from "../utils/analytics";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -46,19 +48,19 @@ const ContactForm = () => {
           <h2>Contact Information</h2>
 
           <div className={styles["contact-info-list"]}>
-            <a href="tel:+918800904543" className={styles["contact-info-item"]}>
+            <a href={`tel:${BUSINESS.phoneE164}`} onClick={() => trackContactClick("phone", "contact_page")} className={styles["contact-info-item"]}>
               <div className={styles["contact-info-icon"]}><Phone size={16} /></div>
               <div>
                 <p className={styles["contact-info-label"]}>Phone</p>
-                <p className={styles["contact-info-value"]}>+91 88009 04543</p>
+                <p className={styles["contact-info-value"]}>{BUSINESS.phoneDisplay}</p>
               </div>
             </a>
 
-            <a href="mailto:sales@printkee.com" className={styles["contact-info-item"]}>
+            <a href={`mailto:${BUSINESS.email}`} onClick={() => trackContactClick("email", "contact_page")} className={styles["contact-info-item"]}>
               <div className={styles["contact-info-icon"]}><Mail size={16} /></div>
               <div>
                 <p className={styles["contact-info-label"]}>Email</p>
-                <p className={styles["contact-info-value"]}>sales@printkee.com</p>
+                <p className={styles["contact-info-value"]}>{BUSINESS.email}</p>
               </div>
             </a>
 

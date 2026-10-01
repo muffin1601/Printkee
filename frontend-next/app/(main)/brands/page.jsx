@@ -7,7 +7,7 @@ const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Corporate Gift Brand Partners | Printkee",
+  title: { absolute: "Corporate Gift Brand Partners | Printkee" },
   description:
     "Printkee partners with premium brands including Adidas, Puma, Noise and American Tourister for corporate gifting and branded merchandise.",
   keywords: [

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import BlogViewClient from "../../../../components/BlogViewClient";
+import { brandedTitle } from "../../../../lib/siteConfig";
 
 const IMG_URL = process.env.NEXT_PUBLIC_IMG_URL || "";
 const BASE = "https://printkee.com";
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }) {
   const canonical = `${BASE}/blog/${id}`;
 
   return {
-    title: `${blog.title} | Printkee`,
+    title: { absolute: brandedTitle(blog.title) },
     description: desc,
     alternates: { canonical },
     openGraph: {
@@ -73,7 +74,7 @@ export default async function BlogPage({ params }) {
           },
         },
         datePublished: blog.date,
-        dateModified: blog.date,
+        dateModified: blog.updatedAt || blog.date,
         mainEntityOfPage: {
           "@type": "WebPage",
           "@id": `${BASE}/blog/${id}`,
@@ -81,6 +82,15 @@ export default async function BlogPage({ params }) {
         url: `${BASE}/blog/${id}`,
       }
     : null;
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Blogs", item: `${BASE}/blogs` },
+      { "@type": "ListItem", position: 3, name: blog.title, item: `${BASE}/blog/${id}` },
+    ],
+  };
 
   return (
     <>
@@ -90,6 +100,7 @@ export default async function BlogPage({ params }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <BlogViewClient initialBlog={blog} blogId={id} />
     </>
   );

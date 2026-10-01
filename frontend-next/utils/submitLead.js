@@ -54,6 +54,9 @@ export const submitLead = async (data) => {
     // The base Meta Pixel is loaded globally. Count a lead only after at
     // least one capture channel has confirmed receipt of the submission.
     window.fbq?.("track", "Lead");
+    window.gtag?.("event", "generate_lead", {
+      lead_source: data?.source || "website_form",
+    });
   }
 
   return { ok: crmOk || emailOk, crmOk, emailOk };

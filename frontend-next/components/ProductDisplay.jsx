@@ -2,6 +2,7 @@
 import React from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowLeft, ChevronRight, Heart, Eye,
   ArrowRight, ShoppingBag, Package, Home, Phone,
@@ -74,7 +75,7 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
                   return (
                     <article key={product._id} className={styles["product-card"]}>
                       <div className={styles["product-image-wrapper"]}>
-                        <img className={styles["product-img"]} src={imageUrl}
+                        <Image width={480} height={480} className={styles["product-img"]} src={imageUrl}
                           alt={product.images?.[0]?.altText || product.name} loading="lazy" />
                         <div className={styles["product-icons"]}>
                           <button aria-label={`Save ${product.name}`} title="Save"><Heart size={13} /></button>
@@ -136,7 +137,7 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
             Need Custom {subcategoryName}?
           </h2>
           <p className={styles["product-cta-sub"]}>
-            Premium branding, bulk discounts and fast pan-India delivery. Let&apos;s create something memorable.
+            Share your quantity, artwork and delivery requirements for a product-specific quotation.
           </p>
           <div className={styles["product-cta-actions"]}>
             <Link href="/contact" className={styles["product-cta-btn-primary"]}>

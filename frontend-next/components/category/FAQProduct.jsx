@@ -28,7 +28,7 @@ const FAQProduct = ({ productName, subcategoryName, categoryName, faqs: productF
     },
     {
       q: `Do you offer bulk corporate promotional gift manufacturing?`,
-      a: `We specialize in bulk manufacturing of corporate promotional gifts and branded promotional items. Whether you need promotional gifts for business events, employee gifting, exhibitions, or client appreciation, we provide high-quality products with fast delivery.`
+      a: `We specialize in bulk manufacturing of corporate promotional gifts and branded promotional items. Whether you need promotional gifts for business events, employee gifting, exhibitions, or client appreciation, we provide high-quality products with delivery planning.`
     },
     {
       q: `Is ${productName} available for corporate gifting in Delhi?`,

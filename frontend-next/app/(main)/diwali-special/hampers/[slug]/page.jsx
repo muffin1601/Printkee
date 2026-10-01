@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import DiwaliHamperProduct from "../../../../../components/diwali/DiwaliHamperProduct";
 import diwali2026Products from "../../../../../data/diwali-2026-products";
+import { brandedTitle } from "../../../../../lib/siteConfig";
 
 const BASE = "https://printkee.com";
 
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }) {
   const canonical = `${BASE}/diwali-special/hampers/${hamper.slug}`;
 
   return {
-    title,
+    title: { absolute: brandedTitle(title) },
     description,
     alternates: { canonical },
     openGraph: {

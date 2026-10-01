@@ -8,16 +8,18 @@ import HowitWorks from "../../components/HowitWorks";
 import Testimonials from "../../components/Testimonials";
 import GetQuoteCTA from "../../components/GetQuoteCTA";
 import FaqSectionHome from "../../components/FaqSectionHome";
+import HomeCommercialOverview from "../../components/HomeCommercialOverview";
 
-const BASE = "https://printkee.com";
+import { SITE_URL } from "../../lib/siteConfig";
+
+const BASE = SITE_URL;
 
 export const metadata = {
-  title: "Premium Corporate Gifting & Custom Branding Solutions India",
+  title: "Corporate Gifts & Branded Merchandise India",
   description:
-    "Discover top corporate gifting items with custom branding for events, promotions, onboarding and office needs. Fast delivery, bulk order support across India.",
+    "Explore corporate gifts and branded merchandise for employee, client, event, onboarding and promotional requirements across India.",
   keywords: [
     "corporate gifting India",
-    "MF Global Services",
     "business gifts",
     "employee gifts",
     "custom hampers",
@@ -27,9 +29,9 @@ export const metadata = {
   ],
   alternates: { canonical: BASE },
   openGraph: {
-    title: "Premium Corporate Gifting & Custom Branding Solutions India",
+    title: "Corporate Gifts & Branded Merchandise India",
     description:
-      "Discover top corporate gifting items with custom branding for events, promotions, onboarding and office needs. Fast delivery, bulk order support across India.",
+      "Explore corporate gifts and branded merchandise for employee, client, event, onboarding and promotional requirements across India.",
     url: BASE,
     type: "website",
     images: [
@@ -43,9 +45,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Premium Corporate Gifting & Custom Branding Solutions India",
+    title: "Corporate Gifts & Branded Merchandise India",
     description:
-      "Custom branding, bulk corporate gifts, fast delivery across India. Your trusted gifting partner.",
+      "Corporate gifts and branded merchandise for employee, client, event and promotional requirements.",
     images: [`${BASE}/assets/printkeeLogo.webp`],
   },
 };
@@ -55,6 +57,7 @@ export default function Home() {
     <>
       <HeroSection />
       <CategorySlider />
+      <HomeCommercialOverview />
       <ShopByOccasion />
       <OurServices />
       <WhyChooseUs />

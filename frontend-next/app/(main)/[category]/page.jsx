@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import SubcategoryDisplay from "../../../components/SubcategoryDisplay";
 import aboutSubcategoryData from "../../../data/faqsdata";
 import seoConfig from "../../../data/seoConfig";
+import { brandedTitle } from "../../../lib/siteConfig";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
@@ -25,9 +26,10 @@ export async function generateMetadata({ params }) {
 
   const canonical = `${BASE}/${category}`;
 
-  const title = seo?.title
+  const rawTitle = seo?.title
     || data?.seo?.metaTitle
-    || `${data?.name} | Printkee`;
+    || data?.name;
+  const title = brandedTitle(rawTitle);
   const description = seo?.description
     || data?.seo?.metaDescription
     || data?.description
@@ -35,7 +37,7 @@ export async function generateMetadata({ params }) {
   const image = data?.image || `${BASE}/assets/printkeeLogo.webp`;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: data?.seo?.keywords || [data?.name, "corporate gifts", `${data?.name} India`],
     alternates: { canonical },

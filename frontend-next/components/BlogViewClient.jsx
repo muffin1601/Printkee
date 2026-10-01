@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import styles from "../styles/BlogView.module.css";
 
 const BlogViewClient = ({ initialBlog, blogId }) => {
@@ -41,6 +42,8 @@ const BlogViewClient = ({ initialBlog, blogId }) => {
   return (
     <div className={styles["blog-view-container"]}>
 
+      <nav className={styles.breadcrumbs} aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/blogs">Blogs</Link><span>/</span><span aria-current="page">{blog.title}</span></nav>
+
       {/* ── HERO BAND — blog title ── */}
       <div className={styles["blog-view-hero"]}>
         <div className={styles["blog-view-hero-inner"]}>
@@ -73,6 +76,11 @@ const BlogViewClient = ({ initialBlog, blogId }) => {
 
         <aside className={styles["blog-right"]}>
           <div className={styles["comment-section"]}>
+            <h2>Explore corporate gifting</h2>
+            <p>Browse product categories or share a requirement for an employee, client, event or promotional programme.</p>
+            <p><Link href="/collection">Corporate gift collection</Link></p>
+            <p><Link href="/collection/welcome-kits">Employee welcome kits</Link></p>
+            <p><Link href="/contact">Request a quotation</Link></p>
             <h3 id="comments-title">Comments</h3>
             {!blog.comments?.length ? (
               <p>No comments yet. Be the first to comment!</p>
