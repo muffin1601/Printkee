@@ -22,3 +22,31 @@ export const absoluteTitle = (title) => ({ absolute: title });
 
 export const brandedTitle = (title) =>
   `${String(title || "").replace(/\s*\|\s*Printkee\s*$/i, "").trim()} | Printkee`;
+
+const PUBLIC_SUBCATEGORY_SLUGS = {
+  "steel mug": "steel-mug",
+};
+
+const BACKEND_SUBCATEGORY_SLUGS = Object.fromEntries(
+  Object.entries(PUBLIC_SUBCATEGORY_SLUGS).map(([backendSlug, publicSlug]) => [publicSlug, backendSlug])
+);
+
+export const toPublicSubcategorySlug = (slug = "") =>
+  PUBLIC_SUBCATEGORY_SLUGS[String(slug).trim()] || String(slug).trim();
+
+export const toBackendSubcategorySlug = (slug = "") =>
+  BACKEND_SUBCATEGORY_SLUGS[String(slug).trim()] || String(slug).trim();
+
+const PUBLIC_PRODUCT_SLUGS = {
+  "double wall insulated mug": "double-wall-insulated-mug",
+};
+
+const BACKEND_PRODUCT_SLUGS = Object.fromEntries(
+  Object.entries(PUBLIC_PRODUCT_SLUGS).map(([backendSlug, publicSlug]) => [publicSlug, backendSlug])
+);
+
+export const toPublicProductSlug = (slug = "") =>
+  PUBLIC_PRODUCT_SLUGS[String(slug).trim()] || String(slug).trim();
+
+export const toBackendProductSlug = (slug = "") =>
+  BACKEND_PRODUCT_SLUGS[String(slug).trim()] || String(slug).trim();

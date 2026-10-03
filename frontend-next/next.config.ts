@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/:path*",
+        source: "/:path*", 
         has: [{ type: "host", value: "www.printkee.com" }],
         destination: "https://printkee.com/:path*",
         permanent: true,

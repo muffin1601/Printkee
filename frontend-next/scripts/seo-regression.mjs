@@ -36,6 +36,42 @@ if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(fetchOrigin)) {
     request.end();
   });
   if (![301, 308].includes(redirect.status) || redirect.location !== `${canonicalOrigin}/collection/welcome-kits?seo=1`) report.errors.push(`www redirect failed: ${JSON.stringify(redirect)}`);
+
+  const canonicalRedirectCases = [
+    ["/Apparel-and-Accessories/Aprons", "/apparel-and-accessories/aprons"],
+    ["/Apparel-and-Accessories/aprons", "/apparel-and-accessories/aprons"],
+    ["/Apparel-and-Accessories/Caps", "/apparel-and-accessories/caps"],
+    ["/Apparel-and-Accessories/Sipper", "/drink-ware/sipper"],
+    ["/Apparel-and-Accessories/promotional-clocks", "/collection/promotional-clocks"],
+    ["/Apparel-and-Accessories/duffle-bags", "/bags-and-travel/duffle-bags"],
+    ["/Apparel-and-Accessories/wireless-charging", "/technology-accessories/wireless-charging"],
+    ["/Apparel-and-Accessories/file-and-folder", "/office-and-writing/file-and-folder"],
+    ["/office-and-writing/notebook-and-diary", "/office-and-writing/notebooks-and-diary-sets"],
+    ["/categories/Drink%20Ware", "/drink-ware"],
+    ["/employee-gifts", "/collection/welcome-kits"],
+    ["/Technology%20Accessories", "/technology-accessories"],
+    ["/privacy", "/privacy-policy"],
+    ["/blog", "/blogs"],
+    ["/festival-gifts", "/diwali-special"],
+    ["/collection/__CANONICAL__", "/collection"],
+    ["/apparel-and-accessories/polo-t-shirts/__CANONICAL__", "/apparel-and-accessories/polo-t-shirts"],
+    ["/apparel-and-accessories/polo-t-shirts/promotional-collar%20-t-shirts", "/apparel-and-accessories/polo-t-shirts/promotional-collar-t-shirts"],
+    ["/drink-ware/ceramic-mug/classic-ceramic-coffee-mug", "/drink-ware/ceramic-mug/classic-ceramic-coffee-mug-2"],
+    ["/drink-ware/steel%20mug/stainless-steel-double-wall-coffee-mug", "/drink-ware/steel-mug/stainless-steel-double-wall-coffee-mug"],
+    ["/drink-ware/coffee-mug/double%20wall%20insulated%20mug", "/drink-ware/coffee-mug/double-wall-insulated-mug"],
+    ["/bags-and-travel/backpacks/economy-corporate-backpackhttps:/printkee.com/bags-and-travel/backpacks/economy-corporate-backpack", "/bags-and-travel/backpacks/economy-corporate-backpack"],
+    ["/bags-and-travel/backpacks/economy-corporate-backpackhttps:/printkee.com/bags-and-travel/backpacks/__CANONICAL__", "/bags-and-travel/backpacks/economy-corporate-backpack"],
+    ["/eco-products/cork-laptop-bag-and-wallet/cork-wallet-for-men%3C/__CANONICAL__", "/eco-products/cork-laptop-bag-and-wallet/cork-wallet-for-men"],
+    ["/eco-products/cork-laptop-bag-and-wallet/cork-wallet-for-men%3C/loc%3E%20%3Cchan", "/eco-products/cork-laptop-bag-and-wallet/cork-wallet-for-men"],
+  ];
+  for (const [source, destination] of canonicalRedirectCases) {
+    const response = await fetchPath(source, { method: "HEAD" });
+    const location = response.headers.get("location");
+    const resolvedLocation = location ? new URL(location, fetchOrigin).href : "";
+    if (response.status !== 308 || resolvedLocation !== `${fetchOrigin}${destination}`) {
+      report.errors.push(`canonical redirect failed for ${source}: ${JSON.stringify({ status: response.status, location })}`);
+    }
+  }
 }
 
 const robotsRes = await fetchPath("/robots.txt");

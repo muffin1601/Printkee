@@ -5,9 +5,13 @@ import { brandedTitle } from "../../../../lib/siteConfig";
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 
+export const revalidate = 3600;
+
 async function getBrand(slug) {
   try {
-    const res = await fetch(`${BACKEND}/api/brands/${slug}`, { cache: "no-store" });
+    const res = await fetch(`${BACKEND}/api/brands/${slug}`, {
+      next: { revalidate: 3600, tags: [`brand:${slug}`] },
+    });
     return res.ok ? res.json() : null;
   } catch {
     return null;

@@ -4,7 +4,7 @@ import Link from "next/link";
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export const metadata = {
   title: { absolute: "Corporate Gift Brand Partners | Printkee" },
@@ -38,7 +38,9 @@ export const metadata = {
 export default async function BrandsPage() {
   let brands = [];
   try {
-    const res = await fetch(`${BACKEND}/api/brands`, { cache: "no-store" });
+    const res = await fetch(`${BACKEND}/api/brands`, {
+      next: { revalidate: 3600, tags: ["brands"] },
+    });
     if (res.ok) brands = await res.json();
   } catch (err) {
     console.error("Brands page: failed to fetch brands:", err.message);

@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import styles from "../styles/SearchResults.module.css";
 import WhyChooseUs from "./WhyChooseUs";
+import { toPublicProductSlug, toPublicSubcategorySlug } from "../lib/siteConfig";
 
 const SearchResultsClient = () => {
   const searchParams = useSearchParams();
@@ -85,7 +86,7 @@ const SearchResultsClient = () => {
               {results.map((item, idx) => (
                 <Link
                   key={idx}
-                  href={`/${item.categorySlug || slugify(item.category)}/${item.subcategorySlug || slugify(item.subcategory)}/${item.slug || slugify(item.name)}`}
+                  href={`/${item.categorySlug || slugify(item.category)}/${toPublicSubcategorySlug(item.subcategorySlug || slugify(item.subcategory))}/${toPublicProductSlug(item.slug || slugify(item.name))}`}
                   className={styles["search-page__card-link"]}
                   aria-label={`View details for ${item.name}`}
                 >

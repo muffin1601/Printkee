@@ -1,4 +1,6 @@
-const BASE    = "https://printkee.com";
+import { SITE_URL, toPublicProductSlug, toPublicSubcategorySlug } from "../lib/siteConfig";
+
+const BASE    = SITE_URL;
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 
 export const dynamic = "force-dynamic";
@@ -89,8 +91,9 @@ export default async function sitemap() {
     /* Subcategory pages */
     subcategories.forEach(({ slug, updatedAt, category }) => {
       if (!slug || !category?.slug || category.isActive === false) return;
+      const publicSlug = toPublicSubcategorySlug(slug);
       entries.push({
-        url:             `${BASE}/${category.slug}/${slug}`,
+        url:             `${BASE}/${category.slug}/${publicSlug}`,
         lastModified:    updatedAt ? new Date(updatedAt) : undefined,
         changeFrequency: "weekly",
         priority:        0.7,
@@ -100,10 +103,11 @@ export default async function sitemap() {
     /* Product pages */
     products.forEach(({ slug, updatedAt, category, subcategory }) => {
       if (!slug || !category?.slug || !subcategory?.slug) return;
-      const cleanSlug = slug.trim();
+      const cleanSlug = toPublicProductSlug(slug);
+      const publicSubcategorySlug = toPublicSubcategorySlug(subcategory.slug);
       if (!cleanSlug) return;
       entries.push({
-        url:             `${BASE}/${category.slug}/${subcategory.slug}/${encodeURIComponent(cleanSlug)}`,
+        url:             `${BASE}/${category.slug}/${publicSubcategorySlug}/${encodeURIComponent(cleanSlug)}`,
         lastModified:    updatedAt ? new Date(updatedAt) : undefined,
         changeFrequency: "monthly",
         priority:        0.6,

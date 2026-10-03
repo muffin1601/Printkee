@@ -10,6 +10,7 @@ import Testimonials from "./Testimonials";
 import GetQuoteCTA from "./GetQuoteCTA";
 import CategoryDescription from "./category/CategoryDescription";
 import { locationPageEntries } from "../data/locationSeo";
+import { toPublicSubcategorySlug } from "../lib/siteConfig";
 
 const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
   const { category: categorySlug } = useParams();
@@ -55,7 +56,7 @@ const SubcategoryDisplay = ({ categoryData, seoH1, seoH2 }) => {
           {categoryData.subcategories?.map((sub) => (
             <Link
               key={sub._id}
-              href={`/${categorySlug}/${sub.slug}`}
+              href={`/${categorySlug}/${toPublicSubcategorySlug(sub.slug)}`}
               className={styles["subcategory-card"]}
               aria-label={`Explore ${sub.name}`}
             >

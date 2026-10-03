@@ -3,27 +3,30 @@ import ProductDisplay from "../../../../components/ProductDisplay";
 import LocationCorporateGifts from "../../../../components/LocationCorporateGifts";
 import { getLocationCorporateGiftPage, locationCorporateGiftPages } from "../../../../data/locationSeo";
 import seoConfig from "../../../../data/seoConfig";
-import { brandedTitle } from "../../../../lib/siteConfig";
+import { brandedTitle, toBackendSubcategorySlug, toPublicProductSlug } from "../../../../lib/siteConfig";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
 
-// Product listings are database-backed and intentionally use no-store below.
-// Keeping this route dynamic avoids treating only the location pages as static
-// while all other category/subcategory combinations are first-request routes.
-export const dynamic = "force-dynamic";
+// Cache successful category pages and refresh them in the background. If the
+// backend is briefly unavailable during revalidation, Next.js keeps serving
+// the last successful page instead of returning a crawler-visible 5xx.
+export const revalidate = 900;
 export const dynamicParams = true;
 
 async function getSubcategory(category, subcategory) {
-  try {
-    const res = await fetch(
-      `${BACKEND}/api/subcategory/subcategory-fetch/${category}/${subcategory}`,
-      { cache: "no-store" }
-    );
-    return res.ok ? res.json() : null;
-  } catch {
-    return null;
+  const backendSubcategory = toBackendSubcategorySlug(subcategory);
+  const res = await fetch(
+    `${BACKEND}/api/subcategory/subcategory-fetch/${encodeURIComponent(category)}/${encodeURIComponent(backendSubcategory)}`,
+    { next: { revalidate: 900, tags: [`subcategory:${category}:${subcategory}`] } }
+  );
+
+  if (res.status === 404) return null;
+  if (!res.ok) {
+    throw new Error(`Subcategory API returned ${res.status} for ${category}/${subcategory}`);
   }
+
+  return res.json();
 }
 
 export async function generateMetadata({ params }) {
@@ -127,7 +130,7 @@ export default async function SubcategoryPage({ params }) {
           itemListElement: products.slice(0, 20).map((prod, i) => ({
             "@type": "ListItem",
             position: i + 1,
-            url:  `${BASE}/${category}/${subcategory}/${prod.slug}`,
+            url:  `${BASE}/${category}/${subcategory}/${toPublicProductSlug(prod.slug)}`,
             name: prod.name,
           })),
         }

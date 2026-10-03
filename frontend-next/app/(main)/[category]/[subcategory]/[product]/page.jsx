@@ -1,15 +1,17 @@
 import { notFound } from "next/navigation";
 import SingleProductDisplay from "../../../../../components/SingleProductDisplay";
-import { brandedTitle } from "../../../../../lib/siteConfig";
+import { brandedTitle, toBackendProductSlug, toBackendSubcategorySlug, toPublicProductSlug } from "../../../../../lib/siteConfig";
 import { neutralizeUnverifiedClaims } from "../../../../../lib/contentCompliance";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
 
 async function getProduct(category, subcategory, product) {
+  const backendSubcategory = toBackendSubcategorySlug(subcategory);
+  const backendProduct = toBackendProductSlug(product);
   try {
     const res = await fetch(
-      `${BACKEND}/api/product/product-fetch/${category}/${subcategory}/${product}`,
+      `${BACKEND}/api/product/product-fetch/${encodeURIComponent(category)}/${encodeURIComponent(backendSubcategory)}/${encodeURIComponent(backendProduct)}`,
       { cache: "no-store" }
     );
     return res.ok ? neutralizeUnverifiedClaims(await res.json()) : null;
@@ -19,9 +21,11 @@ async function getProduct(category, subcategory, product) {
 }
 
 async function getRelatedProducts(category, subcategory, product) {
+  const backendSubcategory = toBackendSubcategorySlug(subcategory);
+  const backendProduct = toBackendProductSlug(product);
   try {
     const res = await fetch(
-      `${BACKEND}/api/product/related-products/${category}/${subcategory}/${product}`,
+      `${BACKEND}/api/product/related-products/${encodeURIComponent(category)}/${encodeURIComponent(backendSubcategory)}/${encodeURIComponent(backendProduct)}`,
       { cache: "no-store" }
     );
     return res.ok ? neutralizeUnverifiedClaims(await res.json()) : [];
@@ -38,7 +42,7 @@ export async function generateMetadata({ params }) {
   const prod = data.product;
   const sub = data.subcategory;
   const cat = data.category;
-  const canonical = `${BASE}/${category}/${subcategory}/${product}`;
+  const canonical = `${BASE}/${category}/${subcategory}/${toPublicProductSlug(product)}`;
 
   const desc =
     prod?.seo?.metaDescription ||
@@ -88,7 +92,7 @@ export default async function ProductPage({ params }) {
   const subcategoryData = data?.subcategory || null;
   const categoryData = data?.category || null;
 
-  const canonical = `${BASE}/${category}/${subcategory}/${product}`;
+  const canonical = `${BASE}/${category}/${subcategory}/${toPublicProductSlug(product)}`;
 
   const schemaProperties = [
     ["Dimensions", productData?.attributes?.dimensions],

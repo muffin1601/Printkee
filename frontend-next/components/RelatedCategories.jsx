@@ -5,6 +5,7 @@ import styles from "../styles/RelatedCategories.module.css";
 import Link from "next/link";
 import navbarSubcategories from "../data/list";
 import { LayoutGrid } from "lucide-react";
+import { toBackendSubcategorySlug, toPublicSubcategorySlug } from "../lib/siteConfig";
 
 const RelatedCategories = ({ categorySlug, currentSubcategorySlug }) => {
   const [related, setRelated]     = useState([]);
@@ -14,7 +15,7 @@ const RelatedCategories = ({ categorySlug, currentSubcategorySlug }) => {
     const fetchRelated = async () => {
       try {
         const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/subcategory/subcategories/related-subcategories/${currentSubcategorySlug}`
+          `${process.env.NEXT_PUBLIC_API_URL}/subcategory/subcategories/related-subcategories/${encodeURIComponent(toBackendSubcategorySlug(currentSubcategorySlug))}`
         );
         const data = res.data.relatedSubcategories || [];
         if (data.length > 0) {
@@ -68,7 +69,7 @@ const RelatedCategories = ({ categorySlug, currentSubcategorySlug }) => {
       <div className={styles["related-grid"]}>
         {related.map((cat) => (
           <article key={cat.slug} className={styles["related-item-wrapper"]}>
-            <Link href={`/${categorySlug}/${cat.slug}`} className={styles["related-item"]} aria-label={`Explore ${cat.name}`}>
+            <Link href={`/${categorySlug}/${toPublicSubcategorySlug(cat.slug)}`} className={styles["related-item"]} aria-label={`Explore ${cat.name}`}>
               <img src={cat.image} alt={cat.name || "Related category"} className={styles["related-item-img"]} loading="lazy" />
               <p className={styles["item-name"]}>{cat.name}</p>
             </Link>
