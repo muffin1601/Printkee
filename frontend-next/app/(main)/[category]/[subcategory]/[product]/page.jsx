@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import SingleProductDisplay from "../../../../../components/SingleProductDisplay";
 import { brandedTitle, toBackendProductSlug, toBackendSubcategorySlug, toPublicProductSlug } from "../../../../../lib/siteConfig";
 import { neutralizeUnverifiedClaims } from "../../../../../lib/contentCompliance";
+import SeoLandingPage from "../../../../../components/SeoLandingPage";
+import { getSeoLandingPage, pathFromSegments, seoLandingMetadata } from "../../../../../lib/seoLanding";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
@@ -37,7 +39,10 @@ async function getRelatedProducts(category, subcategory, product) {
 export async function generateMetadata({ params }) {
   const { category, subcategory, product } = await params;
   const data = await getProduct(category, subcategory, product);
-  if (!data) return { title: "Product Not Found | Printkee" };
+  if (!data) {
+    const seoPage = await getSeoLandingPage(pathFromSegments(category, subcategory, product));
+    return seoPage ? seoLandingMetadata(seoPage) : { title: "Product Not Found | Printkee", robots: { index: false, follow: false } };
+  }
 
   const prod = data.product;
   const sub = data.subcategory;
@@ -86,7 +91,11 @@ export default async function ProductPage({ params }) {
     getRelatedProducts(category, subcategory, product),
   ]);
 
-  if (!data) notFound();
+  if (!data) {
+    const seoPage = await getSeoLandingPage(pathFromSegments(category, subcategory, product));
+    if (!seoPage) notFound();
+    return <SeoLandingPage page={seoPage} />;
+  }
 
   const productData = data?.product || null;
   const subcategoryData = data?.subcategory || null;

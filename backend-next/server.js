@@ -102,6 +102,7 @@ app.use("/api/admin", require("./routes/adminRoutes"));
 app.use("/api/brands", require("./routes/brandRoutes"));
 app.use("/api/slides", require("./routes/bannerRoutes"));
 app.use("/api/newsletter", require("./routes/newsletterRoutes"));
+app.use("/api/seo-pages", require("./routes/seoPageRoutes"));
 app.use("/api", require("./routes/sitemap"));
 
 /* ==============================

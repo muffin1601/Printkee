@@ -3,6 +3,8 @@ import SubcategoryDisplay from "../../../components/SubcategoryDisplay";
 import aboutSubcategoryData from "../../../data/faqsdata";
 import seoConfig from "../../../data/seoConfig";
 import { brandedTitle } from "../../../lib/siteConfig";
+import SeoLandingPage from "../../../components/SeoLandingPage";
+import { getSeoLandingPage, pathFromSegments, seoLandingMetadata } from "../../../lib/seoLanding";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
@@ -22,7 +24,10 @@ export async function generateMetadata({ params }) {
   const { category } = await params;
   const seo = seoConfig[`/${category}`];
   const data = await getCategory(category);
-  if (!data) return { title: "Category Not Found | Printkee" };
+  if (!data) {
+    const seoPage = await getSeoLandingPage(pathFromSegments(category));
+    return seoPage ? seoLandingMetadata(seoPage) : { title: "Category Not Found | Printkee", robots: { index: false, follow: false } };
+  }
 
   const canonical = `${BASE}/${category}`;
 
@@ -62,7 +67,11 @@ export default async function CategoryPage({ params }) {
   const seo = seoConfig[`/${category}`];
   const categoryData = await getCategory(category);
 
-  if (!categoryData) notFound();
+  if (!categoryData) {
+    const seoPage = await getSeoLandingPage(pathFromSegments(category));
+    if (!seoPage) notFound();
+    return <SeoLandingPage page={seoPage} />;
+  }
 
   /* ── BreadcrumbList JSON-LD ── */
   const breadcrumbSchema = {

@@ -352,3 +352,64 @@ The machine-readable crawl evidence is in `SEO_CRAWL_REPORT.json`.
 5. Complete the Fabric/customizer security migration and continue image/client-JavaScript optimization based on measured performance.
 
 No remediation in this section guarantees rankings or page-one placement.
+
+---
+
+# ENTERPRISE SEO ARCHITECTURE AUDIT — 3 OCTOBER 2026
+
+## 28. Current architecture validation
+
+This pass revalidated the live repository before programmatic SEO work. The frontend is Next.js 16.3.6 App Router with one-, two- and three-segment catalog routes. The backend is Express 5 with Mongoose/MongoDB. Categories, subcategories, products, brands and CMS blogs are database-backed; locations and several editorial/campaign pages are code-backed. The admin uses JWT-protected API writes and client-side management screens. GA4, Meta Pixel, lead forms, canonical metadata, BreadcrumbList/Product/Article/FAQ schemas, robots exclusions, a dynamic XML sitemap and permanent redirects already exist.
+
+Existing public URL owners that must be preserved are: the homepage; all active category, subcategory and product paths; `/brands` and brand detail paths; `/blogs` and existing blog IDs/editorial slugs; `/locations`; the six `/:city/corporate-gifts` pages; `/diwali-special` and hamper paths; company/policy/contact pages; and all redirect sources already recorded in `proxy.js` and `next.config.ts`.
+
+## 29. Programmatic SEO gaps found
+
+1. There is no database model, public resolver or admin workflow for SEO landing pages.
+2. There is no enforced page lifecycle equivalent to DRAFT → QUALITY_REVIEW → INDEXABLE → NOINDEX/ARCHIVED for landing pages.
+3. There is no keyword-to-URL uniqueness constraint, exact-path ownership registry or slug-collision protection across SEO pages.
+4. There is no content-overlap check. Similar city/category variants could therefore be published without review if pages were added ad hoc.
+5. The current sitemap is a single generated document and has no SEO-page source. At the current URL count segmentation is not technically required, but the data contract must support later segmentation.
+6. Location data is code-backed and cannot yet be managed by the admin. Current location pages are useful and must not be migrated until parity is proven.
+7. There are no database-driven buyer, industry, occasion, use-case or search-intent entities.
+8. Existing reports cover the catalog well, but the requested `SEO_PAGE_INVENTORY.csv` and `SEO_LOCATION_MATRIX.csv` are missing.
+9. Product editorial fields exist, but completeness varies and unsupported values must not be generated.
+10. The broad `/:category`, `/:category/:subcategory` and product routes make new root-level landing pages collision-prone unless catalog ownership always wins.
+
+## 30. Risks and controls
+
+| Risk | Required control |
+|---|---|
+| Doorway or near-duplicate location pages | Similarity score plus mandatory QUALITY_REVIEW; only INDEXABLE records enter sitemap/internal-link feeds |
+| Keyword cannibalization | Unique normalized primary keyword and canonical path; collision report before publish |
+| Existing route takeover | Catalog lookup runs first; SEO fallback only handles unresolved paths; reserved/static paths are rejected |
+| Thin pages | Quality score based on required metadata, content blocks, FAQs, related products/links and minimum useful text |
+| Invented business claims | Admin-authored structured content only; no generated prices, MOQs, lead times, offices, reviews or search volume |
+| Orphan pages | INDEXABLE requires a parent/hub and related links; public hub feed contains only approved pages |
+| Sitemap pollution | Backend returns only published INDEXABLE pages with canonical self-targets |
+| Scale/performance | SSR/ISR page resolver, lean API projections, indexes on path/status/taxonomy and bounded related-page queries |
+
+## 31. Approved target architecture
+
+- `SeoPage`: exact canonical path, page type, taxonomy dimensions, metadata, content blocks, FAQs, product references, related-page references, schema switches, lifecycle, quality score and review fields.
+- `SeoTaxonomy`: admin-managed locations, buyer types, industries, occasions, use cases, categories and intent groups without auto-publishing combinations.
+- `SeoOpportunity`: manually imported opportunity/search-demand records; no invented volume.
+- Quality service: deterministic field/content checks, word/token overlap comparison, primary-keyword/path collision checks and publish eligibility.
+- Public API: resolve an exact path and list approved hub/sitemap records only.
+- Admin API/UI: create, edit, review, validate, filter and archive pages; view dashboard issue counts.
+- Frontend fallback: existing catalog/entity routes remain authoritative; unresolved one-/two-/three-segment paths may render an approved SEO page.
+- Sitemap: include only published INDEXABLE SEO pages whose canonical equals their own path.
+- Reports/tests: keyword registry, page inventory, location matrix, duplicate/collision tests and representative route checks.
+
+## 32. Migration strategy and implementation priorities
+
+1. Add models, validation/quality service and protected CRUD without changing current pages.
+2. Add public exact-path resolver and sitemap feed.
+3. Add the shared server-rendered landing-page component and catalog-safe fallback routing.
+4. Add admin management and dashboard reporting.
+5. Seed taxonomy and opportunity records conservatively. Candidate pages lacking verified content remain DRAFT or QUALITY_REVIEW and are absent from sitemap/internal links.
+6. Create the requested CSV inventories from current URLs and the approved keyword registry.
+7. Add automated tests, then run syntax, frontend build, backend checks, SEO route validation and representative rendering.
+8. Deploy without rewriting current URLs. Add redirects only for a separately approved future migration.
+
+No new location, category, buyer or industry page may become INDEXABLE merely because a combination exists. Indexability is an editorial decision enforced by the quality gate.

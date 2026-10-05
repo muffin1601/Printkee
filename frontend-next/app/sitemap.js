@@ -26,6 +26,9 @@ export default async function sitemap() {
     { path: "/brands",         priority: 0.8, freq: "weekly"  },
     { path: "/blogs",          priority: 0.8, freq: "weekly"  },
     { path: "/locations",      priority: 0.7, freq: "monthly" },
+    { path: "/corporate-gifting", priority: 0.8, freq: "monthly" },
+    { path: "/industries", priority: 0.6, freq: "monthly" },
+    { path: "/use-cases", priority: 0.6, freq: "monthly" },
     { path: "/delhi/corporate-gifts", priority: 0.7, freq: "monthly" },
     { path: "/noida/corporate-gifts", priority: 0.7, freq: "monthly" },
     { path: "/greater-noida/corporate-gifts", priority: 0.7, freq: "monthly" },
@@ -64,7 +67,20 @@ export default async function sitemap() {
       products      = [],
       blogs         = [],
       brands        = [],
+      seoPages      = [],
     } = await res.json();
+
+    /* Quality-approved SEO landing pages. The API exposes only self-canonical
+       INDEXABLE records, so drafts and noindex pages cannot enter the sitemap. */
+    seoPages.forEach(({ path, canonicalUrl, updatedAt, priority }) => {
+      if (!path || canonicalUrl !== `${BASE}${path}`) return;
+      entries.push({
+        url: `${BASE}${path}`,
+        lastModified: updatedAt ? new Date(updatedAt) : undefined,
+        changeFrequency: "monthly",
+        priority: Number.isFinite(priority) ? priority : 0.5,
+      });
+    });
 
     /* Brand pages */
     brands.forEach(({ slug, updatedAt }) => {

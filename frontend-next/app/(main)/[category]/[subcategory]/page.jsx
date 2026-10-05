@@ -4,6 +4,8 @@ import LocationCorporateGifts from "../../../../components/LocationCorporateGift
 import { getLocationCorporateGiftPage, locationCorporateGiftPages } from "../../../../data/locationSeo";
 import seoConfig from "../../../../data/seoConfig";
 import { brandedTitle, toBackendSubcategorySlug, toPublicProductSlug } from "../../../../lib/siteConfig";
+import SeoLandingPage from "../../../../components/SeoLandingPage";
+import { getSeoLandingPage, pathFromSegments, seoLandingMetadata } from "../../../../lib/seoLanding";
 
 const BASE = "https://printkee.com";
 const BACKEND = process.env.BACKEND_URL;
@@ -46,7 +48,10 @@ export async function generateMetadata({ params }) {
   if (locationCorporateGiftPages[category]) return { title: "Page Not Found | Printkee", robots: { index: false, follow: false } };
   const seo = seoConfig[`/${category}/${subcategory}`];
   const data = await getSubcategory(category, subcategory);
-  if (!data) return { title: "Subcategory Not Found | Printkee" };
+  if (!data) {
+    const seoPage = await getSeoLandingPage(pathFromSegments(category, subcategory));
+    return seoPage ? seoLandingMetadata(seoPage) : { title: "Subcategory Not Found | Printkee", robots: { index: false, follow: false } };
+  }
 
   const sub = data?.subcategory;
   const cat = data?.category;
@@ -91,7 +96,11 @@ export default async function SubcategoryPage({ params }) {
   const seo = seoConfig[`/${category}/${subcategory}`];
   const data = await getSubcategory(category, subcategory);
 
-  if (!data) notFound();
+  if (!data) {
+    const seoPage = await getSeoLandingPage(pathFromSegments(category, subcategory));
+    if (!seoPage) notFound();
+    return <SeoLandingPage page={seoPage} />;
+  }
 
   const products      = data?.products      || [];
   const categoryData  = data?.category      || null;

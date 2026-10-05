@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Layers, Package, ShoppingBag, Image as ImageIcon, FileText } from "lucide-react";
+import { LayoutDashboard, Layers, Package, ShoppingBag, Image as ImageIcon, FileText, SearchCheck } from "lucide-react";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -58,6 +58,12 @@ const Sidebar = () => {
           <Link href="/admin/blogs" className={isActive("/admin/blogs") ? "active" : ""}>
             <FileText className="icon-3" />
             <span>Blogs</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/admin/seo" className={isActive("/admin/seo") ? "active" : ""}>
+            <SearchCheck className="icon-3" />
+            <span>SEO pages</span>
           </Link>
         </li>
       </ul>
