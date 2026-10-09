@@ -11,6 +11,18 @@ export const metadata = {
 
 const sections = [
   {
+    title: "Location Hubs",
+    links: [
+      { label: "All locations", href: "/locations" },
+      { label: "Corporate gifts in Delhi", href: "/delhi/corporate-gifts" },
+      { label: "Corporate gifts in Noida", href: "/noida/corporate-gifts" },
+      { label: "Corporate gifts in Greater Noida", href: "/greater-noida/corporate-gifts" },
+      { label: "Corporate gifts in Gurgaon", href: "/gurgaon/corporate-gifts" },
+      { label: "Corporate gifts in Faridabad", href: "/faridabad/corporate-gifts" },
+      { label: "Corporate gifts in Ghaziabad", href: "/ghaziabad/corporate-gifts" },
+    ],
+  },
+  {
     title: "Main Pages",
     links: [
       { label: "Home",        href: "/" },
@@ -54,7 +66,17 @@ const sections = [
   },
 ];
 
-export default function Sitemap() {
+export default async function Sitemap() {
+  let approvedPages = [];
+  try {
+    const backend = process.env.BACKEND_URL || "http://localhost:5031";
+    const response = await fetch(`${backend}/api/seo-pages/indexable`, { cache: "no-store" });
+    if (response.ok) approvedPages = await response.json();
+  } catch {}
+  const visibleSections = approvedPages.length ? [...sections, {
+    title: "Approved commercial guides",
+    links: approvedPages.map((page) => ({ label: page.name || page.h1 || page.primaryKeyword, href: page.path })),
+  }] : sections;
   return (
     <div className={styles.page}>
 
@@ -72,7 +94,7 @@ export default function Sitemap() {
       {/* ── Sections Grid ── */}
       <div className={styles.content}>
         <div className={styles.grid}>
-          {sections.map(({ title, links }) => (
+          {visibleSections.map(({ title, links }) => (
             <section key={title} className={styles.section}>
               <h2 className={styles.sectionTitle}>{title}</h2>
               <ul className={styles.list}>

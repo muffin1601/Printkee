@@ -17,6 +17,7 @@ import ProductFAQ from "./category/FAQProduct";
 import ProductCTA from "./category/ProductCTA";
 import productContent from "../data/productcontent";
 import { recordProductView } from "../utils/recentlyViewed";
+import { trackViewItem } from "../utils/analytics";
 
 const SingleProductDisplay = ({
   productData,
@@ -62,7 +63,13 @@ const SingleProductDisplay = ({
       categorySlug,
       subcategorySlug,
     });
-  }, [productData, productSlug, categorySlug, subcategorySlug]);
+    trackViewItem({
+      id: productData._id || productData.slug || productSlug,
+      name: productData.name,
+      category: categoryData?.name || categorySlug,
+      subcategory: subcategoryData?.name || subcategorySlug,
+    });
+  }, [productData, productSlug, categorySlug, subcategorySlug, categoryData?.name, subcategoryData?.name]);
 
   if (!productData || !subcategoryData || !categoryData) {
     return (

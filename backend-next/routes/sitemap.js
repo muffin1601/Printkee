@@ -31,7 +31,7 @@ router.get("/sitemap-data", async (req, res) => {
       Brand.find({ isActive: { $ne: false } }, "slug updatedAt").lean(),
       SeoPage.find(
         { status: "INDEXABLE", "robots.index": true },
-        "path canonicalUrl updatedAt priority"
+        "path canonicalUrl updatedAt significantContentUpdatedAt priority"
       ).lean(),
     ]);
 

@@ -2,6 +2,7 @@ const Category = require("../models/Category");
 const Subcategory = require("../models/Subcategory");
 const Product = require("../models/product");
 const SeoPage = require("../models/SeoPage");
+const SeoLocation = require("../models/SeoLocation");
 
 const SITE_URL = "https://printkee.com";
 const RESERVED_ROOTS = new Set([
@@ -75,12 +76,45 @@ async function evaluateSeoPage(input, ignoreId = null) {
   if (!page.intro || textOnly(page.intro).length < 80) issues.push("Intro must contain at least 80 useful characters");
   if (wordCount < 250) issues.push("Page needs at least 250 words of useful reviewed content");
   if (!(page.featuredProducts || []).length) issues.push("At least one relevant product is required");
+  if (!page.quotationPath || normalizePath(page.quotationPath) !== "/contact") issues.push("A valid quotation path to /contact is required");
+  if (!(page.images || []).some((image) => image?.url && textOnly(image.altText).length >= 8)) issues.push("At least one descriptive image with useful alt text is required");
   if (!page.primaryKeyword) issues.push("Primary keyword is required");
   if (!page.parentPath && page.pageType !== "HUB") issues.push("A meaningful parent page is required");
   if (![...(page.relatedCategories || []), ...(page.relatedPages || []), ...(page.relatedLocations || [])].some((link) => link?.url)) {
     issues.push("At least one contextual internal link is required");
   }
   if (!page.canonicalUrl || page.canonicalUrl !== expectedCanonical) issues.push(`Canonical must be ${expectedCanonical}`);
+  if (!page.schemaOptions || !Object.values(page.schemaOptions).some(Boolean)) issues.push("At least one applicable structured-data type must be enabled");
+
+  const allLinks = [...(page.relatedCategories || []), ...(page.relatedPages || []), ...(page.relatedLocations || [])];
+  for (const link of allLinks) {
+    if (!link?.url || (!String(link.url).startsWith("/") && !String(link.url).startsWith(`${SITE_URL}/`))) {
+      issues.push("Internal links must use a valid Printkee path");
+      break;
+    }
+  }
+  const unsupportedClaimPattern = /\b(our|printkee(?:'s)?)\s+(factory|office|local team|manufacturing unit)\b|\bguaranteed\s+(delivery|turnaround)\b/i;
+  if (unsupportedClaimPattern.test(content)) issues.push("Content contains an unsupported operational or local-service claim");
+
+  if (page.location) {
+    const locationText = normalizeKeyword(page.location);
+    if (locationText && !normalizeKeyword(`${page.seoTitle} ${page.h1} ${content}`).includes(locationText)) {
+      issues.push("Location page content does not meaningfully identify its target location");
+    }
+    const location = await SeoLocation.findOne({
+      $or: [{ slug: page.location }, { name: new RegExp(`^${String(page.location).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, "i") }],
+      activeStatus: "ACTIVE", serviceFeasibility: "VERIFIED",
+    }).select("locationSpecificInformation").lean();
+    if (!location || textOnly(location.locationSpecificInformation).length < 40) {
+      issues.push("Location needs verified service feasibility and meaningful location-specific information");
+    }
+  }
+
+  if ((page.featuredProducts || []).length) {
+    const productIds = (page.featuredProducts || []).map((item) => item?._id || item).filter((item) => String(item).match(/^[a-f0-9]{24}$/i));
+    const activeProductCount = await Product.countDocuments({ _id: { $in: productIds }, isActive: true });
+    if (activeProductCount !== productIds.length || !productIds.length) issues.push("All featured products must exist and be active");
+  }
 
   const routeCollision = await findRouteCollision(path);
   if (routeCollision) issues.push(routeCollision);

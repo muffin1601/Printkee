@@ -6,6 +6,7 @@ import axios from "axios";
 import styles from "../styles/SearchResults.module.css";
 import WhyChooseUs from "./WhyChooseUs";
 import { toPublicProductSlug, toPublicSubcategorySlug } from "../lib/siteConfig";
+import { trackSearch, trackSelectItem } from "../utils/analytics";
 
 const SearchResultsClient = () => {
   const searchParams = useSearchParams();
@@ -33,6 +34,7 @@ const SearchResultsClient = () => {
           { params: { q: query, cat: category || "All Categories" } }
         );
         setResults(res.data);
+        trackSearch(query, Array.isArray(res.data) ? res.data.length : 0);
       } catch (err) {
         console.error(err);
         setResults([]);
@@ -89,6 +91,12 @@ const SearchResultsClient = () => {
                   href={`/${item.categorySlug || slugify(item.category)}/${toPublicSubcategorySlug(item.subcategorySlug || slugify(item.subcategory))}/${toPublicProductSlug(item.slug || slugify(item.name))}`}
                   className={styles["search-page__card-link"]}
                   aria-label={`View details for ${item.name}`}
+                  onClick={() => trackSelectItem({
+                    id: item._id || item.slug,
+                    name: item.name,
+                    category: item.category,
+                    subcategory: item.subcategory,
+                  }, "site_search_results")}
                 >
                   <div className={styles["search-page__card"]}>
                     <img

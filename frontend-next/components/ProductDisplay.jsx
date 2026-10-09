@@ -12,6 +12,7 @@ import RelatedCategories from "./RelatedCategories";
 import FAQSection from "./category/FAQSection";
 import SubcategoryDescription from "./category/SubcategoryDescription";
 import { toPublicProductSlug } from "../lib/siteConfig";
+import { trackSelectItem } from "../utils/analytics";
 
 const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, seoH2 }) => {
   const { category: categorySlug, subcategory: subcategorySlug } = useParams();
@@ -30,6 +31,15 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
   const subcategoryName = subcategoryData.name;
   const displayH1       = seoH1 || subcategoryName;
   const displayH2       = seoH2 || null;
+  const openProduct = (product) => {
+    trackSelectItem({
+      id: product._id || product.slug,
+      name: product.name,
+      category: categoryName,
+      subcategory: subcategoryName,
+    }, "subcategory_product_grid");
+    router.push(`/${encodeURIComponent(categorySlug)}/${encodeURIComponent(subcategorySlug)}/${encodeURIComponent(toPublicProductSlug(product.slug))}`);
+  };
 
   return (
     <>
@@ -81,7 +91,7 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
                         <div className={styles["product-icons"]}>
                           <button aria-label={`Save ${product.name}`} title="Save"><Heart size={13} /></button>
                           <button aria-label={`Quick view ${product.name}`} title="Quick view"
-                            onClick={() => router.push(`/${encodeURIComponent(categorySlug)}/${encodeURIComponent(subcategorySlug)}/${encodeURIComponent(toPublicProductSlug(product.slug))}`)}>
+                            onClick={() => openProduct(product)}>
                             <Eye size={13} />
                           </button>
                         </div>
@@ -109,7 +119,7 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
                           </div>
                         )}
                         <button className={styles["add-to-cart"]} disabled={product.stock === 0}
-                          onClick={() => router.push(`/${encodeURIComponent(categorySlug)}/${encodeURIComponent(subcategorySlug)}/${encodeURIComponent(toPublicProductSlug(product.slug))}`)}>
+                          onClick={() => openProduct(product)}>
                           {product.stock === 0 ? "Sold Out" : <><span>View Details</span><ArrowRight size={13} /></>}
                         </button>
                       </div>

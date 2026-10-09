@@ -1,0 +1,11 @@
+﻿Dimension,Purple Palette Evidence,Printkee Current Position,Decision,Implementation Note
+Architecture,Flat categories/subcategories plus ~130 location pages,Nested catalog plus controlled editorial/location hubs,ADOPT WITH IMPROVEMENTS,Preserve catalog ownership and avoid cloned geography
+Keyword mapping,Modifier × product × place,"2,796-row canonical cluster map",ADOPT,One owner per distinct intent
+Commercial modifiers,Manufacturer/supplier/wholesale repeated,Bulk/custom sourcing language; claims evidence-gated,REQUIRES FURTHER EVIDENCE,Do not imply manufacturer/wholesaler status
+Location pages,Homepage-like city substitution,Six differentiated Delhi NCR pages,REJECT CLONING,Validate service and unique value before expansion
+Content,Short templated copy,Product-led procurement guidance and FAQs,ADOPT WITH IMPROVEMENTS,"Use verified facts, not filler"
+Internal links,"Footer, breadcrumbs, HTML hubs","Navigation, related modules, sitemap and controlled hubs",ADOPT,Add contextual blog-to-commercial links
+Schema,Not verified in source report,"Organization, WebSite, Breadcrumb, Product, ItemList, FAQ, BlogPosting",ADOPT WITH IMPROVEMENTS,Only schema matching visible verified data
+Indexation,Index/follow at scale,Lifecycle and quality-gated indexability,REJECT COMPETITOR METHOD,Drafts/noindex/archives excluded
+Image SEO,Geo-keyword-stuffed alt/title,Descriptive alt text and modern formats,REJECT COMPETITOR METHOD,Describe the image rather than the query
+Trust,Factsheet/logos and inconsistent off-site NAP,Business details and requirement-led quote flow,ADOPT WITH IMPROVEMENTS,Verify all facts and third-party profiles

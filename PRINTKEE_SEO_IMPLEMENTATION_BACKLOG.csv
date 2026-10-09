@@ -1,0 +1,16 @@
+﻿ID,Priority,Workstream,Action,Status,Scope,Acceptance Criteria
+SEO-001,P0,Data,"Reconcile all 2,796 keyword rows",Complete,PRINTKEE_COMPLETE_KEYWORD_MASTER.csv,Zero blank recommended URLs
+SEO-002,P0,Technical,Run frontend production build and TypeScript checks,Complete,frontend-next,Successful build/type generation
+SEO-003,P0,Technical,Run backend syntax and SEO quality tests,Complete,backend-next,All executed checks pass
+SEO-004,P0,Indexation,"Validate robots, sitemap eligibility, canonicals and 404 handling",Complete,Frontend regression suite,No indexable draft/duplicate and no canonical errors
+SEO-005,P1,Analytics,"Add standard GA4 view_item, select_item, contact and search events",Complete,Frontend,Events fire without PII
+SEO-006,P1,Admin,Add validated CSV import/export to the existing SEO admin,Complete,Backend/frontend admin,Dry-run validation and protected writes
+SEO-007,P1,Content,Review high-impression GSC pages,Ongoing,Existing canonical pages,Improved CTR/position in comparable 28-day windows
+SEO-008,P1,Internal links,Connect relevant blogs to commercial categories/products,Backlog,/blogs and articles,Every approved guide has relevant contextual links
+SEO-009,P2,Product data,"Verify MOQ, methods, materials, artwork and delivery constraints",Requires owner input,Catalog records,Owner/supplier-approved specifications
+SEO-010,P2,Locations,Validate non-Delhi-NCR city demand and service feasibility,Research,/locations,Only differentiated approved pages proceed
+SEO-011,P2,Content,Create reviewed briefs for supported content gaps,Backlog,/blogs,Distinct intent and commercial links
+SEO-012,P3,Expansion,"Assess printing, labels, packaging, photo and decor offerings",Requires business decision,/contact,Offering and operations confirmed before publication
+SEO-013,P3,International,Validate UAE/US/UK/Canada/Australia/Singapore demand and fulfilment,Research,/corporate-gifting,"Service, currency, delivery and localisation confirmed"
+SEO-014,P3,Off-page,Audit legitimate directories and NAP consistency,Research,External profiles,Accurate consistent business details
+SEO-015,P1,Measurement,Refresh GSC query-by-page/country/device data monthly,Backlog,Search Console export,Repeatable 30/60/90-day reporting

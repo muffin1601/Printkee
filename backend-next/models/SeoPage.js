@@ -48,6 +48,8 @@ const seoPageSchema = new mongoose.Schema(
     ogTitle: { type: String, default: "", trim: true },
     ogDescription: { type: String, default: "", trim: true },
     ogImage: { type: String, default: "", trim: true },
+    images: [{ url: { type: String, trim: true }, altText: { type: String, trim: true } }],
+    quotationPath: { type: String, default: "/contact", trim: true },
     schemaOptions: {
       collectionPage: { type: Boolean, default: true },
       itemList: { type: Boolean, default: true },
@@ -68,6 +70,7 @@ const seoPageSchema = new mongoose.Schema(
     similarPagePath: { type: String, default: "" },
     lastReviewedAt: { type: Date, default: null },
     publishedAt: { type: Date, default: null },
+    significantContentUpdatedAt: { type: Date, default: null },
   },
   { timestamps: true }
 );

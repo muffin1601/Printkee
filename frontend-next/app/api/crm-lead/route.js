@@ -56,6 +56,12 @@ export async function POST(request) {
 
   const body = await request.json();
   const lead = normalizeLead(body);
+  if ((!lead.phone && !lead.email) || (!lead.requirements && !lead.company)) {
+    return NextResponse.json(
+      { success: false, message: "A contact method and enquiry details are required" },
+      { status: 400 }
+    );
+  }
 
   try {
     const res = await fetch(process.env.CRM_API_URL, {

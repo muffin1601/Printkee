@@ -1,0 +1,10 @@
+﻿Sitemap,URL Type,Offline Expected Count,Runtime Source,Only Published Canonical 200 URLs,Duplicate Prevention,Significant Lastmod,Audit Status,Notes
+/sitemap.xml,Backward-compatible aggregate,300,Next metadata sitemap + backend,YES,YES,DB timestamps when available,PASS - BUILD/ROUTE TEST REQUIRED,Preserved for existing Search Console references
+/sitemap-index.xml,Sitemap index,7,Static partition registry,YES,YES,N/A,PASS,Lists seven bounded partitions
+/sitemaps/static.xml,Static/hubs,11,Route configuration,YES,YES,Omitted when no genuine timestamp,PASS,No artificial current date
+/sitemaps/categories.xml,Categories/subcategories,47,Active database records,YES,YES,updatedAt,PASS - RUNTIME DATA REQUIRED,Inactive records filtered by backend
+/sitemaps/products.xml,Products,235,Active database records,YES,YES,updatedAt,PASS - RUNTIME DATA REQUIRED,No candidate URLs
+/sitemaps/brands.xml,Brands,DATABASE_DEPENDENT,Active database records,YES,YES,updatedAt,PASS - RUNTIME DATA REQUIRED,No fabricated count
+/sitemaps/blog.xml,Blog,DATABASE_DEPENDENT,Published database records,YES,YES,updatedAt/publishedAt/date,PASS - RUNTIME DATA REQUIRED,No fabricated count
+/sitemaps/locations.xml,Existing location cohort,7,Verified existing routes,YES,YES,Omitted when no genuine timestamp,PASS,Research candidates excluded
+/sitemaps/seo-pages-1.xml,Approved SEO pages,DATABASE_DEPENDENT,INDEXABLE + robots.index records,YES,YES,significantContentUpdatedAt/updatedAt,PASS - RUNTIME DATA REQUIRED,Self-canonical records only
