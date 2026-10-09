@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "@/styles/Sitemap.module.css";
+import { catalogSeoGroups } from "@/data/catalogSeoPages";
 
 export const metadata = {
   title: { absolute: "Sitemap | Printkee" },
@@ -10,6 +11,21 @@ export const metadata = {
 };
 
 const sections = [
+  {
+    title: "Custom T-Shirt Solutions",
+    links: [
+      { label: "All custom T-shirts", href: "/t-shirts" },
+      { label: "Corporate T-shirts", href: "/t-shirts/corporate-t-shirts" },
+      { label: "Promotional T-shirts", href: "/t-shirts/promotional-t-shirts" },
+      { label: "Personalized T-shirts", href: "/t-shirts/personalized-t-shirts" },
+      { label: "Bulk T-shirt printing", href: "/t-shirts/bulk-t-shirt-printing" },
+      { label: "Logo-printed T-shirts", href: "/t-shirts/logo-printed-t-shirts" },
+    ],
+  },
+  ...catalogSeoGroups.map((group) => ({
+    title: `Custom ${group.label}`,
+    links: group.pages.map((page) => ({ label: page.name, href: page.path })),
+  })),
   {
     title: "Location Hubs",
     links: [

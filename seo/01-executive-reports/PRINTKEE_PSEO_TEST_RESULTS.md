@@ -9,7 +9,8 @@ Verification date: 2026-10-09. Tests ran against a fresh local production build 
 | Production build | PASS | Next.js 16.3.6 compiled, type-checked, and generated all 41 static build entries. Dynamic pSEO and sitemap routes remained server-rendered. |
 | TypeScript validation | PASS | `npx tsc --noEmit` exited 0. |
 | Lint | NOT AVAILABLE | The frontend and backend packages do not define a lint script. This is reported, not treated as a pass. |
-| Existing SEO regression | PASS | 330 sitemap URLs crawled; 330 pages checked; 93 internal paths checked; 0 errors, 0 warnings, 0 claim findings. |
+| SEO regression after catalogue expansion | PASS | 410 sitemap URLs crawled; 410 pages checked; 184 internal paths checked; 0 errors, 0 warnings, 0 claim findings. |
+| Catalogue landing-page audit | PASS | 74 pages; 74 unique titles, H1s and canonical URLs; 664-722 visible words per rendered page; 0 errors. |
 | Existing quality utilities | PASS | Normalization, similarity, CSV escaping/parsing, and opportunity validation passed. |
 | Complete keyword accounting | PASS | 2,796 input rows; 2,796 output rows; 0 omitted; 0 unmapped. |
 | Candidate generation | PASS | 14,638 generated; 14,638 unique; 0 exact duplicate paths. |
@@ -32,7 +33,10 @@ Before the empty-payload guard was added, one local regression request reached t
 ## Inventory verification
 
 - Approved/indexable offline cohort represented in the export: 300 existing static, location, category, subcategory, and product routes.
-- Live local aggregate sitemap at test time: 330 URLs, including database-backed brands/blogs beyond the offline cohort.
+- Live local aggregate sitemap at test time: 410 URLs, including database-backed brands/blogs beyond the offline cohort. All 80 curated T-shirt and catalogue URLs also appear in the SEO sitemap partition and crawlable HTML sitemap.
+- Curated T-shirt pages: 6 unique canonical URLs, titles and H1s; each page contains 385-425 visible words plus product and related-page links.
+- T-shirt keyword mapping: 208 exact keyword rows assigned across the six new pages; the complete 2,796-row mapped import passed validation with 0 errors.
+- Catalogue keyword mapping: 483 exact keyword rows assigned across supported product-family and modifier pages; the final 2,796-row mapped import passed validation with 0 errors.
 - Research candidates: 10,590.
 - Canonicalized candidates: 2,024.
 - Rejected unsupported-claim candidates: 2,024.

@@ -6,7 +6,13 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-INPUT = ROOT / "PurplePalette_Printo_SEO_Keyword_Universe.csv"
+SEO_ROOT = ROOT / "seo"
+KEYWORD_DIR = SEO_ROOT / "03-keywords-and-search-data"
+PROGRAMMATIC_DIR = SEO_ROOT / "04-programmatic-seo"
+AUDIT_DIR = SEO_ROOT / "05-technical-audits"
+OPERATIONS_DIR = SEO_ROOT / "06-governance-and-operations"
+STRATEGY_DIR = SEO_ROOT / "02-strategy-and-roadmap"
+INPUT = KEYWORD_DIR / "PurplePalette_Printo_SEO_Keyword_Universe.csv"
 SITE = "https://printkee.com"
 
 MASTER_COLUMNS = [
@@ -205,7 +211,18 @@ def csv_rows(path):
 
 
 def write_csv(name, fieldnames, rows):
-    with (ROOT / name).open("w", encoding="utf-8-sig", newline="") as handle:
+    directory = {
+        "PRINTKEE_COMPLETE_KEYWORD_MASTER.csv": KEYWORD_DIR,
+        "PRINTKEE_KEYWORD_URL_MAP.csv": KEYWORD_DIR,
+        "PRINTKEE_CONTENT_GAP_REPORT.csv": AUDIT_DIR,
+        "PRINTKEE_LOCATION_OPPORTUNITIES.csv": PROGRAMMATIC_DIR,
+        "PRINTKEE_COMPETITOR_COMPARISON.csv": STRATEGY_DIR,
+        "PRINTKEE_SEO_IMPLEMENTATION_BACKLOG.csv": OPERATIONS_DIR,
+        "PRINTKEE_SEO_PAGE_INVENTORY.csv": AUDIT_DIR,
+        "PRINTKEE_INTERNAL_LINK_AUDIT.csv": AUDIT_DIR,
+    }.get(name, AUDIT_DIR)
+    directory.mkdir(parents=True, exist_ok=True)
+    with (directory / name).open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(rows)
@@ -213,7 +230,7 @@ def write_csv(name, fieldnames, rows):
 
 def load_gsc():
     data = {}
-    for row in csv_rows(ROOT / "SEO_GSC_BASELINE.csv"):
+    for row in csv_rows(KEYWORD_DIR / "SEO_GSC_BASELINE.csv"):
         key = normalize_keyword(row["Query"])
         candidate = {
             "position": row["Position"], "impressions": row["Impressions"], "clicks": row["Clicks"],
@@ -440,7 +457,7 @@ def main():
     write_csv("PRINTKEE_SEO_IMPLEMENTATION_BACKLOG.csv", backlog_columns, [dict(zip(backlog_columns, row)) for row in backlog])
 
     catalog = catalog_tree()
-    crawl_path = ROOT / "SEO_CRAWL_REPORT.json"
+    crawl_path = AUDIT_DIR / "SEO_CRAWL_REPORT.json"
     crawl = json.loads(crawl_path.read_text(encoding="utf-8")) if crawl_path.exists() else {"pages": []}
     crawled_paths = {page.get("path") or "/" for page in crawl.get("pages", [])}
     inventory = []

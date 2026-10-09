@@ -1,8 +1,10 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
 const dataDir = path.join(root, "seo-data", "gsc-last-3-months");
+const outputDir = path.join(root, "seo", "03-keywords-and-search-data");
+await mkdir(outputDir, { recursive: true });
 
 function parseCsv(text) {
   const rows = [];
@@ -110,8 +112,8 @@ const baseline = queries.map((row) => {
   };
 });
 
-await writeFile(path.join(root, "SEO_GSC_BASELINE.csv"), csv(baseline, ["Query","Clicks","Impressions","CTR","Position","Cluster","Intent","Commercial Relevance","Target URL","Opportunity Tier"]));
-await writeFile(path.join(root, "SEO_GSC_OPPORTUNITIES.csv"), csv([...baseline].sort((a, b) => b["Opportunity Score"] - a["Opportunity Score"]), ["Query","Clicks","Impressions","CTR","Position","Cluster","Intent","Commercial Relevance","Target URL","Opportunity Tier","Opportunity Score"]));
+await writeFile(path.join(outputDir, "SEO_GSC_BASELINE.csv"), csv(baseline, ["Query","Clicks","Impressions","CTR","Position","Cluster","Intent","Commercial Relevance","Target URL","Opportunity Tier"]));
+await writeFile(path.join(outputDir, "SEO_GSC_OPPORTUNITIES.csv"), csv([...baseline].sort((a, b) => b["Opportunity Score"] - a["Opportunity Score"]), ["Query","Clicks","Impressions","CTR","Position","Cluster","Intent","Commercial Relevance","Target URL","Opportunity Tier","Opportunity Score"]));
 
 const pageQueryMap = baseline.map((row) => ({
   "Target URL": row["Target URL"], Query: row.Query, Clicks: row.Clicks, Impressions: row.Impressions, CTR: row.CTR, Position: row.Position,
@@ -119,7 +121,7 @@ const pageQueryMap = baseline.map((row) => ({
   "Primary/Secondary": row["Commercial Relevance"] === "High" && row["Target URL"] ? "Primary cluster" : "Secondary or unassigned",
   "Recommended Action": row["Commercial Relevance"] === "Low" ? "Do not optimize commercial pages for this query" : row["Opportunity Tier"] === "Tier 1" ? "Strengthen the mapped page and protect canonical ownership" : row["Opportunity Tier"] === "Tier 2" ? "Improve intent coverage and internal authority" : row["Opportunity Tier"] === "Tier 3" ? "Test a clearer title and description after recording the baseline" : "Monitor in GSC before changing content",
 }));
-await writeFile(path.join(root, "SEO_GSC_PAGE_QUERY_MAP.csv"), csv(pageQueryMap, ["Target URL","Query","Clicks","Impressions","CTR","Position","Intent","Commercial Relevance","Primary/Secondary","Recommended Action"]));
+await writeFile(path.join(outputDir, "SEO_GSC_PAGE_QUERY_MAP.csv"), csv(pageQueryMap, ["Target URL","Query","Clicks","Impressions","CTR","Position","Intent","Commercial Relevance","Primary/Secondary","Recommended Action"]));
 
 const pageClusters = new Map(clusters.map((item) => [item.url, item.name]));
 const focus = new Map([
@@ -146,7 +148,7 @@ const priorityPages = pages.map((row) => {
     "Recommended Action": details?.[1] || "Monitor; use a combined query-page GSC export before rewriting",
     Priority: details?.[2] || genericPriority };
 }).sort((a, b) => String(a.Priority).localeCompare(String(b.Priority)) || b.Impressions - a.Impressions);
-await writeFile(path.join(root, "SEO_PRIORITY_PAGES.csv"), csv(priorityPages, ["URL","Clicks","Impressions","CTR","Position","Primary Cluster","Current Issue","Recommended Action","Priority"]));
+await writeFile(path.join(outputDir, "SEO_PRIORITY_PAGES.csv"), csv(priorityPages, ["URL","Clicks","Impressions","CTR","Position","Primary Cluster","Current Issue","Recommended Action","Priority"]));
 
 const universe = `
 corporate gifts|Corporate & Promotional Merchandise
@@ -343,7 +345,7 @@ const competitive = uniqueUniverse.map(([keyword, clusterName]) => {
     "Authority Required": isHead || !match ? "High" : match.Position > 10 ? "Medium" : "Protect existing authority",
     Notes: match ? `${match.Impressions} impressions; ${match.Clicks} clicks; ${match.CTR} CTR` : "No position inferred; absence from this export is not proof of no impressions" };
 });
-await writeFile(path.join(root, "SEO_COMPETITIVE_KEYWORD_MAP.csv"), csv(competitive, ["Keyword","Cluster","Intent","Current GSC Position","Target URL","Existing/New","Priority","Content Required","Authority Required","Notes"]));
+await writeFile(path.join(outputDir, "SEO_COMPETITIVE_KEYWORD_MAP.csv"), csv(competitive, ["Keyword","Cluster","Intent","Current GSC Position","Target URL","Existing/New","Priority","Content Required","Authority Required","Notes"]));
 
 const counts = baseline.reduce((acc, row) => { acc[row["Opportunity Tier"]] = (acc[row["Opportunity Tier"]] || 0) + 1; return acc; }, {});
 console.log(JSON.stringify({ queries: baseline.length, pages: pages.length, pageOne: baseline.filter((row) => row.Position <= 10).length, positions11to20: baseline.filter((row) => row.Position > 10 && row.Position <= 20).length, tiers: counts }, null, 2));

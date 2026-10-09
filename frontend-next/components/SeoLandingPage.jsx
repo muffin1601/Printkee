@@ -11,6 +11,7 @@ const allLinks = (page) => [
 ].filter((link) => link?.url && link?.label);
 
 const productPath = (product) => {
+  if (product.href?.startsWith("/")) return product.href;
   const category = product.category?.slug;
   const subcategory = product.subcategory?.slug;
   if (!category || !subcategory || !product.slug) return "";
@@ -82,7 +83,7 @@ export default function SeoLandingPage({ page }) {
         <article className={styles.content}>
           {page.bodyContent && <section>{page.bodyContent.split(/\n{2,}/).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</section>}
           {(page.contentBlocks || []).map((block, index) => block?.body && <section key={`${block.heading}-${index}`}><h2>{block.heading}</h2><p>{block.body}</p></section>)}
-          {page.featuredProducts?.length > 0 && <section><h2>Relevant products</h2><div className={styles.products}>{page.featuredProducts.map((product) => {
+          {page.featuredProducts?.length > 0 && <section><h2>{page.featuredHeading || "Relevant products"}</h2><div className={styles.products}>{page.featuredProducts.map((product) => {
             const href = productPath(product);
             return href ? <Link href={href} className={styles.product} key={product._id}><img src={product.images?.[0]?.url || "/assets/placeholder.webp"} alt={product.images?.[0]?.altText || product.name} /><span>{product.name}</span></Link> : null;
           })}</div></section>}

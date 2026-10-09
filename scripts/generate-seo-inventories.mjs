@@ -3,6 +3,8 @@ import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
 const apiBase = (process.env.SEO_API_BASE || "https://printkee.com/api").replace(/\/$/, "");
+const outputDir = path.join(root, "seo", "05-technical-audits", "generated-source-inventories");
+await fs.mkdir(outputDir, { recursive: true });
 const csv = (value = "") => `"${String(value).replaceAll('"', '""')}"`;
 const row = (values) => `${values.map(csv).join(",")}\n`;
 
@@ -39,7 +41,7 @@ const keywords = [
   ["custom hoodies for coaching institutes Delhi", "printed coaching hoodies Delhi", "Local commercial", "CATEGORY_BUYER_LOCATION", "/custom-hoodies/coaching-institutes/delhi", "custom-hoodies", "Delhi", "coaching institutes", "education", "QUALITY_REVIEW", "LOW", "Candidate only; strict similarity review required"],
   ["corporate Diwali gifts Delhi", "Diwali gifts for employees Delhi", "Seasonal commercial", "CATEGORY_LOCATION", "/corporate-diwali-gifts/delhi", "diwali-special", "Delhi", "employees", "", "QUALITY_REVIEW", "MEDIUM", "Seasonal content must be current and verified"],
 ];
-await fs.writeFile(path.join(root, "SEO_PAGE_INVENTORY.csv"), inventoryHeader.join(",") + "\n" + staticPages.map((entry) => row([...entry.slice(0, 9), entry[9], entry[10], entry[11], entry[12], entry[13], entry[14], new Date().toISOString().slice(0, 10), entry[15]])).join(""));
-await fs.writeFile(path.join(root, "SEO_LOCATION_MATRIX.csv"), locationHeader.join(",") + "\n" + locations.map((entry) => row(entry)).join(""));
-await fs.writeFile(path.join(root, "SEO_KEYWORD_MAP_V2.csv"), keywordHeader.join(",") + "\n" + keywords.map(row).join(""));
-console.log("Generated SEO_PAGE_INVENTORY.csv, SEO_LOCATION_MATRIX.csv and SEO_KEYWORD_MAP_V2.csv");
+await fs.writeFile(path.join(outputDir, "SEO_PAGE_INVENTORY.csv"), inventoryHeader.join(",") + "\n" + staticPages.map((entry) => row([...entry.slice(0, 9), entry[9], entry[10], entry[11], entry[12], entry[13], entry[14], new Date().toISOString().slice(0, 10), entry[15]])).join(""));
+await fs.writeFile(path.join(outputDir, "SEO_LOCATION_MATRIX.csv"), locationHeader.join(",") + "\n" + locations.map((entry) => row(entry)).join(""));
+await fs.writeFile(path.join(outputDir, "SEO_KEYWORD_MAP_V2.csv"), keywordHeader.join(",") + "\n" + keywords.map(row).join(""));
+console.log(`Generated source inventories in ${outputDir}`);

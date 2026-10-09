@@ -6,8 +6,11 @@ const { DEFAULT_LOCATIONS, generateCandidateInventory } = require(path.join(root
 const { parseCsv, serializeCsv, validateKeywordRows } = require(path.join(root, "backend-next/services/seoCsv"));
 const { normalizeKeyword } = require(path.join(root, "backend-next/services/seoQuality"));
 
-const writeCsv = (filename, columns, rows) => fs.writeFileSync(path.join(root, filename), `\uFEFF${serializeCsv(columns, rows)}`);
-const writeText = (filename, text) => fs.writeFileSync(path.join(root, filename), `${text.trim()}\n`);
+const keywordDir = path.join(root, "seo/03-keywords-and-search-data");
+const programmaticDir = path.join(root, "seo/04-programmatic-seo");
+const executiveDir = path.join(root, "seo/01-executive-reports");
+const writeCsv = (filename, columns, rows) => fs.writeFileSync(path.join(programmaticDir, filename), `\uFEFF${serializeCsv(columns, rows)}`);
+const writeText = (filename, text) => fs.writeFileSync(path.join(filename.includes("ARCHITECTURE") || filename.startsWith("GENERATED_") ? programmaticDir : executiveDir, filename), `${text.trim()}\n`);
 const value = (row, key) => String(row[key] || "").trim();
 const validPath = (input) => {
   const raw = String(input || "").trim();
@@ -16,7 +19,7 @@ const validPath = (input) => {
   return "";
 };
 
-const keywordRows = parseCsv(fs.readFileSync(path.join(root, "PRINTKEE_COMPLETE_KEYWORD_MASTER.csv"), "utf8"));
+const keywordRows = parseCsv(fs.readFileSync(path.join(keywordDir, "PRINTKEE_COMPLETE_KEYWORD_MASTER.csv"), "utf8"));
 const keywordValidation = validateKeywordRows(keywordRows, normalizeKeyword);
 if (keywordRows.length !== 2796 || keywordValidation.errors.length) throw new Error(`Keyword accounting failed: ${keywordRows.length} rows, ${keywordValidation.errors.length} errors`);
 
@@ -195,7 +198,7 @@ The existing exact-path server-rendered resolver is reused; no thousands of page
 4. Increase coverage only after indexation, engagement, enquiry, and Search Console evidence justify it.
 `);
 
-writeText("PRINTKEE_PSEO_IMPLEMENTATION_REPORT.md", `
+writeText("GENERATED_PSEO_IMPLEMENTATION_BASELINE.md", `
 # Printkee Programmatic SEO Implementation Report
 
 ## Delivered
@@ -228,7 +231,7 @@ writeText("PRINTKEE_PSEO_IMPLEMENTATION_REPORT.md", `
 No ranking, traffic, Search Console, or indexation results were fabricated. Database imports and candidate persistence were not executed; the admin workflows require an authenticated preview and explicit commit.
 `);
 
-writeText("PRINTKEE_PSEO_TEST_RESULTS.md", `
+writeText("GENERATED_PSEO_TEST_BASELINE.md", `
 # Printkee Programmatic SEO Test Results
 
 Generated test baseline. Final build and runtime results are recorded after the verification commands run.

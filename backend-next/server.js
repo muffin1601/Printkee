@@ -52,17 +52,25 @@ const DEFAULT_ALLOWED_ORIGINS = [
   "https://printkee.com",
   "https://www.printkee.com",
   "http://localhost:3000",
+  "http://localhost:3001",
+  "http://localhost:3002",
+  "http://127.0.0.1:3000",
+  "http://127.0.0.1:3001",
+  "http://127.0.0.1:3002",
 ];
-const allowedOrigins = process.env.CORS_ORIGIN
-  ? process.env.CORS_ORIGIN.split(",").map((o) => o.trim())
-  : DEFAULT_ALLOWED_ORIGINS;
+const configuredOrigins = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(",").map((origin) => origin.trim()).filter(Boolean)
+  : [];
+const allowedOrigins = new Set([...DEFAULT_ALLOWED_ORIGINS, ...configuredOrigins]);
+const isLocalDevelopmentOrigin = (origin) =>
+  process.env.NODE_ENV !== "production" && /^http:\/\/(?:localhost|127\.0\.0\.1):\d+$/.test(origin);
 
 app.use(
   cors({
     origin: (origin, callback) => {
       // No Origin header = same-origin request, server-to-server call, or a
       // non-browser client (curl, health checks) — always allow.
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin || allowedOrigins.has(origin) || isLocalDevelopmentOrigin(origin)) {
         return callback(null, true);
       }
       return callback(new Error(`CORS: origin ${origin} not allowed`));

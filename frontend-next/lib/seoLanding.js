@@ -1,4 +1,6 @@
 import { SITE_URL, brandedTitle } from "./siteConfig";
+import { getTshirtSeoPage } from "../data/tshirtSeoPages";
+import { getCatalogSeoPage } from "../data/catalogSeoPages";
 
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 
@@ -6,6 +8,8 @@ export const pathFromSegments = (...segments) =>
   `/${segments.flat().filter(Boolean).map((segment) => String(segment).replace(/^\/+|\/+$/g, "")).join("/")}`;
 
 export async function getSeoLandingPage(path) {
+  const curatedPage = getTshirtSeoPage(path) || getCatalogSeoPage(path);
+  if (curatedPage) return curatedPage;
   try {
     const response = await fetch(
       `${BACKEND}/api/seo-pages/resolve?path=${encodeURIComponent(path)}`,

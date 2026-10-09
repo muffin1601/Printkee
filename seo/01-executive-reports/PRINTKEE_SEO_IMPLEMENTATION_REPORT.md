@@ -81,7 +81,7 @@ Search Volume and Ranking Difficulty are `UNKNOWN` throughout because no verifie
 - `backend-next/routes/seoPageRoutes.js`
 - `backend-next/services/seoCsv.js` (new)
 - `backend-next/scripts/testSeoQuality.js`
-- `frontend-next/SEO_CRAWL_REPORT.json` output at repository root was refreshed by the regression test (`SEO_CRAWL_REPORT.json`).
+- `seo/05-technical-audits/SEO_CRAWL_REPORT.json` was refreshed by the regression test.
 
 ## Database and deployment requirements
 

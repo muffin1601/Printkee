@@ -1,4 +1,6 @@
 import { SITE_URL, toPublicProductSlug, toPublicSubcategorySlug } from "../lib/siteConfig";
+import { tshirtSeoPaths } from "../data/tshirtSeoPages";
+import { catalogSeoPaths } from "../data/catalogSeoPages";
 
 const BASE    = SITE_URL;
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
@@ -52,6 +54,9 @@ export default async function sitemap() {
     { path: "/diwali-special/hampers/wallet-mug-ferrero-diya-kit", priority: 0.6, freq: "monthly" },
     { path: "/diwali-special/hampers/glass-jar-diya-gift-set", priority: 0.6, freq: "monthly" },
   ];
+
+  tshirtSeoPaths.forEach((path) => staticPages.push({ path, priority: path === "/t-shirts" ? 0.8 : 0.7, freq: "monthly" }));
+  catalogSeoPaths.forEach((path) => staticPages.push({ path, priority: path.split("/").length === 2 ? 0.8 : 0.7, freq: "monthly" }));
 
   staticPages.forEach(({ path, priority, freq }) => {
     entries.push({ url: `${BASE}${path}`, changeFrequency: freq, priority });

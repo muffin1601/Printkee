@@ -33,7 +33,7 @@ assert.equal(lifecycle.indexable, true);
 assert.equal(lifecycle.sitemapIncluded, true);
 
 const root = path.resolve(__dirname, "../..");
-const keywordRows = parseCsv(fs.readFileSync(path.join(root, "PRINTKEE_COMPLETE_KEYWORD_MASTER.csv"), "utf8"));
+const keywordRows = parseCsv(fs.readFileSync(path.join(root, "seo/03-keywords-and-search-data/PRINTKEE_COMPLETE_KEYWORD_MASTER.csv"), "utf8"));
 const keywordValidation = validateKeywordRows(keywordRows, normalizeKeyword);
 assert.equal(keywordRows.length, 2796);
 assert.equal(keywordValidation.records.length, 2796);

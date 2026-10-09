@@ -156,6 +156,6 @@ const missing = await fetchPath("/__seo-regression-missing-page__");
 if (missing.status !== 404) report.errors.push(`unknown URL returned ${missing.status} instead of 404`);
 if (report.claimFindings.length) report.warnings.push(`${report.claimFindings.length} published pages contain claim patterns requiring owner/CMS verification`);
 report.summary = { sitemapUrls: sitemapUrls.length, crawledPages: report.pages.length, internalPathsChecked: internalPaths.size, claimFindings: report.claimFindings.length, errors: report.errors.length, warnings: report.warnings.length };
-await writeFile(new URL("../../SEO_CRAWL_REPORT.json", import.meta.url), `${JSON.stringify(report, null, 2)}\n`);
+await writeFile(new URL("../../seo/05-technical-audits/SEO_CRAWL_REPORT.json", import.meta.url), `${JSON.stringify(report, null, 2)}\n`);
 console.log(JSON.stringify(report.summary));
 if (report.errors.length) { console.error(report.errors.slice(0, 50).join("\n")); process.exitCode = 1; }

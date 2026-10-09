@@ -1,4 +1,6 @@
 import { SITE_URL, toPublicProductSlug, toPublicSubcategorySlug } from "./siteConfig";
+import { tshirtSeoPaths } from "../data/tshirtSeoPages";
+import { catalogSeoPaths } from "../data/catalogSeoPages";
 
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 export const PARTITIONS = ["static", "categories", "products", "brands", "blog", "locations", "seo-pages-1"];
@@ -14,6 +16,20 @@ const entry = (path, modified) => ({
 export async function getSitemapPartition(segment) {
   if (segment === "static") return staticPaths.map((path) => entry(path));
   if (segment === "locations") return locationPaths.map((path) => entry(path));
+
+  if (segment === "seo-pages-1") {
+    const curatedEntries = [...tshirtSeoPaths, ...catalogSeoPaths].map((path) => entry(path));
+    try {
+      const response = await fetch(`${BACKEND}/api/sitemap-data`, { cache: "no-store" });
+      if (!response.ok) return curatedEntries;
+      const data = await response.json();
+      return [
+        ...curatedEntries,
+        ...(data.seoPages || []).filter((item) => item.path && item.canonicalUrl === `${SITE_URL}${item.path}`)
+          .map((item) => entry(item.path, item.significantContentUpdatedAt || item.updatedAt)),
+      ];
+    } catch { return curatedEntries; }
+  }
 
   const response = await fetch(`${BACKEND}/api/sitemap-data`, { cache: "no-store" });
   if (!response.ok) throw new Error(`Sitemap data request failed with HTTP ${response.status}`);
@@ -33,10 +49,6 @@ export async function getSitemapPartition(segment) {
   }
   if (segment === "brands") return (data.brands || []).filter((item) => item.slug).map((item) => entry(`/brands/${item.slug}`, item.updatedAt));
   if (segment === "blog") return (data.blogs || []).filter((item) => item._id).map((item) => entry(`/blog/${item._id}`, item.updatedAt || item.publishedAt || item.date));
-  if (segment === "seo-pages-1") {
-    return (data.seoPages || []).filter((item) => item.path && item.canonicalUrl === `${SITE_URL}${item.path}`)
-      .map((item) => entry(item.path, item.significantContentUpdatedAt || item.updatedAt));
-  }
   return null;
 }
 
