@@ -56,6 +56,7 @@ export async function generateMetadata({ params }) {
   const rawTitle = prod?.seo?.metaTitle || `${prod?.name} | ${sub?.name}`;
   const title = brandedTitle(rawTitle);
   const image = prod?.images?.[0]?.url;
+  const indexable = data.seoQuality?.eligible === true;
 
   return {
     title: { absolute: title },
@@ -67,6 +68,11 @@ export async function generateMetadata({ params }) {
       "corporate gifting India",
     ],
     alternates: { canonical },
+    robots: {
+      index: indexable,
+      follow: true,
+      googleBot: { index: indexable, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    },
     openGraph: {
       title,
       description: desc,

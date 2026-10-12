@@ -8,6 +8,7 @@ const Product = require("../models/product");
 const { verifyToken } = require("../middleware/auth");
 const { makeUploader, handleUploadError } = require("../middleware/upload");
 const { ok, fail, asyncHandler } = require("../utils/response");
+const { evaluateProductSeo } = require("../services/productSeoQuality");
 
 const upload = makeUploader("products");
 
@@ -42,6 +43,7 @@ router.get(
       category: { _id: category._id, name: category.name, slug: category.slug },
       subcategory: { _id: subcategory._id, name: subcategory.name, slug: subcategory.slug },
       product,
+      seoQuality: evaluateProductSeo(product),
     });
   })
 );

@@ -1,6 +1,7 @@
 import { SITE_URL, toPublicProductSlug, toPublicSubcategorySlug } from "../lib/siteConfig";
 import { tshirtSeoPaths } from "../data/tshirtSeoPages";
 import { catalogSeoPaths } from "../data/catalogSeoPages";
+import { keywordSolutionPaths } from "../data/keywordSolutionPages";
 
 const BASE    = SITE_URL;
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
@@ -57,6 +58,7 @@ export default async function sitemap() {
 
   tshirtSeoPaths.forEach((path) => staticPages.push({ path, priority: path === "/t-shirts" ? 0.8 : 0.7, freq: "monthly" }));
   catalogSeoPaths.forEach((path) => staticPages.push({ path, priority: path.split("/").length === 2 ? 0.8 : 0.7, freq: "monthly" }));
+  keywordSolutionPaths.forEach((path) => staticPages.push({ path, priority: 0.7, freq: "monthly" }));
 
   staticPages.forEach(({ path, priority, freq }) => {
     entries.push({ url: `${BASE}${path}`, changeFrequency: freq, priority });
@@ -123,7 +125,7 @@ export default async function sitemap() {
     });
 
     /* Product pages */
-    products.forEach(({ slug, updatedAt, category, subcategory }) => {
+    products.filter((item) => item.seoIndexable !== false).forEach(({ slug, updatedAt, category, subcategory }) => {
       if (!slug || !category?.slug || !subcategory?.slug) return;
       const cleanSlug = toPublicProductSlug(slug);
       const publicSubcategorySlug = toPublicSubcategorySlug(subcategory.slug);

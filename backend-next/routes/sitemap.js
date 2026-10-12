@@ -7,6 +7,7 @@ const Product     = require("../models/product");
 const Blog        = require("../models/Blog");
 const Brand       = require("../models/Brand");
 const SeoPage     = require("../models/SeoPage");
+const { evaluateProductSeo } = require("../services/productSeoQuality");
 
 /**
  * GET /api/sitemap-data
@@ -20,7 +21,7 @@ router.get("/sitemap-data", async (req, res) => {
       Category.find({ isActive: { $ne: false } }, "slug updatedAt").lean(),
       Subcategory.find({ isActive: { $ne: false } }, "slug updatedAt").populate("category", "slug isActive").lean(),
       // Only URLs that can resolve to a public product page belong in the sitemap.
-      Product.find({ isActive: true }, "slug updatedAt")
+      Product.find({ isActive: true })
         .populate("category",    "slug")
         .populate("subcategory", "slug")
         .lean(),
@@ -35,7 +36,17 @@ router.get("/sitemap-data", async (req, res) => {
       ).lean(),
     ]);
 
-    res.json({ categories, subcategories, products, blogs, brands, seoPages });
+    const indexableProducts = products
+      .filter((product) => evaluateProductSeo(product).eligible)
+      .map(({ slug, updatedAt, category, subcategory }) => ({
+        slug,
+        updatedAt,
+        category,
+        subcategory,
+        seoIndexable: true,
+      }));
+
+    res.json({ categories, subcategories, products: indexableProducts, blogs, brands, seoPages });
   } catch (err) {
     console.error("sitemap-data error:", err);
     res.status(500).json({ error: "Failed to fetch sitemap data" });

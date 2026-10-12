@@ -1,6 +1,7 @@
 import { SITE_URL, toPublicProductSlug, toPublicSubcategorySlug } from "./siteConfig";
 import { tshirtSeoPaths } from "../data/tshirtSeoPages";
 import { catalogSeoPaths } from "../data/catalogSeoPages";
+import { keywordSolutionPaths } from "../data/keywordSolutionPages";
 
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 export const PARTITIONS = ["static", "categories", "products", "brands", "blog", "locations", "seo-pages-1"];
@@ -18,7 +19,7 @@ export async function getSitemapPartition(segment) {
   if (segment === "locations") return locationPaths.map((path) => entry(path));
 
   if (segment === "seo-pages-1") {
-    const curatedEntries = [...tshirtSeoPaths, ...catalogSeoPaths].map((path) => entry(path));
+    const curatedEntries = [...tshirtSeoPaths, ...catalogSeoPaths, ...keywordSolutionPaths].map((path) => entry(path));
     try {
       const response = await fetch(`${BACKEND}/api/sitemap-data`, { cache: "no-store" });
       if (!response.ok) return curatedEntries;
@@ -42,7 +43,7 @@ export async function getSitemapPartition(segment) {
     ];
   }
   if (segment === "products") {
-    return (data.products || []).filter((item) => item.slug && item.category?.slug && item.subcategory?.slug).map((item) => {
+    return (data.products || []).filter((item) => item.seoIndexable !== false && item.slug && item.category?.slug && item.subcategory?.slug).map((item) => {
       const slug = toPublicProductSlug(item.slug);
       return slug ? entry(`/${item.category.slug}/${toPublicSubcategorySlug(item.subcategory.slug)}/${encodeURIComponent(slug)}`, item.updatedAt) : null;
     }).filter(Boolean);

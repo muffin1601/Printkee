@@ -92,6 +92,7 @@ const productSchema = new mongoose.Schema(
       metaTitle: String,
       metaDescription: String,
       keywords: [String],
+      indexable: { type: Boolean, default: undefined },
     },
 
     category: {

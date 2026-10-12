@@ -12,6 +12,7 @@ const BrandsDisplayClient = ({ brand, brandInfo }) => {
 
   const firstProducts     = products.slice(0, 5);
   const remainingProducts = products.slice(5);
+  const productCategories = [...new Set(products.map((product) => product.category).filter(Boolean))];
 
   if (!brandInfo) return <p className={styles["not-found"]}>Brand not found.</p>;
 
@@ -75,10 +76,23 @@ const BrandsDisplayClient = ({ brand, brandInfo }) => {
         <p className={styles["not-found"]}>No products found for this brand.</p>
       ) : (
         <>
+          <section className={styles["brand-buying-guide"]} aria-labelledby="brand-range-title">
+            <h2 id="brand-range-title">Review {brandInfo.name} corporate gift options</h2>
+            <p>
+              This catalogue currently shows {products.length} {brandInfo.name} product examples across {productCategories.join(", ")}.
+              Use the product names and images to prepare a shortlist, then request the current model, specification, colour and quantity details before ordering.
+              Catalogue availability can change, so a displayed item should be treated as a selection reference until it is confirmed in a quotation.
+            </p>
+            <p>
+              For a useful comparison, share the number of recipients, intended occasion, target budget, required date and delivery locations.
+              Also identify any packaging or branding requirement. The team can then review suitable options and confirm what is included in the proposed order.
+              For other suppliers and product types, return to the <Link href="/brands">corporate brands directory</Link>, or <Link href="/contact">request a quotation</Link> with your shortlist.
+            </p>
+          </section>
           <div className={styles["brand-products-grid"]}>
             {firstProducts.map((product, index) => (
               <article key={index} className={styles["brand-product-card"]}>
-                <img src={product.image} alt={`${product.name} product image`} className={styles["brand-product-image"]} />
+                  <img src={product.image} alt={`${product.name} catalogue reference`} className={styles["brand-product-image"]} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = brandInfo.logo; }} />
                 <div className={styles["brand-product-name"]}>{product.name}</div>
               </article>
             ))}
@@ -88,7 +102,7 @@ const BrandsDisplayClient = ({ brand, brandInfo }) => {
             <div className={styles["brand-products-grid"]}>
               {remainingProducts.map((product, index) => (
                 <article key={index} className={styles["brand-product-card"]}>
-                  <img src={product.image} alt={`${product.name} product image`} className={styles["brand-product-image"]} />
+                  <img src={product.image} alt={`${product.name} catalogue reference`} className={styles["brand-product-image"]} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = brandInfo.logo; }} />
                   <div className={styles["brand-product-name"]}>{product.name}</div>
                 </article>
               ))}

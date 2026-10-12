@@ -9,6 +9,8 @@ const canonicalPathRedirects = new Map([
   ["/Apparel-and-Accessories/duffle-bags", "/bags-and-travel/duffle-bags"],
   ["/Apparel-and-Accessories/wireless-charging", "/technology-accessories/wireless-charging"],
   ["/Apparel-and-Accessories/file-and-folder", "/office-and-writing/file-and-folder"],
+  ["/Apparel-and-Accessories/customized-gifting", "/corporate-gifting"],
+  ["/Apparel-and-Accessories/Speaker", "/technology-accessories"],
   ["/office-and-writing/notebook-and-diary", "/office-and-writing/notebooks-and-diary-sets"],
   ["/categories/Drink%20Ware", "/drink-ware"],
   ["/employee-gifts", "/collection/welcome-kits"],
@@ -20,6 +22,15 @@ const canonicalPathRedirects = new Map([
   ["/apparel-and-accessories/polo-t-shirts/__CANONICAL__", "/apparel-and-accessories/polo-t-shirts"],
   ["/apparel-and-accessories/polo-t-shirts/promotional-collar%20-t-shirts", "/apparel-and-accessories/polo-t-shirts/promotional-collar-t-shirts"],
   ["/drink-ware/ceramic-mug/classic-ceramic-coffee-mug", "/drink-ware/ceramic-mug/classic-ceramic-coffee-mug-2"],
+  ["/__CANONICAL__", "/"],
+  ["/details/PRD-416118", "/corporate-gifting"],
+  ["/gift-and-promotions-dubai", "/corporate-gifting"],
+  ["/customize/notebook-diary/PRD-754073", "/office-and-writing/notebooks-and-diary-sets"],
+  ["/customize/notebook-diary/PRD-115752", "/office-and-writing/notebooks-and-diary-sets"],
+  ["/american-tourister/at-fusion-laptop-backpack", "/brands/american-tourister"],
+  ["/american-tourister/at-voyager-weekender-duffle", "/brands/american-tourister"],
+  ["/american-tourister/at-classic-cabin-case", "/brands/american-tourister"],
+  ["/american-tourister/at-summit-backpack", "/brands/american-tourister"],
 ]);
 
 const canonicalPrefixRedirects = [
@@ -67,5 +78,10 @@ export const config = {
     "/drink-ware/:path*",
     "/bags-and-travel/backpacks/:path*",
     "/eco-products/cork-laptop-bag-and-wallet/:path*",
+    "/__CANONICAL__",
+    "/details/:path*",
+    "/gift-and-promotions-dubai",
+    "/customize/notebook-diary/:path*",
+    "/american-tourister/:path*",
   ],
 };

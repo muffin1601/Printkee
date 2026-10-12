@@ -180,4 +180,23 @@ const brandProducts = {
   ],
 };
 
+// Several legacy catalogue cards were created with placeholder .jpg paths
+// that were never shipped. Use the real brand artwork server-side so crawlers
+// and non-JavaScript clients do not receive broken image URLs.
+const legacyImageFallbacks = {
+  puma: "/assets/brands/puma.webp",
+  "jack-and-jones": "/assets/brands/jackjones.webp",
+  wildcraft: "/assets/brands/wildcraft.webp",
+  "swiss-military": "/assets/brands/swiss.webp",
+  "rare-rabbit": "/assets/brands/rare-rabbit.webp",
+  fuzo: "/assets/brands/fuzo.webp",
+  "scott-international": "/assets/brands/scott.webp",
+};
+
+Object.entries(legacyImageFallbacks).forEach(([brand, fallbackImage]) => {
+  (brandProducts[brand] || []).forEach((product) => {
+    if (product.image?.endsWith(".jpg")) product.image = fallbackImage;
+  });
+});
+
 export default brandProducts;

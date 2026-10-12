@@ -1,6 +1,7 @@
 import { SITE_URL, brandedTitle } from "./siteConfig";
 import { getTshirtSeoPage } from "../data/tshirtSeoPages";
 import { getCatalogSeoPage } from "../data/catalogSeoPages";
+import { getKeywordSolutionPage } from "../data/keywordSolutionPages";
 
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 
@@ -8,7 +9,7 @@ export const pathFromSegments = (...segments) =>
   `/${segments.flat().filter(Boolean).map((segment) => String(segment).replace(/^\/+|\/+$/g, "")).join("/")}`;
 
 export async function getSeoLandingPage(path) {
-  const curatedPage = getTshirtSeoPage(path) || getCatalogSeoPage(path);
+  const curatedPage = getTshirtSeoPage(path) || getCatalogSeoPage(path) || getKeywordSolutionPage(path);
   if (curatedPage) return curatedPage;
   try {
     const response = await fetch(
@@ -30,6 +31,7 @@ export function seoLandingMetadata(page) {
   return {
     title: { absolute: title },
     description,
+    keywords: [page.primaryKeyword, ...(page.secondaryKeywords || [])].filter(Boolean),
     robots: { index: page.robots?.index === true, follow: page.robots?.follow !== false },
     alternates: { canonical },
     openGraph: {

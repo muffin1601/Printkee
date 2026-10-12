@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "generate:keyword-solutions": "node scripts/generate-keyword-solutions.mjs",
     "test:seo": "node scripts/seo-regression.mjs",
     "test:catalog-seo": "node scripts/catalog-seo-audit.mjs"
   },

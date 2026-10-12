@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "@/styles/Sitemap.module.css";
 import { catalogSeoGroups } from "@/data/catalogSeoPages";
+import { keywordSolutionPages } from "@/data/keywordSolutionPages";
 
 export const metadata = {
   title: { absolute: "Sitemap | Printkee" },
@@ -11,6 +12,12 @@ export const metadata = {
 };
 
 const sections = [
+  {
+    title: "Business Solution Pages",
+    links: Object.values(keywordSolutionPages)
+      .filter((page) => page.robots.index)
+      .map((page) => ({ label: page.name, href: page.path })),
+  },
   {
     title: "Custom T-Shirt Solutions",
     links: [

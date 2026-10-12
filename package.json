@@ -1,0 +1,7 @@
+{
+  "name": "printkee-monorepo",
+  "private": true,
+  "scripts": {
+    "generate:keyword-solutions": "npm --prefix frontend-next run generate:keyword-solutions"
+  }
+}
