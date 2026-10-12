@@ -29,7 +29,7 @@ const seoConfig = {
   },
 
   "/office-and-writing": {
-    h1: "Custom Office and stationary",
+    h1: "Custom Office Stationery",
     h2: "Branded Stationery, Notebooks & Writing Sets for Corporate Gifting",
     title: "Custom Office Stationery & Supplies with Logo Bulk Order",
     description: "Buy custom office & writing essentials with logo printing in Delhi NCR. Pens, notebooks, diaries, lanyards & ID cards for corporate gifting and brand promotions.",
@@ -96,30 +96,30 @@ const seoConfig = {
   ==================================================================== */
 
   "/apparel-and-accessories/polo-t-shirts": {
-    h1: "Custom T-Shirt Manufacturers in Delhi",
-    h2: "Customised printing T-Shirts by printkee",
-    title: "Custom T-Shirt Manufacturers in Delhi Bulk Printing",
-    description: "Shop premium polo t-shirts for men & women - 100% cotton, custom logo printing, bulk corporate orders. Vibrant colors, fast India delivery. Order now!",
+    h1: "Custom Polo T-Shirts with Logo",
+    h2: "Branded Polo Shirts for Company Teams and Events",
+    title: "Custom Polo T-Shirts with Logo for Company Teams",
+    description: "Compare custom polo T-shirts for company teams, events and promotional programmes. Review available products, sizes and logo-branding requirements before requesting a quote.",
     openGraph: { title: "Custom Polo T-Shirts in Delhi NCR | Logo Print", description: "Promotional polo t-shirts with logo printing for corporate branding. Bulk orders available in Delhi NCR." },
     twitter:   { title: "Custom Polo T-Shirts in Delhi NCR | Bulk Orders", description: "Promotional polo t-shirts with logo printing — bulk corporate orders in Delhi NCR." },
   },
 
   "/apparel-and-accessories/round-neck-t-shirts": {
-    h1: "Custom  Round Neck T-Shirts Manufacturers in Delhi",
-    h2: "Personalised Round Neck T-Shirt",
-    title: "Round Neck T-Shirt Manufacturers in Delhi Custom Print",
-    description: "Buy round neck t-shirts online - soft cotton, perfect for printing, events & daily wear. Bulk discounts, custom designs, pan-India shipping. Get a quote today!",
-    openGraph: { title: "Custom Round Neck T-Shirt Manufacturers in Delhi", description: "Promotional round neck t-shirts with logo printing for corporate teams and events in Delhi NCR." },
-    twitter:   { title: "Custom Round Neck T-Shirt Manufacturers in Delhi", description: "Custom round neck t-shirts in bulk for corporate branding in Delhi NCR." },
+    h1: "Custom Round Neck T-Shirts with Logo",
+    h2: "Printed T-Shirts for Teams, Campaigns and Events",
+    title: "Custom Round Neck T-Shirts with Logo Printing",
+    description: "Compare custom round neck T-shirts for teams, campaigns and events. Review available colours, sizes and artwork requirements before requesting a branding quotation.",
+    openGraph: { title: "Custom Round Neck T-Shirts with Logo", description: "Printed round neck T-shirts for company teams, campaigns and events." },
+    twitter:   { title: "Custom Round Neck T-Shirts with Logo", description: "Compare round neck T-shirt products and prepare a logo-branding quotation." },
   },
 
   "/apparel-and-accessories/caps": {
-    h1: "Custom Cap Manufacturer in Delhi NCR",
+    h1: "Custom Caps with Logo in Delhi NCR",
     h2: "Custom Caps with Name & Logo",
-    title: "Custom Cap Manufacturer in Delhi NCR Logo Embroidery",
-    description: "Custom printed caps for brands & teams - adjustable, premium fabric with embroidery & printing. delivery planning across India. Design your caps now!",
-    openGraph: { title: "Promotional Caps Manufacturers in Delhi NCR", description: "Custom caps with logo printing for corporate events and promotions in Delhi NCR." },
-    twitter:   { title: "Promotional Caps Manufacturers in Delhi NCR", description: "Promotional caps with custom logo printing — bulk orders in Delhi NCR." },
+    title: "Custom Caps with Logo Printing in Delhi NCR",
+    description: "Compare custom caps for teams, events and promotional programmes in Delhi NCR. Review available styles and logo-branding requirements before requesting a quote.",
+    openGraph: { title: "Custom Caps with Logo in Delhi NCR", description: "Compare branded cap options for company teams, events and promotions." },
+    twitter:   { title: "Custom Caps with Logo in Delhi NCR", description: "Review cap styles and prepare a product-specific logo-branding quotation." },
   },
 
   "/apparel-and-accessories/hats": {
@@ -132,10 +132,10 @@ const seoConfig = {
   },
 
   "/apparel-and-accessories/corporate-shirts": {
-    h1: "Customized shirt printing near me",
-    h2: "Custom Formal shirts Printing",
-    title: "Custom Shirt Printing Near Me delivery planning Delhi NCR",
-    description: "Premium corporate shirts for office uniforms - wrinkle-free fabrics with custom embroidery. Bulk pricing, perfect fit, delivered across India. Enquire now!",
+    h1: "Custom Corporate Shirts with Logo",
+    h2: "Branded Formal Shirts for Company Teams",
+    title: "Custom Corporate Shirts with Logo for Company Teams",
+    description: "Compare corporate shirts for team wear and business programmes. Review available products, size requirements and logo-branding options before requesting a quote.",
     openGraph: { title: "Custom Corporate Shirts in Delhi | Formal Uniform & Gifting", description: "Custom formal shirts with logo printing for corporate uniforms and gifting in Delhi NCR." },
     twitter:   { title: "Custom Corporate Shirts in Delhi | Formal Uniform & Gifting", description: "Custom corporate shirts for offices, uniforms and employee gifting in Delhi NCR." },
   },
@@ -261,9 +261,9 @@ const seoConfig = {
   },
 
   "/bags-and-travel/duffle-bags": {
-    h1: "Custom Duffle Bag Manufacturers in Delhi",
-    h2: "Promotional Printed  Duffle Bag",
-    title: "Duffle Bag Manufacturers in Delhi Custom Logo Bags",
+    h1: "Custom Duffle Bags with Logo",
+    h2: "Branded Duffle Bags for Teams, Travel and Events",
+    title: "Custom Duffle Bags with Logo for Business Orders",
     description: "Explore custom duffle bags for corporate travel, teams, events and gifting. Compare available constructions, logo options and request a product-specific quote.",
     openGraph: { title: "Custom Duffle Bags in Delhi | Logo Print", description: "Custom duffle bags with logo printing for corporate gifting and events in Delhi NCR." },
     twitter:   { title: "Custom Duffle Bags in Delhi | Logo Print", description: "Custom duffle bags — bulk orders for corporate gifting in Delhi NCR." },
@@ -427,7 +427,7 @@ const seoConfig = {
 
   "/drink-ware/sipper": {
     h1: "Custom Sippers in Delhi",
-    h2: "Personalized Sipper Bottles By Pintkee",
+    h2: "Personalized Sipper Bottles by Printkee",
     title: "Custom Sippers in Delhi Steel Bottles with Logo",
     description: "Buy custom sipper bottles for corporate gifts - stainless steel, leak-proof with logo print. Bulk orders, multiple colors, fast India delivery. Shop now!",
     openGraph: { title: "Custom Sippers in Delhi | Logo Print", description: "Custom sippers with logo printing for corporate gifting and sports promotions in Delhi NCR." },
@@ -444,12 +444,12 @@ const seoConfig = {
   },
 
   "/drink-ware/coffee-mug": {
-    h1: "custom coffee mugs near me",
-    h2: "Custom Printed Coffee Mug",
-    title: "Custom Coffee Mugs Near Me Print Delhi NCR",
-    description: "Custom coffee mugs for branding - ceramic, sublimation printing with logo & photos. Bulk corporate gifts, dishwasher safe, fast India delivery. Get yours!",
-    openGraph: { title: "Custom Coffee Mugs Near Me | Corporate Gifting", description: "Custom coffee mugs with logo printing for corporate gifting and office branding." },
-    twitter:   { title: "Custom Coffee Mugs Near Me | Corporate Gifting", description: "Custom coffee mugs — bulk orders for corporate gifting and office branding." },
+    h1: "Custom Printed Coffee Mugs",
+    h2: "Logo-Printed Mugs for Teams, Events and Gifting",
+    title: "Custom Printed Coffee Mugs with Logo India",
+    description: "Compare custom coffee mugs for teams, events and corporate gifting. Review available products, artwork requirements and branding options before requesting a quote.",
+    openGraph: { title: "Custom Printed Coffee Mugs with Logo", description: "Compare coffee mugs for team, event and corporate-gifting requirements." },
+    twitter:   { title: "Custom Printed Coffee Mugs with Logo", description: "Review mug products and prepare a product-specific branding quotation." },
   },
 
   "/drink-ware/ceramic-mug": {

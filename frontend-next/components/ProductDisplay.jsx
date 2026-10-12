@@ -29,6 +29,7 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
 
   const categoryName    = categoryData.name;
   const subcategoryName = subcategoryData.name;
+  const ctaProductName  = subcategoryName.replace(/^custom(?:ised|ized)?(?:\s+made)?\s+/i, "");
   const displayH1       = seoH1 || subcategoryName;
   const displayH2       = seoH2 || null;
   const openProduct = (product) => {
@@ -145,7 +146,7 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
         <div className={styles["product-cta-inner"]}>
           <p className={styles["product-cta-eyebrow"]}>Bulk Orders Available</p>
           <h2 className={styles["product-cta-heading"]}>
-            Need Custom {subcategoryName}?
+            Need Custom {ctaProductName}?
           </h2>
           <p className={styles["product-cta-sub"]}>
             Share your quantity, artwork and delivery requirements for a product-specific quotation.

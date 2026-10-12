@@ -11,41 +11,28 @@ const FAQProduct = ({ productName, subcategoryName, categoryName, faqs: productF
     ? productFaqs.map((f) => ({ q: f.question, a: f.answer }))
     : [
     {
-      q: `Why is ${productName} a popular promotional gift item?`,
-      a: `${productName} is one of the most preferred promotional gift items because it offers high branding visibility, long-term usability, and great value. Businesses use it as a branded promotional item to increase recall and build trust with clients.`
+      q: `Can ${productName} be branded with a company logo?`,
+      a: `Branding depends on the product material, available print area and artwork. Share your logo and preferred placement so Printkee can confirm suitable options for this item.`
     },
     {
-      q: `Do you offer customized or personalized promotional products for businesses?`,
-      a: `Yes! We provide fully customized and personalized promotional products, including logo printing, branding, and custom packaging. Our range includes business promotional products, branded corporate gifts, and custom promotional items designed to meet marketing goals.`
+      q: `What information is needed for a ${productName} quotation?`,
+      a: `Provide the required quantity, delivery location, target date, artwork and any packaging or personalization requirements. Product availability and commercial terms are confirmed in the quotation.`
     },
     {
-      q: `Can ${productName} be used as a promotional gift for clients?`,
-      a: `Absolutely. ${productName} is widely used as a promotional gift for clients because it works as a high-impact branded product that strengthens customer relationships and enhances brand recognition.`
+      q: `Can I request ${productName} for a business programme or event?`,
+      a: `Yes. Explain the intended audience and use so the team can review whether the selected product and branding approach fit the requirement.`
     },
     {
-      q: `Are you a promotional items manufacturer in Delhi NCR?`,
-      a: `Yes, we are a leading promotional items manufacturer in Delhi NCR, offering premium corporate promotional gifts, branded products, and customized gifting solutions for companies across Noida, Gurgaon, Delhi, Faridabad, and Okhla.`
+      q: `Which branding method is used for ${productName}?`,
+      a: `The method is selected after reviewing the product surface, artwork, colour count and placement. Do not assume one printing or engraving method applies to every item.`
     },
     {
-      q: `Do you offer bulk corporate promotional gift manufacturing?`,
-      a: `We specialize in bulk manufacturing of corporate promotional gifts and branded promotional items. Whether you need promotional gifts for business events, employee gifting, exhibitions, or client appreciation, we provide high-quality products with delivery planning.`
+      q: `Can I review a sample before a larger order?`,
+      a: `Ask about sample availability for the exact product and branding requirement. Availability, cost and timing are confirmed during quotation.`
     },
     {
-      q: `Is ${productName} available for corporate gifting in Delhi?`,
-      a: `Yes. We supply corporate gifts in Delhi, including a premium collection of corporate promotional products and branded promotional items suitable for all industries.`
-    },
-    {
-      q: `Can I customize ${productName} with my company logo?`,
-      a: `Yes, you can completely customize ${productName} with your company logo, brand message, colors, and design elements. This makes it a perfect choice for personalized promotional products.`
-    },
-    {
-      q: `Do you manufacture promotional gifts in Noida and Okhla?`,
-      a: `Yes. We are a trusted promotional gift manufacturer in Noida and Okhla, offering custom promotional products and branded items for corporate gifting campaigns.`
-    },
- 
-    {
-      q: `Can I order custom promotional products in bulk?`,
-      a: `Yes, we accept bulk orders for all promotional products, including branded corporate gifts, promotional product kits, and customized gifting solutions. Minimum and maximum order quantities are flexible based on the product.`
+      q: `Can ${productName} be delivered outside Delhi NCR?`,
+      a: `Share the delivery postcode and required date. Destination feasibility and timing depend on the product, quantity and customization and must be confirmed before ordering.`
     }
   ];
 

@@ -18,6 +18,7 @@ import ProductCTA from "./category/ProductCTA";
 import productContent from "../data/productcontent";
 import { recordProductView } from "../utils/recentlyViewed";
 import { trackViewItem } from "../utils/analytics";
+import { BUSINESS } from "../lib/siteConfig";
 
 const SingleProductDisplay = ({
   productData,
@@ -31,6 +32,7 @@ const SingleProductDisplay = ({
   /* Approved document SEO title + CTA wording, keyed by product slug.
      Rendered in addition to (never replacing) the existing H1 / metadata. */
   const docContent = productContent[productSlug] || {};
+  const verifiedCtaDescription = `Share the product, quantity, artwork, target date and delivery location for a tailored quotation. Call ${BUSINESS.phoneDisplay} if you would like to discuss the requirement.`;
 
   const [selectedStyle, setSelectedStyle] = useState(
     productData?.attributes?.size?.[0] || ""
@@ -343,7 +345,7 @@ const SingleProductDisplay = ({
         />
       )}
 
-      <ProductCTA title={docContent.ctaTitle} description={docContent.ctaDescription} />
+      <ProductCTA title={docContent.ctaTitle} description={verifiedCtaDescription} />
 
       <EnquiryModal
         isOpen={showModal}

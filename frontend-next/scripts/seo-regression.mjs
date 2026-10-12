@@ -7,7 +7,7 @@ const excluded = /^\/(admin|api|login|search|customize|blogs\/post)(?:\/|$)/;
 const report = { generatedAt: new Date().toISOString(), fetchOrigin, errors: [], warnings: [], pages: [], brokenInternalLinks: [], claimFindings: [] };
 const claimPatterns = [
   /lowest prices? guaranteed/i, /best price guarantee/i, /\d+[,+]?\+\s+(?:happy\s+)?(?:clients|brands)/i,
-  /always on[ -]?time/i, /round the clock|24\/7 support/i, /leading manufacturer/i,
+  /always on[ -]?time/i, /round the clock|24\/7 support/i, /\b(?:leading|trusted)\s+(?:promotional\s+(?:items?|gifts?)\s+)?manufacturer\b/i,
   /\bMOQ\s*\d+/i, /bulk pricing starts/i, /(?:48[- ]hours?|10 minutes?|1 week|7[- ]day)\s+(?:dispatch|sample|quotation)/i,
   /(?:our|at our|based) manufacturing unit/i, /\bBIS certif/i, /BPA[- ]free/i, /our in-house/i,
 ];

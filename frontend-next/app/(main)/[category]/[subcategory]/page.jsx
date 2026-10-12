@@ -18,17 +18,22 @@ export const dynamicParams = true;
 
 async function getSubcategory(category, subcategory) {
   const backendSubcategory = toBackendSubcategorySlug(subcategory);
-  const res = await fetch(
-    `${BACKEND}/api/subcategory/subcategory-fetch/${encodeURIComponent(category)}/${encodeURIComponent(backendSubcategory)}`,
-    { next: { revalidate: 900, tags: [`subcategory:${category}:${subcategory}`] } }
-  );
+  try {
+    const res = await fetch(
+      `${BACKEND}/api/subcategory/subcategory-fetch/${encodeURIComponent(category)}/${encodeURIComponent(backendSubcategory)}`,
+      { next: { revalidate: 900, tags: [`subcategory:${category}:${subcategory}`] } }
+    );
 
-  if (res.status === 404) return null;
-  if (!res.ok) {
-    throw new Error(`Subcategory API returned ${res.status} for ${category}/${subcategory}`);
+    if (res.status === 404) return null;
+    if (!res.ok) {
+      throw new Error(`Subcategory API returned ${res.status} for ${category}/${subcategory}`);
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error(`Subcategory fetch failed for ${category}/${subcategory}:`, error.message);
+    return null;
   }
-
-  return res.json();
 }
 
 export async function generateMetadata({ params }) {
