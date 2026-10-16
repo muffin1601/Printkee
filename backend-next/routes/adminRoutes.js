@@ -28,8 +28,9 @@ router.post("/login", loginLimiter, (req, res) => {
   }
 
   if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
-    const token = jwt.sign({ email }, SECRET_KEY, { expiresIn: "1h" });
-    return res.json({ token, user: { email } });
+    const role = process.env.ADMIN_ROLE || "super_admin";
+    const token = jwt.sign({ email, role }, SECRET_KEY, { expiresIn: "1h" });
+    return res.json({ token, user: { email, role } });
   }
 
   res.status(401).json({ message: "Invalid credentials" });

@@ -1,19 +1,98 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const crypto = require("crypto");
 
 const Category = require("../models/Category");
 const Subcategory = require("../models/Subcategory");
 const Product = require("../models/product");
-const { verifyToken } = require("../middleware/auth");
-const { makeUploader, handleUploadError } = require("../middleware/upload");
+const AdminAuditEvent = require("../models/AdminAuditEvent");
+const { verifyToken, requireRole } = require("../middleware/auth");
+const { makeUploader, makeMemoryUploader, handleUploadError } = require("../middleware/upload");
 const { ok, fail, asyncHandler } = require("../utils/response");
 const { evaluateProductSeo } = require("../services/productSeoQuality");
+const {
+  normalizeProductPayload,
+  validateProductPayload,
+  applyPriceOperation,
+  stringList,
+} = require("../services/productPayload");
+const {
+  IMPORT_FIELDS,
+  rowsFromUpload,
+  mapImportRow,
+  productsToCsv,
+  productsToXlsx,
+} = require("../services/productImportExport");
 
 const upload = makeUploader("products");
+const importUpload = makeMemoryUploader({
+  maxFileSize: 10 * 1024 * 1024,
+  allowedExtensions: [".csv", ".xlsx"],
+});
 
 const isValidId = (id) => mongoose.Types.ObjectId.isValid(id);
 const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const PRODUCT_WRITE_ROLES = ["super_admin", "admin", "catalog_manager"];
+const PRODUCT_READ_ROLES = [...PRODUCT_WRITE_ROLES, "content_editor", "viewer"];
+const ALLOWED_PRODUCT_FIELDS = new Set([
+  "name", "slug", "description", "idealFor", "features", "faqs", "price", "salePrice",
+  "images", "subImages", "stock", "sku", "attributes", "additionalInfo", "specifications",
+  "tags", "isFeatured", "isActive", "seo", "category", "subcategory", "status", "canonicalUrl",
+]);
+
+const pickProductFields = (body) => Object.fromEntries(
+  Object.entries(body || {}).filter(([key]) => ALLOWED_PRODUCT_FIELDS.has(key))
+);
+
+async function validateTaxonomy(categoryId, subcategoryId) {
+  if (!isValidId(categoryId) || !isValidId(subcategoryId)) return "Invalid category or subcategory ID";
+  const [category, subcategory] = await Promise.all([
+    Category.findById(categoryId).select("_id isActive"),
+    Subcategory.findById(subcategoryId).select("_id category isActive"),
+  ]);
+  if (!category) return "Category not found";
+  if (!subcategory) return "Subcategory not found";
+  if (String(subcategory.category) !== String(category._id)) {
+    return "The selected subcategory does not belong to the selected category";
+  }
+  return null;
+}
+
+async function recordAudit(req, operation, productIds, status, details = {}) {
+  try {
+    await AdminAuditEvent.create({
+      actor: req.admin?.email || "unknown",
+      role: req.admin?.role || "unknown",
+      operation,
+      requestId: req.requestId,
+      productIds,
+      status,
+      details,
+    });
+  } catch (error) {
+    console.error(JSON.stringify({ event: "admin_audit_write_failed", requestId: req.requestId, operation, message: error.message }));
+  }
+}
+
+function buildListQuery(filters = {}) {
+  const query = filters.status === "archived" ? { deletedAt: { $ne: null } } : { deletedAt: null };
+  const search = String(filters.search || "").trim();
+  if (search) {
+    const expression = new RegExp(escapeRegex(search), "i");
+    query.$or = [{ name: expression }, { slug: expression }, { sku: expression }, { tags: expression }];
+  }
+  if (filters.category && isValidId(filters.category)) query.category = filters.category;
+  if (filters.subcategory && isValidId(filters.subcategory)) query.subcategory = filters.subcategory;
+  if (filters.status && ["draft", "published", "archived"].includes(filters.status)) query.status = filters.status;
+  return query;
+}
+
+router.use((req, res, next) => {
+  req.requestId = req.get("x-request-id") || crypto.randomUUID();
+  res.set("x-request-id", req.requestId);
+  next();
+});
 
 router.get(
   "/product-fetch/:categorySlug/:subcategorySlug/:productSlug",
@@ -87,20 +166,30 @@ router.get(
 router.post(
   "/create",
   verifyToken,
+  requireRole(...PRODUCT_WRITE_ROLES),
   asyncHandler(async (req, res) => {
-    const { name, slug, price, category, subcategory } = req.body;
+    const payload = normalizeProductPayload(pickProductFields(req.body));
+    const errors = validateProductPayload(payload);
+    if (errors.length) return fail(res, 400, errors.join("; "));
 
-    if (!name || !slug || price === undefined || !category || !subcategory) {
-      return fail(res, 400, "name, slug, price, category and subcategory are required");
+    const taxonomyError = await validateTaxonomy(payload.category, payload.subcategory);
+    if (taxonomyError) return fail(res, 400, taxonomyError);
+
+    const duplicates = [{ slug: payload.slug }];
+    if (payload.sku) duplicates.push({ sku: payload.sku });
+    const exists = await Product.findOne({ $or: duplicates }).select("slug sku");
+    if (exists && exists.slug === payload.slug) return fail(res, 409, "A product with this slug already exists");
+    if (exists && payload.sku && exists.sku === payload.sku) return fail(res, 409, "A product with this SKU already exists");
+
+    const product = await Product.create(payload);
+    try {
+      await Subcategory.findByIdAndUpdate(payload.subcategory, { $addToSet: { products: product._id } });
+    } catch (error) {
+      await Product.findByIdAndDelete(product._id);
+      throw error;
     }
-    if (!isValidId(category) || !isValidId(subcategory)) {
-      return fail(res, 400, "Invalid category or subcategory ID");
-    }
-
-    const exists = await Product.findOne({ slug });
-    if (exists) return fail(res, 409, "A product with this slug already exists");
-
-    const product = await Product.create(req.body);
+    await recordAudit(req, "product.create", [product._id], "success", { slug: product.slug });
+    await product.populate([{ path: "category", select: "name slug" }, { path: "subcategory", select: "name slug" }]);
     return ok(res, product, 201);
   })
 );
@@ -111,23 +200,56 @@ router.post(
 router.put(
   "/update/:id",
   verifyToken,
+  requireRole(...PRODUCT_WRITE_ROLES),
   asyncHandler(async (req, res) => {
     if (!isValidId(req.params.id)) return fail(res, 400, "Invalid product ID");
 
-    if (req.body.slug) {
+    const existing = await Product.findById(req.params.id);
+    if (!existing) return fail(res, 404, "Product not found");
+
+    const blankSku = Object.prototype.hasOwnProperty.call(req.body, "sku") && !String(req.body.sku || "").trim();
+    const payload = normalizeProductPayload(pickProductFields(req.body), { partial: true });
+    const errors = validateProductPayload(payload, { partial: true });
+    if (errors.length) return fail(res, 400, errors.join("; "));
+
+    const category = payload.category || existing.category;
+    const subcategory = payload.subcategory || existing.subcategory;
+    const taxonomyError = await validateTaxonomy(category, subcategory);
+    if (taxonomyError) return fail(res, 400, taxonomyError);
+
+    if (payload.slug) {
       const duplicate = await Product.findOne({
-        slug: req.body.slug,
+        slug: payload.slug,
         _id: { $ne: req.params.id },
       });
       if (duplicate) return fail(res, 409, "A product with this slug already exists");
     }
+    if (payload.sku) {
+      const duplicateSku = await Product.findOne({ sku: payload.sku, _id: { $ne: req.params.id } });
+      if (duplicateSku) return fail(res, 409, "A product with this SKU already exists");
+    }
 
-    const updated = await Product.findByIdAndUpdate(req.params.id, req.body, {
+    const expectedVersion = Number(req.body.__v);
+    const versionFilter = Number.isInteger(expectedVersion) ? { __v: expectedVersion } : {};
+    const updateOperation = {
+      $set: payload,
+      $inc: { __v: 1 },
+    };
+    if (blankSku) updateOperation.$unset = { sku: 1 };
+    const updated = await Product.findOneAndUpdate({ _id: req.params.id, ...versionFilter }, updateOperation, {
       new: true,
       runValidators: true,
     });
-    if (!updated) return fail(res, 404, "Product not found");
+    if (!updated) return fail(res, 409, "This product was changed by another administrator. Refresh and try again.");
 
+    if (String(existing.subcategory) !== String(subcategory)) {
+      await Promise.all([
+        Subcategory.findByIdAndUpdate(existing.subcategory, { $pull: { products: existing._id } }),
+        Subcategory.findByIdAndUpdate(subcategory, { $addToSet: { products: existing._id } }),
+      ]);
+    }
+
+    await recordAudit(req, "product.update", [updated._id], "success", { fromVersion: existing.__v, toVersion: updated.__v });
     return ok(res, updated);
   })
 );
@@ -138,13 +260,29 @@ router.put(
 router.delete(
   "/delete/:id",
   verifyToken,
+  requireRole(...PRODUCT_WRITE_ROLES),
   asyncHandler(async (req, res) => {
     if (!isValidId(req.params.id)) return fail(res, 400, "Invalid product ID");
 
-    const deleted = await Product.findByIdAndDelete(req.params.id);
-    if (!deleted) return fail(res, 404, "Product not found");
+    const product = await Product.findById(req.params.id);
+    if (!product) return fail(res, 404, "Product not found");
 
-    return ok(res, { message: "Product deleted" });
+    if (req.query.permanent === "true") {
+      if ((req.admin.role || "super_admin") !== "super_admin") return fail(res, 403, "Only a super admin can permanently delete products");
+      await Promise.all([
+        product.deleteOne(),
+        Subcategory.findByIdAndUpdate(product.subcategory, { $pull: { products: product._id } }),
+      ]);
+      await recordAudit(req, "product.delete_permanent", [product._id], "success");
+      return ok(res, { message: "Product permanently deleted" });
+    }
+
+    product.status = "archived";
+    product.isActive = false;
+    product.deletedAt = new Date();
+    await product.save();
+    await recordAudit(req, "product.archive", [product._id], "success");
+    return ok(res, { message: "Product archived", product });
   })
 );
 
@@ -233,28 +371,22 @@ router.get(
 ====================================================== */
 router.get(
   "/all",
+  verifyToken,
+  requireRole(...PRODUCT_READ_ROLES),
   asyncHandler(async (req, res) => {
     const page = Math.max(1, Number(req.query.page) || 1);
-    const limit = Math.min(100, Math.max(1, Number(req.query.limit) || 5));
-    const search = (req.query.search || "").trim();
-
-    const query = search
-      ? {
-          $or: [
-            { name: new RegExp(escapeRegex(search), "i") },
-            { slug: new RegExp(escapeRegex(search), "i") },
-            { sku: new RegExp(escapeRegex(search), "i") },
-            { tags: new RegExp(escapeRegex(search), "i") },
-          ],
-        }
-      : {};
+    const limit = Math.min(100, Math.max(10, Number(req.query.limit) || 25));
+    const query = buildListQuery(req.query);
+    const sortField = ["createdAt", "updatedAt", "name", "price", "status"].includes(req.query.sort)
+      ? req.query.sort : "createdAt";
+    const sortDirection = req.query.order === "asc" ? 1 : -1;
 
     const total = await Product.countDocuments(query);
 
     const items = await Product.find(query)
       .populate("category", "name")
       .populate("subcategory", "name")
-      .sort({ createdAt: -1 })
+      .sort({ [sortField]: sortDirection, _id: sortDirection })
       .skip((page - 1) * limit)
       .limit(limit);
 
@@ -263,7 +395,204 @@ router.get(
       page,
       totalPages: Math.ceil(total / limit),
       totalItems: total,
+      limit,
     });
+  })
+);
+
+/* ======================================================
+   BULK MANAGEMENT
+====================================================== */
+router.post(
+  "/bulk",
+  verifyToken,
+  requireRole(...PRODUCT_WRITE_ROLES),
+  asyncHandler(async (req, res) => {
+    const { ids = [], allMatching = false, filters = {}, action, changes = {} } = req.body || {};
+    if (!action) return fail(res, 400, "Bulk action is required");
+
+    let query;
+    if (allMatching) {
+      query = buildListQuery(filters);
+    } else {
+      const uniqueIds = [...new Set(ids)].filter(isValidId);
+      if (!uniqueIds.length || uniqueIds.length !== new Set(ids).size) return fail(res, 400, "Valid product IDs are required");
+      if (uniqueIds.length > 1000) return fail(res, 400, "A maximum of 1,000 products can be changed per request");
+      query = { _id: { $in: uniqueIds }, deletedAt: null };
+    }
+
+    const products = await Product.find(query).select("_id price category subcategory status").limit(10000).lean();
+    if (!products.length) return fail(res, 404, "No matching products found");
+    if (products.length > 1000) return fail(res, 400, "The selection exceeds 1,000 products. Narrow the filters and retry.");
+
+    let update = {};
+    let perProduct = false;
+    if (["publish", "unpublish", "archive"].includes(action)) {
+      const status = action === "publish" ? "published" : action === "unpublish" ? "draft" : "archived";
+      update = { status, isActive: status === "published", deletedAt: status === "archived" ? new Date() : null };
+    } else if (action === "category") {
+      const taxonomyError = await validateTaxonomy(changes.category, changes.subcategory);
+      if (taxonomyError) return fail(res, 400, taxonomyError);
+      update = { category: changes.category, subcategory: changes.subcategory };
+    } else if (action === "moq") update = { "attributes.moq": String(changes.moq || "").trim() };
+    else if (action === "tags") update = { tags: stringList(changes.tags) };
+    else if (action === "visibility") update = { isActive: Boolean(changes.isActive), status: changes.isActive ? "published" : "draft" };
+    else if (action === "seo") {
+      update = Object.fromEntries(Object.entries({
+        "seo.metaTitle": changes.metaTitle,
+        "seo.metaDescription": changes.metaDescription,
+        "seo.keywords": changes.keywords === undefined ? undefined : stringList(changes.keywords),
+        "seo.indexable": changes.indexable,
+      }).filter(([, value]) => value !== undefined));
+    } else if (action === "attributes") {
+      const allowed = ["material", "dimensions", "weight", "gsm", "capacity", "packaging", "leadTime", "sampleAvailability", "customization", "careInstructions"];
+      update = Object.fromEntries(Object.entries(changes).filter(([key, value]) => allowed.includes(key) && value !== undefined).map(([key, value]) => [`attributes.${key}`, value]));
+    } else if (action === "price") perProduct = true;
+    else return fail(res, 400, "Unsupported bulk action");
+
+    let operations;
+    if (perProduct) {
+      try {
+        operations = products.map((product) => ({
+          updateOne: {
+            filter: { _id: product._id },
+            update: { $set: { price: applyPriceOperation(product.price, changes.operation, changes.value) }, $inc: { __v: 1 } },
+          },
+        }));
+      } catch (error) {
+        return fail(res, 400, error.message);
+      }
+    } else {
+      if (!Object.keys(update).length) return fail(res, 400, "No valid changes supplied");
+      operations = products.map((product) => ({ updateOne: { filter: { _id: product._id }, update: { $set: update, $inc: { __v: 1 } } } }));
+    }
+
+    const result = await Product.bulkWrite(operations, { ordered: false });
+
+    if (action === "category") {
+      const productIds = products.map((product) => product._id);
+      await Subcategory.updateMany({ products: { $in: productIds } }, { $pull: { products: { $in: productIds } } });
+      await Subcategory.findByIdAndUpdate(changes.subcategory, { $addToSet: { products: { $each: productIds } } });
+    }
+
+    const productIds = products.map((product) => product._id);
+    await recordAudit(req, `product.bulk.${action}`, productIds, "success", { matched: products.length, modified: result.modifiedCount });
+    return ok(res, { matched: products.length, modified: result.modifiedCount, requestId: req.requestId });
+  })
+);
+
+/* ======================================================
+   IMPORT / EXPORT
+====================================================== */
+router.get(
+  "/import/template",
+  verifyToken,
+  requireRole(...PRODUCT_READ_ROLES),
+  (req, res) => {
+    const csv = `${IMPORT_FIELDS.join(",")}\r\n`;
+    res.set({ "Content-Type": "text/csv; charset=utf-8", "Content-Disposition": 'attachment; filename="printkee-product-import-template.csv"' });
+    return res.send(`\uFEFF${csv}`);
+  }
+);
+
+router.post(
+  "/import/preview",
+  verifyToken,
+  requireRole(...PRODUCT_WRITE_ROLES),
+  importUpload.single("file"),
+  handleUploadError,
+  asyncHandler(async (req, res) => {
+    if (!req.file) return fail(res, 400, "CSV or XLSX file is required");
+    const mapping = req.body.mapping ? JSON.parse(req.body.mapping) : {};
+    const rows = await rowsFromUpload(req.file);
+    if (rows.length > 5000) return fail(res, 400, "Imports are limited to 5,000 rows per file");
+    const mapped = rows.map((row) => mapImportRow(row, mapping));
+    const preview = mapped.slice(0, 100).map(({ row, product }) => ({ row, product, errors: validateProductPayload(normalizeProductPayload(product)) }));
+    return ok(res, { totalRows: rows.length, fields: Object.keys(rows[0] || {}).filter((key) => key !== "__row"), preview, truncated: rows.length > preview.length });
+  })
+);
+
+router.post(
+  "/import/commit",
+  verifyToken,
+  requireRole(...PRODUCT_WRITE_ROLES),
+  importUpload.single("file"),
+  handleUploadError,
+  asyncHandler(async (req, res) => {
+    if (!req.file) return fail(res, 400, "CSV or XLSX file is required");
+    const mode = ["create", "update", "upsert"].includes(req.body.mode) ? req.body.mode : "upsert";
+    const mapping = req.body.mapping ? JSON.parse(req.body.mapping) : {};
+    const rows = await rowsFromUpload(req.file);
+    if (rows.length > 5000) return fail(res, 400, "Imports are limited to 5,000 rows per file");
+
+    const result = { total: rows.length, created: 0, updated: 0, skipped: 0, failed: 0, errors: [] };
+    const touchedIds = [];
+    for (let offset = 0; offset < rows.length; offset += 100) {
+      const batch = rows.slice(offset, offset + 100);
+      for (const row of batch) {
+        try {
+          const mapped = mapImportRow(row, mapping);
+          const payload = normalizeProductPayload(pickProductFields(mapped.product));
+          const errors = validateProductPayload(payload);
+          if (errors.length) throw new Error(errors.join("; "));
+          const taxonomyError = await validateTaxonomy(payload.category, payload.subcategory);
+          if (taxonomyError) throw new Error(taxonomyError);
+
+          const identifier = mapped.product._id && isValidId(mapped.product._id)
+            ? { _id: mapped.product._id }
+            : payload.sku ? { sku: payload.sku } : { slug: payload.slug };
+          const existing = await Product.findOne(identifier);
+          if (existing && mode === "create") { result.skipped += 1; continue; }
+          if (!existing && mode === "update") { result.skipped += 1; continue; }
+
+          if (existing) {
+            const oldSubcategory = existing.subcategory;
+            Object.assign(existing, payload);
+            if (Object.prototype.hasOwnProperty.call(mapped.product, "sku") && !String(mapped.product.sku || "").trim()) existing.sku = undefined;
+            await existing.save();
+            if (String(oldSubcategory) !== String(existing.subcategory)) {
+              await Subcategory.findByIdAndUpdate(oldSubcategory, { $pull: { products: existing._id } });
+            }
+            await Subcategory.findByIdAndUpdate(existing.subcategory, { $addToSet: { products: existing._id } });
+            result.updated += 1;
+            touchedIds.push(existing._id);
+          } else {
+            const created = await Product.create(payload);
+            await Subcategory.findByIdAndUpdate(created.subcategory, { $addToSet: { products: created._id } });
+            result.created += 1;
+            touchedIds.push(created._id);
+          }
+        } catch (error) {
+          result.failed += 1;
+          result.errors.push({ row: row.__row, message: error.code === 11000 ? "Duplicate slug or SKU" : error.message });
+        }
+      }
+    }
+    await recordAudit(req, "product.import", touchedIds, result.failed ? "partial" : "success", { ...result, errors: result.errors.slice(0, 100) });
+    return ok(res, { ...result, requestId: req.requestId }, result.failed ? 207 : 200);
+  })
+);
+
+router.get(
+  "/export/file",
+  verifyToken,
+  requireRole(...PRODUCT_READ_ROLES),
+  asyncHandler(async (req, res) => {
+    const query = buildListQuery(req.query);
+    if (req.query.ids) {
+      const ids = String(req.query.ids).split(",").filter(isValidId);
+      if (!ids.length) return fail(res, 400, "No valid product IDs supplied");
+      query._id = { $in: ids };
+    }
+    const products = await Product.find(query).populate("category", "name slug").populate("subcategory", "name slug").sort({ createdAt: -1 }).limit(10000).lean();
+    const format = req.query.format === "xlsx" ? "xlsx" : "csv";
+    const body = format === "xlsx" ? await productsToXlsx(products) : `\uFEFF${productsToCsv(products)}`;
+    res.set({
+      "Content-Type": format === "xlsx" ? "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" : "text/csv; charset=utf-8",
+      "Content-Disposition": `attachment; filename="printkee-products.${format}"`,
+    });
+    await recordAudit(req, "product.export", products.map((product) => product._id), "success", { count: products.length, format });
+    return res.send(body);
   })
 );
 
@@ -272,6 +601,8 @@ router.get(
 ====================================================== */
 router.get(
   "/:id",
+  verifyToken,
+  requireRole(...PRODUCT_READ_ROLES),
   asyncHandler(async (req, res) => {
     if (!isValidId(req.params.id)) return fail(res, 400, "Invalid product ID");
 
@@ -290,6 +621,7 @@ router.get(
 router.post(
   "/upload",
   verifyToken,
+  requireRole(...PRODUCT_WRITE_ROLES),
   upload.single("image"),
   handleUploadError,
   (req, res) => {

@@ -44,7 +44,23 @@ const productSchema = new mongoose.Schema(
 
     stock: { type: Number, default: 0 },
 
-    sku: { type: String, unique: true, sparse: true },
+    sku: {
+      type: String,
+      unique: true,
+      sparse: true,
+      trim: true,
+      set: (value) => typeof value === "string" && value.trim() === "" ? undefined : value,
+    },
+
+    status: {
+      type: String,
+      enum: ["draft", "published", "archived"],
+      default: "published",
+      index: true,
+    },
+
+    canonicalUrl: { type: String, default: "" },
+    deletedAt: { type: Date, default: null, index: true },
 
     attributes: {
       color: [String],
@@ -113,5 +129,7 @@ const productSchema = new mongoose.Schema(
 productSchema.index({ category: 1 });
 productSchema.index({ subcategory: 1 });
 productSchema.index({ isActive: 1 });
+productSchema.index({ status: 1, createdAt: -1 });
+productSchema.index({ name: "text", slug: "text", sku: "text", tags: "text" });
 
 module.exports = mongoose.model("Product", productSchema);

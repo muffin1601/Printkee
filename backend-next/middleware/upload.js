@@ -42,6 +42,20 @@ function makeUploader(subdir) {
   });
 }
 
+function makeMemoryUploader({ maxFileSize = 10 * 1024 * 1024, allowedExtensions = [] } = {}) {
+  return multer({
+    storage: multer.memoryStorage(),
+    limits: { fileSize: maxFileSize, files: 1 },
+    fileFilter: (req, file, cb) => {
+      const ext = path.extname(file.originalname).toLowerCase();
+      if (allowedExtensions.length && !allowedExtensions.includes(ext)) {
+        return cb(new Error(`Allowed file types: ${allowedExtensions.join(", ")}`));
+      }
+      cb(null, true);
+    },
+  });
+}
+
 function handleUploadError(err, req, res, next) {
   if (err instanceof multer.MulterError) {
     if (err.code === "LIMIT_FILE_SIZE") {
@@ -70,4 +84,4 @@ function handleUploadError(err, req, res, next) {
   next();
 }
 
-module.exports = { makeUploader, handleUploadError, MAX_FILE_SIZE };
+module.exports = { makeUploader, makeMemoryUploader, handleUploadError, MAX_FILE_SIZE };
