@@ -1,6 +1,6 @@
 # Printkee SEO Workspace — Start Here
 
-Last organized: 9 October 2026
+Last verified locally: 14 November 2026
 
 This directory is the review package for Printkee's current SEO implementation. It separates executive reports, strategy, keyword evidence, programmatic research, technical audits, operational requirements, and external references.
 
@@ -16,7 +16,7 @@ This directory is the review package for Printkee's current SEO implementation. 
 | Additional catalogue keyword mappings | 483 |
 | Research URL candidates | 14,638 |
 | Research candidates automatically published | 0 |
-| Latest locally tested sitemap URLs | 410 |
+| Latest locally tested staging sitemap URLs | 247 |
 | Latest crawl errors / warnings | 0 / 0 |
 
 The 14,638 programmatic candidates are research inventory. They are intentionally excluded from public indexation until an individual page passes the content and quality workflow. The 80 curated code-backed pages are separate from that candidate inventory.
@@ -24,7 +24,7 @@ The 14,638 programmatic candidates are research inventory. They are intentionall
 ## Recommended review order
 
 1. Read `01-executive-reports/PRINTKEE_PSEO_IMPLEMENTATION_REPORT.md` for the delivered architecture and inventory.
-2. Read `01-executive-reports/PRINTKEE_PSEO_TEST_RESULTS.md` for the latest 410-URL validation results.
+2. Read `01-executive-reports/PRINTKEE_PSEO_TEST_RESULTS.md` for the historical 9 October 410-URL validation; the latest approved-content staging crawl is `05-technical-audits/SEO_CRAWL_REPORT.json`.
 3. Review `03-keywords-and-search-data/PRINTKEE_COMPLETE_KEYWORD_MASTER_CATALOG_MAPPED.csv` as the current keyword source of truth.
 4. Review `03-keywords-and-search-data/PRINTKEE_CATALOG_KEYWORD_MAP.csv` and `PRINTKEE_TSHIRT_KEYWORD_MAP.csv` for the new intent-page assignments.
 5. Use `04-programmatic-seo/PRINTKEE_GENERATED_URL_CANDIDATES.csv` only as research; do not treat it as a publication list.
@@ -60,6 +60,7 @@ This is the compact final import. It contains all 2,796 rows and includes both t
 
 ## Latest authoritative files
 
+- Current staging release result: `05-technical-audits/GSC_STAGING_APPROVED_CONTENT_RELEASE_2026-11-14.md`
 - Implementation: `01-executive-reports/PRINTKEE_PSEO_IMPLEMENTATION_REPORT.md`
 - Testing: `01-executive-reports/PRINTKEE_PSEO_TEST_RESULTS.md`
 - Final keyword master: `03-keywords-and-search-data/PRINTKEE_COMPLETE_KEYWORD_MASTER_CATALOG_MAPPED.csv`

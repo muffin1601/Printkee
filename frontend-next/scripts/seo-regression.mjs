@@ -88,8 +88,11 @@ if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(fetchOrigin)) {
 const robotsRes = await fetchPath("/robots.txt");
 const robots = await robotsRes.text();
 if (robotsRes.status !== 200) report.errors.push(`robots.txt returned ${robotsRes.status}`);
-for (const rule of ["/admin", "/api/", "/login", "/customize", "/search", "/blogs/post"]) {
+for (const rule of ["/admin", "/api/", "/login", "/search"]) {
   if (!robots.includes(`Disallow: ${rule}`)) report.errors.push(`robots.txt missing ${rule}`);
+}
+for (const rule of ["/customize", "/blogs/post"]) {
+  if (robots.includes(`Disallow: ${rule}`)) report.errors.push(`robots.txt blocks ${rule} from exposing its redirect or noindex`);
 }
 if (!robots.includes(`Sitemap: ${canonicalOrigin}/sitemap.xml`)) report.errors.push("robots.txt has the wrong sitemap URL");
 

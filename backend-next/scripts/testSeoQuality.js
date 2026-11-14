@@ -23,8 +23,13 @@ const weakProduct = evaluateProductSeo({
 assert.equal(weakProduct.eligible, false);
 assert.ok(weakProduct.issues.some((issue) => issue.includes("80 words")));
 
-const strongProduct = evaluateProductSeo({
+const strongProductRecord = {
+  name: "A5 Branded Notebook",
+  slug: "a5-branded-notebook",
   isActive: true,
+  status: "published",
+  category: { _id: "category-1", slug: "office-and-writing", isActive: true },
+  subcategory: { slug: "notebooks", category: "category-1", isActive: true },
   description: {
     short: "A detailed branded notebook created for employee onboarding, conference stationery and client gifting programmes.",
     long: "This product record explains the cover construction, page format, binding, branding position, available colours and intended business use. Buyers can compare the documented specifications before requesting a quotation. Artwork, quantity, packaging and delivery requirements should be confirmed during order review. The notebook is suitable when the listed material and dimensions match the campaign brief, recipient profile and planned distribution method. Samples and production timing can be discussed before approval.",
@@ -32,6 +37,10 @@ const strongProduct = evaluateProductSeo({
   attributes: { material: "PU", size: ["A5"], color: ["Black"], printingMethods: ["Screen print"] },
   images: [{ url: "/item.webp", altText: "Black A5 branded notebook" }],
   seo: { metaTitle: "A5 Branded Notebook for Corporate Gifting", metaDescription: "Review the material, size, branding options and ordering details for this A5 corporate notebook before requesting a quotation." },
-});
+};
+const strongProduct = evaluateProductSeo(strongProductRecord);
 assert.equal(strongProduct.eligible, true, strongProduct.issues.join("; "));
+assert.ok(evaluateProductSeo({ ...strongProductRecord, status: "draft" }).issues.includes("Product status must be published"));
+assert.ok(evaluateProductSeo({ ...strongProductRecord, category: { ...strongProductRecord.category, isActive: false } }).issues.includes("Active category is required"));
+assert.ok(evaluateProductSeo({ ...strongProductRecord, description: { short: strongProductRecord.description.short, long: "" } }).issues.includes("Visible long description needs at least 40 words"));
 console.log("SEO quality utility checks passed");

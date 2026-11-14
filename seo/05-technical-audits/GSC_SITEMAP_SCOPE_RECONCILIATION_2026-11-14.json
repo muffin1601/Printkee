@@ -1,0 +1,53 @@
+{
+  "historical410": {
+    "date": "2026-10-09T11:24:38.227Z",
+    "urls": 410,
+    "gitCommit": "f070ce3"
+  },
+  "currentCrawl": {
+    "date": "2026-11-14T06:33:23.334Z",
+    "urls": 225,
+    "errors": 0,
+    "warnings": 0
+  },
+  "crawlChange": {
+    "shared": 194,
+    "removed": 216,
+    "added": 31,
+    "removedByInventoryType": {
+      "PRODUCT": 200,
+      "DYNAMIC_PUBLIC": 16
+    },
+    "addedSolutionPages": 31
+  },
+  "inventory": {
+    "rows": 349,
+    "uniquePaths": 349,
+    "indexableAtInventoryTime": 330,
+    "notVerifiedAtInventoryTime": 19,
+    "overlapWithCurrentSitemap": 114,
+    "inventoryOnly": 235,
+    "currentSitemapOnly": 111,
+    "inventoryOnlyByType": {
+      "PRODUCT": 219,
+      "DYNAMIC_PUBLIC": 16
+    }
+  },
+  "generatedSitemap": {
+    "aggregateUrls": 225,
+    "partitionUrls": 225,
+    "partitionCounts": {
+      "static": 25,
+      "categories": 48,
+      "products": 18,
+      "brands": 12,
+      "blog": 4,
+      "locations": 7,
+      "seo-pages-1": 111
+    },
+    "aggregateOnly": [],
+    "partitionOnly": [],
+    "crawlOnly": [],
+    "sitemapOnly": []
+  }
+}

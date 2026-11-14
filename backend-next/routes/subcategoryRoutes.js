@@ -60,13 +60,17 @@ router.get(
       slug: subcategorySlug,
       category: category._id,
       isActive: { $ne: false },
-    }).populate({
-      path: "products",
-      match: { isActive: true },
-      select: "name slug price salePrice images stock ratings isFeatured seo",
     });
 
     if (!subcategory) return fail(res, 404, "Subcategory not found");
+    // The product's category/subcategory fields are authoritative. Legacy
+    // Subcategory.products arrays can contain stale IDs that create 404 links.
+    const products = await Product.find({ category: category._id, subcategory: subcategory._id,
+      isActive: true, status: "published", deletedAt: null })
+      .select("name slug price salePrice images stock ratings isFeatured seo").lean();
+    const order = new Map((subcategory.products || []).map((id, index) => [String(id), index]));
+    products.sort((a, b) => (order.get(String(a._id)) ?? Number.MAX_SAFE_INTEGER) -
+      (order.get(String(b._id)) ?? Number.MAX_SAFE_INTEGER));
 
     return ok(res, {
       category: { _id: category._id, name: category.name, slug: category.slug },
@@ -77,7 +81,7 @@ router.get(
         description: subcategory.description,
         tag: subcategory.tag,
       },
-      products: subcategory.products,
+      products,
     });
   })
 );

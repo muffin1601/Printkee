@@ -7,7 +7,7 @@ const Product     = require("../models/product");
 const Blog        = require("../models/Blog");
 const Brand       = require("../models/Brand");
 const SeoPage     = require("../models/SeoPage");
-const { evaluateProductSeo } = require("../services/productSeoQuality");
+const { evaluatePublicProductSeo } = require("../services/productSeoGate");
 
 /**
  * GET /api/sitemap-data
@@ -20,11 +20,11 @@ router.get("/sitemap-data", async (req, res) => {
     const [categories, subcategories, products, blogs, brands, seoPages] = await Promise.all([
       Category.find({ isActive: { $ne: false } }, "slug updatedAt").lean(),
       Subcategory.find({ isActive: { $ne: false } }, "slug updatedAt").populate("category", "slug isActive").lean(),
+      // Keep Mongoose defaults for the same Gate V2 fingerprint used by product-fetch.
       // Only URLs that can resolve to a public product page belong in the sitemap.
-      Product.find({ isActive: true })
-        .populate("category",    "slug")
-        .populate("subcategory", "slug")
-        .lean(),
+      Product.find({ isActive: true, status: "published", deletedAt: null })
+        .populate("category",    "slug isActive")
+        .populate("subcategory", "slug isActive category"),
       Blog.find(
         { $or: [{ status: "published" }, { status: { $exists: false } }] },
         "_id date publishedAt updatedAt"
@@ -37,7 +37,7 @@ router.get("/sitemap-data", async (req, res) => {
     ]);
 
     const indexableProducts = products
-      .filter((product) => evaluateProductSeo(product).eligible)
+      .filter((product) => evaluatePublicProductSeo(product).eligible)
       .map(({ slug, updatedAt, category, subcategory }) => ({
         slug,
         updatedAt,

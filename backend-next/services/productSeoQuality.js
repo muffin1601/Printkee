@@ -23,6 +23,7 @@ function evaluateProductSeo(productInput = {}) {
     .filter(Boolean)
     .join(" ");
   const wordCount = description.split(/\s+/).filter(Boolean).length;
+  const visibleDescriptionWords = textOnly(product.description?.long).split(/\s+/).filter(Boolean).length;
 
   const attributes = product.attributes || {};
   const detailCount = [
@@ -48,7 +49,17 @@ function evaluateProductSeo(productInput = {}) {
   ].filter(hasMeaningfulValue).length;
 
   if (product.isActive !== true) issues.push("Product is not active");
+  if (product.status !== "published") issues.push("Product status must be published");
+  if (product.deletedAt) issues.push("Product is deleted or archived");
+  if (!textOnly(product.name) || !textOnly(product.slug)) issues.push("Product name and slug are required");
+  if (!product.category?.slug || product.category.isActive === false) issues.push("Active category is required");
+  if (!product.subcategory?.slug || product.subcategory.isActive === false) issues.push("Active subcategory is required");
+  if (product.category?._id && product.subcategory?.category &&
+      String(product.category._id) !== String(product.subcategory.category)) {
+    issues.push("Subcategory must belong to product category");
+  }
   if (product.seo?.indexable === false) issues.push("Product is explicitly marked noindex");
+  if (visibleDescriptionWords < 40) issues.push("Visible long description needs at least 40 words");
   if (wordCount < 80) issues.push("Product needs at least 80 words of product-specific description");
   if (detailCount < 3) issues.push("Product needs at least three useful product-specific details");
   if (textOnly(product.seo?.metaTitle).length < 30) issues.push("SEO title needs at least 30 useful characters");
@@ -61,6 +72,7 @@ function evaluateProductSeo(productInput = {}) {
     eligible: issues.length === 0,
     issues,
     wordCount,
+    visibleDescriptionWords,
     detailCount,
   };
 }

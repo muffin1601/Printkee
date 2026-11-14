@@ -10,7 +10,7 @@ const AdminAuditEvent = require("../models/AdminAuditEvent");
 const { verifyToken, requireRole } = require("../middleware/auth");
 const { makeUploader, makeMemoryUploader, handleUploadError } = require("../middleware/upload");
 const { ok, fail, asyncHandler } = require("../utils/response");
-const { evaluateProductSeo } = require("../services/productSeoQuality");
+const { evaluatePublicProductSeo } = require("../services/productSeoGate");
 const {
   normalizeProductPayload,
   validateProductPayload,
@@ -101,12 +101,13 @@ router.get(
     const subcategorySlug = decodeURIComponent(req.params.subcategorySlug);
     const productSlug = decodeURIComponent(req.params.productSlug);
 
-    const category = await Category.findOne({ slug: categorySlug });
+    const category = await Category.findOne({ slug: categorySlug, isActive: { $ne: false } });
     if (!category) return fail(res, 404, "Category not found");
 
     const subcategory = await Subcategory.findOne({
       slug: subcategorySlug,
       category: category._id,
+      isActive: { $ne: false },
     });
     if (!subcategory) return fail(res, 404, "Subcategory not found");
 
@@ -115,14 +116,22 @@ router.get(
       category: category._id,
       subcategory: subcategory._id,
       isActive: true,
+      status: "published",
+      deletedAt: null,
     });
     if (!product) return fail(res, 404, "Product not found");
+
+    const seoQuality = evaluatePublicProductSeo({
+      ...product.toObject(),
+      category,
+      subcategory,
+    });
 
     return ok(res, {
       category: { _id: category._id, name: category.name, slug: category.slug },
       subcategory: { _id: subcategory._id, name: subcategory.name, slug: subcategory.slug },
       product,
-      seoQuality: evaluateProductSeo(product),
+      seoQuality,
     });
   })
 );

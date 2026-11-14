@@ -47,7 +47,8 @@ export async function generateMetadata({ params }) {
   const prod = data.product;
   const sub = data.subcategory;
   const cat = data.category;
-  const canonical = `${BASE}/${category}/${subcategory}/${toPublicProductSlug(product)}`;
+  const requestedCanonical = `${BASE}/${category}/${subcategory}/${toPublicProductSlug(product)}`;
+  const canonical = data.seoQuality?.expectedCanonical || requestedCanonical;
 
   const desc =
     prod?.seo?.metaDescription ||
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }) {
   const rawTitle = prod?.seo?.metaTitle || `${prod?.name} | ${sub?.name}`;
   const title = brandedTitle(rawTitle);
   const image = prod?.images?.[0]?.url;
-  const indexable = data.seoQuality?.eligible === true;
+  const indexable = data.seoQuality?.eligible === true && canonical === requestedCanonical;
 
   return {
     title: { absolute: title },
@@ -107,7 +108,7 @@ export default async function ProductPage({ params }) {
   const subcategoryData = data?.subcategory || null;
   const categoryData = data?.category || null;
 
-  const canonical = `${BASE}/${category}/${subcategory}/${toPublicProductSlug(product)}`;
+  const canonical = data.seoQuality?.expectedCanonical || `${BASE}/${category}/${subcategory}/${toPublicProductSlug(product)}`;
 
   const schemaProperties = [
     ["Dimensions", productData?.attributes?.dimensions],

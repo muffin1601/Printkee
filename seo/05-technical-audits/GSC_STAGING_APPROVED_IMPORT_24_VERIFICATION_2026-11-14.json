@@ -1,0 +1,9 @@
+{
+  "database": "printkee-seo-staging-20261114",
+  "updatedProducts": 24,
+  "unchangedProducts": 210,
+  "unchangedOtherCollections": 15,
+  "gateV2EligibleSelected": 24,
+  "qualityFailures": [],
+  "sourceCsvSha256": "d7b130436f69ebc1eccdd70073a2e54269579b09eb6138d45892cd9b4f6deaeb"
+}

@@ -1,0 +1,50 @@
+.manager { display: grid; gap: 1.25rem; color: var(--ink); }
+.header { display: flex; justify-content: space-between; gap: 1rem; align-items: end; }
+.header h1 { margin: 0 0 .35rem; font-size: 1.65rem; }
+.header p, .count, .productHead p { color: var(--ink-3); margin: 0; font-size: .84rem; }
+.stats { display: flex; flex-wrap: wrap; gap: .45rem; }
+.stats span { background: #ede1ff; color: var(--green); padding: .4rem .6rem; font-size: .75rem; font-weight: 700; }
+.message { margin: 0; padding: .75rem; border-left: 3px solid var(--green); background: #f1ebfb; }
+.columns { display: grid; grid-template-columns: minmax(270px, 330px) minmax(0, 1fr); gap: 1rem; align-items: start; }
+.panel { min-width: 0; padding: 1rem; background: #fff; border: 1px solid var(--border); }
+.filters, .form { display: grid; gap: .65rem; }
+.filters input, .filters select, .form input, .form textarea { width: 100%; padding: .6rem; border: 1px solid var(--border); border-radius: 2px; color: var(--ink); background: #fff; font: inherit; }
+.form textarea { resize: vertical; }
+.form label { display: grid; gap: .3rem; font-weight: 700; font-size: .82rem; }
+.form label small { color: var(--ink-3); font-weight: 400; overflow-wrap: anywhere; }
+.manager button { cursor: pointer; font: inherit; }
+.filters button, .actions button, .draft button, .save { border: 0; padding: .6rem .85rem; background: var(--green); color: #fff; font-weight: 700; }
+.manager button:disabled { opacity: .5; cursor: not-allowed; }
+.count { margin: .9rem 0 .5rem; }
+.queue { max-height: 70vh; overflow: auto; border-top: 1px solid var(--border); }
+.item, .activeItem { display: grid; gap: .18rem; width: 100%; padding: .8rem .5rem; text-align: left; border: 0; border-bottom: 1px solid var(--border); background: #fff; }
+.activeItem { background: #f1ebfb; border-left: 3px solid var(--green); }
+.item span, .activeItem span { color: var(--ink-3); font-size: .75rem; }
+.item small, .activeItem small { color: #8b5410; }
+.pager { display: flex; justify-content: space-between; align-items: center; margin-top: .7rem; }
+.pager button { border: 1px solid var(--border); background: #fff; padding: .4rem; }
+.productHead { display: flex; justify-content: space-between; gap: 1rem; align-items: start; }
+.productHead h2 { margin: 0 0 .2rem; font-size: 1.25rem; }
+.good, .excluded { font-size: .72rem; font-weight: 700; padding: .35rem .5rem; white-space: nowrap; }
+.good { color: #245a34; background: #edf7ef; }
+.excluded { color: #8b5410; background: #fff4df; }
+.alertList { margin: .8rem 0; display: grid; gap: .3rem; }
+.alertList p { margin: 0; padding: .4rem .55rem; background: #fff4df; color: #784c10; font-size: .78rem; }
+.alertList .conflict, .conflict { color: #9d2525; background: #fff0f0; }
+.facts { padding: .65rem; border: 1px solid var(--border); margin: .8rem 0; font-size: .8rem; }
+.facts summary { cursor: pointer; font-weight: 700; }
+.facts dl { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: .4rem; }
+.facts dt { font-weight: 700; }.facts dd { margin: 0; overflow-wrap: anywhere; }
+.factList { display: grid; gap: .45rem; margin-top: .65rem; max-height: 260px; overflow: auto; }
+.factList label { display: flex; gap: .5rem; align-items: flex-start; }
+.factList input { margin-top: .15rem; }
+.factList span { overflow-wrap: anywhere; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin: .9rem 0; font-size: .77rem; color: var(--ink-3); }
+.draft, .searchPreview { border: 1px solid var(--border); padding: .8rem; margin: .8rem 0; background: #faf8ff; }
+.draft h3, .searchPreview h3 { margin: 0 0 .6rem; font-size: .9rem; }
+.draft p, .searchPreview p { overflow-wrap: anywhere; font-size: .83rem; }
+.searchPreview strong, .searchPreview span { display: block; margin-top: .25rem; }.searchPreview strong { color: #293ab1; }.searchPreview span { color: #27653c; font-size: .75rem; overflow-wrap: anywhere; }
+.confirm { display: flex; align-items: flex-start; gap: .5rem; margin: .75rem 0; font-size: .8rem; }
+.confirm input { margin-top: .1rem; }
+.save { margin-top: .3rem; }
+@media (max-width: 1000px) { .header { align-items: start; flex-direction: column; }.columns { grid-template-columns: 1fr; }.queue { max-height: 300px; } }

@@ -1,0 +1,275 @@
+{
+  "status": "REVIEW_ONLY_NO_APPROVALS",
+  "products": [
+    {
+      "id": "694a4d091672b568808e3c90",
+      "slug": "yoga-mat-cork-fabric-eva",
+      "url": "https://printkee.com/eco-products/cork-yoga-accessories/yoga-mat-cork-fabric-eva",
+      "status": "AWAITING_ADMIN_REVIEW",
+      "sourceUpdatedAt": "2026-10-16T06:13:27.737Z",
+      "sourceName": "Yoga Mat Cork Fabric with EVA",
+      "sku": "CORK-YG-EVA",
+      "verifiedDatabaseFields": {
+        "category": "Eco Products",
+        "subcategory": "Custom Cork Yoga Accessories",
+        "attributes": {
+          "size": [
+            "183 × 61 cm"
+          ],
+          "material": "Natural Cork & EVA",
+          "color": []
+        },
+        "specifications": [
+          {
+            "key": "Usage",
+            "value": "Yoga, Meditation, Fitness",
+            "_id": "694a4d091672b568808e3c94"
+          }
+        ]
+      },
+      "current": {
+        "description": {
+          "short": "Eco-friendly cork yoga mat with EVA backing.",
+          "long": "Eco-friendly cork fabric yoga mat with EVA backing designed to provide superior grip, comfort, moisture resistance, and durability for daily yoga, meditation, and fitness practice."
+        },
+        "seo": {
+          "metaTitle": "Yoga Mat Cork Fabric with EVA | Eco-Friendly Fitness",
+          "metaDescription": "Sustainable cork yoga mat with EVA backing for comfort, grip, and eco-conscious practice.",
+          "keywords": [
+            "cork yoga mat",
+            "eco yoga mat",
+            "eva backed yoga mat"
+          ]
+        },
+        "primaryImage": {
+          "url": "/assets/products/cork/yoga (1).webp",
+          "altText": "Yoga Mat Cork Fabric with EVA",
+          "_id": "694a4d091672b568808e3c91"
+        }
+      },
+      "proposed": {
+        "description": {
+          "short": "Cork and EVA yoga mat measuring 183 × 61 cm for yoga, meditation and fitness practice.",
+          "long": "Yoga Mat Cork Fabric with EVA pairs a natural cork surface with EVA backing in a 183 × 61 cm format. The recorded uses are yoga, meditation and fitness practice. Its cork finish gives the mat a distinct appearance from a plain synthetic surface, while the listed backing identifies which construction this version uses. If you are choosing mats for a workplace wellness program, studio or gift set, compare the dimensions and backing with the intended routine. Confirm any branding method and required performance properties before placing a bulk order."
+        },
+        "seo": {
+          "metaTitle": "Cork and EVA Yoga Mat 183 × 61 cm | Printkee",
+          "metaDescription": "Yoga mat with a natural cork surface and EVA backing, sized 183 × 61 cm. Review this version for yoga, meditation, fitness or wellness gifting."
+        },
+        "primaryImageAlt": "Natural cork yoga mat laid flat beside a plant and metal bottle",
+        "imageUrl": "/assets/products/cork/yoga (1).webp"
+      },
+      "imageSha256": "e27566181878bf2609aeb39f8f27c761cd79dca6e6bdd44033e10fee13e2dfcf",
+      "visualReview": "Photo shows a flat cork-look mat, plant and bottle. EVA backing and dimensions cannot be established visually; admin must confirm this image belongs to the EVA SKU.",
+      "databaseFactsDoNotProveSupplierAccuracy": true,
+      "currentGateEligible": false,
+      "v2SimulationOnly": {
+        "eligible": true,
+        "issues": [],
+        "warnings": [],
+        "contentFingerprint": "30aa3d61d1f0d7c2e62f7074079d3390f07688a72173cd7a1191ae0ecacfbc2a"
+      }
+    },
+    {
+      "id": "694a4d091672b568808e3c9c",
+      "slug": "fully-rubberized-3mm-yoga-mat",
+      "url": "https://printkee.com/eco-products/cork-yoga-accessories/fully-rubberized-3mm-yoga-mat",
+      "status": "AWAITING_ADMIN_REVIEW",
+      "sourceUpdatedAt": "2026-10-16T06:13:27.737Z",
+      "sourceName": "Fully Rubberized 3 mm Yoga Mat",
+      "sku": "CORK-YG-RUB3MM",
+      "verifiedDatabaseFields": {
+        "category": "Eco Products",
+        "subcategory": "Custom Cork Yoga Accessories",
+        "attributes": {
+          "size": [
+            "183 × 61 cm"
+          ],
+          "material": "Natural Rubber & Cork",
+          "color": []
+        },
+        "specifications": [
+          {
+            "key": "Best For",
+            "value": "Travel & Lightweight Practice",
+            "_id": "694a4d091672b568808e3ca0"
+          }
+        ]
+      },
+      "current": {
+        "description": {
+          "short": "Eco-friendly 3mm rubberized yoga mat.",
+          "long": "Eco-friendly fully rubberized 3mm yoga mat offering excellent grip, lightweight design, and reliable cushioning for yoga, pilates, and fitness routines."
+        },
+        "seo": {
+          "metaTitle": "Fully Rubberized 3mm Yoga Mat | Eco-Friendly Fitness",
+          "metaDescription": "Sustainable fully rubberized 3mm cork yoga mat offering comfort, grip, and durability.",
+          "keywords": [
+            "3mm yoga mat",
+            "rubber yoga mat",
+            "eco-friendly yoga mat"
+          ]
+        },
+        "primaryImage": {
+          "url": "/assets/products/cork/yoga (3).webp",
+          "altText": "Fully Rubberized 3 mm Yoga Mat",
+          "_id": "694a4d091672b568808e3c9d"
+        }
+      },
+      "proposed": {
+        "description": {
+          "short": "3 mm cork and natural-rubber yoga mat in a 183 × 61 cm size.",
+          "long": "Fully Rubberized 3 mm Yoga Mat combines natural rubber and cork in a 183 × 61 cm format. The product record positions this version for travel and lightweight practice. Its 3 mm thickness distinguishes it from the other cork mat listings, making that measurement worth checking against the intended exercise or transport needs. A company selecting mats for a wellness event can compare this construction with the EVA- and latex-backed options before deciding. The record does not establish a tested grip rating or cushioning value, so verify those requirements separately if they matter to your order."
+        },
+        "seo": {
+          "metaTitle": "3 mm Cork and Rubber Yoga Mat 183 × 61 cm | Printkee",
+          "metaDescription": "Cork and natural-rubber yoga mat with a 3 mm thickness and 183 × 61 cm format. Consider it for travel-oriented or lightweight practice."
+        },
+        "primaryImageAlt": "Cork yoga mat folded over to show its textured surface",
+        "imageUrl": "/assets/products/cork/yoga (3).webp"
+      },
+      "imageSha256": "0b246748c5666678a421a263361fdc5bf9dab682b76a9c7d7080a28457818ad4",
+      "visualReview": "Photo shows a folded cork-look mat. Rubber construction and 3 mm thickness cannot be established visually; admin must confirm this image belongs to this SKU.",
+      "databaseFactsDoNotProveSupplierAccuracy": true,
+      "currentGateEligible": false,
+      "v2SimulationOnly": {
+        "eligible": true,
+        "issues": [],
+        "warnings": [],
+        "contentFingerprint": "969056e4bf50ff21d61c0ceb719e5ad1478637966971b9d1b97500493a362601"
+      }
+    },
+    {
+      "id": "694a4d091672b568808e3ca2",
+      "slug": "cork-rubberized-yoga-mat-latex",
+      "url": "https://printkee.com/eco-products/cork-yoga-accessories/cork-rubberized-yoga-mat-latex",
+      "status": "AWAITING_ADMIN_REVIEW",
+      "sourceUpdatedAt": "2026-10-16T06:13:27.737Z",
+      "sourceName": "Cork Rubberized Yoga Mat with Latex",
+      "sku": "CORK-YG-RUB-LATEX",
+      "verifiedDatabaseFields": {
+        "category": "Eco Products",
+        "subcategory": "Custom Cork Yoga Accessories",
+        "attributes": {
+          "size": [
+            "183 × 61 cm"
+          ],
+          "material": "Natural Cork, Rubber & Latex",
+          "color": []
+        },
+        "specifications": [
+          {
+            "key": "Grip Level",
+            "value": "Ultra High Grip",
+            "_id": "694a4d091672b568808e3ca6"
+          }
+        ]
+      },
+      "current": {
+        "description": {
+          "short": "Premium cork rubberized yoga mat with latex.",
+          "long": "Premium eco-friendly cork rubberized yoga mat with latex backing, engineered for superior grip, durability, sweat resistance, and high-performance yoga practice."
+        },
+        "seo": {
+          "metaTitle": "Cork Rubberized Yoga Mat with Latex | Premium Eco-Friendly Mat",
+          "metaDescription": "Premium cork rubberized yoga mat with latex for durability, superior grip, and eco-conscious fitness practice.",
+          "keywords": [
+            "premium cork yoga mat",
+            "latex rubber yoga mat",
+            "eco fitness mat"
+          ]
+        },
+        "primaryImage": {
+          "url": "/assets/products/cork/yoga (2).webp",
+          "altText": "Cork Rubberized Yoga Mat with Latex",
+          "_id": "694a4d091672b568808e3ca3"
+        }
+      },
+      "proposed": {
+        "description": {
+          "short": "Natural cork, rubber and latex yoga mat in a 183 × 61 cm format.",
+          "long": "Cork Rubberized Yoga Mat with Latex lists natural cork, rubber and latex in its construction and measures 183 × 61 cm. The latex component distinguishes this version from the separate cork-and-EVA mat. The image shows a cork-textured surface rolled back over a darker underside; it does not by itself prove grip or durability claims. For a yoga studio or workplace wellness order, compare the stated materials and dimensions with the intended users and storage needs. Because latex is named in the material field, disclose that composition to buyers and verify any performance requirements before committing to quantity."
+        },
+        "seo": {
+          "metaTitle": "Cork, Rubber and Latex Yoga Mat 183 × 61 cm | Printkee",
+          "metaDescription": "Cork yoga mat with rubber and latex construction, sized 183 × 61 cm. Compare its materials and backing with the EVA version before ordering."
+        },
+        "primaryImageAlt": "Rolled cork yoga mat showing a textured surface and dark underside",
+        "imageUrl": "/assets/products/cork/yoga (2).webp"
+      },
+      "imageSha256": "e17d71e22819ab812753466cc2814e2c27ca9ffd083d060a5defce89f2c11663",
+      "visualReview": "Photo shows a rolled cork-look mat with dark underside. Latex composition cannot be established visually; admin must confirm the material and SKU.",
+      "databaseFactsDoNotProveSupplierAccuracy": true,
+      "currentGateEligible": false,
+      "v2SimulationOnly": {
+        "eligible": true,
+        "issues": [],
+        "warnings": [],
+        "contentFingerprint": "478d6c04531f2a2638eb08c70f6eab804ad60c1458724dd0af62aa6445d20f61"
+      }
+    },
+    {
+      "id": "694a4d091672b568808e3cb6",
+      "slug": "double-wall-insulated-sipper-bottle",
+      "url": "https://printkee.com/drink-ware/sipper/double-wall-insulated-sipper-bottle",
+      "status": "AWAITING_ADMIN_REVIEW",
+      "sourceUpdatedAt": "2026-10-16T06:13:27.737Z",
+      "sourceName": "Customised Sipper Bottles",
+      "sku": "SIPPER-INSULATED",
+      "verifiedDatabaseFields": {
+        "category": "Drink Ware",
+        "subcategory": "Custom Sippers in Delhi",
+        "attributes": {
+          "color": [
+            "Black"
+          ],
+          "size": [
+            "600ml"
+          ],
+          "material": "Stainless Steel Double Wall"
+        },
+        "specifications": []
+      },
+      "current": {
+        "description": {
+          "short": "Double wall insulated sipper bottle for hot & cold beverages.",
+          "long": "Double wall insulated sipper bottle that keeps beverages hot or cold for long hours. Ideal for premium corporate gifting and branded giveaways."
+        },
+        "seo": {
+          "metaTitle": "Double Wall Insulated Sipper Bottle | Corporate Premium Gifting India",
+          "metaDescription": "Premium insulated sipper bottle with custom logo branding for corporate gifting.",
+          "keywords": [
+            "double wall sipper india, premium corporate bottles, branding insulated bottle"
+          ]
+        },
+        "primaryImage": {
+          "url": "/assets/products/sipperbottles/5.webp",
+          "altText": "Double Wall Insulated Sipper Bottle",
+          "_id": "694a4d091672b568808e3cb7"
+        }
+      },
+      "proposed": {
+        "description": {
+          "short": "Black 600 ml stainless-steel double-wall sipper bottle for everyday drink carrying.",
+          "long": "Double Wall Insulated Sipper Bottle is a black, 600 ml stainless-steel drink container with double-wall construction. Its capacity and material are the concrete details to compare with other bottles in the Printkee range, including smaller bamboo-style and larger plastic sippers. For an employee welcome pack or event gift, consider whether the size and drinking format suit the people receiving it. The image shows a dark bottle with a drinking top. Confirm lid operation, branding position and any required temperature-retention performance with the supplier before a bulk order; no retention duration is established in the record."
+        },
+        "seo": {
+          "metaTitle": "Black 600 ml Double-Wall Steel Sipper | Printkee",
+          "metaDescription": "Black 600 ml stainless-steel sipper bottle with double-wall construction. Compare the capacity and drinking format for employee or event gifting."
+        },
+        "primaryImageAlt": "Black stainless-steel sipper bottle with drinking top",
+        "imageUrl": "/assets/products/sipperbottles/5.webp"
+      },
+      "imageSha256": "a0dc660fe979dd856df86686bedcf364111f97cad4e7689a268075dd7f886faa",
+      "visualReview": "Photo shows a black bottle with a drinking top and existing logo. Material, 600 ml capacity, double-wall construction and branding permissions cannot be established visually; admin must confirm the exact SKU and image rights.",
+      "databaseFactsDoNotProveSupplierAccuracy": true,
+      "currentGateEligible": false,
+      "v2SimulationOnly": {
+        "eligible": true,
+        "issues": [],
+        "warnings": [],
+        "contentFingerprint": "b980a9a42b0b712bb58c7110903bfcc8784e5394c0340f95ae0746bb63e4a08e"
+      }
+    }
+  ]
+}

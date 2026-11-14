@@ -1,0 +1,987 @@
+{
+  "simulated": true,
+  "sourceProducts": 234,
+  "reviewed": 60,
+  "approved": 0,
+  "nearDuplicates": [],
+  "catalogNearDuplicates": [],
+  "results": [
+    {
+      "slug": "cork-passport-holder",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 9,
+      "longWords": 51,
+      "titleCharacters": 42,
+      "metaCharacters": 153
+    },
+    {
+      "slug": "classic-fedora-hat",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 9,
+      "statedFacts": 1,
+      "shortWords": 12,
+      "longWords": 56,
+      "titleCharacters": 40,
+      "metaCharacters": 129
+    },
+    {
+      "slug": "metal-ring-keychain",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 2,
+      "statedFacts": 2,
+      "shortWords": 10,
+      "longWords": 52,
+      "titleCharacters": 37,
+      "metaCharacters": 130
+    },
+    {
+      "slug": "corporate-cork-gift-combo-d",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Description does not state a recorded product fact",
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 0,
+      "shortWords": 8,
+      "longWords": 55,
+      "titleCharacters": 33,
+      "metaCharacters": 131
+    },
+    {
+      "slug": "white-corporate-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 8,
+      "statedFacts": 3,
+      "shortWords": 10,
+      "longWords": 55,
+      "titleCharacters": 39,
+      "metaCharacters": 119
+    },
+    {
+      "slug": "maroon-round-neck-t-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 51,
+      "titleCharacters": 36,
+      "metaCharacters": 136
+    },
+    {
+      "slug": "corporate-cork-gift-combo-c",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Description does not state a recorded product fact",
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 0,
+      "shortWords": 9,
+      "longWords": 53,
+      "titleCharacters": 34,
+      "metaCharacters": 127
+    },
+    {
+      "slug": "cork-dining-table-mat",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 8,
+      "longWords": 55,
+      "titleCharacters": 40,
+      "metaCharacters": 131
+    },
+    {
+      "slug": "classic-orange-baseball-cap",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 48,
+      "titleCharacters": 37,
+      "metaCharacters": 130
+    },
+    {
+      "slug": "executive-a5-pu-leather-diary",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 10,
+      "longWords": 55,
+      "titleCharacters": 36,
+      "metaCharacters": 135
+    },
+    {
+      "slug": "purple-corporate-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 8,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 54,
+      "titleCharacters": 46,
+      "metaCharacters": 131
+    },
+    {
+      "slug": "corporate-cork-gift-combo-b",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Description does not state a recorded product fact",
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 0,
+      "shortWords": 9,
+      "longWords": 53,
+      "titleCharacters": 41,
+      "metaCharacters": 124
+    },
+    {
+      "slug": "tall-cork-table-lamp",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 10,
+      "longWords": 54,
+      "titleCharacters": 31,
+      "metaCharacters": 131
+    },
+    {
+      "slug": "cork-desktop-calendar",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 9,
+      "longWords": 53,
+      "titleCharacters": 32,
+      "metaCharacters": 119
+    },
+    {
+      "slug": "olive-cork-table-mat",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 9,
+      "longWords": 54,
+      "titleCharacters": 31,
+      "metaCharacters": 122
+    },
+    {
+      "slug": "cork-hanging-lamp",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 9,
+      "longWords": 50,
+      "titleCharacters": 28,
+      "metaCharacters": 131
+    },
+    {
+      "slug": "premium-notebook-diary-gift-set",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 8,
+      "longWords": 57,
+      "titleCharacters": 41,
+      "metaCharacters": 120
+    },
+    {
+      "slug": "bamboo-thermo-sipper-bottle",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 1,
+      "shortWords": 9,
+      "longWords": 56,
+      "titleCharacters": 41,
+      "metaCharacters": 123
+    },
+    {
+      "slug": "executive-softshell-jacket",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 8,
+      "longWords": 57,
+      "titleCharacters": 43,
+      "metaCharacters": 108
+    },
+    {
+      "slug": "3-in-1-system-jacket",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 8,
+      "longWords": 56,
+      "titleCharacters": 40,
+      "metaCharacters": 118
+    },
+    {
+      "slug": "olive-round-neck-t-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 51,
+      "titleCharacters": 35,
+      "metaCharacters": 127
+    },
+    {
+      "slug": "classic-yellow-baseball-cap",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 8,
+      "longWords": 47,
+      "titleCharacters": 37,
+      "metaCharacters": 123
+    },
+    {
+      "slug": "classic-cream-baseball-cap",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 58,
+      "titleCharacters": 36,
+      "metaCharacters": 122
+    },
+    {
+      "slug": "cork-clip-card-holder",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Description does not state a recorded product fact",
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 0,
+      "shortWords": 11,
+      "longWords": 56,
+      "titleCharacters": 38,
+      "metaCharacters": 128
+    },
+    {
+      "slug": "classic-maroon-baseball-cap",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 49,
+      "titleCharacters": 37,
+      "metaCharacters": 121
+    },
+    {
+      "slug": "cork-gift-boxes",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 8,
+      "longWords": 53,
+      "titleCharacters": 38,
+      "metaCharacters": 124
+    },
+    {
+      "slug": "cork-laptop-bag",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 9,
+      "longWords": 52,
+      "titleCharacters": 32,
+      "metaCharacters": 121
+    },
+    {
+      "slug": "yoga-mat-cork-fabric-eva",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 10,
+      "longWords": 62,
+      "titleCharacters": 44,
+      "metaCharacters": 121
+    },
+    {
+      "slug": "classic-green-baseball-cap",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 8,
+      "longWords": 56,
+      "titleCharacters": 36,
+      "metaCharacters": 123
+    },
+    {
+      "slug": "natural-cork-coasters",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 9,
+      "longWords": 52,
+      "titleCharacters": 38,
+      "metaCharacters": 116
+    },
+    {
+      "slug": "fully-rubberized-3mm-yoga-mat",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 2,
+      "shortWords": 12,
+      "longWords": 59,
+      "titleCharacters": 40,
+      "metaCharacters": 117
+    },
+    {
+      "slug": "premium-canvas-tote-bag",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 52,
+      "titleCharacters": 38,
+      "metaCharacters": 119
+    },
+    {
+      "slug": "premium-metal-wall-clock",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 8,
+      "longWords": 46,
+      "titleCharacters": 35,
+      "metaCharacters": 116
+    },
+    {
+      "slug": "classic-grey-baseball-cap",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 52,
+      "titleCharacters": 35,
+      "metaCharacters": 112
+    },
+    {
+      "slug": "double-wall-insulated-sipper-bottle",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 2,
+      "shortWords": 10,
+      "longWords": 63,
+      "titleCharacters": 42,
+      "metaCharacters": 122
+    },
+    {
+      "slug": "multi-device-bluetooth-keyboard",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 4,
+      "statedFacts": 4,
+      "shortWords": 8,
+      "longWords": 49,
+      "titleCharacters": 48,
+      "metaCharacters": 117
+    },
+    {
+      "slug": "classic-white-baseball-cap",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 8,
+      "longWords": 49,
+      "titleCharacters": 36,
+      "metaCharacters": 120
+    },
+    {
+      "slug": "solar-portable-power-bank-10000mah",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 2,
+      "shortWords": 12,
+      "longWords": 50,
+      "titleCharacters": 38,
+      "metaCharacters": 115
+    },
+    {
+      "slug": "light-grey-round-neck-t-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 51,
+      "titleCharacters": 40,
+      "metaCharacters": 108
+    },
+    {
+      "slug": "cork-rubberized-yoga-mat-latex",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 2,
+      "shortWords": 13,
+      "longWords": 59,
+      "titleCharacters": 46,
+      "metaCharacters": 119
+    },
+    {
+      "slug": "cork-serving-tray",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 9,
+      "longWords": 56,
+      "titleCharacters": 35,
+      "metaCharacters": 118
+    },
+    {
+      "slug": "navy-corporate-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 8,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 51,
+      "titleCharacters": 44,
+      "metaCharacters": 115
+    },
+    {
+      "slug": "bright-biege-round-neck-t-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 54,
+      "titleCharacters": 35,
+      "metaCharacters": 116
+    },
+    {
+      "slug": "classic-pink-baseball-cap",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 53,
+      "titleCharacters": 35,
+      "metaCharacters": 110
+    },
+    {
+      "slug": "classic-red-round-neck-t-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 58,
+      "titleCharacters": 33,
+      "metaCharacters": 113
+    },
+    {
+      "slug": "compact-wireless-keyboard",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 4,
+      "statedFacts": 4,
+      "shortWords": 10,
+      "longWords": 51,
+      "titleCharacters": 38,
+      "metaCharacters": 125
+    },
+    {
+      "slug": "classic-black-round-neck-t-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 58,
+      "titleCharacters": 35,
+      "metaCharacters": 120
+    },
+    {
+      "slug": "dark-blue-round-neck-t-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 57,
+      "titleCharacters": 39,
+      "metaCharacters": 115
+    },
+    {
+      "slug": "large-grain-cork-coasters",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 9,
+      "longWords": 53,
+      "titleCharacters": 36,
+      "metaCharacters": 112
+    },
+    {
+      "slug": "corporate-cork-gift-combo-a",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Description does not state a recorded product fact",
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 0,
+      "shortWords": 10,
+      "longWords": 52,
+      "titleCharacters": 33,
+      "metaCharacters": 122
+    },
+    {
+      "slug": "4-piece-cork-coasters",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 11,
+      "longWords": 54,
+      "titleCharacters": 42,
+      "metaCharacters": 116
+    },
+    {
+      "slug": "travel-outdoor-promotional-backpack",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 8,
+      "longWords": 50,
+      "titleCharacters": 44,
+      "metaCharacters": 123
+    },
+    {
+      "slug": "choco-chip-cork-planter",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 11,
+      "longWords": 55,
+      "titleCharacters": 34,
+      "metaCharacters": 115
+    },
+    {
+      "slug": "cork-multicolored-planter",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 10,
+      "longWords": 55,
+      "titleCharacters": 36,
+      "metaCharacters": 110
+    },
+    {
+      "slug": "cork-round-planter",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 10,
+      "longWords": 54,
+      "titleCharacters": 37,
+      "metaCharacters": 109
+    },
+    {
+      "slug": "forest-green-round-neck-t-shirt",
+      "status": "HOLD_CANONICAL_DECISION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Product variant group needs a canonical decision"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 54,
+      "titleCharacters": 42,
+      "metaCharacters": 113
+    },
+    {
+      "slug": "ergonomic-professional-mouse",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 3,
+      "statedFacts": 3,
+      "shortWords": 10,
+      "longWords": 52,
+      "titleCharacters": 45,
+      "metaCharacters": 123
+    },
+    {
+      "slug": "square-brige-cork-coasters",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 9,
+      "longWords": 54,
+      "titleCharacters": 39,
+      "metaCharacters": 111
+    },
+    {
+      "slug": "cork-round-style-pen-holder",
+      "status": "DRAFT_REQUIRES_ADMIN_REVIEW",
+      "eligibleWithSimulatedApproval": true,
+      "issues": [],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 1,
+      "statedFacts": 1,
+      "shortWords": 11,
+      "longWords": 49,
+      "titleCharacters": 40,
+      "metaCharacters": 106
+    },
+    {
+      "slug": "executive-pullover-hoodie",
+      "status": "HOLD_IMAGE_OR_FACT_VERIFICATION",
+      "eligibleWithSimulatedApproval": false,
+      "issues": [
+        "Unresolved product identity or image review hold"
+      ],
+      "warnings": [
+        "Combined description is under the former 80-word review threshold"
+      ],
+      "usefulFacts": 7,
+      "statedFacts": 3,
+      "shortWords": 9,
+      "longWords": 47,
+      "titleCharacters": 43,
+      "metaCharacters": 111
+    }
+  ]
+}

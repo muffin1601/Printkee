@@ -1,0 +1,14 @@
+{
+  "database": "printkee-seo-staging-20261114",
+  "host": "127.0.0.1:27028",
+  "collections": 16,
+  "products": 234,
+  "targets": 151,
+  "approved": 0,
+  "currentlyEligibleTargets": 0,
+  "reviewable": 24,
+  "unresolved": 127,
+  "allCollectionCountsMatchBackup": true,
+  "allTargetTimestampsMatchSource": true,
+  "allBatchPrimaryImagesMatch": true
+}

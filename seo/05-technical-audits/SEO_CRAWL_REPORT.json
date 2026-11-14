@@ -1,9 +1,18 @@
 {
-  "generatedAt": "2026-10-12T10:18:09.880Z",
-  "fetchOrigin": "http://localhost:3111",
+  "generatedAt": "2026-11-14T06:54:56.165Z",
+  "fetchOrigin": "http://127.0.0.1:3005",
   "errors": [],
   "warnings": [],
   "pages": [
+    {
+      "path": "/about",
+      "status": 200,
+      "title": "About Printkee | Corporate Gifting Solutions",
+      "description": "Learn about Printkee, your partner for corporate gifting and branded merchandise. Explore our approach to custom products, employee gifts and business campaigns.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/about",
+      "schemas": 2
+    },
     {
       "path": "/contact",
       "status": 200,
@@ -14,22 +23,13 @@
       "schemas": 2
     },
     {
-      "path": "/privacy-policy",
+      "path": "/locations",
       "status": 200,
-      "title": "Privacy Policy | Printkee",
-      "description": "Read how Printkee collects, uses, shares and protects personal information submitted through its website, enquiry forms, newsletter and analytics tools.",
+      "title": "Corporate Gifting Service Areas in Delhi NCR | Printkee",
+      "description": "Explore Printkee corporate gifting guidance for key Delhi NCR business locations, including Delhi, Noida, Greater Noida, Gurgaon, Faridabad and Ghaziabad.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/privacy-policy",
-      "schemas": 3
-    },
-    {
-      "path": "/about",
-      "status": 200,
-      "title": "About Printkee | Corporate Gifting Solutions",
-      "description": "Learn about Printkee, your partner for corporate gifting and branded merchandise. Explore our approach to custom products, employee gifts and business campaigns.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/about",
-      "schemas": 2
+      "canonical": "https://printkee.com/locations",
+      "schemas": 4
     },
     {
       "path": "/brands",
@@ -50,13 +50,13 @@
       "schemas": 3
     },
     {
-      "path": "/locations",
+      "path": "/privacy-policy",
       "status": 200,
-      "title": "Corporate Gifting Service Areas in Delhi NCR | Printkee",
-      "description": "Explore Printkee corporate gifting guidance for key Delhi NCR business locations, including Delhi, Noida, Greater Noida, Gurgaon, Faridabad and Ghaziabad.",
+      "title": "Privacy Policy | Printkee",
+      "description": "Read how Printkee collects, uses, shares and protects personal information submitted through its website, enquiry forms, newsletter and analytics tools.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/locations",
-      "schemas": 4
+      "canonical": "https://printkee.com/privacy-policy",
+      "schemas": 3
     },
     {
       "path": "/",
@@ -75,6 +75,33 @@
       "h1Count": 1,
       "canonical": "https://printkee.com/blogs",
       "schemas": 2
+    },
+    {
+      "path": "/industries",
+      "status": 200,
+      "title": "Corporate Gifting by Industry | Printkee",
+      "description": "Browse reviewed Printkee guidance for industry-specific corporate gifting, branded merchandise and custom apparel requirements.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/industries",
+      "schemas": 3
+    },
+    {
+      "path": "/use-cases",
+      "status": 200,
+      "title": "Corporate Gifting Use Cases | Printkee",
+      "description": "Explore reviewed use cases for employee onboarding, events, recognition, client appreciation and branded merchandise programmes.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/use-cases",
+      "schemas": 3
+    },
+    {
+      "path": "/blog/corporate-diwali-gifts-buying-guide-2026",
+      "status": 200,
+      "title": "Corporate Diwali Gifts for Employees & Clients: Complete 2026 Buying Guide | Printkee",
+      "description": "Plan corporate Diwali gifts for employees and clients with a practical 2026 guide to budgets, branding, hampers, bulk ordering and delivery.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/blog/corporate-diwali-gifts-buying-guide-2026",
+      "schemas": 5
     },
     {
       "path": "/delhi/corporate-gifts",
@@ -113,22 +140,13 @@
       "schemas": 5
     },
     {
-      "path": "/sitemap",
+      "path": "/faridabad/corporate-gifts",
       "status": 200,
-      "title": "Sitemap | Printkee",
-      "description": "Navigate all Printkee pages including categories, brands, blogs, and contact information through our easy-to-use sitemap.",
+      "title": "Corporate Gifts in Faridabad for Branded Business Gifting | Printkee",
+      "description": "Explore corporate gifts in Faridabad for employee appreciation, client gifting and branded campaigns. Request a relevant bulk-gifting quote from Printkee.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/sitemap",
-      "schemas": 2
-    },
-    {
-      "path": "/industries",
-      "status": 200,
-      "title": "Corporate Gifting by Industry | Printkee",
-      "description": "Browse reviewed Printkee guidance for industry-specific corporate gifting, branded merchandise and custom apparel requirements.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/industries",
-      "schemas": 3
+      "canonical": "https://printkee.com/faridabad/corporate-gifts",
+      "schemas": 5
     },
     {
       "path": "/ghaziabad/corporate-gifts",
@@ -140,22 +158,13 @@
       "schemas": 5
     },
     {
-      "path": "/use-cases",
+      "path": "/sitemap",
       "status": 200,
-      "title": "Corporate Gifting Use Cases | Printkee",
-      "description": "Explore reviewed use cases for employee onboarding, events, recognition, client appreciation and branded merchandise programmes.",
+      "title": "Sitemap | Printkee",
+      "description": "Navigate all Printkee pages including categories, brands, blogs, and contact information through our easy-to-use sitemap.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/use-cases",
-      "schemas": 3
-    },
-    {
-      "path": "/faridabad/corporate-gifts",
-      "status": 200,
-      "title": "Corporate Gifts in Faridabad for Branded Business Gifting | Printkee",
-      "description": "Explore corporate gifts in Faridabad for employee appreciation, client gifting and branded campaigns. Request a relevant bulk-gifting quote from Printkee.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/faridabad/corporate-gifts",
-      "schemas": 5
+      "canonical": "https://printkee.com/sitemap",
+      "schemas": 2
     },
     {
       "path": "/blog/best-corporate-diwali-gifts-delhi-ncr-2026",
@@ -165,24 +174,6 @@
       "h1Count": 1,
       "canonical": "https://printkee.com/blog/best-corporate-diwali-gifts-delhi-ncr-2026",
       "schemas": 5
-    },
-    {
-      "path": "/blog/corporate-diwali-gifts-buying-guide-2026",
-      "status": 200,
-      "title": "Corporate Diwali Gifts for Employees & Clients: Complete 2026 Buying Guide | Printkee",
-      "description": "Plan corporate Diwali gifts for employees and clients with a practical 2026 guide to budgets, branding, hampers, bulk ordering and delivery.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/blog/corporate-diwali-gifts-buying-guide-2026",
-      "schemas": 5
-    },
-    {
-      "path": "/diwali-special",
-      "status": 200,
-      "title": "Diwali 2026 Gifts, Hampers & Corporate Gifts | Printkee",
-      "description": "Browse the Diwali 2026 catalogue — Nutraj dry-fruit hampers, boAt and TEMPT audio, FUZO desk gadgets, American Tourister and Swiss Military luggage, Prestige and Skyline kitchen appliances, copper gift sets and home textiles. Bulk enquiry pricing, pan-India delivery.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/diwali-special",
-      "schemas": 4
     },
     {
       "path": "/diwali-special/hampers/festive-snack-travel-mug-hamper",
@@ -275,13 +266,13 @@
       "schemas": 3
     },
     {
-      "path": "/t-shirts",
+      "path": "/diwali-special/hampers/wallet-mug-ferrero-diya-kit",
       "status": 200,
-      "title": "Custom T-Shirts for Companies, Teams and Events | Printkee",
-      "description": "Compare round neck and polo T-shirts for corporate teams, promotions and custom branding. Review real products and request a quote from Printkee.",
+      "title": "Wallet, Mug, Ferrero & Diya Kit | Diwali Corporate Gifts | Printkee",
+      "description": "A smart Diwali gift kit with a wallet, insulated mug, Ferrero Rocher chocolates and two decorative diyas. Get bulk Diwali gifting prices and branding options on enquiry.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/t-shirts",
-      "schemas": 6
+      "canonical": "https://printkee.com/diwali-special/hampers/wallet-mug-ferrero-diya-kit",
+      "schemas": 3
     },
     {
       "path": "/diwali-special/hampers/glass-jar-diya-gift-set",
@@ -293,13 +284,22 @@
       "schemas": 3
     },
     {
-      "path": "/diwali-special/hampers/wallet-mug-ferrero-diya-kit",
+      "path": "/diwali-special",
       "status": 200,
-      "title": "Wallet, Mug, Ferrero & Diya Kit | Diwali Corporate Gifts | Printkee",
-      "description": "A smart Diwali gift kit with a wallet, insulated mug, Ferrero Rocher chocolates and two decorative diyas. Get bulk Diwali gifting prices and branding options on enquiry.",
+      "title": "Diwali 2026 Gifts, Hampers & Corporate Gifts | Printkee",
+      "description": "Browse the Diwali 2026 catalogue — Nutraj dry-fruit hampers, boAt and TEMPT audio, FUZO desk gadgets, American Tourister and Swiss Military luggage, Prestige and Skyline kitchen appliances, copper gift sets and home textiles. Bulk enquiry pricing, pan-India delivery.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/diwali-special/hampers/wallet-mug-ferrero-diya-kit",
-      "schemas": 3
+      "canonical": "https://printkee.com/diwali-special",
+      "schemas": 4
+    },
+    {
+      "path": "/t-shirts",
+      "status": 200,
+      "title": "Custom T-Shirts for Companies, Teams and Events | Printkee",
+      "description": "Compare round neck and polo T-shirts for corporate teams, promotions and custom branding. Review real products and request a quote from Printkee.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/t-shirts",
+      "schemas": 6
     },
     {
       "path": "/t-shirts/corporate-t-shirts",
@@ -320,30 +320,21 @@
       "schemas": 6
     },
     {
-      "path": "/t-shirts/personalized-t-shirts",
-      "status": 200,
-      "title": "Personalized T-Shirts with Reviewed Custom Artwork | Printkee",
-      "description": "Plan personalized T-shirts using names, approved artwork or team details. Select a real garment and request feasibility and pricing review.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/t-shirts/personalized-t-shirts",
-      "schemas": 6
-    },
-    {
-      "path": "/t-shirts/logo-printed-t-shirts",
-      "status": 200,
-      "title": "Logo-Printed T-Shirts with Artwork Review | Printkee",
-      "description": "Choose round neck or polo T-shirts for approved logo printing. Prepare artwork, placement and quantity details for a Printkee quotation.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/t-shirts/logo-printed-t-shirts",
-      "schemas": 6
-    },
-    {
       "path": "/t-shirts/promotional-t-shirts",
       "status": 200,
       "title": "Promotional T-Shirts for Campaigns and Events | Printkee",
       "description": "Explore promotional T-shirts for campaigns, events and branded activities. Compare available products and prepare an accurate quotation brief.",
       "h1Count": 1,
       "canonical": "https://printkee.com/t-shirts/promotional-t-shirts",
+      "schemas": 6
+    },
+    {
+      "path": "/t-shirts/personalized-t-shirts",
+      "status": 200,
+      "title": "Personalized T-Shirts with Reviewed Custom Artwork | Printkee",
+      "description": "Plan personalized T-shirts using names, approved artwork or team details. Select a real garment and request feasibility and pricing review.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/t-shirts/personalized-t-shirts",
       "schemas": 6
     },
     {
@@ -356,12 +347,30 @@
       "schemas": 6
     },
     {
+      "path": "/t-shirts/logo-printed-t-shirts",
+      "status": 200,
+      "title": "Logo-Printed T-Shirts with Artwork Review | Printkee",
+      "description": "Choose round neck or polo T-shirts for approved logo printing. Prepare artwork, placement and quantity details for a Printkee quotation.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/t-shirts/logo-printed-t-shirts",
+      "schemas": 6
+    },
+    {
       "path": "/bags/corporate-bags",
       "status": 200,
       "title": "Corporate Bags for Business Requirements | Printkee",
       "description": "Compare catalogue options for corporate bags. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/bags/corporate-bags",
+      "schemas": 6
+    },
+    {
+      "path": "/bottles",
+      "status": 200,
+      "title": "Custom Bottles for Business Requirements | Printkee",
+      "description": "Compare catalogue options for custom bottles. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/bottles",
       "schemas": 6
     },
     {
@@ -383,12 +392,12 @@
       "schemas": 6
     },
     {
-      "path": "/bottles",
+      "path": "/bags/bulk-bags",
       "status": 200,
-      "title": "Custom Bottles for Business Requirements | Printkee",
-      "description": "Compare catalogue options for custom bottles. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "title": "Bulk Bags for Business Requirements | Printkee",
+      "description": "Compare catalogue options for bulk bags. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/bottles",
+      "canonical": "https://printkee.com/bags/bulk-bags",
       "schemas": 6
     },
     {
@@ -401,12 +410,12 @@
       "schemas": 6
     },
     {
-      "path": "/bags/bulk-bags",
+      "path": "/bottles/corporate-bottles",
       "status": 200,
-      "title": "Bulk Bags for Business Requirements | Printkee",
-      "description": "Compare catalogue options for bulk bags. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "title": "Corporate Bottles for Business Requirements | Printkee",
+      "description": "Compare catalogue options for corporate bottles. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/bags/bulk-bags",
+      "canonical": "https://printkee.com/bottles/corporate-bottles",
       "schemas": 6
     },
     {
@@ -419,39 +428,12 @@
       "schemas": 6
     },
     {
-      "path": "/bottles/corporate-bottles",
-      "status": 200,
-      "title": "Corporate Bottles for Business Requirements | Printkee",
-      "description": "Compare catalogue options for corporate bottles. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/bottles/corporate-bottles",
-      "schemas": 6
-    },
-    {
       "path": "/bottles/personalized-bottles",
       "status": 200,
       "title": "Personalized Bottles for Business Requirements | Printkee",
       "description": "Compare catalogue options for personalized bottles. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/bottles/personalized-bottles",
-      "schemas": 6
-    },
-    {
-      "path": "/bottles/logo-printed-bottles",
-      "status": 200,
-      "title": "Logo-Printed Bottles for Business Requirements | Printkee",
-      "description": "Compare catalogue options for logo-printed bottles. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/bottles/logo-printed-bottles",
-      "schemas": 6
-    },
-    {
-      "path": "/bottles/bulk-bottles",
-      "status": 200,
-      "title": "Bulk Bottles for Business Requirements | Printkee",
-      "description": "Compare catalogue options for bulk bottles. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/bottles/bulk-bottles",
       "schemas": 6
     },
     {
@@ -464,6 +446,24 @@
       "schemas": 6
     },
     {
+      "path": "/bottles/bulk-bottles",
+      "status": 200,
+      "title": "Bulk Bottles for Business Requirements | Printkee",
+      "description": "Compare catalogue options for bulk bottles. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/bottles/bulk-bottles",
+      "schemas": 6
+    },
+    {
+      "path": "/bottles/logo-printed-bottles",
+      "status": 200,
+      "title": "Logo-Printed Bottles for Business Requirements | Printkee",
+      "description": "Compare catalogue options for logo-printed bottles. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/bottles/logo-printed-bottles",
+      "schemas": 6
+    },
+    {
       "path": "/shirts/corporate-shirts",
       "status": 200,
       "title": "Corporate Shirts for Business Requirements | Printkee",
@@ -473,21 +473,21 @@
       "schemas": 6
     },
     {
-      "path": "/shirts/promotional-shirts",
-      "status": 200,
-      "title": "Promotional Shirts for Business Requirements | Printkee",
-      "description": "Compare catalogue options for promotional shirts. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/shirts/promotional-shirts",
-      "schemas": 6
-    },
-    {
       "path": "/shirts/personalized-shirts",
       "status": 200,
       "title": "Personalized Shirts for Business Requirements | Printkee",
       "description": "Compare catalogue options for personalized shirts. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/shirts/personalized-shirts",
+      "schemas": 6
+    },
+    {
+      "path": "/shirts/promotional-shirts",
+      "status": 200,
+      "title": "Promotional Shirts for Business Requirements | Printkee",
+      "description": "Compare catalogue options for promotional shirts. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/shirts/promotional-shirts",
       "schemas": 6
     },
     {
@@ -518,6 +518,15 @@
       "schemas": 6
     },
     {
+      "path": "/mugs",
+      "status": 200,
+      "title": "Custom Mugs for Business Requirements | Printkee",
+      "description": "Compare catalogue options for custom mugs. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/mugs",
+      "schemas": 6
+    },
+    {
       "path": "/welcome-kits/corporate-welcome-kits",
       "status": 200,
       "title": "Corporate Welcome Kits for Business Requirements | Printkee",
@@ -545,15 +554,6 @@
       "schemas": 6
     },
     {
-      "path": "/mugs",
-      "status": 200,
-      "title": "Custom Mugs for Business Requirements | Printkee",
-      "description": "Compare catalogue options for custom mugs. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/mugs",
-      "schemas": 6
-    },
-    {
       "path": "/welcome-kits/logo-printed-welcome-kits",
       "status": 200,
       "title": "Logo-Printed Welcome Kits for Business Requirements | Printkee",
@@ -569,15 +569,6 @@
       "description": "Compare catalogue options for corporate mugs. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/mugs/corporate-mugs",
-      "schemas": 6
-    },
-    {
-      "path": "/mugs/personalized-mugs",
-      "status": 200,
-      "title": "Personalized Mugs for Business Requirements | Printkee",
-      "description": "Compare catalogue options for personalized mugs. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/mugs/personalized-mugs",
       "schemas": 6
     },
     {
@@ -599,21 +590,30 @@
       "schemas": 6
     },
     {
-      "path": "/mugs/logo-printed-mugs",
-      "status": 200,
-      "title": "Logo-Printed Mugs for Business Requirements | Printkee",
-      "description": "Compare catalogue options for logo-printed mugs. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/mugs/logo-printed-mugs",
-      "schemas": 6
-    },
-    {
       "path": "/caps",
       "status": 200,
       "title": "Custom Caps for Business Requirements | Printkee",
       "description": "Compare catalogue options for custom caps. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/caps",
+      "schemas": 6
+    },
+    {
+      "path": "/caps/bulk-caps",
+      "status": 200,
+      "title": "Bulk Caps for Business Requirements | Printkee",
+      "description": "Compare catalogue options for bulk caps. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/caps/bulk-caps",
+      "schemas": 6
+    },
+    {
+      "path": "/mugs/personalized-mugs",
+      "status": 200,
+      "title": "Personalized Mugs for Business Requirements | Printkee",
+      "description": "Compare catalogue options for personalized mugs. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/mugs/personalized-mugs",
       "schemas": 6
     },
     {
@@ -626,21 +626,21 @@
       "schemas": 6
     },
     {
+      "path": "/mugs/logo-printed-mugs",
+      "status": 200,
+      "title": "Logo-Printed Mugs for Business Requirements | Printkee",
+      "description": "Compare catalogue options for logo-printed mugs. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/mugs/logo-printed-mugs",
+      "schemas": 6
+    },
+    {
       "path": "/caps/personalized-caps",
       "status": 200,
       "title": "Personalized Caps for Business Requirements | Printkee",
       "description": "Compare catalogue options for personalized caps. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/caps/personalized-caps",
-      "schemas": 6
-    },
-    {
-      "path": "/caps/bulk-caps",
-      "status": 200,
-      "title": "Bulk Caps for Business Requirements | Printkee",
-      "description": "Compare catalogue options for bulk caps. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/caps/bulk-caps",
       "schemas": 6
     },
     {
@@ -662,21 +662,21 @@
       "schemas": 6
     },
     {
-      "path": "/notebooks-diaries/personalized-notebooks-diaries",
-      "status": 200,
-      "title": "Personalized Notebooks And Diaries for Business Requirements | Printkee",
-      "description": "Compare catalogue options for personalized notebooks and diaries. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/notebooks-diaries/personalized-notebooks-diaries",
-      "schemas": 6
-    },
-    {
       "path": "/notebooks-diaries/corporate-notebooks-diaries",
       "status": 200,
       "title": "Corporate Notebooks And Diaries for Business Requirements | Printkee",
       "description": "Compare catalogue options for corporate notebooks and diaries. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/notebooks-diaries/corporate-notebooks-diaries",
+      "schemas": 6
+    },
+    {
+      "path": "/notebooks-diaries/personalized-notebooks-diaries",
+      "status": 200,
+      "title": "Personalized Notebooks And Diaries for Business Requirements | Printkee",
+      "description": "Compare catalogue options for personalized notebooks and diaries. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/notebooks-diaries/personalized-notebooks-diaries",
       "schemas": 6
     },
     {
@@ -689,21 +689,21 @@
       "schemas": 6
     },
     {
-      "path": "/pens",
-      "status": 200,
-      "title": "Custom Pens And Writing Sets for Business Requirements | Printkee",
-      "description": "Compare catalogue options for custom pens and writing sets. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/pens",
-      "schemas": 6
-    },
-    {
       "path": "/notebooks-diaries/logo-printed-notebooks-diaries",
       "status": 200,
       "title": "Logo-Printed Notebooks And Diaries for Business Requirements | Printkee",
       "description": "Compare catalogue options for logo-printed notebooks and diaries. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/notebooks-diaries/logo-printed-notebooks-diaries",
+      "schemas": 6
+    },
+    {
+      "path": "/pens",
+      "status": 200,
+      "title": "Custom Pens And Writing Sets for Business Requirements | Printkee",
+      "description": "Compare catalogue options for custom pens and writing sets. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/pens",
       "schemas": 6
     },
     {
@@ -716,15 +716,6 @@
       "schemas": 6
     },
     {
-      "path": "/pens/bulk-pens",
-      "status": 200,
-      "title": "Bulk Pens And Writing Sets for Business Requirements | Printkee",
-      "description": "Compare catalogue options for bulk pens and writing sets. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/pens/bulk-pens",
-      "schemas": 6
-    },
-    {
       "path": "/pens/promotional-pens",
       "status": 200,
       "title": "Promotional Pens And Writing Sets for Business Requirements | Printkee",
@@ -734,21 +725,30 @@
       "schemas": 6
     },
     {
-      "path": "/pens/logo-printed-pens",
-      "status": 200,
-      "title": "Logo-Printed Pens And Writing Sets for Business Requirements | Printkee",
-      "description": "Compare catalogue options for logo-printed pens and writing sets. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/pens/logo-printed-pens",
-      "schemas": 6
-    },
-    {
       "path": "/keychains",
       "status": 200,
       "title": "Custom Keychains for Business Requirements | Printkee",
       "description": "Compare catalogue options for custom keychains. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/keychains",
+      "schemas": 6
+    },
+    {
+      "path": "/pens/bulk-pens",
+      "status": 200,
+      "title": "Bulk Pens And Writing Sets for Business Requirements | Printkee",
+      "description": "Compare catalogue options for bulk pens and writing sets. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/pens/bulk-pens",
+      "schemas": 6
+    },
+    {
+      "path": "/pens/logo-printed-pens",
+      "status": 200,
+      "title": "Logo-Printed Pens And Writing Sets for Business Requirements | Printkee",
+      "description": "Compare catalogue options for logo-printed pens and writing sets. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/pens/logo-printed-pens",
       "schemas": 6
     },
     {
@@ -833,21 +833,21 @@
       "schemas": 6
     },
     {
-      "path": "/eco-friendly-gifts",
-      "status": 200,
-      "title": "Custom Eco-Friendly Gifts for Business Requirements | Printkee",
-      "description": "Compare catalogue options for custom eco-friendly gifts. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/eco-friendly-gifts",
-      "schemas": 6
-    },
-    {
       "path": "/tech-gifts/logo-printed-tech-gifts",
       "status": 200,
       "title": "Logo-Printed Technology Gifts for Business Requirements | Printkee",
       "description": "Compare catalogue options for logo-printed technology gifts. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/tech-gifts/logo-printed-tech-gifts",
+      "schemas": 6
+    },
+    {
+      "path": "/eco-friendly-gifts",
+      "status": 200,
+      "title": "Custom Eco-Friendly Gifts for Business Requirements | Printkee",
+      "description": "Compare catalogue options for custom eco-friendly gifts. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-friendly-gifts",
       "schemas": 6
     },
     {
@@ -869,39 +869,12 @@
       "schemas": 6
     },
     {
-      "path": "/eco-friendly-gifts/bulk-eco-friendly-gifts",
-      "status": 200,
-      "title": "Bulk Eco-Friendly Gifts for Business Requirements | Printkee",
-      "description": "Compare catalogue options for bulk eco-friendly gifts. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/eco-friendly-gifts/bulk-eco-friendly-gifts",
-      "schemas": 6
-    },
-    {
       "path": "/awards-trophies",
       "status": 200,
       "title": "Custom Awards And Trophies for Business Requirements | Printkee",
       "description": "Compare catalogue options for custom awards and trophies. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/awards-trophies",
-      "schemas": 6
-    },
-    {
-      "path": "/awards-trophies/personalized-awards-trophies",
-      "status": 200,
-      "title": "Personalized Awards And Trophies for Business Requirements | Printkee",
-      "description": "Compare catalogue options for personalized awards and trophies. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/awards-trophies/personalized-awards-trophies",
-      "schemas": 6
-    },
-    {
-      "path": "/awards-trophies/corporate-awards-trophies",
-      "status": 200,
-      "title": "Corporate Awards And Trophies for Business Requirements | Printkee",
-      "description": "Compare catalogue options for corporate awards and trophies. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/awards-trophies/corporate-awards-trophies",
       "schemas": 6
     },
     {
@@ -914,6 +887,24 @@
       "schemas": 6
     },
     {
+      "path": "/eco-friendly-gifts/bulk-eco-friendly-gifts",
+      "status": 200,
+      "title": "Bulk Eco-Friendly Gifts for Business Requirements | Printkee",
+      "description": "Compare catalogue options for bulk eco-friendly gifts. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-friendly-gifts/bulk-eco-friendly-gifts",
+      "schemas": 6
+    },
+    {
+      "path": "/awards-trophies/corporate-awards-trophies",
+      "status": 200,
+      "title": "Corporate Awards And Trophies for Business Requirements | Printkee",
+      "description": "Compare catalogue options for corporate awards and trophies. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/awards-trophies/corporate-awards-trophies",
+      "schemas": 6
+    },
+    {
       "path": "/awards-trophies/bulk-awards-trophies",
       "status": 200,
       "title": "Bulk Awards And Trophies for Business Requirements | Printkee",
@@ -923,12 +914,12 @@
       "schemas": 6
     },
     {
-      "path": "/winter-wear/promotional-winter-wear",
+      "path": "/awards-trophies/personalized-awards-trophies",
       "status": 200,
-      "title": "Promotional Winter Wear for Business Requirements | Printkee",
-      "description": "Compare catalogue options for promotional winter wear. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "title": "Personalized Awards And Trophies for Business Requirements | Printkee",
+      "description": "Compare catalogue options for personalized awards and trophies. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/winter-wear/promotional-winter-wear",
+      "canonical": "https://printkee.com/awards-trophies/personalized-awards-trophies",
       "schemas": 6
     },
     {
@@ -941,12 +932,12 @@
       "schemas": 6
     },
     {
-      "path": "/winter-wear/personalized-winter-wear",
+      "path": "/winter-wear/promotional-winter-wear",
       "status": 200,
-      "title": "Personalized Winter Wear for Business Requirements | Printkee",
-      "description": "Compare catalogue options for personalized winter wear. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "title": "Promotional Winter Wear for Business Requirements | Printkee",
+      "description": "Compare catalogue options for promotional winter wear. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/winter-wear/personalized-winter-wear",
+      "canonical": "https://printkee.com/winter-wear/promotional-winter-wear",
       "schemas": 6
     },
     {
@@ -959,6 +950,15 @@
       "schemas": 6
     },
     {
+      "path": "/winter-wear/personalized-winter-wear",
+      "status": 200,
+      "title": "Personalized Winter Wear for Business Requirements | Printkee",
+      "description": "Compare catalogue options for personalized winter wear. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/winter-wear/personalized-winter-wear",
+      "schemas": 6
+    },
+    {
       "path": "/winter-wear/logo-printed-winter-wear",
       "status": 200,
       "title": "Logo-Printed Winter Wear for Business Requirements | Printkee",
@@ -968,30 +968,21 @@
       "schemas": 6
     },
     {
-      "path": "/office-stationery",
-      "status": 200,
-      "title": "Custom Office Stationery for Business Requirements | Printkee",
-      "description": "Compare catalogue options for custom office stationery. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/office-stationery",
-      "schemas": 6
-    },
-    {
-      "path": "/office-stationery/bulk-office-stationery",
-      "status": 200,
-      "title": "Bulk Office Stationery for Business Requirements | Printkee",
-      "description": "Compare catalogue options for bulk office stationery. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/office-stationery/bulk-office-stationery",
-      "schemas": 6
-    },
-    {
       "path": "/office-stationery/corporate-office-stationery",
       "status": 200,
       "title": "Corporate Office Stationery for Business Requirements | Printkee",
       "description": "Compare catalogue options for corporate office stationery. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
       "canonical": "https://printkee.com/office-stationery/corporate-office-stationery",
+      "schemas": 6
+    },
+    {
+      "path": "/office-stationery",
+      "status": 200,
+      "title": "Custom Office Stationery for Business Requirements | Printkee",
+      "description": "Compare catalogue options for custom office stationery. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/office-stationery",
       "schemas": 6
     },
     {
@@ -1013,12 +1004,12 @@
       "schemas": 6
     },
     {
-      "path": "/solutions/branded-bags-and-travel-merchandise",
+      "path": "/office-stationery/bulk-office-stationery",
       "status": 200,
-      "title": "Branded Bags And Travel Merchandise for Business Orders | Printkee",
-      "description": "Explore branded bags and travel merchandise for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Bulk Office Stationery for Business Requirements | Printkee",
+      "description": "Compare catalogue options for bulk office stationery. Review selection guidance and request a quotation based on product, quantity, artwork and destination.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/branded-bags-and-travel-merchandise",
+      "canonical": "https://printkee.com/office-stationery/bulk-office-stationery",
       "schemas": 6
     },
     {
@@ -1031,21 +1022,12 @@
       "schemas": 6
     },
     {
-      "path": "/solutions/branded-computer-accessories",
+      "path": "/solutions/corporate-diwali-gifts",
       "status": 200,
-      "title": "Branded Computer Accessories for Business Orders | Printkee",
-      "description": "Explore branded computer accessories for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Corporate Diwali Gifts for Business Orders | Printkee",
+      "description": "Explore corporate Diwali gifts for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/branded-computer-accessories",
-      "schemas": 6
-    },
-    {
-      "path": "/solutions/branded-notebooks-and-diaries",
-      "status": 200,
-      "title": "Branded Notebooks And Diaries for Business Orders | Printkee",
-      "description": "Explore branded notebooks and diaries for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/branded-notebooks-and-diaries",
+      "canonical": "https://printkee.com/solutions/corporate-diwali-gifts",
       "schemas": 6
     },
     {
@@ -1058,21 +1040,30 @@
       "schemas": 6
     },
     {
-      "path": "/solutions/corporate-gifts-and-branded-merchandise",
+      "path": "/solutions/branded-computer-accessories",
       "status": 200,
-      "title": "Corporate Gifts And Branded Merchandise for Business Orders | Printkee",
-      "description": "Explore corporate gifts and branded merchandise for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Branded Computer Accessories for Business Orders | Printkee",
+      "description": "Explore branded computer accessories for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/corporate-gifts-and-branded-merchandise",
+      "canonical": "https://printkee.com/solutions/branded-computer-accessories",
       "schemas": 6
     },
     {
-      "path": "/solutions/corporate-diwali-gifts",
+      "path": "/solutions/branded-bags-and-travel-merchandise",
       "status": 200,
-      "title": "Corporate Diwali Gifts for Business Orders | Printkee",
-      "description": "Explore corporate Diwali gifts for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Branded Bags And Travel Merchandise for Business Orders | Printkee",
+      "description": "Explore branded bags and travel merchandise for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/corporate-diwali-gifts",
+      "canonical": "https://printkee.com/solutions/branded-bags-and-travel-merchandise",
+      "schemas": 6
+    },
+    {
+      "path": "/solutions/branded-notebooks-and-diaries",
+      "status": 200,
+      "title": "Branded Notebooks And Diaries for Business Orders | Printkee",
+      "description": "Explore branded notebooks and diaries for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/solutions/branded-notebooks-and-diaries",
       "schemas": 6
     },
     {
@@ -1085,39 +1076,12 @@
       "schemas": 6
     },
     {
-      "path": "/solutions/corporate-uniforms-and-shirts",
+      "path": "/solutions/corporate-gifts-and-branded-merchandise",
       "status": 200,
-      "title": "Corporate Uniforms And Shirts for Business Orders | Printkee",
-      "description": "Explore corporate uniforms and shirts for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Corporate Gifts And Branded Merchandise for Business Orders | Printkee",
+      "description": "Explore corporate gifts and branded merchandise for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/corporate-uniforms-and-shirts",
-      "schemas": 6
-    },
-    {
-      "path": "/solutions/corporate-gifts-for-clients",
-      "status": 200,
-      "title": "Corporate Gifts For Clients for Business Orders | Printkee",
-      "description": "Explore corporate gifts for clients for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/corporate-gifts-for-clients",
-      "schemas": 6
-    },
-    {
-      "path": "/solutions/corporate-technology-gifts",
-      "status": 200,
-      "title": "Corporate Technology Gifts for Business Orders | Printkee",
-      "description": "Explore corporate technology gifts for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/corporate-technology-gifts",
-      "schemas": 6
-    },
-    {
-      "path": "/solutions/corporate-gifts-for-employees",
-      "status": 200,
-      "title": "Corporate Gifts For Employees for Business Orders | Printkee",
-      "description": "Explore corporate gifts for employees for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/corporate-gifts-for-employees",
+      "canonical": "https://printkee.com/solutions/corporate-gifts-and-branded-merchandise",
       "schemas": 6
     },
     {
@@ -1130,39 +1094,39 @@
       "schemas": 6
     },
     {
-      "path": "/solutions/custom-corporate-backpacks",
+      "path": "/solutions/corporate-gifts-for-clients",
       "status": 200,
-      "title": "Custom Corporate Backpacks for Business Orders | Printkee",
-      "description": "Explore custom corporate backpacks for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Corporate Gifts For Clients for Business Orders | Printkee",
+      "description": "Explore corporate gifts for clients for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/custom-corporate-backpacks",
+      "canonical": "https://printkee.com/solutions/corporate-gifts-for-clients",
       "schemas": 6
     },
     {
-      "path": "/solutions/custom-corporate-winter-wear",
+      "path": "/solutions/corporate-gifts-for-employees",
       "status": 200,
-      "title": "Custom Corporate Winter Wear for Business Orders | Printkee",
-      "description": "Explore custom corporate winter wear for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Corporate Gifts For Employees for Business Orders | Printkee",
+      "description": "Explore corporate gifts for employees for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/custom-corporate-winter-wear",
+      "canonical": "https://printkee.com/solutions/corporate-gifts-for-employees",
       "schemas": 6
     },
     {
-      "path": "/solutions/custom-corporate-drinkware",
+      "path": "/solutions/corporate-technology-gifts",
       "status": 200,
-      "title": "Custom Corporate Drinkware for Business Orders | Printkee",
-      "description": "Explore custom corporate drinkware for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Corporate Technology Gifts for Business Orders | Printkee",
+      "description": "Explore corporate technology gifts for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/custom-corporate-drinkware",
+      "canonical": "https://printkee.com/solutions/corporate-technology-gifts",
       "schemas": 6
     },
     {
-      "path": "/solutions/custom-lanyards-and-id-cards",
+      "path": "/solutions/corporate-uniforms-and-shirts",
       "status": 200,
-      "title": "Custom Lanyards And ID Cards for Business Orders | Printkee",
-      "description": "Explore custom lanyards and ID cards for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Corporate Uniforms And Shirts for Business Orders | Printkee",
+      "description": "Explore corporate uniforms and shirts for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/custom-lanyards-and-id-cards",
+      "canonical": "https://printkee.com/solutions/corporate-uniforms-and-shirts",
       "schemas": 6
     },
     {
@@ -1175,21 +1139,21 @@
       "schemas": 6
     },
     {
-      "path": "/solutions/custom-office-files-and-folders",
+      "path": "/solutions/custom-corporate-backpacks",
       "status": 200,
-      "title": "Custom Office Files And Folders for Business Orders | Printkee",
-      "description": "Explore custom office files and folders for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Custom Corporate Backpacks for Business Orders | Printkee",
+      "description": "Explore custom corporate backpacks for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/custom-office-files-and-folders",
+      "canonical": "https://printkee.com/solutions/custom-corporate-backpacks",
       "schemas": 6
     },
     {
-      "path": "/solutions/custom-pens-and-writing-sets",
+      "path": "/solutions/custom-corporate-drinkware",
       "status": 200,
-      "title": "Custom Pens And Writing Sets for Business Orders | Printkee",
-      "description": "Explore custom pens and writing sets for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Custom Corporate Drinkware for Business Orders | Printkee",
+      "description": "Explore custom corporate drinkware for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/custom-pens-and-writing-sets",
+      "canonical": "https://printkee.com/solutions/custom-corporate-drinkware",
       "schemas": 6
     },
     {
@@ -1211,6 +1175,42 @@
       "schemas": 6
     },
     {
+      "path": "/solutions/custom-corporate-winter-wear",
+      "status": 200,
+      "title": "Custom Corporate Winter Wear for Business Orders | Printkee",
+      "description": "Explore custom corporate winter wear for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/solutions/custom-corporate-winter-wear",
+      "schemas": 6
+    },
+    {
+      "path": "/solutions/custom-lanyards-and-id-cards",
+      "status": 200,
+      "title": "Custom Lanyards And ID Cards for Business Orders | Printkee",
+      "description": "Explore custom lanyards and ID cards for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/solutions/custom-lanyards-and-id-cards",
+      "schemas": 6
+    },
+    {
+      "path": "/solutions/custom-pens-and-writing-sets",
+      "status": 200,
+      "title": "Custom Pens And Writing Sets for Business Orders | Printkee",
+      "description": "Explore custom pens and writing sets for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/solutions/custom-pens-and-writing-sets",
+      "schemas": 6
+    },
+    {
+      "path": "/solutions/custom-office-files-and-folders",
+      "status": 200,
+      "title": "Custom Office Files And Folders for Business Orders | Printkee",
+      "description": "Explore custom office files and folders for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/solutions/custom-office-files-and-folders",
+      "schemas": 6
+    },
+    {
       "path": "/solutions/custom-promotional-keychains",
       "status": 200,
       "title": "Custom Promotional Keychains for Business Orders | Printkee",
@@ -1229,30 +1229,30 @@
       "schemas": 6
     },
     {
+      "path": "/brands/adidas",
+      "status": 200,
+      "title": "Adidas Corporate Gifts | Printkee",
+      "description": "Adidas is a global leader in sportswear and accessories, offering premium quality apparel, footwear, and accessories designed for performance and lifestyle.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/brands/adidas",
+      "schemas": 3
+    },
+    {
+      "path": "/solutions/custom-tote-bags",
+      "status": 200,
+      "title": "Custom Tote Bags for Business Orders | Printkee",
+      "description": "Explore custom tote bags for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/solutions/custom-tote-bags",
+      "schemas": 6
+    },
+    {
       "path": "/solutions/employee-welcome-kits",
       "status": 200,
       "title": "Employee Welcome Kits for Business Orders | Printkee",
       "description": "Explore employee welcome kits for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
       "canonical": "https://printkee.com/solutions/employee-welcome-kits",
-      "schemas": 6
-    },
-    {
-      "path": "/solutions/eco-friendly-corporate-gifts",
-      "status": 200,
-      "title": "Eco-Friendly Corporate Gifts for Business Orders | Printkee",
-      "description": "Explore eco-friendly corporate gifts for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/eco-friendly-corporate-gifts",
-      "schemas": 6
-    },
-    {
-      "path": "/solutions/custom-trophies-and-mementos",
-      "status": 200,
-      "title": "Custom Trophies And Mementos for Business Orders | Printkee",
-      "description": "Explore custom trophies and mementos for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/custom-trophies-and-mementos",
       "schemas": 6
     },
     {
@@ -1265,40 +1265,22 @@
       "schemas": 6
     },
     {
-      "path": "/solutions/custom-tote-bags",
+      "path": "/solutions/custom-trophies-and-mementos",
       "status": 200,
-      "title": "Custom Tote Bags for Business Orders | Printkee",
-      "description": "Explore custom tote bags for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "title": "Custom Trophies And Mementos for Business Orders | Printkee",
+      "description": "Explore custom trophies and mementos for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/custom-tote-bags",
+      "canonical": "https://printkee.com/solutions/custom-trophies-and-mementos",
       "schemas": 6
     },
     {
-      "path": "/brands/adidas",
+      "path": "/solutions/eco-friendly-corporate-gifts",
       "status": 200,
-      "title": "Adidas Corporate Gifts | Printkee",
-      "description": "Adidas is a global leader in sportswear and accessories, offering premium quality apparel, footwear, and accessories designed for performance and lifestyle.",
+      "title": "Eco-Friendly Corporate Gifts for Business Orders | Printkee",
+      "description": "Explore eco-friendly corporate gifts for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/brands/adidas",
-      "schemas": 3
-    },
-    {
-      "path": "/solutions/promotional-products-and-branded-merchandise",
-      "status": 200,
-      "title": "Promotional Products And Branded Merchandise for Business Orders | Printkee",
-      "description": "Explore promotional products and branded merchandise for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/solutions/promotional-products-and-branded-merchandise",
+      "canonical": "https://printkee.com/solutions/eco-friendly-corporate-gifts",
       "schemas": 6
-    },
-    {
-      "path": "/brands/noise",
-      "status": 200,
-      "title": "Noise Corporate Gifts | Printkee",
-      "description": "Noise is a leading Indian lifestyle tech brand specializing in smartwatches, wireless earbuds, and connected devices.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/brands/noise",
-      "schemas": 3
     },
     {
       "path": "/solutions/industry-specific-corporate-gifting",
@@ -1307,6 +1289,15 @@
       "description": "Explore industry-specific corporate gifting for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
       "h1Count": 1,
       "canonical": "https://printkee.com/solutions/industry-specific-corporate-gifting",
+      "schemas": 6
+    },
+    {
+      "path": "/solutions/promotional-products-and-branded-merchandise",
+      "status": 200,
+      "title": "Promotional Products And Branded Merchandise for Business Orders | Printkee",
+      "description": "Explore promotional products and branded merchandise for business requirements. Compare relevant catalogue options and prepare a complete product, branding and delivery brief.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/solutions/promotional-products-and-branded-merchandise",
       "schemas": 6
     },
     {
@@ -1319,12 +1310,12 @@
       "schemas": 3
     },
     {
-      "path": "/brands/portronics",
+      "path": "/brands/noise",
       "status": 200,
-      "title": "Portronics Corporate Gifts | Printkee",
-      "description": "Portronics is an innovative Indian brand known for its portable electronics, audio products, and lifestyle gadgets.",
+      "title": "Noise Corporate Gifts | Printkee",
+      "description": "Noise is a leading Indian lifestyle tech brand specializing in smartwatches, wireless earbuds, and connected devices.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/brands/portronics",
+      "canonical": "https://printkee.com/brands/noise",
       "schemas": 3
     },
     {
@@ -1337,12 +1328,12 @@
       "schemas": 3
     },
     {
-      "path": "/brands/boat",
+      "path": "/brands/portronics",
       "status": 200,
-      "title": "Boat Corporate Gifts | Printkee",
-      "description": "boAt is India&#x27;s fastest-growing consumer electronics brand, specializing in headphones, speakers, and lifestyle tech products.",
+      "title": "Portronics Corporate Gifts | Printkee",
+      "description": "Portronics is an innovative Indian brand known for its portable electronics, audio products, and lifestyle gadgets.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/brands/boat",
+      "canonical": "https://printkee.com/brands/portronics",
       "schemas": 3
     },
     {
@@ -1364,15 +1355,6 @@
       "schemas": 3
     },
     {
-      "path": "/brands/rare-rabbit",
-      "status": 200,
-      "title": "Rare Rabbit Corporate Gifts | Printkee",
-      "description": "Rare Rabbit is a premium fashion brand offering contemporary and stylish menswear for modern professionals.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/brands/rare-rabbit",
-      "schemas": 3
-    },
-    {
       "path": "/brands/swiss-military",
       "status": 200,
       "title": "Swiss Military Corporate Gifts | Printkee",
@@ -1382,12 +1364,21 @@
       "schemas": 3
     },
     {
-      "path": "/brands/fuzo",
+      "path": "/brands/boat",
       "status": 200,
-      "title": "Fuzo Corporate Gifts | Printkee",
-      "description": "Fuzo is a gifting and corporate branding solutions company that specializes in premium tech and lifestyle accessories.",
+      "title": "Boat Corporate Gifts | Printkee",
+      "description": "boAt is India&#x27;s fastest-growing consumer electronics brand, specializing in headphones, speakers, and lifestyle tech products.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/brands/fuzo",
+      "canonical": "https://printkee.com/brands/boat",
+      "schemas": 3
+    },
+    {
+      "path": "/brands/rare-rabbit",
+      "status": 200,
+      "title": "Rare Rabbit Corporate Gifts | Printkee",
+      "description": "Rare Rabbit is a premium fashion brand offering contemporary and stylish menswear for modern professionals.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/brands/rare-rabbit",
       "schemas": 3
     },
     {
@@ -1400,12 +1391,21 @@
       "schemas": 3
     },
     {
-      "path": "/bags-and-travel",
+      "path": "/brands/fuzo",
       "status": 200,
-      "title": "Custom Bags & Travel Accessories for Corporate Gifting | Bulk Orders | Printkee",
-      "description": "Shop custom bags & travel accessories with logo printing in Delhi NCR. Backpacks, duffle bags, tote bags & foldable bags for corporate gifting and brand promotions.",
+      "title": "Fuzo Corporate Gifts | Printkee",
+      "description": "Fuzo is a gifting and corporate branding solutions company that specializes in premium tech and lifestyle accessories.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/bags-and-travel",
+      "canonical": "https://printkee.com/brands/fuzo",
+      "schemas": 3
+    },
+    {
+      "path": "/apparel-and-accessories",
+      "status": 200,
+      "title": "Corporate Apparel & Accessories for Branding | Bulk Orders | Printkee",
+      "description": "Shop premium custom apparel & accessories for corporate gifting in Delhi NCR. T-shirts, caps, ties, aprons with logo printing. Bulk orders, delivery planning Pan-India.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/apparel-and-accessories",
       "schemas": 4
     },
     {
@@ -1418,24 +1418,6 @@
       "schemas": 4
     },
     {
-      "path": "/technology-accessories",
-      "status": 200,
-      "title": "Custom Technology Accessories with Logo Bulk Gifts India | Printkee",
-      "description": "Buy custom tech accessories with logo branding in Delhi NCR. Power banks, wireless chargers, mouse pads & computer accessories for corporate gifting. Bulk orders.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/technology-accessories",
-      "schemas": 4
-    },
-    {
-      "path": "/apparel-and-accessories",
-      "status": 200,
-      "title": "Corporate Apparel & Accessories for Branding | Bulk Orders | Printkee",
-      "description": "Shop premium custom apparel & accessories for corporate gifting in Delhi NCR. T-shirts, caps, ties, aprons with logo printing. Bulk orders, delivery planning Pan-India.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/apparel-and-accessories",
-      "schemas": 4
-    },
-    {
       "path": "/collection",
       "status": 200,
       "title": "Corporate Gift Collections - Custom Branded Products India | Printkee",
@@ -1445,30 +1427,21 @@
       "schemas": 4
     },
     {
-      "path": "/trophy-and-momento",
+      "path": "/bags-and-travel",
       "status": 200,
-      "title": "Custom Trophies & Mementos with Engraving Awards India | Printkee",
-      "description": "Order custom trophies & mementos with logo engraving in Delhi NCR. Crystal, acrylic & metal awards for employee recognition, corporate events & sports achievements.",
+      "title": "Custom Bags & Travel Accessories for Corporate Gifting | Bulk Orders | Printkee",
+      "description": "Shop custom bags & travel accessories with logo printing in Delhi NCR. Backpacks, duffle bags, tote bags & foldable bags for corporate gifting and brand promotions.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/trophy-and-momento",
+      "canonical": "https://printkee.com/bags-and-travel",
       "schemas": 4
     },
     {
-      "path": "/eco-products",
+      "path": "/technology-accessories",
       "status": 200,
-      "title": "Eco-Friendly Corporate Gifts - Sustainable Products with Logo | Printkee",
-      "description": "Shop eco-friendly cork corporate gifts in Delhi NCR. Cork coasters, desk accessories, yoga products, gift boxes & more. Sustainable branding solutions for CSR initiatives.",
+      "title": "Custom Technology Accessories with Logo Bulk Gifts India | Printkee",
+      "description": "Buy custom tech accessories with logo branding in Delhi NCR. Power banks, wireless chargers, mouse pads & computer accessories for corporate gifting. Bulk orders.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/eco-products",
-      "schemas": 4
-    },
-    {
-      "path": "/drink-ware",
-      "status": 200,
-      "title": "Custom Drinkware - Bottles, Mugs & Sippers with Logo Print India | Printkee",
-      "description": "Buy custom drinkware with logo printing in Delhi NCR. Bamboo bottles, ceramic mugs, coffee mugs & sippers for corporate gifting. Eco-friendly & premium options available.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/drink-ware",
+      "canonical": "https://printkee.com/technology-accessories",
       "schemas": 4
     },
     {
@@ -1499,12 +1472,39 @@
       "schemas": 4
     },
     {
+      "path": "/drink-ware",
+      "status": 200,
+      "title": "Custom Drinkware - Bottles, Mugs & Sippers with Logo Print India | Printkee",
+      "description": "Buy custom drinkware with logo printing in Delhi NCR. Bamboo bottles, ceramic mugs, coffee mugs & sippers for corporate gifting. Eco-friendly & premium options available.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/drink-ware",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products",
+      "status": 200,
+      "title": "Eco-Friendly Corporate Gifts - Sustainable Products with Logo | Printkee",
+      "description": "Shop eco-friendly cork corporate gifts in Delhi NCR. Cork coasters, desk accessories, yoga products, gift boxes & more. Sustainable branding solutions for CSR initiatives.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products",
+      "schemas": 4
+    },
+    {
       "path": "/apparel-and-accessories/hats",
       "status": 200,
       "title": "Custom Hats in Delhi with Logo Bulk Corporate Gifts | Printkee",
       "description": "Stylish hats for sun protection & branding - bucket, snapback & fedora styles with custom logo. Durable, bulk orders, India-wide shipping. Shop hats today!",
       "h1Count": 1,
       "canonical": "https://printkee.com/apparel-and-accessories/hats",
+      "schemas": 4
+    },
+    {
+      "path": "/trophy-and-momento",
+      "status": 200,
+      "title": "Custom Trophies & Mementos with Engraving Awards India | Printkee",
+      "description": "Order custom trophies & mementos with logo engraving in Delhi NCR. Crystal, acrylic & metal awards for employee recognition, corporate events & sports achievements.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/trophy-and-momento",
       "schemas": 4
     },
     {
@@ -1553,21 +1553,21 @@
       "schemas": 4
     },
     {
-      "path": "/office-and-writing/lanyard-and-id-card",
-      "status": 200,
-      "title": "Custom Lanyard & ID Card Printing India | Printkee",
-      "description": "Compare custom lanyards, attachments, holders and printed ID card requirements for offices, institutions and events. Prepare a clear bulk-order quotation brief.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/office-and-writing/lanyard-and-id-card",
-      "schemas": 4
-    },
-    {
       "path": "/office-and-writing/pen-and-writing-set",
       "status": 200,
       "title": "Custom Pens & Writing Sets with Logo Bulk Gifts India | Printkee",
       "description": "Premium pen & writing sets for branding - metal ball pens, gift boxes with custom logo. Bulk corporate orders, fast turnaround, India-wide delivery. Shop now!",
       "h1Count": 1,
       "canonical": "https://printkee.com/office-and-writing/pen-and-writing-set",
+      "schemas": 4
+    },
+    {
+      "path": "/office-and-writing/lanyard-and-id-card",
+      "status": 200,
+      "title": "Custom Lanyard & ID Card Printing India | Printkee",
+      "description": "Compare custom lanyards, attachments, holders and printed ID card requirements for offices, institutions and events. Prepare a clear bulk-order quotation brief.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/office-and-writing/lanyard-and-id-card",
       "schemas": 4
     },
     {
@@ -1598,21 +1598,12 @@
       "schemas": 4
     },
     {
-      "path": "/collection/keychains",
+      "path": "/bags-and-travel/foldable-bags",
       "status": 200,
-      "title": "Custom Keychains with Logo Metal & Acrylic Bulk India | Printkee",
-      "description": "Custom keychains in Delhi - metal, acrylic & leather with logo print for promotions. bulk orders, quick delivery across Delhi NCR. Order today!",
+      "title": "Custom Foldable Bags in Delhi Eco Reusable Printing | Printkee",
+      "description": "Buy foldable bags online - reusable shopping bags with custom logo print. Eco-friendly, bulk pricing, compact storage, pan-India shipping. Get quote today!",
       "h1Count": 1,
-      "canonical": "https://printkee.com/collection/keychains",
-      "schemas": 4
-    },
-    {
-      "path": "/bags-and-travel/backpacks",
-      "status": 200,
-      "title": "Custom Backpacks in Delhi Logo Printing Bulk Supply | Printkee",
-      "description": "Shop custom backpacks for corporate & college - durable, laptop-friendly with logo print & embroidery. Bulk orders, all colors, pan-India delivery. Order now!",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/bags-and-travel/backpacks",
+      "canonical": "https://printkee.com/bags-and-travel/foldable-bags",
       "schemas": 4
     },
     {
@@ -1625,12 +1616,21 @@
       "schemas": 4
     },
     {
-      "path": "/bags-and-travel/foldable-bags",
+      "path": "/bags-and-travel/backpacks",
       "status": 200,
-      "title": "Custom Foldable Bags in Delhi Eco Reusable Printing | Printkee",
-      "description": "Buy foldable bags online - reusable shopping bags with custom logo print. Eco-friendly, bulk pricing, compact storage, pan-India shipping. Get quote today!",
+      "title": "Custom Backpacks in Delhi Logo Printing Bulk Supply | Printkee",
+      "description": "Shop custom backpacks for corporate & college - durable, laptop-friendly with logo print & embroidery. Bulk orders, all colors, pan-India delivery. Order now!",
       "h1Count": 1,
-      "canonical": "https://printkee.com/bags-and-travel/foldable-bags",
+      "canonical": "https://printkee.com/bags-and-travel/backpacks",
+      "schemas": 4
+    },
+    {
+      "path": "/collection/keychains",
+      "status": 200,
+      "title": "Custom Keychains with Logo Metal & Acrylic Bulk India | Printkee",
+      "description": "Custom keychains in Delhi - metal, acrylic & leather with logo print for promotions. bulk orders, quick delivery across Delhi NCR. Order today!",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/collection/keychains",
       "schemas": 4
     },
     {
@@ -1670,12 +1670,12 @@
       "schemas": 4
     },
     {
-      "path": "/eco-products/cork-coaster",
+      "path": "/technology-accessories/desktop-and-mousepad",
       "status": 200,
-      "title": "Custom Cork Coasters Delhi NCR Logo Print Bulk | Printkee",
-      "description": "Custom cork coasters for branding - natural, heat-resistant with logo printing. Eco-friendly gifts, bulk orders, multiple shapes, fast India delivery. Shop now!",
+      "title": "Custom Mouse Pads in Delhi Logo Printing Bulk | Printkee",
+      "description": "Custom desktop mousepads with logo print - rubber base, smooth surface for offices. Bulk orders, vibrant printing, fast pan-India delivery. Design now!",
       "h1Count": 1,
-      "canonical": "https://printkee.com/eco-products/cork-coaster",
+      "canonical": "https://printkee.com/technology-accessories/desktop-and-mousepad",
       "schemas": 4
     },
     {
@@ -1697,6 +1697,15 @@
       "schemas": 4
     },
     {
+      "path": "/eco-products/cork-coaster",
+      "status": 200,
+      "title": "Custom Cork Coasters Delhi NCR Logo Print Bulk | Printkee",
+      "description": "Custom cork coasters for branding - natural, heat-resistant with logo printing. Eco-friendly gifts, bulk orders, multiple shapes, fast India delivery. Shop now!",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-coaster",
+      "schemas": 4
+    },
+    {
       "path": "/eco-products/cork-serving-decorate",
       "status": 200,
       "title": "Custom Cork Serving Trays Eco Horeca Decor India | Printkee",
@@ -1712,15 +1721,6 @@
       "description": "Cork plant decor for offices & homes - sustainable pots & planters with natural finish. Eco gifting, bulk orders, branding, pan-India delivery. Buy!",
       "h1Count": 1,
       "canonical": "https://printkee.com/eco-products/cork-plant-decorate",
-      "schemas": 4
-    },
-    {
-      "path": "/technology-accessories/desktop-and-mousepad",
-      "status": 200,
-      "title": "Custom Mouse Pads in Delhi Logo Printing Bulk | Printkee",
-      "description": "Custom desktop mousepads with logo print - rubber base, smooth surface for offices. Bulk orders, vibrant printing, fast pan-India delivery. Design now!",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/technology-accessories/desktop-and-mousepad",
       "schemas": 4
     },
     {
@@ -1742,15 +1742,6 @@
       "schemas": 4
     },
     {
-      "path": "/eco-products/cork-laptop-bag-and-wallet",
-      "status": 200,
-      "title": "Cork Laptop Bags & Wallets Vegan Custom Gifts India | Printkee",
-      "description": "Cork laptop bags & wallets - vegan, water-resistant with natural cork finish. Custom logo, sustainable gifts, bulk orders, fast India delivery. Shop collection!",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/eco-products/cork-laptop-bag-and-wallet",
-      "schemas": 4
-    },
-    {
       "path": "/eco-products/cork-premium-gift-boxes",
       "status": 200,
       "title": "Cork Premium Gift Boxes Eco Packaging with Logo | Printkee",
@@ -1769,12 +1760,30 @@
       "schemas": 4
     },
     {
+      "path": "/eco-products/cork-laptop-bag-and-wallet",
+      "status": 200,
+      "title": "Cork Laptop Bags & Wallets Vegan Custom Gifts India | Printkee",
+      "description": "Cork laptop bags & wallets - vegan, water-resistant with natural cork finish. Custom logo, sustainable gifts, bulk orders, fast India delivery. Shop collection!",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-laptop-bag-and-wallet",
+      "schemas": 4
+    },
+    {
       "path": "/eco-products/cork-yoga-accessories",
       "status": 200,
       "title": "Custom Cork Yoga Mats & Blocks Eco Wellness Gifts | Printkee",
       "description": "Cork yoga accessories - eco-friendly mats, blocks & rollers with natural grip. Wellness gifts, custom branding, bulk supply, pan-India shipping. Order!",
       "h1Count": 1,
       "canonical": "https://printkee.com/eco-products/cork-yoga-accessories",
+      "schemas": 4
+    },
+    {
+      "path": "/drink-ware/bamboo-bottle",
+      "status": 200,
+      "title": "Custom Bamboo Bottles in Delhi | Eco Corporate Gifting | Bulk Orders | Printkee",
+      "description": "Eco-friendly bamboo bottles with custom logo - sustainable corporate gifting. Leak-proof steel interior, bulk pricing, pan-India delivery. Order now!",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/drink-ware/bamboo-bottle",
       "schemas": 4
     },
     {
@@ -1796,15 +1805,6 @@
       "schemas": 4
     },
     {
-      "path": "/drink-ware/bamboo-bottle",
-      "status": 200,
-      "title": "Custom Bamboo Bottles in Delhi | Eco Corporate Gifting | Bulk Orders | Printkee",
-      "description": "Eco-friendly bamboo bottles with custom logo - sustainable corporate gifting. Leak-proof steel interior, bulk pricing, pan-India delivery. Order now!",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/drink-ware/bamboo-bottle",
-      "schemas": 4
-    },
-    {
       "path": "/drink-ware/ceramic-mug",
       "status": 200,
       "title": "Custom Ceramic Mugs with Logo Bulk Corporate Gifts | Printkee",
@@ -1820,7 +1820,7 @@
       "description": "Coffee Mug - Steel Mug - Hot Mug ",
       "h1Count": 1,
       "canonical": "https://printkee.com/drink-ware/steel-mug",
-      "schemas": 3
+      "schemas": 4
     },
     {
       "path": "/trophy-and-momento/trophy-and-momento",
@@ -1832,12 +1832,12 @@
       "schemas": 4
     },
     {
-      "path": "/apparel-and-accessories/polo-t-shirts/personalized-polo-t-shirts",
+      "path": "/apparel-and-accessories/ties/classic-silk-tie",
       "status": 200,
-      "title": "Custom Navy Blue Polo T-Shirts | Branded Corporate Polos | Printkee",
-      "description": "Premium Navy Blue polo t-shirts for corporate branding and team uniforms.",
+      "title": "Custom Silk Ties | Premium Corporate Wear | Printkee",
+      "description": "Elegant silk ties for corporate uniforms, events, and branding with custom logo options.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/apparel-and-accessories/polo-t-shirts/personalized-polo-t-shirts",
+      "canonical": "https://printkee.com/apparel-and-accessories/ties/classic-silk-tie",
       "schemas": 5
     },
     {
@@ -1850,57 +1850,39 @@
       "schemas": 5
     },
     {
-      "path": "/office-and-writing/file-and-folder/leather-executive-file-folder",
-      "status": 200,
-      "title": "Leather Executive File Folder | Premium Corporate Gifting | Printkee",
-      "description": "Premium PU leather file folder with custom branding for executive corporate gifting.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/office-and-writing/file-and-folder/leather-executive-file-folder",
-      "schemas": 5
-    },
-    {
-      "path": "/office-and-writing/notebooks-and-diary-sets/a5-spiral-bound-notebook",
-      "status": 200,
-      "title": "A5 Spiral Bound Notebook | Corporate Training Notebooks | Printkee",
-      "description": "High-quality spiral bound notebooks for corporate training, seminars and branding.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/office-and-writing/notebooks-and-diary-sets/a5-spiral-bound-notebook",
-      "schemas": 5
-    },
-    {
-      "path": "/office-and-writing/pen-and-writing-set/executive-pen-gift-set",
-      "status": 200,
-      "title": "Executive Pen Gift Sets | Premium Corporate Gifts | Printkee",
-      "description": "Luxury executive pen gift sets with custom branding for corporate gifting.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/office-and-writing/pen-and-writing-set/executive-pen-gift-set",
-      "schemas": 5
-    },
-    {
-      "path": "/apparel-and-accessories/ties/classic-silk-tie",
-      "status": 200,
-      "title": "Custom Silk Ties | Premium Corporate Wear | Printkee",
-      "description": "Elegant silk ties for corporate uniforms, events, and branding with custom logo options.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/apparel-and-accessories/ties/classic-silk-tie",
-      "schemas": 5
-    },
-    {
-      "path": "/office-and-writing/lanyard-and-id-card/premium-polyester-lanyard-id-card",
-      "status": 200,
-      "title": "Premium Polyester Lanyard with ID Card | Corporate Branding India | Printkee",
-      "description": "Custom printed polyester lanyards with ID card holders for offices, events & onboarding kits.",
-      "h1Count": 1,
-      "canonical": "https://printkee.com/office-and-writing/lanyard-and-id-card/premium-polyester-lanyard-id-card",
-      "schemas": 5
-    },
-    {
       "path": "/apparel-and-accessories/winter-wear/corporate-bomber-jacket",
       "status": 200,
       "title": "Corporate Bomber Jackets | Stylish Winter Wear | Printkee",
       "description": "Stylish bomber jackets perfect for corporate casual wear and team branding.",
       "h1Count": 1,
       "canonical": "https://printkee.com/apparel-and-accessories/winter-wear/corporate-bomber-jacket",
+      "schemas": 5
+    },
+    {
+      "path": "/apparel-and-accessories/winter-wear/executive-softshell-jacket",
+      "status": 200,
+      "title": "Black Executive Softshell Jacket | Printkee",
+      "description": "Black polyester-softshell jacket in sizes S to XXL. Wind and water resistance require supplier confirmation.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/apparel-and-accessories/winter-wear/executive-softshell-jacket",
+      "schemas": 4
+    },
+    {
+      "path": "/apparel-and-accessories/winter-wear/3-in-1-system-jacket",
+      "status": 200,
+      "title": "Charcoal 3-in-1 System Jacket | Printkee",
+      "description": "Charcoal jacket with recorded nylon outer and fleece liner, sized S to XXL. Confirm the removable-liner configuration.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/apparel-and-accessories/winter-wear/3-in-1-system-jacket",
+      "schemas": 4
+    },
+    {
+      "path": "/office-and-writing/file-and-folder/leather-executive-file-folder",
+      "status": 200,
+      "title": "Leather Executive File Folder | Premium Corporate Gifting | Printkee",
+      "description": "Premium PU leather file folder with custom branding for executive corporate gifting.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/office-and-writing/file-and-folder/leather-executive-file-folder",
       "schemas": 5
     },
     {
@@ -1913,6 +1895,51 @@
       "schemas": 5
     },
     {
+      "path": "/office-and-writing/notebooks-and-diary-sets/executive-a5-pu-leather-diary",
+      "status": 200,
+      "title": "Brown A5 PU Leather Diary | Printkee",
+      "description": "Brown A5 diary with a PU-leather cover. Confirm page ruling and internal features before adding them to a corporate gift specification.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/office-and-writing/notebooks-and-diary-sets/executive-a5-pu-leather-diary",
+      "schemas": 4
+    },
+    {
+      "path": "/office-and-writing/pen-and-writing-set/executive-pen-gift-set",
+      "status": 200,
+      "title": "Executive Pen Gift Sets | Premium Corporate Gifts | Printkee",
+      "description": "Luxury executive pen gift sets with custom branding for corporate gifting.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/office-and-writing/pen-and-writing-set/executive-pen-gift-set",
+      "schemas": 5
+    },
+    {
+      "path": "/office-and-writing/notebooks-and-diary-sets/a5-spiral-bound-notebook",
+      "status": 200,
+      "title": "A5 Spiral Bound Notebook | Corporate Training Notebooks | Printkee",
+      "description": "High-quality spiral bound notebooks for corporate training, seminars and branding.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/office-and-writing/notebooks-and-diary-sets/a5-spiral-bound-notebook",
+      "schemas": 5
+    },
+    {
+      "path": "/office-and-writing/lanyard-and-id-card/premium-polyester-lanyard-id-card",
+      "status": 200,
+      "title": "Premium Polyester Lanyard with ID Card | Corporate Branding India | Printkee",
+      "description": "Custom printed polyester lanyards with ID card holders for offices, events & onboarding kits.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/office-and-writing/lanyard-and-id-card/premium-polyester-lanyard-id-card",
+      "schemas": 5
+    },
+    {
+      "path": "/collection/keychains/metal-ring-keychain",
+      "status": 200,
+      "title": "Silver Metal Ring Keychain | Printkee",
+      "description": "Silver-tone keychain with round metal ring and shaped tag. Stainless steel is recorded; confirm branding details for a bulk order.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/collection/keychains/metal-ring-keychain",
+      "schemas": 4
+    },
+    {
       "path": "/collection/promotional-clocks/classic-round-promotional-wall-clock",
       "status": 200,
       "title": "Classic Round Wall Clock | Custom Printed Corporate Promotional Clocks India | Printkee",
@@ -1922,12 +1949,39 @@
       "schemas": 5
     },
     {
-      "path": "/technology-accessories/desktop-and-mousepad/xl-desktop-mouse-pad",
+      "path": "/bags-and-travel/tote-bags/premium-canvas-tote-bag",
       "status": 200,
-      "title": "XL Desktop Mouse Pad | Custom Branded Desk Mats for Corporates | Printkee",
-      "description": "Premium XL mouse pads for office branding and employee welcome kits with custom printing.",
+      "title": "Large Black Canvas Tote Bag | Printkee",
+      "description": "Large black canvas tote with long handles. Confirm dimensions, capacity and any logo method for an event or team order.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/technology-accessories/desktop-and-mousepad/xl-desktop-mouse-pad",
+      "canonical": "https://printkee.com/bags-and-travel/tote-bags/premium-canvas-tote-bag",
+      "schemas": 4
+    },
+    {
+      "path": "/bags-and-travel/backpacks/economy-corporate-backpack",
+      "status": 200,
+      "title": "Economy Corporate Backpack | Budget Promotional Bags for Events & Training | Printkee",
+      "description": "Affordable corporate backpacks for bulk gifting, seminars & training programs.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/bags-and-travel/backpacks/economy-corporate-backpack",
+      "schemas": 5
+    },
+    {
+      "path": "/technology-accessories/wireless-charging/3-in-1-wireless-charging-dock",
+      "status": 200,
+      "title": "3-in-1 Wireless Charging Dock | Premium Corporate Tech Gifts India | Printkee",
+      "description": "Luxury 3-in-1 wireless charging docks for premium corporate gifting and executive kits.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/technology-accessories/wireless-charging/3-in-1-wireless-charging-dock",
+      "schemas": 5
+    },
+    {
+      "path": "/technology-accessories/computer-accessories/classic-optical-usb-mouse",
+      "status": 200,
+      "title": "Classic Optical USB Mouse | Corporate Computer Accessories India | Printkee",
+      "description": "USB optical mouse for corporate offices & onboarding kits with custom branding.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/technology-accessories/computer-accessories/classic-optical-usb-mouse",
       "schemas": 5
     },
     {
@@ -1940,49 +1994,184 @@
       "schemas": 5
     },
     {
-      "path": "/bags-and-travel/backpacks/economy-corporate-backpack",
+      "path": "/technology-accessories/desktop-and-mousepad/xl-desktop-mouse-pad",
       "status": 200,
-      "title": "Economy Corporate Backpack | Budget Promotional Bags for Events & Training | Printkee",
-      "description": "Affordable corporate backpacks for bulk gifting, seminars & training programs.",
+      "title": "XL Desktop Mouse Pad | Custom Branded Desk Mats for Corporates | Printkee",
+      "description": "Premium XL mouse pads for office branding and employee welcome kits with custom printing.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/bags-and-travel/backpacks/economy-corporate-backpack",
+      "canonical": "https://printkee.com/technology-accessories/desktop-and-mousepad/xl-desktop-mouse-pad",
       "schemas": 5
     },
     {
-      "path": "/blog/6897a1d967f8f01adc2fccd4",
+      "path": "/eco-products/cork-coaster/4-piece-cork-coasters",
       "status": 200,
-      "title": "Printkee Cap Manufacturing | Printkee",
-      "description": "\"Printkee\" provides all types of corporate promotional printing services** along with **manufacturing of custom products** to meet diverse branding needs. From ",
+      "title": "Four-Piece Square Cork Coasters | Printkee",
+      "description": "Set of four natural-cork coasters pictured in a square format. Confirm pack quantity and dimensions before ordering.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/blog/6897a1d967f8f01adc2fccd4",
+      "canonical": "https://printkee.com/eco-products/cork-coaster/4-piece-cork-coasters",
       "schemas": 4
     },
     {
-      "path": "/blog/69313c73362dfa880a0f5cb7",
+      "path": "/technology-accessories/computer-accessories/ergonomic-professional-mouse",
       "status": 200,
-      "title": "Promotional Polo T-shirt | Printkee",
-      "description": "Bulk Promotional T-Shirt Suppliers in South Delhi | Custom & Logo Printing\r\n\r\nWhen it comes to promotional branding in Delhi NCR, nothing builds brand visibilit",
+      "title": "Black Ergonomic Professional Mouse | Printkee",
+      "description": "Black contoured computer mouse with recorded ABS and silicone grip. Confirm connection type before ordering for a desk kit.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/blog/69313c73362dfa880a0f5cb7",
+      "canonical": "https://printkee.com/technology-accessories/computer-accessories/ergonomic-professional-mouse",
       "schemas": 4
     },
     {
-      "path": "/technology-accessories/wireless-charging/3-in-1-wireless-charging-dock",
+      "path": "/eco-products/cork-coaster/large-grain-cork-coasters",
       "status": 200,
-      "title": "3-in-1 Wireless Charging Dock | Premium Corporate Tech Gifts India | Printkee",
-      "description": "Luxury 3-in-1 wireless charging docks for premium corporate gifting and executive kits.",
+      "title": "Large-Grain Cork Coasters | Printkee",
+      "description": "Angular cork coasters with a coarse visible grain. Confirm the piece count and dimensions before ordering a set.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/technology-accessories/wireless-charging/3-in-1-wireless-charging-dock",
-      "schemas": 5
+      "canonical": "https://printkee.com/eco-products/cork-coaster/large-grain-cork-coasters",
+      "schemas": 4
     },
     {
-      "path": "/drink-ware/sipper/premium-stainless-steel-sipper-bottle",
+      "path": "/eco-products/cork-coaster/natural-cork-coasters",
       "status": 200,
-      "title": "Premium Stainless Steel Sipper Bottle | Custom Printed Corporate Bottles India | Printkee",
-      "description": "High-quality stainless steel sipper bottle with custom logo printing. Perfect for corporate gifting across India.",
+      "title": "Round Natural Cork Coasters | Printkee",
+      "description": "Round natural-cork coasters pictured beside a cork-look holder. Confirm set quantity and dimensions before ordering.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/drink-ware/sipper/premium-stainless-steel-sipper-bottle",
-      "schemas": 5
+      "canonical": "https://printkee.com/eco-products/cork-coaster/natural-cork-coasters",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-plant-decorate/cork-multicolored-planter",
+      "status": 200,
+      "title": "Multicolored Cork Planter | Printkee",
+      "description": "Patterned cork-look planter pictured in two designs. Confirm the sold quantity and dimensions before ordering.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-plant-decorate/cork-multicolored-planter",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-plant-decorate/cork-round-planter",
+      "status": 200,
+      "title": "Round Natural Cork Planter | Printkee",
+      "description": "Low round cork planter pictured with a fern. Confirm opening dimensions and drainage details before ordering.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-plant-decorate/cork-round-planter",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-plant-decorate/choco-chip-cork-planter",
+      "status": 200,
+      "title": "Choco-Chip Cork Planter | Printkee",
+      "description": "Square cork planter with a speckled finish. Confirm opening size and drainage before selecting it for desk gifting.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-plant-decorate/choco-chip-cork-planter",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-serving-decorate/cork-dining-table-mat",
+      "status": 200,
+      "title": "Natural Cork Dining Table Mat | Printkee",
+      "description": "Rectangular natural-cork dining mat shown with tableware. Confirm the mat dimensions before planning a table setting or bulk order.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-serving-decorate/cork-dining-table-mat",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-serving-decorate/olive-cork-table-mat",
+      "status": 200,
+      "title": "Olive Cork Table Mat | Printkee",
+      "description": "Olive-toned cork table mat shown under a place setting. Compare its finish with the plain cork mat and confirm dimensions.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-serving-decorate/olive-cork-table-mat",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-premium-lighting/tall-cork-table-lamp",
+      "status": 200,
+      "title": "Tall Cork Table Lamp | Printkee",
+      "description": "Tall cork-and-metal table lamp with an upright base and cork-look shade. Ask for dimensions and electrical details before ordering.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-premium-lighting/tall-cork-table-lamp",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-premium-lighting/cork-hanging-lamp",
+      "status": 200,
+      "title": "Cork Hanging Lamp | Printkee",
+      "description": "Suspended lamp with tapered cork-look shade and metal components. Confirm dimensions and electrical specifications before ordering.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-premium-lighting/cork-hanging-lamp",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-premium-gift-boxes/cork-gift-boxes",
+      "status": 200,
+      "title": "Cork and Cardboard Gift Box | Printkee",
+      "description": "Rectangular cork-look gift box with lid, recorded as cork and cardboard. Confirm inner dimensions before selecting contents.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-premium-gift-boxes/cork-gift-boxes",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-laptop-bag-and-wallet/cork-passport-holder",
+      "status": 200,
+      "title": "Cork Passport Holder for Travel | Printkee",
+      "description": "Natural cork and leather passport holder with visible card slots. Consider it for travel documents or a company travel gift; confirm fit before ordering.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-laptop-bag-and-wallet/cork-passport-holder",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-desk-top-accessories/cork-desktop-calendar",
+      "status": 200,
+      "title": "Cork Desktop Calendar | Printkee",
+      "description": "Desktop calendar with date blocks and a cork-look base. Recorded materials are cork and paper; confirm included pieces.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-desk-top-accessories/cork-desktop-calendar",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-desk-top-accessories/cork-round-style-pen-holder",
+      "status": 200,
+      "title": "Round Cork Desktop Pen Holder | Printkee",
+      "description": "Cylindrical cork pen holder shown with pens and brushes. Confirm size and sold quantity for an office kit.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-desk-top-accessories/cork-round-style-pen-holder",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-laptop-bag-and-wallet/cork-laptop-bag",
+      "status": 200,
+      "title": "Cork Laptop Carry Bag | Printkee",
+      "description": "Cork-and-fabric laptop bag with handles, shoulder strap and front pocket. Confirm laptop fit and padding before ordering.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-laptop-bag-and-wallet/cork-laptop-bag",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-yoga-accessories/yoga-mat-cork-fabric-eva",
+      "status": 200,
+      "title": "Cork and EVA Yoga Mat 183 × 61 cm | Printkee",
+      "description": "Cork-surface yoga mat with recorded EVA backing, sized 183 × 61 cm. Consider it for yoga, meditation or wellness gifting.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-yoga-accessories/yoga-mat-cork-fabric-eva",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-yoga-accessories/fully-rubberized-3mm-yoga-mat",
+      "status": 200,
+      "title": "3 mm Cork and Rubber Yoga Mat | Printkee",
+      "description": "Cork-and-rubber yoga mat recorded at 3 mm thick and 183 × 61 cm. Verify the pictured SKU and backing before ordering.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-yoga-accessories/fully-rubberized-3mm-yoga-mat",
+      "schemas": 4
+    },
+    {
+      "path": "/eco-products/cork-yoga-accessories/cork-rubberized-yoga-mat-latex",
+      "status": 200,
+      "title": "Cork and Latex Yoga Mat 183 × 61 cm | Printkee",
+      "description": "Cork-look yoga mat recorded with rubber and latex backing, sized 183 × 61 cm. Confirm material and performance details.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/eco-products/cork-yoga-accessories/cork-rubberized-yoga-mat-latex",
+      "schemas": 4
     },
     {
       "path": "/blog/688c9ce3f316fb8d48be1279",
@@ -1994,22 +2183,31 @@
       "schemas": 4
     },
     {
-      "path": "/technology-accessories/computer-accessories/classic-optical-usb-mouse",
+      "path": "/blog/6897a1d967f8f01adc2fccd4",
       "status": 200,
-      "title": "Classic Optical USB Mouse | Corporate Computer Accessories India | Printkee",
-      "description": "USB optical mouse for corporate offices & onboarding kits with custom branding.",
+      "title": "Printkee Cap Manufacturing | Printkee",
+      "description": "\"Printkee\" provides all types of corporate promotional printing services** along with **manufacturing of custom products** to meet diverse branding needs. From ",
       "h1Count": 1,
-      "canonical": "https://printkee.com/technology-accessories/computer-accessories/classic-optical-usb-mouse",
+      "canonical": "https://printkee.com/blog/6897a1d967f8f01adc2fccd4",
+      "schemas": 4
+    },
+    {
+      "path": "/drink-ware/sipper/premium-stainless-steel-sipper-bottle",
+      "status": 200,
+      "title": "Premium Stainless Steel Sipper Bottle | Custom Printed Corporate Bottles India | Printkee",
+      "description": "High-quality stainless steel sipper bottle with custom logo printing. Perfect for corporate gifting across India.",
+      "h1Count": 1,
+      "canonical": "https://printkee.com/drink-ware/sipper/premium-stainless-steel-sipper-bottle",
       "schemas": 5
     },
     {
-      "path": "/trophy-and-momento/trophy-and-momento/golden-excellence-award-trophy",
+      "path": "/blog/69313c73362dfa880a0f5cb7",
       "status": 200,
-      "title": "Golden Excellence Award Trophy | Custom Corporate Awards India | Printkee",
-      "description": "Premium golden award trophies with custom engraving for corporate recognition and annual award ceremonies.",
+      "title": "Promotional Polo T-shirt | Printkee",
+      "description": "Bulk Promotional T-Shirt Suppliers in South Delhi | Custom & Logo Printing\r\n\r\nWhen it comes to promotional branding in Delhi NCR, nothing builds brand visibilit",
       "h1Count": 1,
-      "canonical": "https://printkee.com/trophy-and-momento/trophy-and-momento/golden-excellence-award-trophy",
-      "schemas": 5
+      "canonical": "https://printkee.com/blog/69313c73362dfa880a0f5cb7",
+      "schemas": 4
     },
     {
       "path": "/blog/6937f5de42a2917631db3f23",
@@ -2021,21 +2219,21 @@
       "schemas": 4
     },
     {
-      "path": "/drink-ware/steel-mug/stainless-steel-double-wall-coffee-mug",
+      "path": "/trophy-and-momento/trophy-and-momento/golden-excellence-award-trophy",
       "status": 200,
-      "title": "Premium Corporate Gift Coffee Mug | Custom Branding India | Printkee",
-      "description": "Premium Stainless Steel corporate coffee mug with full-color printing for executive gifting.",
+      "title": "Golden Excellence Award Trophy | Custom Corporate Awards India | Printkee",
+      "description": "Premium golden award trophies with custom engraving for corporate recognition and annual award ceremonies.",
       "h1Count": 1,
-      "canonical": "https://printkee.com/drink-ware/steel-mug/stainless-steel-double-wall-coffee-mug",
-      "schemas": 4
+      "canonical": "https://printkee.com/trophy-and-momento/trophy-and-momento/golden-excellence-award-trophy",
+      "schemas": 5
     }
   ],
   "brokenInternalLinks": [],
   "claimFindings": [],
   "summary": {
-    "sitemapUrls": 225,
-    "crawledPages": 225,
-    "internalPathsChecked": 217,
+    "sitemapUrls": 247,
+    "crawledPages": 247,
+    "internalPathsChecked": 441,
     "claimFindings": 0,
     "errors": 0,
     "warnings": 0

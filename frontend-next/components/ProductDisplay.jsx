@@ -32,14 +32,18 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
   const ctaProductName  = subcategoryName.replace(/^custom(?:ised|ized)?(?:\s+made)?\s+/i, "");
   const displayH1       = seoH1 || subcategoryName;
   const displayH2       = seoH2 || null;
-  const openProduct = (product) => {
+  const productHref = (product) => `/${encodeURIComponent(categorySlug)}/${encodeURIComponent(subcategorySlug)}/${encodeURIComponent(toPublicProductSlug(product.slug))}`;
+  const trackProductSelection = (product) => {
     trackSelectItem({
       id: product._id || product.slug,
       name: product.name,
       category: categoryName,
       subcategory: subcategoryName,
     }, "subcategory_product_grid");
-    router.push(`/${encodeURIComponent(categorySlug)}/${encodeURIComponent(subcategorySlug)}/${encodeURIComponent(toPublicProductSlug(product.slug))}`);
+  };
+  const openProduct = (product) => {
+    trackProductSelection(product);
+    router.push(productHref(product));
   };
 
   return (
@@ -87,8 +91,11 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
                   return (
                     <article key={product._id} className={styles["product-card"]}>
                       <div className={styles["product-image-wrapper"]}>
-                        <Image width={480} height={480} className={styles["product-img"]} src={imageUrl}
-                          alt={product.images?.[0]?.altText || product.name} loading="lazy" />
+                        <Link href={productHref(product)} className={styles["product-image-link"]}
+                          aria-label={`View ${product.name}`} onClick={() => trackProductSelection(product)}>
+                          <Image width={480} height={480} className={styles["product-img"]} src={imageUrl}
+                            alt={product.images?.[0]?.altText || product.name} loading="lazy" />
+                        </Link>
                         <div className={styles["product-icons"]}>
                           <button aria-label={`Save ${product.name}`} title="Save"><Heart size={13} /></button>
                           <button aria-label={`Quick view ${product.name}`} title="Quick view"
@@ -98,7 +105,10 @@ const ProductDisplay = ({ subcategoryData, categoryData, products = [], seoH1, s
                         </div>
                       </div>
                       <div className={styles["product-body"]}>
-                        <h3 className={styles["product-title"]}>{product.name}</h3>
+                        <h3 className={styles["product-title"]}>
+                          <Link href={productHref(product)} className={styles["product-title-link"]}
+                            onClick={() => trackProductSelection(product)}>{product.name}</Link>
+                        </h3>
                         {(product.attributes?.size?.length > 0 || product.attributes?.color?.length > 0) && (
                           <div className={styles["dropdown-group"]}>
                             {product.attributes?.size?.length > 0 && (

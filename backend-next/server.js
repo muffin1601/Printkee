@@ -105,6 +105,7 @@ app.use("/api", require("./routes/searchRoutes"));
 app.use("/api", require("./routes/emailRoutes"));
 app.use("/api/category", require("./routes/categoryRoutes"));
 app.use("/api/subcategory", require("./routes/subcategoryRoutes"));
+app.use("/api/product/seo-content", require("./routes/productSeoContentRoutes"));
 app.use("/api/product", require("./routes/productRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
 app.use("/api/brands", require("./routes/brandRoutes"));
