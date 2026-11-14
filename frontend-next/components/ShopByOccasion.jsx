@@ -20,7 +20,7 @@ const occasions = [
       "Celebrate special occasions with premium festive hampers for corporate gifting. Choose from luxury chocolates, gourmet treats, dry fruits, and personalized gift boxes to spread joy during Diwali, Christmas, New Year, and other festive celebrations.",
     image: "/assets/festive.webp",
     cta: "Shop Hampers",
-    href: "/diwali-special",
+    href: "/new-year-2027",
   },
   {
     id: 3,

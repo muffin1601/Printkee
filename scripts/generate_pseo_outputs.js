@@ -58,7 +58,7 @@ const approve = (url, pageType, source, canonical = url) => approved.set(url, {
   URL: url, "Page Type": pageType, Status: "PUBLISHED", Indexable: "YES", Canonical: canonical,
   "Sitemap Eligible": "YES", Source: source, "Approval Basis": "Existing public route; retained without creating a new programmatic page.",
 });
-["/", "/about", "/contact", "/privacy-policy", "/brands", "/blogs", "/locations", "/corporate-gifting", "/industries", "/use-cases", "/sitemap", "/diwali-special"].forEach((url) => approve(url, "STATIC_OR_HUB", "existing-route"));
+["/", "/about", "/contact", "/privacy-policy", "/brands", "/blogs", "/locations", "/corporate-gifting", "/industries", "/use-cases", "/sitemap", "/new-year-2027"].forEach((url) => approve(url, "STATIC_OR_HUB", "existing-route"));
 ["delhi", "noida", "greater-noida", "gurgaon", "faridabad", "ghaziabad"].forEach((slug) => approve(`/${slug}/corporate-gifts`, "LOCATION", "existing-location-route"));
 for (const category of categoryData) {
   approve(`/${category.slug}`, "CATEGORY", "catalog");

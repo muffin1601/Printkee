@@ -63,7 +63,7 @@ const Footer = () => {
       <div className={styles["footer-column"]}>
         <h3 className={styles["footer-heading"]}>Company</h3>
         <ul>
-          <li><Link href="/diwali-special">Diwali 2026</Link></li>
+          <li><Link href="/new-year-2027">New Year 2027</Link></li>
           <li><Link href="/about">About Us</Link></li>
           <li><Link href="/blogs">Blog</Link></li>
           <li><Link href="/brands">Brands</Link></li>

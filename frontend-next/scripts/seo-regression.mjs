@@ -54,7 +54,9 @@ if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(fetchOrigin)) {
     ["/Technology%20Accessories", "/technology-accessories"],
     ["/privacy", "/privacy-policy"],
     ["/blog", "/blogs"],
-    ["/festival-gifts", "/diwali-special"],
+    ["/festival-gifts", "/new-year-2027"],
+    ["/diwali-special", "/new-year-2027"],
+    ["/diwali-special/hampers/festive-snack-travel-mug-hamper", "/new-year-2027/hampers/festive-snack-travel-mug-hamper"],
     ["/collection/__CANONICAL__", "/collection"],
     ["/apparel-and-accessories/polo-t-shirts/__CANONICAL__", "/apparel-and-accessories/polo-t-shirts"],
     ["/apparel-and-accessories/polo-t-shirts/promotional-collar%20-t-shirts", "/apparel-and-accessories/polo-t-shirts/promotional-collar-t-shirts"],
@@ -79,7 +81,12 @@ if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(fetchOrigin)) {
     const response = await fetchPath(source, { method: "HEAD" });
     const location = response.headers.get("location");
     const resolvedLocation = location ? new URL(location, fetchOrigin).href : "";
-    if (response.status !== 308 || resolvedLocation !== `${fetchOrigin}${destination}`) {
+    const expectedStatus = source === "/festival-gifts"
+      || source === "/diwali-special"
+      || source.startsWith("/diwali-special/")
+      ? 301
+      : 308;
+    if (response.status !== expectedStatus || resolvedLocation !== `${fetchOrigin}${destination}`) {
       report.errors.push(`canonical redirect failed for ${source}: ${JSON.stringify({ status: response.status, location })}`);
     }
   }

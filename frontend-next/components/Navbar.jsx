@@ -109,12 +109,12 @@ const Navbar = () => {
                 the seasonal campaign reachable only from inside the drawer.
                 This compact link keeps it one tap away on tablet and mobile. */}
             <Link
-              href="/diwali-special"
+              href="/new-year-2027"
               className={styles.festiveCompact}
               onClick={() => setIsMenuOpen(false)}
             >
               <Sparkles size={14} aria-hidden="true" />
-              <span className={styles.festiveCompactText}>Diwali</span>
+              <span className={styles.festiveCompactText}>New Year</span>
             </Link>
             <button
               className={`${styles.iconBtn} ${styles.searchToggleBtn}`}
@@ -223,10 +223,10 @@ const Navbar = () => {
           {/* Seasonal campaign link — highlighted so it reads as a promotion */}
           <li>
             <Link
-              href="/diwali-special"
+              href="/new-year-2027"
               className={`${styles.navLink} ${styles.navLinkFestive}`}
             >
-              <Sparkles size={14} aria-hidden="true" /> Diwali 2026
+              <Sparkles size={14} aria-hidden="true" /> New Year 2027
             </Link>
           </li>
 
@@ -308,7 +308,7 @@ const Navbar = () => {
             )}
           </li>
 
-          <li><Link href="/diwali-special" className={`${styles.drawerLink} ${styles.drawerLinkFestive}`} onClick={() => setIsMenuOpen(false)}><Sparkles size={15} /> Diwali 2026</Link></li>
+          <li><Link href="/new-year-2027" className={`${styles.drawerLink} ${styles.drawerLinkFestive}`} onClick={() => setIsMenuOpen(false)}><Sparkles size={15} /> New Year 2027</Link></li>
           <li><Link href="/brands"  className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><Tag size={15} /> Brands</Link></li>
           <li><Link href="/blogs"   className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><PenLine size={15} /> Blog</Link></li>
           <li><Link href="/contact" className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><Mail size={15} /> Contact Us</Link></li>

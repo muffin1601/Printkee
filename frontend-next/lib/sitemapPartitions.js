@@ -6,22 +6,14 @@ import { keywordSolutionPaths } from "../data/keywordSolutionPages";
 const BACKEND = process.env.BACKEND_URL || "http://localhost:5031";
 export const PARTITIONS = ["static", "categories", "products", "brands", "blog", "locations", "seo-pages-1"];
 
-const staticPaths = ["/", "/about", "/contact", "/privacy-policy", "/brands", "/blogs", "/corporate-gifting", "/industries", "/use-cases", "/sitemap", "/diwali-special"];
+const staticPaths = ["/", "/about", "/contact", "/privacy-policy", "/brands", "/blogs", "/corporate-gifting", "/industries", "/use-cases", "/sitemap", "/new-year-2027"];
 const editorialPaths = [
   "/blog/corporate-diwali-gifts-buying-guide-2026",
   "/blog/best-corporate-diwali-gifts-delhi-ncr-2026",
-  "/diwali-special/hampers/festive-snack-travel-mug-hamper",
-  "/diwali-special/hampers/festive-copper-dry-fruit-hamper",
-  "/diwali-special/hampers/premium-coffee-gourmet-hamper",
-  "/diwali-special/hampers/white-drinkware-ferrero-diya-kit",
-  "/diwali-special/hampers/executive-notebook-pen-bottle-kit",
-  "/diwali-special/hampers/notebook-pen-bottle-gift-kit",
-  "/diwali-special/hampers/copper-bottle-cookie-ferrero-diya-kit",
-  "/diwali-special/hampers/copper-canister-chocolate-diya-kit",
-  "/diwali-special/hampers/black-tumbler-cookie-chocolate-diya-kit",
-  "/diwali-special/hampers/black-bottle-mug-ferrero-diya-kit",
-  "/diwali-special/hampers/wallet-mug-ferrero-diya-kit",
-  "/diwali-special/hampers/glass-jar-diya-gift-set",
+  "/new-year-2027/hampers/festive-snack-travel-mug-hamper",
+  "/new-year-2027/hampers/premium-coffee-gourmet-hamper",
+  "/new-year-2027/hampers/executive-notebook-pen-bottle-kit",
+  "/new-year-2027/hampers/notebook-pen-bottle-gift-kit",
 ];
 const locationPaths = ["/locations", "/delhi/corporate-gifts", "/noida/corporate-gifts", "/greater-noida/corporate-gifts", "/gurgaon/corporate-gifts", "/faridabad/corporate-gifts", "/ghaziabad/corporate-gifts"];
 

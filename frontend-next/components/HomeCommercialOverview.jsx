@@ -8,7 +8,7 @@ const pathways = [
   ["Office merchandise", "/office-and-writing", "Find custom files, notebooks, pens, lanyards and identification products."],
   ["Corporate tech gifts", "/technology-accessories", "Review available charging, desk and computer accessories for business gifting."],
   ["Sustainable options", "/eco-products", "Explore options where material and environmental details can be verified for the selected item."],
-  ["Seasonal gifting", "/diwali-special", "Plan festive employee and client gifting using the current seasonal catalogue."],
+  ["New Year 2027 gifts", "/new-year-2027", "Plan employee and client gifting with the current New Year collection."],
   ["Request a quotation", "/contact", "Share quantity, artwork, target date and delivery locations for a relevant proposal."],
 ];
 

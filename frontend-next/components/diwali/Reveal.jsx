@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import styles from "../../styles/Diwali.module.css";
+import styles from "../../styles/NewYear2027.module.css";
 
 /**
  * Reveals children on scroll with a short fade/rise.

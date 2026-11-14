@@ -1,12 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+import api from "@/lib/api";
 import styles from "../styles/BlogForm.module.css";
 
 const BlogFormClient = () => {
   const [form, setForm] = useState({ title: "", content: "", author: "" });
   const [image, setImage] = useState(null);
+  const [saving, setSaving] = useState(false);
   const router = useRouter();
 
   const handleChange = (e) =>
@@ -17,16 +18,22 @@ const BlogFormClient = () => {
     const data = new FormData();
     Object.keys(form).forEach((key) => data.append(key, form[key]));
     if (image) data.append("image", image);
+    data.append("status", "published");
 
+    setSaving(true);
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/blogs/post`, data);
+      await api.post(`${process.env.NEXT_PUBLIC_API_URL}/blogs/post`, data);
       alert("Blog posted!");
       setForm({ title: "", content: "", author: "" });
       setImage(null);
       router.push("/blogs");
     } catch (err) {
       console.error("Error posting blog:", err);
-      alert("Failed to post blog.");
+      if (err.response?.status !== 401) {
+        alert(err.response?.data?.message || "Failed to post blog. Please try again.");
+      }
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -54,7 +61,14 @@ const BlogFormClient = () => {
         <label htmlFor="image-upload">Upload Blog Image</label>
         <input id="image-upload" type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
 
-        <button type="submit" className={styles["submit-btn"]} aria-label="Post blog">Post Blog</button>
+        <button
+          type="submit"
+          className={styles["submit-btn"]}
+          aria-label="Post blog"
+          disabled={saving}
+        >
+          {saving ? "Posting…" : "Post Blog"}
+        </button>
       </form>
     </section>
   );

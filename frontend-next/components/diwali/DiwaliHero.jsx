@@ -1,131 +1,98 @@
 "use client";
 import React from "react";
-import { ArrowRight, Sparkles, Palette } from "lucide-react";
-import Link from "next/link";
-import styles from "../../styles/Diwali.module.css";
-import DiwaliAmbience from "./DiwaliAmbience";
+import { ArrowRight, Sparkles, Quote } from "lucide-react";
+import styles from "../../styles/NewYear2027.module.css";
 
-/* Diyas are drawn as inline SVG rather than images: no extra network
-   request, no layout shift, and they scale crisply at every breakpoint.
-   The gradients live in a single hidden <defs> sprite so that repeating the
-   lamp never duplicates an element id in the document. */
-const DiyaDefs = () => (
-  <svg className={styles.svgDefs} aria-hidden="true" focusable="false">
-    <defs>
-      <radialGradient id="diya-flame" cx="50%" cy="60%" r="55%">
-        <stop offset="0%" stopColor="#FFF6D8" />
-        <stop offset="45%" stopColor="#FFC64A" />
-        <stop offset="100%" stopColor="#E8752A" stopOpacity="0.15" />
-      </radialGradient>
-      <linearGradient id="diya-bowl" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#E0A24C" />
-        <stop offset="55%" stopColor="#9C5B22" />
-        <stop offset="100%" stopColor="#4E2A10" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
+const HERO_PRODUCT_IDS = [
+  "nutraj-gb52-leafy-whispers-300gm",
+  "boat-stone-135",
+  "fuzo-gale-tgz-1755",
+];
 
-const Diya = ({ className }) => (
-  <svg className={className} viewBox="0 0 120 90" aria-hidden="true" focusable="false">
-    <ellipse className={styles.diyaHalo} cx="60" cy="40" rx="34" ry="30" fill="url(#diya-flame)" />
-    <path
-      className={styles.diyaFlame}
-      d="M60 20c7 9 11 15 11 21a11 11 0 0 1-22 0c0-6 4-12 11-21z"
-      fill="url(#diya-flame)"
-    />
-    <path
-      d="M18 58c0-3 3-5 7-5h70c4 0 7 2 7 5 0 13-13 22-31 22H49C31 80 18 71 18 58z"
-      fill="url(#diya-bowl)"
-    />
-    <ellipse cx="60" cy="56" rx="42" ry="6" fill="#B9762F" opacity="0.85" />
-  </svg>
-);
+const DiwaliHero = ({ products = [], onQuote }) => {
+  const featuredProducts = HERO_PRODUCT_IDS.map((id) =>
+    products.find((product) => product.id === id)
+  ).filter(Boolean);
 
-/**
- * Campaign hero. The headline is plain server-rendered text (no typing or
- * counting effects) so the Largest Contentful Paint element is present in
- * the initial HTML and never shifts.
- */
-const DiwaliHero = ({ onSecondaryAction }) => (
-  <section className={styles.hero} aria-labelledby="diwali-hero-heading">
-    {/* Decorative rangoli arcs — hidden from assistive tech */}
-    <div className={styles.heroDecor} aria-hidden="true">
-      <svg className={styles.rangoli} viewBox="0 0 400 400" focusable="false">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <ellipse
-            key={i}
-            cx="200"
-            cy="200"
-            rx="180"
-            ry="62"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1"
-            transform={`rotate(${i * 15} 200 200)`}
-          />
+  return (
+    <section className={styles.hero} aria-labelledby="new-year-hero-heading">
+      <div className={styles.heroSparkles} aria-hidden="true">
+        {Array.from({ length: 12 }, (_, index) => (
+          <span key={index} className={styles.heroSparkle} />
         ))}
-        <circle cx="200" cy="200" r="52" fill="none" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="200" cy="200" r="26" fill="none" stroke="currentColor" strokeWidth="1" />
-      </svg>
-    </div>
-
-    <DiwaliAmbience />
-
-    <div className={styles.heroInner}>
-      <p className={styles.heroEyebrow}>
-        <Sparkles size={13} aria-hidden="true" />
-        Diwali Collection 2026
-      </p>
-
-      <h1 id="diwali-hero-heading" className={styles.heroTitle}>
-        Diwali 2026 Gifts,{" "}
-        <span className={styles.heroTitleAccent}>Hampers &amp; Corporate Gifting</span>
-      </h1>
-
-      <p className={styles.heroSub}>
-        The full Diwali 2026 catalogue — dry-fruit hampers, audio and desk tech,
-        luggage, kitchen appliances, copper sets and home textiles. Branded with
-        your logo and delivered across India in time for the festival.
-      </p>
-
-      <div className={styles.heroActions}>
-        <a href="#diwali-catalogue" className={styles.heroCtaPrimary}>
-          Browse the 2026 Catalogue
-          <ArrowRight size={15} aria-hidden="true" />
-        </a>
-        <Link
-          href="/customize"
-          className={styles.heroCtaGhost}
-          onClick={onSecondaryAction}
-        >
-          <Palette size={15} aria-hidden="true" />
-          Create Your Gift
-        </Link>
       </div>
 
-      <ul className={styles.heroTrust}>
-        <li>Free design mock-ups</li>
-        <li>Bulk pricing from 25 units</li>
-        <li>Pan-India festive delivery</li>
-      </ul>
-    </div>
+      <div className={styles.heroInner}>
+        <div className={styles.heroCopy}>
+          <p className={styles.heroEyebrow}>
+            <Sparkles size={14} aria-hidden="true" />
+            Printkee presents
+          </p>
+          <h1 id="new-year-hero-heading" className={styles.heroTitle}>
+            <span className={styles.heroWelcome}>WELCOME</span>
+            <span className={styles.heroYear}>2027</span>
+          </h1>
+          <h2 className={styles.heroSubheading}>
+            New Year. New Beginnings. Memorable Gifts.
+          </h2>
+          <p className={styles.heroSub}>
+            Celebrate new beginnings with personalized corporate gifts,
+            premium merchandise, and thoughtful gifting collections from
+            Printkee.
+          </p>
 
-    <DiyaDefs />
+          <div className={styles.heroActions}>
+            <a href="#new-year-collection" className={styles.heroCtaPrimary}>
+              Explore Collection
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+            <button
+              type="button"
+              className={styles.heroCtaGhost}
+              onClick={onQuote}
+            >
+              <Quote size={15} aria-hidden="true" />
+              Get Bulk Quote
+            </button>
+          </div>
 
-    {/* Diya row sits at the base of the hero as a lit shelf of lamps */}
-    <div className={styles.diyaRow} aria-hidden="true">
-      {[0, 1, 2, 3, 4].map((i) => (
-        <span
-          key={i}
-          className={styles.diyaWrap}
-          style={{ animationDelay: `${i * 0.45}s` }}
+          <ul className={styles.heroTrust}>
+            <li>Personalized branding</li>
+            <li>Bulk order solutions</li>
+            <li>Pan-India delivery</li>
+          </ul>
+        </div>
+
+        <div
+          className={styles.heroVisual}
+          role="group"
+          aria-label="Gift ideas from the collection"
         >
-          <Diya className={styles.diya} />
-        </span>
-      ))}
-    </div>
-  </section>
-);
+          <span className={styles.heroVisualYear} aria-hidden="true">2027</span>
+          <span className={`${styles.heroOrbit} ${styles.heroOrbitOne}`} aria-hidden="true" />
+          <span className={`${styles.heroOrbit} ${styles.heroOrbitTwo}`} aria-hidden="true" />
+          {featuredProducts.map((product, index) => (
+            <article
+              key={product.id}
+              className={`${styles.heroProduct} ${styles[`heroProduct${index + 1}`]}`}
+            >
+              <img
+                src={product.image}
+                alt={`${product.name}${product.brand ? ` by ${product.brand}` : ""}`}
+                width="560"
+                height="560"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "auto"}
+                decoding="async"
+              />
+              <span>{product.category}</span>
+            </article>
+          ))}
+          <span className={styles.heroRibbon} aria-hidden="true" />
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default DiwaliHero;

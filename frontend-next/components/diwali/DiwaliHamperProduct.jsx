@@ -14,8 +14,8 @@ export default function DiwaliHamperProduct({ hamper }) {
   return (
     <main className={styles.page}>
       <div className={styles.container}>
-        <Link href="/diwali-special#diwali-catalogue" className={styles.backLink}>
-          <ArrowLeft size={16} aria-hidden="true" /> Back to Diwali hampers
+        <Link href="/new-year-2027#new-year-collection" className={styles.backLink}>
+          <ArrowLeft size={16} aria-hidden="true" /> Back to the gift collection
         </Link>
 
         <section className={styles.product} aria-labelledby="hamper-name">
@@ -50,7 +50,7 @@ export default function DiwaliHamperProduct({ hamper }) {
           </div>
 
           <div className={styles.details}>
-            <p className={styles.eyebrow}>Diwali 2026 · Corporate gifting</p>
+            <p className={styles.eyebrow}>New Year 2027 · Corporate gifting</p>
             <h1 id="hamper-name">{hamper.name}</h1>
             <p className={styles.description}>{hamper.description}</p>
 
@@ -80,7 +80,7 @@ export default function DiwaliHamperProduct({ hamper }) {
             </div>
 
             <p className={styles.note}>
-              Ideal for employee, client and corporate Diwali gifting. Custom branding and bulk quantities are available on request.
+              A thoughtful choice for employee, client, and partner gifting. Custom branding and bulk quantities are available on request.
             </p>
           </div>
         </section>
@@ -90,7 +90,7 @@ export default function DiwaliHamperProduct({ hamper }) {
         isOpen={enquiryOpen}
         onClose={() => setEnquiryOpen(false)}
         image={hamper.image}
-        description={`Diwali 2026 price enquiry for ${hamper.name}. Tell us your quantity and branding needs and we'll send festive pricing within 24 hours.`}
+        description={`New Year 2027 price enquiry for ${hamper.name}. Tell us your quantity and branding needs for a tailored corporate gifting quote.`}
       />
     </main>
   );

@@ -2,21 +2,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { MessageSquareQuote, Tag } from "lucide-react";
-import styles from "../../styles/Diwali.module.css";
+import styles from "../../styles/NewYear2027.module.css";
 import Reveal from "./Reveal";
-
-/**
- * The Diwali 2026 catalogue product grid.
- *
- * Renders `data/diwali-2026-products.js` — products transcribed from the
- * catalogue artwork. These are ENQUIRY-ONLY catalogue items: they have no
- * slug, stock or product route, so nothing here links out to a product page
- * and there is no add-to-cart. Every card routes to the site's existing
- * enquiry modal, matching the quote-based flow used elsewhere.
- *
- * Catalogue prices are intentionally not displayed. Every product is
- * quote-based and directs customers to enquire.
- */
 
 /** One catalogue product. Image gets its own load state so a slow PNG
  *  shows a placeholder tile instead of collapsing the grid row. */
@@ -32,16 +19,16 @@ const CatalogueCard = ({ product, onEnquire, priority }) => {
   }, []);
 
   return (
-    <article className={styles.catCard}>
-      <div className={styles.catMedia}>
-        {!loaded && <span className={styles.catSkeleton} aria-hidden="true" />}
+    <article className={styles.productCard}>
+      <div className={styles.productMedia}>
+        {!loaded && <span className={styles.productSkeleton} aria-hidden="true" />}
         <img
           ref={imgRef}
-          className={styles.catImg}
+          className={styles.productImg}
           src={product.image}
           alt={`${product.name}${
             product.brand ? ` by ${product.brand}` : ""
-          } — Diwali 2026 catalogue, page ${product.cataloguePage}`}
+          }`}
           width="560"
           height="560"
           loading={priority ? "eager" : "lazy"}
@@ -53,26 +40,26 @@ const CatalogueCard = ({ product, onEnquire, priority }) => {
         />
       </div>
 
-      <div className={styles.catBody}>
-        {product.brand && <p className={styles.catBrand}>{product.brand}</p>}
-        <h3 className={styles.catName}>{product.name}</h3>
+      <div className={styles.productBody}>
+        {product.brand && <p className={styles.productBrand}>{product.brand}</p>}
+        <h3 className={styles.productName}>{product.name}</h3>
 
         {product.description && (
-          <p className={styles.catDesc}>{product.description}</p>
+          <p className={styles.productDesc}>{product.description}</p>
         )}
 
         {!!product.specifications?.length && (
-          <ul className={styles.catSpecs}>
+          <ul className={styles.productSpecs}>
             {product.specifications.slice(0, 3).map((s) => (
               <li key={s}>{s}</li>
             ))}
           </ul>
         )}
 
-        <div className={styles.catMeta}>
-          <span className={styles.catPriceAsk}>Price on enquiry</span>
+        <div className={styles.productMeta}>
+          <span className={styles.productPriceAsk}>Price on enquiry</span>
           {product.sku && (
-            <span className={styles.catSku}>
+            <span className={styles.productSku}>
               <Tag size={11} aria-hidden="true" />
               {product.sku}
             </span>
@@ -81,7 +68,7 @@ const CatalogueCard = ({ product, onEnquire, priority }) => {
 
         <button
           type="button"
-          className={styles.catCta}
+          className={styles.productCta}
           onClick={() => onEnquire?.(product)}
         >
           <MessageSquareQuote size={14} aria-hidden="true" />
@@ -89,10 +76,10 @@ const CatalogueCard = ({ product, onEnquire, priority }) => {
         </button>
         {product.slug && (
           <Link
-            className={styles.catDetailLink}
-            href={`/diwali-special/hampers/${product.slug}`}
+            className={styles.productDetailLink}
+            href={`/new-year-2027/hampers/${product.slug}`}
           >
-            View hamper details
+            View product details
           </Link>
         )}
       </div>
@@ -123,27 +110,27 @@ const DiwaliCatalogueGrid = ({ products = [], categories = [], onEnquire }) => {
 
   return (
     <section
-      className={styles.section}
-      id="diwali-catalogue"
-      aria-labelledby="diwali-catalogue-heading"
+      className={styles.collection}
+      id="new-year-collection"
+      aria-labelledby="new-year-collection-heading"
     >
-      <div className={styles.sectionInner}>
+      <div className={styles.collectionInner}>
         <Reveal as="header" className={styles.sectionHead}>
-          <p className={styles.eyebrow}>Diwali Catalogue 2026</p>
-          <h2 id="diwali-catalogue-heading" className={styles.sectionTitle}>
-            This Year&apos;s Diwali Range
+          <p className={styles.eyebrow}>Thoughtful gifts. Lasting impressions.</p>
+          <h2 id="new-year-collection-heading" className={styles.sectionTitle}>
+            New Year 2027 Gift Collection
           </h2>
           <p className={styles.sectionDesc}>
-            Every gift in our Diwali 2026 catalogue — dry-fruit hampers,
-            audio and desk tech, luggage, cookware and home textiles. Tell us
-            your quantity and branding and we&apos;ll send costed options.
+            Find practical, premium gifts for teams, clients, and partners.
+            Choose a collection, then tell us your quantity and branding needs
+            for a tailored quote.
           </p>
         </Reveal>
 
         <div
-          className={styles.catFilters}
+          className={styles.categoryFilters}
           role="tablist"
-          aria-label="Filter catalogue by category"
+          aria-label="Filter New Year gifts by category"
         >
           {tabs.map((cat) => (
             <button
@@ -151,29 +138,29 @@ const DiwaliCatalogueGrid = ({ products = [], categories = [], onEnquire }) => {
               type="button"
               role="tab"
               aria-selected={active === cat}
-              className={`${styles.catFilter} ${
-                active === cat ? styles.catFilterOn : ""
+              className={`${styles.categoryFilter} ${
+                active === cat ? styles.categoryFilterActive : ""
               }`}
               onClick={() => setActive(cat)}
             >
               {cat}
-              <span className={styles.catFilterCount}>{counts[cat] || 0}</span>
+              <span className={styles.categoryCount}>{counts[cat] || 0}</span>
             </button>
           ))}
         </div>
 
         {visible.length === 0 ? (
-          <p className={styles.catEmpty} role="status">
-            No catalogue products in this category yet.
+          <p className={styles.emptyState} role="status">
+            No gifts are available in this category.
           </p>
         ) : (
-          <ul className={styles.catGrid}>
+          <ul className={styles.productGrid}>
             {visible.map((product, i) => (
               <Reveal
                 as="li"
                 key={product.id}
                 delay={Math.min(i, 5) * 55}
-                className={styles.catGridItem}
+                className={styles.productGridItem}
               >
                 <CatalogueCard
                   product={product}

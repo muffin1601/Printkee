@@ -17,7 +17,6 @@ const canonicalPathRedirects = new Map([
   ["/Technology%20Accessories", "/technology-accessories"],
   ["/privacy", "/privacy-policy"],
   ["/blog", "/blogs"],
-  ["/festival-gifts", "/diwali-special"],
   ["/collection/__CANONICAL__", "/collection"],
   ["/apparel-and-accessories/polo-t-shirts/__CANONICAL__", "/apparel-and-accessories/polo-t-shirts"],
   ["/apparel-and-accessories/polo-t-shirts/promotional-collar%20-t-shirts", "/apparel-and-accessories/polo-t-shirts/promotional-collar-t-shirts"],
@@ -45,6 +44,12 @@ const recoverableProductPrefixes = [
 
 export function proxy(request) {
   const { pathname } = request.nextUrl;
+  const isNewYearRedirect = pathname === "/festival-gifts"
+    || pathname === "/diwali-special"
+    || pathname.startsWith("/diwali-special/");
+  const newYearPath = pathname.startsWith("/diwali-special")
+    ? `/new-year-2027${pathname.slice("/diwali-special".length)}`
+    : "/new-year-2027";
   const corruptedProductPath = recoverableProductPrefixes.find(
     (canonicalPath) => {
       if (!pathname.startsWith(canonicalPath)) return false;
@@ -53,14 +58,14 @@ export function proxy(request) {
     }
   );
   const prefixRedirect = canonicalPrefixRedirects.find(([source]) => pathname.startsWith(source));
-  const destinationPath = canonicalPathRedirects.get(pathname)
+  const destinationPath = isNewYearRedirect ? newYearPath : canonicalPathRedirects.get(pathname)
     || (prefixRedirect && `${prefixRedirect[1]}${pathname.slice(prefixRedirect[0].length)}`)
     || corruptedProductPath;
   if (!destinationPath) return NextResponse.next();
 
   const destination = request.nextUrl.clone();
   destination.pathname = destinationPath;
-  return NextResponse.redirect(destination, 308);
+  return NextResponse.redirect(destination, isNewYearRedirect ? 301 : 308);
 }
 
 export const config = {
@@ -73,6 +78,8 @@ export const config = {
     "/privacy",
     "/blog",
     "/festival-gifts",
+    "/diwali-special",
+    "/diwali-special/:path*",
     "/collection/__CANONICAL__",
     "/apparel-and-accessories/polo-t-shirts/:path*",
     "/drink-ware/:path*",

@@ -465,7 +465,7 @@ def main():
         ("/", "HOME"), ("/about", "UTILITY"), ("/contact", "LEAD"), ("/privacy-policy", "POLICY"),
         ("/brands", "BRAND_HUB"), ("/blogs", "BLOG_HUB"), ("/locations", "LOCATION_HUB"),
         ("/corporate-gifting", "SEO_HUB"), ("/industries", "SEO_HUB"), ("/use-cases", "SEO_HUB"),
-        ("/sitemap", "HTML_SITEMAP"), ("/diwali-special", "SEASONAL"),
+        ("/sitemap", "HTML_SITEMAP"), ("/new-year-2027", "SEASONAL"),
     ] + [(path, "LOCATION") for path in EXISTING_LOCATION_PATHS.values()]
     seen = set()
     def add_inventory(path, page_type, title, source, product_availability="N/A"):
@@ -503,7 +503,7 @@ def main():
                 page_type = "BLOG"
             elif path.startswith("/brands/"):
                 page_type = "BRAND"
-            elif path.startswith("/diwali-special/hampers/"):
+            elif path.startswith("/new-year-2027/hampers/"):
                 page_type = "SEASONAL_PRODUCT"
             else:
                 page_type = "DYNAMIC_PUBLIC"
