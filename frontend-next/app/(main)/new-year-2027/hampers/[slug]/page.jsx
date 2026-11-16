@@ -6,7 +6,7 @@ import { brandedTitle } from "../../../../../lib/siteConfig";
 
 const BASE = "https://printkee.com";
 
-const hampers = newYear2027Products.filter((product) => product.slug);
+const hampers = newYear2027Products.filter((product) => product.slug && !product.href);
 const knownHamperSlugs = new Set(
   catalogueProducts.filter((product) => product.slug).map((product) => product.slug)
 );

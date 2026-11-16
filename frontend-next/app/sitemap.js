@@ -42,8 +42,6 @@ export default async function sitemap() {
     { path: "/blog/corporate-diwali-gifts-buying-guide-2026", priority: 0.7, freq: "monthly" },
     { path: "/blog/best-corporate-diwali-gifts-delhi-ncr-2026", priority: 0.7, freq: "monthly" },
     { path: "/new-year-2027", priority: 0.7, freq: "monthly" },
-    { path: "/new-year-2027/hampers/festive-snack-travel-mug-hamper", priority: 0.6, freq: "monthly" },
-    { path: "/new-year-2027/hampers/premium-coffee-gourmet-hamper", priority: 0.6, freq: "monthly" },
     { path: "/new-year-2027/hampers/executive-notebook-pen-bottle-kit", priority: 0.6, freq: "monthly" },
     { path: "/new-year-2027/hampers/notebook-pen-bottle-gift-kit", priority: 0.6, freq: "monthly" },
   ];

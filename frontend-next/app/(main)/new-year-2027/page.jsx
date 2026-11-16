@@ -3,26 +3,26 @@ import newYear2027Products from "../../../data/new-year-2027-products";
 
 const BASE = "https://printkee.com";
 const PATH = "/new-year-2027";
-const socialImage =
-  newYear2027Products.find((product) => product.id === "nutraj-gb52-leafy-whispers-300gm")?.image
-  || newYear2027Products[0]?.image;
+const socialImage = newYear2027Products[0]?.image;
 
 export const metadata = {
-  title: "New Year 2027 Corporate Gifts & Customized Gift Collection",
+  title: "New Year 2027 Gift Kits, Diaries, Pens & Calendars",
   description:
-    "Explore Printkee's New Year 2027 corporate gifting collection. Discover personalized gifts, premium drinkware, bags, technology, and bulk gifting solutions.",
+    "Explore Printkee's New Year 2027 Gifta Guru gift kits, diaries, pens, notebooks, and calendars for corporate teams, clients, and partners.",
   keywords: [
     "New Year 2027 corporate gifts",
-    "customized corporate gifts",
-    "personalized gifts",
+    "Gifta Guru gift kits",
+    "New Year diaries pens and calendars",
+    "notebook and pen gift kits",
+    "corporate stationery gifts",
     "bulk corporate gifting",
     "New Year gift collection",
   ],
   alternates: { canonical: `${BASE}${PATH}` },
   openGraph: {
-    title: "New Year 2027 Corporate Gifts & Customized Gift Collection | Printkee",
+    title: "New Year 2027 Gift Kits, Diaries, Pens & Calendars | Printkee",
     description:
-      "Explore personalized gifts, premium drinkware, bags, technology, and thoughtful bulk corporate gifting solutions for a memorable start to 2027.",
+      "Explore Gifta Guru gift kits, diaries, pens, notebooks, and calendars for New Year 2027 corporate gifting.",
     url: `${BASE}${PATH}`,
     type: "website",
     images: [
@@ -34,9 +34,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "New Year 2027 Corporate Gifts & Customized Gift Collection | Printkee",
+    title: "New Year 2027 Gift Kits, Diaries, Pens & Calendars | Printkee",
     description:
-      "Explore personalized gifts, premium merchandise, and bulk corporate gifting solutions for 2027.",
+      "Explore Gifta Guru gift kits, diaries, pens, notebooks, and calendars for New Year 2027 corporate gifting.",
     images: [`${BASE}${socialImage}`],
   },
 };

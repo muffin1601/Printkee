@@ -74,10 +74,10 @@ const CatalogueCard = ({ product, onEnquire, priority }) => {
           <MessageSquareQuote size={14} aria-hidden="true" />
           Enquire
         </button>
-        {product.slug && (
+        {(product.href || product.slug) && (
           <Link
             className={styles.productDetailLink}
-            href={`/new-year-2027/hampers/${product.slug}`}
+            href={product.href || `/new-year-2027/hampers/${product.slug}`}
           >
             View product details
           </Link>
@@ -121,9 +121,9 @@ const DiwaliCatalogueGrid = ({ products = [], categories = [], onEnquire }) => {
             New Year 2027 Gift Collection
           </h2>
           <p className={styles.sectionDesc}>
-            Find practical, premium gifts for teams, clients, and partners.
-            Choose a collection, then tell us your quantity and branding needs
-            for a tailored quote.
+            Explore Gifta Guru gift kits, pens, notebooks, diaries, and a desk
+            calendar for teams, clients, and partners. Tell us your quantity
+            and branding needs for a tailored quote.
           </p>
         </Reveal>
 

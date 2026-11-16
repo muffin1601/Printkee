@@ -3,16 +3,8 @@ import React from "react";
 import { ArrowRight, Sparkles, Quote } from "lucide-react";
 import styles from "../../styles/NewYear2027.module.css";
 
-const HERO_PRODUCT_IDS = [
-  "nutraj-gb52-leafy-whispers-300gm",
-  "boat-stone-135",
-  "fuzo-gale-tgz-1755",
-];
-
 const DiwaliHero = ({ products = [], onQuote }) => {
-  const featuredProducts = HERO_PRODUCT_IDS.map((id) =>
-    products.find((product) => product.id === id)
-  ).filter(Boolean);
+  const featuredProducts = products.slice(0, 3);
 
   return (
     <section className={styles.hero} aria-labelledby="new-year-hero-heading">
@@ -36,9 +28,8 @@ const DiwaliHero = ({ products = [], onQuote }) => {
             New Year. New Beginnings. Memorable Gifts.
           </h2>
           <p className={styles.heroSub}>
-            Celebrate new beginnings with personalized corporate gifts,
-            premium merchandise, and thoughtful gifting collections from
-            Printkee.
+            Start the year with gift kits, pens, diaries, notebooks, and
+            calendars for your team and clients.
           </p>
 
           <div className={styles.heroActions}>

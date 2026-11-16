@@ -10,8 +10,6 @@ const staticPaths = ["/", "/about", "/contact", "/privacy-policy", "/brands", "/
 const editorialPaths = [
   "/blog/corporate-diwali-gifts-buying-guide-2026",
   "/blog/best-corporate-diwali-gifts-delhi-ncr-2026",
-  "/new-year-2027/hampers/festive-snack-travel-mug-hamper",
-  "/new-year-2027/hampers/premium-coffee-gourmet-hamper",
   "/new-year-2027/hampers/executive-notebook-pen-bottle-kit",
   "/new-year-2027/hampers/notebook-pen-bottle-gift-kit",
 ];

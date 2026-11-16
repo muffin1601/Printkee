@@ -1,0 +1,182 @@
+[
+  {
+    "id": "a5-premium-hardcover-notebook",
+    "name": "A5 Premium Hardcover Notebook",
+    "category": "Notebooks & Diaries",
+    "image": "/assets/products/notebooks/1.webp",
+    "description": "Premium A5 hardcover notebook for corporate use.",
+    "specifications": [
+      "Hardcover PU",
+      "A5"
+    ],
+    "sku": "A5-PREMIUM-NOTEBOOK",
+    "href": "/office-and-writing/notebooks-and-diary-sets/a5-premium-hardcover-notebook"
+  },
+  {
+    "id": "a5-spiral-bound-notebook",
+    "name": "A5 Spiral Bound Notebook",
+    "category": "Notebooks & Diaries",
+    "image": "/assets/products/notebooks/4.webp",
+    "description": "A5 spiral bound notebook for training and office use.",
+    "specifications": [
+      "Cardboard Cover",
+      "A5"
+    ],
+    "sku": "SPIRAL-NOTEBOOK",
+    "href": "/office-and-writing/notebooks-and-diary-sets/a5-spiral-bound-notebook"
+  },
+  {
+    "id": "executive-a5-pu-leather-diary",
+    "name": "Executive A5 PU Leather Diary",
+    "category": "Notebooks & Diaries",
+    "image": "/assets/products/notebooks/7.webp",
+    "description": "Luxury PU leather executive diary.",
+    "specifications": [
+      "PU Leather",
+      "A5"
+    ],
+    "sku": "EXECUTIVE-DIARY",
+    "href": "/office-and-writing/notebooks-and-diary-sets/executive-a5-pu-leather-diary"
+  },
+  {
+    "id": "a5-hardbound-ruled-notebook",
+    "name": "A5 Hardbound Ruled Notebook",
+    "category": "Notebooks & Diaries",
+    "image": "/assets/products/notebooks/10.webp",
+    "description": "Classic hardbound ruled notebook.",
+    "specifications": [
+      "Hardbound Cover",
+      "A5"
+    ],
+    "sku": "HARDCOVER-NOTEBOOK",
+    "href": "/office-and-writing/notebooks-and-diary-sets/a5-hardbound-ruled-notebook"
+  },
+  {
+    "id": "eco-friendly-cork-notebook",
+    "name": "Eco-Friendly Cork Cover Notebook",
+    "category": "Notebooks & Diaries",
+    "image": "/assets/products/notebooks/13.webp",
+    "description": "Sustainable cork cover notebook.",
+    "specifications": [
+      "Cork Cover",
+      "A5"
+    ],
+    "sku": "CORK-NOTEBOOK",
+    "href": "/office-and-writing/notebooks-and-diary-sets/eco-friendly-cork-notebook"
+  },
+  {
+    "id": "premium-notebook-diary-gift-set",
+    "name": "Premium Notebook & Diary Gift Set",
+    "category": "Notebooks & Diaries",
+    "image": "/assets/products/notebooks/16.webp",
+    "description": "Premium notebook and diary combo gift set.",
+    "specifications": [
+      "PU Leather & Cardboard",
+      "A5"
+    ],
+    "sku": "NOTEBOOK-DIARY-SET",
+    "href": "/office-and-writing/notebooks-and-diary-sets/premium-notebook-diary-gift-set"
+  },
+  {
+    "id": "premium-metal-ball-pen",
+    "name": "Premium Metal Ball Pen",
+    "category": "Pens & Writing Sets",
+    "image": "/assets/products/pens/1.webp",
+    "description": "Premium metal pen for corporate branding.",
+    "specifications": [
+      "Metal Alloy",
+      "Standard"
+    ],
+    "sku": "METAL-PEN-PREMIUM",
+    "href": "/office-and-writing/pen-and-writing-set/premium-metal-ball-pen"
+  },
+  {
+    "id": "smooth-writing-gel-pen",
+    "name": "Smooth Writing Gel Pen",
+    "category": "Pens & Writing Sets",
+    "image": "/assets/products/pens/4.webp",
+    "description": "Smooth gel pen for office use.",
+    "specifications": [
+      "Plastic",
+      "Standard"
+    ],
+    "sku": "GEL-PEN-OFFICE",
+    "href": "/office-and-writing/pen-and-writing-set/smooth-writing-gel-pen"
+  },
+  {
+    "id": "deluxe-pen-writing-set",
+    "name": "Deluxe Pen & Writing Set",
+    "category": "Pens & Writing Sets",
+    "image": "/assets/products/pens/7.webp",
+    "description": "Premium executive writing set.",
+    "specifications": [
+      "Metal & PU",
+      "Standard"
+    ],
+    "sku": "WRITING-SET-DELUXE",
+    "href": "/office-and-writing/pen-and-writing-set/deluxe-pen-writing-set"
+  },
+  {
+    "id": "economy-ball-pen",
+    "name": "Economy Ball Pen",
+    "category": "Pens & Writing Sets",
+    "image": "/assets/products/pens/11.webp",
+    "description": "Budget-friendly ball pen for bulk use.",
+    "specifications": [
+      "Plastic",
+      "Standard"
+    ],
+    "sku": "BALL-PEN-BASIC",
+    "href": "/office-and-writing/pen-and-writing-set/economy-ball-pen"
+  },
+  {
+    "id": "executive-pen-gift-set",
+    "name": "Executive Pen Gift Set",
+    "category": "Pens & Writing Sets",
+    "image": "/assets/products/pens/15.webp",
+    "description": "Premium executive pen gift set.",
+    "specifications": [
+      "Metal & PU",
+      "Standard"
+    ],
+    "sku": "EXECUTIVE-GIFT-PEN",
+    "href": "/office-and-writing/pen-and-writing-set/executive-pen-gift-set"
+  },
+  {
+    "id": "dual-stylus-ball-pen",
+    "name": "Dual Stylus & Ball Pen",
+    "category": "Pens & Writing Sets",
+    "image": "/assets/products/pens/19.webp",
+    "description": "Stylus and pen combo for professionals.",
+    "specifications": [
+      "Metal & Rubber Grip",
+      "Standard"
+    ],
+    "sku": "STYLUS-PEN-PRO",
+    "href": "/office-and-writing/pen-and-writing-set/dual-stylus-ball-pen"
+  },
+  {
+    "id": "cork-fabric-diary",
+    "name": "Cork Fabric Diary",
+    "category": "Diaries & Calendars",
+    "image": "/assets/products/cork/desk (1).webp",
+    "description": "Eco-friendly cork fabric diary.",
+    "specifications": [
+      "Natural Cork & Paper"
+    ],
+    "sku": "CORK-DIARY-001",
+    "href": "/eco-products/cork-desk-top-accessories/cork-fabric-diary"
+  },
+  {
+    "id": "cork-desktop-calendar",
+    "name": "Cork Desktop Calendar",
+    "category": "Diaries & Calendars",
+    "image": "/assets/products/cork/desk (4).webp",
+    "description": "Eco-friendly cork desktop calendar.",
+    "specifications": [
+      "Natural Cork & Paper"
+    ],
+    "sku": "CORK-CAL-001",
+    "href": "/eco-products/cork-desk-top-accessories/cork-desktop-calendar"
+  }
+]
