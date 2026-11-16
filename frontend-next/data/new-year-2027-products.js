@@ -1,6 +1,19 @@
 import catalogueProducts from "./diwali-2026-products.js";
 import stationeryProducts from "./new-year-2027-stationery.json";
 
+const diaryPenSets2027 = [
+  { name: "2027 Diary & Pen Set — Style 1", description: "2027 diary shown with a pen." },
+  { name: "2027 Boxed Diary & Pen Set", description: "2027 diary and pen presented in a gift box." },
+  { name: "2027 Diary & Pen Set — Style 3", description: "2027 diaries and pens shown in two colours." },
+  { name: "2027 Diary & Pen Set — Style 4", description: "2027 diary shown with a pen." },
+].map((product, index) => ({
+  id: `2027-diary-pen-set-${index + 1}`,
+  ...product,
+  category: "2027 Diary & Pen Sets",
+  image: `/assets/2027%20diary%20(${index + 1}).jpg`,
+  specifications: [],
+}));
+
 const giftaGuruKits = Array.from({ length: 24 }, (_, index) => {
   const setNumber = index + 1;
   return {
@@ -14,6 +27,7 @@ const giftaGuruKits = Array.from({ length: 24 }, (_, index) => {
 });
 
 export const newYear2027Products = [
+  ...diaryPenSets2027,
   ...giftaGuruKits,
   ...stationeryProducts,
   ...catalogueProducts
