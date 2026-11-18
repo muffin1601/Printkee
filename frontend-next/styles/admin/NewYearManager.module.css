@@ -8,6 +8,9 @@
 .manager label { display: grid; gap: .4rem; font-size: .8rem; font-weight: 600; margin-bottom: 1rem; }
 .manager input, .manager select { padding: .65rem; border: 1px solid var(--border); background: #fff; color: var(--ink); font: inherit; min-width: 0; max-width: 100%; }
 .manager button { border: 1px solid var(--green); background: var(--green); color: #fff; padding: .65rem .8rem; font: 600 .75rem var(--font); cursor: pointer; min-height: 40px; }
+.rowHead { display: flex; gap: .65rem; flex-wrap: wrap; align-items: center; margin-bottom: .5rem; }
+.rowHead input { flex: 1 1 240px; }
+.manager button.danger { border-color: #9b1c1c; background: #9b1c1c; }
 .manager button:disabled { opacity: .45; cursor: default; }
 .manager :is(button, a, input, select):focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
 .banner { width: 100%; height: auto; display: block; }

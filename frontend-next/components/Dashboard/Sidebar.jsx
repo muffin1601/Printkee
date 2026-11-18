@@ -61,6 +61,12 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
+          <Link href="/admin/new-year-2027" className={isActive("/admin/new-year-2027") ? "active" : ""}>
+            <ImageIcon className="icon-3" />
+            <span>New Year 2027</span>
+          </Link>
+        </li>
+        <li>
           <Link href="/admin/blogs" className={isActive("/admin/blogs") ? "active" : ""}>
             <FileText className="icon-3" />
             <span>Blogs</span>

@@ -7,9 +7,6 @@ import "swiper/css/scrollbar";
 
 import styles from "../styles/NewYear2027.module.css";
 import brandsList from "../data/brandsspl";
-import newYear2027Products, {
-  newYear2027Categories,
-} from "../data/new-year-2027-products";
 
 import DiwaliHero from "./diwali/DiwaliHero";
 import DiwaliOfferBanner from "./diwali/DiwaliOfferBanner";
@@ -18,7 +15,7 @@ import DiwaliCatalogueGrid from "./diwali/DiwaliCatalogueGrid";
 import useConfetti from "./diwali/useConfetti";
 import EnquiryModal from "./EnquiryModal";
 
-const NewYear2027Client = () => {
+const NewYear2027Client = ({ banner, sections }) => {
   const fireConfetti = useConfetti();
 
   const [enquiry, setEnquiry] = useState(null); // null = closed
@@ -38,16 +35,15 @@ const NewYear2027Client = () => {
 
   return (
     <div className={styles.page}>
-      <DiwaliHero products={newYear2027Products} onQuote={openGeneralEnquiry} />
+      <DiwaliHero banner={banner} onQuote={openGeneralEnquiry} />
 
       <DiwaliCatalogueGrid
-        products={newYear2027Products}
-        categories={newYear2027Categories}
+        sections={sections}
         onEnquire={openEnquiry}
       />
 
       <DiwaliOfferBanner
-        productCount={newYear2027Products.length}
+        productCount={sections.reduce((count, section) => count + section.products.length, 0)}
         onEnquire={openGeneralEnquiry}
       />
 

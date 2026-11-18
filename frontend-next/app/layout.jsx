@@ -128,7 +128,9 @@ export default function RootLayout({ children }) {
             alt=""
           />
         </noscript>
-        <script dangerouslySetInnerHTML={{ __html: extensionAttributeCleanup }} />
+        <Script id="extension-attribute-cleanup" strategy="beforeInteractive">
+          {extensionAttributeCleanup}
+        </Script>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         {children}

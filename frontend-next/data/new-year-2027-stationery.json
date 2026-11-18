@@ -156,19 +156,6 @@
     "href": "/office-and-writing/pen-and-writing-set/dual-stylus-ball-pen"
   },
   {
-    "id": "leather-diary-2027",
-    "name": "Executive Leather Diary 2027",
-    "category": "Diaries & Calendars",
-    "image": "/assets/products/notebooks/10.webp",
-    "description": "Premium leather executive diary for 2027.",
-    "specifications": [
-      "PU Leather",
-      "A5"
-    ],
-    "sku": "LEATHER-DIARY-2027",
-    "href": "/office-and-writing/calendars/executive-leather-diary"
-  },
-  {
     "id": "cork-fabric-diary",
     "name": "Cork Fabric Diary",
     "category": "Diaries & Calendars",
@@ -191,44 +178,5 @@
     ],
     "sku": "CORK-CAL-001",
     "href": "/eco-products/cork-desk-top-accessories/cork-desktop-calendar"
-  },
-  {
-    "id": "table-calendar-2027",
-    "name": "Table Calendar 2027",
-    "category": "Diaries & Calendars",
-    "image": "/assets/products/notebooks/1.webp",
-    "description": "Professional desk table calendar for 2027.",
-    "specifications": [
-      "Cardboard Stand",
-      "12-Month"
-    ],
-    "sku": "TABLE-CAL-2027",
-    "href": "/office-and-writing/calendars/table-calendar-2027"
-  },
-  {
-    "id": "wall-calendar-2027",
-    "name": "Wall Calendar 2027",
-    "category": "Diaries & Calendars",
-    "image": "/assets/products/notebooks/4.webp",
-    "description": "Professional wall calendar for 2027 corporate offices.",
-    "specifications": [
-      "Cardboard & Wire",
-      "12-Month"
-    ],
-    "sku": "WALL-CAL-2027",
-    "href": "/office-and-writing/calendars/wall-calendar-2027"
-  },
-  {
-    "id": "desk-pad-calendar-2027",
-    "name": "Desk Pad Calendar 2027",
-    "category": "Diaries & Calendars",
-    "image": "/assets/products/notebooks/7.webp",
-    "description": "Professional desk pad calendar with memo space.",
-    "specifications": [
-      "Paper & Cardboard",
-      "12-Month"
-    ],
-    "sku": "DESK-PAD-CAL-2027",
-    "href": "/office-and-writing/calendars/desk-pad-calendar-2027"
   }
 ]

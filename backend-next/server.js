@@ -32,7 +32,7 @@ const app = express();
 app.set("trust proxy", 1);
 
 /* ==============================
-   MIDDLEWARE
+   MIDDLEWAREhow to access new year manage page from hee
 ============================== */
 
 // contentSecurityPolicy/CSP is disabled: this is a pure JSON API + static
@@ -110,6 +110,7 @@ app.use("/api/product", require("./routes/productRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
 app.use("/api/brands", require("./routes/brandRoutes"));
 app.use("/api/slides", require("./routes/bannerRoutes"));
+app.use("/api/new-year-page", require("./routes/newYearPageRoutes"));
 app.use("/api/newsletter", require("./routes/newsletterRoutes"));
 app.use("/api/seo-pages", require("./routes/seoPageRoutes"));
 app.use("/api", require("./routes/sitemap"));

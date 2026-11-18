@@ -1,39 +1,41 @@
 import products, { newYear2027Sections } from "./new-year-2027-products";
 
-export const rowDefinitions = newYear2027Sections.map((section, index) => ({
-  key: ["gifts", "diaries", "calendars"][index],
-  id: section.id,
-  title: section.title,
-}));
+export const MAX_ROW_ITEMS = 4;
 
 export const legacyProducts = products.map((product) => ({ ...product, id: `legacy:${product.id}` }));
 
+const chunk = (items, size) => Array.from({ length: Math.ceil(items.length / size) }, (_, i) => items.slice(i * size, (i + 1) * size));
+
+// The built-in collection, split into rows of four. Only the first row of each group carries its title.
 export function defaultSettings() {
   return {
     bannerMode: "default",
     banner: null,
-    rows: Object.fromEntries(rowDefinitions.map((row, index) => [
-      row.key, newYear2027Sections[index].products.map((product) => `legacy:${product.id}`),
-    ])),
+    customProducts: [],
+    deletedProducts: [],
+    layout: newYear2027Sections.flatMap((section) =>
+      chunk(section.products.map((product) => `legacy:${product.id}`), MAX_ROW_ITEMS).map((items, index) => ({
+        id: `${section.id}-${index + 1}`,
+        title: index === 0 ? section.title : "",
+        items,
+      }))
+    ),
   };
-}
-
-export function canUseInRow(product, row) {
-  if (row === "diaries") return /\bdiar(y|ies)\b/i.test(product.name) && !/\b(set|kit)s?\b/i.test(product.name);
-  if (row === "calendars") return /\bcalendars?\b/i.test(product.name);
-  return true;
 }
 
 export function resolvePageSections(settings, catalogue = []) {
   const byId = new Map([...legacyProducts, ...catalogue].map((product) => [product.id, product]));
   const seen = new Set();
-  return rowDefinitions.map((row) => ({
-    ...row,
-    products: (settings.rows[row.key] || []).flatMap((key) => {
-      const product = byId.get(key);
-      if (!product || !product.image || product.available === false || seen.has(key) || !canUseInRow(product, row.key)) return [];
-      seen.add(key);
-      return [product];
-    }),
-  }));
+  return (settings.layout || [])
+    .map((row) => ({
+      id: row.id,
+      title: row.title || "",
+      products: (row.items || []).flatMap((key) => {
+        const product = byId.get(key);
+        if (!product || !product.image || product.available === false || seen.has(key)) return [];
+        seen.add(key);
+        return [product];
+      }),
+    }))
+    .filter((row) => row.products.length);
 }

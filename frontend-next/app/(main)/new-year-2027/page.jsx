@@ -1,9 +1,12 @@
 import NewYear2027Client from "../../../components/DiwaliClient";
 import newYear2027Products from "../../../data/new-year-2027-products";
+import { getNewYearPage } from "../../../lib/newYearPage";
 
 const BASE = "https://printkee.com";
 const PATH = "/new-year-2027";
 const socialImage = newYear2027Products[0]?.image;
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "New Year 2027 Gift Kits, Diaries, Pens & Calendars",
@@ -41,20 +44,22 @@ export const metadata = {
   },
 };
 
-export default function NewYear2027Page() {
+export default async function NewYear2027Page() {
+  const { sections, banner } = await getNewYearPage();
+  const displayedProducts = sections.flatMap((section) => section.products);
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "New Year 2027 Corporate Gift Collection",
     url: `${BASE}${PATH}`,
-    numberOfItems: newYear2027Products.length,
-    itemListElement: newYear2027Products.map((product, i) => ({
+    numberOfItems: displayedProducts.length,
+    itemListElement: displayedProducts.map((product, i) => ({
       "@type": "ListItem",
       position: i + 1,
       item: {
         "@type": "Product",
         name: product.name,
-        image: `${BASE}${product.image}`,
+        image: new URL(product.image, BASE).href,
         ...(product.brand ? { brand: { "@type": "Brand", name: product.brand } } : {}),
         ...(product.sku ? { sku: product.sku } : {}),
         ...(product.description ? { description: product.description } : {}),
@@ -86,7 +91,7 @@ export default function NewYear2027Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
-      <NewYear2027Client />
+      <NewYear2027Client banner={banner} sections={sections} />
     </>
   );
 }

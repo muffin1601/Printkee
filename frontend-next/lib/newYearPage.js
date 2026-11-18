@@ -14,7 +14,7 @@ export async function getNewYearPage() {
       });
       if (!response.ok) throw new Error(`API returned ${response.status}`);
       const data = await response.json();
-      if (data.settings?.rows) settings = data.settings;
+      if (data.settings?.layout) settings = data.settings;
       products = data.products || [];
     } catch (error) {
       console.error("New Year page settings unavailable; using existing collection:", error.message);

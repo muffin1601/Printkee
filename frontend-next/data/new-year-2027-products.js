@@ -39,4 +39,27 @@ export const newYear2027Categories = [
   ...new Set(newYear2027Products.map((product) => product.category)),
 ];
 
+// Group existing catalogue records without duplicating or relabelling products.
+export const newYear2027Sections = [
+  {
+    id: "new-year-collection",
+    title: "New Year 2027 Gift Sets",
+    products: newYear2027Products.filter((product) => /\b(set|kit)s?\b/i.test(product.name)),
+  },
+  {
+    id: "corporate-diaries-2027",
+    title: "Corporate Diaries 2027",
+    products: newYear2027Products.filter((product) =>
+      /\bdiary\b/i.test(product.name) && !/\b(set|kit)s?\b/i.test(product.name)
+    ),
+  },
+  {
+    id: "corporate-calendars-2027",
+    title: "Corporate Calendars 2027",
+    products: newYear2027Products.filter((product) => /\bcalendars?\b/i.test(product.name)),
+  },
+];
+
+export const newYear2027DisplayedProducts = newYear2027Sections.flatMap((section) => section.products);
+
 export default newYear2027Products;
