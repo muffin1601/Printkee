@@ -1,0 +1,26 @@
+.manager { max-width: 1200px; margin: auto; display: grid; gap: 1.25rem; }
+.header, .actions, .saveBar { display: flex; align-items: center; justify-content: space-between; gap: .65rem; flex-wrap: wrap; }
+.header h1 { margin: 0; font-size: clamp(1.4rem, 3vw, 2rem); }
+.manager h2 { margin: 0 0 1rem; font-size: 1.15rem; }
+.manager p { font-size: .85rem; line-height: 1.6; color: var(--ink-2); }
+.editor { display: grid; gap: 1.25rem; border: 0; padding: 0; margin: 0; min-width: 0; }
+.panel { border: 1px solid var(--border); background: #fff; padding: clamp(1rem, 3vw, 1.5rem); min-width: 0; }
+.manager label { display: grid; gap: .4rem; font-size: .8rem; font-weight: 600; margin-bottom: 1rem; }
+.manager input, .manager select { padding: .65rem; border: 1px solid var(--border); background: #fff; color: var(--ink); font: inherit; min-width: 0; max-width: 100%; }
+.manager button { border: 1px solid var(--green); background: var(--green); color: #fff; padding: .65rem .8rem; font: 600 .75rem var(--font); cursor: pointer; min-height: 40px; }
+.manager button:disabled { opacity: .45; cursor: default; }
+.manager :is(button, a, input, select):focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+.banner { width: 100%; height: auto; display: block; }
+.list { list-style: none; padding: 0; margin: 0; max-height: 540px; overflow: auto; }
+.item { display: flex; gap: .8rem; align-items: center; border-top: 1px solid var(--border); padding: .8rem 0; }
+.item img { object-fit: contain; flex: 0 0 64px; background: var(--bg); }
+.product { flex: 1; min-width: 0; overflow-wrap: anywhere; font-size: .8rem; }
+.product small { display: block; color: var(--ink-2); margin-top: .3rem; }
+.actions { justify-content: flex-start; font-size: .75rem; }
+.actions select { max-width: 190px; }
+.filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.saveBar { position: sticky; bottom: 0; padding: 1rem; background: #fff; border: 1px solid var(--border); box-shadow: var(--sh-sm); font-size: .8rem; z-index: 5; }
+.error { background: #fff0f0; color: #9b1c1c !important; padding: 1rem; }
+.success { background: #edf7ef; color: #245a34 !important; padding: 1rem; }
+@media (max-width: 900px) { .item { flex-wrap: wrap; } .item .actions { flex-basis: 100%; } .filters { grid-template-columns: 1fr; gap: 0; } }
+@media (max-width: 480px) { .actions select { max-width: 160px; } }
