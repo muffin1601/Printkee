@@ -26,10 +26,22 @@ const giftaGuruKits = Array.from({ length: 24 }, (_, index) => {
   };
 });
 
+const calendarCovers = ["1/Initial.webp", "2/Initial.webp", "3/Initial.webp", "4/Initial.png", "5/Initial.webp", "6/G-01_1791796940.jpg", "7/S-01_1791797062.jpg"];
+
+export const calendars2027 = calendarCovers.map((file, index) => ({
+  id: `2027-calendar-${index + 1}`,
+  name: `2027 Corporate Calendar — Design ${index + 1}`,
+  category: "Corporate Calendars 2027",
+  image: `/CALENDERS%202027/${file}`,
+  description: "2027 corporate calendar. Enquire for customisation and branding options.",
+  specifications: [],
+}));
+
 export const newYear2027Products = [
   ...diaryPenSets2027,
   ...giftaGuruKits,
   ...stationeryProducts,
+  ...calendars2027,
   ...catalogueProducts
     .filter((product) => ["diwali-kit-set-2", "diwali-kit-set-3"].includes(product.id))
     .map((product) => ({ ...product, category: "Notebook & Pen Kits" })),

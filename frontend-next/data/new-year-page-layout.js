@@ -1,4 +1,4 @@
-import products, { newYear2027Sections } from "./new-year-2027-products";
+import products, { newYear2027Sections, calendars2027 } from "./new-year-2027-products";
 
 export const MAX_ROW_ITEMS = 4;
 
@@ -8,18 +8,28 @@ const chunk = (items, size) => Array.from({ length: Math.ceil(items.length / siz
 
 // The built-in collection, split into rows of four. Only the first row of each group carries its title.
 export function defaultSettings() {
-  return {
-    bannerMode: "default",
-    banner: null,
-    customProducts: [],
-    deletedProducts: [],
-    layout: newYear2027Sections.flatMap((section) =>
+  const rows = newYear2027Sections
+    .filter((section) => section.id !== "corporate-calendars-2027")
+    .flatMap((section) =>
       chunk(section.products.map((product) => `legacy:${product.id}`), MAX_ROW_ITEMS).map((items, index) => ({
         id: `${section.id}-${index + 1}`,
         title: index === 0 ? section.title : "",
         items,
       }))
-    ),
+    );
+  // Calendars start from the 2nd row of the page.
+  const calendarRows = chunk(calendars2027.map((product) => `legacy:${product.id}`), MAX_ROW_ITEMS).map((items, index) => ({
+    id: `corporate-calendars-2027-${index + 1}`,
+    title: index === 0 ? "Corporate Calendars 2027" : "",
+    items,
+  }));
+  rows.splice(1, 0, ...calendarRows);
+  return {
+    bannerMode: "default",
+    banner: null,
+    customProducts: [],
+    deletedProducts: [],
+    layout: rows,
   };
 }
 
