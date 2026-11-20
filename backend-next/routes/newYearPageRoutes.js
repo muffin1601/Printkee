@@ -75,6 +75,7 @@ async function readPage(admin) {
       bannerMode: settings.bannerMode,
       banner: settings.banner,
       layout,
+      productOverrides: settings.productOverrides || [],
       ...(admin ? {
         deletedProducts: deleted,
         customProducts: customs.map((c) => ({ id: String(c._id), name: c.name, image: c.image })),
@@ -156,6 +157,26 @@ router.put("/admin", verifyToken, requireRole(...writeRoles), asyncHandler(async
     return fail(res, 400, "A selected custom product no longer exists.");
   }
 
+  const replaceOverrides = req.body.productOverrides !== undefined;
+  let overrides = existing?.productOverrides || [];
+  if (replaceOverrides) {
+    const list = req.body.productOverrides;
+    if (!Array.isArray(list) || list.length > 1000) return fail(res, 400, "Provide at most 1000 product edits.");
+    const seen = new Set();
+    overrides = [];
+    for (const item of list) {
+      const name = typeof item?.name === "string" ? item.name.trim() : undefined;
+      const image = item?.image === undefined ? undefined : uploadHref(item.image);
+      if (typeof item?.id !== "string" || !HIDEABLE_KEY.test(item.id) || seen.has(item.id) ||
+          (item.name !== undefined && (!name || name.length > 120)) ||
+          (item.image !== undefined && !image) || (name === undefined && image === undefined)) {
+        return fail(res, 400, "Each product edit needs a unique product reference, a name up to 120 characters or an uploaded image.");
+      }
+      seen.add(item.id);
+      overrides.push({ id: item.id, ...(name !== undefined ? { name } : {}), ...(image ? { image } : {}) });
+    }
+  }
+
   if (!["default", "custom", "none"].includes(bannerMode)) return fail(res, 400, "Invalid banner mode.");
   let cleanBanner;
   if (bannerMode === "custom") {
@@ -188,12 +209,13 @@ router.put("/admin", verifyToken, requireRole(...writeRoles), asyncHandler(async
       ...(cleanBanner ? { banner: cleanBanner } : {}),
       ...(replaceCustoms ? { customProducts: customs } : {}),
       ...(replaceDeleted ? { deletedProducts: deleted } : {}),
+      ...(replaceOverrides ? { productOverrides: overrides } : {}),
     },
     ...(!cleanBanner ? { $unset: { banner: 1 } } : {}),
   }, { upsert: true, new: true, runValidators: true });
-  if (replaceCustoms) {
-    const keep = new Set([...customs.map((c) => c.image), cleanBanner?.url].filter(Boolean));
-    for (const old of existing?.customProducts || []) {
+  if (replaceCustoms || replaceOverrides) {
+    const keep = new Set([...customs.map((c) => c.image), ...overrides.map((p) => p.image), cleanBanner?.url].filter(Boolean));
+    for (const old of [...(existing?.customProducts || []), ...(existing?.productOverrides || [])]) {
       const href = uploadHref(old.image);
       if (href && !keep.has(old.image)) {
         await fs.unlink(path.join("uploads", "new-year", path.basename(new URL(href).pathname))).catch(() => {});

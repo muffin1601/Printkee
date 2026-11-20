@@ -19,6 +19,9 @@
 .item img { object-fit: contain; flex: 0 0 64px; background: var(--bg); }
 .product { flex: 1; min-width: 0; overflow-wrap: anywhere; font-size: .8rem; }
 .product small { display: block; color: var(--ink-2); margin-top: .3rem; }
+.productEditor { min-width: 0; padding: 1rem; background: var(--bg); border: 1px solid var(--border); }
+.productEditor h3 { margin: 0; font-size: 1rem; }
+.productEditor .editPreview { display: block; width: 120px; height: 120px; margin-bottom: 1rem; object-fit: contain; }
 .actions { justify-content: flex-start; font-size: .75rem; }
 .actions select { max-width: 190px; }
 .filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }

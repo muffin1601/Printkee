@@ -19,6 +19,11 @@ const schema = new mongoose.Schema({
     name: { type: String, required: true, trim: true, maxlength: 120 },
     image: { type: String, required: true },
   }],
+  productOverrides: { type: [new mongoose.Schema({
+    id: { type: String, required: true },
+    name: { type: String, trim: true, maxlength: 120 },
+    image: String,
+  }, { _id: false })], default: [] },
   // Rows of at most 4 products. `rows` is the earlier three-section format, read only as a fallback.
   layout: { type: [rowSchema], default: undefined },
   deletedProducts: [String],

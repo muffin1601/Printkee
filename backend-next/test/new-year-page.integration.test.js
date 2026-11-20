@@ -134,3 +134,57 @@ test('converts a page saved as three sections into rows of four', async () => {
     row('diaries-1', ['legacy:cork-fabric-diary'], 'Corporate Diaries 2027'),
   ]);
 });
+
+test('persists page-only name and image edits for collection and catalogue products', async () => {
+  const upload = await uploadFile('edited-product.png');
+  assert.equal(upload.status, 200, upload.text);
+  const legacy = 'legacy:2027-diary-pen-set-1';
+  const catalogue = `product:${kit.id}`;
+  const overrides = [{ id: legacy, name: 'Renamed gift set', image: upload.body.url }, { id: catalogue, name: 'Renamed catalogue kit' }];
+  const payload = { bannerMode: 'none', layout: [row('edited', [legacy, catalogue])], customProducts: [], deletedProducts: [], productOverrides: overrides };
+  try {
+    const saved = await auth('put', '/page/admin').send(payload);
+    assert.equal(saved.status, 200, saved.text);
+    assert.deepEqual(saved.body.settings.productOverrides, overrides);
+    assert.deepEqual((await auth('get', '/page/admin')).body.settings.productOverrides, overrides);
+    assert.deepEqual((await request(app).get('/page')).body.settings.productOverrides, overrides);
+    assert.equal((await Product.findById(kit.id)).name, kit.name);
+    // Older clients that omit the new field must preserve edits and their uploaded image.
+    const { productOverrides, ...olderPayload } = payload;
+    assert.equal((await auth('put', '/page/admin').send(olderPayload)).status, 200);
+    await fs.access(fileOf(upload.body.url));
+    assert.equal((await auth('put', '/page/admin').send({ ...payload, productOverrides: [] })).status, 200);
+    await assert.rejects(fs.access(fileOf(upload.body.url)));
+  } finally { await fs.unlink(fileOf(upload.body.url)).catch(() => {}); }
+});
+
+test('rejects invalid page product edits', async () => {
+  const id = 'legacy:2027-diary-pen-set-1';
+  for (const overrides of [null, [{ id, name: '' }], [{ id, name: 'x'.repeat(121) }], [{ id, image: 'https://example.com/a.png' }], [{ id }], [{ id: 'custom:' + 'a'.repeat(24), name: 'Wrong type' }], [{ id, name: 'A' }, { id, name: 'B' }]]) {
+    const response = await auth('put', '/page/admin').send({ ...defaults(), productOverrides: overrides });
+    assert.equal(response.status, 400, response.text);
+  }
+});
+
+test('edits a custom product in place and removes its replaced image', async () => {
+  const first = await uploadFile('custom-before.png');
+  const replacement = await uploadFile('custom-after.png');
+  const id = new mongoose.Types.ObjectId().toString();
+  const payload = { bannerMode: 'none', layout: [row('custom-edit', [`custom:${id}`])], productOverrides: [], customProducts: [{ id, name: 'Before', image: first.body.url }] };
+  try {
+    assert.equal((await auth('put', '/page/admin').send(payload)).status, 200);
+    payload.customProducts[0] = { id, name: 'After', image: replacement.body.url };
+    const saved = await auth('put', '/page/admin').send(payload);
+    assert.equal(saved.status, 200, saved.text);
+    assert.deepEqual(saved.body.settings.customProducts, payload.customProducts);
+    const product = (await request(app).get('/page')).body.products.find((p) => p.id === `custom:${id}`);
+    assert.equal(product.name, 'After');
+    assert.equal(product.image, replacement.body.url);
+    await assert.rejects(fs.access(fileOf(first.body.url)));
+    await fs.access(fileOf(replacement.body.url));
+    await auth('put', '/page/admin').send({ bannerMode: 'none', layout: [], customProducts: [], productOverrides: [] });
+  } finally {
+    await fs.unlink(fileOf(first.body.url)).catch(() => {});
+    await fs.unlink(fileOf(replacement.body.url)).catch(() => {});
+  }
+});

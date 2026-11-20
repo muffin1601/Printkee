@@ -19,6 +19,7 @@ import {
   ArrowRight,
   AtSign,
   Sparkles,
+  Briefcase,
 } from "lucide-react";
 import navbarSubcategories from "../data/list";
 import styles from "../styles/Navbar.module.css";
@@ -252,6 +253,12 @@ const Navbar = () => {
             </Link>
           </li>
 
+          <li>
+            <a href="https://mfglobalservices.com/careers" className={styles.navLink}>
+              <Briefcase size={14} aria-hidden="true" /> Careers
+            </a>
+          </li>
+
         </ul>
       </nav>
 
@@ -313,6 +320,7 @@ const Navbar = () => {
           <li><Link href="/blogs"   className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><PenLine size={15} /> Blog</Link></li>
           <li><Link href="/contact" className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><Mail size={15} /> Contact Us</Link></li>
           <li><Link href="/about"   className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><Info size={15} /> About Us</Link></li>
+          <li><a href="https://mfglobalservices.com/careers" className={styles.drawerLink} onClick={() => setIsMenuOpen(false)}><Briefcase size={15} aria-hidden="true" /> Careers</a></li>
         </ul>
 
         <div className={styles.drawerFoot}>

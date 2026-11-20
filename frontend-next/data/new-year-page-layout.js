@@ -28,6 +28,7 @@ export function defaultSettings() {
     bannerMode: "default",
     banner: null,
     customProducts: [],
+    productOverrides: [],
     deletedProducts: [],
     layout: rows,
   };
@@ -35,6 +36,7 @@ export function defaultSettings() {
 
 export function resolvePageSections(settings, catalogue = []) {
   const byId = new Map([...legacyProducts, ...catalogue].map((product) => [product.id, product]));
+  const overrides = new Map((settings.productOverrides || []).map((product) => [product.id, product]));
   const seen = new Set();
   return (settings.layout || [])
     .map((row) => ({
@@ -44,7 +46,7 @@ export function resolvePageSections(settings, catalogue = []) {
         const product = byId.get(key);
         if (!product || !product.image || product.available === false || seen.has(key)) return [];
         seen.add(key);
-        return [product];
+        return [{ ...product, ...overrides.get(key) }];
       }),
     }))
     .filter((row) => row.products.length);

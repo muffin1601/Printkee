@@ -10,7 +10,7 @@ import styles from "../../../styles/admin/NewYearManager.module.css";
 const API = process.env.NEXT_PUBLIC_API_URL;
 const errorMessage = (error) => error.response?.data?.message || error.message || "Something went wrong. Please try again.";
 const randomHex = (bytes) => Array.from(crypto.getRandomValues(new Uint8Array(bytes)), (b) => b.toString(16).padStart(2, "0")).join("");
-const normalise = (settings) => ({ customProducts: [], deletedProducts: [], ...settings });
+const normalise = (settings) => ({ customProducts: [], deletedProducts: [], productOverrides: [], ...settings });
 
 export default function NewYearManagerPage() {
   const [settings, setSettings] = useState(null);
@@ -29,7 +29,21 @@ export default function NewYearManagerPage() {
   const [targetRow, setTargetRow] = useState("");
   const [newName, setNewName] = useState("");
   const [newFile, setNewFile] = useState(null);
+  const [editing, setEditing] = useState(null);
+  const [editPreview, setEditPreview] = useState("");
   const searchVersion = useRef(0);
+  const editForm = useRef(null);
+
+  useEffect(() => {
+    if (editing) editForm.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [editing?.id]);
+
+  useEffect(() => {
+    if (!editing?.file) { setEditPreview(""); return; }
+    const url = URL.createObjectURL(editing.file);
+    setEditPreview(url);
+    return () => URL.revokeObjectURL(url);
+  }, [editing?.file]);
 
   const remember = (items) => setKnown((previous) => ({ ...previous, ...Object.fromEntries(items.map((p) => [p.id, p])) }));
   const load = async () => {
@@ -43,18 +57,22 @@ export default function NewYearManagerPage() {
   };
   useEffect(() => { load(); }, []);
   useEffect(() => {
-    if (!dirty) return;
+    if (!dirty && !editing) return;
     const warn = (event) => { event.preventDefault(); event.returnValue = ""; };
     window.addEventListener("beforeunload", warn);
     return () => window.removeEventListener("beforeunload", warn);
-  }, [dirty]);
+  }, [dirty, !!editing]);
 
   const layout = settings?.layout || [];
   const customProducts = settings?.customProducts || [];
   const deletedProducts = settings?.deletedProducts || [];
+  const productOverrides = settings?.productOverrides || [];
   const placed = new Set(layout.flatMap((row) => row.items));
   const deletedSet = new Set(deletedProducts);
   const lookup = { ...known, ...Object.fromEntries(customProducts.map((c) => [`custom:${c.id}`, { id: `custom:${c.id}`, name: c.name, image: c.image, available: true }])) };
+  for (const override of productOverrides) {
+    if (lookup[override.id]) lookup[override.id] = { ...lookup[override.id], ...override };
+  }
   const rowLabel = (row, index) => `Row ${index + 1}${row.title ? `: ${row.title}` : ""}`;
   const target = layout.find((row) => row.id === targetRow) || layout[0];
 
@@ -101,6 +119,7 @@ export default function NewYearManagerPage() {
       ? `Delete "${product?.name}" and its image? This takes effect when you save and cannot be undone.`
       : `Delete "${product?.name || id}" from this page? It stays in the product catalogue, and you can restore it later from "Deleted products".`;
     if (!window.confirm(text)) return;
+    if (editing?.id === id) setEditing(null);
     if (custom) {
       setRows(withoutItem(layout, id), { customProducts: customProducts.filter((c) => `custom:${c.id}` !== id) });
     } else {
@@ -108,6 +127,52 @@ export default function NewYearManagerPage() {
     }
   };
   const restoreItem = (id) => change({ ...settings, deletedProducts: deletedProducts.filter((item) => item !== id) });
+
+  const startEditing = (product) => {
+    setEditing({ id: product.id, name: product.name, image: product.image, file: null });
+    setError(""); setMessage("");
+  };
+  const applyProductEdit = async (event) => {
+    event.preventDefault();
+    const name = editing.name.trim();
+    if (!name) { setError("Enter a product name."); return; }
+    const file = editing.file;
+    if (file && (file.size > 5 * 1024 * 1024 || !["image/jpeg", "image/png", "image/webp"].includes(file.type))) {
+      setError("Choose a JPEG, PNG or WebP image up to 5 MB."); return;
+    }
+    setUploading(true); setError("");
+    try {
+      let image = editing.image;
+      if (file) {
+        const body = new FormData(); body.append("file", file);
+        const { data } = await api.post(`${API}/new-year-page/upload`, body);
+        image = data.url;
+      }
+      if (editing.id.startsWith("custom:")) {
+        change({ ...settings, customProducts: customProducts.map((product) => `custom:${product.id}` === editing.id ? { ...product, name, image } : product) });
+      } else {
+        const previous = productOverrides.find((product) => product.id === editing.id);
+        const override = { ...previous, id: editing.id, name, ...(file ? { image } : {}) };
+        change({ ...settings, productOverrides: [...productOverrides.filter((product) => product.id !== editing.id), override] });
+      }
+      setEditing(null);
+    } catch (err) { setError(errorMessage(err)); }
+    finally { setUploading(false); }
+  };
+  const productEditor = (id) => editing?.id === id && (
+    <form ref={editForm} className={styles.productEditor} onSubmit={applyProductEdit}>
+      <h3>Edit product</h3>
+      <p>Changes apply only to this New Year page. Apply the edit, then select Save changes.</p>
+      <label>Product name<input autoFocus required maxLength={120} value={editing.name} onChange={(e) => setEditing({ ...editing, name: e.target.value })} /></label>
+      <label>Replace product image<input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => setEditing({ ...editing, file: e.target.files?.[0] || null })} /></label>
+      <p>JPEG, PNG or WebP, up to 5 MB. Leave empty to keep the current image.</p>
+      {(editPreview || editing.image) && <img className={styles.editPreview} src={editPreview || editing.image} alt="Product image preview" width={120} height={120} />}
+      <div className={styles.actions}>
+        <button type="submit">{uploading ? "Uploading..." : "Apply edit"}</button>
+        <button type="button" onClick={() => setEditing(null)}>Cancel</button>
+      </div>
+    </form>
+  );
 
   const addRow = () => {
     const id = `row-${Date.now().toString(36)}${randomHex(2)}`;
@@ -176,7 +241,7 @@ export default function NewYearManagerPage() {
     setBusy(true); setError(""); setMessage("");
     try {
       const { data } = await api.put(`${API}/new-year-page/admin`, {
-        layout, bannerMode: settings.bannerMode, banner: settings.banner, customProducts, deletedProducts,
+        layout, bannerMode: settings.bannerMode, banner: settings.banner, customProducts, deletedProducts, productOverrides,
       });
       setSettings(normalise(data.settings)); remember(data.products || []); setDirty(false);
       setMessage("Saved. The New Year page will use these settings on its next load.");
@@ -186,10 +251,10 @@ export default function NewYearManagerPage() {
 
   const q = query.toLowerCase();
   const visible = (p) => p && p.available !== false && !placed.has(p.id) && !deletedSet.has(p.id) && p.name.toLowerCase().includes(q);
-  const choices = source === "database" ? results.filter(visible)
+  const choices = source === "database" ? results.map((p) => lookup[p.id] || p).filter(visible)
     : source === "custom" ? customProducts.map((c) => lookup[`custom:${c.id}`]).filter(visible)
       : source === "deleted" ? deletedProducts.map((id) => lookup[id] || { id, name: id, image: "" }).filter((p) => p.name.toLowerCase().includes(q))
-        : legacyProducts.map((product) => known[product.id] || product).filter(visible);
+        : legacyProducts.map((product) => lookup[product.id] || product).filter(visible);
   const bannerUrl = settings?.bannerMode === "default" ? "/printkee-new-yea-banner.webp" : settings?.bannerMode === "custom" ? settings.banner?.url : "";
 
   return (
@@ -225,6 +290,8 @@ export default function NewYearManagerPage() {
                     {settings.bannerMode === "custom" && !settings.banner?.url && <p>Upload a banner before saving this option.</p>}
                   </section>
 
+                  {editing && productEditor(editing.id)}
+
                   {layout.map((row, rowIndex) => (
                     <section key={row.id} className={styles.panel} aria-labelledby={`${row.id}-heading`}>
                       <h2 id={`${row.id}-heading`}>Row {rowIndex + 1}</h2>
@@ -242,6 +309,7 @@ export default function NewYearManagerPage() {
                             {product?.image && <img src={product.image} alt="" width={64} height={64} loading="lazy" />}
                             <div className={styles.product}><strong>{product?.name || `Unavailable product (${id})`}</strong>{product?.available === false && <small>Unavailable on the public page. Remove or delete this product before saving.</small>}{product?.sku && <small>{product.sku}</small>}</div>
                             <div className={styles.actions}>
+                              {product && <button disabled={!!editing} onClick={() => startEditing(product)} aria-label={`Edit ${product.name}`}>Edit</button>}
                               <button aria-label={`Move ${product?.name || id} left`} disabled={index === 0} onClick={() => moveItem(row.id, index, -1)}>&uarr;</button>
                               <button aria-label={`Move ${product?.name || id} right`} disabled={index === row.items.length - 1} onClick={() => moveItem(row.id, index, 1)}>&darr;</button>
                               <select aria-label={`Move ${product?.name || id} to another row`} value="" disabled={layout.length < 2} onChange={(e) => e.target.value && place(id, e.target.value)}>
@@ -292,6 +360,7 @@ export default function NewYearManagerPage() {
                       {source === "deleted"
                         ? <button onClick={() => restoreItem(product.id)} aria-label={`Restore ${product.name}`}>Restore</button>
                         : <>
+                          <button disabled={!!editing} onClick={() => startEditing(product)} aria-label={`Edit ${product.name}`}>Edit</button>
                           <button disabled={!target || target.items.length >= MAX_ROW_ITEMS} onClick={() => place(product.id, target.id)} aria-label={`Add ${product.name} to the selected row`}>Add to row</button>
                           {(source === "custom" || source === "collection") && <button className={styles.danger} onClick={() => deleteItem(product.id)} aria-label={`Delete ${product.name}`}>Delete</button>}
                         </>}
@@ -302,8 +371,8 @@ export default function NewYearManagerPage() {
                   </section>
                 </fieldset>
                 <div className={styles.saveBar}>
-                  <span>{dirty ? "You have unsaved changes." : "No unsaved changes."}</span>
-                  <button disabled={!dirty || busy || uploading || (settings.bannerMode === "custom" && (!settings.banner?.url || !settings.banner?.alt?.trim()))} onClick={save}>{busy ? "Saving..." : "Save changes"}</button>
+                  <span>{editing ? "Apply or cancel the product edit before saving." : dirty ? "You have unsaved changes." : "No unsaved changes."}</span>
+                  <button disabled={!dirty || busy || uploading || !!editing || (settings.bannerMode === "custom" && (!settings.banner?.url || !settings.banner?.alt?.trim()))} onClick={save}>{busy ? "Saving..." : "Save changes"}</button>
                 </div>
               </>
             )}
